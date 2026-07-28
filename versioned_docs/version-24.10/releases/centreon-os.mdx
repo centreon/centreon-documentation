@@ -66,6 +66,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
+- [Broker] Fixed a crash caused by a dangling pointer that occurred when the cache file grew and was moved to a new location in memory.
 - [Broker] Fixed an issue where cbd was storing old connections that no longer existed.
 - [Broker] Fixed an issue where centreon-broker could lose monitoring data during database purge operations caused by a MariaDB 10.11.11 regression (empty error packets).
 
