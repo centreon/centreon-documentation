@@ -303,6 +303,22 @@
     "message": "Types de notifications",
     "description": "The label for category Types of notifications in sidebar docs"
 },
+  "sidebar.docs.category.Available reports": {
+    "message": "Rapports disponibles",
+    "description": "The label for category Available reports in sidebar docs"
+  },
+    "sidebar.docs.category.MBI administration": {
+    "message": "Administration de MBI",
+    "description": "The label for category MBI administration in sidebar docs"
+  },
+  "sidebar.docs.category.Fixing MBI issues": {
+    "message": "Résoudre les problèmes MBI",
+    "description": "The label for category Fixing MBI issues in sidebar docs"
+  },
+  "sidebar.docs.category.Using MBI": {
+    "message": "Utiliser MBI",
+    "description": "The label for category Using MBI in sidebar docs"
+  },
   "sidebar.docs.category.Graphical views (maps).link.generated-index.description": {
     "message": "Les vues graphiques dans Centreon sont fournies par le module Centreon MAP.",
     "description": "The generated-index page description for category Graphical views (maps). in sidebar docs"
