@@ -25,8 +25,12 @@ explicitly — don't skip it, and don't invent issues to seem thorough.
 2. **Idiomaticity** — phrasing that is grammatically correct but unnatural to a
    native reader (calques, stiff/literal constructions, wrong prepositions,
    unnatural collocations). Especially important if the text reads translated.
-3. **Spelling** — misspellings and typos; plus US/UK mixing (the script lists
-   variant pairs found). English content must use US spelling.
+3. **Spelling** — misspellings and typos. For **English** content, also check
+   US/UK mixing (the script lists variant pairs found) and require US spelling.
+   For **French** content, US/UK spelling does NOT apply — assess French
+   orthography only, and ignore any US/UK output (the script skips it when told the
+   document is French; see step 2). Never flag a French word (e.g. « analyse »)
+   as a UK spelling.
 4. **Style & terminology consistency** — inconsistent capitalization, product/
    feature naming, voice ("we" vs "you"), number/date/UI-element formatting.
    Build a mental glossary; flag any term used two ways. **In addition, load the
@@ -51,9 +55,11 @@ explicitly — don't skip it, and don't invent issues to seem thorough.
 
 1. **Get the content.** Read the input file (.md / .mdx / pasted text) in full.
 
-2. **Run the deterministic pass** from the doc's directory:
+2. **Determine the document's language first**, then **run the deterministic pass**
+   from the doc's directory, passing that language so the US/UK check is scoped to
+   English (`--lang=fr` or `--lang=en`; omit only if you want auto-detection):
    ```bash
-   python3 scripts/extract_refs.py <DOC>            # compact report: anchors, long sentences, US/UK
+   python3 scripts/extract_refs.py <DOC> --lang=fr   # French: US/UK check skipped
    python3 scripts/extract_refs.py <DOC> --urls | bash scripts/check_links.sh
    ```
    Use `--urls` output (deduplicated) for link checking so no page body is ever
@@ -72,7 +78,8 @@ explicitly — don't skip it, and don't invent issues to seem thorough.
    folder at the root of the centreon-documentation repo.
 
 5. **End with the summary table**: criterion, issue count, one-line takeaway
-   (state "no issues found" per clean criterion).
+   (state "no issues found" per clean criterion), then a final **Total** row
+   (`class="total"`) summing the issue counts across all five criteria.
 
 ## Notes
 
