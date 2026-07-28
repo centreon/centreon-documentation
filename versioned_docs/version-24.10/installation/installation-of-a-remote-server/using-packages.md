@@ -520,7 +520,7 @@ To transform the server into a Remote Server and to register it to the Central s
 -t remote -h <IP_TARGET_NODE> -n<REMOTE_SERVER_NAME>
 ```
 
-If you are using a [custom URI](../../administration/secure-platform/#custom-uri), add it at the end of the command with this format : **/custom_uri**.
+If you are using a [custom URI](../../administration/secure-platform.md#custom-uri), add it at the end of the command with this format : **/custom_uri**.
 
 Example (with a custom URI):
 
