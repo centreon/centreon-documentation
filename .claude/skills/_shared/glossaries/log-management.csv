@@ -1,141 +1,71 @@
 Source,FR
-Monitoring,Supervision
-To monitor,Superviser
-Central Server,Serveur central
-Remote Server,Serveur distant
-Poller,Collecteur
-Engine,Engine
-Broker,Broker
-Gorgone,Gorgone
-CMA (Centreon Monitoring Agent),Agent CMA
-OTLP Receiver,Récepteur OTLP
-Centreon MAP,Centreon MAP
-Centreon MBI,Centreon MBI
-Anomaly Detection,Anomaly Detection
-Host,Hôte
-Service,Service
-Resource,Ressource
-Metric,Métrique
-Performance data,Donnée de performance
-to check,contrôler
-Check,Contrôle
-Check command,Commande de contrôle
-Plugin,Plugin
-Monitoring Connector,Connecteur de supervision
-Plugin Pack,Plugin Pack
-Template,Modèle
-Host template,Modèle d'hôte
-Service template,Modèle de service
-Contact template,Modèle de contact
-Metaservice,Métaservice
-Downtime,Plage de maintenance
-Recurring downtime,Temps d'arrêt récurrent
-Acknowledgement,Acquittement
-Event handler,Gestionnaire d'événements
-Business Activity (BA),Activité métier (BA)
-Business View (BV),Vue métier (BV)
-KPI (Key Performance Indicator),Indicateur de performance clé (KPI)
-Boolean Rule,Règle booléenne
-Host group,Groupe d'hôtes
-Service group,Groupe de services
-Contact,Contact
-Contact group,Groupe de contacts
-Time period,Période temporelle
-Category,Catégorie
+OpenTelemetry Collector,Collecteur OpenTelemetry
+Agent mode,Mode agent
+Gateway mode,Mode gateway
+OTLP receiver,Récepteur OTLP
+Receiver,Receiver
+Processor,Processor
+Exporter,Exporter
+Pipeline,Pipeline
+Log Explorer,Log explorer
+Service name,Service name
+Service namespace,Service namespace
+Service version,Version du service
 Severity,Sévérité
-Graph template,Modèle de graphique
-Custom Macro,Macro personnalisée
-Global Macro,Macro globale
-Whitelist,Liste blanche
-Connector,Connecteur
-Discovery job,Tâche de découverte
-Discovery rule,Règle de découverte
-ACL (Access Control List),Listes de contrôles d'accès (ACL)
-ACL group,Groupe d'ACL
-SNMP trap,Trap SNMP
-SNMP community,Communauté SNMP
-SNMP version,Version SNMP
-REST API,API REST
-CLAPI (Command-Line API),CLAPI (Command-Line API)
-Gorgone API,API Gorgone
-RRD (Round Robin Database),Fichier RRD
+Severity level,Niveau de sévérité
+Severity number,Numéro de sévérité
+Severity text,Texte de sévérité
+Log attributes,Attributs de log
+Resource attributes,Attributs de ressource
+Custom attributes,Attributs personnalisés
+Host name,Nom d'hôte
+Host IP,Adresse IP de l'hôte
+Log body,Corps du log
+Message body,Corps du message
+Timestamp,Timestamp
+TRACE,TRACE
+DEBUG,DEBUG
+INFO,INFO
+WARNING,WARNING
+ERROR,ERROR
+FATAL,FATAL
+CRITICAL,CRITICAL
+UNKNOWN,UNKNOWN
+UNSPECIFIED,UNSPECIFIED
 OK,OK
-WARNING,ALERTE
-CRITICAL,CRITIQUE
-UNKNOWN,INCONNU
-UP,DISPONIBLE
-DOWN,INDISPONIBLE
-UNREACHABLE,INJOIGNABLE
-PENDING,EN ATTENTE
-Soft state,État SOFT
-Hard state,État HARD
-Alert,Alerte
-Flapping,Bagotage
-Freshness,Fraîcheur des données
-Unhandled,Non pris en charge
-Acknowledged,Acquitté
-In Downtime,En plage de maintenance
-Active check,Contrôle actif
-Passive check,Contrôle passif
-Auto-discovery,Autodécouverte
-Host discovery,Découverte d'hôtes
-Service discovery,Découverte de services
-Mapper,Mapper
-Notification,Notification
-Notification command,Commande de notification
-Escalation,Escalade
-Dependency,Dépendance
-Scheduling,Planification
-Check period,Période de contrôle
-Notification period,Période de notification
-Inheritance,Héritage
-Custom view,Vue personnalisée
-Widget,Widget
-Resource Status,État des ressources
-Monitoring Server,Serveur de supervision
-Distributed architecture,Architecture distribuée
-Simple architecture,Architecture simple
-Configuration deployment,Déploiement de configuration
-Retention,Rétention
-Event log,Journal des événements
-Ticketing,Ticketing
-Stream connector,Stream connector
-Broker Reverse Mode,Mode reverse du broker
-One-Peer Retention Mode,Mode One-Peer Retention
-Pull Mode (Gorgone),Mode Pull (Gorgone)
-Availability,Disponibilité
-Report,Rapport
-MBI job,Job MBI
-Anomaly detection,Détection d'anomalies
-Flap detection,Détection de bagotage
-Backup,Sauvegarde
-LVM Snapshot,Snapshot LVM
-FQDN (Fully Qualified Domain Name),FQDN (Nom de domaine complet)
-Fingerprint,Empreinte numérique
-Latency,Latence
-Execution time,Temps d'exécution
-Threshold,Seuil
-Warning threshold,Seuil d'alerte
-Critical threshold,Seuil critique
-Max check attempts,Nombre maximum de contrôles
-Normal check interval,Intervalle normal de contrôle
-Retry check interval,Intervalle de nouvelle tentative
-Notification interval,Intervalle de notification
-Notification delay,Délai de notification
-Flap threshold,Seuil de bagotage
-Freshness threshold,Seuil de fraîcheur
-Output,Sortie
-Extended output,Sortie étendue
-Note URL / Action URL,URL de note / URL d'action
-Geographic coordinates,Coordonnées géographiques
+Query builder,Query builder
+Query editor,Query editor
+Full-text search,Recherche en texte intégral
 Timeline,Chronologie
-Realtime API,API temps réel
-Capacity planning,Capacity planning
-High Availability (HA),Haute disponibilité (HA)
-Cluster,Cluster
-Primary node,Nœud primaire
-Secondary node,Nœud secondaire
-Failover,Basculement
-API token,Jeton d'API
-Resource Access,Accès aux ressources
-Tag,Tag
+Log summary,Log summary
+Root cause analysis,Analyse de cause racine
+Ask AI,Demander à l'IA
+Log details panel,Panneau de détails du log
+Column management,Gestion des colonnes
+Log viewer widget,Widget log viewer
+Metrics graph widget,Widget metrics graph
+Generic text widget,Widget generic text
+Stacking,Empilement
+Alert rule,Règle d'alerte
+Alert event,Évènement d'alerte
+Alert status,Statut d'alerte
+Frequency (alert evaluation),Fréquence d'évaluation d'alerte
+Notification channel,Canal de notification
+Wildcard,Caractère générique
+Phrase match,Correspondance de phrase exacte
+Nested attributes,Attributs imbriqués
+Windows Event Log,Journal des évènements Windows
+File log,File log
+System logs,Logs système
+Token,Jeton
+Authentication token,Jeton d'authentification
+API endpoint,Endpoint d'API
+Storage usage,Utilisation du stockage
+Log retention,Rétention des logs
+Monitoring,Supervision
+Incident response,Réponse à incident
+Anomaly detection,Anomaly detection
+Compliance,Conformité
+Security incident,Incident de sécurité
+Log entry,Entrée de log
+Log event,Évènement de log
