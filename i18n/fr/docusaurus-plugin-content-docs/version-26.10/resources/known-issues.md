@@ -1,11 +1,24 @@
 ---
 id: known-issues
 title: Problèmes connus
+description: "Problèmes connus et contournements pour la plateforme Centreon"
 ---
 
 Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
 Nous essayons ici de fournir des contournements.
 Nous appliquons des correctifs lorsque cela est nécessaire et améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
+
+## Centreon Tableaux de bord
+
+### Un nombre trop élevé de widgets provoque une erreur "413 : Request Entity Too Large"
+
+Au-delà d’un certain nombre de widgets dans un même tableau de bord, tout ajout de nouveau widget génère une erreur `413 error on Save (POST | Request Entity Too Large)`.
+La taille maximale du corps de la requête a été atteinte. Vous pouvez résoudre cette erreur en modifiant la configuration PHP/Apache.
+
+#### Contournement
+
+1. Modifiez le fichier `/etc/httpd/conf.d/mod_security.conf` et augmentez la valeur de `SecRequestBodyNoFilesLimit`. Par défaut, cette valeur est de **131072 (128 Mo)**. Vous pouvez l'augmenter à **524288 (512 Mo)**.
+2. Redémarrez ensuite le service Apache.
 
 ## Anomaly Detection
 

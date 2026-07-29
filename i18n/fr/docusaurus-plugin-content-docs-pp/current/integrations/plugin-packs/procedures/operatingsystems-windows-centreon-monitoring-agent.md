@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-windows-centreon-monitoring-agent
 title: Windows CMA
+description: "Supervisez les serveurs Windows avec l'agent Centreon Monitoring Agent (CMA) : CPU, mémoire, disques, services, uptime, etc."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -369,6 +370,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |                   |             |
 | FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |                   |             |
 | THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | d                 |             |
+| TIMEOUT                      | Set timeout for command execution                                                                                                                           | 120               |             |
 | WARNINGCERTIFICATEEXPIRES    | Thresholds                                                                                                                                                  | 60:               |             |
 | CRITICALCERTIFICATEEXPIRES   | Thresholds                                                                                                                                                  | 30:               |             |
 | WARNINGCERTIFICATESDETECTED  | Thresholds                                                                                                                                                  |                   |             |
@@ -378,12 +380,13 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 </TabItem>
 <TabItem value="CMA-Health" label="CMA-Health">
 
-| Macro            | Description                                                  | Valeur par défaut | Obligatoire |
-|:-----------------|:-------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGRUNTIME   | Warning if a check duration is greater than this value (s)   |                   |             |
-| CRITICALRUNTIME  | Critical if a check duration is greater than this value (s)  |                   |             |
-| WARNINGINTERVAL  | Warning if a check interval is greater than this value (s)   |                   |             |
-| CRITICALINTERVAL | Critical if a check interval is greater than this value (s)  |                   |             |
+| Macro            | Description                                                 | Valeur par défaut | Obligatoire |
+|:-----------------|:------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGRUNTIME   | Warning if a check duration is greater than this value (s)  |                   |             |
+| CRITICALRUNTIME  | Critical if a check duration is greater than this value (s) |                   |             |
+| WARNINGINTERVAL  | Warning if a check interval is greater than this value (s)  |                   |             |
+| CRITICALINTERVAL | Critical if a check interval is greater than this value (s) |                   |             |
+| TIMEOUT          | Set timeout for command execution                           | 120               |             |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
@@ -399,6 +402,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | OUTPUTSYNTAX   | Format the output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, ... | `{status}: {list}`  |             |
 | USEENGLISH     | Force the use of English counter names, otherwise they'll be in the local language.                               | true                |             |
 | VERBOSE        | Add verbose output in the end.                                                                                    | false               |             |
+| TIMEOUT        | Set timeout for command execution                                                                                 | 120                 |             |
 
 </TabItem>
 <TabItem value="CPU" label="CPU">
@@ -409,6 +413,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALCORE    | Threshold for critical status on core usage in percentage    |                   |             |
 | WARNINGAVERAGE  | Threshold for warning status on average usage in percentage  |                   |             |
 | CRITICALAVERAGE | Threshold for critical status on average usage in percentage |                   |             |
+| TIMEOUT         | Set timeout for command execution                            | 120               |             |
 
 </TabItem>
 <TabItem value="CPU-detailed" label="CPU-detailed">
@@ -427,6 +432,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | CRITICALCORESYSTEM    | Threshold for critical status on core system usage in percentage    |                   |             |
 | WARNINGAVERAGESYSTEM  | Threshold for warning status on average system usage in percentage  |                   |             |
 | CRITICALAVERAGESYSTEM | Threshold for critical status on average system usage in percentage |                   |             |
+| TIMEOUT               | Set timeout for command execution                                   | 120               |             |
 
 </TabItem>
 <TabItem value="Eventlog-Nscp" label="Eventlog-Nscp">
@@ -446,28 +452,28 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 | EVENTDETAILSYNTAX | Output format for each event                                                                                                                                  | '\{source\} \{id\}'                                         |             |
 | UNIQUEINDEX       | Unique index for events, events are grouped by this index. For example is two events have the same provider and the same id, only latest is printed to output | \{provider\}\{id\}                                          |             |
 | VERBOSE           | Display all events in long plugins output format (one line per event)                                                                                         | true                                                        |             |
+| TIMEOUT           | Set timeout for command execution                                                                                                                             | 120                                                         |             |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
 Checks files in a directory tree, applies filters, and evaluates file metadata (size, timestamps, version, line count, etc.) for monitoring and alerting.
 
-
-| Macro          | Description                                                                                                                                                                        | Mandatory | Allowed values               | Default value                | Examples       |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|:-----------------------------|------------------------------|----------------|
-| PATHS          | Root directory to search files in.                                                                                                                                                 |     X     |                              |                              | path/to/file   |
-| PATTERN        | Shell-style wildcards pattern to match filenames.<br/>* can be used as a wildcard                                                                                                    |           |                              | `*.*`                        |                |
-| MAXDEPTH       | Max recursion depth.                                                                                                                                                               |           | - 0: top only <br/>- 1: include subdirs <br/>- -1: recursively include all subdirs  | 0     |           |
-| OUTPUTSYNTAX   | Output format string for the overall check result.                                                                                                                                 |           |  Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{warn_list}`, `{crit_count}`, `{crit_list}`, `{problem_count}`, `{problem_list}`, `{ok_count}`, `{ok_list}`  | `{status}: {problem_count}/{count} files ({problem_list})` |           |     |
-| DETAILSYNTAX   | Format for each file detail inside `{list}`.                                                                                                                                       |           |  `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{written}`, `{version}`, `{line_count}`, `{extension}`.  | `{filename}`                                           |           |
-| OKSYNTAX       | Output if all files are OK.                                                                                                                                                        |           |                              |`{status}: All {count} files are ok`             |           |
-| FILTER         | Filter expression to select files for the check.                                                                                                                                   |           |                              |                              | `size > 1M && extension == '.dll'`      |
-| WARNINGSTATUS  | Filter expression: files matching are considered WARNING.                                                                                                                          |           |                              | no relevant status change if empty |           |
-| CRITICALSTATUS | Filter expression: files matching are considered CRITICAL.                                                                                                                         |           |                              | no relevant status change if empty |           |
-| WARNING        | WARNING status items count must be strictly higher than this value to trigger WARNING.                                                                                             |           |                              | 0                            | 0 = at least 1 file to trigger alert    |
-| CRITICAL       | CRITICAL status items count must be strictly higher than this value to trigger CRITICAL.                                                                                           |           |                              | 0                            | 0 = at least 1 file to trigger alert    |
-| VERBOSE        | Display detailed file info.                                                                                                                                                        |           |                              | false                        |                 |
-
+| Macro          | Description                                                                                                                                  |   Mandatory    | Allowed values                                                                                                                                                                         | Default value                | Examples       |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------|:--------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|----------------|
+| PATHS          | Root directory to search files in.                                                                                                           |       X        |                                                                                                                                                                                        |                              | path/to/file   |
+| PATTERN        | Shell-style wildcards pattern to match filenames.<br/>* can be used as a wildcard                                                            |                |                                                                                                                                                                                        | `*.*`                        |                |
+| MAXDEPTH       | Max recursion depth.                                                                                                                         |                | - 0: top only <br/>- 1: include subdirs <br/>- -1: recursively include all subdirs                                                                                                     | 0     |           |
+| OUTPUTSYNTAX   | Output format string for the overall check result.                                                                                           |                | Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{warn_list}`, `{crit_count}`, `{crit_list}`, `{problem_count}`, `{problem_list}`, `{ok_count}`, `{ok_list}` | `{status}: {problem_count}/{count} files ({problem_list})` |           |     |
+| DETAILSYNTAX   | Format for each file detail inside `{list}`.                                                                                                 |                | `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{written}`, `{version}`, `{line_count}`, `{extension}`.                                                                   | `{filename}`                                           |           |
+| OKSYNTAX       | Output if all files are OK.                                                                                                                  |                |                                                                                                                                                                                        |`{status}: All {count} files are ok`             |           |
+| FILTER         | Filter expression to select files for the check.                                                                                             |                |                                                                                                                                                                                        |                              | `size > 1M && extension == '.dll'`      |
+| WARNINGSTATUS  | Filter expression: files matching are considered WARNING.                                                                                    |                |                                                                                                                                                                                        | no relevant status change if empty |           |
+| CRITICALSTATUS | Filter expression: files matching are considered CRITICAL.                                                                                   |                |                                                                                                                                                                                        | no relevant status change if empty |           |
+| WARNING        | WARNING status items count must be strictly higher than this value to trigger WARNING.                                                       |                |                                                                                                                                                                                        | 0                            | 0 = at least 1 file to trigger alert    |
+| CRITICAL       | CRITICAL status items count must be strictly higher than this value to trigger CRITICAL.                                                     |                |                                                                                                                                                                                        | 0                            | 0 = at least 1 file to trigger alert    |
+| VERBOSE        | Display detailed file info.                                                                                                                  |                |                                                                                                                                                                                        | false                        |                 |
+| TIMEOUT        | Set timeout for command execution                                                                                                            | 120            |                                                                                                                                                                                        |
 
 ### Filter expressions
 
@@ -602,18 +608,19 @@ CRITICAL= 0
 | CRITICALUSAGEPRCT     | Threshold for critical status on physical memory usage in percentage |                   |             |
 | WARNINGUSAGEFREEPRCT  | Threshold for warning status on free physical memory in percentage   |                   |             |
 | CRITICALUSAGEFREEPRCT | Threshold for critical status on free physical memory in percentage  |                   |             |
+| TIMEOUT               | Set timeout for command execution                                    | 120               |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro          | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| NTPHOSTNAME    | Set the NTP server to use (if not set, we try to find it with w32tm command).                                                            |                   |             |
-| NTPPORT        | Set the NTP port (default: 123).                                                                                                         |                   |             |
-| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. | -1:1              |             |
+| Macro          | Description                                                                                                                                                          | Valeur par défaut | Obligatoire |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NTPHOSTNAME    | Set the NTP server to use (if not set, we try to find it with w32tm command).                                                                                        |                   |             |
+| NTPPORT        | Set the NTP port (default: 123).                                                                                                                                     |                   |             |
+| WARNINGOFFSET  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds.   | -1:1              |             |
 | CRITICALOFFSET | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -2:2              |             |
-| TIMEOUT        | Set timeout time for 'w32tm' command execution (default: 30 sec).                                                                        | 10                |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| TIMEOUT        | Set timeout time for 'w32tm' command execution (default: 30 sec).                                                                                                    | 10                |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                             |                   |             |
 
 </TabItem>
 <TabItem value="Pending-Reboot" label="Pending-Reboot">
@@ -632,14 +639,15 @@ CRITICAL= 0
 |:---------------|:-----------------------------------------------------------------|:--------------------------------------|:-----------:|
 | PROCESS        | Name of the executable                                           |                                       |      X      |
 | WARNINGSTATUS  | Filter to apply on processes to identify those in WARNING state  | `status != 'started'`                 |             |
-| CRITICALSTATUS | Filter to apply on processes to identify those in CRITICAL state | `status == 'stopped'`                 |             |
+| CRITICALSTATUS | Filter to apply on processes to identify those in CRITICAL state |                                       |             |
 | WARNINGRULES   | Condition to match for the overall status to be WARNING          | `warn_count > 0`                      |             |
-| CRITICALRULES  | Condition to match for the overall status to be CRITICAL         | `crit_count > 0`                      |             |
+| CRITICALRULES  | Condition to match for the overall status to be CRITICAL         | `ok_count <1`                          |             |
 | EMPTYSTATE     | Message to display when no process is found                      | `No files found matching this filter` |             |
 | OUTPUTSYNTAX   | Format of the output when the status is not OK                   | `{status}: {problem_list}`            |             |
 | OKSYNTAX       | Format of the output when the status is OK                       | `{status}: All processes are ok`      |             |
 | DETAILSYNTAX   | How each process is displayed in the output                      | `{exe}={state}`                       |             |
 | VERBOSE        | Display all not ok processes in long output                      | true                                  |             |
+| TIMEOUT        | Set timeout for command execution                                | 120                                   |             |
 
 </TabItem>
 <TabItem value="Services" label="Services">
@@ -662,6 +670,7 @@ CRITICAL= 0
 | CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
 | WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
 | CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
+| TIMEOUT              | Set timeout for command execution                                                                                                         | 120               |             |
 
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
@@ -684,6 +693,7 @@ CRITICAL= 0
 | CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
 | WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
 | CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
+| TIMEOUT              | Set timeout for command execution                                                                                                         | 120               |             |
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -714,6 +724,7 @@ CRITICAL= 0
 | CRITICAL          | Thresholds                                                                                                                                                                                                                                                                                     | 90                |             |
 | FILTERSTORAGETYPE | Case insensitive regex to filter storage type it includes drive type (fixed, network...). Types recognized by agent: hrunknown, hrstoragefixeddisk, hrstorageremovabledisk, hrstoragecompactdisc, hrstorageramdisk, hrstoragenetworkdisk, hrfsunknown, hrfsfat, hrfsntfs, hrfsfat32, hrfsexfat | .*                |             |
 | FILTERFS          | Case insensitive regex to filter filesystem. Example: [C-D]:\\.*                                                                                                                                                                                                                               | .*                |             |
+| TIMEOUT           | Set timeout for command execution                                                                                                                                                                                                                                                              | 120               |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -728,6 +739,7 @@ CRITICAL= 0
 | CRITICALSWAPPRCT     | Threshold for critical status on swap memory usage in percentage |                   |             |
 | WARNINGSWAPFREEPRCT  | Threshold for warning status on free swap memory in percentage   |                   |             |
 | CRITICALSWAPFREEPRCT | Threshold for critical status on free swap memory in percentage  |                   |             |
+| TIMEOUT              | Set timeout for command execution                                | 120               |             |
 
 </TabItem>
 <TabItem value="Task-Global" label="Task-Global">
@@ -743,6 +755,7 @@ CRITICAL= 0
 | OKSYNTAX       | Format the OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc.     | `{status}: All tasks are ok - {ok_list}`                                                        |             |
 | DETAILSYNTAX   | Format for each task detail inside `{list}`. Place-holders: `{folder}`, `{name}`, `{exit_code}`, etc.                     | `{folder}/{name} exit code: {exit_code}`                                                        |             |
 | VERBOSE        | Add verbose output including detailed task information.                                                                   | `false`                                                                                         |             |
+| TIMEOUT        | Set timeout for command execution                                                                                         | 120                                                                                             |             |
 
 </TabItem>
 <TabItem value="Task-Name" label="Task-Name">
@@ -758,6 +771,7 @@ CRITICAL= 0
 | OKSYNTAX       | Format the OK output. Place-holders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{crit_count}`, etc.     | `{status}: All tasks are ok - {ok_list}`                                                        |             |
 | DETAILSYNTAX   | Format for each task detail inside `{list}`. Place-holders: `{folder}`, `{name}`, `{exit_code}`, etc.                     | `{folder}/{name} exit code: {exit_code}`                                                        |             |
 | VERBOSE        | Add verbose output including detailed task information.                                                                   | `false`                                                                                         |             |
+| TIMEOUT        | Set timeout for command execution                                                                                         | 120                                                                                             |             |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
@@ -776,21 +790,25 @@ CRITICAL= 0
 |:---------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGUPTIME  | Warning threshold, if computer has been up for less than this time, service will be in warning state | 3600:             |             |
 | CRITICALUPTIME | Critical threshold                                                                                   | 600:              |             |
+| TIMEOUT        | Set timeout for command execution                                                                    | 120               |             |
+
 
 </TabItem>
 <TabItem value="Custom-Script" label="Custom-Script">
 
-| Macro          | Description                                                                                          | Default value | Mandatory |
-|:---------------|:-----------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| CUSTOMCHECK    | Name of the custom check to use                                                                      |               | X         |
-| ARG1           | Extra argument 1 to pass to the custom check command                                                 |               |           |
-| ARG2           | Extra argument 2 to pass to the custom check command                                                 |               |           |
-| ARG3           | Extra argument 3 to pass to the custom check command                                                 |               |           |
-| ARG4           | Extra argument 4 to pass to the custom check command                                                 |               |           |
-| ARG5           | Extra argument 5 to pass to the custom check command                                                 |               |           |
-| ARG6           | Extra argument 6 to pass to the custom check command                                                 |               |           |
-| ARG7           | Extra argument 7 to pass to the custom check command                                                 |               |           |
-| ARG8           | Extra argument 8 to pass to the custom check command                                                 |               |           |
+| Macro       | Description                                          | Valeur par défaut | Obligatoire |
+|:------------|:-----------------------------------------------------|:------------------|:-----------:|
+| CUSTOMCHECK | Name of the custom check to use                      |                   |      X      |
+| ARG1        | Extra argument 1 to pass to the custom check command |                   |             |
+| ARG2        | Extra argument 2 to pass to the custom check command |                   |             |
+| ARG3        | Extra argument 3 to pass to the custom check command |                   |             |
+| ARG4        | Extra argument 4 to pass to the custom check command |                   |             |
+| ARG5        | Extra argument 5 to pass to the custom check command |                   |             |
+| ARG6        | Extra argument 6 to pass to the custom check command |                   |             |
+| ARG7        | Extra argument 7 to pass to the custom check command |                   |             |
+| ARG8        | Extra argument 8 to pass to the custom check command |                   |             |
+| TIMEOUT     | Set timeout for command execution                    | 120               |             |
+
 
 > Les commandes sont définies dans un fichier de configuration dédié utilisant un format compatible avec NSClient / NRPE.
 > Le chemin d'accès à ce fichier est configuré via le programme d'installation ou le registre à l'aide du paramètre **custom_check_file**.

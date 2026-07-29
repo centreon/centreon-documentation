@@ -1,6 +1,7 @@
 ---
 id: network-cisco-umbrella-snmp
 title: Cisco Umbrella SNMP
+description: "Monitor Cisco Umbrella virtual appliances via SNMP: appliance status, connectivity, CPU, memory, load, DNS queries, and storage usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

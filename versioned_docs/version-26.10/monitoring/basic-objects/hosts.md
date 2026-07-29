@@ -1,6 +1,7 @@
 ---
 id: hosts
 title: Creating hosts manually
+description: "Detailed reference for host configuration fields, notifications, and dependencies"
 ---
 
 To create a host manually:
@@ -72,9 +73,10 @@ If multiple templates modify the same field, the properties of the template plac
   host as not OK. When the status is confirmed, the notification process is triggered.
 * **Normal Check Interval**: interval in minutes between checks when the host status is OK.
 * **Retry Check Interval**: interval expressed in minutes referring to the wait between the checks done to confirm the status of the host is not "OK". Once the max check attempts have been made, the interval between checks returns to its normal value.
-* **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md) are information the monitored resource sends to the monitoring engine without it having been actively requested.
+* **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable [active and passive checks](../active-passive-checks.md) on the host.
 
 ## Notification tab
+
 Learn more about [notifications](../../alerts-notifications/notif-concept.md) and [contacts](contacts.md).
 
 * **Notification Enabled**: used to enable or disable notifications concerning the object.

@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-dell-cmc-snmp
 title: Dell CMC SNMP
+description: "Monitor Dell CMC (Chassis Management Controller) hardware via SNMP: chassis, disks, power supplies, temperature, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

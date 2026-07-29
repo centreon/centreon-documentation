@@ -248,6 +248,10 @@
             },
             {
               "type": "doc",
+              "id": "monitoring/active-passive-checks"
+            },
+            {
+              "type": "doc",
               "id": "monitoring/metrics"
             },
             {
@@ -794,7 +798,11 @@
             },
             {
               "type": "doc",
-              "id": "graph-views/map-web-advanced-configuration"
+              "id": "graph-views/map-web-monitoring"
+            },
+            {
+              "type": "doc",
+              "id": "graph-views/map-web-change-port"
             },
             {
               "type": "doc",
@@ -821,69 +829,92 @@
         {
           "type": "doc",
           "id": "alerts-notifications/custom-views"
+        },
+        {
+          "type": "doc",
+          "id": "alerts-notifications/availability"
         }
       ]
     },
     {
       "type": "category",
-      "label": "Reporting",
+      "label": "Reporting (MBI)",
       "link": {
         "type": "generated-index"
       },
       "items": [
         {
           "type": "doc",
-          "id": "alerts-notifications/availability"
-        },
-        {
-          "type": "doc",
           "id": "reporting/introduction"
         },
         {
+          "type": "doc",
+          "id": "reporting/concepts"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/how-mbi-works"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/installation"
+        },
+        {
           "type": "category",
-          "label": "Guide",
-          "key": "reporting-guide",
+          "label": "Using MBI",
           "link": {
             "type": "generated-index"
           },
           "items": [
             {
               "type": "doc",
-              "id": "reporting/manage-reports"
+              "id": "reporting/preparing-data"
             },
             {
               "type": "doc",
-              "id": "reporting/reports"
+              "id": "reporting/generating-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/reports-publication-rule"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/share"
             },
             {
               "type": "doc",
               "id": "reporting/widgets"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/configure"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/concepts"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/report-development"
             }
           ]
         },
         {
           "type": "category",
-          "label": "Administrate",
-          "key": "reporting-administrate",
+          "label": "Fixing MBI issues",
           "link": {
             "type": "generated-index"
           },
           "items": [
             {
               "type": "doc",
-              "id": "reporting/installation"
+              "id": "reporting/troubleshooting"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/rebuilding-data"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "MBI administration",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "reporting/backup-restore"
             },
             {
               "type": "doc",
@@ -899,7 +930,57 @@
             },
             {
               "type": "doc",
-              "id": "reporting/backup-restore"
+              "id": "reporting/report-development"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Available reports",
+          "link": {
+            "type": "doc",
+            "id": "reporting/available-reports/available-reports"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/ba-monitoring-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/availability-events-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/performance-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/storage-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/network-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/virtualization-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/electric-consumption-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/profiling-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/inventory-configuration-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/database-diagnostics-reports"
             }
           ]
         }

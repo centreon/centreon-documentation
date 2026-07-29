@@ -1,6 +1,7 @@
 ﻿---
 id: business-view
 title: Business Data
+description: Introduction to the Business Data module for revenue impact analysis
 ---
 
 The **Business Data** module facilitates the analysis of the site's business-related metrics.

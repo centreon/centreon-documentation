@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-snmp
 title: Generic SNMP
+description: "Supervisez tout équipement compatible SNMP grâce à des contrôles génériques d'OID pour des valeurs personnalisées, le temps de réponse et l'uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -76,9 +77,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de services
 
-| Nom de la règle                   | Description |
-|:----------------------------------|:------------|
-| App-Protocol-SNMP-Collection-Name | Découvre les données SNMP en utilisant des collections    |
+| Nom de la règle                   | Description                                            |
+|:----------------------------------|:-------------------------------------------------------|
+| App-Protocol-SNMP-Collection-Name | Découvre les données SNMP en utilisant des collections |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -234,9 +235,14 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **App-Protocol-SNMP-custom**.
 
-| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro                   | Description                                                                                                                                                            | Valeur par défaut | Obligatoire |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMP_V3_USERNAME        | SNMP v3 only: User name (`securityName`)                                                                                                                               |                   |             |
+| SNMP_V3_AUTH_PROTOCOL   | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512                                                                  |                   |             |
+| SNMP_V3_PRIV_PROTOCOL   | SNMP v3 only: Privacy protocol (`privProtocol`) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C |                   |             |
+| SNMP_V3_AUTH_PASSPHRASE | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the  --authprotocol option                                                               |                   |             |
+| SNMP_V3_PRIV_PASSPHRASE | SNMP v3 only: Privacy pass phrase (`privPassword`) to encrypt messages using the protocol defined in the --privprotocol option                                         |                   |             |
+| SNMPEXTRAOPTIONS        | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                     |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -250,9 +256,14 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
-| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro                   | Description                                                                                                                                                            | Valeur par défaut | Obligatoire |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMP_V3_USERNAME        | SNMP v3 only: User name (`securityName`)                                                                                                                               |                   |             |
+| SNMP_V3_AUTH_PROTOCOL   | SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512                                                                  |                   |             |
+| SNMP_V3_PRIV_PROTOCOL   | SNMP v3 only: Privacy protocol (`privProtocol`) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C |                   |             |
+| SNMP_V3_AUTH_PASSPHRASE | SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the  --authprotocol option                                                               |                   |             |
+| SNMP_V3_PRIV_PASSPHRASE | SNMP v3 only: Privacy pass phrase (`privPassword`) to encrypt messages using the protocol defined in the --privprotocol option                                         |                   |             |
+| SNMPEXTRAOPTIONS        | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                     |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -281,16 +292,16 @@ yum install centreon-plugin-Applications-Protocol-Snmp
 </TabItem>
 <TabItem value="String-Value" label="String-Value">
 
-| Macro          | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| FORMATOK       | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | %\{filter_rows\} value(s)       |             |
-| FORMATUNKNOWN  | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_unknown\}  |             |
-| OID            | OID value to check (numeric format only)                                                                                                                                                                                                                                                                                                                                                                                           |                                |             |
-| WARNING        | Return Warning if an oid value match the regexp                                                                                                                                                                                                                                                                                                                                            |                                |             |
-| CRITICAL       | Return Critical if an oid value match the regexp                                                                                                                                                                                                                                                                                                                                           |                                |             |
-| FORMATWARNING  | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_warning\}  |             |
-| FORMATCRITICAL | Output format according to the threshold. : '%\{filter_rows\} value(s)'), 'warning' (default: 'value(s): %\{details_warning\}'), 'critical' (default: 'value(s): %\{details_critical\}'), 'unknown' (default: 'value(s): %\{details_unknown\}'). You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_critical\} |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                                                                                                                                                                                                                        |                                |             |
+| Macro          | Description                                                                                                                                                                                    | Valeur par défaut | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| FORMATOK       | Output format according to the threshold. You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | %\{filter_rows\} value(s)       |             |
+| FORMATUNKNOWN  | Output format according to the threshold. You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_unknown\}  |             |
+| OID            | OID value to check (numeric format only)                                                                                                                                                       |                                |             |
+| WARNING        | Return Warning if an oid value match the regexp                                                                                                                                                |                                |             |
+| CRITICAL       | Return Critical if an oid value match the regexp                                                                                                                                               |                                |             |
+| FORMATWARNING  | Output format according to the threshold. You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_warning\}  |             |
+| FORMATCRITICAL | Output format according to the threshold. You can use the following variables: %\{rows\}, %\{filter_rows\}, %\{details_warning\}, %\{details_ok\}, %\{details_critical\}, %\{details_unknown\} | value(s): %\{details_critical\} |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                       |                                |             |
 
 </TabItem>
 <TabItem value="Response-Time" label="Response-Time">

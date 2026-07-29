@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-cosmosdb
 title: Azure Cosmos DB
+description: "Monitor Azure Cosmos DB via the Azure API or Azure CLI: availability, cache, document, health, latency, throughput, and usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

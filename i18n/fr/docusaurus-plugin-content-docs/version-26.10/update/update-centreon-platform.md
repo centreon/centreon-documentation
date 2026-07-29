@@ -1,12 +1,13 @@
 ---
 id: update-centreon-platform
 title: Mise à jour d'une plateforme Centreon 26.10
+description: "Étapes pour mettre à jour une version mineure de Centreon 26.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-25.10 (c'est-à-dire le passage de 26.10.x à 26.10.y).
+26.10 (c'est-à-dire le passage de 26.10.x à 26.10.y).
 
 > Après avoir effectué la mise à jour de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
 >

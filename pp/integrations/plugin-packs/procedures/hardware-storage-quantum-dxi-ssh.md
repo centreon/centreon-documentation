@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-quantum-dxi-ssh
 title: Quantum DXi Series SSH
+description: "Monitor Quantum DXi Series storage appliances via SSH: compaction, deduplication, disk usage, health, memory, network, and throughput."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

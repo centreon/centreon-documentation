@@ -1,6 +1,7 @@
 ---
 id: widgets
 title: Widgets
+description: "Configurer le widget Live Business Activity Status pour afficher le statut et le niveau de santé des activités métier sur la page d'accueil de Centreon"
 ---
 
 ## Live Business Activity Status

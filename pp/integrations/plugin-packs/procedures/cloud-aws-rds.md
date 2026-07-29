@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-rds
 title: Amazon RDS
+description: "Monitor Amazon RDS databases via the AWS CloudWatch API: connections, CPU, storage, network, and instance status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

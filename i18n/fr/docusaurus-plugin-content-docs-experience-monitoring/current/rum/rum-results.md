@@ -1,5 +1,6 @@
 ---
 id: rum-results
+description: Lire les onglets RUM pour les données en direct, par page et géographiques
 title: Comprendre les résultats RUM
 ---
 

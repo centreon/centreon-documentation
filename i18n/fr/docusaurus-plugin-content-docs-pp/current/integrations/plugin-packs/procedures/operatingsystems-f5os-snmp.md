@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-f5os-snmp
 title: F5OS SNMP
+description: "Supervisez les systèmes F5OS via SNMP : utilisation CPU, température et vitesse des ventilateurs, utilisation mémoire."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

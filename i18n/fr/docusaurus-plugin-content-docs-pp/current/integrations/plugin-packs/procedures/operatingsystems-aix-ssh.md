@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-aix-ssh
 title: AIX SSH
+description: "Supervisez les systèmes AIX via SSH : erreurs (errpt), synchronisation des volumes logiques, processus, inodes, espace de stockage et codes retour de commandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

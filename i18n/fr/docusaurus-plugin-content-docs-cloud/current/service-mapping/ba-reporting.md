@@ -1,6 +1,7 @@
 ---
 id: ba-reporting
 title: Reporting
+description: "Consulter les rapports de disponibilité des activités métier et reconstruire manuellement les statistiques de reporting à l'aide du script de rebuild BAM"
 ---
 
 Consulter à tout moment les évolutions des données archivées et

@@ -1,6 +1,7 @@
 ---
 id: applications-rapidrecovery-snmp
 title: Rapid Recovery SNMP
+description: "Supervisez Dell Rapid Recovery via SNMP en suivant le statut des agents de sauvegarde et l'utilisation d'espace des dépôts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

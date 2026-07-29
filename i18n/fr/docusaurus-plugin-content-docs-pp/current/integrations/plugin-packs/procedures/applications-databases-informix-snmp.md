@@ -1,6 +1,7 @@
 ---
 id: applications-databases-informix-snmp
 title: Informix DB SNMP
+description: "Supervisez les bases IBM Informix via SNMP : sauvegardes, statut des chunks, utilisation des dbspaces et des logs, cache et sessions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

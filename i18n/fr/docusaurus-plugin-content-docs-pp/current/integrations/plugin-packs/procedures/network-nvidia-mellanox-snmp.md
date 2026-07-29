@@ -1,6 +1,7 @@
 ---
 id: network-nvidia-mellanox-snmp
 title: Nvidia (formerly Mellanox) SNMP
+description: "Supervisez les commutateurs réseau Nvidia (anciennement Mellanox) via SNMP : CPU, interfaces, sondes, uptime et état du Spanning Tree."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

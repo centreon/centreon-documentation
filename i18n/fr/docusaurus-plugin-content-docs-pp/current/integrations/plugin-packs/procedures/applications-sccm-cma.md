@@ -1,6 +1,7 @@
 ---
 id: applications-sccm-cma
 title: Microsoft SCCM CMA
+description: "Supervisez Microsoft SCCM via CMA en suivant l'état de la réplication des bases de données et l'état des sites."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

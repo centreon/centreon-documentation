@@ -1,6 +1,7 @@
 ---
 id: user-journey-improve
 title: Optimizing your site
+description: Use step-by-step recommendations to optimize site performance
 ---
 
 Using the data collected by the [recommendation probe](https://docs.centreon.com/experience-monitoring/configuration/configuration/user-journey/create-a-scenario/#daily-recommendations-audits), Experience Monitoring will make suggestions on how to optimize your website.

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-costs
 title: Azure Management Costs
+description: "Supervisez les coûts Azure via API ou azcli : budgets, cost explorer, conformité hybrid benefits, ressources orphelines et conformité des tags."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-ds3000-smcli
 title: IBM DS3000 SMcli
+description: "Supervisez les baies de stockage IBM DS3000 via la commande SMcli et surveillez leur état de santé global."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

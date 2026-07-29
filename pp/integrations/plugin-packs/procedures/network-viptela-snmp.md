@@ -1,6 +1,7 @@
 ---
 id: network-viptela-snmp
 title: Viptela SNMP
+description: "Monitor Viptela SD-WAN devices via SNMP: CPU, memory, disk, hardware, uptime, GRE tunnels, and interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

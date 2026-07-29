@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-poller
 title: Centreon Poller
+description: "Supervisez les collecteurs Centreon en SSH et SNMP : statistiques Broker et statut des processus clés (centengine, gorgoned, ntpd, sshd)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

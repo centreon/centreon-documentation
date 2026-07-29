@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-vplex-restapi
 title: EMC Vplex Rest API
+description: "Monitor Dell EMC VPLEX storage via REST API: cluster communication, cluster devices, directors, distributed devices, fans, PSUs, and storage volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

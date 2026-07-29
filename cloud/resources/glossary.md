@@ -1,6 +1,7 @@
 ---
 id: glossary
 title: Glossary of Centreon concepts
+description: "Definitions of the key concepts and terms used throughout the Centreon Cloud documentation"
 ---
 
 ## Acknowledgement
@@ -23,13 +24,9 @@ An alert is one of the following statuses: **Warning**, **Down**, **Critical**, 
 
 The term alert is used in this way in the [pre-defined filters on page **Resources Status**](../alerts-notifications/resources-status.md#pre-defined-filters).
 
-## User interface
+## Check
 
-In Centreon, the user interface is the main console where you monitor resources. The user interface allows you to:
-
-- configure the monitoring of your whole infrastructure,
-- monitor resources
-- see what all your Centreon servers (all [pollers](#poller)) monitor.
+A check is an operation that determines the [status](#status) of a resource, and may also produce [metrics](#metric) (performance data). The result of a check updates the corresponding resource's row on the **Resource Status** page.
 
 ## Downtime
 
@@ -180,6 +177,14 @@ There are host templates and service templates.
 
 - [Using host templates](../monitoring/basic-objects/hosts-templates.md),
 - [Using service templates](../monitoring/basic-objects/services-templates.md),
+
+## User interface
+
+In Centreon, the user interface is the main console where you monitor resources. The user interface allows you to:
+
+- configure the monitoring of your whole infrastructure,
+- monitor resources
+- see what all your Centreon servers (all [pollers](#poller)) monitor.
 
 ## Widget
 

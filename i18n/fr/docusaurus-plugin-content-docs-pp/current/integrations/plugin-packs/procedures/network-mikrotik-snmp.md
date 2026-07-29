@@ -1,6 +1,7 @@
 ---
 id: network-mikrotik-snmp
 title: Mikrotik SNMP
+description: "Supervisez les équipements Mikrotik via SNMP : CPU, mémoire, interfaces, LTE, environnement et signal des connexions sans fil."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

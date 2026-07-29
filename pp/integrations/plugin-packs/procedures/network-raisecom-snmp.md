@@ -1,6 +1,7 @@
 ---
 id: network-raisecom-snmp
 title: Raisecom SNMP
+description: "Monitor Raisecom network devices via SNMP: CPU usage, hardware health, memory, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

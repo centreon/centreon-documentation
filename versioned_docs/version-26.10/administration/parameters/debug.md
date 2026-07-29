@@ -1,6 +1,7 @@
 ---
 id: debug
 title: Debug
+description: "Enable debug-level logging for Centreon processes"
 ---
 
 This section describes how to enable debug level logging of Centreon processes.

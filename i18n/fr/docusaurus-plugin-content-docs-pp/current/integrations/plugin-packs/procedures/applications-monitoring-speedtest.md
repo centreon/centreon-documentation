@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-speedtest
 title: Speedtest
+description: "Supervisez la qualité de votre connexion internet avec Speedtest CLI : latence, gigue et bande passante montante/descendante."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

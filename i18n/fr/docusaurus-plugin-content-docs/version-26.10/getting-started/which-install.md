@@ -1,6 +1,7 @@
 ---
 id: which-install
 title: Quelle installation choisir ?
+description: "Choisissez la méthode d'installation Centreon adaptée à vos besoins"
 ---
 
 Centreon propose plusieurs modes d'installation. Lequel choisir ?

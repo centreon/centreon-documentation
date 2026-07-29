@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-udp
 title: Protocol UDP
+description: "Supervisez la connectivité d'un port UDP en vérifiant qu'une ressource répond bien sur le port indiqué, dans un délai donné."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

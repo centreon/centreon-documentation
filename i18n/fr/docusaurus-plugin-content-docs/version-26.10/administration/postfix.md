@@ -1,6 +1,7 @@
 ---
 id: postfix
 title: Configurer l'envoi d'emails
+description: "Configurer Postfix pour permettre à Centreon d'envoyer des notifications"
 ---
 
 import Tabs from '@theme/Tabs';

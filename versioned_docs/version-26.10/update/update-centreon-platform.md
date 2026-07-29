@@ -1,6 +1,7 @@
 ---
 id: update-centreon-platform
 title: Update a Centreon 26.10 platform
+description: "Steps to update between minor versions of Centreon 26.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

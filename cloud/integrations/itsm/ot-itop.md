@@ -1,6 +1,7 @@
 ---
 id: ot-itop
 title: iTop
+description: "Configure the iTop open-tickets provider that connects to your iTop server through its REST API"
 ---
 
 ## How it works

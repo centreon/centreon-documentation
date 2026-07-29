@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-21-04
 title: Montée de version depuis Centreon 21.04
+description: "Passer une plateforme Centreon de la version 21.04 à la 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

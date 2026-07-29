@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction to MBI
+description: "Introduction to Centreon MBI and the reports it generates"
 ---
 
 ## What is Centreon MBI?

@@ -1,6 +1,7 @@
 ---
 id: api
 title: API
+description: Use the REST API to interact with logs, alerts, and configuration
 ---
 
 Centreon Log Management provides a REST API to interact with logs, alerts, and product configuration. This API is intended for developers and integrators who want to automate or extend Centreon Log Management.

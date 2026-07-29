@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-frontdoor
 title: Azure Front Door
+description: "Monitor Azure Front Door via Azure API or CLI: track backend health, availability, latency, requests, and packet size."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

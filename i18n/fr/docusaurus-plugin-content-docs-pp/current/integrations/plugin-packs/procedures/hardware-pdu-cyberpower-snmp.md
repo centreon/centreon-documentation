@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-cyberpower-snmp
 title: CyberPower Systems PDU SNMP
+description: "Supervisez les PDU CyberPower Systems via SNMP en suivant la charge (banks, phases) et l'état des sorties."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

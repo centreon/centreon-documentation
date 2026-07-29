@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
+description: "Supervisez les pare-feux Palo Alto via SSH : environnement matériel, haute disponibilité, interfaces, tunnels IPsec, licences et système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

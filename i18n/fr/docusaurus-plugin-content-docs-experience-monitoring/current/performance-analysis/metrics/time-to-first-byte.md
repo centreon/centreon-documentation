@@ -1,5 +1,6 @@
 ﻿---
 id: time-to-first-byte
+description: Métrique TTFB pour la vitesse de réponse et de livraison du serveur
 title: TTFB - Time To First Byte
 --- 
 

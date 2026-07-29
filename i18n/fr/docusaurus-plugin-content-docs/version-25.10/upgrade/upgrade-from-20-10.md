@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-20-10
 title: Montée de version depuis Centreon 20.10
+description: "Passer une plateforme Centreon de la version 20.10 à la 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

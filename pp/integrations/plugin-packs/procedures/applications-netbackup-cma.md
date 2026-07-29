@@ -1,6 +1,7 @@
 ---
 id: applications-netbackup-cma
 title: Symantec Netbackup CMA
+description: "Monitor Symantec NetBackup via the Centreon Monitoring Agent (CMA): deduplication status, drive health, job status, and tape usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -154,7 +155,7 @@ the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
-<CMAprerequisites />
+Ce connecteur s'appuie sur une intégration prise en charge par Centreon Engine et ne nécessite pas de plugin.
 
 ## Using the monitoring connector
 

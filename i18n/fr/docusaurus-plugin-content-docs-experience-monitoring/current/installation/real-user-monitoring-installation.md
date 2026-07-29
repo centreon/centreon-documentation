@@ -1,5 +1,6 @@
 ﻿---
 id: real-user-monitoring-installation
+description: Installer la balise JavaScript RUM manuellement ou via GTM
 title: Installer le Real User Monitoring
 --- 
 

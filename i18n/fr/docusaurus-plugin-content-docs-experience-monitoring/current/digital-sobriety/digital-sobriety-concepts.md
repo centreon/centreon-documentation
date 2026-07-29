@@ -1,6 +1,7 @@
 ---
 id: digital-sobriety-concepts
 title: Introduction à la sobriété numérique
+description: Comment le Score de Sobriété Numérique mesure l'impact environnemental
 ---
 
 Bien que les sites web soient immatériels, ils reposent sur une infrastructure physique : serveurs, réseaux et appareils des utilisateurs finaux, qui consomment tous de l'énergie.
@@ -24,7 +25,7 @@ Pour renseigner ces informations, rendez-vous dans **Configuration > Site**.
 Sur la base de ces informations, Experience Monitoring estimera le CO2 émis par page.
 
 Experience Monitoring évalue chaque parcours utilisateur de votre site individuellement, tout en produisant un score combiné sur l'ensemble des parcours.
-Les scores peuvent également être calculés à partir des [données RUM](https://docs.centreon.com/fr/experience-monitoring/experience-monitoring/rum/rum-intro/).
+Les scores peuvent également être calculés à partir des [données RUM](https://docs.centreon.com/fr/experience-monitoring/rum/rum-intro/).
 Vous pouvez les consulter à tout moment depuis la Vue Globale.
-Pour une description complète du mode de calcul du score, voir [Calculs du Score de Sobriété Numérique](https://docs.centreon.com/fr/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/#how-is-it-calculate).
+Pour une description complète du mode de calcul du score, voir [Calculs du Score de Sobriété Numérique](https://docs.centreon.com/fr/experience-monitoring/digital-sobriety/digital-sobriety-score/#how-is-it-calculate).
 Pour savoir comment agir sur votre score et suivre les améliorations au fil du temps, voir [Améliorer votre Score de Sobriété Numérique](improve-dss.md).

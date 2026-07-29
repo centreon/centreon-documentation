@@ -1,6 +1,7 @@
 ---
 id: network-perle-ids-snmp
 title: Perle IDS SNMP
+description: "Supervisez les équipements Perle IDS via SNMP : alarmes, état matériel, interfaces, CPU, mémoire et espace flash."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

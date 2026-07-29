@@ -1,6 +1,7 @@
 ---
 id: monitoring-with-snmp-traps
 title: Monitoring SNMP Traps
+description: "Créer des services passifs et personnaliser les messages de sortie des traps SNMP"
 ---
 
 ## Configuration de la supervision
