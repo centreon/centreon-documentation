@@ -50,7 +50,7 @@ See the [software requirements](../installation/prerequisites.md#characteristics
 
 #### Hardware
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 | Element                     | Value     |
@@ -148,7 +148,26 @@ This is how your MAP server should be partitioned:
 | vg_data |   | Free space (unallocated) | 2 GB                               |
 
 </TabItem>
-<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+<TabItem value="Up to 20,000 hosts" label="Up to 20,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 16 GB      |
+
+This is how your MAP server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 2 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 8 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 5 GB                               |
+| vg_data |   | Free space (unallocated) | 2 GB                               |
+
+</TabItem>
+<TabItem value="Over 20,000 hosts" label="Over 20,000 hosts">
 
 For very large amounts of data, contact your sales representative.
 

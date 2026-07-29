@@ -1,11 +1,12 @@
 ---
 id: prerequisites
 title: Prérequis
+description: "Recommandations de dimensionnement pour votre plateforme Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Cette page vous donne des recommandations générales afin de déterminer la taille de votre plateforme.
+Cette page vous donne des recommandations générales afin de déterminer la taille de votre plateforme. Voir aussi les sections prérequis pour [MAP](../graph-views/map-web-install.md#prérequis) et [MBI](../reporting/installation.md#couche-matériel).
 
 ## Architecture
 
@@ -32,6 +33,8 @@ Les données ci-après sont des estimations en fonction des critères suivants :
 
 Adaptez les chiffres suivants à vos valeurs réelles. Au cours du temps, vous serez peut-être amenés à ajuster la taille de votre plateforme au fur et à mesure que vous ajoutez plus d'hôtes.
 
+## Architecture et dimensionnement du serveur central et de la base de données
+
 <Tabs groupId="sizing" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
@@ -41,6 +44,8 @@ Serveur central seul :
 | ----------------------------| --------- |
 | CPU                         | 4 vCPU    |
 | RAM                         | 4 Go      |
+
+> Si vous préférez, vous pouvez également superviser vos 500 hôtes à l'aide d'un [collecteur](#dimensionnement-dun-collecteur) rattaché à un serveur central.
 
 Votre serveur central doit être partitionné de la manière suivante :
 
@@ -67,9 +72,9 @@ Dans certains cas, il peut être nécessaire de mettre en place une architecture
 Architecture distribuée :
 
 * 1 serveur central
-* 1 collecteur par tranche de 500 hôtes
+* 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
 
-**Serveur central**
+### Serveur central
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -93,47 +98,15 @@ Votre serveur central doit être partitionné de la manière suivante :
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
-**Collecteurs**
-
-* Pour traiter des environnements de test ou des petits périmètres (jusqu'à 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes) :
-
-| Élément                     | Valeur    |
-| ----------------------------| --------- |
-| CPU  (cœur logique à 3Ghz)  | 2 vCPU    |
-| RAM                         | 2 GB      |
-| HDD                         | 40 GB     |
-
-* Pour traiter des environnements de production (jusqu'à 7000 services avec des contrôles toutes les 5 minutes) :
-
-| Élément                     | Valeur    |
-| ----------------------------| --------- |
-| CPU  (cœur logique à 3Ghz)  | 4 vCPU    |
-| RAM                         | 4 GB      |
-| HDD                         | 40 GB     |
-
-Vos collecteurs doivent être partitionnés de la manière suivante :
-
-| Groupe de volumes (LVM) | Partition                  | Description | Taille                                                     |
-|-------------------------|----------------------------|-------------|----------------------------------------------------------|
-|         | /boot                      | images de boot | 1 Go    |
-| vg_root | /                          | racine du système          | 20 Go                                |
-| vg_root | swap                       | swap | 4 Go                               |
-| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
-| vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine | 5 Go                               |
-
-> Votre système doit utiliser LVM pour gérer vos partitions.
-
-> Le nombre de vCPU par collecteur dépend principalement de la complexité des contrôles. Si vous utilisez des connecteurs ou réalisez de nombreux appels vers des applications tierces, ajoutez des vCPU supplémentaires.
-
 </TabItem>
 <TabItem value="Jusqu'à 2 500 hôtes" label="Jusqu'à 2 500 hôtes">
 
 Architecture distribuée :
 
 * 1 serveur central
-* 1 collecteur par tranche de 500 hôtes
+* 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
 
-**Serveur central**
+### Serveur central
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -157,38 +130,6 @@ Votre serveur central doit être partitionné de la manière suivante :
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
-**Collecteurs**
-
-* Pour traiter des environnements de test ou des petits périmètres (jusqu'à 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes) :
-
-| Élément                     | Valeur    |
-| ----------------------------| --------- |
-| CPU  (cœur logique à 3Ghz)  | 2 vCPU    |
-| RAM                         | 2 GB      |
-| HDD                         | 40 GB     |
-
-* Pour traiter des environnements de production (jusqu'à 7000 services avec des contrôles toutes les 5 minutes) :
-
-| Élément                     | Valeur    |
-| ----------------------------| --------- |
-| CPU  (cœur logique à 3Ghz)  | 4 vCPU    |
-| RAM                         | 4 GB      |
-| HDD                         | 40 GB     |
-
-Vos collecteurs doivent être partitionnés de la manière suivante :
-
-| Groupe de volumes (LVM) | Partition                  | Description | Taille                                                     |
-|-------------------------|----------------------------|-------------|----------------------------------------------------------|
-|         | /boot                      | images de boot | 1 Go    |
-| vg_root | /                          | racine du système          | 20 Go                                |
-| vg_root | swap                       | swap | 4 Go                               |
-| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
-| vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine | 5 Go                               |
-
-> Votre système doit utiliser LVM pour gérer vos partitions.
-
-> Le nombre de vCPU par collecteur dépend principalement de la complexité des contrôles. Si vous utilisez des connecteurs ou réalisez de nombreux appels vers des applications tierces, ajoutez des vCPU supplémentaires.
-
 </TabItem>
 <TabItem value="Jusqu'à 5 000 hôtes" label="Jusqu'à 5 000 hôtes">
 
@@ -196,9 +137,9 @@ Architecture distribuée :
 
 * 1 serveur central sans base de données
 * 1 serveur de base de données
-* 1 collecteur par tranche de 500 hôtes
+* 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
 
-**Serveur central**
+### Serveur central
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -218,7 +159,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | 5 Go                           |
 | vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <br/>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul>   |
 
-**Serveur de bases de données**
+### Serveur de bases de données
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -238,38 +179,6 @@ Votre serveur doit être partitionné de la manière suivante :
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
-**Collecteurs**
-
-* Pour traiter des environnements de test ou des petits périmètres (jusqu'à 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes) :
-
-| Élément                     | Valeur    |
-| ----------------------------| --------- |
-| CPU  (cœur logique à 3Ghz)  | 2 vCPU    |
-| RAM                         | 2 GB      |
-| HDD                         | 40 GB     |
-
-* Pour traiter des environnements de production (jusqu'à 7000 services avec des contrôles toutes les 5 minutes) :
-
-| Élément                     | Valeur    |
-| ----------------------------| --------- |
-| CPU  (cœur logique à 3Ghz)  | 4 vCPU    |
-| RAM                         | 4 GB      |
-| HDD                         | 40 GB     |
-
-Vos collecteurs doivent être partitionnés de la manière suivante :
-
-| Groupe de volumes (LVM) | Partition                  | Description | Taille                                                     |
-|-------------------------|----------------------------|-------------|----------------------------------------------------------|
-|         | /boot                      | images de boot | 1 Go    |
-| vg_root | /                          | racine du système          | 20 Go                                |
-| vg_root | swap                       | swap | 4 Go                               |
-| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                                |
-| vg_data| /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine | 5 Go                               |
-
-> Votre système doit utiliser LVM pour gérer vos partitions.
-
-> Le nombre de vCPU par collecteur dépend principalement de la complexité des contrôles. Si vous utilisez des connecteurs ou réalisez de nombreux appels vers des applications tierces, ajoutez des vCPU supplémentaires.
-
 </TabItem>
 <TabItem value="Jusqu'à 10 000 hôtes" label="Jusqu'à 10 000 hôtes">
 
@@ -277,9 +186,9 @@ Architecture distribuée :
 
 * 1 serveur central sans base de données
 * 1 serveur de base de données
-* 1 collecteur par tranche de 500 hôtes
+* 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
 
-**Serveur central**
+### Serveur central
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -301,7 +210,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
-**Serveur de bases de données**
+### Serveur de bases de données
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -321,7 +230,66 @@ Votre serveur doit être partitionné de la manière suivante :
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
-**Collecteurs**
+</TabItem>
+<TabItem value="Jusqu'à 20 000 hôtes" label="Jusqu'à 20 000 hôtes">
+
+Architecture distribuée :
+
+* 1 serveur central sans base de données
+* 1 serveur de base de données
+* 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
+
+### Serveur central
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU (cœur logique à 3Ghz)   | 8 vCPU    |
+| RAM                         | 16 Go      |
+
+Votre serveur central doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|---------| ---------------------------|-------------|----------------------------------------------------------|
+|         | /boot                      | images de boot | 2 Go                                                                          |
+| vg_root | /                          | racine du système            | 20 Go                               |
+| vg_root | swap                       | swap | 8 Go                                |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                              |
+| vg_data | /var/lib/centreon          | contient en majorité des fichiers RRD | 1355 Go       |
+| vg_data | /var/lib/centreon-broker   | contient les fichiers de rétention de Broker | 50 Go                           |
+| vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | 5 Go                           |
+| vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <br/>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul>   |
+
+> Votre système doit utiliser LVM pour gérer vos partitions.
+
+### Serveur de bases de données
+
+| Élément                     | Valeur    |
+| ----------------------------| --------- |
+| CPU                         | 8 vCPU    |
+| RAM                         | 16 Go      |
+
+Votre serveur doit être partitionné de la manière suivante :
+
+| Groupe de volumes (LVM) | Partition               | Description | Taille                                                     |
+|---------| ---------------------------|-------------|----------------------------------------------------------|
+|         | /boot                      | images de boot | 2 Go                                                                          |
+| vg_root | /                          | racine du système            | 20 Go                               |
+| vg_root | swap                       | swap | 8 Go                                |
+| vg_root | /var/log                   | contient tous les fichiers de log | 10 Go                              |
+| vg_data | /var/lib/mysql             | base de données | 4500 Go        |
+| vg_data | | Espace libre (non alloué) | 5 Go |
+
+> Votre système doit utiliser LVM pour gérer vos partitions.
+
+</TabItem>
+<TabItem value="Plus de 20 000 hôtes" label="Plus de 20 000 hôtes">
+
+Pour de grosses volumétries de données, contactez votre commercial Centreon.
+
+</TabItem>
+</Tabs>
+
+## Dimensionnement d'un collecteur
 
 * Pour traiter des environnements de test ou des petits périmètres (jusqu'à 2000 services avec des contrôles toutes les 5 minutes et 500 services avec des contrôles toutes les minutes) :
 
@@ -352,14 +320,6 @@ Vos collecteurs doivent être partitionnés de la manière suivante :
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
 > Le nombre de vCPU par collecteur dépend principalement de la complexité des contrôles. Si vous utilisez des connecteurs ou réalisez de nombreux appels vers des applications tierces, ajoutez des vCPU supplémentaires.
-
-</TabItem>
-<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
-
-Pour de grosses volumétries de données, contactez votre commercial Centreon.
-
-</TabItem>
-</Tabs>
 
 ## Flux réseau
 

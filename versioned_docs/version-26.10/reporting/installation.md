@@ -146,7 +146,7 @@ considerations.
 
 #### Hardware layer
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 | Element                     | Value     |
@@ -247,7 +247,27 @@ This is how your MBI server should be partitioned:
 | vg_data |   | Free space (unallocated) | 5 GB                               |
 
 </TabItem>
-<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+<TabItem value="Up to 20,000 hosts" label="Up to 20,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 16 vCPU    |
+| RAM                         | 64 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 2 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 8 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 8462 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Over 20,000 hosts" label="Over 20,000 hosts">
 
 For very large amounts of data, contact your sales representative.
 
