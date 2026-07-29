@@ -1,7 +1,7 @@
 ---
 id: plugin-customization
 title: Customizing plugin behavior
-description: "Learn to customize monitoring connector plugin behavior using EXTRAOPTIONS macros, with HTTP and SNMP examples for thresholds and metrics."
+description: "Learn to customize monitoring connector plugin behavior, e.g. using EXTRAOPTIONS macros, with HTTP and SNMP examples for thresholds and metrics."
 ---
 
 Monitoring connectors are provided with a default configuration. However, you can customize their behavior (specifically, the behavior of the plugin, that runs the check command). Here are a few examples using the [**HTTP Server**](../../procedures/applications-protocol-http.md) monitoring connector, that allows you to test the connection to a website.
