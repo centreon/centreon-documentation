@@ -104,6 +104,11 @@ module.exports = {
        ]
     },
         {
+          type: 'doc',
+          id: 'traces',
+          label: 'Traces'
+    },
+        {
           "collapsed": true,
           "type": "category",
           "label": "Administration",
