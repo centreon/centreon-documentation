@@ -1,6 +1,7 @@
 ---
 id: applications-trendmicro-iwsva-snmp
 title: TrendMicro Iwsva
+description: "Monitor Trend Micro IWSVA appliances via SNMP: CPU, memory, disk usage, load, swap, proxy connections, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

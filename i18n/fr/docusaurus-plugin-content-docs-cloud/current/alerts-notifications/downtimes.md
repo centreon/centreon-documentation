@@ -1,6 +1,7 @@
 ---
 id: downtimes
 title: Planifier un temps d'arrêt
+description: "Comment définir un temps d'arrêt fixe ou flexible sur des ressources, et configurer des temps d'arrêt récurrents"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

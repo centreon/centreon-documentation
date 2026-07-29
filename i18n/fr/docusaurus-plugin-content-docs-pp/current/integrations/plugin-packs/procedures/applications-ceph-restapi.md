@@ -1,6 +1,7 @@
 ---
 id: applications-ceph-restapi
 title: Ceph Rest API
+description: "Supervisez vos clusters Ceph via l'API REST : statut de santé du cluster, disponibilité des OSD, et utilisation, débit et capacité des pools."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

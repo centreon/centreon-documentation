@@ -1,6 +1,7 @@
 ---
 id: known-issues
 title: Known issues
+description: "Known issues and workarounds for the Centreon platform"
 ---
 
 Below is a list of known issues and/or bugs you may encounter.
@@ -115,7 +116,7 @@ This is due to a column update issue in the database.
   php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
   ```
 
-2. Then follow this procedure to [rebuild missing reporting data](../reporting/concepts.md#how-to-rebuild-missing-reporting-data).
+2. Then follow this procedure to [rebuild missing reporting data](../reporting/rebuilding-data.md).
 
 ### MBI does not work if databases have custom names
 

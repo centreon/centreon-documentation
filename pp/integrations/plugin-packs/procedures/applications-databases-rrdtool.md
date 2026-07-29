@@ -1,6 +1,7 @@
 ---
 id: applications-databases-rrdtool
 title: RRDtool
+description: "Monitor RRDtool data sources via CLI or SSH, checking minimum, maximum, and average values over a set timeframe."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

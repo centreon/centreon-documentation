@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-tftp
 title: TFTP Server
+description: "Monitor TFTP servers with Centreon by testing remote command execution and measuring response times over the TFTP protocol."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

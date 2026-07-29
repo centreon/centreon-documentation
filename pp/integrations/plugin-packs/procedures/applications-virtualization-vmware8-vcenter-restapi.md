@@ -1,6 +1,7 @@
 ---
 id: applications-virtualization-vmware8-vcenter-restapi
 title: VMware8 vCenter REST API
+description: "Monitor VMware vCenter 8 via REST API: track cluster HA/DRS status, datastore usage, and virtual machine counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

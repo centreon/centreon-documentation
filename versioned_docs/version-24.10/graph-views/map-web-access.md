@@ -1,6 +1,7 @@
 ---
 id: map-web-access
 title: Managing access rights in MAP
+description: "Manage user privileges and access rights on Centreon MAP views"
 ---
 
 This topic explains how users can access the maps according to well-defined privileges.

@@ -1,6 +1,7 @@
 ---
 id: network-aruba-aoscx-snmp
 title: ArubaOS-CX SNMP
+description: "Supervisez les commutateurs Aruba ArubaOS-CX via SNMP : CPU, mémoire, matériel, interfaces, empilage VSF/VSX et Spanning Tree."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

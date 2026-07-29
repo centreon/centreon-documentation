@@ -7,8 +7,10 @@ the document itself.
 
 Usage:
   extract_refs.py DOC.md            # compact report (anchors, long sentences, US/UK, link inventory)
+  extract_refs.py DOC.md --lang=fr  # force language; US/UK check runs for English only
   extract_refs.py DOC.md --urls     # print unique external URLs only, one per line
                                      # (pipe into check_links.sh)
+Language is auto-detected when --lang is omitted.
 
 Handles .md and .mdx. Fenced code blocks and frontmatter are stripped before prose
 analysis and link extraction (links inside code samples are usually illustrative).
@@ -36,11 +38,16 @@ US_UK_PAIRS = [
 
 
 def strip_frontmatter(text):
-    if text.startswith('---'):
-        end = text.find('\n---', 3)
+    # Tolerate a UTF-8 BOM and leading blank lines/whitespace before the fence,
+    # otherwise YAML frontmatter leaks into prose analysis (counted as a sentence).
+    text = text.lstrip('\ufeff')
+    lead = len(text) - len(text.lstrip())
+    stripped = text[lead:]
+    if stripped.startswith('---'):
+        end = stripped.find('\n---', 3)
         if end != -1:
-            nl = text.find('\n', end + 1)
-            return text[nl + 1:] if nl != -1 else ''
+            nl = stripped.find('\n', end + 1)
+            return stripped[nl + 1:] if nl != -1 else ''
     return text
 
 
@@ -105,6 +112,19 @@ def long_sentences(text, limit=30):
     return out
 
 
+# Distinctive stopwords used only to guess the document language when --lang is
+# absent. US/UK spelling is an English-only concern, so a French doc must skip it.
+FR_MARKERS = re.compile(
+    r'\b(le|la|les|des|une|dans|avec|pour|vous|est|sur|aux|cette|nous|ou|par)\b')
+EN_MARKERS = re.compile(
+    r'\b(the|and|with|for|you|is|are|this|that|from|your|of|to)\b')
+
+
+def detect_lang(text):
+    low = text.lower()
+    return 'fr' if len(FR_MARKERS.findall(low)) > len(EN_MARKERS.findall(low)) else 'en'
+
+
 def usuk_hits(text):
     prose = strip_code(text).lower()
     hits = []
@@ -126,6 +146,11 @@ def main():
     with open(args[0], encoding='utf-8') as f:
         raw = f.read()
     body = strip_code(strip_frontmatter(raw))
+
+    lang = next((f.split('=', 1)[1].strip().lower()
+                 for f in flags if f.startswith('--lang=')), None)
+    if lang is None:
+        lang = detect_lang(body)
 
     ext, anchors, rel = collect_links(body)
 
@@ -154,9 +179,13 @@ def main():
     ls = long_sentences(body)
     print("\n".join(f"  [{n}w] {s}…" for n, s in ls) or "  none")
     print()
-    print("=== US/UK SPELLING ===")
-    hits = usuk_hits(body)
-    print("\n".join(f"  {us}/{uk}: {note}" for us, uk, note in hits) or "  none detected")
+    print(f"=== US/UK SPELLING (lang={lang}) ===")
+    if lang == 'fr':
+        print("  skipped — US/UK spelling is an English-only check")
+    else:
+        hits = usuk_hits(body)
+        print("\n".join(f"  {us}/{uk}: {note}" for us, uk, note in hits)
+              or "  none detected")
 
 
 if __name__ == "__main__":

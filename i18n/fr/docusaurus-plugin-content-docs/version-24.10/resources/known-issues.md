@@ -1,6 +1,7 @@
 ---
 id: known-issues
 title: Problèmes connus
+description: "Problèmes connus et contournements pour la plateforme Centreon"
 ---
 
 Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
@@ -114,7 +115,7 @@ Cette erreur est due à un problème de mise à jour des colonnes dans la base d
   php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
   ```
 
-2. Puis suivez cette procédure pour [reprendre partiellement les données de reporting](../reporting/concepts.md#comment-reprendre-partiellement-les-données-de-reporting-).
+2. Puis suivez cette procédure pour [reprendre partiellement les données de reporting](../reporting/rebuilding-data.md#reconstruction-partielle--conserver-lhistorique-de-vos-données).
 
 ### MBI ne fonctionne pas si les bases de données ont des noms personnalisés
 

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-quantum-scalar-snmp
 title: Quantum Scalar SNMP
+description: "Supervisez les bibliothèques de bandes Quantum Scalar via SNMP : état du matériel, température, humidité, tension et alimentation."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

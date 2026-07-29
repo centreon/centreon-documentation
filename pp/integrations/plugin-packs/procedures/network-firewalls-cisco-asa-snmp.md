@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-cisco-asa-snmp
 title: Cisco ASA SNMP
+description: "Monitor Cisco ASA firewalls via SNMP: CPU, memory, sensors, sessions, failover, IPSec tunnels, and interface traffic/errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

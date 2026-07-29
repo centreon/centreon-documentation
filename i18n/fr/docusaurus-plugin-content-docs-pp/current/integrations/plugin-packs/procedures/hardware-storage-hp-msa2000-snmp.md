@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-msa2000-snmp
 title: HP MSA2000 SNMP
+description: "Supervisez les baies de stockage HP MSA2000 via SNMP : état des composants matériels et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

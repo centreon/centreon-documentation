@@ -1,7 +1,7 @@
 ---
 id: licenses-faq
 title: FAQ sur les licences
-description: Problèmes courants avec les licences Centreon Cloud - licence invalide ou nombre maximum d'hôtes atteint
+description: "Problèmes courants avec les licences Centreon Cloud - licence invalide ou nombre maximum d'hôtes atteint"
 ---
 
 ## Licence expirée ou limite d'hôtes dépassée?

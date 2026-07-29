@@ -1,6 +1,7 @@
 ---
 id: virtualization-vmware2-vm
 title: VMware VM
+description: "Monitor VMware virtual machines via the VMware SDK: CPU, memory, disk I/O, snapshots, thin provisioning, and VMware Tools status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

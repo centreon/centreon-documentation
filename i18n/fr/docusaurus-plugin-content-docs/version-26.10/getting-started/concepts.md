@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Bases de la supervision
+description: "Introduction aux hôtes, aux services et au fonctionnement de Centreon"
 ---
 
 ## Que supervise Centreon?

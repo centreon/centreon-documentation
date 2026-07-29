@@ -1,6 +1,7 @@
 ---
 id: virtualization-proxmox-ve-restapi
 title: Proxmox VE Rest API
+description: "Monitor Proxmox VE via REST API: node, storage, and VM usage metrics with Centreon's monitoring connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

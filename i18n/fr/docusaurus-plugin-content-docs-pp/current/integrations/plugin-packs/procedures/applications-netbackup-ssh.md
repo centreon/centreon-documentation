@@ -1,6 +1,7 @@
 ---
 id: applications-netbackup-ssh
 title: Symantec Netbackup SSH
+description: "Supervisez Symantec NetBackup via SSH : état de la déduplication, état et nettoyage des lecteurs, statut des jobs de sauvegarde et utilisation des bandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

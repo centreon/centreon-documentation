@@ -1,6 +1,7 @@
 ---
 id: network-cisco-meraki-restapi
 title: Cisco Meraki Rest API
+description: "Supervisez les équipements, réseaux, tunnels VPN et l'utilisation de l'API des environnements Cisco Meraki via l'API REST avec ce connecteur Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-alpha-snmp
 title: Alpha UPS SNMP
+description: "Supervisez les onduleurs Alpha via SNMP : alarmes et état de la batterie (charge, courant, tension, température)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

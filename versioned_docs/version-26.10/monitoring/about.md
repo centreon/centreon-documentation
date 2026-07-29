@@ -1,6 +1,7 @@
 ---
 id: about
 title: Basic principles of monitoring
+description: "Introduction to hosts, services, plugins, and commands in Centreon monitoring"
 ---
 
 Here are a few basic Centreon concepts:

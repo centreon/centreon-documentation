@@ -1,6 +1,7 @@
 ---
 id: applications-controlm-restapi
 title: Control-M Rest API
+description: "Monitor BMC Control-M jobs via the Automation REST API: track succeeded, failed, executing, and waiting job counts and status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

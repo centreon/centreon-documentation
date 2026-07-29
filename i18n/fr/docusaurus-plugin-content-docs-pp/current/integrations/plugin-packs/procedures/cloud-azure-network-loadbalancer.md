@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-loadbalancer
 title: Azure Load Balancer
+description: "Supervisez Azure Load Balancer via l'API Azure ou Azure CLI : disponibilité des datapaths et health probes, statistiques SNAT et débit."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

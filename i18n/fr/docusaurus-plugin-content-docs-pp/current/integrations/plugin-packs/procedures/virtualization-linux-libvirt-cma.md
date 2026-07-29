@@ -1,6 +1,7 @@
 ---
 id: virtualization-linux-libvirt-cma
 title: Linux Libvirt CMA
+description: "Superviser les hyperviseurs et VM Linux libvirt via virsh : CPU, mémoire, E/S disque, réseau et état des pools/volumes de stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

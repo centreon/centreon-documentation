@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-pfsense-snmp
 title: pfSense SNMP
+description: "Supervisez les pare-feu pfSense via SNMP : CPU, mémoire, charge, uptime et statistiques de paquets du pare-feu."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

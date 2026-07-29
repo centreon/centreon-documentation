@@ -1,6 +1,7 @@
 ---
 id: monitor-ups-snmp
 title: Monitor UPS devices with SNMP
+description: "Monitor a UPS device using the SNMP protocol"
 ---
 
 Go to the **Configuration \> Monitoring Connectors** menu and install the **UPS Standard** Monitoring Connector:

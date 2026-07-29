@@ -1,6 +1,7 @@
 ---
 id: infrastructure-active-directory-nsclient-05-restapi
 title: Microsoft Active Directory NSClient++ API
+description: "Monitor Microsoft Active Directory via the NSClient++ REST API: domain controller diagnostics and DFSR replication backlog."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

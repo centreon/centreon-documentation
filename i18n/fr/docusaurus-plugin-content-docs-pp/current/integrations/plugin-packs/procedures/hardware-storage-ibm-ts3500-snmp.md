@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-ts3500-snmp
 title: IBM TS3500 SNMP
+description: "Supervisez les bibliothèques de bandes IBM TS3500 via SNMP : statut matériel du châssis, des lecteurs, du changeur et des alimentations."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

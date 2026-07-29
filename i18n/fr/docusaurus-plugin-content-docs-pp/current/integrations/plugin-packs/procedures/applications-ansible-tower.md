@@ -1,6 +1,7 @@
 ---
 id: applications-ansible-tower
 title: Ansible Tower
+description: "Supervisez Ansible Tower via son API REST ou l'outil tower-cli : hôtes, inventaires, job templates, jobs et tâches planifiées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

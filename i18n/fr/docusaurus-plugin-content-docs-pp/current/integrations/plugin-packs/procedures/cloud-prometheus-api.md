@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-api
 title: Prometheus Server API
+description: "Supervisez un serveur Prometheus via son API REST : statut des cibles (targets) et comptages actifs, abandonnés, up, down et inconnus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

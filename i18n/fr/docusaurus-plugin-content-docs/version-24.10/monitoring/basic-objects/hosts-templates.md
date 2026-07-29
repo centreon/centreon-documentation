@@ -1,6 +1,7 @@
 ---
 id: hosts-templates
 title: Utiliser des modèles d'hôtes
+description: "Utiliser les modèles d'hôtes et l'héritage pour accélérer la configuration des hôtes"
 ---
 
 Un modèle est une pré-configuration de paramètres d’un objet qui pourra être

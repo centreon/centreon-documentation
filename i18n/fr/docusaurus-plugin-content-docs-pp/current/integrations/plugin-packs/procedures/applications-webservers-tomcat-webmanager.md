@@ -1,6 +1,7 @@
 ---
 id: applications-webservers-tomcat-webmanager
 title: Tomcat Webmanager
+description: "Supervisez Apache Tomcat via Tomcat Manager (HTTP/HTTPS) : statut des applications, trafic/threads des connecteurs et mémoire."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

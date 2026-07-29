@@ -1,6 +1,7 @@
 ---
 id: network-netgear-mseries-snmp
 title: Netgear MSeries SNMP
+description: "Monitor Netgear M-Series switches via SNMP: CPU usage, memory usage, hardware status, and network interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

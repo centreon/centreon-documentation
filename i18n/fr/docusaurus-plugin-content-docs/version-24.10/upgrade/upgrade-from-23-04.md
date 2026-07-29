@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-23-04
 title: Montée de version depuis Centreon 23.04
+description: "Passer une plateforme Centreon de la version 23.04 à la 24.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

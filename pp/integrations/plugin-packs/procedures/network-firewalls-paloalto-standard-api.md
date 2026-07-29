@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-paloalto-standard-api
 title: Palo Alto firewall API
+description: "Monitor Palo Alto Networks firewalls via the XML API, covering hardware environment, HA status, IPSec VPN tunnels, licenses, and system health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

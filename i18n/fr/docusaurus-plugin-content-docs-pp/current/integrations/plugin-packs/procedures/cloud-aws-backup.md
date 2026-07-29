@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-backup
 title: Amazon Backup Vault
+description: "Supervisez Amazon Backup Vault via l'API AWS et suivez le statut des jobs de sauvegarde, de copie et de restauration grâce aux métriques CloudWatch."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

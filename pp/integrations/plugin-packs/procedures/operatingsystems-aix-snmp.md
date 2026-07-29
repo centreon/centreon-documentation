@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-aix-snmp
 title: AIX SNMP
+description: "Monitor IBM AIX servers via SNMP: CPU, swap, NTP time sync, disk space, processes, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

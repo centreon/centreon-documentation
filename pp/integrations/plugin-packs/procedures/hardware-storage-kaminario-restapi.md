@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-kaminario-restapi
 title: Kaminario RestAPI
+description: "Monitor Kaminario storage systems via REST API, tracking IOPS, throughput, and latency for system and volume usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

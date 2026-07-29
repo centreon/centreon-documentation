@@ -1,6 +1,7 @@
 ---
 id: poller-display-to-remote-server
 title: Migrate a platform with Poller Display module
+description: "Migrate a platform using the deprecated Poller Display module"
 ---
 
 ## Migrate your Centreon Central server

@@ -56,5 +56,14 @@ Populate the table from the script output:
 | Spelling | 1 | "colour" — use US spelling |
 | Style & terminology | 2 | "Poller" vs "poller" capitalization |
 | Links & anchors | 1 | One 404 external link |
+| **Total** | **7** | Sum of all issues flagged |
 
 State "no issues found" explicitly for any clean criterion.
+
+The final row is a **Total** — the sum of the Issues column across all five
+criteria. Render it with `class="total"` on the `<tr>` so it gets the highlighted
+background from the template:
+
+```html
+<tr class="total"><td>Total</td><td>7</td><td>Sum of all issues flagged</td></tr>
+```

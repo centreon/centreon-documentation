@@ -1,6 +1,7 @@
 ---
 id: map-web-install
 title: Installer MAP
+description: "Installer et configurer le moteur et le client web Centreon MAP"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -913,7 +914,9 @@ Voici ce que vous devez voir en sortie :
   Configuration completed, enjoy !
   ```
 
-Ce script crée le fichier **map-config.properties**.
+Ce script crée le fichier **map-config.properties**. Il accorde également automatiquement à l'utilisateur de la base de données les privilèges requis sur les tables **centreon_map** de la base de données MAP.
+
+> Vous ne devez accorder ces privilèges manuellement que si vos bases de données sont administrées séparément (par exemple par des DBA) et que **configure.sh** ne peut pas les appliquer automatiquement. Dans ce cas, les privilèges suivants sont requis sur les tables **centreon_map** : ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, INDEX, INSERT, LOCK TABLES, SELECT, SHOW DATABASES, UPDATE.
 
 #### URI personnalisée 
 

@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-juniper-mag-snmp
 title: Juniper Mag SNMP
+description: "Supervisez les boîtiers Juniper MAG en SNMP : CPU, mémoire, swap, disque, journal, température, utilisateurs connectés et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

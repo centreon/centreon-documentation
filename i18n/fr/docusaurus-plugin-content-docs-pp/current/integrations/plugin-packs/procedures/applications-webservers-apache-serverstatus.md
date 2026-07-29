@@ -1,6 +1,7 @@
 ---
 id: applications-webservers-apache-serverstatus
 title: Apache Server
+description: "Supervisez les serveurs Apache via la page mod_status : requêtes, temps de réponse, slots de processus et charge CPU."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

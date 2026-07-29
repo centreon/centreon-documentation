@@ -1,6 +1,7 @@
 ---
 id: cloud-gcp-cloudsql-mysql
 title: Google CloudSQL MySQL
+description: "Supervisez Google Cloud SQL pour MySQL via l'API GCP : CPU, InnoDB, réseau, requêtes et stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

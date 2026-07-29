@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Troubleshooting Centreon Cloud
-description: List of links to troubleshooting resources in the Centreon Cloud documentation
+description: "List of links to troubleshooting resources in the Centreon Cloud documentation"
 ---
 
 This page lists the troubleshooting items available in this documentation. Click an item to access more detailed content.

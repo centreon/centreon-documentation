@@ -1,6 +1,7 @@
 ---
 id: network-ruckus-smartzone-snmp
 title: Ruckus Smartzone SNMP
+description: "Monitor Ruckus SmartZone controllers via SNMP: CPU, memory, load, storage, interfaces, and access points."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

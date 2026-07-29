@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-polycom-hdx-snmp
 title: Polycom HDX SNMP
+description: "Supervisez les équipements de visioconférence Polycom HDX en SNMP : CPU, mémoire, charge, uptime, interfaces et statistiques d'appels."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
