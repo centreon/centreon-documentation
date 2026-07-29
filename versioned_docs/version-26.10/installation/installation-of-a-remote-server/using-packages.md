@@ -521,10 +521,12 @@ To transform the server into a Remote Server and to register it to the Central s
 -t remote -h <IP_TARGET_NODE> -n<REMOTE_SERVER_NAME>
 ```
 
-Example:
+If you are using a [custom URI](../../administration/secure-platform.md#custom-uri), add it at the end of the command with this format : **/custom_uri**.
+
+Example (with a custom URI):
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
+/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1 /monitoring
 ```
 
 > Replace **\<IP_TARGET_NODE\>** with the IP of the central server, as seen by the remote server.
