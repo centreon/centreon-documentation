@@ -245,7 +245,7 @@ redémarrez-le avec la commande suivante depuis le **serveur Central** :
 
 ## Étape 3 : Exporter la configuration
 
-1. Depuis la liste des collecteurs, sélectionnez le serveur distant et cliquez sur
+1. Retournez au menu **Configuration > Collecteurs > Collecteurs**, sélectionnez le serveur distant et cliquez sur
 **Exporter la configuration**.
 
 2. Cochez ensuite les trois premières cases et cliquez sur  **Exporter** :

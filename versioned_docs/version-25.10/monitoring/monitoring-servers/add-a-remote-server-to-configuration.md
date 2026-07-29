@@ -241,7 +241,7 @@ it with the following command from the **Central server**:
 
 ## Step 3: Export the configuration
 
-1. From the poller list, select the remote server and click **Export
+1. Return to the **Configuration > Pollers > Pollers** menu, select the remote server and click **Export
 configuration**.
 
 2. Then check the first three boxes and click **Export**:
