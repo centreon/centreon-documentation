@@ -303,7 +303,7 @@ option (e.g. `--ssl='tlsv1'`). Refer to the manufacturer or software publisher d
 
 This command result means that Amazon Cloudwatch does not have any value for the requested period.
 
-This result can be overriden by adding the --zeroed option to the command. 
+This result can be overridden by adding the --zeroed option to the command. 
 This will force a value of 0 when no metric has been collected and will prevent the UNKNOWN error message.
 
 ### `UNKNOWN: Command error: - An error occurred (AuthFailure) [...] `
