@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-cisco-asa-snmp
 title: Cisco ASA SNMP
+description: "Supervisez les pare-feu Cisco ASA en SNMP : CPU, mémoire, sondes, sessions, failover, tunnels IPSec et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

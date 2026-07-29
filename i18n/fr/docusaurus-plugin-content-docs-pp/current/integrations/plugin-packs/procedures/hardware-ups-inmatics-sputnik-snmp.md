@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-inmatics-sputnik-snmp
 title: Inmatics PSU Sputnik SNMP
+description: "Supervisez les onduleurs Inmatics PSU Sputnik via SNMP : alarmes, état de la batterie, environnement, lignes d'entrée/sortie et source d'alimentation."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

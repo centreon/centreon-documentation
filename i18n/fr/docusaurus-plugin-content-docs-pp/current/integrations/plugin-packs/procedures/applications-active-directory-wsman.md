@@ -1,6 +1,7 @@
 ---
 id: applications-active-directory-wsman
 title: Microsoft Active Directory WSMAN
+description: "Supervisez les contrôleurs de domaine Active Directory via WSMAN grâce au diagnostic dcdiag, pour suivre leur état de santé."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

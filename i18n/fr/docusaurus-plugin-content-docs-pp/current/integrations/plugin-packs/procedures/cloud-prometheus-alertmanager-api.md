@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-alertmanager-api
 title: Prometheus Alertmanager API
+description: "Supervisez Prometheus Alertmanager via son API REST : suivez les alertes actives, supprimées et non traitées par sévérité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

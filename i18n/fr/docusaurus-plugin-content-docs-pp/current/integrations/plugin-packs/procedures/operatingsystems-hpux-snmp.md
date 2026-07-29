@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-hpux-snmp
 title: HP-UX SNMP
+description: "Supervisez vos serveurs HP-UX via SNMP : CPU, charge, mémoire et swap, espace disque, uptime et processus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

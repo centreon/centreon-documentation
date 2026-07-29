@@ -1,6 +1,7 @@
 ---
 id: network-barracuda-bma-snmp
 title: Barracuda Message Archiver SNMP
+description: "Monitor Barracuda Message Archiver via SNMP: CPU load, mail activity, and storage usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-zyxel-snmp
 title: Zyxel SNMP
+description: "Monitor Zyxel network devices via SNMP: CPU, memory, sessions, interface traffic, and VPN tunnel status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

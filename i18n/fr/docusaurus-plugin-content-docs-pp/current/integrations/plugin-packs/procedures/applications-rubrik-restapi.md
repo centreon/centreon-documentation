@@ -1,6 +1,7 @@
 ---
 id: applications-rubrik-restapi
 title: Rubrik Rest API
+description: "Supervisez les clusters Rubrik via l'API REST : état du cluster, nœuds, disques, stockage, conformité des sauvegardes, jobs et tâches."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

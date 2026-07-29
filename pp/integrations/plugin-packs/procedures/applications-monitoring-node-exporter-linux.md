@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-node-exporter-linux
 title: Node Exporter Linux Metrics
+description: "Monitor Linux servers via Prometheus Node Exporter: track CPU, load, memory, storage, and network traffic metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

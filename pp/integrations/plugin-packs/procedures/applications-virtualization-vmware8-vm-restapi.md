@@ -1,6 +1,7 @@
 ---
 id: applications-virtualization-vmware8-vm-restapi
 title: VMware8 VM REST API
+description: "Monitor VMware vSphere 8 virtual machines via REST API: CPU, memory, disk I/O, network throughput, power, and VMware Tools status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

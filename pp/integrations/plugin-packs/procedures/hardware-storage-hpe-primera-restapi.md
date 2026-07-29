@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hpe-primera-restapi
 title: HPE Primera REST API
+description: "Monitor HPE Primera storage arrays via REST API: disk status and usage, volume usage, storage capacity, licenses, and node states."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

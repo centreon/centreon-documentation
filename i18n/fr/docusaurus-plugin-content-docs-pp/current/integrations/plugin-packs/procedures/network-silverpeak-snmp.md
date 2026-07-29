@@ -1,6 +1,7 @@
 ---
 id: network-silverpeak-snmp
 title: Silverpeak SNMP
+description: "Supervisez les appliances SD-WAN Silverpeak en SNMP : alarmes, statut opérationnel, disponibilité et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

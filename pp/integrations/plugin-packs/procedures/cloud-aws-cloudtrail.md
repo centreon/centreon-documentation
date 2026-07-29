@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-cloudtrail
 title: AWS CloudTrail
+description: "Monitor AWS CloudTrail via the AWS API: check trail logging status and count CloudTrail events."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-viptela-snmp
 title: Viptela SNMP
+description: "Supervisez les équipements SD-WAN Viptela via SNMP : CPU, mémoire, disque, matériel, disponibilité, tunnels GRE et interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

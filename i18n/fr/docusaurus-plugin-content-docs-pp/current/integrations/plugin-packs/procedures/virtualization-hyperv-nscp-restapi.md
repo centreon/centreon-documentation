@@ -1,6 +1,7 @@
 ---
 id: virtualization-hyperv-nscp-restapi
 title: Hyper-V NSCP Rest API
+description: "Supervisez les hôtes Hyper-V et les machines virtuelles SCVMM via l'API REST NSClient++ : statut des VM, réplication, snapshots et services d'intégration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-nrpe
 title: Veeam NRPE
+description: "Monitor Veeam Backup & Replication via NRPE: job status, licenses, repositories, tape jobs, and SureBackup jobs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

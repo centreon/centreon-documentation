@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hpe-primera-restapi
 title: HPE Primera REST API
+description: "Supervisez les baies de stockage HPE Primera via API REST : état et usage des disques, usage des volumes, capacité de stockage, licences et état des nœuds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-ds4000-smcli
 title: IBM DS4000 SMcli
+description: "Monitor IBM DS4000 storage arrays via the SMcli CLI to check overall storage health status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

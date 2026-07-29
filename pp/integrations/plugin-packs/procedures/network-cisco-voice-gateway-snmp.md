@@ -1,6 +1,7 @@
 ---
 id: network-cisco-voice-gateway-snmp
 title: Cisco Voice Gateway SNMP
+description: "Monitor Cisco Voice Gateway devices via SNMP: ISDN channel usage, interface traffic, and voice call statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

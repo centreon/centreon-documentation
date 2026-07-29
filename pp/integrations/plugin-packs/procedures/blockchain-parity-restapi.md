@@ -1,6 +1,7 @@
 ---
 id: blockchain-parity-restapi
 title: Parity API
+description: "Monitor Parity Ethereum nodes via REST API: Eth block metrics, gas usage, sync status, node info, and peer count."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

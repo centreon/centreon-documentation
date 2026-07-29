@@ -1,6 +1,7 @@
 ---
 id: applications-ibm-tsamp-ssh
 title: IBM TSAMP SSH
+description: "Monitor IBM TSAMP resource groups via SSH, tracking operational status and configuring alert thresholds in Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
