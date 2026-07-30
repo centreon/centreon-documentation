@@ -27,7 +27,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 Eliminez les paquets debuginfo avant de poursuivre à moins d'en avoir un besoin spécifique.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
   ```shell
@@ -56,7 +56,7 @@ Eliminez les paquets debuginfo avant de poursuivre à moins d'en avoir un besoin
 
 Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="EL" label="EL">
 
 * EPEL
@@ -82,7 +82,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
 Assurez-vous que tous les utilisateurs sont déconnectés avant de commencer la procédure de mise à jour.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Videz le cache :
@@ -133,7 +133,7 @@ Mettez à jour l'ensemble des composants :
 
 Vous devez maintenant finaliser la mise à jour :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Avec l'assistant d'interface" label="Avec l'assistant d'interface">
 
 1. Connectez-vous à l'interface web Centreon pour démarrer le processus de
@@ -242,7 +242,7 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 
 ## Mise à jour des collecteurs
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Videz le cache :
@@ -305,7 +305,7 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
 
 5. Exécutez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Rien à faire pour cet OS.

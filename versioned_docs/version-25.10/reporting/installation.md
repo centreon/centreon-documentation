@@ -147,7 +147,7 @@ considerations.
 
 #### Hardware layer
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 | Element                     | Value     |
@@ -289,7 +289,7 @@ If you are using MySQL:
 
 1. Perform the following action:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 In the `/etc/my.cnf.d/mysql-server.cnf` file, add: 
@@ -429,7 +429,7 @@ menu, *Reports > Monitoring Business Intelligence > General Options*:
 
 Download the license sent by the Centreon team to start configuring the general options.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Monitoring database on the central server" label="Monitoring database on the central server">
 
 <Tabs groupId="db" queryString>

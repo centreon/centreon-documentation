@@ -43,7 +43,7 @@ Attendez que le service Centreon MAP ait fini de démarrer (~30 secondes à une 
 
 Vérifiez que votre serveur est opérationnel et accessible sur le nouveau port que vous avez défini, en entrant l'URL suivante dans votre navigateur web :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```shell

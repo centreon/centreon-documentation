@@ -40,7 +40,7 @@ You will find the new "Business" repository on the "Repositories" page in your [
 
 1. Update the package, run the following commands:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -110,7 +110,7 @@ Now you can start the upgrade process:
 
 2. Then run the following commands:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

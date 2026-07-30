@@ -66,7 +66,7 @@ PRIMARY KEY (timestamp, host, service, metric_name, metric_id)
 
 Faites l'installation sur le serveur qui enverra les données à Clickhouse (serveur central, serveur distant, collecteur).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Connectez-vous en tant que `root` en utilisant votre client SSH préféré.

@@ -51,7 +51,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 
 #### Matériel
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
 | Élément                     | Valeur    |
@@ -178,7 +178,7 @@ Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Cen
 
 ### Désactiver SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier

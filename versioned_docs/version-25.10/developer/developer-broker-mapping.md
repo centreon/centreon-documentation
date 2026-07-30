@@ -1936,7 +1936,7 @@ message DimensionTruncateTableSignal {
 This event is sent when a rebuild of event durations and availabilities
 is received by the BAM broker endpoint.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::Rebuild

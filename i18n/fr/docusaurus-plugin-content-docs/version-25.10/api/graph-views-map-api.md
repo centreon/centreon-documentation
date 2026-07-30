@@ -24,7 +24,7 @@ Avec cette API, vous pouvez créer / mettre à jour / supprimer des cartes stand
 
 ### S'authentifier
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```
@@ -66,7 +66,7 @@ Headers {
 
 ### Créer une carte
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```
@@ -100,7 +100,7 @@ Body {
 
 ### Ouvrir la carte
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```
@@ -122,7 +122,7 @@ GET https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views/_viewId_
 
 Dans ce scénario, l'élément "shape" est un rectangle.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```

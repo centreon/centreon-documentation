@@ -71,7 +71,7 @@ Assurez-vous d'avoir un [OS supporté](../installation/compatibility.md#système
 
 Installez le démon Gorgone en utilisant les commandes suivantes :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 

@@ -17,7 +17,7 @@ soit pris en compte par l'ordonnanceur.
 
 ### En pratique
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Depuis la page Statut des ressources" label="Depuis la page Statut des ressources">
 
 1. Allez à la page **Supervision > Statut des ressources**.

@@ -53,7 +53,7 @@ See the [software requirements](../installation/prerequisites.md#characteristics
 
 #### Hardware
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 | Element                     | Value     |

@@ -43,7 +43,7 @@ Vous pouvez maintenant exporter votre configuration, et votre serveur Centreon M
 
 Vous pouvez également vérifier l'URL suivante, qui indique si le serveur est opérationnel ou non :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```shell

@@ -37,7 +37,7 @@ Packs. It is installed by default. We recommend that you keep this module regula
 
 To update this module, run the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -95,7 +95,7 @@ Installing a Monitoring Connector is a 4-step process:
     - install the Monitoring Connectors repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
     - install or update the Monitoring Connectors catalog from your Centreon Central server:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -174,7 +174,7 @@ The monitoring procedure contains an **Installation** section that explains how 
 
 The installation command looks like this:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -201,7 +201,7 @@ apt install centreon-plugin-$PLUGIN-PACK$
 Where ``$PLUGIN-PACK$`` is the name of the pack. Example:
 
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -276,7 +276,7 @@ If **Automatic installation of plugins** is set to **OFF**, use the following co
 
 1. Execute the following command on all pollers:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

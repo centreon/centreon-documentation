@@ -40,7 +40,7 @@ When you upgrade from one major version of Centreon to another, you must:
 
 To find out which version of MariaDB is installed on your machine, enter the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -110,7 +110,7 @@ You must uninstall then reinstall MariaDB to upgrade between major versions (for
 
 2. Uninstall the current version:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
@@ -171,7 +171,7 @@ dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-co
 
 3. Install version 10.11:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
@@ -293,7 +293,7 @@ Follow these steps to upgrade between minor versions of MariaDB (for example, to
 
 1. Update MariaDB:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

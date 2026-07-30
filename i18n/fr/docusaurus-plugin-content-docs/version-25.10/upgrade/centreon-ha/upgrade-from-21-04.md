@@ -55,7 +55,7 @@ Pour effectuer la mise à niveau, veuillez [suivre la documentation officielle](
 
 Ensuite, exécutez les commandes suivantes uniquement sur les serveurs centraux :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```shell
@@ -161,7 +161,7 @@ Ce fichier sera nécessaire pour recréer toutes les ressources de votre cluster
 
 Ces commandes ne doivent être exécutées que sur le nœud central actif :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```bash
@@ -288,7 +288,7 @@ A exécuter **seulement sur un noeud central** :
 > Vous pouvez trouver @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
 La variable @MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -312,9 +312,9 @@ pcs resource create "ms_mysql" \
 
 > **Attention:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -329,7 +329,7 @@ pcs resource promotable ms_mysql \
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -394,9 +394,9 @@ bash centreon_pcs_command.sh
 
 #### Recréer les contraintes
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -411,7 +411,7 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 
 Afin de coller le rôle de la base de données primaire avec l'IP virtuelle, définissez une contrainte mutuelle :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -424,7 +424,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 
 Recréez ensuite la contrainte qui empêche les processus Centreon de s'exécuter sur les nœuds de base de données et vice-versa :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -453,7 +453,7 @@ pcs resource cleanup
 Vous pouvez surveiller les ressources du cluster en temps réel à l'aide de la commande `crm_mon -fr` :
 > **INFO:** L'option `-fr` vous permet d'afficher toutes les ressources même si elles sont désactivées.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```text

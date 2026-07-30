@@ -62,7 +62,7 @@ systemctl enable snmpd
 
 Connectez-vous à votre collecteur en SSH et installez le plugin SNMP Linux (voir la [procédure de surveillance pour le connecteur de supervision **Linux SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) pour plus d'informations) :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

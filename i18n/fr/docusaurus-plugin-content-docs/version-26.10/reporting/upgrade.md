@@ -41,7 +41,7 @@ Vous trouverez ce dépôt depuis votre compte sur notre [platefome de support, �
 
 1. Mettre à jour le paquet: se connecter sur le serveur Centreon et exécuter la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -110,7 +110,7 @@ Vous pouvez maintenant procéder à la montée de version :
 
 2. Puis mettez à jour les paquets, en exécutant la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

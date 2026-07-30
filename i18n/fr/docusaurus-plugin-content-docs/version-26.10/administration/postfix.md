@@ -21,7 +21,7 @@ Nous vous recommandons d'utiliser un compte mail dédié à l'envoi des notifica
 
 1. Dans le terminal de votre serveur, entrez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma 8" label="Alma 8">
 
 ``` shell
@@ -79,7 +79,7 @@ apt install postfix bsd-mailx libsasl2-modules
 
 4. Ajoutez les informations suivantes :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Avec authentification/TLS" label="With authentification/TLS">
 
     ```shell
@@ -175,7 +175,7 @@ apt install postfix bsd-mailx libsasl2-modules
 
 - Si le destinataire n'a pas reçu l'email, vérifiez le fichier de log suivant (s'il existe) :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
     ```shell

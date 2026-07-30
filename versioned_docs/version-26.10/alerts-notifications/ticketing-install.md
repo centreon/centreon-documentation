@@ -23,7 +23,7 @@ tickets by giving the ID and creation date of the tickets.
 
 Execute the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

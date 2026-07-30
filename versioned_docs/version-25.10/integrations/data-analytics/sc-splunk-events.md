@@ -25,7 +25,7 @@ Perform the installation on the server that will send data to Splunk (central se
 
 2. Run the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

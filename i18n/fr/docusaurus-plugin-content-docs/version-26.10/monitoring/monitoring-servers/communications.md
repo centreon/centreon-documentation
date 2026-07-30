@@ -25,7 +25,7 @@ Les modes de communication sont listés ci-après :
 
 ### Sans Remote Server
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Moderne (recommandé)" label="Moderne (recommandé)">
 
 | Communications                         | Actions autorisées                                                                |
@@ -48,7 +48,7 @@ exporter la configuration.
 
 ### Avec Remote Server
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Moderne (recommandé)" label="Moderne (recommandé)">
 
 | Communications                                                    | Actions autorisées                                                                |
@@ -89,7 +89,7 @@ exporter la configuration.
 
 ## Changer la communication de SSH à ZMQ
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Pour un Poller" label="Pour un Poller">
 
 #### Sélectionner le type de communication

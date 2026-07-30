@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 1. To install packages, execute the following command on the Central server:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

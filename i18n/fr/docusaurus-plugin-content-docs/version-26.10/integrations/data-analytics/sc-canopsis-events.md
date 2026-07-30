@@ -38,7 +38,7 @@ serveur distant, collecteur).
 client SSH préféré. 
 2. Exécutez la commande adaptée à votre système :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

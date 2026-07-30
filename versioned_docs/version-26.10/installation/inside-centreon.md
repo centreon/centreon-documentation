@@ -10,7 +10,7 @@ Here are the bricks that make Centreon work. To find out on which port each bric
 
 ## Schema of a central server
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Central server with poller" label="Central server with poller">
 
 In this example, we have a central server (without any Business modules installed), and a poller that is directly attached to it.

@@ -10,7 +10,7 @@ Voici une présentation des briques qui font marcher Centreon. Pour savoir sur q
 
 ## Schéma d'un serveur central
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Serveur central avec collecteur" label="Serveur central avec collecteur">
 
 Dans cet exemple, nous avons un serveur central (sans modules Business installés), et un collecteur qui lui est directement rattaché.

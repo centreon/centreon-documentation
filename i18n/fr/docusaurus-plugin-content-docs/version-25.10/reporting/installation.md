@@ -153,7 +153,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 
 #### Couche Matériel
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
 | Élément                     | Valeur     |
@@ -297,7 +297,7 @@ Si vous utilisez MySQL :
 
 1. Effectuez l'action suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
@@ -437,7 +437,7 @@ MBI, menu **Rapports > Monitoring Business Intelligence > Paramètres globaux** 
 
 Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
 
 <Tabs groupId="db" queryString>

@@ -62,7 +62,7 @@ Maintenant, pour effectuer la montée de version:
 
 > Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, [suivez la documentation officielle](../../upgrade/upgrade-from-23-04.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse. Ensuite, sautez à l'étape "Mettre à jour MariaDB"**. Ne procédez pas aux étapes "Finalisation de la mise à jour" et "Actions post montée de version".
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 Uniquement sur les serveurs deux nœuds centraux, restaurer le fichier `/etc/centreon-ha/centreon_central_sync.pm`.
@@ -93,7 +93,7 @@ rm -f /etc/cron.d/centreon-ha-mysql
 
 puis redémarrer le service cron:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 ```bash
@@ -173,9 +173,9 @@ rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 #### Recréer les contraintes
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 Commencez par extraire tous les identifiants des contraintes:
@@ -226,7 +226,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 Extraire d'abord tous les identifiants de contraintes:
@@ -289,7 +289,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 
 Recréez ensuite la contrainte qui empêche les processus Centreon de s'exécuter sur les nœuds de la base de données et vice-et-versa.:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 ```bash
@@ -318,7 +318,7 @@ pcs resource cleanup
 Vous pouvez surveiller les ressources du cluster en temps réel en utilisant la commande `crm_mon -fr` :
 > **INFO:** L'option `-fr` vous permet d'afficher toutes les resources même si elles sont disable.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```text

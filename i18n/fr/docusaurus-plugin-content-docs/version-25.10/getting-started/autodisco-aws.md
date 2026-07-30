@@ -27,7 +27,7 @@ Vous devez disposer :
     - Si vous avez une licence en ligne, les connecteurs de supervision sont déjà disponibles dans l'interface.
     - Si vous avez une licence hors ligne, dans le terminal de votre serveur central, entrez :
      
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

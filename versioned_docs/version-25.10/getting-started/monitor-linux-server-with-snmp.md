@@ -70,7 +70,7 @@ systemctl enable snmpd
 
 Connect to your poller using SSH and install the Linux SNMP plugin (see the [monitoring procedure for the **Linux SNMP** Monitoring Connector](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp) for more information):
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

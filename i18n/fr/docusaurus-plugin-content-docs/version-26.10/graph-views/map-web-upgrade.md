@@ -26,7 +26,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
   
 2. Pour mettre à jour le module Centreon MAP, exécutez les commandes suivantes :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
  - Sur le serveur central :

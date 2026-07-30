@@ -26,7 +26,7 @@ The host machine must have the following characteristics:
 
 2. Depending on the type of license you want to use, go to either of the following pages:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Download page (all types of license)" label="Download page (all types of license)">
 
 1. Go to the [Centreon download page](https://download.centreon.com). In section 1, **Appliances** is already selected.
@@ -57,7 +57,7 @@ The host machine must have the following characteristics:
 
 ## Step 2: Installing the virtual machine
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="VMware" label="VMware">
 
 1. Import the **centreon-central.ova** file into VMWare. A terminal window opens; wait for the server to start. When it is ready, the terminal shows the following message:
@@ -110,7 +110,7 @@ The host machine must have the following characteristics:
 
 4. The first time you connect to the server, instructions are displayed to help you complete the configuration.
    
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma 8 and 9" label="Alma 8 and 9">
    
 Change the following settings:

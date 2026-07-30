@@ -1368,7 +1368,7 @@ This message and its principle are only available in BBDO v2.
 With BBDO v3, we take advantage of the power of Protobuf. To rebuild graphs,
 we use the event [Storage::PbRebuildMessage](#storagepbrebuildmessage).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::Rebuild
@@ -1404,7 +1404,7 @@ This message and its principle are only available in BBDO v2.
 With BBDO v3, we take advantage of the power of Protobuf. To remove graphs,
 we use the event [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::RemoveGraph
@@ -1591,7 +1591,7 @@ This is the negotiation message used until BBDO v3.0.0. Each time a BBDO
 connection is established, this message is sent by the connector and by the
 acceptor to negotiate options.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BBDO::VersionResponse
@@ -1756,7 +1756,7 @@ This event was designed to send meta service's status changes.
 At the moment meta services are not managed by Centreon Broker, so this
 event is not used.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::MetaServiceStatus
@@ -2044,7 +2044,7 @@ message DimensionTruncateTableSignal {
 This event is sent when a rebuild of event durations and availabilities
 is received by the BAM broker endpoint.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::Rebuild

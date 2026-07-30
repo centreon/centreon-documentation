@@ -16,7 +16,7 @@ Un index template adapté est créé automatiquement par le stream connector afi
 
 Faites l'installation en tant que `root` sur le serveur qui enverra les données vers Elasticsearch (serveur central, serveur distant, collecteur).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

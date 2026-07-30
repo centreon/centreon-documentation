@@ -67,7 +67,7 @@ Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4.
 
 1. Exécutez la commande suivante :
 
-  <Tabs groupId="sync">
+  <Tabs groupId="sync" queryString>
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
   
   ```shell
@@ -96,7 +96,7 @@ Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4.
 
 2. En sortie, **Repository** doit afficher **centreon-stable-noarch**. Si ce n'est pas le cas, vous n'avez pas installé les bons paquets. Procédez donc comme suit :
 
-  <Tabs groupId="sync">
+  <Tabs groupId="sync" queryString>
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
   
   ```shell
