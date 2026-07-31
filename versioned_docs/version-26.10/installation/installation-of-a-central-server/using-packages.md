@@ -49,7 +49,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
 dnf update
@@ -89,36 +89,6 @@ apt update && apt upgrade
 ### Disable SELinux
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** with **disabled**. You can also run the following command:
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Reboot your operating system to apply the change.
-
-```shell
-reboot
-```
-
-After system startup, perform a quick check of the SELinux status:
-
-```shell
-getenforce
-```
-
-You should have this result:
-
-```shell
-Disabled
-```
-
-> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
@@ -169,75 +139,6 @@ systemctl disable firewalld
 ### Install the repositories
 
 <Tabs groupId="sync">
-
-<TabItem value="Alma 8" label="Alma 8">
-
-Run the following commands:
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf config-manager --set-enabled 'powertools'
-```
-
-Enable PHP 8.2 using the following commands:
-
-```shell
-dnf module reset php
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="RHEL 8" label="RHEL 8">
-
-#### CodeReady Builder repository
-
-To install Centreon you will need to install the **CodeReady Builder** repository.
-
-Run the following commands:
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-If your server is a Cloud RHEL instance, you will have to execute the following command:
-
-```shell
-dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
-```
-
-Enable PHP 8.2 using the following commands:
-
-```shell
-dnf module reset php
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
-#### CodeReady Builder repository
-
-To install Centreon you will need to install the **CodeReady Builder** repository.
-
-Run the following commands:
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf config-manager --set-enabled ol8_codeready_builder
-```
-
-Enable PHP 8.2 using the following commands:
-
-```shell
-dnf module reset php
-dnf module install php:8.2
-```
-
-</TabItem>
 <TabItem value="Alma 9" label="Alma 9">
 
 To install Centreon you will need to install the **CodeReady Builder** repository.
@@ -328,15 +229,6 @@ To install Centreon software, you should first install the Centreon repository.
 Install the Centreon repository using this command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
