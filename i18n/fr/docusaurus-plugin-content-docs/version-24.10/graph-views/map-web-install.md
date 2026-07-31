@@ -979,7 +979,7 @@ Vérifiez la configuration du serveur MAP Engine avec cette commande :
 /etc/centreon-map/diagnostic.sh
 ```
 
-> En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépannage de MAP](map-web-troubleshooting.md#exécuter-notre-outil-de-diagnostic).
+> En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépanner MAP](map-web-troubleshooting.md#exécuter-notre-outil-de-diagnostic).
 
 Si la configuration est correcte, le service **centreon-map-engine** peut être lancé à partir du serveur Centreon MAP (Legacy) :
 
