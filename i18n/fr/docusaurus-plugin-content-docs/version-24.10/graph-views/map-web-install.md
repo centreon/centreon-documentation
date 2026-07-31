@@ -14,28 +14,7 @@ Cette page décrit comment installer Centreon MAP. Il est recommandé d'installe
 
 Si vous avez besoin d'une [licence](../administration/licenses.md) supplémentaire pour Centreon MAP, veuillez contacter l'[équipe support de Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
-## Architecture
-
-Le schéma ci-dessous décrit l'architecture de MAP.
-
-- Vous pouvez installer Centreon MAP soit sur un serveur dédié, soit sur le serveur central.
-- Centreon MAP ne nécessite aucune installation sur votre machine : cette solution est entièrement disponible dans l'interface web Centreon.
-
-![image](../assets/graph-views/ng/map-web-schema.png)
-
-### Tableau des flux du réseau
-
-
-| Application    | Source     | Destination               | Port      | Protocole  | Objet                                                       |
-|----------------|------------|---------------------------|-----------|------------|------------------------------------------------------------ |
-| MAP Server     | MAP server | Centreon central broker   | 5758      | TCP        | Obtenez des mises à jour du statut en temps réel            |
-| MAP Server     | MAP server | Centreon MariaDB database | 3306      | TCP        | Récupérer la configuration et d'autres données de Centreon  |
-| MAP Server     | MAP server | MAP server database       | 3306      | TCP        | Stocker toutes les vues et données relatives à Centreon MAP |
-| Web            | MAP server | Centreon central          | 80/443    | HTTP/HTTPS | Authentification et récupération des données                |
-| Web interface  | User       | MAP server                | 8081/9443 | HTTP/HTTPS | Récupérer les vues et le contenu                            |
-| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Récupérer les données Mapbox                                |
-
-\**Avec ou sans proxy*
+Pour plus d'informations sur l'architecture de MAP, consultez la page [Architecture de MAP](map-architecture.md).
 
 ## Prérequis
 

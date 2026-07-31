@@ -18,11 +18,7 @@ Then refer to the [installation procedure](map-web-install.md) to install the tw
 After that, you will have to perform the additional steps explained below, to finish
 installing Centreon Map on your remote server.
 
-## Architecture
-
-The diagram below summarizes the MAP architecture:
-
-![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
+For more information about the MAP architecture in a remote server setup, see the [MAP architecture](map-architecture.md) topic.
 
 ## Centreon Broker configuration
 
