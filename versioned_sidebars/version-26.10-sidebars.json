@@ -758,7 +758,7 @@
             },
             {
               "type": "category",
-              "label": "Setup and Administration",
+              "label": "Setting up MAP",
               "link": {
                 "type": "generated-index"
               },
@@ -777,31 +777,11 @@
                 },
                 {
                   "type": "doc",
-                  "id": "graph-views/map-web-update"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-upgrade"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-access"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-backup-restore"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/map-web-monitoring"
-                },
-                {
-                  "type": "doc",
                   "id": "graph-views/map-web-change-port"
                 },
                 {
                   "type": "doc",
-                  "id": "graph-views/map-web-advanced"
+                  "id": "graph-views/map-web-access"
                 }
               ]
             },
@@ -836,15 +816,44 @@
             },
             {
               "type": "category",
-              "label": "Maintenance & Migration",
+              "label": "Administrating MAP",
               "link": {
                 "type": "generated-index"
               },
               "items": [
                 {
                   "type": "doc",
+                  "id": "graph-views/map-web-update"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-upgrade"
+                },
+                {
+                  "type": "doc",
                   "id": "graph-views/map-web-migrate"
                 },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-backup-restore"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-monitoring"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-advanced"
+                }
+              ]
+            },
+            {
+              "type": "category",
+              "label": "Fixing MAP issues",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
                 {
                   "type": "doc",
                   "id": "graph-views/map-web-known-issues"

@@ -271,17 +271,21 @@
     "message": "Introduction",
     "description": "The label for category Overview in sidebar docs"
   },
-  "sidebar.docs.category.Setup and Administration": {
-    "message": "Installation et administration",
-    "description": "The label for category Setup and Administration in sidebar docs"
+  "sidebar.docs.category.Setting up MAP": {
+    "message": "Mettre en place MAP",
+    "description": "The label for category Setting up MAP in sidebar docs"
   },
   "sidebar.docs.category.Using MAP": {
     "message": "Utiliser MAP",
     "description": "The label for category Using MAP in sidebar docs"
   },
-  "sidebar.docs.category.Maintenance & Migration": {
-    "message": "Maintenance et migration",
-    "description": "The label for category Maintenance & Migration in sidebar docs"
+  "sidebar.docs.category.Administrating MAP": {
+    "message": "Administrer MAP",
+    "description": "The label for category Administrating MAP in sidebar docs"
+  },
+  "sidebar.docs.category.Fixing MAP issues": {
+    "message": "Résoudre les problèmes MAP",
+    "description": "The label for category Fixing MAP issues in sidebar docs"
   },
   "sidebar.docs.category.Installing Centreon HA": {
     "message": "Installer Centreon HA",
