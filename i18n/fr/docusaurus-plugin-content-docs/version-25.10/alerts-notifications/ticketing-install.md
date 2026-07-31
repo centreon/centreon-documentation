@@ -24,7 +24,7 @@ création de ceux-ci.
 
 Exécutez la commande suivante :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

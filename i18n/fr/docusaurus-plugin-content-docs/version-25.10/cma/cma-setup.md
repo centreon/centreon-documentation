@@ -16,7 +16,7 @@ Cette étape s'effectue via l'interface du serveur central. (Il est également p
 Sur votre serveur central, installez le connecteur de supervision qui fournira les modèles et les commandes qui vous permettront de configurer les hôtes et les services supervisés dans Centreon.
 Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
@@ -104,7 +104,7 @@ Cette section s'applique :
 * si le collecteur établit la connexion avec l'agent
 * si l'agent établit la connexion avec le collecteur, mais que l'option **Créer les hôtes automatiquement** n'est pas sélectionnée.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 Sur le serveur central, [créez l'hôte](../monitoring/basic-objects/hosts.md) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
@@ -232,14 +232,14 @@ Cette étape s'effectue sur l'hôte supervisé.
 
 ### Téléchargez et installez l'agent
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 #### Installer le dépôt Centreon et l'agent
 
 Installez le dépôt Centreon puis l'agent à l'aide des commandes suivantes :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -531,7 +531,7 @@ Si vous utilisez des connecteurs Centreon et des contrôles non natifs sous Linu
 
 Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendances qui ne peuvent pas être satisfaites par les dépôts standard des distributions**.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -807,7 +807,7 @@ Chaque instance possède sa propre configuration, et l'exécute de manière ind�
 
 #### Configuration
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 La configuration de chaque instance est présente dans un fichier json dédié, sur l'hôte.
@@ -833,7 +833,7 @@ Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
 
 > Faire fonctionner plusieurs instances configurées avec le même couple \<endpoint ; host\> causera des doublons de métriques dans la base de données, pour cet hôte. Il est obligatoire de modifier les valeurs de endpoint et/ou host lors du déploiement d'une nouvelle instance.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. Faites une copie du fichier de configuration créé au premier déploiement de CMA.
@@ -910,7 +910,7 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COM
 
 #### Modifier une instance nommée
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. Réalisez les modifications souhaitées dans le fichier json correspondant à l'instance.
@@ -952,7 +952,7 @@ Voir [**Désinstaller l'agent**](#désinstaller-lagent).
 
 ### Mettre à jour une configuration existante
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. Modifiez le fichier **/etc/centreon-monitoring-agent/centagent.json**.
@@ -978,12 +978,12 @@ centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
 
 ### Mettre à jour l'agent
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 Mettez à jour l'agent à l'aide de votre gestionnaire de paquets.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -1061,7 +1061,7 @@ Cette commande met à jour les binaires et la configuration de l'instance spéci
 
 ### Désinstaller l'agent
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 * Pour désinstaller une instance, exécutez les commandes suivantes en adaptant le nom du service et du fichier de configuration : 

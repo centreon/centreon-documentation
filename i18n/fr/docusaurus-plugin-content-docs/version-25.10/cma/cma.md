@@ -30,7 +30,7 @@ Utilisez l'agent CMA :
 
 L'agent peut être installé sur et superviser les OS suivants :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 * RHEL/Oracle Linux/Alma Linux 8

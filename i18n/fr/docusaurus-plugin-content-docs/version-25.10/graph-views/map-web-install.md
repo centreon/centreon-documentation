@@ -157,7 +157,7 @@ Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Cen
 
 ### Désactiver SELinux
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier

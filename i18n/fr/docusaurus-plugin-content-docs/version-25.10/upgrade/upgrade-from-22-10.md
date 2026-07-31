@@ -44,7 +44,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="EL" label="EL">
 
 * EPEL
@@ -80,7 +80,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
 ### Installation du nouveau dépôt Centreon
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Mettez à jour votre Centreon 22.10 jusqu'à la dernière version mineure.
@@ -139,7 +139,7 @@ apt update
 
 2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 22.10 :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -185,7 +185,7 @@ rm /var/lib/centreon-broker/* -f
 
 Centreon 25.10 utilise PHP en version 8.2.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Vous devez changer le flux PHP de la version 8.1 à 8.2 en exécutant les commandes suivantes et en répondant **y**
@@ -244,7 +244,7 @@ Puis, finissez la montée de version de la solution Centreon.
 
 1. Videz le cache :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -271,7 +271,7 @@ apt update
 
 2. Mettez à jour l'ensemble des composants :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -294,7 +294,7 @@ apt install --only-upgrade centreon
 
 Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
@@ -425,7 +425,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 
 Avant de démarrer la montée de version via l'interface web, mettez à jour [Centreon BAM avec cette procédure](../service-mapping/upgrade.md) puis rechargez le serveur Apache avec les commandes suivantes :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -541,7 +541,7 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
 
 Ajoutez l'utilisateur **apache** au groupe **centreon-broker** et vice versa.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -632,7 +632,7 @@ systemctl restart centengine
 
 Exécutez la commande suivante :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -657,7 +657,7 @@ apt update
 
 Videz le cache :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -677,7 +677,7 @@ apt update
 
 Mettez à jour l'ensemble des composants :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 

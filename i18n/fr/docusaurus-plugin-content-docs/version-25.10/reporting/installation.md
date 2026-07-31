@@ -297,7 +297,7 @@ Si vous utilisez MySQL :
 
 1. Effectuez l'action suivante :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :

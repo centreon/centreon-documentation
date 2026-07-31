@@ -114,7 +114,7 @@ Il est nécessaire de détruire complètement le cluster et de le configurer à 
 
 Réalisez une sauvegarde du cluster en exécutant les commandes suivantes :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -145,7 +145,7 @@ cat centreon_pcs_command.sh
 
 Le contenu doit ressembler à ceci :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
@@ -295,7 +295,7 @@ rm -rf /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 > Vous pouvez trouver les variables @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@ @MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -321,7 +321,7 @@ pcs resource create "ms_mysql" \
 
 <Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -336,7 +336,7 @@ pcs resource promotable ms_mysql \
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -403,7 +403,7 @@ bash centreon_pcs_command.sh
 
 <Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -418,7 +418,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 
 Afin de fixer le rôle de la base de données primaire avec l'IP virtuelle, définissez une contrainte mutuelle :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -431,7 +431,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 
 Recréez ensuite les contraintes qui empêchent les processus Centreon de s'exécuter sur les nœuds de base de données et vice-versa :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash

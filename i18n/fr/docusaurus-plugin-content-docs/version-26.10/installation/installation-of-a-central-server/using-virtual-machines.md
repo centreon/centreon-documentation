@@ -123,7 +123,7 @@ cliquez sur **Download**.
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
 configuration.
  
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma 8 et 9" label="Alma 8 et 9">
   
 Définissez les paramètres suivants :

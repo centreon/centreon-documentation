@@ -17,7 +17,7 @@ La mise à jour de Centreon MBI se fait en 2 étapes :
 
 1. Mettre à jour le paquet: se connecter sur le serveur Centreon et exécuter la commande suivante :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -63,7 +63,7 @@ systemctl stop gorgoned
 
 Puis mettre à jour les paquets, en exécutant la commande suivante:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -92,7 +92,7 @@ apt --only-upgrade install centreon-bi\*
 
 Vous devez également mettre à jour Centreon Gorgone :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

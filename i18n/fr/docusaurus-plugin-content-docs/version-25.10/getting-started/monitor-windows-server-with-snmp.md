@@ -25,7 +25,7 @@ Retrouvez ci-dessous quelques étapes pour installer et configurer SNMP sur Wind
 
 Vous avez deux options : installer SNMP en mode graphique ou installer SNMP via PowerShell.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="En accédant aux Paramètres Windows" label="En accédant aux Paramètres Windows">
 
 1. Rendez-vous dans le menu **Paramètres > Applications et fonctionnalités > Fonctionnalités facultatives**.
@@ -95,7 +95,7 @@ Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'a
 
 Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du connecteur de supervision **Windows SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

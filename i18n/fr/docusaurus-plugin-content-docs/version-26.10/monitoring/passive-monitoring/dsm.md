@@ -28,7 +28,7 @@ installés sur le serveur principal.
 
 Exécutez la commande :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -69,7 +69,7 @@ Cette partie consiste à installer **Centreon DSM** sur un poller. Seul le clien
 
 Exécutez la commande :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

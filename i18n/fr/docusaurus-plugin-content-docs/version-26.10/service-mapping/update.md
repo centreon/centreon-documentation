@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 Afin de mettre à jour le module **Centreon BAM**, lancer la commande
 ci-dessous :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
