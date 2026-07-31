@@ -33,8 +33,6 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-For new installations, the recommended version of MySQL is 8.4.
-
 <Tabs groupId="sync">
 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -51,12 +49,19 @@ dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.36-1_all.deb
-sudo dpkg -i mysql-apt-config_0.8.36-1_all.deb
+mysql_apt_config="mysql-apt-config_0.8.34-1_all.deb"
+curl -fJLO "https://dev.mysql.com/get/$mysql_apt_config"
+echo "mysql-apt-config mysql-apt-config/select-server select mysql-8.4-lts" | debconf-set-selections
+export DEBIAN_FRONTEND="noninteractive"
+apt install -y "./$mysql_apt_config"
+mysql_keyring=$(grep -ohm1 'signed-by=[^] ]*' /etc/apt/sources.list.d/mysql.list 2>/dev/null | cut -d= -f2)
+[ -z "$mysql_keyring" ] && mysql_keyring=/etc/apt/trusted.gpg.d/mysql.gpg
+( set -o pipefail; curl -fsSL https://repo.mysql.com/RPM-GPG-KEY-mysql-2025 | gpg --dearmor --yes -o "$mysql_keyring" )
 apt update
+apt install -y mysql-server mysql-common
 ```
 
 </TabItem>

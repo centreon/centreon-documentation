@@ -13,7 +13,7 @@ import DatabaseEnableRestart from '../_database-enable-restart.mdx';
 Centreon provides RPM and DEB packages for its products through the Centreon Open
 Source version available free of charge in our repository.
 
-These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 12.
+These packages can be installed on Alma/RHEL/Oracle Linux 9 and 10 and on Debian 13.
 
 You must run the installation procedure as a privileged user.
 
@@ -25,7 +25,7 @@ After installing your server, update your operating system using the following
 command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf update
@@ -73,7 +73,7 @@ locale -a
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update && apt upgrade
@@ -149,9 +149,9 @@ Disabled
 > **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
-SELinux is not installed on Debian 12, continue.
+SELinux is not installed on Debian 13, continue.
 
 </TabItem>
 </Tabs>
@@ -304,29 +304,14 @@ dnf module install php:8.2
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 #### Install dependencies
 
 Install the following dependencies:
 
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
-```
-
-#### Add Sury APT repository for PHP 8.2
-
-To install the Sury repository, execute the following command:
-
-```shell
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
-```
-
-Then import the repository key:
-
-```shell
-wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
-apt update
+apt update && apt install -y lsb-release ca-certificates apt-transport-https wget gnupg2 curl sudo
 ```
 
 </TabItem>
@@ -361,7 +346,7 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 To install the Centreon repository, execute the following command:
 
@@ -379,6 +364,8 @@ apt update
 
 </TabItem>
 </Tabs>
+
+## Step 2: HTTPS?
 
 ## Step 2: Installation
 

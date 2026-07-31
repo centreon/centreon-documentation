@@ -74,7 +74,7 @@ Architecture distribuée :
 * 1 serveur central
 * 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
 
-### Serveur central
+#### Serveur central
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -106,7 +106,7 @@ Architecture distribuée :
 * 1 serveur central
 * 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
 
-### Serveur central
+#### Serveur central
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -139,7 +139,7 @@ Architecture distribuée :
 * 1 serveur de base de données
 * 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
 
-### Serveur central
+#### Serveur central
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -159,7 +159,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 | vg_data | /var/lib/centreon-engine   | contient les fichiers de rétention d'Engine  | 5 Go                           |
 | vg_data | /var/cache/centreon/backup | répertoire de sauvegarde |  10 Go <br/>Si vous utilisez la fonctionnalité de sauvegarde, prévoyez les caractéristiques suivantes : <ul><li>taille de la partition /var/lib/mysql * 0,6</li><li>valable pour 1 sauvegarde complète et 6 partielles</li><li>attention, cela reste une estimation et n'exclut pas un contrôle humain</li></ul>   |
 
-### Serveur de bases de données
+#### Serveur de bases de données
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -188,7 +188,7 @@ Architecture distribuée :
 * 1 serveur de base de données
 * 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
 
-### Serveur central
+#### Serveur central
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -210,7 +210,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
-### Serveur de bases de données
+#### Serveur de bases de données
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -239,7 +239,7 @@ Architecture distribuée :
 * 1 serveur de base de données
 * 1 [collecteur](#dimensionnement-dun-collecteur) par tranche de 500 hôtes
 
-### Serveur central
+#### Serveur central
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |
@@ -261,7 +261,7 @@ Votre serveur central doit être partitionné de la manière suivante :
 
 > Votre système doit utiliser LVM pour gérer vos partitions.
 
-### Serveur de bases de données
+#### Serveur de bases de données
 
 | Élément                     | Valeur    |
 | ----------------------------| --------- |

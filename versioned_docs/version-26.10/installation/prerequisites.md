@@ -74,7 +74,7 @@ Distributed architecture:
 * 1 central server
 * 1 [poller](#poller-sizing) for every 500 hosts
 
-### Central server
+#### Central server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -109,7 +109,7 @@ Distributed architecture:
 * 1 central server
 * 1 [poller](#poller-sizing) for every 500 hosts
 
-### Central server
+#### Central server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -145,7 +145,7 @@ Distributed architecture:
 * 1 database server
 * 1 [poller](#poller-sizing) for every 500 hosts
 
-### Central server
+#### Central server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -165,7 +165,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-engine | | 5 GB |
 | vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0.6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul>   |
 
-### Database server
+#### Database server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -196,7 +196,7 @@ Distributed architecture:
 * 1 database server
 * 1 [poller](#poller-sizing) for every 500 hosts
 
-### Central server
+#### Central server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -216,7 +216,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-engine | | 5 GB |
 | vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0.6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul> |
 
-### Database server
+#### Database server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -248,7 +248,7 @@ Distributed architecture:
 * 1 database server
 * 1 [poller](#poller-sizing) for every 500 hosts
 
-### Central server
+#### Central server
 
 | Element                     | Value     |
 | ----------------------------| --------- |
@@ -268,7 +268,7 @@ This is how your central server should be partitioned:
 | vg_data | /var/lib/centreon-engine | | 5 GB |
 | vg_data | /var/cache/centreon/backup | backup directory | 10 GB <br/>If you perform backups, use the following characteristics: <ul><li>size of the /var/lib/mysql partition * 0.6</li><li>this size is meant for 1 full backup and 6 partial ones</li><li>this is only an estimate, size should be checked manually</li></ul> |
 
-### Database server
+#### Database server
 
 | Element                     | Value     |
 | ----------------------------| --------- |

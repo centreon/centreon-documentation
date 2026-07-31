@@ -154,7 +154,7 @@ Votre serveur MAP doit être partitionné de la manière suivante :
 | Élément | Valeur |
 | ------- | ------ |
 | CPU     | 8 vCPU |
-| RAM     | 16 Go  |
+| RAM     | 18 Go  |
 
 Voici comment votre serveur MAP doit être partitionné :
 
