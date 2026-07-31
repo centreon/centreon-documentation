@@ -33,7 +33,7 @@ Il existe trois rôles pour les utilisateurs dans Centreon Log Management, chacu
 
 ## Créer des utilisateurs
 
-Les utilisateurs sont gérés dans [Centreon Hub](../users/centreon-hub.md). Seuls les administrateurs de Centreon Hub peuvent inviter des utilisateurs dans une organisation (c'est-à-dire dans une plateforme Centreon Log Management).
+Les utilisateurs sont gérés dans [Centreon Hub](centreon-hub.md). Seuls les administrateurs de Centreon Hub peuvent inviter des utilisateurs dans une organisation (c'est-à-dire dans une plateforme Centreon Log Management).
 
 ## Supprimer un utilisateur d'une organisation
 
