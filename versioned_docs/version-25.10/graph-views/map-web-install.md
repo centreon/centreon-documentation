@@ -156,7 +156,7 @@ This is how your MAP server should be partitioned:
 | Element                     | Value     |
 | ----------------------------| --------- |
 | CPU   | 8 vCPU    |
-| RAM                         | 16 GB      |
+| RAM                         | 18 GB      |
 
 This is how your MAP server should be partitioned:
 
