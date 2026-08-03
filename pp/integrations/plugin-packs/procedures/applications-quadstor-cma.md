@@ -4,6 +4,7 @@ title: Quadstor CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 ## Connector dependencies
 
