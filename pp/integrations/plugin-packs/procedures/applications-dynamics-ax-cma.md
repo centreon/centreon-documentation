@@ -138,45 +138,307 @@ This connector relies on an integration supported by Centreon Engine and does no
 <Tabs groupId="sync">
 <TabItem value="RIS-Import-Input" label="RIS-Import-Input">
 
-| Macro        | Description                                                                                                                    | Default value                                                    | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------:|
-| PATHS        | The path to search for files under                                                                                             | C:/RIS/Import/RIS General Ledger/Input                           |           |
-| PATTERN      | The pattern of files to search for (works like a filter but is faster and can be combined with a filter)                       | *.xlsx                                                           |           |
-| TOPSYNTAX    | The top level syntax string                                                                                                    | $\{status}: $\{problem_count}/$\{count} files ($\{problem_list}) |           |
-| DETAILSYNTAX | Detail level syntax                                                                                                            | $\{name}                                                         |           |
-| FILTER       | Filter which marks interesting items.                                                                                          | none                                                             |           |
-| WARNING      | Filter which marks items which generates a warning state.                                                                      | count > 5                                                        |           |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                     | age > -1d or count > 20                                          |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | "empty-state=ok" show-all                                        |           |
+Checks files in a directory tree, applies filters, and evaluates file metadata (size, timestamps, version, line count, etc.) for monitoring and alerting.
+
+| Macro          | Description                                                                              | Mandatory | Allowed values                                                                                                                                                                         | Default value                                                  | Examples                             |
+|:---------------|:-----------------------------------------------------------------------------------------|:---------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------|
+| PATHS          | Root directory to search files in.                                                       |     X     |                                                                                                                                                                                        | C:/RIS/Import/RIS General Ledger/Input                         | path/to/file                         |
+| PATTERN        | Shell-style wildcards pattern to match filenames.<br/>* can be used as a wildcard        |           |                                                                                                                                                                                        | *.xlsx                                                         |                                      |
+| MAXDEPTH       | Max recursion depth.                                                                     |           | - 0: top only <br/>- 1: include subdirs <br/>- -1: recursively include all subdirs                                                                                                     | 0                                                              |                                      |
+| OUTPUTSYNTAX   | Output format string for the overall check result.                                       |           | Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{warn_list}`, `{crit_count}`, `{crit_list}`, `{problem_count}`, `{problem_list}`, `{ok_count}`, `{ok_list}` | `${status}: ${problem_count}/${count} files (${problem_list})` |                                      |     
+| DETAILSYNTAX   | Format for each file detail inside `{list}`.                                             |           | `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{written}`, `{version}`, `{line_count}`, `{extension}`.                                                                   | `${name}`                                                      |                                      |
+| OKSYNTAX       | Output if all files are OK.                                                              |           |                                                                                                                                                                                        | `{status}: {ok_count} files found - {ok_list}`                 |                                      |
+| FILTER         | Filter expression to select files for the check.                                         |           |                                                                                                                                                                                        | none                                                           | `size > 1M && extension == '.dll'`   |
+| WARNINGSTATUS  | Filter expression: files matching are considered WARNING.                                |           |                                                                                                                                                                                        |                                                                |                                      |
+| CRITICALSTATUS | Filter expression: files matching are considered CRITICAL.                               |           |                                                                                                                                                                                        |                                                                |                                      |
+| WARNING        | WARNING status items count must be strictly higher than this value to trigger WARNING.   |           |                                                                                                                                                                                        | count > 5                                                      | 0 = at least 1 file to trigger alert |
+| CRITICAL       | CRITICAL status items count must be strictly higher than this value to trigger CRITICAL. |           |                                                                                                                                                                                        | age > -1d or count > 20                                        | 0 = at least 1 file to trigger alert |
+| VERBOSE        | Display detailed file info.                                                              |           |                                                                                                                                                                                        | false                                                          |                                      |
+| TIMEOUT        | Set timeout for command execution                                                        |           |                                                                                                                                                                                        | 120                                                            |
+
+### Filter expressions
+
+> Applies for FILTER, WARNINGSTATUS, CRITICALSTATUS.
+
+Filter syntax is similar to C/SQL:
+
+- Numeric operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- Logical: `&&` (AND), `||` (OR)
+- String equality: `==`, `!=` (note: single `=` is **not** valid)
+- IN/NOT IN: `filename in ('myfile.txt')`, `version in ('1.0', '1.1')`
+
+Supported file metadata labels:
+
+- size           (in bytes, supports units: K, Ko, M, Mo, G, Go)
+- line_count     (line counting in txt file)
+- creation       (file age in seconds since creation, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- access         (file age in seconds since last access, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- written        (file age in seconds since last modification, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- filename       (name of the file, string comparison)
+- path           (full file path, string comparison)
+- extension      (file extension, e.g. '.dll')
+- version        (for .exe/.dll files, string comparison)
+
+You can also add this result list filter in WARNINGSTATUS and CRITICALSTATUS:
+
+- count          number of items
+
+### Warning and Critical Status
+
+Files matching the WARNINGSTATUS/CRITICALSTATUS filters are considered WARNING/CRITICAL.
+You can combine with WARNING/CRITICAL to require multiple matches before changing the global state.
+
+### Examples
+
+#### Filters
+
+> Applies for FILTER, WARNINGSTATUS, CRITICALSTATUS.
+
+- "size > 50M"                            # File larger than 50 MB
+- "extension == '.bak'"                   # Backup files
+- "size > 200m && extension == '.dll'"    # Large DLLs
+- "count &lt;= 0"                            # No file found
+- "filename in ('myfile.txt')"            # Specific file by name
+- "filename == 'myfile.txt'"              # Specific file by name (alternative)
+
+#### File age check
+
+File age can be checked using 3 metadata labels, which can be mixed using logical operators :
+
+- creation       (file age in seconds since creation, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- access         (file age in seconds since last access, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- written        (file age in seconds since last modification, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+
+_“I want to trigger a CRITICAL alert if at least one file of my test directory has not be updated since 1 day or more, and WARNING alert if more than 12 hours and less than 1 day”_
+
+```
+PATH= C:/Users/User/Documents/test
+PATTERN= *.*
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS= written > 12h
+CRITICALSTATUS= written > 1d
+WARNING= 0
+CRITICAL= 0
+```
+
+#### File size check
+
+_“I want to trigger CRITICAL alert if at least 1 DLLs in System32 (including subdirs without recursivity) size is >100M, and trigger WARNING alert if at least 2 DLLs size is >10M”_
+
+The extension filter can be done using PATTERN or FILTER.
+
+```
+PATH= C:/Windows/System32
+PATTERN= *.dll
+MAXDEPTH= 1,
+OUTPUTSYNTAX= {status}: {problem_count}/{count} DLLs have issues: {problem_list}
+DETAILSYNTAX= {filename}: {size} {version}
+FILTER= extension == '.dll'
+WARNINGSTATUS= size > 10m
+CRITICALSTATUS= size > 100m
+WARNING= 1
+CRITICAL= 0
+```
+
+Note:
+
+- If "line_count" is used in any filter or output, line count calculation will be enabled (may impact performance).
+- Paths, patterns, and filters are case-insensitive on Windows.
+- Use `/` as the path separator instead of `\` (e.g., `C:/Users/...`). Backslashes require extra escaping and may cause errors.
+
+
+#### File presence check
+
+_“I want to trigger a CRITICAL alert if file is not present“_
+
+```
+PATH= C:/Users/User/Documents/test
+PATTERN= myfile.txt
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS=
+CRITICALSTATUS= count < 0
+WARNING=
+CRITICAL= 0
+```
+
+_“I want to trigger a CRITICAL alert if at least one file is present“_
+
+```
+PATH= C:/Users/User/Documents/test
+PATTERN= myfile.txt
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS=
+CRITICALSTATUS= count > 0
+WARNING=
+CRITICAL= 0
+```
 
 </TabItem>
 <TabItem value="RIS-Import-ProcessingErrors" label="RIS-Import-ProcessingErrors">
 
-| Macro        | Description                                                                                                                    | Default value                                                    | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:---------:|
-| PATHS        | The path to search for files under                                                                                             | C:/RIS/Import/RIS General Ledger/ProcessingErrors                |           |
-| PATTERN      | The pattern of files to search for (works like a filter but is faster and can be combined with a filter)                       | *.xlsx                                                           |           |
-| TOPSYNTAX    | The top level syntax string                                                                                                    | $\{status}: $\{problem_count}/$\{count} files ($\{problem_list}) |           |
-| DETAILSYNTAX | Detail level syntax                                                                                                            | $\{name}                                                         |           |
-| FILTER       | Filter which marks interesting items.                                                                                          | none                                                             |           |
-| WARNING      | Filter which marks items which generates a warning state.                                                                      | count > 5                                                        |           |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                     | age > -1d or count > 20                                          |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | "empty-state=ok" show-all                                        |           |
+Checks files in a directory tree, applies filters, and evaluates file metadata (size, timestamps, version, line count, etc.) for monitoring and alerting.
+
+| Macro          | Description                                                                              | Mandatory | Allowed values                                                                                                                                                                         | Default value                                                  | Examples                             |
+|:---------------|:-----------------------------------------------------------------------------------------|:---------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------|
+| PATHS          | Root directory to search files in.                                                       |     X     |                                                                                                                                                                                        | C:/RIS/Import/RIS General Ledger/Input                         | path/to/file                         |
+| PATTERN        | Shell-style wildcards pattern to match filenames.<br/>* can be used as a wildcard        |           |                                                                                                                                                                                        | *.xlsx                                                         |                                      |
+| MAXDEPTH       | Max recursion depth.                                                                     |           | - 0: top only <br/>- 1: include subdirs <br/>- -1: recursively include all subdirs                                                                                                     | 0                                                              |                                      |
+| OUTPUTSYNTAX   | Output format string for the overall check result.                                       |           | Placeholders: `{status}`, `{count}`, `{total}`, `{list}`, `{warn_count}`, `{warn_list}`, `{crit_count}`, `{crit_list}`, `{problem_count}`, `{problem_list}`, `{ok_count}`, `{ok_list}` | `${status}: ${problem_count}/${count} files (${problem_list})` |                                      |     
+| DETAILSYNTAX   | Format for each file detail inside `{list}`.                                             |           | `{path}`, `{filename}`, `{size}`, `{creation}`, `{access}`, `{written}`, `{version}`, `{line_count}`, `{extension}`.                                                                   | `${name}`                                                      |                                      |
+| OKSYNTAX       | Output if all files are OK.                                                              |           |                                                                                                                                                                                        | `{status}: {ok_count} files found - {ok_list}`                 |                                      |
+| FILTER         | Filter expression to select files for the check.                                         |           |                                                                                                                                                                                        | none                                                           | `size > 1M && extension == '.dll'`   |
+| WARNINGSTATUS  | Filter expression: files matching are considered WARNING.                                |           |                                                                                                                                                                                        |                                                                |                                      |
+| CRITICALSTATUS | Filter expression: files matching are considered CRITICAL.                               |           |                                                                                                                                                                                        |                                                                |                                      |
+| WARNING        | WARNING status items count must be strictly higher than this value to trigger WARNING.   |           |                                                                                                                                                                                        | count > 5                                                      | 0 = at least 1 file to trigger alert |
+| CRITICAL       | CRITICAL status items count must be strictly higher than this value to trigger CRITICAL. |           |                                                                                                                                                                                        | age > -1d or count > 20                                        | 0 = at least 1 file to trigger alert |
+| VERBOSE        | Display detailed file info.                                                              |           |                                                                                                                                                                                        | false                                                          |                                      |
+| TIMEOUT        | Set timeout for command execution                                                        |           |                                                                                                                                                                                        | 120                                                            |
+
+### Filter expressions
+
+> Applies for FILTER, WARNINGSTATUS, CRITICALSTATUS.
+
+Filter syntax is similar to C/SQL:
+
+- Numeric operators: `==`, `!=`, `>`, `<`, `>=`, `<=`
+- Logical: `&&` (AND), `||` (OR)
+- String equality: `==`, `!=` (note: single `=` is **not** valid)
+- IN/NOT IN: `filename in ('myfile.txt')`, `version in ('1.0', '1.1')`
+
+Supported file metadata labels:
+
+- size           (in bytes, supports units: K, Ko, M, Mo, G, Go)
+- line_count     (line counting in txt file)
+- creation       (file age in seconds since creation, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- access         (file age in seconds since last access, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- written        (file age in seconds since last modification, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- filename       (name of the file, string comparison)
+- path           (full file path, string comparison)
+- extension      (file extension, e.g. '.dll')
+- version        (for .exe/.dll files, string comparison)
+
+You can also add this result list filter in WARNINGSTATUS and CRITICALSTATUS:
+
+- count          number of items
+
+### Warning and Critical Status
+
+Files matching the WARNINGSTATUS/CRITICALSTATUS filters are considered WARNING/CRITICAL.
+You can combine with WARNING/CRITICAL to require multiple matches before changing the global state.
+
+### Examples
+
+#### Filters
+
+> Applies for FILTER, WARNINGSTATUS, CRITICALSTATUS.
+
+- "size > 50M"                            # File larger than 50 MB
+- "extension == '.bak'"                   # Backup files
+- "size > 200m && extension == '.dll'"    # Large DLLs
+- "count &lt;= 0"                            # No file found
+- "filename in ('myfile.txt')"            # Specific file by name
+- "filename == 'myfile.txt'"              # Specific file by name (alternative)
+
+#### File age check
+
+File age can be checked using 3 metadata labels, which can be mixed using logical operators :
+
+- creation       (file age in seconds since creation, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- access         (file age in seconds since last access, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+- written        (file age in seconds since last modification, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
+
+_“I want to trigger a CRITICAL alert if at least one file of my test directory has not be updated since 1 day or more, and WARNING alert if more than 12 hours and less than 1 day”_
+
+```
+PATH= C:/Users/User/Documents/test
+PATTERN= *.*
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS= written > 12h
+CRITICALSTATUS= written > 1d
+WARNING= 0
+CRITICAL= 0
+```
+
+#### File size check
+
+_“I want to trigger CRITICAL alert if at least 1 DLLs in System32 (including subdirs without recursivity) size is >100M, and trigger WARNING alert if at least 2 DLLs size is >10M”_
+
+The extension filter can be done using PATTERN or FILTER.
+
+```
+PATH= C:/Windows/System32
+PATTERN= *.dll
+MAXDEPTH= 1,
+OUTPUTSYNTAX= {status}: {problem_count}/{count} DLLs have issues: {problem_list}
+DETAILSYNTAX= {filename}: {size} {version}
+FILTER= extension == '.dll'
+WARNINGSTATUS= size > 10m
+CRITICALSTATUS= size > 100m
+WARNING= 1
+CRITICAL= 0
+```
+
+Note:
+
+- If "line_count" is used in any filter or output, line count calculation will be enabled (may impact performance).
+- Paths, patterns, and filters are case-insensitive on Windows.
+- Use `/` as the path separator instead of `\` (e.g., `C:/Users/...`). Backslashes require extra escaping and may cause errors.
+
+
+#### File presence check
+
+_“I want to trigger a CRITICAL alert if file is not present“_
+
+```
+PATH= C:/Users/User/Documents/test
+PATTERN= myfile.txt
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS=
+CRITICALSTATUS= count < 0
+WARNING=
+CRITICAL= 0
+```
+
+_“I want to trigger a CRITICAL alert if at least one file is present“_
+
+```
+PATH= C:/Users/User/Documents/test
+PATTERN= myfile.txt
+MAXDEPTH= -1,
+DETAILSYNTAX= {filename}: {size}
+WARNINGSTATUS=
+CRITICALSTATUS= count > 0
+WARNING=
+CRITICAL= 0
+```
 
 </TabItem>
 <TabItem value="Service-RIS" label="Service-RIS">
 
-| Macro        | Description                                                                                                                    | Default value                       | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------:|
-| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                     |                                     |           |
-| OK           | Filter which marks items which generates an ok state                                                                           | state_is_ok()                       |           |
-| SERVICE      | The service to check, set this to * to check all services                                                                      | RecurringIntegrationsScheduler      |           |
-| TOPSYNTAX    | The top level syntax string                                                                                                    | $\{problem_list}                    |           |
-| DETAILSYNTAX | Detail level syntax                                                                                                            | $\{name}=$\{state} ($\{start_type}) |           |
-| FILTER       | Filter which marks interesting items.                                                                                          | none                                |           |
-| WARNING      | Filter which marks items which generates a warning state.                                                                      | none                                |           |
-| CRITICAL     | Filter which marks items which generates a critical state.                                                                     | not state_is_ok()                   |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | 'perf-config=none'                  |           |
+| Macro                | Description                                                                                                                               | Default value                  | Mandatory |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:---------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | false                          |           |
+| FILTERNAME           | Regex to filter service names                                                                                                             | RecurringIntegrationsScheduler |           |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                                |           |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                                |           |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                                |           |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service                        |           |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                                |           |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                                |           |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  | none                           |           |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) | not state_is_ok()              |           |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                                |           |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                                |           |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                                |           |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                                |           |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                                |           |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                                |           |
+| TIMEOUT              | Set timeout for command execution                                                                                                         | 120                            |           |
 
 </TabItem>
 </Tabs>
