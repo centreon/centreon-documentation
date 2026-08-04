@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                    | Service Description                                                                                                                                         |
 |:--------------|:------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu-Detailed  | OS-Solaris-Cpu-Detailed-SNMP-custom | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Cpu-Detailed  | OS-Solaris-Cpu-Detailed-SNMP-custom | Check the detailed rate of CPU utilization for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
 | Load          | OS-Solaris-Load-SNMP-custom         | Check the server load average                                                                                                                               |
 
 > The services listed above are created automatically when the **OS-Solaris-SNMP-custom** host template is used.
@@ -39,7 +39,7 @@ The connector brings the following service templates (sorted by the host templat
 | Disk-Generic-Id            | OS-Solaris-Disk-Generic-Id-SNMP-custom            | Check the rate of free space on the disk. For each checks the name of the disk will appear (« label ») rather than the letter assigned. Thresholds can be in percentage or in free space remaining |           |
 | Disk-Generic-Name          | OS-Solaris-Disk-Generic-Name-SNMP-custom          | Check the rate of free space on the disk. For each checks the mount pont of the disk will appear (« label »). Thresholds can be in percentage or in free space remaining                           |           |
 | Disk-Global                | OS-Solaris-Disk-Global-SNMP-custom                | Check the rate of free space on disks. For each checks the mount point of disks will appear (« label »). Thresholds can be in percentage or in free space remaining                                | X         |
-| Packet-Errors-Generic-Id   | Os-Solaris-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error and discarded packets for multiple network interfaces                                                                                                                       |           |
+| Packet-Errors-Generic-Id   | Os-Solaris-Packet-Errors-Generic-Id-SNMP-custom   | Check packets in error and discarded packets a network interface                                                                                                                       |           |
 | Packet-Errors-Generic-Name | Os-Solaris-Packet-Errors-Generic-Name-SNMP-custom | Check packets in error and discarded packets for a network interface                                                                                                                               |           |
 | Packet-Errors-Global       | Os-Solaris-Packet-Errors-Global-SNMP-custom       | Check packets in error and discarded packets for multiple network interfaces                                                                                                                       | X         |
 | Process-Generic            | OS-Solaris-Process-Generic-SNMP-custom            | Check Linux process/service is working                                                                                                                                                             |           |
@@ -69,8 +69,8 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                          | Description                                                           |
 |:-----------------------------------|:----------------------------------------------------------------------|
-| OS-Solaris-SNMP-Disk-Name          | Discover network interfaces and monitor errored and discarded packets |
-| OS-Solaris-SNMP-Packet-Errors-Name | Discover the disk partitions and monitor space occupation             |
+| OS-Solaris-SNMP-Disk-Name          | Discover the disk partitions and monitor space occupation |
+| OS-Solaris-SNMP-Packet-Errors-Name | Discover network interfaces and monitor errored and discarded packets             |
 | OS-Solaris-SNMP-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization         |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)

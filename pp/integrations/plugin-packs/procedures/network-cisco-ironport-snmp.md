@@ -426,7 +426,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=98648b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=31759b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=97420b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=34305b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=61b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=21b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=36b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=25b/s;80;90;; 
 ```
 
 ### Troubleshooting

@@ -29,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 | Appliance-Status | Net-Cisco-Umbrella-Appliance-Status-SNMP-custom | Check virtual appliance status                                                                                         |
 | Connectivity     | Net-Cisco-Umbrella-Connectivity-SNMP-custom     | Check connectivity between Umbrella virtual appliance and DNS, local DNS, Umbrella dashboard (cloud) and AD connectors |
 | Cpu              | Net-Cisco-Umbrella-Cpu-SNMP-custom              | Check CPU usage                                                                                                        |
-| Load-Average     | Net-Cisco-Umbrella-Load-Average-SNMP-custom     | Check Load on 5m and 15m                                                                                               |
+| Load-Average     | Net-Cisco-Umbrella-Load-Average-SNMP-custom     | Check load on 5m and 15m                                                                                               |
 | Memory           | Net-Cisco-Umbrella-Memory-SNMP-custom           | Check memory usage                                                                                                     |
 | Query            | Net-Cisco-Umbrella-Query-SNMP-custom            | Check number of DNS queries per second over the last 5 and 15 minutes                                                  |
 | Storage-Usage    | Net-Cisco-Umbrella-Storage-SNMP-custom          | Check storage usage                                                                                                    |

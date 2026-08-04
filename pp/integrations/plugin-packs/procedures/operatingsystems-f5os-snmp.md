@@ -295,7 +295,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All memory usages are ok | 'memory.usage.bytes'=54646B;;;0;total 'memory.usage.bytes'=57372B;;;0;total 'memory.free.bytes'=96617B;;;0;total 'memory.free.bytes'=74634B;;;0;total 'memory.usage.percent'=38404%;;;0;100 'memory.usage.percent'=60861%;;;0;100 'memory.free.percent'=39013%;;;0;100 'memory.free.percent'=28069%;;;0;100 
+OK: All memory usages are ok | 'memory.usage.bytes'=54646B;;;0;total 'memory.usage.bytes'=57372B;;;0;total 'memory.free.bytes'=96617B;;;0;total 'memory.free.bytes'=74634B;;;0;total 'memory.usage.percent'=38%;;;0;100 'memory.usage.percent'=60%;;;0;100 'memory.free.percent'=39%;;;0;100 'memory.free.percent'=28%;;;0;100 
 ```
 
 ### Troubleshooting

@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias     | Service Template                                      | Service Description       |
 |:------------------|:------------------------------------------------------|:--------------------------|
-| Isdn-Usage-Global | Net-Cisco-Voice-Gateway-Isdn-Usage-Global-SNMP-custom | Check ISDN channel usages |
+| Isdn-Usage-Global | Net-Cisco-Voice-Gateway-Isdn-Usage-Global-SNMP-custom | Check ISDN channel usage |
 
 > The services listed above are created automatically when the **Net-Cisco-Voice-Gateway-SNMP-custom** host template is used.
 
@@ -35,8 +35,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias        | Service Template                                         | Service Description                          | Discovery |
 |:---------------------|:---------------------------------------------------------|:---------------------------------------------|:---------:|
-| Traffic-Generic-Id   | Net-Cisco-Voice-Gateway-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface        |           |
-| Traffic-Generic-Name | Net-Cisco-Voice-Gateway-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface        |           |
+| Traffic-Generic-Id   | Net-Cisco-Voice-Gateway-Traffic-Generic-Id-SNMP-custom   | Check traffic of a network interface        |           |
+| Traffic-Generic-Name | Net-Cisco-Voice-Gateway-Traffic-Generic-Name-SNMP-custom | Check traffic of a network interface        |           |
 | Traffic-Global       | Net-Cisco-Voice-Gateway-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces |     X     |
 | Voice-Call           | Net-Cisco-Voice-Gateway-Voice-Call-SNMP-custom           | Check call traffic statistics                |           |
 
@@ -336,7 +336,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: 43167 (1m) 90928 (5m) 94003 (15m) All connection types are ok | 'calls.active.1m.average.count'=43167;;;0; 'calls.active.5m.average.count'=90928;;;0; 'calls.active.15m.average.count'=94003;;;0; 'ctype1#connection.calls.active.count'=25293;;;0; 'ctype2#connection.calls.active.count'=23991;;;0; 
+OK: 10 (1m) 12 (5m) 15 (15m) All connection types are ok | 'calls.active.1m.average.count'=10;;;0;'calls.active.5m.average.count'=12;;;0;'calls.active.15m.average.count'=15;;;0;'*ctype*#connection.calls.active.count'=;;;0;'ctype1#connection.calls.active.count'=83439;;;0; 'ctype2#connection.calls.active.count'=85227;;;0; 
 ```
 
 ### Troubleshooting

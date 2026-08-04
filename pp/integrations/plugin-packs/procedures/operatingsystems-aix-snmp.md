@@ -5,6 +5,11 @@ title: AIX SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+> A known issue with AIX version `07.02.0004` affects the CPU mode.
+> There is [a bug](https://www.ibm.com/support/pages/apar/IJ32354) in this version that causes the SNMP response related to the CPU to report wrong values.
+> [The fix](https://www.ibm.com/support/pages/apar/IJ36641) is available from version `07.02.0050`.
+
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **AIX SNMP** connector through the
@@ -66,9 +71,9 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                  | Description                                                   |
 |:---------------------------|:--------------------------------------------------------------|
-| OS-AIX-SNMP-Disk-Name      | Discover network interfaces and monitor bandwidth utilization |
-| OS-AIX-SNMP-Processes-Name | Discover the disk partitions and monitor space occupation     |
-| OS-AIX-SNMP-Traffic-Name   | Discover processes and monitor their system usage             |
+| OS-AIX-SNMP-Disk-Name      | Discover the disk partitions and monitor space occupation |
+| OS-AIX-SNMP-Processes-Name | Discover processes and monitor their system usage    |
+| OS-AIX-SNMP-Traffic-Name   | Discover network interfaces and monitor bandwidth utilization             |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).

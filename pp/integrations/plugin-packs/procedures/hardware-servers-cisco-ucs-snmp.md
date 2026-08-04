@@ -371,7 +371,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: total: 72167 online: 22051 offline: 67379 All service profiles are ok | 'serviceprofiles.total.count'=72167;;;0; 'serviceprofiles.online.count'=22051;;;0;total 'serviceprofiles.offline.count'=67379;;;0;total 
+OK: total: 2 online: 89 offline: 31 All service profiles are ok | 'serviceprofiles.total.count'=2;;;0;'serviceprofiles.online.count'=89;;;0;total'serviceprofiles.offline.count'=31;;;0;total
 ```
 
 ### Troubleshooting

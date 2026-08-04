@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Cisco Waas SNMP** connector through the
+The following monitoring connectors will be installed when you install the **Cisco WaaS SNMP** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ The following monitoring connectors will be installed when you install the **Cis
 
 ### Templates
 
-The Monitoring Connector **Cisco Waas SNMP** brings a host template:
+The Monitoring Connector **Cisco WaaS SNMP** brings a host template:
 
 * **Net-Cisco-WaaS-SNMP-custom**
 
@@ -113,7 +113,7 @@ yum install centreon-pack-network-cisco-waas-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Cisco Waas SNMP** connector through
+2. Whatever the license type (*online* or *offline*), install the **Cisco WaaS SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin

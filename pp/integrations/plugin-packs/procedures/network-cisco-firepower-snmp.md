@@ -26,10 +26,10 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                         | Service Description                         |
 |:--------------|:-----------------------------------------|:--------------------------------------------|
-| Cpu           | Net-Cisco-Firepower-Cpu-SNMP-custom      | Check the rate of the utilization of CPU    |
+| Cpu           | Net-Cisco-Firepower-Cpu-SNMP-custom      | Check the rate of the utilization of the CPU    |
 | Faults        | Net-Cisco-Firepower-Faults-SNMP-custom   | Check faults                                |
 | Hardware      | Net-CIsco-Firepower-Hardware-SNMP-custom | Check hardware environment                  |
-| Memory        | Net-Cisco-Firepower-Memory-SNMP-custom   | Check the rate of the utilization of memory |
+| Memory        | Net-Cisco-Firepower-Memory-SNMP-custom   | Check the rate of the utilization of the memory |
 
 > The services listed above are created automatically when the **Net-Cisco-Firepower-SNMP-custom** host template is used.
 
