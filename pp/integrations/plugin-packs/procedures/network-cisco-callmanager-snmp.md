@@ -349,7 +349,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All phones are ok 
+OK: Total registered: 1, unregistered: 0, rejected: 0, unknown: 0, partially registered: 0 - Phone 'Phone A' status: registered [description: In the office] | 'total_registered'=1;;;0; 'total_unregistered'=0;;;0; 'total_rejected'=0;;;0; 'total_unknown'=0;;;0; 'total_partiallyregistered'=0;;;0;
 ```
 
 ### Troubleshooting
