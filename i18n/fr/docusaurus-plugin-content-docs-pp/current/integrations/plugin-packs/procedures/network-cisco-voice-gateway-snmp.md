@@ -337,7 +337,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: 43167 (1m) 90928 (5m) 94003 (15m) All connection types are ok | 'calls.active.1m.average.count'=43167;;;0; 'calls.active.5m.average.count'=90928;;;0; 'calls.active.15m.average.count'=94003;;;0; 'ctype1#connection.calls.active.count'=25293;;;0; 'ctype2#connection.calls.active.count'=23991;;;0; 
+OK: 10 (1m) 12 (5m) 15 (15m) All connection types are ok | 'calls.active.1m.average.count'=10;;;0;'calls.active.5m.average.count'=12;;;0;'calls.active.15m.average.count'=15;;;0;'*ctype*#connection.calls.active.count'=;;;0;'ctype1#connection.calls.active.count'=83439;;;0; 'ctype2#connection.calls.active.count'=85227;;;0; 
 ```
 
 ### Diagnostic des erreurs communes

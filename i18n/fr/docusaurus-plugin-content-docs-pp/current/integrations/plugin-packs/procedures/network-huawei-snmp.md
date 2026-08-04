@@ -28,11 +28,11 @@ Le connecteur apporte les modèles de service suivants
 | Alias                  | Modèle de service                        | Description                                    | Découverte |
 |:-----------------------|:-----------------------------------------|:-----------------------------------------------|:----------:|
 | Cpu                    | Net-Huawei-Cpu-SNMP-custom               | Contrôle du taux d'utilisation des processeurs |            |
-| Gpon-Ont-Ethernet-Port | Net-Huawei-Gpon-Ont-Ethernet-SNMP-custom | Contrôle du statut d                           |     X      |
-| Gpon-Ont-Health        | Net-Huawei-Gpon-Ont-Health-SNMP-custom   | Contrôle de l                                  |     X      |
+| Gpon-Ont-Ethernet-Port | Net-Huawei-Gpon-Ont-Ethernet-SNMP-custom | Contrôle du statut d'un port Ethernet ONT (GPON)                           |     X      |
+| Gpon-Ont-Health        | Net-Huawei-Gpon-Ont-Health-SNMP-custom   | Contrôle de l'état de l'ONT avec les données de performance                                  |     X      |
 | Gpon-Ont-Traffic       | Net-Huawei-Gpon-Ont-Traffic-SNMP-custom  | Contrôle du trafic du module ONT (GPON)        |     X      |
 | Hardware               | Net-Huawei-Hardware-SNMP-custom          | Contrôle l'état des composants matériels       |            |
-| Memory                 | Net-Huawei-Memory-SNMP-custom            | Contrôle du taux d'utilisation des mémoire     |            |
+| Memory                 | Net-Huawei-Memory-SNMP-custom            | Contrôle du taux d'utilisation des mémoires     |            |
 | Uptime                 | Net-Huawei-Uptime-SNMP-custom            | Contrôle l'uptime                              |            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Huawei-SNMP-custom** est utilisé.

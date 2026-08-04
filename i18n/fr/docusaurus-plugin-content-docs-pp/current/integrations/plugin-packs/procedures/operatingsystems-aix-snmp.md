@@ -5,6 +5,11 @@ title: AIX SNMP
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+
+> Un problème connu sur la version `07.02.0004` d'AIX affecte le mode CPU.
+> [Un bug](https://www.ibm.com/support/pages/apar/IJ32354) relatif à SNMP a pour effet de retourner des valeurs erronées concernant le processeur.
+> [Le correctif](https://www.ibm.com/support/pages/apar/IJ36641) est disponible à partir de la version `07.02.0050`.
+
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **AIX SNMP** 
@@ -67,9 +72,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle            | Description                                                                                            |
 |:---------------------------|:-------------------------------------------------------------------------------------------------------|
-| OS-AIX-SNMP-Disk-Name      | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation      |
-| OS-AIX-SNMP-Processes-Name | Utilise le nom du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace |
-| OS-AIX-SNMP-Traffic-Name   | Découvre les processus en utilisant leur nom et supervise leur utilisation par le système              |
+| OS-AIX-SNMP-Disk-Name      | Utilise le nom du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace       |
+| OS-AIX-SNMP-Processes-Name | Découvre les processus en utilisant leur nom et supervise leur utilisation par le système |
+| OS-AIX-SNMP-Traffic-Name   | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation              |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

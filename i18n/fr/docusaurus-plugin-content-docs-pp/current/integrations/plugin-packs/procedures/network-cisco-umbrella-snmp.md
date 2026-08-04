@@ -30,7 +30,7 @@ Le connecteur apporte les modèles de service suivants
 | Appliance-Status | Net-Cisco-Umbrella-Appliance-Status-SNMP-custom | Contrôle le statut de l'appliance virtuelle                                                                                                                    |
 | Connectivity     | Net-Cisco-Umbrella-Connectivity-SNMP-custom     | Contrôle le statut de la connexion entre l'appliance virtuelle Umbrella et les serveurs DNS, le DNS local, le dashboard Umbrella (cloud) et les connecteurs AD |
 | Cpu              | Net-Cisco-Umbrella-Cpu-SNMP-custom              | Contrôle le taux d'utilisation du CPU                                                                                                                          |
-| Load-Average     | Net-Cisco-Umbrella-Load-Average-SNMP-custom     | Contrôle le Load sur 5m et 15m                                                                                                                                 |
+| Load-Average     | Net-Cisco-Umbrella-Load-Average-SNMP-custom     | Contrôle le load sur 5m et 15m                                                                                                                                 |
 | Memory           | Net-Cisco-Umbrella-Memory-SNMP-custom           | Contrôle du taux d'utilisation mémoire                                                                                                                         |
 | Query            | Net-Cisco-Umbrella-Query-SNMP-custom            | Contrôle le nombre de requêtes DNS par seconde durant les dernières 5 et 15 minutes                                                                            |
 | Storage-Usage    | Net-Cisco-Umbrella-Storage-SNMP-custom          | Contrôle permettant de vérifier l'utilisation de l'espace disque                                                                                               |
@@ -261,7 +261,7 @@ yum install centreon-plugin-Network-Cisco-Umbrella-Snmp
 | Macro          | Description                                                                                                                                      | Valeur par défaut       | Obligatoire |
 |:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}                                    | %\{status\} =~ /yellow/ |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL.. You can use the following variables: %\{status\}                                  | %\{status\} =~ /red/    |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}                                  | %\{status\} =~ /red/    |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                         |             |
 
 </TabItem>

@@ -350,7 +350,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All phones are ok 
+OK: Total registered: 1, unregistered: 0, rejected: 0, unknown: 0, partially registered: 0 - Phone 'Phone A' status: registered [description: In the office] | 'total_registered'=1;;;0; 'total_unregistered'=0;;;0; 'total_rejected'=0;;;0; 'total_unknown'=0;;;0; 'total_partiallyregistered'=0;;;0;
 ```
 
 ### Diagnostic des erreurs communes

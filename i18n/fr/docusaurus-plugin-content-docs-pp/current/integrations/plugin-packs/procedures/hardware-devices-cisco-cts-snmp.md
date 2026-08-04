@@ -291,7 +291,19 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Total peripherals: 89398 All peripherals are ok | 'peripherals.total.count'=89398;;;0; 
+OK: Total peripherals: 13 - All peripherals are ok | 'peripherals.total.count'=13;;;0;
+Peripheral 'UP_LINK' status: noErrorPeripheral 'MIC -- front_center' status: noError
+Peripheral 'MIC -- front_left' status: noError
+Peripheral 'MIC -- front_right' status: noError
+Peripheral 'MIC BOARD -- mic_array_board' status: noError
+Peripheral 'MAIN_CAM -- Serial=XXXXX39,PID=CTS-5K-CAM-CLSTR,Hardware_ver=03.00,Firmware=0,BuildTime=year:2016,week:19' status: noError
+Peripheral 'DISPLAY_LEFT -- Serial=XXXXX39,Hardware_ver=,Model=CTS-5K-70-G1 ,Manufacturer=CIS(0x0d33),AppCode_Ver=(unsupported)' status: noError
+Peripheral 'DISPLAY_RIGHT -- Serial=XXXXX39,Hardware_ver=,Model=CTS-5K-70-G1 ,Manufacturer=CIS(0x0d33),AppCode_Ver=(unsupported)' status: noError
+Peripheral 'AUX_DISPLAY_LEFT -- Serial=XXXXX39,Hardware_ver=,Model=CTS-5K-70-G1 ,Manufacturer=CIS(0x0d33),AppCode_Ver=(unsupported)' status: noError
+Peripheral 'AUX_DISPLAY_CENTER -- Serial=XXXXX39,Hardware_ver=,Model=CTS-5K-70-G1 ,Manufacturer=CIS(0x0d33),AppCode_Ver=(unsupported)' status: noError
+Peripheral 'AUX_DISPLAY_RIGHT -- Serial=XXXXX39,Hardware_ver=,Model=CTS-5K-70-G1 ,Manufacturer=CIS(0x0d33),AppCode_Ver=(unsupported)' status: noError
+Peripheral 'UI_DEVICE --  MAC address : 00:11:EE:9Y:48:15 Version : 11-0-1KKPL-437' status: noError
+Peripheral 'MAIN_DISPLAY -- Serial=XXXXX39,Hardware_ver=,Model=CTS-5K-70-G1 ,Manufacturer=CIS(0x0d33),AppCode_Ver=(unsupported)' status: noError
 ```
 
 ### Diagnostic des erreurs communes

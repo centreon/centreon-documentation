@@ -1,13 +1,13 @@
 ---
 id: network-cisco-waas-snmp
-title: Cisco Waas SNMP
+title: Cisco WaaS SNMP
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Cisco Waas SNMP** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Cisco WaaS SNMP** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +15,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Cisco Waas SNMP** apporte un modèle d'hôte :
+Le connecteur de supervision **Cisco WaaS SNMP** apporte un modèle d'hôte :
 
 * **Net-Cisco-WaaS-SNMP-custom**
 
@@ -27,7 +27,7 @@ Le connecteur apporte le modèle de service suivant
 
 | Alias        | Modèle de service              | Description                                                                                                         |
 |:-------------|:-------------------------------|:--------------------------------------------------------------------------------------------------------------------|
-| Sessions-Tfo | Net-Cisco-WaaS-Tfo-SNMP-custom | Contrôle permettant de vérifier le nombre de connexions TCP passthrough et optimisées par la technologie CiscoWaaS  |
+| Sessions-Tfo | Net-Cisco-WaaS-Tfo-SNMP-custom | Contrôle permettant de vérifier le nombre de connexions TCP passthrough et optimisées par la technologie Cisco WaaS  |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-WaaS-SNMP-custom** est utilisé.
 
@@ -115,7 +115,7 @@ yum install centreon-pack-network-cisco-waas-snmp
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco Waas SNMP**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Cisco WaaS SNMP**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin

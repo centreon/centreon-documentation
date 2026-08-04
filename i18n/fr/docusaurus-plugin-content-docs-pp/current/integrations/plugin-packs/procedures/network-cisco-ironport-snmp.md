@@ -85,16 +85,18 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Nom                        | Unité |
-|:---------------------------|:------|
-| hardware.fan.count         | count |
-| fan status                 | N/A   |
-| hardware.temperature.count | count |
-| temperature status         | N/A   |
-| hardware.psu.count         | count |
-| psu status                 | N/A   |
-| hardware.raid.count        | count |
-| raid status                | N/A   |
+| Nom                          | Unité |
+|:-----------------------------|:------|
+| hardware.fan.speed.rpm       | rpm   |
+| hardware.fan.status          | N/A   |
+| hardware.fan.count           | count |
+| hardware.psu.status          | N/A   |
+| hardware.psu.count           | count |
+| hardware.raid.status         | N/A   |
+| hardware.raid.count          | count |
+| hardware.temperature.celsius | C     |
+| hardware.temperature.status  | N/A   |
+| hardware.temperature.count   | count |
 
 </TabItem>
 <TabItem value="Mail-Usage" label="Mail-Usage">
@@ -427,7 +429,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=98648b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=31759b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=97420b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=34305b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=61b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=21b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=36b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=25b/s;80;90;; 
 ```
 
 ### Diagnostic des erreurs communes

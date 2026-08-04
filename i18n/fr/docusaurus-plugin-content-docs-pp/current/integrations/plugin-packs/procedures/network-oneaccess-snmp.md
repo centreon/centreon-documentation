@@ -357,7 +357,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: All rtt probes are ok | 'probes1#probe.completion.time.milliseconds'=55970ms;;;0; 'probes2#probe.completion.time.milliseconds'=71926ms;;;0; 
+OK: All rtt probes are ok | 'probes1#probe.completion.time.milliseconds'=55ms;;;0; 'probes2#probe.completion.time.milliseconds'=71ms;;;0; 
 ```
 
 ### Diagnostic des erreurs communes

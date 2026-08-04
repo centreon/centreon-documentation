@@ -40,7 +40,7 @@ Le connecteur apporte les modèles de service suivants
 | Disk-Generic-Id            | OS-Solaris-Disk-Generic-Id-SNMP-custom            | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le nom du disque                   |            |
 | Disk-Generic-Name          | OS-Solaris-Disk-Generic-Name-SNMP-custom          | Contrôle du taux d'espace libre disponible du disque. Pour chaque contrôle apparaîtra le point de montage du disque      |            |
 | Disk-Global                | OS-Solaris-Disk-Global-SNMP-custom                | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle, le point de montage des disques apparaîtra |     X      |
-| Packet-Errors-Generic-Id   | Os-Solaris-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                      |            |
+| Packet-Errors-Generic-Id   | Os-Solaris-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                                    |            |
 | Packet-Errors-Generic-Name | Os-Solaris-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau                                              |            |
 | Packet-Errors-Global       | Os-Solaris-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                      |     X      |
 | Process-Generic            | OS-Solaris-Process-Generic-SNMP-custom            | Contrôle permettant de vérifier le fonctionnement d'un processus/service Linux                                           |            |
@@ -70,8 +70,8 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 | Nom de la règle                    | Description                                                                                            |
 |:-----------------------------------|:-------------------------------------------------------------------------------------------------------|
-| OS-Solaris-SNMP-Disk-Name          | Découvre les interfaces réseau en utilisant leur nom et supervise les paquets erronés et rejetés       |
-| OS-Solaris-SNMP-Packet-Errors-Name | Utilise le nom du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace |
+| OS-Solaris-SNMP-Disk-Name          | Utilise le nom du disque pour découvrir les partitions du disque et supervise l'occupation de l'espace       |
+| OS-Solaris-SNMP-Packet-Errors-Name | Découvre les interfaces réseau en utilisant leur nom et supervise les paquets erronés et rejetés |
 | OS-Solaris-SNMP-Traffic-Name       | Découvre les interfaces réseau en utilisant leur nom et supervise leur statut et leur utilisation      |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)

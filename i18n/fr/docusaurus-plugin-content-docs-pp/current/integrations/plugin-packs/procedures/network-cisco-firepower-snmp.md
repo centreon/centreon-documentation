@@ -28,9 +28,9 @@ Le connecteur apporte les modèles de service suivants
 | Alias    | Modèle de service                        | Description                                    |
 |:---------|:-----------------------------------------|:-----------------------------------------------|
 | Cpu      | Net-Cisco-Firepower-Cpu-SNMP-custom      | Contrôle du taux d'utilisation des processeurs |
-| Faults   | Net-Cisco-Firepower-Faults-SNMP-custom   | Contrôle les messages d'erreurs                |
+| Faults   | Net-Cisco-Firepower-Faults-SNMP-custom   | Contrôle les messages d'erreur                |
 | Hardware | Net-CIsco-Firepower-Hardware-SNMP-custom | Contrôle l'état du matériel                    |
-| Memory   | Net-Cisco-Firepower-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoire     |
+| Memory   | Net-Cisco-Firepower-Memory-SNMP-custom   | Contrôle du taux d'utilisation des mémoires     |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Cisco-Firepower-SNMP-custom** est utilisé.
 
