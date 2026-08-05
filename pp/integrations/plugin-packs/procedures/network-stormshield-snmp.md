@@ -27,30 +27,34 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias   | Service Template                            | Service Description                                                                                                                                         |
 |:----------------|:--------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Auto-Update     | Net-Stormshield-Auto-Update-SNMP-custom     | monitor the status of auto-updates and web services. It checks for failed, broken, or partially failed updates and reports their status                     |
 | Cpu-Detailed    | Net-Stormshield-Cpu-Detailed-SNMP-custom    | Check the detailed rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |
+| Ha-cluster      | Net-Stormshield-Ha-Cluster-SNMP-custom      | Check HA cluster global status                                                                                                                              |
 | Hardware        | Net-Stormshield-Hardware-SNMP-custom        | Check hardware                                                                                                                                              |
+| Licenses        | Net-Stormshield-Licenses-SNMP-custom        | Check the licenses for the Stormshield device, as well as their expiration dates                                                                            |
 | Load            | Net-Stormshield-Load-SNMP-custom            | Check the server load average                                                                                                                               |
 | Memory          | Net-Stormshield-Memory-SNMP-custom          | Check the rate of the utilization of memory (RAM)                                                                                                           |
 | Memory-Detailed | Net-Stormshield-Memory-Detailed-SNMP-custom | Check detailed memory usage                                                                                                                                 |
 | Swap            | Net-Stormshield-Swap-SNMP-custom            | Check virtual memory usage (SWAP)                                                                                                                           |
+| Uptime          | Net-Stormshield-Uptime-SNMP-custom          | Check uptime and retrieves and displays basic properties of the Stormshield device such as system name, model, version, serial number, and date             |
 
 > The services listed above are created automatically when the **Net-Stormshield-SNMP-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias        | Service Template                                 | Service Description                                                                                                                                                 | Discovery |
-|:---------------------|:-------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|
-| Connections          | Net-Stormshield-Connections-SNMP-custom          | Check the number of TCP/UDP connections                                                                                                                             |           |
-| Cpu                  | Net-Stormshield-Cpu-SNMP-custom                  | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU                  |           |
-| Disk-Global          | Net-Stormshield-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the mount point of disks will appear (« label »). Thresholds can be in percentage or in free space remaining |           |
-| Ha-Status            | Net-Stormshield-Ha-Status-SNMP-custom            | Check HA status                                                                                                                                                     |           |
-| Health               | Net-Stormshield-Health-SNMP-custom               | Check health                                                                                                                                                        |           |
-| Qos                  | Net-Stormshield-Qos-SNMP-custom                  | Check QoS usage                                                                                                                                                     |           |
-| Traffic-Generic-Id   | Net-Stormshield-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface                                                                                                                               |           |
-| Traffic-Generic-Name | Net-Stormshield-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface                                                                                                                               |           |
-| Traffic-Global       | Net-Stormshield-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces                                                                                                                        |     X     |
-| Vpn-Status           | Net-Stormshield-Vpn-Status-SNMP-custom           | Check VPN states                                                                                                                                                    |           |
+| Service Alias        | Service Template                                 | Service Description                                                                                                                                                | Discovery |
+|:---------------------|:-------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------:|
+| Connections          | Net-Stormshield-Connections-SNMP-custom          | Check the number of TCP/UDP connections                                                                                                                            |           |
+| Cpu                  | Net-Stormshield-Cpu-SNMP-custom                  | Check the rate of utilization of CPU for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU                 |           |
+| Disk-Global          | Net-Stormshield-Disk-Global-SNMP-custom          | Check the rate of free space on disks. For each check the mount point of disks will appear (" label "). Thresholds can be in percentage or in free space remaining |           |
+| Ha-Status            | Net-Stormshield-Ha-Status-SNMP-custom            | Check HA status                                                                                                                                                    |           |
+| Health               | Net-Stormshield-Health-SNMP-custom               | Check health                                                                                                                                                       |           |
+| Qos                  | Net-Stormshield-Qos-SNMP-custom                  | Check QoS usage                                                                                                                                                    |           |
+| Traffic-Generic-Id   | Net-Stormshield-Traffic-Generic-Id-SNMP-custom   | Check traffic of an network interface                                                                                                                              |           |
+| Traffic-Generic-Name | Net-Stormshield-Traffic-Generic-Name-SNMP-custom | Check traffic of an network interface                                                                                                                              |           |
+| Traffic-Global       | Net-Stormshield-Traffic-Global-SNMP-custom       | Check traffic of multiple network interfaces                                                                                                                       | X         |
+| Vpn-Status           | Net-Stormshield-Vpn-Status-SNMP-custom           | Check VPN states                                                                                                                                                   |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -83,14 +87,23 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Connections" label="Connections">
+<TabItem value="Auto-Update" label="Auto-Update">
 
-| Name | Unit |
-|:-----|:-----|
-| udp  | con  |
-| tcp  | con  |
+| Name   | Unit |
+|:-------|:-----|
+| status | N/A  |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
+<TabItem value="Connections" label="Connections">
+
+| Name                  | Unit  |
+|:----------------------|:------|
+| connections.udp.count | count |
+| connections.tcp.count | count |
+| alarms.major.count    | count |
+| alarms.minor.count    | count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -144,6 +157,18 @@ Here is the list of services for this connector, detailing all metrics and statu
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
+<TabItem value="Ha-cluster" label="Ha-cluster">
+
+| Name                           | Unit  |
+|:-------------------------------|:------|
+| cluster.dead-nodes.count       | count |
+| cluster.faulty-links.count     | count |
+| cluster.active-firewalls.count | count |
+| sync-status                    | N/A   |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+
+</TabItem>
 <TabItem value="Hardware" label="Hardware">
 
 | Name                       | Unit  |
@@ -163,6 +188,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name           | Unit |
 |:---------------|:-----|
 | service-status | N/A  |
+
+</TabItem>
+<TabItem value="Licenses" label="Licenses">
+
+| Name                    | Unit |
+|:------------------------|:-----|
+| license.expiration.days | d    |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -198,6 +230,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 | memory.data_tracking.percentage  | %    |
 | memory.dynamic.percentage        | %    |
 | memory.ether_state.percentage    | %    |
+| memory.socket.percentage         | %    |
+| memory.user.percentage           | %    |
 
 </TabItem>
 <TabItem value="Qos" label="Qos">
@@ -232,6 +266,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *interface_name*#interface.traffic.out.bitspersecond | b/s  |
 
 > Applies to the following service templates: Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Name                  | Unit |
+|:----------------------|:-----|
+| system.uptime.seconds | s    |
 
 </TabItem>
 <TabItem value="Vpn-Status" label="Vpn-Status">
@@ -376,15 +417,29 @@ yum install centreon-plugin-Network-Stormshield-Snmp
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
+<TabItem value="Auto-Update" label="Auto-Update">
+
+| Macro          | Description                                                                                                                                       | Default value                       | Mandatory |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------:|
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{display\}, %\{state\}, %\{last\_date\}       |                                     |           |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{state\}, %\{last\_date\}       | %\{state\} =~ /Partially Failed/i   |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL$/i`). You can use the following variables: %\{display\}, %\{state\}, %\{last\_date\} | %\{state\} =~ /^(Failed\|Broken)$/i |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).            |                                     |           |
+
+</TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Macro        | Description                                                                                                                                      | Default value | Mandatory |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNINGTCP   | Threshold                                                                                                                                        |               |           |
-| CRITICALTCP  | Threshold                                                                                                                                        |               |           |
-| WARNINGUDP   | Threshold                                                                                                                                        |               |           |
-| CRITICALUDP  | Threshold                                                                                                                                        |               |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+| Macro         | Description                                                                                                                                      | Default value | Mandatory |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNINGMAJOR  | Warning threshold for Major Alarms                                                                                                               |               |           |
+| CRITICALMAJOR | Critical threshold for Major Alarms                                                                                                              |               |           |
+| WARNINGMINOR  | Warning threshold for Minor Alarms                                                                                                               |               |           |
+| CRITICALMINOR | Critical threshold for Minor Alarms                                                                                                              |               |           |
+| WARNINGTCP    | Warning threshold for TCP connections                                                                                                            |               |           |
+| CRITICALTCP   | Critical threshold for TCP connections                                                                                                           |               |           |
+| WARNINGUDP    | Warning threshold for UDP connections                                                                                                            |               |           |
+| CRITICALUDP   | Critical threshold for UDP connections                                                                                                           |               |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -430,6 +485,21 @@ yum install centreon-plugin-Network-Stormshield-Snmp
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose                |           |
 
 </TabItem>
+<TabItem value="Ha-cluster" label="Ha-cluster">
+
+| Macro                    | Description                                                                                                                                      | Default value                | Mandatory |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:---------:|
+| CRITICAL_ACTIVE_FIREWALL | Threshold. Default: `1:1` since there must be only one active firewall per cluster                                                               | 1:1                          |           |
+| WARNING_ACTIVE_FIREWALL  | Threshold                                                                                                                                        |                              |           |
+| WARNING_DEAD_NODES       | Threshold in percentage of the total number of nodes. Default: 50                                                                                | 50                           |           |
+| CRITICAL_DEAD_NODES      | Threshold in percentage of the total number of nodes. Default: 100                                                                               | 100                          |           |
+| WARNING_FAULTY_LINKS     | Threshold in percentage of the total number of links. Default: 50                                                                                | 50                           |           |
+| CRITICAL_FAULTY_LINKS    | Threshold in percentage of the total number of links. Default: 100                                                                               | 100                          |           |
+| WARNING_SYNC_STATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{sync\_status\}                              | %\{sync\_status\} eq "False" |           |
+| CRITICAL_SYNC_STATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{sync\_status\}                             |                              |           |
+| EXTRA_OPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |                              |           |
+
+</TabItem>
 <TabItem value="Hardware" label="Hardware">
 
 | Macro        | Description                                                                                                                                      | Default value | Mandatory |
@@ -446,6 +516,15 @@ yum install centreon-plugin-Network-Stormshield-Snmp
 | WARNINGSERVICESTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{health\}, %\{service\}                      | %\{health\} =~ /minor/i |           |
 | CRITICALSERVICESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{health\}, %\{service\}                     | %\{health\} =~ /major/i |           |
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose               |           |
+
+</TabItem>
+<TabItem value="Licenses" label="Licenses">
+
+| Macro                 | Description                                                                                                                                      | Default value | Mandatory |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING_EXPIRES_DAYS  | Threshold in days                                                                                                                                | 60            |           |
+| CRITICAL_EXPIRES_DAYS | Threshold in days                                                                                                                                | 0             |           |
+| EXTRA_OPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -557,13 +636,22 @@ yum install centreon-plugin-Network-Stormshield-Snmp
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose                                        |           |
 
 </TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Macro           | Description                                                                                                                                      | Default value | Mandatory |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING_UPTIME  | Threshold (in seconds)                                                                                                                           |               |           |
+| CRITICAL_UPTIME | Threshold (in seconds)                                                                                                                           |               |           |
+| EXTRA_OPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
+
+</TabItem>
 <TabItem value="Vpn-Status" label="Vpn-Status">
 
 | Macro               | Description                                                                                                                                      | Default value        | Mandatory |
 |:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:---------:|
 | FILTERID            | Filter by ID (regexp can be used)                                                                                                                |                      |           |
-| FILTERSRCIP         |Filter by source IP address (regexp can be used)                                                                                                            |                      |           |
-| FILTERDSTIP         | Filter by destination IP address (regexp can be used)                                                                                                            |                      |           |
+| FILTERSRCIP         | Filter by src ip (regexp can be used)                                                                                                            |                      |           |
+| FILTERDSTIP         | Filter by dst ip (regexp can be used)                                                                                                            |                      |           |
 | WARNINGSTATUS       | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{srcIp\}, %\{dstIp\}             | %\{state\} eq "dead" |           |
 | CRITICALSTATUS      | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{srcIp\}, %\{dstIp\}            |                      |           |
 | WARNINGTRAFFIC      | Threshold                                                                                                                                        |                      |           |
@@ -644,23 +732,29 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode                                                                                                                                    | Linked service template                                                                                                                              |
-|:----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/connections.pm)]        | Net-Stormshield-Connections-SNMP-custom                                                                                                              |
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpu.pm)]                                   | Net-Stormshield-Cpu-SNMP-custom                                                                                                                      |
-| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpudetailed.pm)]                  | Net-Stormshield-Cpu-Detailed-SNMP-custom                                                                                                             |
-| ha-nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/hanodes.pm)]               | Net-Stormshield-Ha-Status-SNMP-custom                                                                                                                |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/hardware.pm)]              | Net-Stormshield-Hardware-SNMP-custom                                                                                                                 |
-| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/health.pm)]                  | Net-Stormshield-Health-SNMP-custom                                                                                                                   |
-| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                     | Net-Stormshield-Traffic-Generic-Id-SNMP-custom<br />Net-Stormshield-Traffic-Generic-Name-SNMP-custom<br />Net-Stormshield-Traffic-Global-SNMP-custom |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]            | Used for service discovery                                                                                                                           |
-| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/loadaverage.pm)]                          | Net-Stormshield-Load-SNMP-custom                                                                                                                     |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/freebsd/snmp/mode/memory.pm)]                           | Net-Stormshield-Memory-SNMP-custom                                                                                                                   |
-| memory-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/memorydetailed.pm)] | Net-Stormshield-Memory-Detailed-SNMP-custom                                                                                                          |
-| qos [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/qos.pm)]                        | Net-Stormshield-Qos-SNMP-custom                                                                                                                      |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/storage.pm)]                           | Net-Stormshield-Disk-Global-SNMP-custom                                                                                                              |
-| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/swap.pm)]                                 | Net-Stormshield-Swap-SNMP-custom                                                                                                                     |
-| vpn-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/vpnstatus.pm)]           | Net-Stormshield-Vpn-Status-SNMP-custom                                                                                                               |
+| Mode                                                                                                                                       | Linked service template                                                                                                                              |
+|:-------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| auto-update [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/auto_update.pm)]           | Net-Stormshield-Auto-Update-SNMP-custom                                                                                                              |
+| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/connections.pm)]           | Net-Stormshield-Connections-SNMP-custom                                                                                                              |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpu.pm)]                                      | Net-Stormshield-Cpu-SNMP-custom                                                                                                                      |
+| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpudetailed.pm)]                     | Net-Stormshield-Cpu-Detailed-SNMP-custom                                                                                                             |
+| ha-cluster [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/ha_cluster.pm)]             | Net-Stormshield-Ha-Cluster-SNMP-custom                                                                                                               |
+| ha-nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/hanodes.pm)]                  | Net-Stormshield-Ha-Status-SNMP-custom                                                                                                                |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/hardware.pm)]                 | Net-Stormshield-Hardware-SNMP-custom                                                                                                                 |
+| health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/health.pm)]                     | Net-Stormshield-Health-SNMP-custom                                                                                                                   |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                        | Net-Stormshield-Traffic-Generic-Id-SNMP-custom<br />Net-Stormshield-Traffic-Generic-Name-SNMP-custom<br />Net-Stormshield-Traffic-Global-SNMP-custom |
+| interfaces-disco [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/interfaces_disco.pm)] | Not used in this Monitoring Connector                                                                                                                |
+| licenses [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/licenses.pm)]                 | Net-Stormshield-Licenses-SNMP-custom                                                                                                                 |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]               | Used for service discovery                                                                                                                           |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/loadaverage.pm)]                             | Net-Stormshield-Load-SNMP-custom                                                                                                                     |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/freebsd/snmp/mode/memory.pm)]                              | Net-Stormshield-Memory-SNMP-custom                                                                                                                   |
+| memory-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/memorydetailed.pm)]    | Net-Stormshield-Memory-Detailed-SNMP-custom                                                                                                          |
+| qos [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/qos.pm)]                           | Net-Stormshield-Qos-SNMP-custom                                                                                                                      |
+| router-disco [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/router_disco.pm)]         | Not used in this Monitoring Connector                                                                                                                |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/storage.pm)]                              | Net-Stormshield-Disk-Global-SNMP-custom                                                                                                              |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/swap.pm)]                                    | Net-Stormshield-Swap-SNMP-custom                                                                                                                     |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/uptime.pm)]                     | Net-Stormshield-Uptime-SNMP-custom                                                                                                                   |
+| vpn-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/network/stormshield/snmp/mode/vpnstatus.pm)]              | Net-Stormshield-Vpn-Status-SNMP-custom                                                                                                               |
 
 ### Available options
 
@@ -735,69 +829,72 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
+<TabItem value="Auto-Update" label="Auto-Update">
+
+| Option            | Description                                                                                                                                                                                   |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{display\}, %\{state\}, %\{last\_date\}                                                   |
+| --warning-status  | Define the conditions to match for the status to be WARNING (default: `%\{state\} =~ /Partially Failed/i`). You can use the following variables: %\{display\}, %\{state\}, %\{last\_date\}    |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (default: `%\{state\} =~ /^(Failed\|Broken)$/i`). You can use the following variables: %\{display\}, %\{state\}, %\{last\_date\} |
+
+</TabItem>
 <TabItem value="Connections" label="Connections">
 
-| Option            | Description                                                                                                               |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-xxx     | Warning threshold.                                                                                                        |
-| --critical-xxx    | Critical threshold.                                                                                                       |
-| --warning-*       | Warning threshold. Can be: 'tcp', 'udp'                                                                                   |
-| --critical-*      | Critical threshold. Can be: 'tcp', 'udp'                                                                                  |
+| Option           | Description                             |
+|:-----------------|:----------------------------------------|
+| --warning-tcp    | Warning threshold for TCP connections.  |
+| --warning-udp    | Warning threshold for UDP connections.  |
+| --warning-major  | Warning threshold for Major Alarms.     |
+| --warning-minor  | Warning threshold for Minor Alarms.     |
+| --critical-tcp   | Critical threshold for TCP connections. |
+| --critical-udp   | Critical threshold for UDP connections. |
+| --critical-major | Critical threshold for Major Alarms.    |
+| --critical-minor | Critical threshold for Minor Alarms.    |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Option             | Description                                                                                                               |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-xxx      | Warning threshold.                                                                                                        |
-| --critical-xxx     | Critical threshold.                                                                                                       |
-| --use-ucd          | Use UCD MIB for CPU average.                                                                                              |
-| --warning-average  | Warning threshold average CPU utilization.                                                                                |
-| --critical-average | Critical threshold average CPU utilization.                                                                               |
-| --warning-core     | Warning thresholds for each CPU core                                                                                      |
-| --critical-core    | Critical thresholds for each CPU core                                                                                     |
+| Option             | Description                                 |
+|:-------------------|:--------------------------------------------|
+| --use-ucd          | Use UCD MIB for CPU average.                |
+| --warning-average  | Warning threshold average CPU utilization.  |
+| --critical-average | Critical threshold average CPU utilization. |
+| --warning-core     | Warning thresholds for each CPU core        |
+| --critical-core    | Critical thresholds for each CPU core       |
 
 </TabItem>
 <TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Option               | Description                                                                                                               |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters    | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-xxx        | Warning threshold.                                                                                                        |
-| --critical-xxx       | Critical threshold.                                                                                                       |
-| --warning-guest      | Threshold in percentage.                                                                                                  |
-| --critical-guest     | Threshold in percentage.                                                                                                  |
-| --warning-guestnice  | Threshold in percentage.                                                                                                  |
-| --critical-guestnice | Threshold in percentage.                                                                                                  |
-| --warning-idle       | Threshold in percentage.                                                                                                  |
-| --critical-idle      | Threshold in percentage.                                                                                                  |
-| --warning-interrupt  | Threshold in percentage.                                                                                                  |
-| --critical-interrupt | Threshold in percentage.                                                                                                  |
-| --warning-kernel     | Threshold in percentage.                                                                                                  |
-| --critical-kernel    | Threshold in percentage.                                                                                                  |
-| --warning-nice       | Threshold in percentage.                                                                                                  |
-| --critical-nice      | Threshold in percentage.                                                                                                  |
-| --warning-softirq    | Threshold in percentage.                                                                                                  |
-| --critical-softirq   | Threshold in percentage.                                                                                                  |
-| --warning-steal      | Threshold in percentage.                                                                                                  |
-| --critical-steal     | Threshold in percentage.                                                                                                  |
-| --warning-system     | Threshold in percentage.                                                                                                  |
-| --critical-system    | Threshold in percentage.                                                                                                  |
-| --warning-user       | Threshold in percentage.                                                                                                  |
-| --critical-user      | Threshold in percentage.                                                                                                  |
-| --warning-wait       | Threshold in percentage.                                                                                                  |
-| --critical-wait      | Threshold in percentage.                                                                                                  |
+| Option               | Description              |
+|:---------------------|:-------------------------|
+| --warning-guest      | Threshold in percentage. |
+| --critical-guest     | Threshold in percentage. |
+| --warning-guestnice  | Threshold in percentage. |
+| --critical-guestnice | Threshold in percentage. |
+| --warning-idle       | Threshold in percentage. |
+| --critical-idle      | Threshold in percentage. |
+| --warning-interrupt  | Threshold in percentage. |
+| --critical-interrupt | Threshold in percentage. |
+| --warning-kernel     | Threshold in percentage. |
+| --critical-kernel    | Threshold in percentage. |
+| --warning-nice       | Threshold in percentage. |
+| --critical-nice      | Threshold in percentage. |
+| --warning-softirq    | Threshold in percentage. |
+| --critical-softirq   | Threshold in percentage. |
+| --warning-steal      | Threshold in percentage. |
+| --critical-steal     | Threshold in percentage. |
+| --warning-system     | Threshold in percentage. |
+| --critical-system    | Threshold in percentage. |
+| --warning-user       | Threshold in percentage. |
+| --critical-user      | Threshold in percentage. |
+| --warning-wait       | Threshold in percentage. |
+| --critical-wait      | Threshold in percentage. |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
 
 | Option                                          | Description                                                                                                                                                                                                                                 |
 |:------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters                               | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                   |
-| --warning-xxx                                   | Warning threshold.                                                                                                                                                                                                                          |
-| --critical-xxx                                  | Critical threshold.                                                                                                                                                                                                                         |
 | --memcached                                     | Memcached server to use (only one server).                                                                                                                                                                                                  |
 | --redis-server                                  | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                             |
 | --redis-attribute                               | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                     |
@@ -836,9 +933,6 @@ All available options for each service template are listed below:
 
 | Option                | Description                                                                                                                          |
 |:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters     | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'            |
-| --warning-xxx         | Warning threshold.                                                                                                                   |
-| --critical-xxx        | Critical threshold.                                                                                                                  |
 | --filter-node         | Filter name with regexp (based on serial).                                                                                           |
 | --warning-health      | Warning threshold on health level (example: --warning 90:).                                                                          |
 | --critical-health     | Critical threshold on health level (example --critical 80:).                                                                         |
@@ -849,32 +943,52 @@ All available options for each service template are listed below:
 | --percent             | Set this option if you want to warn on percent .                                                                                     |
 
 </TabItem>
+<TabItem value="Ha-cluster" label="Ha-cluster">
+
+| Option                     | Description                                                                                                                                                    |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-active-firewall  | Threshold.                                                                                                                                                     |
+| --critical-active-firewall | Threshold. Default: `1:1` since there must be only one active firewall per cluster.                                                                            |
+| --warning-dead-nodes       | Threshold in percentage of the total number of nodes. Default: 50.                                                                                             |
+| --critical-dead-nodes      | Threshold in percentage of the total number of nodes. Default: 100.                                                                                            |
+| --warning-faulty-links     | Threshold in percentage of the total number of links. Default: 50.                                                                                             |
+| --critical-faulty-links    | Threshold in percentage of the total number of links. Default: 100.                                                                                            |
+| --warning-sync-status      | Define the conditions to match for the status to be WARNING (default: `%\{sync\_status\} eq "False"`). You can use the following variables: %\{sync\_status\}. |
+| --critical-sync-status     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{sync\_status\}.                                          |
+
+</TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Option               | Description                                                                                                                                                                                                         |
-|:---------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Which component to check (default: '.*'). Can be: 'disk', 'fan', 'psu', 'temperature'.                                                                                                                              |
-| --filter             | Exclude the items given as a comma-separated list (example: --filter=fan). You can also exclude items from specific instances: --filter=fan,1                                                                       |
-| --absent-problem     | Return an error if a component is not 'present' (default is skipping). It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'. |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                          |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='disk,WARNING,missing' |
-| --warning            | Set warning threshold for 'temperature', 'fan' (syntax: type,regexp,threshold) Example: --warning='temperature,.*,40'                                                                                               |
-| --critical           | Set critical threshold for 'temperature', 'fan' (syntax: type,regexp,threshold) Example: --critical='temperature,.*,50'                                                                                             |
-| --warning-count-*    | Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                        |
-| --critical-count-*   | Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                       |
+| Option               | Description                                                                                                                                                                                      |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          | Which component to check (default: '.*'). Can be: 'disk', 'fan', 'psu', 'temperature'.                                                                                                           |
+| --filter             | Exclude items given as a comma-separated list (example: --filter=fan). You can also exclude specific instances: --filter=fan,1                                                                   |
+| --absent-problem     | Return an error if a component is not present (default: skip). Can be set globally or per instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.    |
+| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                       |
+| --threshold-overload | Override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='disk,WARNING,missing' |
+| --warning            | Set warning threshold for 'temperature' or 'fan' (syntax: type,regexp,threshold). Example: --warning='temperature,.*,60'                                                                         |
+| --critical           | Set critical threshold for 'temperature' or 'fan' (syntax: type,regexp,threshold). Example: --critical='temperature,.*,70'                                                                       |
+| --warning-count-*    | Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                     |
+| --critical-count-*   | Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                    |
 
 </TabItem>
 <TabItem value="Health" label="Health">
 
 | Option                    | Description                                                                                                                                                       |
 |:--------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters         | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                         |
-| --warning-xxx             | Warning threshold.                                                                                                                                                |
-| --critical-xxx            | Critical threshold.                                                                                                                                               |
 | --filter-serial           | Filter by firewall serial (can be a regexp).                                                                                                                      |
 | --unknown-service-status  | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{health\}, %\{service\}                                       |
 | --warning-service-status  | Define the conditions to match for the status to be WARNING (default: '%\{health\} =~ /minor/i'). You can use the following variables: %\{health\}, %\{service\}  |
 | --critical-service-status | Define the conditions to match for the status to be CRITICAL (default: '%\{health\} =~ /major/i'). You can use the following variables: %\{health\}, %\{service\} |
+
+</TabItem>
+<TabItem value="Licenses" label="Licenses">
+
+| Option                  | Description                         |
+|:------------------------|:------------------------------------|
+| --warning-expires-days  | Threshold in days (default: 60).    |
+| --critical-expires-days | Threshold in days (default: 0).     |
+| --timezone              | Timezone options. Default is `CET`. |
 
 </TabItem>
 <TabItem value="Load" label="Load">
@@ -900,21 +1014,34 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Memory-Detailed" label="Memory-Detailed">
 
-| Option                   | Description                                                                                                               |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-xxx            | Warning threshold.                                                                                                        |
-| --critical-xxx           | Critical threshold.                                                                                                       |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'host', 'frag', 'conn', 'icmp', 'dtrack', 'dyn', 'etherstate'.                               |
+| Option                | Description                           |
+|:----------------------|:--------------------------------------|
+| --warning-total       | Threshold.                            |
+| --warning-host        | Threshold.                            |
+| --warning-frag        | Threshold.                            |
+| --warning-conn        | Threshold.                            |
+| --warning-icmp        | Threshold.                            |
+| --warning-dtrack      | Threshold.                            |
+| --warning-dyn         | Threshold.                            |
+| --warning-etherstate  | Threshold.                            |
+| --warning-socket      | Threshold.                            |
+| --warning-user        | Threshold. only for version \>= 4.8.9 |
+| --critical-total      | Threshold.                            |
+| --critical-host       | Threshold.                            |
+| --critical-frag       | Threshold.                            |
+| --critical-conn       | Threshold.                            |
+| --critical-icmp       | Threshold.                            |
+| --critical-dtrack     | Threshold.                            |
+| --critical-dyn        | Threshold.                            |
+| --critical-etherstate | Threshold.                            |
+| --critical-socket     | Threshold.                            |
+| --critical-user       | Threshold. only for version \>= 4.8.9 |
 
 </TabItem>
 <TabItem value="Qos" label="Qos">
 
 | Option                   | Description                                                                                                                    |
 |:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'      |
-| --warning-xxx            | Warning threshold.                                                                                                             |
-| --critical-xxx           | Critical threshold.                                                                                                            |
 | --filter-name            | Filter by QoS name (can be a regexp).                                                                                          |
 | --speed-in               | Set interface speed for incoming traffic (in Mb).                                                                              |
 | --speed-out              | Set interface speed for outgoing traffic (in Mb).                                                                              |
@@ -923,27 +1050,21 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Option                | Description                                                                                                               |
-|:----------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters     | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-xxx         | Warning threshold.                                                                                                        |
-| --critical-xxx        | Critical threshold.                                                                                                       |
-| --no-swap             | Threshold if no active swap (default: 'critical').                                                                        |
-| --warning-usage       | Threshold in bytes.                                                                                                       |
-| --critical-usage      | Threshold in bytes.                                                                                                       |
-| --warning-usage-free  | Threshold in bytes.                                                                                                       |
-| --critical-usage-free | Threshold in bytes.                                                                                                       |
-| --warning-usage-prct  | Threshold in percentage.                                                                                                  |
-| --critical-usage-prct | Threshold in percentage.                                                                                                  |
+| Option                | Description                                        |
+|:----------------------|:---------------------------------------------------|
+| --no-swap             | Threshold if no active swap (default: 'critical'). |
+| --warning-usage       | Threshold in bytes.                                |
+| --critical-usage      | Threshold in bytes.                                |
+| --warning-usage-free  | Threshold in bytes.                                |
+| --critical-usage-free | Threshold in bytes.                                |
+| --warning-usage-prct  | Threshold in percentage.                           |
+| --critical-usage-prct | Threshold in percentage.                           |
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
 | Option                                          | Description                                                                                                                                                                                                                                 |
 |:------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters                               | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                   |
-| --warning-xxx                                   | Warning threshold.                                                                                                                                                                                                                          |
-| --critical-xxx                                  | Critical threshold.                                                                                                                                                                                                                         |
 | --memcached                                     | Memcached server to use (only one server).                                                                                                                                                                                                  |
 | --redis-server                                  | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                             |
 | --redis-attribute                               | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                     |
@@ -1025,13 +1146,18 @@ All available options for each service template are listed below:
 | --no-cache-lock                                 | Set to disable locking when accessing cache.                                                                                                                                                                                                |
 
 </TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Option            | Description             |
+|:------------------|:------------------------|
+| --warning-uptime  | Threshold (in seconds). |
+| --critical-uptime | Threshold (in seconds). |
+
+</TabItem>
 <TabItem value="Vpn-Status" label="Vpn-Status">
 
 | Option                   | Description                                                                                                                                                            |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                              |
-| --warning-xxx            | Warning threshold.                                                                                                                                                     |
-| --critical-xxx           | Critical threshold.                                                                                                                                                    |
 | --filter-id              | Filter by ID (regexp can be used).                                                                                                                                     |
 | --filter-src-ip          | Filter by src ip (regexp can be used).                                                                                                                                 |
 | --filter-dst-ip          | Filter by dst ip (regexp can be used).                                                                                                                                 |
