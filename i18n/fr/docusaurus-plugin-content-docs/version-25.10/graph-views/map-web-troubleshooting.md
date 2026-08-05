@@ -1,6 +1,7 @@
 ---
 id: map-web-troubleshooting
-title: Dépannage de MAP
+title: Dépanner MAP
+description: "Dépanner les incidents courants d'installation et de configuration de MAP"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -124,7 +125,7 @@ Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4.
 1. Pour augmenter le niveau des logs, éditez le fichier **/etc/centreon-map/map-log.xml** en passant les entrées suivantes en INFO :
 
   ```shell
-  <logger name="com.centreon.studio" level="INFO" />
+  
   <logger name="org.springframework" level="INFO" />
   <logger name="org.springframework.web" level="INFO" />
   <logger name="org.apache" level="INFO" />
@@ -186,13 +187,13 @@ Voici les principales erreurs que vous pouvez rencontrer :
 2. Vérifiez le statut de MAP en accédant à l'URL suivante dans le navigateur (utilisez les mêmes valeurs pour **MAP_IP_ADDRESS** et **MAP_PORT** que celles définies dans **Administration > Extensions > MAP > Options**).
 
   ```shell
-  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/beta/actuator/health
+  http://[MAP_IP_ADDRESS]:[MAP_PORT]/centreon-map/api/latest/actuator/health
   ```
   
   Exemple:
   
   ```shell
-  http://10.0.0.2:8081/centreon-map/api/beta/actuator/health
+  http://10.0.0.2:8081/centreon-map/api/latest/actuator/health
   ```
   
   Le résultat doit être le suivant :

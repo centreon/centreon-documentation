@@ -1,108 +1,231 @@
 ---
 id: hardware-devices-barco-cs-restapi
 title: Barco ClickShare Rest API
+description: "Monitor Barco ClickShare devices via REST API: device status, temperatures, fan speed, and process status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Monitoring Connector Assets
+The following monitoring connectors will be installed when you install the **Barco ClickShare Rest API** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
-### Monitored Objects
+## Pack assets
 
-The Barco ClickShare Pack collects metrics and status from various Barco hardware devices (CSE 100, CSE-200+, CSE-800,...).
+### Templates
 
-### Collected Metrics
+The Monitoring Connector **Barco ClickShare Rest API** brings a host template:
+
+* **HW-Device-Barco-Cs-Restapi-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="HW-Device-Barco-Cs-Restapi-custom" label="HW-Device-Barco-Cs-Restapi-custom">
+
+| Service Alias | Service Template                         | Service Description                 |
+|:--------------|:-----------------------------------------|:------------------------------------|
+| Device        | HW-Device-Barco-Cs-Device-Restapi-custom | Check device (status, temperatures) |
+
+> The services listed above are created automatically when the **HW-Device-Barco-Cs-Restapi-custom** host template is used.
+
+</TabItem>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Device" label="Device">
 
-| Metric name                       | Description                               | Unit |
-| :-------------------------------- | :---------------------------------------- | :--- |
-| device status                     | Status of the device                      |      |
-| cpu#hardware.temperature.celsius  | Cpu sensor temperature                    | C    |
-| pcie#hardware.temperature.celsius | Pcie sensor temperature                   | C    |
-| sio#hardware.temperature.celsius  | Sio sensor temperature                    | C    |
-| cpu#hardware.fan.speed.rpm        | Cpu fan speed (supported since api v1.11) | rpm  |
-| process status                    | Status of processes                       |      |
+| Name                                  | Unit  |
+|:--------------------------------------|:------|
+| device-status                         | N/A   |
+| *device*~hardware.temperature.celsius | C     |
+| *device*~hardware.temperature.celsius | C     |
+| *device*~hardware.temperature.celsius | C     |
+| *device*~hardware.fan.speed.rpm       | rpm   |
+| process-status                        | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-To control your Barco ClickShare, the Rest API must be configured.
+To monitor your Barco ClickShare, the Rest API must be configured: see the [official documentation](https://www.barco.com/en/support/knowledge-base/kb11350).
 
-E.g: https://www.barco.com/en/support/knowledge-base/kb11350
+## Installing the monitoring connector
 
-## Setup
+### Pack
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
+dnf install centreon-pack-hardware-devices-barco-cs-restapi
 ```
-
-2. On the Centreon Web interface in **Configuration > Connectors > Monitoring Connectors**, install the *Barco ClickShare Rest API* Pack
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
+dnf install centreon-pack-hardware-devices-barco-cs-restapi
 ```
 
-2. On the Centreon Central server, install the Centreon Pack from the RPM:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-hardware-devices-barco-cs-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-hardware-devices-barco-cs-restapi
 ```
 
-3. On the Centreon Web interface in **Configuration > Connectors > Monitoring Connectors**, install the *Barco ClickShare Rest API* Pack
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Barco ClickShare Rest API** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-hardware-devices-barco-cs-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Devices-Barco-Cs-Restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Host configuration 
+## Using the monitoring connector
 
-* Add a new Host and apply the *HW-Device-Barco-Cs-Restapi-custom* Host Template
+### Using a host template provided by the connector
 
-> Once the template applied, some Macros have to be configured:
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Device-Barco-Cs-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Mandatory | Name                   | Description                                                                |
-| :-------- | :--------------------- | :------------------------------------------------------------------------- |
-| X         | BARCOCSAPIPORT         | Port used (Default: 4001)                                                  |
-| X         | BARCOCSAPIPROTO        | Specify https if needed (Default: 'https')                                 |
-| X         | BARCOCSAPIUSERNAME     | Api username                                                               |
-| X         | BARCOCSAPIPASSWORD     | Api password                                                               |
-|           | BARCOCSAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Macro                  | Description                                                                                                                              | Default value | Mandatory |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| BARCOCSAPIUSERNAME     | API username                                                                                                                             |               |     X     |
+| BARCOCSAPIPASSWORD     | API password                                                                                                                             |               |     X     |
+| BARCOCSAPIPROTO        | Specify https if needed                                                                                                                  | https         |           |
+| BARCOCSAPIPORT         | Port used                                                                                                                                | 4001          |           |
+| BARCOCSAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
-## How to test the Plugin and what are the main options for?
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-Once the Plugin installed, log into your Poller using the *centreon-engine* user account and test by running the following command
-(Parameters such as ```api-username``` or ```api-password``` have to be adjusted):
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Device" label="Device">
+
+| Macro                   | Description                                                                                                                            | Default value            | Mandatory |
+|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-------------------------|:---------:|
+| WARNINGCPUFANSPEED      | Threshold                                                                                                                              |                          |           |
+| CRITICALCPUFANSPEED     | Threshold                                                                                                                              |                          |           |
+| WARNINGCPUTEMPERATURE   | Threshold                                                                                                                              |                          |           |
+| CRITICALCPUTEMPERATURE  | Threshold                                                                                                                              |                          |           |
+| WARNINGDEVICESTATUS     | Set warning threshold. You can use the following variables: %\{status\}                                                                | %\{status\} =~ /warning/ |           |
+| CRITICALDEVICESTATUS    | Set critical threshold. You can use the following variables: %\{status\}                                                               | %\{status\} =~ /error/   |           |
+| WARNINGPCIETEMPERATURE  | Threshold                                                                                                                              |                          |           |
+| CRITICALPCIETEMPERATURE | Threshold                                                                                                                              |                          |           |
+| WARNINGPROCESSSTATUS    | Set warning threshold. You can use the following variables: %\{name\}, %\{status\}                                                     |                          |           |
+| CRITICALPROCESSSTATUS   | Set critical threshold. You can use the following variables: %\{name\}, %\{status\}                                                    |                          |           |
+| WARNINGSIOTEMPERATURE   | Threshold                                                                                                                              |                          |           |
+| CRITICALSIOTEMPERATURE  | Threshold                                                                                                                              |                          |           |
+| EXTRAOPTIONS            | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                |           |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_barco_cs_restapi.pl \
-    --plugin=hardware::devices::barco::cs::restapi::plugin \
-    --mode=device \
-    --hostname='10.30.2.79' \
-    --port='4001' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --warning-cpu-temperature='55' \
-    --critical-cpu-temperature='60' \
-    --verbose
+	--plugin=hardware::devices::barco::cs::restapi::plugin \
+	--mode=device \
+	--hostname='10.0.0.1' \
+	--api-username='XXXX' \
+	--api-password='XXXX' \
+	--port='4001' \
+	--proto='https'  \
+	--warning-cpu-fanspeed='' \
+	--critical-cpu-fanspeed='' \
+	--warning-process-status='' \
+	--critical-process-status='' \
+	--warning-device-status='%\{status\} =~ /warning/' \
+	--critical-device-status='%\{status\} =~ /error/' \
+	--warning-cpu-temperature='' \
+	--critical-cpu-temperature='' \
+	--warning-pcie-temperature='' \
+	--critical-pcie-temperature='' \
+	--warning-sio-temperature='' \
+	--critical-sio-temperature='' \
+	--verbose
 ```
 
-Output example:
-```
+The expected command output is shown below:
+
+```bash
 OK: device is ok | 'cpu#hardware.temperature.celsius'=52C;0:55;0:60;; 'pcie#hardware.temperature.celsius'=50C;0:55;0:60;;
 checking device
     status: ok
@@ -123,21 +246,103 @@ checking device
     process 'Wifi Access Point Daemon' status is running
 ```
 
-The command above monitors device (```--mode=device```).
+### Troubleshooting
 
-It uses api-username (```--api-username='myapiusername'```), an api-password (```--api-password='myapipassword'```)
-and it connects to the host _10.30.2.79_ (```--hostname='10.30.2.79'```)
-on the port 4001 (```--port='4001'```) using https (```--proto='https'```).
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 
-All the options that can be used with this plugin can be found over the ```--help``` command:
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_barco_cs_restapi.pl \
-    --plugin=hardware::devices::barco::cs::restapi::plugin \
-    --mode=device \
-    --help
+	--plugin=hardware::devices::barco::cs::restapi::plugin \
+	--list-mode
 ```
 
-## Troubleshooting
+The plugin brings the following modes:
 
-[Troubleshooting plugins](../getting-started/how-to-guides/troubleshooting-plugins.md)
+| Mode                                                                                                                            | Linked service template                  |
+|:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|
+| device [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/barco/cs/restapi/mode/device.pm)] | HW-Device-Barco-Cs-Device-Restapi-custom |
+
+### Available options
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Device" label="Device">
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                          |   Only display some counters (regexp can be used). Example: --filter-counters='status'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --warning-device-status                    |   Set warning threshold (default: '%\{status\} =~ /warning/'). You can use the following variables: %\{status\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --critical-device-status                   |   Set critical threshold (default: '%\{status\} =~ /error/'). You can use the following variables: %\{status\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --warning-process-status                   |   Set warning threshold. You can use the following variables: %\{name\}, %\{status\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --critical-process-status                  |   Set critical threshold. You can use the following variables: %\{name\}, %\{status\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --warning-* --critical-*                   |   Thresholds. Can be: 'cpu-temperature', 'pcie-temperature', 'sio-temperature', 'cpu-fanspeed'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --hostname                                 |   Barco ClickShare hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --port                                     |   Port used (default: 4001)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --proto                                    |   Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --api-username                             |   API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --api-password                             |   API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  |   Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_barco_cs_restapi.pl \
+	--plugin=hardware::devices::barco::cs::restapi::plugin \
+	--mode=device \
+	--help
+```

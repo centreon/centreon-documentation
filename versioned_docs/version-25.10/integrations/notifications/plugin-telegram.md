@@ -1,6 +1,7 @@
 ---
 id: plugin-telegram
 title: Telegram notifications
+description: "Send host and service alerts to Telegram using a bot"
 ---
 
 ## Introduction
@@ -74,11 +75,11 @@ for example, if the url is as follows: **https://web.telegram.org/#/im?p=g123456
 ![service command](../../assets/integrations/notifications/telegram/service-command-telegram.png)
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
---plugin=notification::telegram::plugin \
---mode=alert \
---http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
---chat-id='-xxxxxxxxxx' --host-name='$HOSTNAME$'  --service-description='$SERVICEDESC$' --service-state=$SERVICESTATE$ \
+/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl
+--plugin=notification::telegram::plugin
+--mode=alert
+--http-peer-addr='api.telegram.org' --bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+--chat-id='-xxxxxxxxxx' --host-name='$HOSTNAME$'  --service-description='$SERVICEDESC$' --service-state=$SERVICESTATE$
 --service-output='$SERVICEOUTPUT$'
 ``` 
 
@@ -87,14 +88,14 @@ for example, if the url is as follows: **https://web.telegram.org/#/im?p=g123456
 ![host command](../../assets/integrations/notifications/telegram/host-command-telegram.png)
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
---plugin=notification::telegram::plugin \
---mode=alert \
---http-peer-addr='api.telegram.org' \
---bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
---chat-id='-xxxxxxx' \ 
---host-name='$HOSTNAME$' \
---host-state=$HOSTSTATE$  \
+/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl
+--plugin=notification::telegram::plugin
+--mode=alert
+--http-peer-addr='api.telegram.org'
+--bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+--chat-id='-xxxxxxx'
+--host-name='$HOSTNAME$'
+--host-state=$HOSTSTATE$
 --host-output='$HOSTOUTPUT$'
 ```
 

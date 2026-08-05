@@ -1,32 +1,43 @@
 ---
 id: api-tokens
-title: Jetons d'API
+title: Utiliser les API Centreon Cloud
+description: "Comment générer et utiliser des jetons d'API pour s'authentifier auprès des API Centreon Cloud, BAM, Autodiscovery et MAP"
 ---
 
-Avec un jeton d'application, une application tierce peut faire des appels à l'API Centreon afin de réaliser des actions dans Centreon (webhooks).
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Jetons d'API
+
+Un jeton d'API (un type de [jeton d'authentification](./authentication_tokens.md)) est nécessaire pour vous authentifier auprès des API Centreon. Pour en générer un, rendez-vous à la page **Administration > Jetons d'authentification**.
 
 Un jeton est lié à un [utilisateur Centreon](../users/users.md) et a une durée de validité. Les appels API seront exécutés en fonction des [droits assignés à cet utilisateur](../users/users.md#rôles-des-utilisateurs). Un même utilisateur peut avoir plusieurs jetons.
 
-## Qui peut créer des jetons d'API ?
+Insérez votre jeton d'API dans l'en-tête de votre appel API :
+  
+```
+Headers {
+    Content-Type = application/json
+    X-AUTH-TOKEN = your-centreon-token
+}
+```
 
-[Les utilisateurs ayant un rôle **Administrator**](../users/users.md#rôles-des-utilisateurs) ont accès à la page **Administration > Jetons d'API** et peuvent :
-* créer des jetons d'API pour leur propre usage.
-* voir les jetons créés par d'autres utilisateurs.
-* créer des jetons pour d'autres utilisateurs, ou les désactiver ou les supprimer.
+Si l'authentification échoue, vérifiez si le jeton n'a pas été révoqué ou s'il n'a pas expiré.
 
-## Créer un jeton d'API
+## Adresse des APIs Centreon Cloud, BAM et Autodiscovery
 
-1. Allez à la page **Administration > Jetons d'API**.
-2. Cliquer sur **Ajouter**. Une fenêtre pop-up apparaît.
-3. Remplissez les champs demandés puis cliquez sur **Créer un nouveau jeton**. Un champ **Jeton** apparaît dans la fenêtre. Vous pouvez cliquer sur l'icône en forme d'oeil pour afficher le jeton si vous le souhaitez. 
-4. Copiez le jeton à l'aide du bouton "copie" à droite du champ. Stockez le jeton avec soin : vous ne pourrez pas l'afficher une deuxième fois.
-5. Cliquez sur **Fermer**.
+Utilisez cette adresse pour vous authentifier auprès des APIs Cloud, BAM et Autodiscovery.
 
-## Gérer les jetons d'API
+```shell
+https://[organization].[region].centreon.cloud/[instance-name]/api/latest/...
+```
 
-La liste des jetons indique le statut de chaque jeton dans la colonne de gauche (activé, valide mais désactivé, périmé). La date de dernière utilisation du jeton est également indiquée.
+**Exemple** : `https://my-organization.euwest1.centreon.cloud/centreon/api/latest/...`
 
-Les utilisateurs ayant le rôle **Administrator** peuvent :
+## Adresse de l'API Centreon MAP
 
-* Désactiver un jeton d'API valide en utilisant le switch **Activé/Désactivé** à droite de la ligne. Le jeton pourra être réactivé si besoin.
-* Supprimer totalement un jeton en utilisant le bouton **Supprimer**.
+Remplacez **serverURL** par l'URL de votre serveur MAP (et non celle de votre serveur central).
+
+```shell
+https://[organization].[region].centreon.cloud/_[instance-name]/centreon-map/api/latest/...
+```

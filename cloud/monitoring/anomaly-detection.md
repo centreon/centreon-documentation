@@ -1,6 +1,7 @@
 ---
 id: anomaly-detection
 title: Anomaly detection
+description: "How to configure and use the Centreon Anomaly Detection module, which detects deviations from normal service behavior"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -16,7 +17,7 @@ With "classic" monitoring, alerts are triggered from static thresholds. For inst
 on a server exceeds 700 ms. However, for some services, "normal" values change over time, which means that static thresholds are
 not that relevant. You can use Anomaly Detection when the behavior of a service is repetitive and predictable:
 
-![image](../../versioned_docs/version-23.10/assets/monitoring/anomaly/simple_scheme.png)
+![image](../assets/monitoring/anomaly/simple_scheme.png)
 
 Anomaly Detection determines how the normal values evolve over time; predictions calculate a lower threshold and an upper threshold.
 When the behavior of the service deviates from the expected model, these thresholds are passed (i.e. the metric goes below the lower threshold or goes over the upper threshold). The service goes into a CRITICAL state and a notification is sent. Example: a server usually has little traffic at night. One night, Centreon detects network flows that are higher than normal and triggers an alert. This makes the company aware that the server has been hacked.
@@ -38,7 +39,7 @@ thresholds to highlight deviations and generate alerts. Data received during dow
 
 ### Add your token
 
-1. Retrieve your token from your organization's page in the [CIAM](../ciam/ciam.md).
+1. Retrieve your token from your organization's page in [Centreon Hub](../users/centreon-hub.md).
 
 2. Go to **Configuration > Services > Anomaly Detection** and click **Add Centreon Cloud Token**.
 
@@ -125,12 +126,12 @@ The list of existing services on your Centreon platform is displayed, as well as
 score in number of stars: from 5 stars to 0, 5 stars representing high potential
 services:
 
-![image](../../versioned_docs/version-23.10/assets/monitoring/anomaly/configure_analysis_01.png)
+![image](../assets/monitoring/anomaly/configure_analysis_01.png)
 
 After selecting a service of interest, click the **ADD** button to the left
 of the row. You arrive on the pre-filled creation form:
 
-![image](../../versioned_docs/version-23.10/assets/monitoring/anomaly/configure_analysis_02.png)
+![image](../assets/monitoring/anomaly/configure_analysis_02.png)
 
 Modify the name of the service and then click the **Save** button.
 

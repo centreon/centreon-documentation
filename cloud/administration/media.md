@@ -1,13 +1,15 @@
 ---
 id: media
 title: Managing media
+description: "How to add and manage image files used by the Centreon web interface, such as resource icons and map backgrounds"
 ---
 
 Media are images used by the Centreon web interface. These images are used to
-represent the monitored resource in a more intuitive way, propose backgrounds
+represent the monitored resource in a more intuitive way, provide backgrounds
 for cartography modules, etc.
 
-> You must be logged into Centreon with an administrator or editor profile.
+* To manage media, you must be logged into Centreon with an administrator or editor profile.
+* In Centreon, a user can only view and use an image if an [access rule](resource_access.md) explicitly allows it.
 
 ## Adding images
 

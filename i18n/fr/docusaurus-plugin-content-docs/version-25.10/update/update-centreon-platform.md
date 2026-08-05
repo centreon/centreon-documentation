@@ -1,12 +1,19 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 24.10
+title: Mise à jour d'une plateforme Centreon 25.10
+description: "Étapes pour mettre à jour une version mineure de Centreon 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-24.10 (c'est-à-dire le passage de 24.10.x à 24.10.y).
+25.10 (c'est-à-dire le passage de 25.10.x à 25.10.y).
+
+> Après avoir effectué la mise à jour de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
+>
+> Dans votre architecture, tous les serveurs doivent avoir la même version majeure de Centreon et, si possible, la même version mineure.
+>
+> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
 
 ## Avant la mise à jour
 
@@ -43,6 +50,31 @@ Eliminez les paquets debuginfo avant de poursuivre à moins d'en avoir un besoin
 
 </TabItem>
 </Tabs>
+
+
+### Vérifier les dépôts
+
+Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+</Tabs>
+
 
 ## Mise à jour du serveur Centreon Central
 
@@ -93,7 +125,7 @@ Videz le cache :
 Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt install --only-upgrade centreon*
+  apt install --only-upgrade "centreon*"
   ```
 
 </TabItem>
@@ -144,14 +176,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 24.10
+   - version : 25.10
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v24.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v25.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -300,7 +332,7 @@ Vous pouvez réaliser une mise à jour silencieuse de votre plateforme en utilis
 1. Téléchargez le script avec la commande suivante :
 
 ```shell
-curl -L https://download.centreon.com/24.10/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/25.10/unattended.sh -O /tmp/unattended
 ```
 
 2. Lancez le script :
@@ -308,17 +340,17 @@ curl -L https://download.centreon.com/24.10/unattended.sh -O /tmp/unattended
 * Pour un serveur central :
 
 ```shell
-bash unattended.sh update -t central -v 24.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * Pour un serveur distant :
 
 ```shell
-bash unattended.sh update -t central -v 24.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * Pour un collecteur :
 
 ```shell
-bash unattended.sh update -t poller -v 24.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t poller -v 25.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```

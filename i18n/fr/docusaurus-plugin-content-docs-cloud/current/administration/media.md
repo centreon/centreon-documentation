@@ -1,14 +1,16 @@
 ---
 id: media
 title: Gérer les médias
+description: "Comment ajouter et gérer les fichiers image utilisés par l'interface web de Centreon, tels que les icônes de ressources et les fonds de carte"
 ---
 
 Les médias sont des images utilisées par l'interface web de Centreon. Ces images
 sont utilisées afin de pouvoir représenter de manière plus intuitive les
-ressources supervisées, proposer des fonds de cartes pour des modules de
+ressources supervisées, fournir des fonds de cartes pour des modules de
 cartographie, etc.
 
-> Vous devez être connecté à Centreon avec un profil administrateur ou éditeur.
+* Pour gérer les médias, vous devez être connecté à Centreon avec un profil administrateur ou éditeur.
+* Dans Centreon, un utilisateur ne peut voir et utiliser une image que si une [règle d’accès](resource_access.md) l’autorise explicitement.
 
 ## Ajouter des images
 

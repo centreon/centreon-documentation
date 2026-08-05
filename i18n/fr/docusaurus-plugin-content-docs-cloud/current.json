@@ -131,6 +131,14 @@
     "message": "API Centreon Cloud",
     "description": "The label for link Cloud API in sidebar cloud, linking to the Cloud API doc"
   },
+    "sidebar.cloud.link.BAM API": {
+    "message": "API BAM",
+    "description": "The label for link BAM API in sidebar cloud, linking to the BAM API doc"
+  },
+    "sidebar.cloud.link.Autodiscovery API": {
+    "message": "API Autodiscovery",
+    "description": "The label for link Autodiscovery API in sidebar cloud, linking to the Autodisco API doc"
+  },
   "sidebar.cloud.category.Data Visualization": {
     "message": "Visualisation des données",
     "description": "The label for category Data Visualization in sidebar cloud"
@@ -142,5 +150,9 @@
   "sidebar.cloud.category.Customizing tickets": {
     "message": "Personnaliser les tickets",
     "description": "The label for category Customizing tickets in sidebar cloud"
+  },
+  "sidebar.cloud.category.Troubleshooting Centreon Cloud": {
+    "message": "Dépanner Centreon Cloud",
+    "description": "The label for category Troubleshooting Centreon Cloud in sidebar cloud"
   }
 }

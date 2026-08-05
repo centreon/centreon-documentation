@@ -1,27 +1,1028 @@
 ---
 id: centreon-commercial-extensions
 title: Commercial extensions
+description: "Changelogs for each Centreon Commercial Extensions release"
 ---
 
 import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
-## Introduction
-
-You can find in this chapter all changelogs concerning **Centreon Commercial Extension**.
-
-> It is very important when you update your system to refer to this section in order to learn about behavior changes or major changes that have been made on this version. This will let you know the impact of the installation of these versions on the features you use or the specific developments that you have built on your platform (modules, widgets, plugins).
-
-If you have feature requests or want to report a bug, please contact support.
-
-> Read more about version 24.10 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/).
-
 <ExpandCollapseAll />
 
-## Centreon MAP
+## Component version history
 
-### 24.10.8
+<details>
 
-Release date: `July 2, 2025`
+| Component | Releases |
+|------------|------------|
+| Centreon MAP | [24.10.20 (July 28, 2026)](#centreon-map-241020)<br/>[24.10.19 (June 25, 2026)](#centreon-map-241019)<br/>[24.10.18 (May 27, 2026)](#centreon-map-241018)<br/>[24.10.17 (May 4, 2026)](#centreon-map-241017)<br/>[24.10.16 (March 17, 2026)](#centreon-map-241016) <br/>[24.10.15 (February 26, 2026)](#centreon-map-241015) <br/>[24.10.14 (January 29, 2026)](#centreon-map-241014) <br/> [24.10.13 (December 22, 2025)](#centreon-map-241013) <br/> [24.10.12 (November 4, 2025)](#centreon-map-241012) <br/> [24.10.11 (October 29, 2025)](#centreon-map-241011) <br/> [24.10.10 (October 22, 2025)](#centreon-map-241010) <br/> [24.10.9 (August 6, 2025)](#centreon-map-24109) <br/> [24.10.8 (July 2, 2025)](#centreon-map-24108) <br/> [24.10.7 (June 20, 2025)](#centreon-map-24107) <br/> [24.10.6 (May 16, 2025)](#centreon-map-24106) <br/> [24.10.5 (April 30, 2025)](#centreon-map-24105) <br/> [24.10.4 (March 12, 2025)](#centreon-map-24104) <br/> [24.10.3 (February 17, 2025)](#centreon-map-24103) <br/> [24.10.2 (January 9, 2025)](#centreon-map-24102) <br/> [24.10.1 (December 04, 2024)](#centreon-map-24101) <br/> [24.10.0 (October 31, 2024)](#centreon-map-24100) |
+| Centreon BAM | [24.10.17 (July 28, 2026)](#centreon-bam-241017)<br/>[24.10.16 (June 25, 2026)](#centreon-bam-241016)<br/>[24.10.15 (May 27, 2026)](#centreon-bam-241015)<br/>[24.10.14 (May 4, 2026)](#centreon-bam-241014)<br/>[24.10.13 (March 17, 2026)](#centreon-bam-241013) <br/>[24.10.12 (February 26, 2026)](#centreon-bam-241012) <br/>[24.10.11 (January 29, 2026)](#centreon-bam-241011) <br/> [24.10.10 (December 22, 2025)](#centreon-bam-241010) <br/> [24.10.9 (November 4, 2025)](#centreon-bam-24109) <br/> [24.10.8 (October 29, 2025)](#centreon-bam-24108) <br/> [24.10.7 (October 22, 2025)](#centreon-bam-24107) <br/> [24.10.6 (August 6, 2025)](#centreon-bam-24106) <br/> [24.10.5 (June 20, 2025)](#centreon-bam-24105) <br/> [24.10.4 (April 30, 2025)](#centreon-bam-24104) <br/> [24.10.3 (March 12, 2025)](#centreon-bam-24103) <br/> [24.10.2 (February 17, 2025)](#centreon-bam-24102) <br/> [24.10.1 (January 9, 2025)](#centreon-bam-24101) <br/> [24.10.0 (October 31, 2024)](#centreon-bam-24100) |
+| Centreon MBI | [24.10.15 (July 28, 2026)](#centreon-mbi-241015)<br/>[24.10.14 (June 25, 2026)](#centreon-mbi-241014)<br/>[24.10.13 (May 27, 2026)](#centreon-mbi-241013)<br/>[24.10.12 (May 4, 2026)](#centreon-mbi-241012)<br/>[24.10.11 (March 17, 2026)](#centreon-mbi-241011) <br/> [24.10.10 (February 26, 2026)](#centreon-mbi-241010) <br/> [24.10.9 (January 29, 2026)](#centreon-mbi-24109) <br/> [24.10.8 (December 22, 2025)](#centreon-mbi-24108) <br/> [24.10.7 (October 29, 2025)](#centreon-mbi-24107) <br/> [24.10.6 (October 22, 2025)](#centreon-mbi-24106) <br/> [24.10.5 (August 6, 2025)](#centreon-mbi-24105) <br/> [24.10.4 (June 20, 2025)](#centreon-mbi-24104) <br/> [24.10.3 (April 30, 2025)](#centreon-mbi-24103) <br/> [24.10.2 (January 9, 2025)](#centreon-mbi-24102) <br/> [24.10.1 (December 04, 2024)](#centreon-mbi-24101) <br/> [24.10.0 (October 31, 2024)](#centreon-mbi-24100) |
+| Centreon Auto Discovery | [24.10.16 (July 28, 2026)](#centreon-auto-discovery-241016)<br/>[24.10.15 (June 25, 2026)](#centreon-auto-discovery-241015)<br/>[24.10.14 (May 27, 2026)](#centreon-auto-discovery-241014)<br/>[24.10.13 (May 4, 2026)](#centreon-auto-discovery-241013)<br/>[24.10.12 (March 17, 2026)](#centreon-auto-discovery--241012) <br/> [24.10.11 (February 26, 2026)](#centreon-auto-discovery-241011) <br/> [24.10.10 (January 29, 2026)](#centreon-auto-discovery-241010) <br/> [24.10.9 (December 22, 2025)](#centreon-auto-discovery-24109) <br/> [24.10.8 (October 29, 2025)](#centreon-auto-discovery-24108) <br/> [24.10.7 (October 22, 2025)](#centreon-auto-discovery-24107) <br/> [24.10.6 (June 20, 2025)](#centreon-auto-discovery-24106) <br/> [24.10.5 (June 20, 2025)](#centreon-auto-discovery-24105) <br/> [24.10.4 (April 30, 2025)](#centreon-auto-discovery-24104) <br/> [24.10.3 (March 12, 2025)](#centreon-auto-discovery-24103) <br/> [24.10.2 (January 9, 2025)](#centreon-auto-discovery-24102) <br/> [24.10.1 (December 04, 2024)](#centreon-auto-discovery-24101) <br/> [24.10.0 (October 31, 2024)](#centreon-auto-discovery-24100) |
+| Centreon Anomaly Detection | [24.10.13 (July 28, 2026)](#centreon-anomaly-detection-241013)<br/>[24.10.12 (June 25, 2026)](#centreon-anomaly-detection-241012)<br/>[24.10.11 (May 27, 2026)](#centreon-anomaly-detection-241011)<br/>[24.10.10 (May 4, 2026)](#centreon-anomaly-detection-241010)<br/>[24.10.9 (March 17, 2026)](#centreon-anomaly-detection-24109) <br/> [24.10.8 (February 26, 2026)](#centreon-anomaly-detection-24108) <br/> [24.10.7 (January 29, 2026)](#centreon-anomaly-detection-24107) <br/> [24.10.6 (December 22, 2025)](#centreon-anomaly-detection-24106) <br/> [24.10.5 (October 29, 2025)](#centreon-anomaly-detection-24105) <br/> [24.10.4 (October 22, 2025)](#centreon-anomaly-detection-24104) <br/> [24.10.3 (August 6, 2025)](#centreon-anomaly-detection-24103) <br/> [24.10.2 (June 20, 2025)](#centreon-anomaly-detection-24102) <br/> [24.10.1 (January 9, 2025)](#centreon-anomaly-detection-24101) <br/> [24.10.0 (October 31, 2024)](#centreon-anomaly-detection-24100) |
+| Centreon IT Edition Extensions | [24.10.15 (July 28, 2026)](#centreon-it-edition-extensions-241015)<br/>[24.10.14 (June 25, 2026)](#centreon-it-edition-extensions-241014)<br/>[24.10.13 (May 27, 2026)](#centreon-it-edition-extensions-241013)<br/>[24.10.12 (March 17, 2026)](#centreon-it-edition-extensions-241012) <br/> [24.10.11 (February 26, 2026)](#centreon-it-edition-extensions-241011) <br/> [24.10.10 (January 29, 2026)](#centreon-it-edition-extensions-241010) <br/> [24.10.9 (December 22, 2025)](#centreon-it-edition-extensions-24109) <br/> [24.10.8 (October 29, 2025)](#centreon-it-edition-extensions-24108) <br/> [24.10.7 (October 22, 2025)](#centreon-it-edition-extensions-24107) <br/> [24.10.6 (August 6, 2025)](#centreon-it-edition-extensions-24106) <br/> [24.10.5 (June 20, 2025)](#centreon-it-edition-extensions-24105) <br/> [24.10.4 (February 17, 2025)](#centreon-it-edition-extensions-24104) <br/> [24.10.3 (January 9, 2025)](#centreon-it-edition-extensions-24103) <br/> [24.10.2 (December 06, 2024)](#centreon-it-edition-extensions-24102) <br/> [24.10.1 (December 04, 2024)](#centreon-it-edition-extensions-24101) <br/> [24.10.0 (October 31, 2024)](#centreon-it-edition-extensions-24100) |
+| Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) | [24.10.11 (July 28, 2026)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-241011)<br/>[24.10.10 (June 25, 2026)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-241010)<br/>[24.10.9 (May 27, 2026)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24109)<br/>[24.10.8 (February 26, 2025)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24108) <br/> [24.10.7 (December 22, 2025)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24107) <br/> [24.10.6 (October 22, 2025)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24106) <br/> [24.10.5 (August 6, 2025)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24105) <br/> [24.10.4 (June 20, 2025)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24104) <br/> [24.10.3 (April 30, 2025)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24103) <br/> [24.10.2 (March 12, 2025)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24102) <br/> [24.10.1 (January 9, 2025)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24101) <br/> [24.10.0 (October 31, 2024)](#centreon-monitoring-connectors-manager-formerly-plugin-packs-manager-24100) |
+| Centreon License Manager | [24.10.11 (June 25, 2026)](#centreon-license-manager-241011)<br/>[24.10.10 (May 27, 2026)](#centreon-license-manager-241010)<br/>[24.10.9 (May 4, 2026)](#centreon-license-manager-24109)<br/>[24.10.8 (March 3, 2026)](#centreon-license-manager-24108) <br/> [24.10.7 (February 26, 2026)](#centreon-license-manager-24107) <br/> [24.10.3 (August 6, 2025)](#centreon-license-manager-24103) <br/> [24.10.2 (June 20, 2025)](#centreon-license-manager-24102) <br/> [24.10.1 (January 9, 2025)](#centreon-license-manager-24101) <br/> [24.10.0 (October 31, 2024)](#centreon-license-manager-24100) |
+| Centreon IT & Business Extensions | [24.10.0 (October 31, 2024)](#centreon-it--business-extensions-24100) |
+
+</details>
+
+## July 28, 2026
+
+### Centreon MAP 24.10.20
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Improved Broker event processing on the MAP Engine side to prevent Broker from becoming overloaded.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- MAP server JWTs are now invalidated when the originating Centreon Web session ends, preventing stale or cross-user authorization on map-engine after logout.
+
+</details>
+
+### Centreon BAM 24.10.17
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed an issue with KPIs under downtime being counted for a Business Activity's status after editing the BA's KPI list.
+
+</details>
+
+### Centreon MBI 24.10.15
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed BA/BV availability reports (BV-BA-Availability-List and BV-BA-Availabilities-1) being generated empty due to a SQL column alias mismatch, which also caused incorrect aggregation in several other MBI reports, dashboard widgets, and ETL queries.
+- Updated the Log4j core dependency version.
+- [MBI] Fixed the link to download reports in emails.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.13
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Resource Status] Performance has been drastically improved for many search use cases.
+
+</details>
+
+### Centreon Auto Discovery 24.10.16
+
+No functional changes for this module in this version.
+
+### Centreon IT Edition Extensions 24.10.15
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] It is now possible for users to share a dashboard with:
+  - Contact groups part of a common ACL access group.
+  - Individual contacts listed in the contact groups they belong to.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.11
+
+No functional changes for this module in this version.
+
+## June 25, 2026
+
+### Centreon MAP 24.10.19
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an API error message that appeared when credentials were incorrect.
+- Fixed an issue where the fill color of resources could not be edited in the map editor.
+- Fixed an issue where the status propagation engine incorrectly handled hosts and services with no severity configured, causing wrong status computation when severity-based propagation rules were in use.
+- Fixed an issue with saving the fill option for images.
+- Fixed the display of the configured icon for Hostgroup and Business views.
+
+</details>
+
+### Centreon BAM 24.10.16
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+- [BAM] Improved tooltip descriptions for the configuration of Business Activity impact/ratio thresholds.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Implemented performance optimizations to eliminate unnecessary widget reloads.
+
+</details>
+
+### Centreon MBI 24.10.14
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+- [Report] Corrected page break issues in the "Hostgroup-graphs-v2" report when displaying a large number of services.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Implemented performance optimizations to eliminate unnecessary widget reloads.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.12
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+
+</details>
+
+### Centreon Auto Discovery 24.10.15
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+
+</details>
+
+### Centreon License Manager 24.10.11
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.14
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.10
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Updated Symfony components.
+
+</details>
+
+## May 27, 2026
+
+### Centreon MAP 24.10.18
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Added missing filter parameters to the GET Maps API specification.
+- [Extension Manager] Refreshed outdated descriptions and screenshots, to provide up-to-date information.
+- [Homepage] Modernized the logo used as MAP default image.
+- [Viewer] The tooltips for host groups now explicitly display the status of each host, and its most degraded service status.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ACL] Resolved a bug where tile icons on the homepage bypassed ACL restrictions. Visibility is now synchronized with user permissions.
+- [Configuration] Fixed a bug where passwords containing special characters could cause errors during system configuration.
+- [Configuration] Resolved an issue that may cause missing Business Activities from the map after an export of configuration.
+- [Editor] Fixed several issues related to the grouping of items.
+- [Editor] Resolved an issue where certain interface options would disappear when the UI language was set to another option than English.
+- [Viewer/Editor] Fixed an issue that prevented Metric Link labels from being freely positioned on maps.
+- [Viewer] Fixed a visual bug where a black square would sometimes appear instead of the resource's weather status.
+- [Viewer] Improved link endpoint positioning.
+
+</details>
+
+### Centreon BAM 24.10.15
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Fixed the period selection in the *Business Activity status timeline* widget.
+- [Monitoring] Resolved an issue where KPIs were displayed twice in the interface.
+
+</details>
+
+### Centreon MBI 24.10.13
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Backup] You can now configure and manage MBI reporting server backups directly from the web interface, in the *Reporting > MBI > General options* menu.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [ETL] Fixed an issue where metric units were truncated during ETL processing.
+- [Reports] Resolved an issue where reports were generated empty when the MySQL "ONLY_FULL_GROUP_BY" mode was active.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.11
+
+No functional changes for this module in this version.
+
+### Centreon Auto Discovery 24.10.14
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Performance] Improved ACL calculation by removing the dependency to an outdated class on legacy pages.
+
+</details>
+
+### Centreon License Manager 24.10.10
+
+No functional changes for this module in this version.
+
+### Centreon IT Edition Extensions 24.10.13
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Resolved an error in the Status Grid widget when using the "Condensed mode" inside a public playlist.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.9
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed freshness activation for Monitoring Connectors using CMA.
+
+</details>
+
+## May 4, 2026
+
+### Centreon MAP 24.10.17
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Authentication] JWT token is no longer generated at each page refresh.
+- [Viewer] When clicking on a Business Activity, you will now be redirected to the new version of the BA monitoring page.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Config] Fixed error about lifetime of the JWT token.
+- [Editor] Fixed an issue preventing users from editing certain maps due to duplicate IDs.
+- [Metrics] Min and max default values have been rounded to two decimal points, to avoid layout breaking.
+- [Pie chart] When using percentage, metric values have been rounded to two decimal points to avoid layout breaking.
+- [Server] Improved startup robustness against database integrity issues.
+- [Viewer] Fixed an issue preventing the color of a single link from being updated.
+- [Viewer] Fixed an issue with service labels on shapes that were not correctly displayed when no resource was linked.
+- [Viewer] Fixed an issue with the display of the Gauge widget that was not updating correctly.
+- [Widgets] Fixed an issue preventing the background color of the Output widget from being edited.
+
+</details>
+
+### Centreon BAM 24.10.14
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Resolved an issue where the BA list was incorrectly limited to a single page.
+
+</details>
+
+### Centreon MBI 24.10.12
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed critical error when updating CBIS.
+- Resolved MySQL backup failures on Debian distributions.
+- [Config] The granularity value is now correctly applied to hide unused tables during partition monitoring.
+- [Reports] Resolved an issue where report downloads would fail when using the `@MONTH@` variable.
+- [Scheduler] Fixed an issue causing the generation of duplicate reports.
+- [Server] Fixed issue preventing the update to a recent version.
+- [Upgrade] Fixed an issue preventing the upgrade from version 23.10 to 24.10.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.10
+
+No functional changes for this module in this version.
+
+### Centreon Auto Discovery 24.10.13
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Discovery] Fixed an issue where an ACL resource filter on a poller was breaking the host discovery rule edit form.
+
+</details>
+
+### Centreon License Manager 24.10.9
+
+No functional changes for this module in this version.
+
+## March 17, 2026
+
+### Centreon MAP 24.10.16
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed issue preventing borders and stroke colors from being displayed correctly on existing maps.
+- [Playlist] Fixed an issue where dashboards with geographic views were not correctly displayed in playlists.
+
+</details>
+
+### Centreon MBI 24.10.11
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed issue on rendering job for Hostgroups-Host/Service-Current-Events.
+
+</details>
+
+### Centreon BAM 24.10.13
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Dashboards] Status Grid widget - Fixed an issue preventing BAs and BVs from being displayed correctly in public playlists.
+- [Dashboards] Status Grid widget - Fixed an issue where BA information tooltips were not displayed properly.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BA diagram] Fixed issue with BA labels not being properly displayed when using the "impact" type.
+- [BA diagram] Optimized the display for short KPI labels.
+- [Configuration] Fixed issue in the Business View search.
+- [Editor] Fixed issue preventing the addition of a Business Activity.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.9
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly Detection] Fixed an issue where "createButton" was missing under certain conditions.
+- [Resource Status] Fixed an error when displaying the performance graph for services in 'Unknown' status.
+
+</details>
+
+### Centreon Auto Discovery  24.10.12
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed an issue on failed discovery jobs.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.12
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Dashboards] Status Grid widget - Fixed an issue preventing BAs and BVs from displaying correctly in public playlists.
+- [Dashboards] Status Grid widget - Fixed an issue where BA information tooltips were not displaying properly.
+
+</details>
+
+## March 3, 2026
+
+### Centreon License Manager 24.10.8
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Licence] Fixed an issue causing MSP licence to be ineffective.
+
+</details>
+
+## February 26, 2026
+
+### Centreon MAP 24.10.15
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [API] Replaced "beta" by "latest" from API path. A redirection from "beta" to "latest" is in place.
+-	[Editor] Geometric resources can now be enlarged up to 84x84 pixels.
+- MySQL 8.4 is now supported for all modules. Centreon-web-24.10.21 is required.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] Fixed the API documentation in case of "no content" responses.
+- [Editor] Fixed an inconsistency issue in the list of services when editing a widget.
+- [Server] Fixed an issue preventing server from starting when a meta-service was being used as an anomaly detection service.
+
+</details>
+
+### Centreon BAM 24.10.12
+
+<details open>
+  <summary>Enhancements</summary>
+
+- MySQL 8.4 is now supported for all modules. Centreon-web-24.10.21 is required.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Monitoring] Fixed major display issues occurring after a version upgrade.
+
+</details>
+
+### Centreon MBI 24.10.10
+
+<details open>
+  <summary>Enhancements</summary>
+
+- MySQL 8.4 is now supported for all modules. Centreon-web-24.10.21 is required.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Reporting] VMWare-Cluster-Performance-1 report - Fixed export file name so it takes the actual hostgroup name.
+
+</details>
+
+### Centreon Auto Discovery 24.10.11
+
+<details open>
+  <summary>Enhancements</summary>
+
+- MySQL 8.4 is now supported for all modules. Centreon-web-24.10.21 is required.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a timeout issue on host autodiscovery jobs configured to run regularly, by adding a retry mechanism.
+
+</details>
+
+### Centreon License Manager 24.10.7
+
+- No functional changes for this module in this version.
+
+### Centreon Anomaly Detection 24.10.8
+
+<details open>
+  <summary>Enhancements</summary>
+
+- MySQL 8.4 is now supported for all modules. Centreon-web-24.10.21 is required.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.11
+
+<details open>
+  <summary>Enhancements</summary>
+
+- MySQL 8.4 is now supported for all modules. Centreon-web-24.10.21 is required.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.8
+
+- No functional changes for this module in this version.
+
+## January 29, 2026
+
+### Centreon MAP 24.10.14
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Editor] Duplicating a container now creates a full copy instead of a shared reference.
+- [Geoviews] Added "delete", "copy URL" and "save position" actions when displaying a Geoview. Added "duplicate" feature.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Added automatic database connection retry to improve MAP resilience.
+- [API] Fixed the API documentation in case of "no content" responses.
+- [Server] Fixed an issue when handling metrics with special characters in their name (hashtag, empty space).
+
+</details>
+
+### Centreon BAM 24.10.11
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BA diagram] Fixed an issue preventing the widget from working properly when displayed in a playlist.
+- [Indicators] You can now set the impact to 0% when making changes to many items at once.
+
+</details>
+
+### Centreon MBI 24.10.9
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Reports] Hostgroups-Availability-1 - Chart rendering has been optimized.
+
+</details>
+
+### Centreon Auto Discovery 24.10.10
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue that prevented the creation of a discovery job with a provider and without credentials.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.7
+
+- No changes for this module in this version.
+
+### Centreon IT Edition Extensions 24.10.10
+
+- No changes for this module in this version.
+
+## December 22, 2025
+
+### Centreon MAP 24.10.13
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Geoviews] It is now possible to define geo coordinates for Maps, and to display them in Geoviews.
+- [Library] Added the possibility to select a custom icon representing a Geoview.
+- [Server] Reduced the JWT token default lifetime value to 1 day.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Editor] Fixed an issue that prevented images from being updated.
+- [Geoviews] Fixed several issues in the edition modal.
+- [Geoviews] The service state (acknowledged, in downtime...) is now clearly indicated.
+- [MAP] Fixed an issue causing MAP sharing to fail when using MySQL as the SGBD.
+- [MAP Editor] Fixed an issue that prevented setting white (for the light mode) and black ( for the dark mode) as the color for text, background, and border colors. This fix is not retroactive.
+- [Server] Fixed an issue preventing MAP Legacy from starting correctly.
+- [Translation] Restored translations from UI tooltips.
+- [Upgrade] Fixed an issue caused by a missing SecurityPolicy class.
+- [Viewer] Fixed an issue with the display of icons for host groups, services and Business Activities.
+- [Viewer] Fixed an  issue with the label height being cropped while zooming on geometric resources.
+- [Viewer] Fixed the link redirecting to the Resource Status page when clicking on a meta service.
+- [Viewer] Fixed an issue that caused the Link legend widget to always appear on the top left instead of where users placed it as well as its start and end colors to be swapped.
+- [Viewer] When hovering over a metric link, in and out metrics are now specifically displayed in the graphic.
+
+</details>
+
+### Centreon BAM 24.10.10
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [BA diagram] Label width has been increased to display longer names.
+An ellipsis has also been added to indicate that a label is too long to be fully displayed.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BA diagram] Fixed an issue preventing widgets from working properly when displayed in a Playlist.
+- [BA monitoring] Fixed an issue that caused some KPIs to be displayed multiple times in the KPI listing if the Business Activity belonged to several Business Views.
+- [Dashboards] The Status Grid widget in condensed BV view now indicates the status of all BAs.
+- [Indicators] You can now set the impact to 0% when making changes to many items at once.
+- [Installation] BAM broker outputs are now deleted at uninstallation.
+- [Packaging] Fixed an installation issue caused by the upgrade script 24.10.7.
+- [Translation] Restored translations from UI tooltips.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed a vulnerability on axios for BAM.
+
+</details>
+
+### Centreon MBI 24.10.8
+
+<details>
+  <summary>Bug fixes</summary>
+
+-[translation] Restored translations from UI tooltips
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- Fixed a vulnerability on axios for licence manager.
+
+</details>
+
+### Centreon Auto Discovery 24.10.9
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Discovery] Added logs for job creation/edition/deletion.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed SQL Error in service discovery with MySQL platform.
+- [Discovery] Fixed an issue where wrong parsing of cidr could cause host discovery fail.
+- [Translation] Restored translations from UI tooltips.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] New install - Improved the default configuration Centreon Gorgone.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.6
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Anomaly detection] Fixed an issue with the database name that could not contain the characters “-” or “_” for Anomaly Detection.
+- [Translation] Restored translations from UI tooltips.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Fixed a vulnerability on axios for Anomaly Detection.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.9
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Playlists] Fixed an issue when modifying a dashboard, and then displaying it exclusively in a playlist.
+- [Playlists] Fixed an issue where some playlists were displayed twice in the listing.
+- [Playlists] Fixed an issue with the Single Metric widget displaying wrong data when configured with a meta-service.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.7
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Monitoring Connectors] You can now access the **Monitoring Connectors** page using dedicated ACLs.
+- [Translation] Restored translations from UI tooltips.
+
+</details>
+
+## November 4, 2025
+
+### Centreon MAP 24.10.12
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Server] Resolved unreliable communication between Broker and MAP.
+
+</details>
+
+### Centreon BAM 24.10.9
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed an installation issue caused by the upgrade script 24.10.7.
+
+</details>
+
+## October 29, 2025
+
+### Centreon MAP 24.10.11
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### Centreon BAM 24.10.8
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### Centreon MBI 24.10.7
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### Centreon Auto Discovery 24.10.8
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.5
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.8
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Fixed a packaging dependency that could cause the platform to fail.
+
+</details>
+
+## October 22, 2025
+
+### Centreon MAP 24.10.10
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Viewer] The Pie chart widget can now be displayed in percentage per status.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Config] Fixed an issue where the configure.sh script was not starting the mysql service anymore.
+- [Config] The MAP address is now used by default when no internal MAP address has been defined.
+- [Dashboards] Reduced the minimum size for MAP and Resource table widgets.
+- [Editor] Fixed issues with copying/pasting elements.
+- [MAP Editor] Fixed an issue causing incorrect parent names to appear in tooltips after saving.
+- [MAP Viewer] Fixed an issue causing inherited status to ignore status computation parameters (downtime, acknowledge) for services.
+- [MAP Viewer] Fixed an issue causing inherited status not to be refreshed when removing a service from a container.
+- [MAP Viewer] Fixed an issue causing text formatting not to be applied in some cases.
+- [Packaging ] Fixed an issue with the Symfony clear cache that was not automatically executed after installation.
+- [Server] BBDO version 3.1.0 is now supported.
+- [Upgrade] Removed the mention of generate_routes.php.
+- [Viewer] Fixed an issue with graphs that were displayed for services without any metric.
+- [Viewer] Fixed an issue where BAs linked to a remote server were not displayed.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Server] Fixed ownership of configuration files.
+- [Vulnerability] Upgraded crypto-js to version 4.2.0.
+- [Vulnerability] Upgraded Tomcat to version 10.1.44.
+
+</details>
+
+### Centreon BAM 24.10.7
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BA diagram] Fixed an issue with disabled indicators that were not displayed in a dedicated node of the tree.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+### Centreon MBI 24.10.6
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CBIS] Versions 2 and 3 of SMB are now supported.
+- [ETL] Fixed an issue when metric names exceeded 255 characters.
+- Fixed some missing translations in French.
+- Fixed the upload of report templates.
+- [MBI] Fixed an issue causing ACLs not to be applied on Report designs.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Engine] Fixed ownership of configuration files.
+- [MBI] Fixed an issue causing potential privilege escalation.
+- [Vulnerability] Upgraded JDOM version.
+- [Vulnerability] Upgraded versions of Apache Commons and TemporaryFolder dependencies.
+
+</details>
+
+### Centreon Auto Discovery 24.10.7
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed error code and message that were displayed in case of invalid license.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Gorgone] Added an option to restrict discovery commands that were too permissive.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.4
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.7
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Playlists] Fixed an issue with the refresh of the dashboard list to be displayed.
+- [Upgrade] Removed the mention of generate_routes.php.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.6
+
+- No changes for this version.
+
+## August 6, 2025
+
+### Centreon MAP 24.10.9
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Dashboards] When displaying an existing public playlist containing a MAP widget with no map selected, a message is now displayed indicating that one must first be selected for it to be displayed.
+- [Editor] Fixed an issue preventing groups of items to be duplicated.
+- [Editor] It is now possible to use sub-groups of items in a map.
+- [Playlists] The MAP widget is now operational when displayed in the public playlists of Dashboards.
+- [Server] Modified SQL user rights to grant only necessary ones.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [API] A new updated version of the API documentation is now available.
+- [Editor] Rectangle shapes can no longer have a width or height of 0 pixel, which caused errors when saving a map.
+- [Editor] Fixed an issue that caused links to be positioned differently in the editor when migrating from MAP Legacy to MAP.
+- [Editor] Line break management has been added to the extended Output widget when parsing BBDOv3 packets.
+- [Installation] Fixed my.cnf path for Debian.
+- [Map list] Fixed pagination.
+- [Migration] Added multiple information logs when migrating from MAP Legacy.
+- [Server] Fixed access right issue with the media directory, preventing images from being copied to a remote server.
+- [Server] Fixed an issue that sometimes prevented users from duplicating a map.
+- [Server] Fixed an issue causing BAs to disappear after a BAM reinstallation.
+- [Server] Fixed an issue preventing resources from being displayed when the configuration contained a host with no service associated to it.
+- [Viewer] Business Activities - Fixed visualisation of status and state of KPIs.
+- [Viewer] Fixed an issue where links to triangle shapes were shifted in view mode.
+- [Viewer] Fixed an issue preventing data from being displayed when hovering over a metaservice.
+- Fixed a naming issue that occurred when modifying resources to be displayed.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded axios to version 1.8.4.
+
+</details>
+
+### Centreon BAM 24.10.6
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Monitoring] A new, modern version of the BA monitoring page is now available.
+- [Dashboards] Added new widget "Business Activity Status Timeline" that displays the distribution of current statuses on a BA, as a chronological timeline for a given time period.
+
+</details>
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed an issue on mod_bam_reporting_timeperiods column size which was too small.
+
+</details>
+
+### Centreon MBI 24.10.5
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dependencies] Added missing dependency of Tie/File.pm on Alma 9.
+- Increased column size for MTBF, MTRS and MTBSI columns.
+- [Install] Fixed several issues in the diagnostic script.
+- [Reporting] Hosts-not-classified report - Fixed issue with hosts appearing multiple times when having no category.
+- [Publication Rules] Fixed SFTP test.
+- [Publication Rules] Fixed several issues and brought some enhancements and clarifications when sending a test email.
+
+</details>
+
+### Centreon License Manager 24.10.3
+
+<details open>
+  <summary>Bug fixes</summary>
+
+- Upgraded DOM purify dependency.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.3
+
+<details open>
+  <summary>Security fixes</summary>
+
+- [Vulnerability] Upgraded moment.js to version 2.29.4.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.6
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Playlists] The Status Grid widget is now filtering correctly the services to be displayed.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.5
+
+- No changes for this version.
+
+## July 2, 2025
+
+### Centreon MAP 24.10.8
 
 <details>
   <summary>Bug fixes</summary>
@@ -30,9 +1031,9 @@ Release date: `July 2, 2025`
 
 </details>
 
-### 24.10.7
+## June 20, 2025
 
-Release date: `June 20, 2025`
+### Centreon MAP 24.10.7
 
 <details open>
   <summary>Enhancements</summary>
@@ -61,9 +1062,68 @@ Release date: `June 20, 2025`
 
 </details>
 
-### 24.10.6
+### Centreon BAM 24.10.5
 
-Release date: `May 16, 2025`
+- No changes for this module in this version.
+
+### Centreon MBI 24.10.4
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed error with special characters in CBIS log.
+- [Packaging] Enforced permissions on centreon-bi backup cron.
+- [Server] Fixed incompatibility with newer MySQL 8 versions for Java connector.
+
+</details>
+
+### Centreon Auto Discovery 24.10.6
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Install] Minor bug fix.
+
+</details>
+
+### Centreon Auto Discovery 24.10.5
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed a security issue on Centreon Auto Discovery.
+
+</details>
+
+### Centreon License Manager 24.10.2
+
+- No changes for this module in this version.
+
+### Centreon Anomaly Detection 24.10.2
+
+- No changes for this module in this version.
+
+### Centreon IT Edition Extensions 24.10.5
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Updated axios dependency on centreon it-edition.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.4
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Monitoring Connectors] You can now access the **Monitoring Connector Manager** page using dedicated ACLs.
+
+</details>
+
+## May 16, 2025
+
+### Centreon MAP 24.10.6
 
 <details>
   <summary>Bug fixes</summary>
@@ -72,9 +1132,9 @@ Release date: `May 16, 2025`
 
 </details>
 
-### 24.10.5
+## April 30, 2025
 
-Release date: `April 30, 2025`
+### Centreon MAP 24.10.5
 
 <details>
   <summary>Bug fixes</summary>
@@ -96,9 +1156,53 @@ Release date: `April 30, 2025`
 
 </details>
 
-### 24.10.4
+### Centreon BAM 24.10.4
 
-Release date: `March 12, 2025`
+<details open>
+  <summary>Enhancements</summary>
+
+- [Dashboards] BA Diagram widget - Added the parent host name on service KPIs.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [BAM] Fixed issue preventing BAs from being added to a remote server if one of their KPIs was a BA itself.
+- [Dashboards] BA Diagram widget - Fixed dataset autocomplete when searching for a Business Activity.
+
+</details>
+
+### Centreon MBI 24.10.3
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed an issue preventing reports from being exported in XLSX format.
+
+</details>
+
+### Centreon Auto Discovery 24.10.4
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Discovery] Fixed an issue where manually scanned services could not be saved by non-admin users.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.3
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a translation issue on menu & breadcrumb and added a "Connectors" submenu that includes Monitoring Connectors and Additional configurations.
+
+</details>
+
+## March 12, 2025
+
+### Centreon MAP 24.10.4
 
 <details open>
   <summary>Enhancements</summary>
@@ -107,9 +1211,43 @@ Release date: `March 12, 2025`
 
 </details>
 
-### 24.10.3
+### Centreon BAM 24.10.3
 
-Release date: `February 17, 2025`
+<details open>
+  <summary>Enhancements</summary>
+
+- [Dashboards] Improved readability in the Business Activity Diagram widget by increasing the number of characters displayed per label.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Monitoring] Deactivated Business Views are not displayed anymore.
+
+</details>
+
+### Centreon Auto Discovery 24.10.3
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Host Discovery] Fixed an issue where jobs were not executed due to null arguments.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.2
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Monitoring Connectors] Fixed an error while installing Generic SNMP.
+
+</details>
+
+## February 17, 2025
+
+### Centreon MAP 24.10.3
 
 <details open>
   <summary>Enhancements</summary>
@@ -147,9 +1285,27 @@ Release date: `February 17, 2025`
 
 </details>
 
-### 24.10.2
+### Centreon BAM 24.10.2
 
-Release date: `January 9, 2025`
+<details>
+  <summary>Bug fixes</summary>
+
+- [BA monitoring] Fixed an issue that prevented KPI informations from being displayed.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.4
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Fixed an issue with tickets opened in the Resource table widget in public playlists.
+
+</details>
+
+## January 9, 2025
+
+### Centreon MAP 24.10.2
 
 <details open>
   <summary>Enhancements</summary>
@@ -186,9 +1342,107 @@ Release date: `January 9, 2025`
 
 </details>
 
-### 24.10.1
+### Centreon BAM 24.10.1
 
-Release date: `December 04, 2024`
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] RPM packages are now compressed using the zstd format.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Fixed SQLi in the listing of Boolean KPIs, only accessible to authenticated users with high privilege access. (CVE-2024-46924)	
+
+</details>
+
+### Centreon MBI 24.10.2
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] RPM packages are now compressed using the zstd format.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [MBI] Fixed an issue preventing the "report parameters" form to be displayed.
+- [MBI] Fixed an issue preventing the MBI extension from being updated to the latest version.
+- [MBI] Fixed report generation.
+- [Packaging] Fixed the rebuild of data after installation by adding a dependency in Debian package.
+
+</details>
+
+### Centreon Auto Discovery 24.10.2
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] RPM packages are now compressed using the zstd format.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an error displayed on Service Discovery rule duplication.
+
+</details>
+
+### Centreon License Manager 24.10.1
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] RPM packages are now compressed using the zstd format.
+
+</details>
+
+### Centreon Anomaly Detection 24.10.1
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] RPM packages are now compressed using the zstd format.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.3
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] RPM packages are now compressed using the zstd format.
+
+</details>
+
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.1
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Packaging] RPM packages are now compressed using the zstd format.
+
+</details>
+
+## December 06, 2024
+
+### Centreon IT Edition Extensions 24.10.2
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Fixed an issue preventing dashboards and playlists from functioning after upgrading to version 24.10.1.
+
+</details>
+
+## December 04, 2024
+
+### Centreon MAP 24.10.1
 
 <details>
   <summary>Bug fixes</summary>
@@ -200,9 +1454,48 @@ Release date: `December 04, 2024`
 
 </details>
 
-### 24.10.0
+### Centreon MBI 24.10.1
 
-Release date: `October 31, 2024`
+<details>
+  <summary>Bug fixes</summary>
+
+- [CBIS] Fixed the link from the diagnostic script to the user documentation.
+- [Packaging] Fixed the rebuild of data after installation by adding a dependency in Debian package.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- [Security] Removed obsolete parameters when accessing reporting forms.
+- [Security] Upgraded Apache commons dependency.
+- [Security] Updated the version of dom4j dependency.
+- [Security] Upgraded XmlBeans dependency.
+
+</details>
+
+### Centreon Auto Discovery 24.10.1
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue with advanced attributes that were not available when configuring a property mapper.
+- Fixed overlapping action icons in the Credentials field.
+
+</details>
+
+### Centreon IT Edition Extensions 24.10.1
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Custom Login page] Fixed the visibility of the text area border.
+
+</details>
+
+## October 31, 2024
+
+### Centreon MAP 24.10.0
 
 <details open>
   <summary>Map Legacy retirement</summary>
@@ -246,83 +1539,7 @@ Release date: `October 31, 2024`
 
 </details>
 
-## Centreon BAM
-
-### 24.10.5
-
-Release date: `June 20, 2025`
-
-- No changes for this module in this version.
-
-### 24.10.4
-
-Release date: `April 30, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Dashboards] BA Diagram widget - Added the parent host name on service KPIs.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [BAM] Fixed issue preventing BAs from being added to a remote server if one of their KPIs was a BA itself.
-- [Dashboards] BA Diagram widget - Fixed dataset autocomplete when searching for a Business Activity.
-
-</details>
-
-### 24.10.3
-
-Release date: `March 12, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Dashboards] Improved readability in the Business Activity Diagram widget by increasing the number of characters displayed per label.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Monitoring] Deactivated Business Views are not displayed anymore.
-
-</details>
-
-### 24.10.2
-
-Release date: `February 17, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [BA monitoring] Fixed an issue that prevented KPI informations from being displayed.
-
-</details>
-
-### 24.10.1
-
-Release date: `January 9, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Packaging] RPM packages are now compressed using the zstd format.
-
-</details>
-
-<details>
-  <summary>Security fixes</summary>
-
-- [Security] Fixed SQLi in the listing of Boolean KPIs, only accessible to authenticated users with high privilege access. (CVE-2024-46924)	
-
-</details>
-
-### 24.10.0
-
-Release date: `October 31, 2024`
+### Centreon BAM 24.10.0
 
 <details open>
   <summary>Enhancements</summary>
@@ -333,79 +1550,7 @@ Release date: `October 31, 2024`
 
 </details>
 
-## Centreon MBI
-
-### 24.10.4
-
-Release date: `June 20, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [MBI] Fixed error with special characters in CBIS log.
-- [Packaging] Enforced permissions on centreon-bi backup cron.
-- [Server] Fixed incompatibility with newer MySQL 8 versions for Java connector.
-
-</details>
-
-### 24.10.3
-
-Release date: `April 30, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [MBI] Fixed an issue preventing reports from being exported in XLSX format.
-
-</details>
-
-### 24.10.2
-
-Release date: `January 9, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Packaging] RPM packages are now compressed using the zstd format.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [MBI] Fixed an issue preventing the "report parameters" form to be displayed.
-- [MBI] Fixed an issue preventing the MBI extension from being updated to the latest version.
-- [MBI] Fixed report generation.
-- [Packaging] Fixed the rebuild of data after installation by adding a dependency in Debian package.
-
-</details>
-
-
-### 24.10.1
-
-Release date: `December 04, 2024`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [CBIS] Fixed the link from the diagnostic script to the user documentation.
-- [Packaging] Fixed the rebuild of data after installation by adding a dependency in Debian package.
-
-</details>
-
-<details>
-  <summary>Security fixes</summary>
-
-- [Security] Removed obsolete parameters when accessing reporting forms.
-- [Security] Upgraded Apache commons dependency.
-- [Security] Updated the version of dom4j dependency.
-- [Security] Upgraded XmlBeans dependency.
-
-</details>
-
-### 24.10.0
-
-Release date: `October 31, 2024`
+### Centreon MBI 24.10.0
 
 <details open>
   <summary>Enhancements</summary>
@@ -415,74 +1560,7 @@ Release date: `October 31, 2024`
 
 </details>
 
-## Centreon Auto Discovery
-
-### 24.10.5
-
-Release date: `June 20, 2025`
-
-<details>
-  <summary>Security fixes</summary>
-
-- [Security] Fixed a security issue on Centreon Auto Discovery.
-
-</details>
-
-### 24.10.4
-
-Release date: `April 30, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Discovery] Fixed an issue where manually scanned services could not be saved by non-admin users.
-
-</details>
-
-### 24.10.3
-
-Release date: `March 12, 2024`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Host Discovery] Fixed an issue where jobs were not executed due to null arguments.
-
-</details>
-
-### 24.10.2
-
-Release date: `January 9, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Packaging] RPM packages are now compressed using the zstd format.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed an error displayed on Service Discovery rule duplication.
-
-</details>
-
-### 24.10.1
-
-Release date: `December 04, 2024`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed an issue with advanced attributes that were not available when configuring a property mapper.
-- Fixed overlapping action icons in the Credentials field.
-
-</details>
-
-### 24.10.0
-
-Release date: `October 31, 2024`
+### Centreon Auto Discovery 24.10.0
 
 <details open>
   <summary>Enhancements</summary>
@@ -491,28 +1569,7 @@ Release date: `October 31, 2024`
 
 </details>
 
-## Centreon License Manager
-
-### 24.10.2
-
-Release date: `June 20, 2025`
-
-- No changes for this module in this version.
-
-### 24.10.1
-
-Release date: `January 9, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Packaging] RPM packages are now compressed using the zstd format.
-
-</details>
-
-### 24.10.0
-
-Release date: `October 31, 2024`
+### Centreon License Manager 24.10.0
 
 <details>
   <summary>Compatibility</summary>
@@ -521,28 +1578,7 @@ Release date: `October 31, 2024`
 
 </details>
 
-## Centreon Anomaly Detection
-
-### 24.10.2
-
-Release date: `June 20, 2025`
-
-- No changes for this module in this version.
-
-### 24.10.1
-
-Release date: `January 9, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Packaging] RPM packages are now compressed using the zstd format.
-
-</details>
-
-### 24.10.0
-
-Release date: `October 31, 2024`
+### Centreon Anomaly Detection 24.10.0
 
 <details open>
   <summary>Enhancements</summary>
@@ -551,66 +1587,7 @@ Release date: `October 31, 2024`
 
 </details>
 
-## Centreon IT Edition Extensions
-
-### 24.10.5
-
-Release date: `June 20, 2025`
-
-<details>
-  <summary>Security fixes</summary>
-
-- [Security] Updated axios dependency on centreon it-edition.
-
-</details>
-
-### 24.10.4
-
-Release date: `February 17, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Dashboards] Fixed an issue with tickets opened in the Resource table widget in public playlists.
-
-</details>
-
-### 24.10.3
-
-Release date: `January 9, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Packaging] RPM packages are now compressed using the zstd format.
-
-</details>
-
-### 24.10.2
-
-Release date: `December 06, 2024`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Dashboards] Fixed an issue preventing dashboards and playlists from functioning after upgrading to version 24.10.1.
-
-</details>
-
-### 24.10.1
-
-Release date: `December 04, 2024`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Custom Login page] Fixed the visibility of the text area border.
-
-</details>
-
-### 24.10.0
-
-Release date: `October 31, 2024`
+### Centreon IT Edition Extensions 24.10.0
 
 <details open>
   <summary>Enhancements</summary>
@@ -621,11 +1598,7 @@ Release date: `October 31, 2024`
 
 </details>
 
-## Centreon IT & Business Extensions
-
-### 24.10.0
-
-Release date: `October 31, 2024`
+### Centreon IT & Business Extensions 24.10.0
 
 <details>
   <summary>Compatibility</summary>
@@ -634,55 +1607,7 @@ Release date: `October 31, 2024`
 
 </details>
 
-## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
-
-### 24.10.4
-
-Release date: `June 20, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Monitoring Connectors] You can now access the **Monitoring Connector Manager** page using dedicated ACLs.
-
-</details>
-
-### 24.10.3
-
-Release date: `April 30, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed a translation issue on menu & breadcrumb and added a "Connectors" submenu that includes Monitoring Connectors and Additional configurations.
-
-</details>
-
-### 24.10.2
-
-Release date: `March 12, 2025`
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Monitoring Connectors] Fixed an error while installing Generic SNMP.
-
-</details>
-
-### 24.10.1
-
-Release date: `January 9, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Packaging] RPM packages are now compressed using the zstd format.
-
-</details>
-
-### 24.10.0
-
-Release date: `October 31, 2024`
+### Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager) 24.10.0
 
 <details open>
   <summary>Enhancements</summary>

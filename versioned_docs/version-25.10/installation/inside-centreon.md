@@ -1,6 +1,7 @@
 ---
 id: inside-centreon
 title: Inside Centreon
+description: "Introduction to the internal components that make Centreon work"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -48,7 +49,7 @@ In this example, we have a central server (without any Business modules installe
 
 See also:
 
-* [Centreon Broker in the Developer resources section](https://docs.centreon.com/docs/developer/developer-centreon-broker).
+* [Centreon Broker in the Developer resources section](https://docs.centreon.com/docs/developer/centreon-broker).
 * [Advanced configuration of Centreon Broker](https://docs.centreon.com/docs/monitoring/monitoring-servers/advanced-configuration/#advanced-configuration-of-centreon-broker).
 
 ### Gorgone
@@ -58,7 +59,7 @@ See also:
 * Configuration data is transferred from the central to the engines of the pollers and remote servers in ZMQ format.
 * When you [deploy the configuration](https://docs.centreon.com/docs/monitoring/monitoring-servers/deploying-a-configuration), Gorgone takes the files that are generated and copies them to all the engines of the pollers and remote servers, and reloads these.
 
-See also [Centreon Gorgone in the Developer resources section](https://docs.centreon.com/docs/developer/developer-centreon-gorgone).
+See also [Centreon Gorgone in the Developer resources section](https://docs.centreon.com/docs/developer/centreon-gorgone).
 
 ### A MariaDB/MySQL database
 

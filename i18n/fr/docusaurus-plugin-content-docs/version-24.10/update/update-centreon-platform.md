@@ -1,12 +1,19 @@
 ---
 id: update-centreon-platform
 title: Mise à jour d'une plateforme Centreon 24.10
+description: "Étapes pour mettre à jour une version mineure de Centreon 24.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
 24.10 (c'est-à-dire le passage de 24.10.x à 24.10.y).
+
+> Après avoir effectué la mise à jour de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
+>
+> Dans votre architecture, tous les serveurs doivent avoir la même version majeure de Centreon et, si possible, la même version mineure.
+>
+> De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo.md#changement-de-version-de-bbdo).
 
 ## Avant la mise à jour
 
@@ -40,6 +47,29 @@ Eliminez les paquets debuginfo avant de poursuivre à moins d'en avoir un besoin
   ```shell
  apt remove $(dpkg -l | awk '/^ii/ && $2 ~ /^centreon.*debuginfo/ { print $2 }')
   ```
+
+</TabItem>
+</Tabs>
+
+### Vérifier les dépôts
+
+Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
 </Tabs>
@@ -93,7 +123,7 @@ Videz le cache :
 Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt install --only-upgrade centreon*
+  apt install --only-upgrade "centreon*"
   ```
 
 </TabItem>

@@ -1,9 +1,10 @@
 ---
 id: ram
 title: Granting users rights on resources
+description: "How to create and manage resource access rules that determine which users can see specific resources in Centreon Cloud"
 ---
 
-Resource access rules allow you to grant users the right to see specific [resources](../resources/glossary.md#resource).
+Resource access rules allow you to grant users the right to see specific [resources](../resources/glossary.md#resource) and image folders.
 
 By default, all users can see all resources. This is because a default access rule called "ALL" is created automatically when the platform is installed. Users with the **Administrator** role can see all resources in all cases, even if no rule grants them this right explicitly.
 
@@ -28,9 +29,9 @@ If you don't want all users to see all resources, you need to:
    * If you want to add another set of resources that do not depend on any of the criteria defined above, click **Add new dataset**. The list will propose all types of resources again.
 
    > You can also select **All resources**: users will see all existing resources, as well as be able to see any resources created afterwards automatically.
-   > If you select a group of resources (hosts, services, BVs), users will see all existing resources in the group, as well as see any resources added to the group afterwards automatically.
+   > If you select a group of resources (hosts, services, BVs, image folders), users will see all existing resources in the group, as well as see any resources added to the group afterwards automatically.
 
-4. In the **Contacts/contact groups** section, define which users will be able to see these resources. If you select **All contacts/All contact groups**, the rule will apply to all existing contacts/contact groups, and also to any contacts/contact groups created in the future. Bear in mind that users and user groups are managed using the [CIAM](../ciam/ciam.md).
+4. In the **Contacts/contact groups** section, define which users will be able to see these resources. If you select **All contacts/All contact groups**, the rule will apply to all existing contacts/contact groups, and also to any contacts/contact groups created in the future. Bear in mind that users and user groups are managed using [Centreon Hub](../users/centreon-hub.md).
 
 5. Click **Save**. The new rule appears in the list. It can take up to one minute to be applied.
 

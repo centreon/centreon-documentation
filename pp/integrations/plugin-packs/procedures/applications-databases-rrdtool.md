@@ -1,27 +1,52 @@
 ---
 id: applications-databases-rrdtool
 title: RRDtool
+description: "Monitor RRDtool data sources via CLI or SSH, checking minimum, maximum, and average values over a set timeframe."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Monitoring Connector Assets
+The following monitoring connectors will be installed when you install the **RRDtool** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
-### Monitored Objects
+## Pack assets
 
-The Monitoring Connector includes monitoring of Query.
+### Templates
 
-### Collected Metrics
+The Monitoring Connector **RRDtool** brings no host templates.
+
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Query" label="Query">
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Metric name                                  | Description                | Unit |
-| :------------------------------------------- | :------------------------- | :--- |
-| *dsname*#datasource.value.minimum.count      | Minimun value on timeframe |      |
-| *dsname*#datasource.value.average.count      | Average value on timeframe |      |
-| *dsname*#datasource.value.maximum.count      | Maximul value on timeframe |      |
+| Service Alias | Service Template                  | Service Description                     |
+|:--------------|:----------------------------------|:----------------------------------------|
+| Query         | App-DB-Rrdtool-SSH-Query-custom   | Check DS min/max/average on a timeframe |
+| Query         | App-DB-Rrdtool-Local-Query-custom | Check DS min/max/average on a timeframe |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+</TabItem>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<TabItem value="Query*" label="Query*">
+
+| Name                           | Unit  |
+|:-------------------------------|:------|
+| datasource.value.minimum.count | count |
+| datasource.value.average.count | count |
+| datasource.value.maximum.count | count |
+
+> Applies to the following service templates: Query, Query
 
 </TabItem>
 </Tabs>
@@ -33,147 +58,210 @@ The plugin support query with:
 * ```rrdtool``` cli (executed locally or through ssh)
 * perl binding (executed locally only)
 
-```rrdcached``` is not supported (yet). 
+```rrdcached``` is not supported (yet).
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Databases-Rrdtool
+dnf install centreon-pack-applications-databases-rrdtool
 ```
-
-2. On the Centreon Web interface in **Configuration > Connectors > Monitoring Connectors**, install the *RRDtool* Monitoring Connector
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Databases-Rrdtool
+dnf install centreon-pack-applications-databases-rrdtool
 ```
 
-2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-databases-rrdtool
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-databases-rrdtool
 ```
 
-3. On the Centreon Web interface in **Configuration > Connectors > Monitoring Connectors**, install the *RRDtool* Monitoring Connector
-
 </TabItem>
 </Tabs>
 
-## Service configuration 
+2. Whatever the license type (*online* or *offline*), install the **RRDtool** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Local" label="Local">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-* Create a service and apply the *App-DB-Rrdtool-Local-Query* service template.
-
-> Once the template applied, some Macros have to be configured:
-
-| Mandatory | Name      | Description                                                                   |
-| :-------- | :-------- | :---------------------------------------------------------------------------- |
-| X         | RRDFILE   | rrd file to query                                                             |
-| X         | DSNAME    | Datasource to query (Default: 'value')                                        |
-| X         | TIMEFRAME | Set timeframe in seconds (E.g '3600' to check last 60 minutes) (Default: 600) |
+```bash
+dnf install centreon-plugin-Applications-Databases-Rrdtool
+```
 
 </TabItem>
-<TabItem value="SSH" label="SSH">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-* Create a service and apply the *App-DB-Rrdtool-SSH-Query* service template.
-
-> Once the template applied, some Macros have to be configured:
-
-| Mandatory | Name      | Description                                                                   |
-| :-------- | :-------- | :---------------------------------------------------------------------------- |
-| X         | RRDFILE   | rrd file to query                                                             |
-| X         | DSNAME    | Datasource to query (Default: 'value')                                        |
-| X         | TIMEFRAME | Set timeframe in seconds (E.g '3600' to check last 60 minutes) (Default: 600) |
-
-* On your host, 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
+```bash
+dnf install centreon-plugin-Applications-Databases-Rrdtool
+```
 
 </TabItem>
-<TabItem value="sshcli backend" label="sshcli backend">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-| Mandatory   | Name            | Description                                                                                 |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | SSHBACKEND      | Name of the backend: ```sshcli```                                                           |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
-|             | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                                    |
-|             | SSHPORT         | By default: 22                                                                              |
-|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
-
-> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+```bash
+apt install centreon-plugin-applications-databases-rrdtool
+```
 
 </TabItem>
-<TabItem value="plink backend" label="plink backend">
+<TabItem value="CentOS 7" label="CentOS 7">
 
-| Mandatory   | Name            | Description                                                                                 |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | SSHBACKEND      | Name of the backend: ```plink```                                                            |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
-|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
-|             | SSHPORT         | By default: 22                                                                              |
-|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
-
-> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
-
-</TabItem>
-<TabItem value="libssh backend (default)" label="libssh backend (default)">
-
-| Mandatory   | Name            | Description                                                                                 |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | SSHBACKEND      | Name of the backend: ```libssh```                                                           |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
-|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
-|             | SSHPORT         | By default: 22                                                                              |
-|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
-
-With that backend, you do not have to validate the target server fingerprint manually.
+```bash
+yum install centreon-plugin-Applications-Databases-Rrdtool
+```
 
 </TabItem>
 </Tabs>
 
-## FAQ
+## Using the monitoring connector
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+### Using a host template provided by the connector
 
-Once the Plugin installed, log into your poller using the *centreon-engine* user account and test by running the following command:
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Query" label="Query">
+
+| Macro                | Description                                                                                                                | Default value     | Mandatory   |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CUSTOMMODE           | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | perlmod           |             |
+| DSNAME               | Set DS name to query (default: 'value')                                                                                    | value             | X           |
+| TIMEFRAME            | Set timeframe in seconds (E.g '3600' to check last 60 minutes)                                                             | 600               | X           |
+| RRDFILE              | Set rrd file to query                                                                                                      |                   | X           |
+| WARNINGVALUEAVERAGE  | Threshold                                                                                                                  |                   |             |
+| CRITICALVALUEAVERAGE | Threshold                                                                                                                  |                   |             |
+| WARNINGVALUEMAXIMUM  | Threshold                                                                                                                  |                   |             |
+| CRITICALVALUEMAXIMUM | Threshold                                                                                                                  |                   |             |
+| WARNINGVALUEMINIMUM  | Threshold                                                                                                                  |                   |             |
+| CRITICALVALUEMINIMUM | Threshold                                                                                                                  |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                         |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rrdtool.pl \
-    --plugin=database::rrdtool::local::plugin \
-    --custommode=perlmod \
-    --mode=query \
-    --rrd-file='/var/lib/centreon/metrics/1490.rrd' \
-    --ds-name='value' \
-    --timeframe='3600' \
-    --warning-value-maximum=50 \
-    --critical-value-maximum=100
+	--plugin=database::rrdtool::local::plugin \
+	--mode=query \
+	--custommode='perlmod' \
+	--rrd-file='xxxxxx' \
+	--ds-name='value' \
+	--timeframe='600' \
+	--warning-value-minimum='' \
+	--critical-value-minimum='' \
+	--warning-value-average='' \
+	--critical-value-average='' \
+	--warning-value-maximum='' \
+	--critical-value-maximum=''
 ```
 
-Output example:
+The expected command output is shown below:
+
 ```
-OK: datasource 'value': 3.12 (min), 4.52 (avg), 5.13 (max) | 'value#datasource.value.minimum.count'=3.12;;;; 'value#datasource.value.average.count'=4.52;;;; 'value#datasource.value.maximum.count'=5.13;0:50;0:100;;
+OK: datasource 'value': 3.12 (min), 4.52 (avg), 5.13 (max) | 'value#datasource.value.minimum.count'=3.12;;;; 'value#datasource.value.average.count'=4.52;;;; 'value#datasource.value.maximum.count'=5.13;;;;
 ```
 
-The command above monitors rrdtool (```--mode=query```) database */var/lib/centreon/metrics/1490.rrd* (found Centreon metrics file in interface: ```Administration  >  Parameters  >  Data```).
+### Troubleshooting
 
-It check the datasource *value* (```--ds-name='value'```. Centreon always use ```value```. Otherwise use command to find datasource name: ```rrdtool info /var/lib/centreon/metrics/1490.rrd```) during the last hour (--timeframe='3600').
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-This command would trigger a WARNING alert if maximum value is over 50 (--warning-value-maximum=50) and a CRITICAL alarm over 100 (--critical-value-maximum=100).
+### Available modes
 
-All the options that can be used with this plugin can be found over the ```--help``` command:
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rrdtool.pl \
-    --plugin=database::rrdtool::local::plugin \
-    --custommode=perlmod \
-    --help
+	--plugin=database::rrdtool::local::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                               | Linked service template                                                |
+|:-------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| query [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/rrdtool/local/mode/query.pm)] | App-DB-Rrdtool-SSH-Query-custom<br />App-DB-Rrdtool-Local-Query-custom |
+
+### Available options
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Query*" label="Query*">
+
+| Option                   | Description                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --rrd-file               |   Set rrd file to query.                                                                                                      |
+| --ds-name                |   Set DS name to query (default: 'value').                                                                                    |
+| --timeframe              |   Set timeframe in seconds (E.g '3600' to check last 60 minutes).                                                             |
+| --warning-* --critical-* |   Thresholds. Can be: 'value-minimum', 'value-average', 'value-maximum'.                                                      |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_rrdtool.pl \
+	--plugin=database::rrdtool::local::plugin \
+	--mode=query \
+	--help
 ```

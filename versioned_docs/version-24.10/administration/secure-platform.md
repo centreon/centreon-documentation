@@ -1,6 +1,7 @@
 ---
 id: secure-platform
 title: Secure your platform
+description: "Harden Centreon with SELinux, firewalls, HTTPS, and other measures"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -44,14 +45,13 @@ apache:x:48:48:Apache:/usr/share/httpd:/sbin/nologin
 Centreon developed SELinux rules in order to strengthen the control of
 components by the operating system.
 
-> These rules are currently in **beta mode** and can be activated.
-> You can activate them by following this procedure. If you detect a problem,
+> To activate these rules, follow this procedure. If you detect a problem,
 > you can disable SELinux globally and send us your feedback in
-> order to improve our rules on [Github](https://github.com/centreon/centreon).
+> order to improve our rules on our community platform [The Watch](https://thewatch.centreon.com/).
 
 ### SELinux Overview
 
-Security Enhanced Linux (SELinux) provides an additional layer of system security. SELinux fundamentally answers the
+Security Enhanced Linux (SELinux) provides an additional layer of system security for EL environments. SELinux fundamentally answers the
 question: `May <subject> do <action> to <object>?`, for example: May a web server access files in users' home
 directories?
 
@@ -170,7 +170,8 @@ Depending on the type of server, install the packages with the following command
 <TabItem value="MBI server" label="MBI server">
 
    ```shell
-   dnf install centreon-mbi-selinux
+   dnf install centreon-mbi-selinux \
+   centreon-gorgoned-selinux
    ```
 
 </TabItem>
@@ -179,45 +180,7 @@ Depending on the type of server, install the packages with the following command
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-<Tabs groupId="sync">
-<TabItem value="Central / Remote Server" label="Central / Remote Server">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-web-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Poller" label="Poller">
-
-   ```shell
-   apt install centreon-common-selinux \
-   centreon-broker-selinux \
-   centreon-engine-selinux \
-   centreon-gorgoned-selinux \
-   centreon-plugins-selinux
-   ```
-
-</TabItem>
-<TabItem value="Map server" label="Map server">
-
-   ```shell
-   apt install centreon-map-selinux
-   ```
-
-</TabItem>
-<TabItem value="MBI server" label="MBI server">
-
-   ```shell
-   apt install centreon-mbi-selinux
-   ```
-
-</TabItem>
-</Tabs>
+SELinux concerns only EL environments.
 
 </TabItem>
 </Tabs>
@@ -245,17 +208,25 @@ centreon-web	0.0.8
 Before enabling SELinux in **enforcing** mode, you need to be sure that no errors appear using the following command:
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+ausearch --start week-ago --message AVC,USER_AVC
 ```
 
 If errors appear, you must analyze them and decide if these errors are regular and should be added to
 the Centreon default SELinux rules. To do this, use the following command to transform errors into SELinux rules:
 
+To analyze the logs:
+
 ```shell
-audit2allow -a
+ausearch --start week-ago --message AVC,USER_AVC | audit2why
+ausearch --start week-ago --message AVC,USER_AVC | audit2allow --module <modulename>
 ```
 
-Then execute the proposed rules.
+To create and install the proposed rules:
+
+```shell
+ausearch --start week-ago --message AVC,USER_AVC | audit2allow -M <modulename>
+semodule -i <modulename>.pp
+```
 
 If after a while, no error is present, you can activate SELinux in full mode by
 following this [procedure](#activate-selinux) using **enforcing** mode.
@@ -698,32 +669,34 @@ Now that you have your self-signed certificate, you can perform the following pr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install mod_ssl mod_security openssl
+dnf install mod_ssl openssl
 ```
   
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install mod_ssl mod_security openssl
+dnf install mod_ssl openssl
 ```
   
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
 
 ```shell
 cp centreon7.key /etc/pki/tls/private/
 cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
 ```
 
 </TabItem>
@@ -732,7 +705,6 @@ cp centreon7.crt /etc/pki/tls/certs/
 ```shell
 curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
 apt update
-apt install libapache2-mod-security2
 a2enmod ssl
 a2enmod security2
 systemctl restart apache2
@@ -740,11 +712,12 @@ systemctl restart apache2
 
 2. Install your certificates:
 
-Install your certificates (**centreon7.key** and **centreon7.crt** in our example) by copying them to the Apache configuration:
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
 
 ```shell
 cp centreon7.key /etc/ssl/private/
 cp centreon7.crt /etc/ssl/certs/
+cp ca_demo.crt /etc/ssl/certs/
 ```
 
 </TabItem>
@@ -1070,11 +1043,19 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/php.d/50-centreon.ini** file:
+
+* Make sure that the `expose_php` parameter is disabled:
 
 ```phpconf
 expose_php = Off
 ```
+
+* Add the path to the CA certificate that was used to sign the server's certificate:
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -1088,11 +1069,19 @@ ServerSignature Off
 ServerTokens Prod
 ```
 
-Edit the **/etc/php.d/50-centreon.ini** file and turn off the `expose_php` parameter:
+Edit the **/etc/php.d/50-centreon.ini** file:
+
+* Make sure that the `expose_php` parameter is disabled:
 
 ```phpconf
 expose_php = Off
 ```
+
+* Add the path to the CA certificate that was used to sign the server's certificate:
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
@@ -1108,9 +1097,12 @@ ServerTokens Prod
 TraceEnable Off
 ```
 
-Edit the **/etc/php/8.2/mods-available/centreon.ini** file and turn off the **expose_php** parameter:
+Edit the **/etc/php/8.2/mods-available/centreon.ini** file and add the following lines:
 
-> This was done during the installation process.
+```text
+openssl.cafile=/etc/ssl/certs/ca_demo.crt
+curl.cainfo=/etc/ssl/certs/ca_demo.crt
+```
 
 </TabItem>
 </Tabs>
@@ -1462,7 +1454,7 @@ dnf install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1470,13 +1462,13 @@ dnf install nghttp2
 
 4. Update the method used by the apache multi-process module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
-   Comment the following line:
+   Find the following line and comment it by adding the "#" character as below:
 
    ```shell
-   LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   #LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
    ```
 
-   Uncomment the following line:
+   Find the following line and uncomment it by removing the "#" character as below:
 
    ```shell
    LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1504,7 +1496,7 @@ dnf install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1512,13 +1504,13 @@ dnf install nghttp2
 
 4. Update the method used by the apache multi-process module in **/etc/httpd/conf.modules.d/00-mpm.conf**:
 
-   Comment the following line:
+   Find the following line and comment it by adding the "#" character as below:
 
    ```shell
-   LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+   #LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
    ```
 
-   Uncomment the following line:
+   Find the following line and uncomment it by removing the "#" character as below:
 
    ```shell
    LoadModule mpm_event_module modules/mod_mpm_event.so
@@ -1546,7 +1538,7 @@ apt install nghttp2
 ```apacheconf
 ...
 <VirtualHost *:443>
-    Protocols h2 h2c http/1.1
+    Protocols h2 http/1.1
     ...
 </VirtualHost>
 ...
@@ -1569,6 +1561,109 @@ systemctl restart apache2
 
 </TabItem>
 </Tabs>
+
+## Activate mod_security
+
+**mod_security** is a security module for Apache that acts as a web application firewall (WAF).
+
+1. Install **mod_security** :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mod_security
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install mod_security
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt install libapache2-mod-security2
+```
+
+</TabItem>
+</Tabs>
+
+2. Edit the following file and adjust the settings as you want:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+/etc/httpd/conf.d/mod_security.conf
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+/etc/httpd/conf.d/mod_security.conf
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+/etc/modsecurity/mod_security.conf
+```
+
+</TabItem>
+</Tabs>
+
+We recommend the following configuration:
+
+```text
+    SecResponseBodyAccess Off
+    SecDebugLog /var/log/httpd/modsec_debug.log
+    SecDebugLogLevel 0
+    SecAuditEngine RelevantOnly
+    SecAuditLogRelevantStatus "^(?:5|4(?!01|4))"
+    SecAuditLogParts ABJDEFHZ
+    SecAuditLogType Serial
+    SecAuditLog /var/log/httpd/modsec_audit.log
+    SecArgumentSeparator &
+    SecCookieFormat 0
+    SecTmpDir /var/lib/mod_security
+    SecDataDir /var/lib/mod_security
+```
+
+3. Restart Apache :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+systemctl restart httpd
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+systemctl restart apache2
+```
+
+</TabItem>
+</Tabs>
+
+## Add your certificate to your browser
+
+If you use a certificate that is not provided by a trusted authority, you must import the CA certificate into your browser.
 
 ## User authentication
 
@@ -1626,6 +1721,29 @@ Then you must configure gorgone using the **Administration > Parameters > Gorgon
 
 The **/etc/centreon-gorgone/config.d/whitelist.conf.d/centreon.yaml** file (on your central server, your remote servers and your pollers) contains the whitelists for Gorgone. If you want to customize the allowed commands, do not edit this file. Create a new one in the same folder, e.g. **/etc/centreon-gorgone/config.d/whitelist.conf.d/custom.yaml**.
 
+## Centreon Gorgone autodiscovery
+
+By default, Gorgone allows autodiscovery commands to interpret bash meta-characters when executed. This can be a security risk if a user with the privilege to make a host discovery is compromised.
+
+To disable this, you can set the **no_shell_interpolation** parameter to **true** in the **/etc/centreon-gorgone/config.d/41-autodiscovery.yaml** file, like this: 
+
+**vi /etc/centreon-gorgone/config.d/41-autodiscovery.yaml**
+
+```yaml
+gorgone:
+  modules:
+    - name: autodiscovery
+      package: "gorgone::modules::centreon::autodiscovery::hooks"
+      enable: true
+      no_shell_interpretation: true
+```
+
+Then restart Gorgone for the new parameter to take effect:
+
+```shell
+systemctl restart gorgoned
+```
+
 ## Security Information and Event Management - SIEM
 
 Centreon event logs are available in the following directories:
@@ -1645,3 +1763,33 @@ Centreon event logs are available in the following directories:
 ## Backing up the platform
 
 Centreon offers to save the configuration of the platform. To do this, go to the [**Administration > Parameters > Backup**](./backup.md) menu.
+
+## Using antivirus software on your Centreon platform
+
+This section applies if you are using antivirus/EDR software to scan a Centreon Infra Monitoring platform (central server, remote server, poller, MAP or MBI server). This includes Business modules.
+
+Here is a list of services and directories that should be excluded from antivirus scanning.
+
+### Services to be excluded
+
+* centengine
+* cbd
+* centreontrapd
+* gorgoned
+* php-fpm
+* httpd
+
+If you are using one of these connectors, exclude the following services:
+
+* vmware: centreon_vmware
+* as400: centreon-as400
+
+### Directories to be excluded
+
+* /etc/centreon*
+* /var/log/centreon*
+* /var/lib/centreon*
+* /var/cache/centreon*
+* /usr/share/centreon*
+* /var/spool/centreon*
+* /var/lib/mysql

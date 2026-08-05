@@ -1,6 +1,7 @@
 ---
 id: developer-stream-connector  
 title: Comment écrire un Stream Connector
+description: "Tutoriel pour écrire des Stream Connectors Lua, avec un exemple InfluxDB"
 ---
 
 ## Vue d'ensemble
@@ -21,24 +22,22 @@ Cet output charge un script Lua appelé un Stream Connector, dont la tâche cons
 
 Comme il s'agit d'un output de Centreon Broker, le principe de la création de fichiers de rétention lors de l'interruption de l'accès au stockage externe est conservé. De la même manière, il est possible de filtrer les entrées sur les catégories de flux à traiter.
 
+## Migration d'un Stream Connector de BBDO 2 vers BBDO 3
+
+La documentation technique de la migration est disponible [ici](developer-broker-stream-connector-migration.md). Ce mode d'emploi donne plusieurs conseils pour réussir la migration et présente un petit exemple.
+
 ## Prérequis
 
-Pour utiliser la fonctionnalité Centreon Stream Connector, vous devez disposer au minimum de la version 3.4.6 de Centreon :
+Pour utiliser la fonctionnalité Centreon Stream Connector, vous devez utiliser Lua >= 5.1.x.
 
-* Centreon Web >= 2.8.18
-* Centreon Broker >= 3.0.13
-* Lua >= 5.1.x
+## Présentation
 
-## Création d'un nouveau script Lua
-
-La documentation technique complète est disponible [ici](developer-broker-stream-connector.md). Dans ce mode d'emploi, nous allons écrire deux scripts :
+La documentation technique complète est disponible [ici](developer-broker-stream-connector.md). Dans cette page, nous allons écrire deux scripts :
 
 * Le premier, simple, qui explique les bases des Stream Connectors. Son objectif est d'exporter les données vers un fichier journal.
 * Le second est plus exigeant pour le lecteur, il exporte les données de performance vers la TSDB InfluxDB mais est facilement adaptable pour exporter vers une autre TSDB.
 
-## Migration d'un Stream Connector de BBDO 2 vers BBDO 3
-
-La documentation technique de la migration est disponible [ici](developer-broker-stream-connector-migration.md). Ce mode d'emploi donne plusieurs conseils pour réussir la migration et présente un petit exemple.
+Si vous incluez d'autres scripts au sein de votre stream connector (avec un include), toute modification apportée sur les scripts inclus doit être suivie d’un redémarrage (et non d’un rechargement) de Broker pour être prise en compte.
 
 ### Langage de programmation
 
@@ -50,9 +49,9 @@ Les scripts Lua de Broker peuvent être stockés dans tout répertoire lisible p
 
 Nous recommandons de les stocker dans **/usr/share/centreon-broker/lua**.
 
-### Écrire toutes les informations dans un fichier
+## Exporter les données vers un fichier journal
 
-#### Stocker les données brutes
+### Stocker les données brutes
 
 Commençons par le premier script. Notre objectif est de stocker tous les événements donnés par Broker dans un fichier journal. Nous allons appeler notre Stream Connector **bbdo2file.lua**.
 
@@ -201,7 +200,7 @@ mer. 28 mars 2018 14:27:35 CEST: INFO: last_hard_state => 0
 
 > Ce fichier journal va grossir rapidement, n'oubliez pas d'ajouter une rotation du journal.
 
-#### Utiliser les paramètres
+### Utiliser les paramètres
 
 Les fonctions de journalisation de Centreon Broker ne doivent être utilisées que pour la journalisation. Pour écrire dans un fichier, nous devons utiliser la fonction dédiée de Lua. En outre, il est possible d'utiliser des paramètres pour définir le nom du fichier journal.
 
@@ -288,7 +287,7 @@ is_for_rebuild => false
 metric_id => 11920
 ```
 
-#### Manipuler les données
+### Manipuler les données
 
 Ici, nous continuons à améliorer notre Stream Connector en choisissant les événements à exporter et aussi en améliorant les outputs.
 

@@ -1,46 +1,80 @@
 ---
 id: applications-vtom-restapi
 title: Absyss VTOM Rest API
+description: "Supervisez l'ordonnanceur de jobs Absyss VTOM via l'API REST : statut des jobs, compteurs d'exécution et taux de succès."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Contenu du Pack
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Absyss VTOM Rest API** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
+
+## Contenu du pack
 
 ### Modèles
 
-Le Pack Centreon VTOM apporte 1 modèle d'hôte :
-* App-Vtom-Restapi-custom
+Le connecteur de supervision **Absyss VTOM Rest API** apporte un modèle d'hôte :
 
-Il apporte les Modèles de Service suivants :
+* **App-Vtom-Restapi-custom**
 
-| Service Alias | Service Template       | Default | Discovery |
-|:--------------|:-----------------------|:--------|:----------|
-| Cache         | App-Vtom-Cache-Restapi |         |           |
-| Jobs          | App-Vtom-Jobs-Restapi  | X       | X         |
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
+
+<Tabs groupId="sync">
+<TabItem value="App-Vtom-Restapi-custom" label="App-Vtom-Restapi-custom">
+
+| Alias | Modèle de service            | Description                                     | Découverte |
+|:------|:-----------------------------|:------------------------------------------------|:----------:|
+| Jobs  | App-Vtom-Jobs-Restapi-custom | Contrôle permettant de vérifier l'état des jobs | X          |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Vtom-Restapi-custom** est utilisé.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+
+</TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias | Modèle de service             | Description                                         |
+|:------|:------------------------------|:----------------------------------------------------|
+| Cache | App-Vtom-Cache-Restapi-custom | Service permettant de générer les fichiers de cache |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+</TabItem>
+</Tabs>
 
 ### Règles de découverte
 
-| Rule name                 | Description                              |
-|:--------------------------|:-----------------------------------------|
-| App-Vtom-Restapi-Job-Name | Découvre les jobs et supervise le statut |
+#### Découverte de services
+
+| Nom de la règle           | Description       |
+|:--------------------------|:------------------|
+| App-Vtom-Restapi-Job-Name | Découvre les jobs |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Jobs" label="Jobs">
 
-| Metric name                                               | Description                                                              | Unit  |
-| :-------------------------------------------------------- | :----------------------------------------------------------------------- | :---- |
-| jobs.running.count                                        | Number of jobs with status running                                       |       |
-| jobs.errors.count                                         | Number of jobs with status errors                                        |       |
-| jobs.waiting.count                                        | Number of jobs with status waiting                                       |       |
-| jobs.finished.count                                       | Number of jobs with status finished                                      |       |
-| jobs.notscheduled.count                                   | Number of jobs with status not scheduled                                 |       |
-| jobs.descheduled.count                                    | Number of jobs with status descheduled                                   |       |
-| job status                                                | Current status of the job                                                |       |
-| job long status                                           | Current duration of the running job                                      |       |
-| *environment~application~job_name*#job.success.percentage | Success rate for the last 10 job executions (status finished and errors) | %     |
+| Nom                           | Unité |
+|:------------------------------|:------|
+| jobs.running.count            | count |
+| jobs.errors.count             | count |
+| jobs.waiting.count            | count |
+| jobs.finished.count           | count |
+| jobs.notscheduled.count       | count |
+| jobs.descheduled.count        | count |
+| status                        | N/A   |
+| long                          | N/A   |
+| *jobs*#job.success.percentage | %     |
 
 </TabItem>
 </Tabs>
@@ -49,75 +83,177 @@ Il apporte les Modèles de Service suivants :
 
 Afin de contrôler votre VTOM, l'API Rest doit être configurée.
 
-Le Pack supporte les méthodes d'authentification:
+Le connecteur supporte les méthodes d'authentification:
 * par utilisateur et mot de passe
 * par token directement
 
-La version minimum VTOM 6.6.1a est nécessaire pour le bon fonctionnement du Pack:
+La version minimum VTOM 6.6.1a est nécessaire pour le bon fonctionnement du connecteur :
 * /auth/1.0/authorize
 * /monitoring/1.0/jobs/status 
 
-Pour les versions antérieures, il est nécessaire d'utiliser le mode **legacy** du Plugin.
+Pour les versions antérieures, il est nécessaire d'utiliser le mode **legacy** du plugin.
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **VTOM Rest API** :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Vtom-Restapi
+dnf install centreon-pack-applications-vtom-restapi
 ```
-
-2. Sur l'interface Web de Centreon, installer le Pack **VTOM Rest API** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
-
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des ressources **VTOM Rest API** :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Vtom-Restapi
+dnf install centreon-pack-applications-vtom-restapi
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Pack **VTOM Rest API** :
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-vtom-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-vtom-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack **VTOM Rest API** depuis la page **Configuration > Packs de plugins**.
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Absyss VTOM Rest API**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Vtom-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Vtom-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-vtom-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Vtom-Restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Utiliser le connecteur de supervision
 
-### Hôte
+### Utiliser un modèle d'hôte issu du connecteur
 
-* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **VTOM Rest API**.
-* Appliquez le Modèle d'Hôte **App-Vtom-Restapi-custom**
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Vtom-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#options-des-custom-modes), c'est-à-dire la méthode de connexion à la ressource.
 
-Une fois celui-ci configuré, certaines macros doivent être renseignées:
+| Macro               | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:--------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| VTOMAPIUSERNAME     | API username                                                                                                                                       |                   | X           |
+| VTOMAPIPASSWORD     | API password                                                                                                                                       |                   | X           |
+| VTOMAPITOKEN        | Use token authentication directly                                                                                                                  |                   |             |
+| VTOMAPIPROTO        | Specify https if needed                                                                                                                            | https             |             |
+| VTOMAPIPORT         | Port used                                                                                                                                          | 30002             |             |
+| VTOMCUSTOMMODE      | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option                         | api               |             |
+| VTOMAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-| Mandatory | Name                | Description                                                                |
-| :-------- | :------------------ | :------------------------------------------------------------------------- |
-| X         | VTOMCUSTOMMODE      | Access mode for the Plugin (default: 'api'. Can be: 'legacy')              |
-| X         | VTOMAPIPORT         | Port used (Default: 30002)                                                 |
-| X         | VTOMAPIPROTO        | Specify http if needed (default: 'https')                                  |
-| X         | VTOMAPITOKEN        | Api token                                                                  |
-| X         | VTOMAPIUSERNAME     | Api username                                                               |
-| X         | VTOMAPIPASSWORD     | Api password                                                               |
-|           | VTOMAPIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
+### Utiliser un modèle de service issu du connecteur
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
-de commande depuis votre collecteur Centreon en vous connectant avec 
-l'utilisateur **centreon-engine**:
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Cache" label="Cache">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="Jobs" label="Jobs">
+
+| Macro                | Description                                                                                                                                                                                  | Valeur par défaut       | Obligatoire |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| FILTERNAME           | Filter name (can be a regexp)                                                                                                                                                                |                         |             |
+| FILTERENVIRONMENT    | Filter environment name (cannot be a regexp)                                                                                                                                                 |                         |             |
+| FILTERAPPLICATION    | Filter application name (cannot be a regexp)                                                                                                                                                 |                         |             |
+| WARNINGDESCHEDULED   | Threshold                                                                                                                                                                                    |                         |             |
+| CRITICALDESCHEDULED  | Threshold                                                                                                                                                                                    |                         |             |
+| WARNINGERRORS        | Threshold                                                                                                                                                                                    |                         |             |
+| CRITICALERRORS       | Threshold                                                                                                                                                                                    |                         |             |
+| WARNINGFINISHED      | Threshold                                                                                                                                                                                    |                         |             |
+| CRITICALFINISHED     | Threshold                                                                                                                                                                                    |                         |             |
+| WARNINGLONG          | Set warning threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                             | none                    |             |
+| CRITICALLONG         | Set critical threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                            | none                    |             |
+| WARNINGNOTSCHEDULED  | Threshold                                                                                                                                                                                    |                         |             |
+| CRITICALNOTSCHEDULED | Threshold                                                                                                                                                                                    |                         |             |
+| WARNINGRUNNING       | Threshold                                                                                                                                                                                    |                         |             |
+| CRITICALRUNNING      | Threshold                                                                                                                                                                                    |                         |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}, %\{exit\_code\}, %\{message\}, %\{environment\}, %\{application\} | %\{status\} =~ /Error/i |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}, %\{exit\_code\}, %\{message\}, %\{environment\}, %\{application\}  |                         |             |
+| WARNINGSUCCESSPRCT   | Threshold                                                                                                                                                                                    |                         |             |
+| CRITICALSUCCESSPRCT  | Threshold                                                                                                                                                                                    |                         |             |
+| WARNINGWAITING       | Threshold                                                                                                                                                                                    |                         |             |
+| CRITICALWAITING      | Threshold                                                                                                                                                                                    |                         |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                             | --verbose               |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_vtom_restapi.pl \
@@ -156,26 +292,130 @@ job 'env_2/app_7/job_2' status: error [message: Traitement en erreur (1)]
 job 'env_2/app_7/job_3' status: waiting [message: Heure de demarrage non atteinte]
 ```
 
-La liste de toutes les options complémentaires et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande:
-
-```bash
-/usr/lib/centreon/plugins/centreon_vtom_restapi.pl \
-    --plugin=apps::vtom::restapi::plugin \
-    --mode=jobs \
-    --help
-```
-
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
-`--list-mode` à la commande:
-
-```bash
-/usr/lib/centreon/plugins/centreon_vtom_restapi.pl \
-    --plugin=apps::vtom::restapi::plugin \
-    --list-mode
-```
-
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
-pour le diagnostic des erreurs communes des Plugins Centreon.
+des plugins basés sur HTTP/API.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_vtom_restapi.pl \
+	--plugin=apps::vtom::restapi::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                 | Modèle de service associé              |
+|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------|
+| cache [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vtom/restapi/mode/cache.pm)]        | App-Vtom-Cache-Restapi-custom          |
+| jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vtom/restapi/mode/jobs.pm)]          | App-Vtom-Jobs-Restapi-custom           |
+| list-jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/vtom/restapi/mode/listjobs.pm)] | Utilisé pour la découverte de services |
+
+### Options disponibles
+
+#### Options des custom modes
+
+Les options spécifiques aux **custom modes** sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="api" label="api">
+
+| Option                 | Description                                                                                                                                                                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                  |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                             |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                     |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                   |
+| --failback-file        | Fall back on a local file if Redis connection fails.                                                                                                                                                                                        |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                              |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                      |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                              |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux. |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                       |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                          |
+| --http-peer-addr       | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                         |
+| --proxyurl             | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                    |
+| --proxypac             | Proxy PAC file (can be a URL or a local file).                                                                                                                                                                                              |
+| --insecure             | Accept insecure SSL connections.                                                                                                                                                                                                            |
+| --http-backend         | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                     |
+| --hostname             | Set hostname.                                                                                                                                                                                                                               |
+| --port                 | Port used (default: 30002)                                                                                                                                                                                                                  |
+| --proto                | Specify https if needed (default: 'https')                                                                                                                                                                                                  |
+| --api-username         | API username.                                                                                                                                                                                                                               |
+| --api-password         | API password.                                                                                                                                                                                                                               |
+| --token                | Use token authentication directly.                                                                                                                                                                                                          |
+| --timeout              | Set timeout in seconds (default: 30).                                                                                                                                                                                                       |
+</TabItem>
+<TabItem value="legacy" label="legacy">
+
+| Option                 | Description                                                                                                                                                                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                  |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                             |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                     |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                   |
+| --failback-file        | Fall back on a local file if Redis connection fails.                                                                                                                                                                                        |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                              |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                      |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                              |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux. |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                       |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                          |
+| --http-peer-addr       | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                         |
+| --proxyurl             | Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                    |
+| --proxypac             | Proxy PAC file (can be a URL or a local file).                                                                                                                                                                                              |
+| --insecure             | Accept insecure SSL connections.                                                                                                                                                                                                            |
+| --http-backend         | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                     |
+| --hostname             | Set hostname.                                                                                                                                                                                                                               |
+| --port                 | Port used (default: 30002)                                                                                                                                                                                                                  |
+| --proto                | Specify https if needed (default: 'http')                                                                                                                                                                                                   |
+| --api-username         | API username.                                                                                                                                                                                                                               |
+| --api-password         | API password.                                                                                                                                                                                                                               |
+| --timeout              | Set timeout in seconds (default: 30).                                                                                                                                                                                                       |
+</TabItem>
+</Tabs>
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Jobs" label="Jobs">
+
+| Option                   | Description                                                                                                                                                                                                                           |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example: --filter-counters='total-error'                                                                                                                                             |
+| --filter-environment     | Filter environment name (cannot be a regexp).                                                                                                                                                                                         |
+| --filter-application     | Filter application name (cannot be a regexp).                                                                                                                                                                                         |
+| --filter-name            | Filter name (can be a regexp).                                                                                                                                                                                                        |
+| --timezone               | Set date timezone. Can use format: 'Europe/London' or '+0100'.                                                                                                                                                                        |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: -) You can use the following variables: %\{name\}, %\{status\}, %\{exit\_code\}, %\{message\}, %\{environment\}, %\{application\}                               |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{exit\_code\} =~ /Error/i'). You can use the following variables: %\{name\}, %\{status\}, %\{exit\_code\}, %\{message\}, %\{environment\}, %\{application\} |
+| --warning-long           | Set warning threshold for long jobs (default: none) You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                                                       |
+| --critical-long          | Set critical threshold for long jobs (default: none). You can use the following variables: %\{name\}, %\{status\}, %\{elapsed\}, %\{application\}                                                                                     |
+| --warning-* --critical-* | Thresholds. Can be: 'running', 'errors', 'waiting', 'finished', 'notscheduled', 'descheduled', 'success-prct'.                                                                                                                        |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_vtom_restapi.pl \
+	--plugin=apps::vtom::restapi::plugin \
+	--mode=jobs \
+	--help
+```

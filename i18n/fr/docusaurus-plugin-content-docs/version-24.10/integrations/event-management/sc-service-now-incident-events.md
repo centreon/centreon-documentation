@@ -1,23 +1,31 @@
 ---
 id: sc-service-now-incident-events
-title: ServiceNow Incident 
+title: ServiceNow Incident Events
+description: "Créer des incidents ServiceNow à partir des événements Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Hello community! We're looking for a contributor to help us translate this page into French. If it's you, let us know and ping us on [our community platform The Watch](https://thewatch.centreon.com/).
+Le stream connector ServiceNow Incident Events vous permet d'envoyer des données depuis Centreon vers des instances ServiceNow Incident.
 
-## Before starting
+## Avant de commencer
 
-- You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **host_status** and **service_status** events. The event format is shown **[there](#event-format)**.
-- Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
+- Dans la plupart des cas, vous enverrez les données depuis le serveur central. 
+Il est également possible de les envoyer depuis un serveur distant ou un collecteur (par exemple si vous voulez éviter que 
+le serveur central ne représente un point de défaillance unique, ou bien si vous êtes un MSP et vous installez le 
+stream connector sur un collecteur ou un serveur distant dans l'infratructure de votre client).
+- Par défaut, le stream connector ServiceNow Incident Events envoie des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status) 
+et [**service_status**](../../developer/developer-broker-mapping.md#service-status). Le format des évènements est décrit **[ici](#format-des-évènements)**.
+- Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de 
+[ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-servicenow-incident).
 
 ## Installation
 
-Login as `root` on the Centreon central server using your favorite SSH client.
+Faites l'installation sur le serveur qui enverra les données à ServiceNow Incident (serveur central, serveur distant, collecteur).
 
-Run the command according on your system:
+1. Connectez-vous en tant que `root` en utilisant votre client SSH préféré.
+
+2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -45,72 +53,95 @@ apt install centreon-stream-connector-servicenow
 </TabItem>
 </Tabs>
 
-## Configuration
+## Configurer votre équipement ServiceNow Incident
 
-To configure your stream connector, you must **head over** the **configuration --> Poller --> Broker configuration** menu. **Select** the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and **click** the **Output tab** when the broker form is displayed.
+Vous devrez paramétrer votre équipement ServiceNow Incident pour qu'il puisse recevoir des données de la part de Centreon. Reportez-vous à la documentation ServiceNow Incident.
+Assurez-vous que ServiceNow Incident puisse recevoir les données envoyées par Centreon : les flux ne doivent pas être bloqués par la configuration de ServiceNow Incident ou par un équipement de sécurité.
 
-**Add** a new **generic - stream connector** output and **set** the following fields as follow:
+## Configurer le stream connector dans Centreon
 
-| Field           | Value                                                               |
-| --------------- | ------------------------------------------------------------------- |
-| Name            | Servicenow events                                                   |
+1. Sur votre serveur central, allez à la page **Configuration > Collecteurs > Configuration de Centreon Broker**.
+2. Cliquez sur **central-broker-master** (ou sur la configuration du Broker correspondant si les évènements seront envoyés par un serveur distant ou un collecteur).
+3. Dans l'onglet **Output**, sélectionnez **Generic - Stream connector** dans la liste, puis cliquez sur **Ajouter**. Un nouvel output apparaît dans la liste.
+4. Remplissez les champs de la manière suivante :
+
+| Champ           | Valeur                                                              |
+|-----------------|---------------------------------------------------------------------|
+| Name            | ServiceNow Incident events                                          |
 | Path            | /usr/share/centreon-broker/lua/servicenow-incident-events-apiv2.lua |
 | Filter category | Neb                                                                 |
 
-### Add Service Now mandatory parameters
+5. Pour permettre à Centreon de se connecter à votre équipement ServiceNow Incident, remplissez les paramètres obligatoires suivants. 
+La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
-Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+| Type   | Nom           | Explication                          | Exemple de valeur |
+| ------ |---------------|--------------------------------------|-------------------|
+| string | instance      | the name of the ServiceNow instance | MyCompany         |
+| string | client_id     | The Oauth client_id                  | Client_ID         |
+| string | client_secret | The Oauth client_secret              | Client_Secret     |
+| string | username      | The Oauth user                       | User              |
+| string | password      | The Oauth password                    | Password          |
 
-| Type   | Name          | Value explanation                    | Value exemple |
-| ------ | ------------- | ------------------------------------ | ------------- |
-| string | instance      | the name of the service now instance | MyCompany     |
-| string | client_id     | The Oauth client_id                  |               |
-| string | client_secret | The Oauth client_secret              |               |
-| string | username      | The Oauth user                       |               |
-| string | password      | The Oauth pasword                    |               |
+6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
-### Add Service Now optional parameters
+| Type   | Nom             | Explication                                | Valeur par défaut                                       |
+|--------|-----------------|--------------------------------------------|---------------------------------------------------------|
+| string | logfile         | Fichier dans lequel les logs sont écrits         | /var/log/centreon-broker/servicenow-incident-events.log |
+| number | log_level       | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                                       |
+| string | http_server_url | L'adresse du serveur ServiceNow      | service-now.com                                         |
+| string | incident_table  | Le nom de la table incident             | incident                                                |
+| string | source          | Le nom de la source de l'incident           | centreon                                                |
 
-Some stream connectors have a set of optional parameters dedicated to the Software that they are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à ServiceNow Incident](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-servicenow-incident).
 
-| Type   | Name            | Value explanation                          | default value                                                     |
-| ------ | --------------- | ------------------------------------------ | ----------------------------------------------------------------- |
-| string | http_server_url | service-now.com                            | the address of the service-now server                             |
-| string | incident_table  | incident                                   | the name of the incident table                                    |
-| string | source          | centreon                                   | the source name of the incident                                   |
-| string | logfile         | the file in which logs are written         | /var/log/centreon-broker/servicenow-incident-stream-connector.log |
-| number | log_level       | logging level from 1 (errors) to 3 (debug) | 1                                                                 |
+8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-### Standard parameters
+9. Redémarrez **centengine** sur tous les collecteurs :
 
-All stream connectors can use a set of optional parameters that are made available through Centreon stream connectors lua modules.
+   ```shell
+   systemctl restart centengine
+   ```
 
-All those parameters are documented **[here](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**.
+ServiceNow Incident reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
 
-Some of them are overridden by this stream connector.
+### Filtrer ou adapter les données que vous voulez envoyer à ServiceNow Incident
 
-| Type   | Name                | Default value for the stream connector |
-| ------ | ------------------- | -------------------------------------- |
-| string | accepted_categories | neb                                    |
-| string | accepted_elements   | host_status,service_status             |
-| string | host_status         | 1,2                                    |
-| string | service_status      | 1,2,3                                  |
+Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) qui vous permettent de filtrer les données que vous enverrez à votre équipement ServiceNow Incident, de reformatter les données, de définir un proxy...
+
+Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
+
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à ServiceNow Incident que les évènements traités par un collecteur nommé "poller-1", entrez :
+
+   ```text
+   type = string
+   name = accepted_pollers
+   value = poller-1
+   ```
+
+* Pour le stream connector ServiceNow Incident Events, les données suivantes surchargent toujours les valeurs par défaut (il n'est pas nécessaire de les redéfinir dans l'interface).
+
+| Type   | Nom                 | Valeur par défaut pour le stream connector |
+| ------ |---------------------|--------------------------------------------|
+| string | accepted_categories | neb                                        |
+| string | accepted_elements   | host_status,service_status                 |
+| string | host_status         | 1,2                                        |
+| string | service_status      | 1,2,3                                      |
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to the Service Now REST API.
+Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement lors de chaque appel à l'API REST ServiceNow Incident.
 
-To use this feature you must add the following parameter in your stream connector configuration.
+Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à la configuration de votre stream connector.
 
-| Type   | Name            | Value           |
+| Type   | Nom            | Valeur           |
 | ------ | --------------- | --------------- |
 | number | max_buffer_size | `more than one` |
 
-## Event format
+## Format des évènements
 
-This stream connector is not compatible with event bulking. Meaning that the option `max_buffer_size` can't be higher than 1
+Ce stream connector envoie des évènements au format suivant :
 
-### service_status event
+### Évènement service_status
 
 ```json
 {
@@ -121,7 +152,7 @@ This stream connector is not compatible with event bulking. Meaning that the opt
 }
 ```
 
-### host_status event
+### Évènement host_status
 
 ```json
 {
@@ -132,44 +163,61 @@ This stream connector is not compatible with event bulking. Meaning that the opt
 }
 ```
 
-### Custom event format
+### Format d'évènement personnalisé
 
-This stream connector allows you to change the format of the event to suit your needs. Only the **records** part of the json is customisable. It also allows you to handle events type that are not handled by default such as **ba_status events**.
+Ce stream connector vous permet de modifier le format de l'événement en fonction de vos besoins. Seule la partie **event** du json est personnalisable. 
+Il vous permet également de gérer des types d'événements qui ne sont pas gérés par défaut, tels que les événements **ba_status**.
 
-In order to use this feature you need to configure a json event format file and add a new stream connector parameter.
+Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de format d'événement et ajouter un nouveau paramètre de connecteur de flux.
 
-| Type   | Name        | Value                                              |
-| ------ | ----------- | -------------------------------------------------- |
+| Type   | Nom         | Valeur                                                      |
+| ------ |-------------|-------------------------------------------------------------|
 | string | format_file | /etc/centreon-broker/servicenow-incident-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur **centreon-broker**.
 
-To learn more about custom event format and templating file, head over the following **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
-## Curl commands
+## Commandes Curl : tester le stream connector
 
-Here is the list of all the curl commands that are used by the stream connector.
+Si vous voulez tester que les commandes de configuration sont envoyées à ServiceNow Incident correctement, utilisez les commandes curl suivantes.
 
-You must replace all the *`<xxxx>`* inside the below commands with their appropriate value. *`<instance>`* may become *MyCompany*.
+Vous devez remplacer tous les *`<xxxx>`* à l'intérieur des commandes ci-dessous par leur valeur appropriée. *\<instance\>`* peut devenir *MyCompany*.
 
 ### Get OAuth tokens
+
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à ServiceNow Incident (le serveur central, un serveur distant ou un collecteur).
+2. Exécutez la commande suivante :
 
 ```shell
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<instance_name>.service-now.com/oauth_token.do' -d 'grant_type=password&client_id=<client_id>&client_secret=<client_secret>&username=<username>&password=<password>'
 ```
 
+3. Vérifier que la commande renvoie le token attendu.
+
 ### Refresh OAuth tokens
+
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à ServiceNow Incident (le serveur central, un serveur distant ou un collecteur)
+2. Exécutez la commande suivante :
 
 ```shell
 curl -X POST -H "Content-Type: application/x-www-form-urlencoded" 'https://<instance_name>.service-now.com/oauth_token.do' -d 'grant_type=refresh_token&client_id=<client_id>&client_secret=<client_secret>&username=<username>&password=<password>&refresh_token=<refresh_token>'
 ```
 
-The *`<refresh_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**.
+> Le *`<refresh_token>`* est obtenu grâce à **[cette commande curl](#get-oauth-tokens)**.
 
-### Send events
+3. Vérifier que la commande renvoie le token attendu.
+
+
+### Envoyer des évènements
+
+1. Connectez-vous au serveur que vous avez configuré pour envoyer les évènements à ServiceNow Incident (le serveur central, un serveur distant ou un collecteur)
+2. Exécutez la commande suivante :
 
 ```shell
-curl -X POST -H 'content-type: application/json' -H 'Accept: application/json' -H 'Authorization: Bearer <access_token>' 'https://<instance_name>.service-now.com/api/now/table/incident' -d '{"source":"centreon","short_description":"CRITICAL  my_host my_service is not doing well","cmdb_ci":"my_host","comments":"HOST: my_host\n SERVICE: my_service\n OUTPUT: is not doing well"}'
+curl -X POST -H "content-type: application/json" -H "DD-API-KEY: <api_key>" '<http_server_url><servicenow_event_endpoint>' -d '{"title":"CRITICAL my_host my_service","text":"my service is not working","aggregation_key":"service_27_12","alert_type":"error","host":"my_host","date_happened":1630590530}'
 ```
 
-The *`<access_token>`* is obtained thanks to **[this curl](#get-oauth-tokens)**.
+> Le *`<refresh_token>`* est obtenu grâce à **[cette commande curl](#get-oauth-tokens)**.
+
+3. Vérifiez que l'évènement a bien été reçu par ServiceNow Incident.

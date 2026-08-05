@@ -1,12 +1,14 @@
 ---
 id: access-control-lists
 title: Granting rights to Centreon users (ACL)
+description: "Manage user rights via access groups and filters on resources, menus, and actions"
 ---
 
-You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.md):
+You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.md): 
 
-- on resources: which hosts, services, etc. users will be allowed to see
-- on the menus in the Centreon interface (which pages users will be able to access)
+- on resources: which hosts, services, etc. users will be allowed to see,
+- on image folders,
+- on the menus in the Centreon interface (which pages users will be able to access),
 - on actions users will be allowed to carry out, on resources or on a monitoring engine (planning downtime, exporting the configuration, etc.).
 
 Rights are not defined at user level, but through [access groups](#creating-an-access-group).
@@ -18,7 +20,7 @@ Rights are not defined at user level, but through [access groups](#creating-an-a
 ACLs are recalculated every minute; this is why it is sometimes necessary
 to wait a few seconds before changes are applied to a user. You can also [reload them](#reload-acl) manually.
 
-> The Centreon [MBI](../reporting/configure.md), BAM and [MAP](../graph-views/map-web-access.md) modules have their own ACLs.
+> The Centreon [MBI](../reporting/introduction.md), BAM and [MAP](../graph-views/map-web-access.md) modules have their own ACLs.
 
 ## Granting rights to a user
 
@@ -83,6 +85,7 @@ To create an access filter on resources:
 | **Services resources** | The **Services resources** tab allows you to define which service groups users will be allowed to see.                                                                                                                             |
 | **Meta Services**       | The **Meta Services** tab allows you to define which meta services users will be able to see.                                                                                                                             |
 | **Filters**                | <ul><li>The **Poller Filter** table allows you to select hosts monitored by a specific monitoring engine (if no poller is selected, then all pollers are taken into account)</li><li>The **Host Category Filter** table allows you to filter the hosts by category</li><li>The **Service Category Filter** table allows you to filter services by category. Filters by poller or by category of objects are inclusion filters (UNION). Only the objects belonging to these filters in addition to groups of objects (hosts and services) will be visible.</li></ul> |
+| **Image Folders** | The **Image Folders** tab allows you to share image folders that can be seen by associated users (only available for MAP.) |
 
 ### Access filters on menus
 

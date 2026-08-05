@@ -1,6 +1,7 @@
 ---
 id: web-and-post-installation
 title: Installation Web
+description: "Terminer l'assistant d'installation web et initialiser la supervision"
 ---
 
 ## Installation web
@@ -42,7 +43,7 @@ Puis cliquez sur **Next**.
 
 ### Étape 5 : Admin information
 
-Définissez les informations nécessaires pour la création de l'utilisateur par défaut, **admin**. Vous utiliserez ce compte pour vous connecter à Centreon la première fois. Le mot de passe doit être conforme à la politique de sécurité de mot de passe par défaut : 12 caractères minimum, lettres minuscules et majuscules, chiffres et caractères spéciaux. Vous pourrez changer cette politique par la suite.
+Définissez les informations nécessaires pour la création de l'utilisateur par défaut, **admin**. Vous utiliserez ce compte pour vous connecter à Centreon la première fois. Le mot de passe doit être conforme à la politique de sécurité de mot de passe par défaut : 12 caractères minimum, lettres minuscules et majuscules, chiffres et caractères spéciaux (au moins l'un des caractères suivants : @$!%*?&). Vous pourrez changer cette politique par la suite.
 
 ![image](../assets/installation/aadmininfo.png)
 
@@ -95,8 +96,6 @@ informations. Sinon l’information présente dans cette version sera proposée.
 L’installation est terminée, cliquez sur **Finish**.
 
 Vous pouvez maintenant vous connecter en utilisant le compte **admin**, et [initialiser la supervision](#initialisation-de-la-supervision).
-
-![image](../assets/installation/aconnection.png)
 
 ## Initialisation de la supervision
 

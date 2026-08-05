@@ -1,6 +1,7 @@
 ---
 id: ba-management
 title: Manage Business Activities
+description: "Configure Business Activities, indicators (KPIs), boolean rules, and Business Views to model IT services in Centreon BAM"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -123,17 +124,19 @@ whether the modeled IT service or application is in an **OK**,
 
 ### Create a Business Activity
 
-To add a Business Activity, click the **Add** button. The following panel
-appears:
+#### Basic information
 
-![image](../assets/service-mapping/guide/business-activity-add.png)
+1. To add a Business Activity, click the **Add** button. A window to create the BA opens.
 
-In this configuration panel, after giving a unique name (mandatory), you
-need to configure multiple sections to have an aggregated indicator. The
-name is the only mandatory parameter, but to have a BA that works, **you
-must at least configure some indicators and define the
-calculation methods**. This can be done in the "Indicator" section.
-The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
+2. Give a unique name to the BA. The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
+
+You can choose an icon for the BA and add a description, these two elements are optional.
+
+3. Select a [calculation method](#calculation-methods).
+
+4. You must also link the BA to a BV ([Business view](#business-view)) or the BA will not be visible.
+
+> After clicking **Create**, a side panel opens where you will need to configure multiple sections to have an aggregated indicator.
 
 #### Indicators
 
@@ -252,8 +255,6 @@ status switches.
 The BA is managed through the
 `Configuration > Business Activity > Business Activity` menu.
 
-![image](../assets/service-mapping/guide/business-activity-listing.png)
-
 You have inline actions and global actions to delete, duplicate,
 enable/disable the BA and massively change thresholds.
 
@@ -331,15 +332,13 @@ There are several ways to create an indicator:
 To add an indicator, click the **Add a KPI** link, which takes you to the
 following form.
 
-**Regular Mode**:
+**Simple mode**:
 
 ![image](../assets/service-mapping/guide/kpi_standard.png)
 
 **Advanced mode**:
 
-To be able to manually define an impact:
-
-![image](../assets/service-mapping/guide/kpi_advanced.png)
+To be able to manually define an impact.
 
 | Column          | Description                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------- |
@@ -361,7 +360,7 @@ you to a data entry form.
 
 | Column                            | Description                                                                           |
 | --------------------------------- | ------------------------------------------------------------------------------------- |
-| Configuration Mode                | Configuration mode: Standard or Advanced                                              |
+| Configuration Mode                | Configuration mode: Regular or Advanced                                              |
 | Object Type                       | Type of object from which the indicators will be loaded                               |
 | Hosts, Host Groups, Service group | Depending on the selected object type, a list of objects will be automatically loaded |
 | Linked Business Activity          | BA related to indicators                                                              |
@@ -405,6 +404,14 @@ Logical expression:
 6.  Enter simulation mode, thus allowing the user to simulate the statuses of
     the defined services
 
+## Specific behavior for acknowledgements
+
+> Acknowledgments apply only to the specific object (BA or KPI).
+
+Acknowledgements apply to Business Activities (BAs) as follows:
+- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or meta-services).
+- Acknowledging a KPI does not acknowledge the BA that depends on it.
+
 ## Business View (BV)
 
 ### Definition
@@ -433,8 +440,9 @@ menu.
 | ----------- | ------------------------------------------------------------------------------------ |
 | Name        | Business view name                                                                   |
 | Description | Brief description of BV                                                              |
-| Displayed   | The BV is either displayed or not displayed on the Centreon BAM screens (deprecated) |
-| Actions     | List of actions to be performed on the BV (modification/display)                     |
+| State   | The BV is either displayed or not displayed on the Centreon BAM screens (deprecated) |
+
+List of actions to be performed on the BV (modification/display).
 
 > Deleting a BV:
 >

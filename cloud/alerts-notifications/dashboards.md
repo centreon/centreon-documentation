@@ -1,6 +1,7 @@
 ---
 id: dashboards
 title: Dashboards
+description: "How to create, edit, share, and manage dashboards, widgets, and playlists in Centreon Cloud"
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
@@ -171,12 +172,13 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Business Activity Diagram           | Displays graphically a business activity hierarchy of KPIs and lets you navigate through it.   |
+| Business Activity status timeline           | Displays the distribution of current statuses on a Business Activity, as a chronological timeline for a given time period.   |
 | Clock/Timer           | Displays the time according to the selected time zone, or a timer.   |
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
 | Group monitoring	|  Displays the distribution of current statuses on selected groups of resources, as a table.   |
 | MAP - Display a view            |  Allows you to select and visualize a map created from the MAP module.  |
 | Metrics graph         | Displays metrics for a given time period.                                                                                |
-| Resource table                 | Displays data on resource status and events, centralized in a table.
+| Resource table                 | Displays data on resource status and events, centralized in a table. Also displays [resources linked to a ticket](../alerts-notifications/ticketing-use.md#how-do-i-open-a-ticket) or not.
 | Single metric          | Displays the value of a single metric as a text, a gauge or a bar chart.   |
 | Status chart     | Displays the distribution of current statuses on selected resources, as a chart.      |
 | Status grid     | Displays the current status of selected resources, as a grid.      |

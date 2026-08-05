@@ -1,164 +1,336 @@
 ---
 id: applications-oracle-goldengate-ssh
 title: Oracle GoldenGate SSH
+description: "Monitor Oracle GoldenGate via SSH: track replication process status, lag time, and time since last checkpoint."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Monitoring Connector Assets
+The following monitoring connectors will be installed when you install the **Oracle GoldenGate SSH** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
-### Monitored Objects
+## Pack assets
 
-The Monitoring Connector includes monitoring of status and lags of Oracle GG Processes thanks to GGSCI command-line utility. 
+### Templates
 
-### Collected Metrics
+The Monitoring Connector **Oracle GoldenGate SSH** brings a host template:
+
+* **App-Oracle-Goldengate-SSH-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="App-Oracle-Goldengate-SSH-custom" label="App-Oracle-Goldengate-SSH-custom">
+
+| Service Alias | Service Template                           | Service Description |
+|:--------------|:-------------------------------------------|:--------------------|
+| Processes     | App-Oracle-Goldengate-Processes-SSH-custom | Check processes     |
+
+> The services listed above are created automatically when the **App-Oracle-Goldengate-SSH-custom** host template is used.
+
+</TabItem>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Processes" label="Processes">
 
-| Metric name                                   | Description                     | Unit |
-| :-------------------------------------------- | :------------------------------ | :--- |
-| process status                                | Process status                  |      |
-| *processname*#process.lag.seconds             | processus lag at checkpoint     |      |
-| *processname*#process.time.checkpoint.seconds | processus time since checkpoint |      |
+| Name                                        | Unit  |
+|:--------------------------------------------|:------|
+| status                                      | N/A   |
+| *processes*#process.lag.seconds             | s     |
+| *processes*#process.time.checkpoint.seconds | s     |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-The centreon-engine user performs a SSH connection to a remote system user. This user must have enough privileges to run ```ggsci``` command.
+### SSH configuration
 
-## Setup
+A user is required to query the resource by SSH. There is no need for root or sudo
+privileges. There are two possible ways to log in through SSH, either by
+exchanging the SSH key from the **centreon-engine** user to the target resource, or by
+setting your unique username and password directly in the host macros.
+
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
+dnf install centreon-pack-applications-oracle-goldengate-ssh
 ```
-
-2. On the Centreon Web interface in **Configuration > Connectors > Monitoring Connectors**, install the *Oracle GoldenGate SSH* Monitoring Connector
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
+dnf install centreon-pack-applications-oracle-goldengate-ssh
 ```
 
-2. On the Centreon Central server, install the Centreon Monitoring Connector from the RPM:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-oracle-goldengate-ssh
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-oracle-goldengate-ssh
 ```
 
-3. On the Centreon Web interface in **Configuration > Connectors > Monitoring Connectors**, install the *Oracle GoldenGate SSH* Monitoring Connector
-
 </TabItem>
 </Tabs>
 
-## Configuration
+2. Whatever the license type (*online* or *offline*), install the **Oracle GoldenGate SSH** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
-* Add a new Host and apply the *App-Oracle-Goldengate-SSH-custom* Host Template
+### Plugin
 
-> Once the template applied, some Macros have to be configured:
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-| Mandatory | Name               | Description                                                                |
-| :-------- | :----------------- | :------------------------------------------------------------------------- |
-|           | GGSHOME            | Directory of ```ggsci```                                                   |
-|           | ORACLEHOME         | Oracle home directory                                                      |
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-> 3 SSH backends are available to connect to the remote server: *sshcli*, *plink* and *libssh* which are detailed below.
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="sshcli backend" label="sshcli backend">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-| Mandatory   | Name            | Description                                                                                 |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | SSHBACKEND      | Name of the backend: ```sshcli```                                                           |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
-|             | SSHPASSWORD     | Cannot be used with backend. Only ssh key authentication                                    |
-|             | SSHPORT         | By default: 22                                                                              |
-|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
-
-> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+```bash
+dnf install centreon-plugin-Applications-Oracle-Goldengate-Ssh
+```
 
 </TabItem>
-<TabItem value="plink backend" label="plink backend">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-| Mandatory   | Name            | Description                                                                                 |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | SSHBACKEND      | Name of the backend: ```plink```                                                            |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
-|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
-|             | SSHPORT         | By default: 22                                                                              |
-|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
-
-> With that backend, you have to validate the target server fingerprint manually (with the SSHUSERNAME used).
+```bash
+dnf install centreon-plugin-Applications-Oracle-Goldengate-Ssh
+```
 
 </TabItem>
-<TabItem value="libssh backend (default)" label="libssh backend (default)">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-| Mandatory   | Name            | Description                                                                                 |
-| :---------- | :-------------- | :------------------------------------------------------------------------------------------ |
-| X           | SSHBACKEND      | Name of the backend: ```libssh```                                                           |
-| X           | SSHUSERNAME     | By default, it uses the user running process ```centengine``` on your Poller                |
-|             | SSHPASSWORD     | Can be used. If not set, SSH key authentication is used                                     |
-|             | SSHPORT         | By default: 22                                                                              |
-|             | SSHEXTRAOPTIONS | Customize it with your own if needed. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```          |
+```bash
+apt install centreon-plugin-applications-oracle-goldengate-ssh
+```
 
-With that backend, you do not have to validate the target server fingerprint manually.
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Oracle-Goldengate-Ssh
+```
 
 </TabItem>
 </Tabs>
 
-## FAQ
+## Using the monitoring connector
 
-### How to check in the CLI that the configuration is OK and what are the main options for ?
+### Using a host template provided by the connector
 
-Once the Plugin installed, log into your Poller using the *centreon-engine* user account and test by running the following command :
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Oracle-Goldengate-SSH-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro           | Description                                                                                                                                                                                         | Default value     | Mandatory   |
+|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SSHUSERNAME     | Define the user name to log in to the host                                                                                                                                                          |                   |             |
+| SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead                                 |                   |             |
+| SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                                                       |                   |             |
+| GGSHOME         | Directory with ggsci command line.  Mandatory in ssh (you can set it empty if you have an user with GGS\_HOME set in PATH environment)  Mandatory in local if GSS\_HOME environment variable is not |                   |             |
+| ORACLEHOME      | Oracle home directory.  Mandatory in ssh (you can set it empty if you have an user with ORACLE\_HOME set in environment)  Mandatory in local if ORACLE\_HOME environment variable is not set        |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                                                   | libssh            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Processes" label="Processes">
+
+| Macro                  | Description                                                                                                                                                                             | Default value             | Mandatory   |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
+| UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}, %\{group\}, %\{type\}                                         |                           |             |
+| WARNINGLAG             | Threshold                                                                                                                                                                               |                           |             |
+| CRITICALLAG            | Threshold                                                                                                                                                                               |                           |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /ABENDED/i'). You can use the following variables: %\{status\}, %\{name\}, %\{group\}, %\{type\} | %\{status\} =~ /ABENDED/i |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{group\}, %\{type\}                                         |                           |             |
+| WARNINGTIMECHECKPOINT  | Threshold                                                                                                                                                                               |                           |             |
+| CRITICALTIMECHECKPOINT | Threshold                                                                                                                                                                               |                           |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                      | --verbose                 |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_gg_ssh.pl \
-    --plugin=apps::oracle::gg::local::plugin \
-    --mode=processes \
-    --hostname=10.30.2.81 \
-    --ssh-username=centreon \
-    --ssh-password='centreon-password' \
-    --ssh-backend=libssh \
-    --filter-type=REPLICAT \
-    --verbose
+	--plugin=apps::oracle::gg::local::plugin \
+	--mode=processes \
+	--hostname='10.0.0.1' \
+	--ssh-backend='libssh' \
+	--ssh-username='' \
+	--ssh-password='' \
+	--ssh-port='' \
+	--ggs-home='' \
+	--oracle-home=''  \
+	--unknown-status='' \
+	--warning-status='' \
+	--critical-status='%\{status\} =~ /ABENDED/i' \
+	--warning-lag='' \
+	--critical-lag='' \
+	--warning-time-checkpoint='' \
+	--critical-time-checkpoint='' \
+	--verbose
 ```
 
-Which output something similar to:
+The expected command output is shown below:
 
 ```bash
 CRITICAL: Process 'REPLICAT:RP_TS02' status: ABENDED | 'REPLICAT:RP_TSO1#process.lag.seconds'=0s;;;0; 'REPLICAT:RP_TSO1#process.time.checkpoint.seconds'=4s;;;0; 'REPLICAT:RP_TS02#process.lag.seconds'=172472s;;;0; 'REPLICAT:RP_TS02#process.time.checkpoint.seconds'=1462s;;;0; 'REPLICAT:RP_TS03#process.lag.seconds'=0s;;;0; 'REPLICAT:RP_TS03#process.time.checkpoint.seconds'=4s;;;0;
 Process 'REPLICAT:RP_TSO1' status: RUNNING, lag: 0, time since checkpoint: 4s
 Process 'REPLICAT:RP_TS02' status: ABENDED, lag: 1d 23h 54m 32s, time since checkpoint: 24m 22s
 Process 'REPLICAT:RP_TS03' status: RUNNING, lag: 0, time since checkpoint: 4s
+
 ```
 
-The command above gets the status of Oracle GoldenGate processes (```--mode=processes```).
-It uses a SSH username _centreon_ (```--ssh-username=centreon```), a SSH password _centreon-password_ (```--ssh-password='centreon-password'```),
-uses a SSH backend _libssh_ (```--ssh-backend='libssh'```) and it connects to the host _10.30.2.81_ (```--hostname=10.30.2.81```)
-on the SSH default port _22_ (```--ssh-port=22```).
+### Troubleshooting
 
-All the options that can be used with this plugin can be found over the ```--help``` options:
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_oracle_gg_ssh.pl \
-    --plugin=apps::oracle::gg::local::plugin \
-    --mode=processes \
-    --help
+	--plugin=apps::oracle::gg::local::plugin \
+	--list-mode
 ```
 
-### I have that error message: ```UNKNOWN: Command error: Host key verification failed.```. What does it mean ?
+The plugin brings the following modes:
 
-It means you haven't manually validated the target server fingerprint with ```ssh``` or ```plink``` on the Centreon Poller.
+| Mode                                                                                                                     | Linked service template                    |
+|:-------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|
+| processes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/oracle/gg/local/mode/processes.pm)] | App-Oracle-Goldengate-Processes-SSH-custom |
+
+### Available options
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Processes" label="Processes">
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-name                              |   Filter processes by name (can be a regexp).  name is the following concatenation: type:group (eg.: EXTRACT:DB\_test)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-group                             |   Filter processes by group (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --filter-type                              |   Filter processes by type (can be a regexp).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --unknown-status                           |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{name\}, %\{group\}, %\{type\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --warning-status                           |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{group\}, %\{type\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --critical-status                          |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /ABENDED/i'). You can use the following variables: %\{status\}, %\{name\}, %\{group\}, %\{type\}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --warning-* --critical-*                   |   Thresholds. Can be:  'lag' (s), 'time-checkpoint' (s).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --output-file                              |   Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --ssh-backend                              |   Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --ssh-username                             |   Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --ssh-password                             |   Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --ssh-port                                 |   Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --ssh-priv-key                             |   Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --hostname                                 |   Hostname to query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --timeout                                  |   Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --command                                  |   Command to get information. Used it you have output in a file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --command-path                             |   Command path.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --command-options                          |   Command options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --sudo                                     |   sudo command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --ggs-home                                 |   Directory with ggsci command line.  Mandatory in ssh (you can set it empty if you have an user with GGS\_HOME set in PATH environment)  Mandatory in local if GSS\_HOME environment variable is not.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --oracle-home                              |   Oracle home directory.  Mandatory in ssh (you can set it empty if you have an user with ORACLE\_HOME set in environment)  Mandatory in local if ORACLE\_HOME environment variable is not set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_oracle_gg_ssh.pl \
+	--plugin=apps::oracle::gg::local::plugin \
+	--mode=processes \
+	--help
+```

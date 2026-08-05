@@ -1,6 +1,7 @@
 ---
 id: resources-status
 title: Page Statut des ressources
+description: "Suivre, filtrer et traiter les évènements des ressources depuis une page unique"
 ---
 
 La vue **Supervision > Statut des ressources** est votre vue principale
@@ -38,6 +39,20 @@ Vous pouvez afficher la vue dans le mode qui vous convient le mieux, en modifian
 Cliquez sur le bouton dédié pour faciliter la lecture des informations contenues dans les tableaux :
 - Mode vue "compact" ![image](../assets/alerts/resources-status/compact-icon.png)
 - Mode vue "extended" ![image](../assets/alerts/resources-status/extended-icon.png)
+
+### Exporter au format CSV
+
+Vous pouvez rapidement obtenir un rapport détaillé sur l'état de vos ressources dans un fichier au format CSV, facile à utiliser. Le fichier créé contient la liste des ressources que vous avez filtrées et vous pouvez exporter jusqu'à 10 000 lignes.
+
+- Cliquez sur le bouton **Exporter en CSV** situé au-dessus de la liste des ressources.
+- Dans la fenêtre qui s'ouvre, définissez les paramètres suivants :
+  - **Sélectionner les colonnes** : **Colonnes visibles seulement** ou **Toutes les colonnes**.
+  - **Sélectionner les pages** : **Page courante seulement** ou **Toutes les pages**.
+- Cliquez sur **Exporter** pour démarrer le traitement de l'export. Vous obtiendrez un fichier téléchargé.
+
+> Notez que le traitement de l'export peut prendre un certain temps. Les données en temps réel affichées à la sortie peuvent avoir changé depuis le début du traitement.
+
+- Une fois le téléchargement terminé, récupérez le fichier dans le dossier **Téléchargements**.
 
 ## Exécuter des actions sur les évènements
 
@@ -150,18 +165,25 @@ Vous pouvez filtrer la liste des ressources selon un certain nombre de critères
 
 ### Barre de recherche
 
-Si vous entrez du texte dans la barre de recherche, par défaut la recherche se fait sur tous les champs suivants :
+#### Recherche texte libre
+
+Si vous entrez du texte dans la barre de recherche, la recherche peut se faire sur tous les champs suivants :
 
 - Nom de l'hôte
 - Alias de l'hôte
 - Adresse ou FQDN de l'hôte
 - Nom du service
+- Informations
+
+Le comportement exact dépend de ce que vous avez configuré à la page **Administration > Paramètres > Centreon web**, dans le champ **Comportement de la recherche texte libre** :
+* **Recherche restreinte** : la recherche texte libre sera effectuée uniquement dans les champs suivants : nom d'hôte, alias et adresse, et description du service (c'est-à-dire son nom). À utiliser si vous disposez d'une grande quantité de données.
+* **Recherche étendue** : la recherche texte libre sera également effectuée dans le champ **Informations**. Cette option n'est appropriée que si vous disposez d'une petite quantité de données, car elle affecte les performances.
 
 Par exemple, si vous entrez "rta", toutes les ressources contenant un "rta" dans l'un des champs ci-dessus seront affichées (par exemple, un métaservice nommé **Ping-RTA-Average**).
 
-Cependant, vous pouvez faire une recherche beaucoup plus fine en utilisant le [Centreon Query Language](#critères-cql). Celui-ci vous permet de rechercher uniquement dans un ou plusieurs champs.
-
 #### Critères CQL
+
+Vous pouvez faire une recherche beaucoup plus fine en utilisant le [Centreon Query Language](#critères-cql). Celui-ci vous permet de rechercher uniquement dans un ou plusieurs champs.
 
 - **alias** : rechercher des hôtes selon leur alias
 - **fqdn** : rechercher des hôtes selon leur adresse IP ou FQDN

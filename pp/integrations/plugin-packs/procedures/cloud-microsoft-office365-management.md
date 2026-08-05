@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-management
 title: Office 365 Management
+description: "Monitor Microsoft Office 365 via the Graph API: service health status, subscription usage, and app credential expiration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,6 +9,12 @@ import TabItem from '@theme/TabItem';
 Office 365 is a line of online subscription services offered by Microsoft in their Microsoft Office product suite. 
 Office 365 covers document creation and management, emailing, video conferencing and many more collaboration offerings.
 The Centreon Plugin relies on the Office 365 Graph API to collect and monitor the Office 365 information and metrics.
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Office 365** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
 ## Pack assets
 
@@ -43,7 +50,7 @@ The connector brings the following service templates (sorted by the host templat
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="App-Credentials" label="App-Credentials">
@@ -58,7 +65,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Service-Status" label="Service-Status">
 
-| Metric name       | Unit  |
+| Name              | Unit  |
 |:------------------|:------|
 | *services*#status | N/A   |
 
@@ -67,7 +74,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Subscriptions" label="Subscriptions">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | *subscriptions*#status                        | N/A   |
 | *subscriptions*#subscription.usage.count      | count |
@@ -189,7 +196,7 @@ dnf install centreon-pack-cloud-microsoft-office365-management
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-pack-cloud-microsoft-office365-management
@@ -236,7 +243,7 @@ dnf install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
 apt install centreon-plugin-cloud-microsoft-office365-management-api
@@ -294,12 +301,16 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Management-Api
 </TabItem>
 <TabItem value="Service-Status" label="Service-Status">
 
-| Macro             | Description                                                                                                                                                                                                        | Default value                                       | Mandatory   |
-|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|:-----------:|
-| FILTERSERVICENAME | Filter services (can be a regexp)                                                                                                                                                                                  |                                                     |             |
-| CRITICALSTATUS    | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\} | %\{status\} !~ /serviceOperational\|serviceRestored/i |             |
-| WARNINGSTATUS     | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}                                                                   |                                                     |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                 |                                                     |             |
+| Macro                 | Description                                                                                                                                                      | Default value                                           | Mandatory   |
+|:----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
+| EXCLUDERESOLVED       | Exclude resolved issues from report (default: 1). Set to 0 to include resolved issues                                                                            | 1                                                       |             |
+| FILTERSERVICENAME     | Filter by service name (can be a regexp)                                                                                                                         |                                                         |             |
+| EXCLUDESERVICENAME    | Exclude by service name (can be a regexp)                                                                                                                        |                                                         |             |
+| INCLUDECLASSIFICATION | Filter by classification (can be a regexp)                                                                                                                       |                                                         |             |
+| EXCLUDECLASSIFICATION | Exclude by classification (can be a regexp)                                                                                                                      |                                                         |             |
+| CRITICALSTATUS        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}           | %\{status\} !~ /serviceOperational\|serviceRestored/i   |             |
+| WARNINGSTATUS         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}            |                                                         |             |
+| EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                           |                                                         |             |
 
 </TabItem>
 <TabItem value="Subscriptions" label="Subscriptions">
@@ -408,7 +419,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -469,21 +480,25 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Service-Status" label="Service-Status">
 
-| Option                | Description                                                                                                                                                                                                           |
-|:----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-service-name | Filter services (can be a regexp).                                                                                                                                                                                    |
-| --warning-status      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}                                                                      |
-| --critical-status     | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}    |
+| Option                   | Description                                                                                                                                                                                                                    |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --include-service-name   |   Filter by service name (can be a regexp).                                                                                                                                                                                    |
+| --exclude-service-name   |   Exclude by service name (can be a regexp).                                                                                                                                                                                   |
+| --include-classification |   Filter by classification (can be a regexp).                                                                                                                                                                                  |
+| --exclude-classification |   Exclude by classification (can be a regexp).                                                                                                                                                                                 |
+| --exclude-resolved       |   Exclude resolved issues from report (default: 1). Set to 0 to include resolved issues.                                                                                                                                       |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}                                                                        |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /serviceOperational\|serviceRestored/i'). You can use the following variables: %\{service_name\}, %\{status\}, %\{classification\}    |
 
 </TabItem>
 <TabItem value="Subscriptions" label="Subscriptions">
 
-| Option                   | Description                                                                                                                                                                    |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-sku-part-number | Filter subscriptions by SKU part number (can be a regexp).                                                                                                                     |
+| Option                   | Description                                                                                                                                                                          |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-sku-part-number | Filter subscriptions by SKU part number (can be a regexp).                                                                                                                           |
 | --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /warning/i'). You can use the following variables: %\{capabilityStatus\}, %\{skuPartNumber\}   |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{capabilityStatus\}, %\{skuPartNumber\}                                       |
-| --warning-* --critical-* | Thresholds. Can be: 'subscription-usage', 'subscription-usage-free', 'subscription-usage-prct'.                                                                                |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{capabilityStatus\}, %\{skuPartNumber\}                                         |
+| --warning-* --critical-* | Thresholds. Can be: 'subscription-usage', 'subscription-usage-free', 'subscription-usage-prct'.                                                                                      |
 
 </TabItem>
 </Tabs>

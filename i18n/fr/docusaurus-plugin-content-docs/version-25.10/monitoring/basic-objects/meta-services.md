@@ -1,6 +1,7 @@
 ---
 id: meta-services
 title: Créer des méta-services
+description: "Agréger les métriques de plusieurs services au sein d'un méta-service virtuel"
 ---
 
 ## Definition
@@ -34,7 +35,7 @@ données disponibles sont :
 * Le type **ABSOLUTE** est pour les compteurs qui se réinitialisent à la lecture. Il est utilisé pour les compteurs
   rapides qui ont tendance à déborder.
 
-> Plus d’informations sur le site de *[RRDTools](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en)*.
+> Plus d’informations sur le site de *[RRDTools](https://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html)*.
 
 ## Configuration
 
@@ -53,7 +54,7 @@ Rendez-vous dans le menu : **Configuration > Services > Meta Services** et cliqu
   "CRITICAL" du méta-service.
 * Les champs **Calculation Type** et **Data source Type** correspondent respectivement aux calculs et à la description
   de la source de données
-* Le champ **Selection Mode** ermet de sélectionner les services contenant les métriques qui entreront dans le calcul
+* Le champ **Selection Mode** permet de sélectionner les services contenant les métriques qui entreront dans le calcul
   du méta-service.
 
 Si l'option **Service list** est sélectionnée alors les métriques choisies seront issues de services sélectionnés

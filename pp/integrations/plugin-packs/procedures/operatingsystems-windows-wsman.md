@@ -1,9 +1,17 @@
 ---
 id: operatingsystems-windows-wsman
 title: Windows WSMAN
+description: "Monitor Windows servers via WSMAN: CPU, memory, disk space, services, processes, uptime, certificates, and more."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Windows WSMAN** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+
+* [Base Pack](./base-generic.md)
 
 ## Pack assets
 
@@ -32,7 +40,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias      | Service Template                           | Service Description                                                                                     | Discovery  |
 |:-------------------|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Global        | OS-Windows-Disk-Global-WSMAN-custom        | Check the rate of free space on the disk. For each checks the name of the disk will appear              | X          |
+| Certificates       | OS-Windows-Certificates-WSMAN-custom       | Check the local certificates                                                                            | X          |
+| Disk-Global        | OS-Windows-Disk-Global-WSMAN-custom        | Check the rate of free space on the disk. For each check the name of the disk will appear              | X          |
 | Files-Date-Generic | OS-Windows-Files-Date-Generic-WSMAN-custom | Check time                                                                                              |            |
 | Files-Size-Generic | OS-Windows-Files-Size-Generic-WSMAN-custom | Check size of files                                                                                     |            |
 | Ntp                | OS-Windows-Ntp-WSMAN-custom                | Check the synchronization with an NTP server                                                            |            |
@@ -55,21 +64,30 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                       | Description                                                   |
-|:--------------------------------|:--------------------------------------------------------------|
-| OS-Windows-WSMAN-Disk-Name      | Discover the disk partitions and monitor space occupation     |
-| OS-Windows-WSMAN-Processes-Name | Discover processes and monitor their system usage             |
-| OS-Windows-WSMAN-Services-Name  | Discover services and monitor their system usage              |
-| OS-Windows-WSMAN-Traffic-Name   | Discover network interfaces and monitor bandwidth utilization |
+| Rule name                            | Description                                                   |
+|:-------------------------------------|:--------------------------------------------------------------|
+| OS-Windows-WSMAN-Certificate-Subject | Discover the disk partitions and monitor space occupation     |
+| OS-Windows-WSMAN-Disk-Name           | Discover the disk partitions and monitor space occupation     |
+| OS-Windows-WSMAN-Processes-Name      | Discover processes and monitor their system usage             |
+| OS-Windows-WSMAN-Services-Name       | Discover services and monitor their system usage              |
+| OS-Windows-WSMAN-Traffic-Name        | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Metric name                 | Unit  |
+|:----------------------------|:------|
+| certificates.detected.count | count |
+| certificate.expires.seconds | s     |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Metric name                              | Unit  |
@@ -203,8 +221,7 @@ To monitor Windows Servers through WSMAN, please follow our [official documentat
 
 ### Pack
 
- The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -295,7 +312,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
 3. Apply the **OS-Windows-WSMAN-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
@@ -305,7 +322,15 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 | WSMANPASSWORD     | Define the password associated with the user name                                                     |                   |             |
 | WSMANPROTO        | Define the transport scheme (default: 'http')                                                         | http              |             |
 | WSMANPORT         | Define the port to connect to (default: 5985)                                                         | 5985              |             |
+| WSMAN_AUTH_METHOD | Define the authentication method. Available methods: 'noauth', 'basic', 'pass', 'digest', 'ntlm', 'gssnegotiate'                         | basic             |             |
 | WSMANEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+
+> When using `WSMAN_AUTH_METHOD=gssnegotiate`, a valid Kerberos configuration is required on the machine running the plugin.
+> Before running the plugin, ensure that:
+> - a valid Kerberos ticket is available (verify with `klist`)
+> - the ticket has been obtained using kinit or an equivalent mechanism
+> - the target host name matches the Service Principal Name (SPN) registered in Active Directory
+> - the Kerberos client is correctly configured (for example, `/etc/krb5.conf` on Linux)
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -315,6 +340,24 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Macro                          | Description                                                                                                                                                | Default value | Mandatory |
+|:-------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| UNIT                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds | s             |           |
+| INCLUDE_THUMBPRINT             | Filter certificate by thumbprint (can be a regexp)                                                                                                         |               |           |
+| EXCLUDE_THUMBPRINT             | Exclude certificate by thumbprint (can be a regexp)                                                                                                        |               |           |
+| INCLUDE_SUBJECT                | Filter certificate by subject (can be a regexp)                                                                                                            |               |           |
+| EXCLUDE_SUBJECT                | Exclude certificate by subject (can be a regexp)                                                                                                           |               |           |
+| INCLUDE_PATH                   | Filter certificate by path (can be a regexp)                                                                                                               |               |           |
+| EXCLUDE_PATH                   | Exclude certificate by path (can be a regexp)                                                                                                              |               |           |
+| WARNING_CERTIFICATES_DETECTED  | Threshold                                                                                                                                                  |               |           |
+| CRITICAL_CERTIFICATES_DETECTED | Threshold                                                                                                                                                  |               |           |
+| WARNING_CERTIFICATE_EXPIRES    | Threshold                                                                                                                                                  |               |           |
+| CRITICAL_CERTIFICATE_EXPIRES   | Threshold                                                                                                                                                  |               |           |
+| EXTRAOPTIONS                   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                     |               |           |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Macro           | Description                                                                                         | Default value     | Mandatory   |
@@ -376,8 +419,8 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 | NTPADDR      | Set the ntp hostname (if not set, localtime is used)                                                            |                   |             |
 | NTPPORT      | Set the ntp port (Default: 123)                                                                                 |                   |             |
 | TIMEZONE     | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100' |                   |             |
-| WARNING      | Time offset warning threshold (in seconds)                                                                      | -1:1              |             |
-| CRITICAL     | Time offset critical Threshold (in seconds)                                                                     | -2:2              |             |
+| WARNING      | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. | -1:1              |             |
+| CRITICAL     | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. | -2:2              |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)             |                   |             |
 
 </TabItem>
@@ -478,7 +521,7 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -494,7 +537,8 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--wsman-scheme=http \
 	--wsman-port=5985 \
 	--wsman-username='' \
-	--wsman-password=''  \
+	--wsman-password='' \
+ 	--wsman-auth-method='basic' \
 	--filter-title='' \
 	--exclude-title='' \
 	--filter-mandatory='' \
@@ -535,6 +579,7 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                            | Linked service template                                                            |
 |:--------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------|
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/certificates.pm)]      | OS-Windows-Certificates-WSMAN-custom                                               |
 | cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/cpu.pm)]                        | OS-Windows-Cpu-WSMAN-custom                                                        |
 | eventlog [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/eventlog.pm)]              | Not used in this Monitoring Connector                                              |
 | files-date [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/wsman/mode/filesdate.pm)]           | OS-Windows-Files-Date-Generic-WSMAN-custom                                         |
@@ -576,7 +621,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -597,8 +642,8 @@ All generic options are listed here:
 | --wsman-scheme                             | Define the transport scheme (default: 'http').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --wsman-username                           | Define the username for authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --wsman-password                           | Define the password associated with the user name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --wsman-timeout                            | Define the HTTP transport timeout in seconds (default: 30).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --wsman-auth-method                        | Define the authentication method. Available methods: noauth, basic (default), pass, digest, ntlm, gssnegotiate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --wsman-timeout                            | Define the HTTP transport timeout in seconds (default: 30).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --wsman-proxy-url                          | Define the URL of the HTTP proxy to use.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --wsman-proxy-username                     | Define the user name to authenticate to the proxy server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --wsman-proxy-password                     | Define the password to authenticate to the proxy server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -610,6 +655,26 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
+<TabItem value="Certificates" label="Certificates">
+
+| Option                           | Description                                                                                                                                                 |
+|:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters                | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                   |
+| --ps-display                     | Display powershell script.                                                                                                                                  |
+| --ps-exec-only                   | Print powershell output.                                                                                                                                    |
+| --include-thumbprint             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |
+| --exclude-thumbprint             | Exclude certificate by thumbprint (can be a regexp).                                                                                                        |
+| --include-subject                | Filter certificate by subject (can be a regexp).                                                                                                            |
+| --exclude-subject                | Exclude certificate by subject (can be a regexp).                                                                                                           |
+| --include-path                   | Filter certificate by path (can be a regexp).                                                                                                               |
+| --exclude-path                   | Exclude certificate by path (can be a regexp).                                                                                                              |
+| --unit                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. |
+| --warning-certificate-expires    | Threshold.                                                                                                                                                  |
+| --critical-certificate-expires   | Threshold.                                                                                                                                                  |
+| --warning-certificates-detected  | Threshold.                                                                                                                                                  |
+| --critical-certificates-detected | Threshold.                                                                                                                                                  |
+
+</TabItem>
 <TabItem value="Cpu" label="Cpu">
 
 | Option                 | Description                                                                                                                                                                                                                                   |
@@ -674,8 +739,8 @@ All available options for each service template are listed below:
 
 | Option            | Description                                                                                                         |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------|
-| --warning-offset  | Time offset warning threshold (in seconds).                                                                         |
-| --critical-offset | Time offset critical Threshold (in seconds).                                                                        |
+| --warning-offset  | Time warning threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset | Time critical threshold range (in seconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --ntp-hostname    | Set the ntp hostname (if not set, localtime is used).                                                               |
 | --ntp-port        | Set the ntp port (Default: 123).                                                                                    |
 | --timezone        | Set the timezone of distant server. For Windows, you need to set it. Can use format: 'Europe/London' or '+0100'.    |

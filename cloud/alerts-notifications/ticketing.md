@@ -1,6 +1,7 @@
 ---
 id: ticketing
 title: Configuring Open Tickets
+description: "How administrators set up notification rules, macros, and widgets to enable ticket creation in Centreon Cloud"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -44,9 +45,9 @@ Make sure you give your two widgets relevant titles so that your users know whic
 
 2. In the **Widget properties** and **Value settings** sections, fill in the properties you want. Check carefully which statuses, states and status types you want the widget to display. To ensure consistency between displayed resources, apply the same parameters to both widgets.
 
-3. Set the parameters for your tickets in the **Ticket management** section (including the **Rule** you created at step 1):
-   * In the first widget, to create a view that will allow users to open tickets, select **Resources with no tickets**.
-   * In the second widget, to create a view that will allow users to view all open tickets and to close them, select **Resources linked to a ticket**.
+3. Set the parameters for your tickets in the **Ticket management** section.
+   - In **Rule (ticket provider)**, you can define if you want to display **Resources with no tickets** or **Resources linked to a ticket**.
+   - In **Display ticket creation buttons**, you can **Enable ticket creation for hosts** and **Enable ticket creation for services**.
 
 4. Save your changes.
 

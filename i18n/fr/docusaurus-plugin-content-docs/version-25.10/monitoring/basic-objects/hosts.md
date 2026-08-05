@@ -1,6 +1,7 @@
 ---
 id: hosts
 title: Créer un hôte manuellement
+description: "Référence détaillée des champs de configuration, notifications et dépendances d'un hôte"
 ---
 
 Pour créer un hôte manuellement :
@@ -13,7 +14,7 @@ Pour créer un hôte manuellement :
 
 ### Information de base sur l'hôte
 
-* **Nom** : nom d’hôte utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}`. De plus, les espaces seront remplacés par des `_`. Vous pouvez utiliser la syntaxe `h.name:` dans la **Barre de recherche** de la page **Statut des ressources** pour retrouver un hôte.
+* **Nom** : nom d’hôte utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}`. De plus, les espaces seront remplacés par des `_`. L'utilisation d'un nom contenant `/` peut également avoir un impact technique sur les requêtes SQL, l'interface web ou d'autres problèmes de compatibilité avec des outils tiers. Nous recommandons de n'utiliser que `_-.` pour les noms d'hôtes. Vous pouvez utiliser la syntaxe `h.name:` dans la **Barre de recherche** de la page **Statut des ressources** pour retrouver un hôte.
 * **Alias** : un autre nom pour l'hôte. Les espaces et caractères interdits dans le nom peuvent être employés ici. Vous pouvez utiliser la syntaxe `h.alias:` dans la **Barre de recherche** de la page **Statut des ressources** pour retrouver un hôte.
 * **Adresse** : adresse IP ou nom DNS de l’hôte. Le bouton **Résoudre** permet de tester le nom du domaine en interrogeant le serveur DNS configuré dans le serveur central. Dans le cas où un nom DNS est utilisé pour remplir le champ, le bouton **Résoudre** le remplacera également par l'adresse IP correspondante. Vous pouvez utiliser la syntaxe `h.address:` dans la **Barre de recherche** de la page **Statut des ressources** pour retrouver un hôte.
 * **Communauté SNMP & Version** : nom de la communauté attribuée à l'équipement et sa version. S'il s'agit de la version 1 ou 2c, remplissez le premier champ. S'il s'agit de la version 3, laissez le premier champ vide et remplissez la macro personnalisée [`snmpextraoptions`](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins#mapping-des-options-snmpv3) qui sera automatiquement ajoutée dans la section **Options de contrôle de l'hôte** lorsque vous sélectionnerez un modèle SNMP.
@@ -73,7 +74,7 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
 * **Intervalle normal de contrôle** : exprimé en minutes. Il définit l’intervalle entre chaque contrôle lorsque
   le statut de l’hôte est OK.
 * **Intervalle non-régulier de contrôle** : exprimé en minutes, désigne l'intervalle de temps entre chaque contrôle réalisé afin de confirmer l'état non-OK de l'hôte. Une fois le nombre de contrôles de validation réalisé, l'intervalle entre deux contrôles revient à son rythme normal.
-* **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. [Les contrôles passifs](../../monitoring/passive-monitoring/enable-snmp-traps.md) sont les informations que la ressource supervisée envoie au moteur de supervision sans que celles-ci aient été activement demandées.
+* **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les [contrôles actifs et passifs](../active-passive-checks.md) sur l'hôte.
 
 ## Onglet Notification
 Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifications/notif-concept.md) et les [contacts](contacts.md) pour en savoir plus sur ces sujets.

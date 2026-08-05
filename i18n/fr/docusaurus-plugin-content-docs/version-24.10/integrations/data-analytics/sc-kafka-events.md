@@ -1,24 +1,32 @@
 ---
 id: sc-kafka-events
-title: Kafka Event Manager 
+title: Kafka Events
+description: "Publier les évènements hôtes, services et BA vers un topic Kafka"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+Le stream connector Kafka Events vous permet d'envoyer des données depuis Centreon vers des instances Kafka.
 
-> Hello community! We're looking for a contributor to help us translate this page into French. If it's you, let us know and ping us on [our community platform The Watch](https://thewatch.centreon.com/).
+## Avant de commencer
 
-## Before starting
-
-- You can send events from a central server, a remote server or a poller.
-- By default, this stream connector sends **host_status**, **service_status** and **ba_status** events. The event format is shown **[there](#event-format)**.
-- Aformentioned events are fired each time a host or a service is checked. Various parameters let you filter out events.
+- Dans la plupart des cas, vous enverrez les données depuis le serveur central. Il est également possible de les envoyer 
+depuis un serveur distant ou un collecteur (par exemple si vous voulez éviter que le serveur central ne représente un 
+point de défaillance unique, ou bien si vous êtes un MSP et vous installez le stream connector sur un collecteur ou un 
+serveur distant dans l'infratructure de votre client).
+- Par défaut, le stream connector Kafka Events envoie des évènements Broker [**host_status**](../../developer/developer-broker-mapping.md#host-status), 
+ [**service_status**](../../developer/developer-broker-mapping.md#service-status) et [**ba_status**](../../developer/developer-broker-mapping.md#ba-status-event). 
+Le format des évènements est décrit **[ici](#format-des-évènements)**.
+- Ces évènements sont envoyés à chaque contrôle sur l'hôte ou le service. Des paramètres dédiés vous permettent de 
+[ne pas envoyer certains évènements](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-kafka).
 
 ## Installation
 
-Connectez vous en tant que `root` sur le serveur Centreon central en utilisant votre client SSH préféré.
+Faites l'installation sur le serveur qui enverra les données à Kafka (serveur central, serveur distant, collecteur).
 
-Lancer la commande adaptée à votre système :
+1. Connectez-vous en tant que `root` en utilisant votre client SSH préféré.
+
+2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -46,72 +54,95 @@ apt install centreon-stream-connector-kafka
 </TabItem>
 </Tabs>
 
-## Configuration
+## Configurer votre équipement Kafka
 
-To configure your stream connector, you must **head over** the **Configuration --> Poller --> Broker configuration** menu. **Select** the **central-broker-master** configuration (or the appropriate broker configuration if it is a poller or a remote server that will send events) and **click** the **Output tab** when the broker form is displayed.
+Vous devrez paramétrer votre équipement Kafka pour qu'il puisse recevoir des données de la part de Centreon. Reportez-vous à la documentation Kafka.
+Assurez-vous que Kafka puisse recevoir les données envoyées par Centreon : les flux ne doivent pas être bloqués par la configuration de Kafka ou par un équipement de sécurité.
 
-**Add** a new **generic - stream connector** output and **set** the following fields as follow:
+## Configurer le stream connector dans Centreon
 
-| Field           | Value                                                 |
-| --------------- | ----------------------------------------------------- |
+1. Sur votre serveur central, allez à la page **Configuration > Collecteurs > Configuration de Centreon Broker**.
+2. Cliquez sur **central-broker-master** (ou sur la configuration du Broker correspondant si les évènements seront envoyés par un serveur distant ou un collecteur).
+3. Dans l'onglet **Output**, sélectionnez **Generic - Stream connector** dans la liste, puis cliquez sur **Ajouter**. Un nouvel output apparaît dans la liste.
+4. Remplissez les champs de la manière suivante :
+
+| Champ           | Valeur                                                |
+| --------------- |-------------------------------------------------------|
 | Name            | Kafka events                                          |
 | Path            | /usr/share/centreon-broker/lua/kafka-events-apiv2.lua |
 | Filter category | Neb,Bam                                               |
 
-### Add Kafka mandatory parameters
+5. Pour permettre à Centreon de se connecter à votre équipement Kafka, remplissez les paramètres obligatoires suivants. La première entrée existe déjà. Cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category** pour en ajouter un autre.
 
-Each stream connector has a set of mandatory parameters. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+| Type   | Nom     | Explication                                                                      | Exemple de valeur                           |
+| ------ |---------|----------------------------------------------------------------------------------|---------------------------------------------|
+| string | topic   | Le topic dans lequel les événements vont être écrits                             | Monitoring                                  |
+| string | brokers | Liste des brokers séparés par des virgules, qui sont prêt à recevoir les données | broker_address1:port1,broker_address2:port2 |
 
-| Type   | Name    | Value explanation                                             | Value exemple                               |
-| ------ | ------- | ------------------------------------------------------------- | ------------------------------------------- |
-| string | topic   | the topic in which events are going to be written             | Monitoring                                  |
-| string | brokers | Coma separeted list of brokers that are ready to receive data | broker_address1:port1,broker_address2:port2 |
+6. Renseignez les paramètres optionnels désirés (en utilisant le lien **+Add a new entry**) :
 
-### Add Kafka optional parameters
+| Type   | Nom       | Explication                                               | Valeur par défaut                         |
+|--------|-----------|-----------------------------------------------------------|-------------------------------------------|
+| string | logfile   | Fichier dans lequel les logs sont écrits                  | /var/log/centreon-broker/kafka-events.log |
+| number | log_level | Niveau de verbosité des logs : de 1 (erreurs) à 3 (debug) | 1                                         |
 
-Some stream connectors have a set of optional parameters dedicated to the Software that are associated with. To add them you must **click** on the **+Add a new entry** button located **below** the **filter category** input.
+7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Kafka](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-kafka).
 
-| Type   | Name      | Value explanation                          | default value                                       |
-| ------ | --------- | ------------------------------------------ | --------------------------------------------------- |
-| string | logfile   | the file in which logs are written         | /var/log/centreon-broker/kafka-stream-connector.log |
-| number | log_level | logging level from 1 (errors) to 3 (debug) | 1                                                   |
+En plus des paramètres des stream connectors, il y a quelques paramètres disponibles grâce à la bibliothèque librdkafka. 
+Ils sont tous documentés dans la **[documentation officielle](https://github.com/edenhill/librdkafka/blob/v0.11.4/CONFIGURATION.md)** de librdkafka. 
+Pour les utiliser, il suffit d'ajouter le préfixe **_sc_kafka_**.
 
-### Standard parameters
+Dans cette façon, le paramètre **sasl.mechanism** devient **_sc_kafka_sasl.mechanism** dans la configuration de votre broker.
 
-All stream connectors can use a set of optional parameters that are made available through Centreon stream connectors lua modules.
 
-All those parameters are documented **[here](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters)**.
+8. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-Some of them are overridden by this stream connector.
+9. Redémarrez **centengine** sur tous les collecteurs :
 
-| Type   | Name                | Default value for the stream connector |
-| ------ | ------------------- | -------------------------------------- |
-| string | accepted_categories | neb                                    |
-| string | accepted_elements   | host_status,service_status             |
+   ```shell
+   systemctl restart centengine
+   ```
 
-### Librdkafka (library dependency) parameters
+Kafka reçoit maintenant des données de Centreon. Pour tester le bon fonctionnement de l'intégration, voir [Commandes curl : tester le stream connector](#commandes-curl--tester-le-stream-connector).
 
-In addition to parameters from stream connectors, there is a handfull of parameters available thanks to the librdkafka library. They are all documented in the librdkafka **[official documentation](https://github.com/edenhill/librdkafka/blob/v0.11.4/CONFIGURATION.md)**. To use them you just need to **add** the **_sc_kafka_ prefix**.
+### Filtrer ou adapter les données que vous voulez envoyer à Kafka
 
-With that in mind, the parameter **sasl.mechanism** becomes **_sc_kafka_sasl.mechanism** in your broker configuration.
+Tous les stream connectors ont un jeu de [paramètres optionnels](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/sc_param.md#default-parameters) 
+qui vous permettent de filtrer les données que vous enverrez à votre équipement Kafka, de reformatter les données, de définir un proxy...
 
-> El7 and El8 repos grant access to an old librdkafka library version.
+Chaque paramètre optionnel a une valeur par défaut, qui est indiquée dans la documentation correspondante.
+
+* Pour surcharger la valeur par défaut d'un paramètre, cliquez sur le lien **+Add a new entry** en-dessous du tableau **Filter category**, 
+afin d'ajouter un paramètre personnalisé. Par exemple, si vous ne voulez envoyer à Kafka que les évènements traités par un collecteur nommé "poller-1", entrez :
+
+   ```text
+   type = string
+   name = accepted_pollers
+   value = poller-1
+   ```
+
+* Pour le stream connector Kafka Events, les données suivantes surchargent toujours les valeurs par défaut (il n'est pas nécessaire de les redéfinir dans l'interface).
+
+| Type   | Nom                 | Valeur par défaut pour le stream connector |
+| ------ |---------------------|--------------------------------------------|
+| string | accepted_categories | neb                                        |
+| string | accepted_elements   | host_status,service_status                 |
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more that one event in each call to kafka brokers.
+Ce stream connector est compatible avec l'event bulking. Cela signifie qu'il est capable d'envoyer plus d'un évènement lors de chaque appel à l'API REST Kafka.
 
-To use this feature you must add the following parameter in your stream connector configuration.
+Pour utiliser cette fonctionnalité, vous devez ajouter le paramètre suivant à la configuration de votre stream connector.
 
-| Type   | Name            | Value           |
+| Type   | Nom            | Valeur           |
 | ------ | --------------- | --------------- |
 | number | max_buffer_size | `more than one` |
 
-## Event format
+## Format des évènements
 
-This stream connector will send event with the following format.
+Ce stream connector envoie des évènements au format suivant :
 
-### service_status event
+### Évènement service_status
 
 ```json
 {
@@ -122,7 +153,7 @@ This stream connector will send event with the following format.
 }
 ```
 
-### host_status event
+### Évènement host_status
 
 ```json
 {
@@ -132,7 +163,7 @@ This stream connector will send event with the following format.
 }
 ```
 
-### ba_status event
+### Évènement ba_status
 
 ```json
 {
@@ -141,37 +172,42 @@ This stream connector will send event with the following format.
 }
 ```
 
-### Custom event format
+### Format d'évènement personnalisé
 
-This stream connector allows you to change the format of the event to suit your needs. Only the **event** part of the json is customisable. It also allows you to handle events type that are not handled by default such as **acknowledgement events**.
+Ce stream connector vous permet de modifier le format de l'événement en fonction de vos besoins. 
+Seule la partie **event** du json est personnalisable. Il vous permet également de gérer des types d'événements qui 
+ne sont pas gérés par défaut, tels que les événements **ba_status**.
 
-In order to use this feature you need to **configure** a json event format file and **add** a new stream connector parameter.
+Pour utiliser cette fonctionnalité, vous devez configurer un fichier json de format d'événement et ajouter un nouveau paramètre de connecteur de flux.
 
-| Type   | Name        | Value                                         |
-| ------ | ----------- | --------------------------------------------- |
+| Type   | Nom         | Valeur                                        |
+| ------ |-------------|-----------------------------------------------|
 | string | format_file | /etc/centreon-broker/kafka-events-format.json |
 
-> The event format configuration file must be readable by the centreon-broker user.
+> Le fichier de configuration du format des événements doit être lisible par l'utilisateur **centreon-broker**.
 
-To learn more about custom event format and templating file, **head over** the following **[documentation](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
+Pour en savoir plus sur les formats d'événements personnalisés et les fichiers modèles, consultez **[cette page](https://github.com/centreon/centreon-stream-connector-scripts/blob/master/modules/docs/templating.md#templating-documentation)**.
 
-## Test connexion
+## Commandes curl : tester le stream connector
 
-Sending data to Kafka can be quite complicated because of all the involved parameters (either from the stream connector itself or the kafka library).
+L'envoi de données à Kafka peut être assez compliqué en raison de tous les paramètres impliqués (soit du stream connector lui-même, soit de la bibliothèque Kafka).
 
-To make things easier, a lua connection test script is available.
+Pour faciliter les choses, un script de test de connexion en Lua est disponible.
 
-To install it you must follow the **[installation procdure](#installation)** and then:
+Pour l'installer, vous devez suivre la **[procédure d'installation](#installation)** et ensuite exécuter la commande suivante :
 
 ```shell
 wget -O /tmp/kafka_test_connection.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/master/modules/tests/kafka_test_connexion.lua 
 ```
 
-**Open** the script and **configure** the kafka options that you want to use from the librdkafka **[official documentation](https://github.com/edenhill/librdkafka/blob/v0.11.4/CONFIGURATION.md)**  (you do not need to add the *_sc_kafka_* prefix this time, just put the parameter inside the **config[]** brackets).
+**Ouvrez** le script et **configurez** les options Kafka que vous voulez utiliser à partir de la librdkafka 
+(**[documentation officielle](https://github.com/edenhill/librdkafka/blob/v0.11.4/CONFIGURATION.md)**).
+Vous n'avez pas besoin d'ajouter le préfixe *_sc_kafka_* cette fois-ci, mettez simplement le paramètre entre les crochets **config[]**.
 
-There are already configuration set up as examples to guide you.
+Il y a déjà des configurations mises en place à titre d'exemple pour vous guider.
 
-If it doesn't work, you should have an error message like below (with the appropriate error message). It is strongly advised to have access to kafka to check if a message is sent from the test script.
+Si cela ne fonctionne pas, vous devriez avoir un message d'erreur comme ci-dessous (avec le message d'erreur approprié). 
+Il est fortement conseillé d'avoir accès à Kafka pour vérifier si un message est envoyé depuis le script de test.
 
 ```shell
 %3|1622459610.760|FAIL|rdkafka#producer-1| [thrd:sasl_plaintext://cps-kafkan:9093/bootstrap]: sasl_plaintext://cps-kafkan:9093/bootstrap: Failed to resolve 'cps-kafkan:9093': Name or service not known

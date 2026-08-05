@@ -1,6 +1,7 @@
 ---
 id: poller-update-upgrade
 title: Mettre à jour/monter de version un collecteur
+description: "Comment mettre à jour ou monter de version un collecteur vers la dernière version à l'aide de la commande d'installation"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -19,7 +20,7 @@ Votre collecteur doit toujours avoir la dernière version disponible (c'est-à-d
 
 2. Dans la pop-up qui apparaît, cliquez sur **Copy install command**. La commande est copiée dans votre presse-papiers.
 
-3. Sur le collecteur, dans le terminal, copiez la commande d'installation et exécutez-la.
+3. Sur le collecteur, dans le terminal, copiez la commande d'installation et exécutez-la. Si un message vous indique que le collecteur existe déjà, choisissez l'option 1, **Update the existing poller**.
 
 4. [Déployez la configuration du collecteur](../monitoring/monitoring-servers/deploying-a-configuration.md), 
 en choisissant la méthode **Redémarrer** pour le processus Engine.

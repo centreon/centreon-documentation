@@ -1,6 +1,7 @@
 ---
 id: ot-glpi
 title: GLPI
+description: "Configurez le fournisseur de tickets GLPI utilisant l'ancien plugin webservice, compatible avec GLPI 8.5 à 9.0"
 ---
 
 ## How it works
@@ -18,9 +19,7 @@ This connector is (at least) compatible with the following Glpi versions:
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md)
-into your Centreon instance.
+You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
 
 Our provider requires the following parameters:
 

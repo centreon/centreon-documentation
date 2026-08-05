@@ -1,6 +1,7 @@
 ---
 id: upgrade-mariadb
 title: Mettre à jour MariaDB
+description: "Mettre à jour MariaDB vers la version requise par votre Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -21,6 +22,7 @@ Lorsque vous passez d'une version majeure de Centreon à une autre, vous devez :
 
 | Centreon | MariaDB |
 |----------|---------|
+| 25.10    | 10.11   |
 | 24.10    | 10.11   |
 | 24.04    | 10.11   |
 | 23.10    | 10.5    |
@@ -173,28 +175,32 @@ dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-co
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
-dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-compat-10.11\* MariaDB-common-10.11\*
+dnf module enable -y mariadb:10.11
+dnf install mariadb-server-10.11\* mariadb-10.11\*
 ```
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell
-dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
+dnf module enable -y mariadb:10.11
+dnf install mariadb-server-10.11\* mariadb-10.11\*
 ```
 
 </TabItem>
 <TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
 ```shell
-dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-compat-10.11\* MariaDB-common-10.11\*
+dnf module enable -y mariadb:10.11
+dnf install mariadb-server-10.11\* mariadb-10.11\*
 ```
 
 </TabItem>
 <TabItem value="RHEL 9" label="RHEL 9">
 
 ```shell
-dnf install MariaDB-server-10.11\* MariaDB-client-10.11\* MariaDB-shared-10.11\* MariaDB-common-10.11\*
+dnf module enable -y mariadb:10.11
+dnf install mariadb-server-10.11\* mariadb-10.11\*
 ```
 
 </TabItem>

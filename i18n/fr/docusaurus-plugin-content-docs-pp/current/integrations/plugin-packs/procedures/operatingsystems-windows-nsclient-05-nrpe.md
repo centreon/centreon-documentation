@@ -1,146 +1,222 @@
 ---
 id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NSClient 0.5 NRPE
+description: "Supervisez les serveurs Windows via NSClient++ et NRPE : CPU, mémoire, disques, services, sessions, certificats et plus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 
-## Vue d'ensemble
+Ce connecteur de supervision permet de récupérer les métriques et les statuts collectés 
+grâce à l'agent de monitoring NSClient++ et son serveur NRPE embarqué. Le connecteur permet de superviser :
+* Windows Server OS à partir de la version 2003 SP2
+* Windows (postes de travail) à partir de la version XP
 
-Ce connecteur de supervision permet de récupérer les métriques et les statuts collectés grâce à l'agent de monitoring NSClient++ et son serveur NRPE embarqué. 
+## Contenu du pack
 
 ### Modèles
 
-Le pack **Windows NSClient 0.5** apporte 1 modèle d'hôte :
+Le connecteur de supervision **Windows NSClient NRPE** apporte un modèle d'hôte :
 
-* OS-Windows-NSClient-05-NRPE-custom
+* **OS-Windows-NSClient-05-NRPE-custom**
 
-Il apporte les modèles de service suivants :
-
-| Alias de service      | Modèle de service                                          | Description de service                                                              | Par défaut | Découverte |
-|:----------------------|:-----------------------------------------------------------|:------------------------------------------------------------------------------------|:-----------|:-----------|
-| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-NRPE-custom  | Vérifier les sessions actives en utilisant le protocole NRPE                        |            |            |
-| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-NRPE-custom          | Vérifier un compteur générique en utilisant le protocole NRPE                       |            |            |
-| Cpu                   | OS-Windows-NSClient05-Cpu-NRPE-custom                      | Vérifier l'utilisation du Cpu en utilisant le protocole NRPE                        | X          |            |
-| Disks                 | OS-Windows-NSClient05-Disks-NRPE-custom                    | Vérifier l'utilisation des disques en utilisant le protocole NRPE                   |            | X          |
-| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-NRPE-custom         | Vérifier les journaux d'évènements en utilisant le protocole NRPE                   |            |            |
-| Files-Generic         | OS-Windows-NSClient05-Files-Generic-NRPE-custom            | Vérifier des fichiers (date, taille, etc...) en utilisant le protocole NRPE         |            |            |
-| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-NRPE-custom         | Vérifier un fichier de log en utilisant le protocole NRPE                           |            |            |
-| Memory                | OS-Windows-NSClient05-Memory-NRPE-custom                   | Vérifier l'utilisation de la mémoire en utilisant le protocole NRPE                 | X          |            |
-| Ntp                   | OS-Windows-NSClient05-Ntp-NRPE-custom                      | Vérifier la synchronisation du temps Ntp en utilisant le protocole NRPE             |            |            |
-| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-NRPE-custom           | Vérifier si un reboot est attendu en utilisant le protocole NRPE                    |            |            |
-| Process-generic       | OS-Windows-NSClient05-Process-Generic-NRPE-custom          | Vérifier l'état d'un processus en utilisant le protocole NRPE                       |            |            |
-| Remote-Ping           | OS-Windows-NSClient05-Remote-Ping-NRPE-custom              | Vérifier l'état d'un hote via un ping distant en utilisant le protocole NRPE        |            |            |
-| Services-Auto         | OS-Windows-NSClient05-Services-Auto-NRPE-custom            | Vérifier l'état des services démarrés en automatique en utilisant le protocole NRPE | X          |            |
-| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-NRPE-custom    | Vérifier l'état d'un service en utilisant le protocole NRPE                         |            |            |
-| Sessions              | OS-Windows-NSClient05-Sessions-NRPE-custom                 | Vérifier les sessions en utilisant le protocole NRPE                                |            |            |
-| Swap                  | OS-Windows-NSClient05-Swap-NRPE-custom                     | Vérifier l'utilisation du swap en utilisant le protocole NRPE                       | X          |            |
-| Task-Generic          | OS-Windows-NSClient05-Task-Generic-NRPE-custom             | Vérifier les tâches planifiées en utilisant le protocole NRPE                       |            |            |
-| Updates               | OS-Windows-Updates-NRPE-custom                             | Vérifier si Windows a des mises à jour en attente                                   |            |            |
-| Uptime                | OS-Windows-NSClient05-Uptime-NRPE-custom                   | Vérifier l'uptime en utilisant le protocole NRPE                                    |            |            |
-
-### Règles de découverte
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Service" label="Service">
+<TabItem value="OS-Windows-NSClient-05-NRPE-custom" label="OS-Windows-NSClient-05-NRPE-custom">
 
-|Nom de la règle            | Description             |
-|:--------------------------|:------------------------|
-| OS-Winfows-NRPE-Disk-Name | Découverte des disques. |
+| Alias         | Modèle de service                               | Description                                                                                                                                                                  | Découverte |
+|:--------------|:------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|
+| Cpu           | OS-Windows-NSClient05-Cpu-NRPE-custom           | Contrôle du taux d'utilisation du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
+| Disks         | OS-Windows-NSClient05-Disks-NRPE-custom         | Contrôle le taux d'utilisation des disques Windows                                                                                                                           | X          |
+| Memory        | OS-Windows-NSClient05-Memory-NRPE-custom        | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                            |            |
+| Services-Auto | OS-Windows-NSClient05-Services-Auto-NRPE-custom | Contrôle permettant de vérifier si les services automatiques sont démarrés                                                                                                   |            |
+| Swap          | OS-Windows-NSClient05-Swap-NRPE-custom          | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                       |            |
 
-De plus amples informations sur la découverte automatique des services sont disponibles sur la [page dédiée](/docs/monitoring/discovery/services-discovery).
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Windows-NSClient-05-NRPE-custom** est utilisé.
+
+</TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias                 | Modèle de service                                         | Description                                                             | Découverte |
+|:----------------------|:----------------------------------------------------------|:------------------------------------------------------------------------|:-----------|
+| Active-Sessions       | OS-Windows-NSClient05-Counter-Active-Sessions-NRPE-custom | Contrôle le nombre de sessions actives                                  |            |
+| Certificates          | OS-Windows-NSClient05-Certificates-NRPE-custom            | Contrôle les certificats locaux Windows                                 | X          |
+| Counter-Generic       | OS-Windows-NSClient05-Counter-Generic-NRPE-custom         | Contrôle permettant de récupérer la valeur d'un compteur de performance |            |
+| Eventlog-Generic      | OS-Windows-NSClient05-Eventlog-Generic-NRPE-custom        | Contrôle les événements en erreur dans les eventlogs                    |            |
+| Files-Generic         | OS-Windows-NSClient05-Files-Generic-NRPE-custom           | Contrôle permettant de vérifier des fichiers                            |            |
+| Logfiles-Generic      | OS-Windows-NSClient05-Logfiles-Generic-NRPE-custom        | Contrôle les fichiers de logs                                           |            |
+| Ntp                   | OS-Windows-NSClient05-Ntp-NRPE-custom                     | Contrôle la synchronisation avec un serveur NTP                         |            |
+| Pending-Reboot        | OS-Windows-NSClient05-Pending-Reboot-NRPE-custom          | Contrôle si Windows nécessite un redémarrage                            |            |
+| Process-generic       | OS-Windows-NSClient05-Process-Generic-NRPE-custom         | Contrôle des processus                                                  |            |
+| Services-Generic-Name | OS-Windows-NSClient05-Services-Generic-Name-NRPE-custom   | Contrôle permettant de vérifier l'état des services Windows             |            |
+| Sessions              | OS-Windows-NSClient05-Sessions-NRPE-custom                | Contrôle les sessions utilisateur Windows                               |            |
+| Task-Generic          | OS-Windows-NSClient05-Task-Generic-NRPE-custom            | Contrôle les tâches planifiées Windows                                  |            |
+| Updates               | OS-Windows-NSClient05-Updates-NRPE-custom                 | Contrôle si Windows a des mises à jour en attente                       |            |
+| Uptime                | OS-Windows-NSClient05-Uptime-NRPE-custom                  | Contrôle l'uptime Windows                                               |            |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
 </TabItem>
 </Tabs>
 
-### Métriques collectées
+### Règles de découverte
+
+#### Découverte de services
+
+| Nom de la règle                                | Description                                                          |
+|:-----------------------------------------------|:---------------------------------------------------------------------|
+| OS-Windows-NSClient05-NRPE-Certificate-Subject | Découvre et supervise les certificats locaux Windows                 |
+| OS-Windows-NSClient05-NRPE-Disk-Name           | Découvre les partitions disque et supervise l'occupation de l'espace |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Counter-Active-Sessions" label="Counter-Active-Sessions">
+<TabItem value="Active-Sessions" label="Active-Sessions">
 
-| Nom de la métrique     | Unité |
-| :--------------------- | :---- |
-| Sessions\_value        | count |
+| Nom             | Unité |
+|:----------------| :---- |
+| Sessions\_value | count |
+
+</TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Nom                                  | Unité |
+|:-------------------------------------|:------|
+| certificates.detected.count          | count |
+| certificate#certificate.expires.days | d     |
 
 </TabItem>
 <TabItem value="Counter-Generic" label="Counter-Generic">
 
-| Nom de la métrique    | Unité |
-| :-------------------- | :---- |
-| Counter\_value        | count |
+| Nom            | Unité |
+|:---------------| :---- |
+| Counter\_value | count |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Nom de la métrique | Unité |
-| :----------------- | :---- |
-| total 5m           | %     |
-| total 1m           | %     |
-| total 5s           | %     |
+| Nom      | Unité |
+|:---------|:----- |
+| total 5m | %     |
+| total 1m | %     |
+| total 5s | %     |
 
 </TabItem>
-<TabItem value="Disk" label="Disk">
+<TabItem value="Disks" label="Disks">
 
-| Nom de la métrique | Unité |
-| :----------------- | :---- |
-| used               | Bytes |
+| Nom  | Unité |
+|:-----|:----- |
+| used | B     |
 
 </TabItem>
 <TabItem value="Eventlog-Generic" label="Eventlog-Generic">
 
-| Nom de la métrique  | Unité |
-| :------------------ | :---- |
-| problemCount        | count |
+| Nom          | Unité |
+|:-------------|:----- |
+| problemCount | count |
 
 </TabItem>
 <TabItem value="Files-Generic" label="Files-Generic">
 
-| Nom de la métrique | Unité |
-| :----------------- | :---- |
-| count              | count |
+| Nom   | Unité |
+|:------|:----- |
+| count | count |
 
 </TabItem>
 <TabItem value="Logfiles-Generic" label="Logfiles-Generic">
 
-| Nom de la métrique        | Unité |
-| :------------------------ | :---- |
-| default\_lines            | count |
-| default\_warnings         | count |
-| default\_criticals        | count |
-| default\_unknowns         | count |
+| Nom              | Unité |
+|:-----------------|:----- |
+| *tag*\_lines     | count |
+| *tag*\_warnings  | count |
+| *tag*\_criticals | count |
+| *tag*\_unknowns  | count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-|Nom de la métrique | Unité  |
-| :----------------- | :---- |
-| used               | Bytes |
+| Nom  | Unité |
+|:-----| :--   |
+| used | B     |
 
 </TabItem>
-<TabItem value="Swap" label="Swap">
+<TabItem value="Ntp" label="Ntp">
 
-| Nom de la métrique | Unité |
-| :----------------- | :---- |
-| swap               | Bytes |
+| Nom    | Unité |
+|:-------|:------|
+| offset | s     |
+
+</TabItem>
+<TabItem value="Pending-Reboot" label="Pending-Reboot">
+
+| Nom           | Unité |
+|:--------------|:----- |
+| pendingreboot | count |
+
+</TabItem>
+<TabItem value="Process-generic" label="Process-generic">
+
+| Nom       | Unité |
+|:----------|:----- |
+| exec_name | count |
+
+</TabItem>
+<TabItem value="Services-Auto" label="Services-Auto">
+
+Pas de métrique pour ce service.
+
+</TabItem>
+<TabItem value="Services-Generic-Name" label="Services-Generic-Name">
+
+Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
 
-| Nom de la métrique                   | Unité |
-| :----------------------------------- | :---- |
-| sessions-created                     | count |
-| sessions-disconnected                | count |
-| sessions-reconnected                 | count |
-| sessions-active                      | count |
-| sessions-disconnected-current        | count |
+| Nom                                 | Unité |
+|:------------------------------------|:------|
+| sessions.created.total.count        | count |
+| sessions.disconnected.total.count   | count |
+| sessions.reconnected.total.count    | count |
+| sessions.active.current.count       | count |
+| sessions.disconnected.current.count | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Nom  | Unité |
+|:-----|:----- |
+| swap | B     |
+
+</TabItem>
+<TabItem value="Task-Generic" label="Task-Generic">
+
+| Nom       | Unité |
+|:----------|:----- |
+| task_name | count |
 
 </TabItem>
 <TabItem value="Updates" label="Updates">
 
-| Metric Name                   | Unit   |
-|:------------------------------|:-------|
-| windows.pending.updates.count |        |
+| Nom                           | Unité |
+|:------------------------------|:------|
+| windows.pending.updates.count | count |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Nom    | Unité |
+|:-------|:----- |
+| uptime | s     |
 
 </TabItem>
 </Tabs>
@@ -149,57 +225,907 @@ De plus amples informations sur la découverte automatique des services sont dis
 
 ### Centreon NSClient++
 
-Pour surveiller les ressources *Windows* via NRPE, installez la version Centreon de l'agent NSClient++.
+Pour superviser les ressources *Windows* via NRPE, installez la version Centreon de l'agent NSClient++.
 Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur NRPE** est correcte.
 
-## Installation 
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installez le paquet Centreon NRPE Client sur chaque Poller censé surveiller les ressources *Windows*:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-nrpe3-plugin
+dnf install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 ```
-
-2. Sur l'interface Web Centreon, installez le **Windows NRPE 0.5** Centreon connecteur de supervision sur la page **Configuration > Connecteurs > Connecteurs de supervision**.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installez le paquet Centreon Plugin sur chaque Poller censé surveiller les ressources *Windows*:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-nrpe3-plugin
+dnf install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 ```
 
-2. Installez le RPM **Windows NRPE 0.5** Centreon Pack sur le serveur Centreon Central:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-operatingsystems-windows-nsclient-05-nrpe
 ```
 
-3. Sur l'interface Web Centreon, installez le **Windows NRPE 0.5** Centreon connecteur de supervision sur la page **Configuration > Connecteurs > Connecteurs de supervision**.
-  
 </TabItem>
 </Tabs>
 
-## Configuration de l'hôte
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows NSClient API**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
-* Connectez-vous à Centreon et ajoutez un nouvel hôte via **Configuration > Hôtes**.
-* Remplissez les champs **Nom**, **Alias** et **Adresse IP/DNS** selon les paramètres de votre serveur *Windows*.
-* Sélectionnez le modèle *OS-Windows-NSClient-05-NRPE-custom* à appliquer à l'hôte.
-* Une fois le modèle appliqué, remplissez les macros correspondantes. Si vous êtes en version 21.10 ou supérieure et que vous venez d'installer **centreon-nrpe3-plugin**, vous devrez remplacer les valeurs par défaut des macros par celles en gras :
+### Plugin
 
-| Mandatory | Name             | Value                     | Description                                                      |
-|:----------|:-----------------|---------------------------| :----------------------------------------------------------------|
-| X         | NRPECLIENT       | **check_centreon_nrpe3**  | NRPE Plugin binary to use (Default: 'check_centreon_nrpe')       |
-| X         | NRPEPORT         | 5666                      | NRPE Port of the target server (Default: '5666')                 |
-| X         | NRPETIMEOUT      | 30                        | Timeout value (Default: '30')                                    |
-| X         | NRPEEXTRAOPTIONS | **-u -2 -P 8192**         | Extraoptions to use with the NRPE binary (default: '-u -m 8192') |
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
-## Dépannage
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Veuillez trouver la documentation de dépannage pour les contrôles NRPE dans le 
-[chapitre dédié](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-nrpe) de la documentation Centreon.
+```bash
+dnf install nagios-plugins-nrpe
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install nagios-plugins-nrpe
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install nagios-nrpe-plugin
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+dnf install nagios-plugins-nrpe
+```
+
+</TabItem>
+</Tabs>
+
+## Utiliser le connecteur de supervision
+
+### Utiliser un modèle d'hôte issu du connecteur
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **OS-Windows-NSClient-05-NRPE-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro            | Description                                                                                                                                | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                                  | check_nrpe        |             |
+| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                                  | 5666              |             |
+| NRPETIMEOUT      | Command timeout                                                                                                                            | 30                |             |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | -u -2 -P 8192     |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Active-Sessions" label="Active-Sessions">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut                    | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|:-----------:|
+| COUNTERNAME  | Performance counter to check                                                                                                             | \\Terminal Services\\Active Sessions |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                 |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                                 |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                             |             |
+
+</TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Macro                        | Description                                                                                                                                                 | Valeur par défaut | Obligatoire |
+|:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSUBJECT                | Filter certificate by subject (can be a regexp).                                                                                                            |                   |             |
+| FILTERTHUMBPRINT             | Filter certificate by thumbprint (can be a regexp).                                                                                                         |                   |             |
+| FILTERPATH                   | Filter certificate by path (can be a regexp).                                                                                                               |                   |             |
+| THRESHOLDSUNIT               | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. | s                 |             |
+| WARNINGCERTIFICATEEXPIRES    | Thresholds                                                                                                                                                  |                   |             |
+| CRITICALCERTIFICATEEXPIRES   | Thresholds                                                                                                                                                  |                   |             |
+| WARNINGCERTIFICATESDETECTED  | Thresholds                                                                                                                                                  |                   |             |
+| CRITICALCERTIFICATESDETECTED | Thresholds                                                                                                                                                  |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                    | --verbose         |             |
+
+</TabItem>
+<TabItem value="Counter-Generic" label="Counter-Generic">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COUNTERNAME  | Performance counter to check                                                                                                             |                   |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none              |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none              |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut         | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------------------|:-----------:|
+| WARNING      | Filter which marks items which generates a warning state                                                                                 | time = '5m' and load > 80 |             |
+| CRITICAL     | Filter which marks items which generates a critical state                                                                                | time = '5m' and load > 80 |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                  |             |
+
+</TabItem>
+<TabItem value="Disks" label="Disks">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut                            | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
+| DRIVE        | The drives to check.                                                                                                                     | *                                            |             |
+| PERFCONFIG   | Performance data generation configuration                                                                                                | used(unit:B)used %(ignored:true)             |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | type = 'fixed' and name not regexp '.*yst.*' |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | total_used>80%                               |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | total_used>90%                               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                              |             |
+
+</TabItem>
+<TabItem value="Eventlog-Generic" label="Eventlog-Generic">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut                                | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:-----------:|
+| FILE         | The logfile name                                                                                                                         |                                                  |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | written > -60m and level in ('error', 'warning') |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{count} $\{problem_list}           |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{source} $\{id}                                |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | count>0                                          |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | count>5                                          |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | count>5                                          |             |
+
+</TabItem>
+<TabItem value="Files-Generic" label="Files-Generic">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut                                                | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------|:-----------:|
+| PATHS        | The path to search for files under                                                                                                       |                                                                  |             |
+| PATTERN      | The pattern of files to search for (works like a filter but is faster and can be combined with a filter)                                 |                                                                  |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{problem_count}/$\{count} files ($\{problem_list}) |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}                                                         |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    |                                                                  |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                |                                                                  |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               |                                                                  |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                                                         |             |
+
+</TabItem>
+<TabItem value="Logfiles-Generic" label="Logfiles-Generic">
+
+| Macro    | Description                                                | Valeur par défaut | Obligatoire |
+|:-------- |:-----------------------------------------------------------|:----------------- |:-----------:|
+| LOGFILE  | Logfile path                                               |                   |      X      |
+| TAG      | Tag to use in output and perfdata                          |                   |             |
+| CRITICAL | Filter which marks items which generates a critical state. |                   |             |
+| WARNING  | Filter which marks items which generates a warning state.  |                   |             |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut                                  | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------|:-----------:|
+| PERFCONFIG   | Performance data generation configuration                                                                                                | used(unit:B)%(ignored:true)                        |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $%(type) free: %(free) used: %(used) size: %(size) |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | type = 'physical'                                  |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | used > 80%                                         |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | used > 90%                                         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | perf-syntax=used                                   |             |
+
+</TabItem>
+<TabItem value="Ntp" label="Ntp">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NTPADDR      | Set the ntp hostname (if not set, we try to find it with w32tm command)                                                                  |                   |             |
+| WARNING      | Warning threshold                                                                                                                        | -1:1              |             |
+| CRITICAL     | Critical threshold                                                                                                                       | -2:2              |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+<TabItem value="Pending-Reboot" label="Pending-Reboot">
+
+| Macro          | Description                                                                                                                                                                                                                  | Valeur par défaut             | Obligatoire |
+|:---------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:-----------:|
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}  | %\{RebootPending\} =~ /true/i |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\} |                               |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                     |                               |             |
+
+</TabItem>
+<TabItem value="Process-generic" label="Process-generic">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut            | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| PROCESS      | The service to check, set this to * to check all services                                                                                |                              |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{status}: $\{problem_list} |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{exe}=$\{state}            |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | none                         |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                         |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none                         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | show-all                     |             |
+
+</TabItem>
+<TabItem value="Services-Auto" label="Services-Auto">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut                      | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
+| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                        |             |
+| EXCLUDE2     | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                        |             |
+| SERVICE      | The service to check, set this to * to check all services                                                                                | *                                      |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{problem_list}                       |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}=$\{state} ($\{start_type})    |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | start_type = 'auto' and is_trigger = 0 |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | not state_is_perfect()                 |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                      |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | 'perf-config=none'                     |             |
+
+</TabItem>
+<TabItem value="Services-Generic-Name" label="Services-Generic-Name">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut                   | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:-----------:|
+| EXCLUDE      | A list of services to ignore (mainly useful in combination with service=*)                                                               |                                     |             |
+| OK           | Filter which marks items which generates an ok state                                                                                     | state_is_ok()                       |             |
+| SERVICE      | The service to check, set this to * to check all services                                                                                | $\{name}=$\{state} ($\{start_type}) |             |
+| TOPSYNTAX    | The top level syntax string                                                                                                              | $\{problem_list}                    |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $\{name}=$\{state} ($\{start_type}) |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | none                                |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | not state_is_ok()                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | 'perf-config=none'                  |             |
+
+</TabItem>
+<TabItem value="Sessions" label="Sessions">
+
+| Macro                        | Description                                                                                                                                          | Valeur par défaut | Obligatoire |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| LANGUAGE                     | Set the language used in the config file                                                                                                             | en                |             |
+| FILTERSESSIONNAME            | Filter session name (can be a regexp)                                                                                                                |                   |             |
+| CONFIG                       | The command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file |                   |             |
+| WARNINGSESSIONSACTIVE        | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSACTIVE       | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSCREATED       | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSCREATED      | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSDISCONNECTED  | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSDISCONNECTED | Thresholds                                                                                                                                           |                   |             |
+| WARNINGSESSIONSRECONNECTED   | Thresholds                                                                                                                                           |                   |             |
+| CRITICALSESSIONSRECONNECTED  | Thresholds                                                                                                                                           |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)             |                   |             |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut                         | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|:-----------:|
+| PERFCONFIG   | Performance data generation configuration                                                                                                | *(prefix:'used_')*(unit:B)%(ignored:true) |             |
+| DETAILSYNTAX | Detail level syntax                                                                                                                      | $$\{name} $\{used} ($\{size})             |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | size > 0 and name = 'total'               |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none                                      |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | used > 0                                  |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | perf-syntax=swap                          |             |
+
+</TabItem>
+<TabItem value="Task-Generic" label="Task-Generic">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut                                        | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|:-----------:|
+| PERFCONFIG   | Performance data generation configuration                                                                                                | *(ignored:true)                                          |             |
+| FILTER       | Filter which marks interesting items.                                                                                                    | enabled eq 1 and has_run eq 1                            |             |
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | task_status = 'running' and most_recent_run_time < -60m  |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | task_status not in ('running') and exit_code > 0         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                                                          |             |
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Macro                  | Description                                                                                                                              | Valeur par défaut           | Obligatoire |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-----------:|
+| FILTERTITLE            | Filter windows updates by title (can be a regexp)                                                                                        |                             |             |
+| EXCLUDETITLE           | Exclude windows updates by title (regexp can be used)                                                                                    |                             |             |
+| FILTERMANDATORY        | Filter only mandatory Windows updates.                                                                                                   | false                       |             |
+| WARNINGPENDINGUPDATES  | Thresholds                                                                                                                               |                             |             |
+| CRITICALPENDINGUPDATES | Thresholds                                                                                                                               |                             |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose --display-updates |             |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Filter which marks items which generates a warning state.                                                                                | none              |             |
+| CRITICAL     | Filter which marks items which generates a critical state.                                                                               | none              |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+
+```bash
+/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin 'updates'  ' \
+    --filter-title="" \
+    --exclude-title="" \
+    --filter-mandatory="false" \
+    --warning-pending-updates=""\
+    --critical-pending-updates=""
+    --verbose \
+	--display-updates '
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: windows pending updates: 32 | 'windows.pending.updates.count'=32;;;0;
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
+des plugins basés sur HTTP/API si votre erreur ne correspond pas à l'un des cas suivants.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query'  ' \
+	--list-mode
+	
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                | Modèle de service associé                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|:------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/certificates.pm)]          | OS-Windows-NSClient05-Certificates-NRPE-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| cmd-return [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/cmdreturn.pm)]               | Not used in this Monitoring Connector                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| list-certificates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/listcertificates.pm)] | Used for service discovery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/liststorages.pm)]         | Used for service discovery                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| pending-reboot [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/pendingreboot.pm)]       | OS-Windows-NSClient05-Pending-Reboot-NRPE-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| query [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/nsclient/restapi/mode/query.pm)]                   | OS-Windows-NSClient05-Counter-Active-Sessions-NRPE-custom<br />OS-Windows-NSClient05-Counter-Generic-NRPE-custom<br />OS-Windows-NSClient05-Cpu-NRPE-custom<br />OS-Windows-NSClient05-Disks-NRPE-custom<br />OS-Windows-NSClient05-Eventlog-Generic-NRPE-custom<br />OS-Windows-NSClient05-Files-Generic-NRPE-custom<br />OS-Windows-NSClient05-Logfiles-Generic-NRPE-custom<br />OS-Windows-NSClient05-Memory-NRPE-custom<br />OS-Windows-NSClient05-Process-Generic-NRPE-custom<br />OS-Windows-NSClient05-Services-Auto-NRPE-custom<br />OS-Windows-NSClient05-Services-Generic-Name-NRPE-custom<br />OS-Windows-NSClient05-Swap-NRPE-custom<br />OS-Windows-NSClient05-Task-Generic-NRPE-custom<br />OS-Windows-NSClient05-Uptime-NRPE-custom |
+| sessions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/sessions.pm)]                  | OS-Windows-NSClient05-Sessions-NRPE-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/ntp.pm)]                           | OS-Windows-NSClient05-Ntp-NRPE-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| updates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/windows/local/mode/updates.pm)]                    | OS-Windows-NSClient05-Updates-NRPE-custom                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Active-Sessions" label="Active-Sessions">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Certificates" label="Certificates">
+
+| Option                           | Description                                                                                                                                                 |
+|:---------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-thumbprint              | Filter certificate by thumbprint (can be a regexp).                                                                                                         |
+| --filter-subject                 | Filter certificate by subject (can be a regexp).                                                                                                            |
+| --filter-path                    | Filter certificate by path (can be a regexp).                                                                                                               |
+| --unit                           | Select the time unit for the expiration thresholds. May be 's' for seconds,'m' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds. |
+| --warning-certificates-detected  | Thresholds                                                                                                                                                  |
+| --critical-certificates-detected | Thresholds                                                                                                                                                  |
+| --warning-certificate-expires    | Thresholds                                                                                                                                                  |
+| --critical-certificate-expires   | Thresholds                                                                                                                                                  |
+| --no-ps                          | Don't encode powershell. To be used with --command and 'type' command.                                                                                      |
+| --command                        | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                      |
+| --command-path                   | Command path (default: none).                                                                                                                               |
+| --command-options                | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                     |
+| --ps-display                     | Display powershell script.                                                                                                                                  |
+| --ps-exec-only                   | Print powershell output.                                                                                                                                    |
+
+</TabItem>
+<TabItem value="Counter-Generic" label="Counter-Generic">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Disks" label="Disks">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Eventlog-Generic" label="Eventlog-Generic">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Files-Generic" label="Files-Generic">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Logfiles-Generic" label="Logfiles-Generic">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Ntp" label="Ntp">
+
+| Option         | Description                                                                |
+|:---------------|:---------------------------------------------------------------------------|
+| --warning      | Warning threshold.                                                         |
+| --critical     | Critical threshold.                                                        |
+| --ntp-hostname | Set the ntp hostname (if not set, we try to find it with w32tm command).   |
+| --ntp-port     | Set the ntp port (Default: 123).                                           |
+| --timeout      | Set timeout time for 'w32tm' command execution (Default: 30 sec)           |
+
+</TabItem>
+<TabItem value="Pending-Reboot" label="Pending-Reboot">
+
+| Option            | Description                                                                                                                                                                                                                                                 |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout         | Set timeout time for command execution (Default: 50 sec)                                                                                                                                                                                                    |
+| --no-ps           | Don't encode powershell. To be used with --command and 'type'command.                                                                                                                                                                                       |
+| --command         | Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                                                      |
+| --command-path    | Command path (Default: none).                                                                                                                                                                                                                               |
+| --command-options | Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                                                                     |
+| --ps-display      | Display powershell script.                                                                                                                                                                                                                                  |
+| --ps-exec-only    | Print powershell output.                                                                                                                                                                                                                                    |
+| --warning-status  | Define the conditions to match for the status to be WARNING (Default: '%\{RebootPending\} =~ /true/i'). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}.   |
+| --critical-status | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{RebootPending\}, %\{WindowsUpdate\}, %\{CBServicing\}, %\{CCMClientSDK\}, %\{PendFileRename\}, %\{PendComputerRename\}.                             |
+
+</TabItem>
+<TabItem value="Process-generic" label="Process-generic">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Services-Auto" label="Services-Auto">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access a webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Services-Generic-Name" label="Services-Generic-Name">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Sessions" label="Sessions">
+
+| Option                   | Description                                                                                                                                                                                                                                   |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
+| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
+| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
+| --config                 | command can be localized by using a configuration file. This parameter can be used to specify an alternative location for the configuration file                                                                                              |
+| --language               | Set the language used in config file (default: 'en').                                                                                                                                                                                         |
+| --command                | Command to get information (Default: 'qwinsta'). Can be changed if you have output in a file.                                                                                                                                                 |
+| --command-path           | Command path (Default: none).                                                                                                                                                                                                                 |
+| --command-options        | Command options (Default: '/COUNTER').                                                                                                                                                                                                        |
+| --timeout                | Timeout in seconds for the command (Default: 30).                                                                                                                                                                                             |
+| --filter-sessionname     | Filter session name (can be a regexp).                                                                                                                                                                                                        |
+| --warning-* --critical-* | Thresholds. Can be: 'sessions-created', 'sessions-disconnected', 'sessions-reconnected', 'sessions-active', 'sessions-disconnected-current'.                                                                                                  |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Task-Generic" label="Task-Generic">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Option                   | Description                                                                                                                              |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout                | Set timeout time for command execution (Default: 50 sec)                                                                                 |
+| --no-ps                  | Don't encode powershell. To be used with --command and 'type'command.                                                                    |
+| --command                | Command to get information (Default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!   |
+| --command-path           | Command path (Default: none).                                                                                                            |
+| --command-options        | Command options (Default: '-InputFormat none -NoLogo -EncodedCommand').                                                                  |
+| --ps-display             | Display powershell script.                                                                                                               |
+| --ps-exec-only           | Print powershell output.                                                                                                                 |
+| --filter-title           | Filter windows updates by title (can be a regexp).                                                                                       |
+| --exclude-title          | Exclude windows updates by title (regexp can be used).                                                                                   |
+| --display-updates        | Display updates in verbose output.                                                                                                       |
+| --warning-* --critical-* | Thresholds. Can be: 'pending-updates'.                                                                                                   |
+
+</TabItem>
+<TabItem value="Uptime" label="Uptime">
+
+| Option            | Description                                                                                                                                                                                                                                                                                 |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --http-peer-addr  | Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                         |
+| --proxyurl        | Proxy URL. Eg: http://my.proxy:3128                                                                                                                                                                                                                                                         |
+| --proxypac        | Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                              |
+| --insecure        | Accept insecure SSL connections.                                                                                                                                                                                                                                                            |
+| --http-backend    | Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                     |
+| --ssl-opt         | Set SSL Options (--ssl-opt="SSL\_version =\> TLSv1" --ssl-opt="SSL\_verify\_mode =\> SSL\_VERIFY\_NONE").                                                                                                                                                                                   |
+| --curl-opt        | Set CURL Options (--curl-opt="CURLOPT\_SSL\_VERIFYPEER =\> 0" --curl-opt="CURLOPT\_SSLVERSION =\> CURL\_SSLVERSION\_TLSv1\_1" ).                                                                                                                                                            |
+| --hostname        | IP Addr/FQDN of the host                                                                                                                                                                                                                                                                    |
+| --port            | Port used (Default: 8443)                                                                                                                                                                                                                                                                   |
+| --proto           | Specify https if needed (Default: 'https')                                                                                                                                                                                                                                                  |
+| --credentials     | Specify this option if you access webpage with authentication                                                                                                                                                                                                                               |
+| --username        | Specify username for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --password        | Specify password for authentication (Mandatory if --credentials is specified)                                                                                                                                                                                                               |
+| --basic           | Specify this option if you access a webpage over basic authentication and don't want a '401 UNAUTHORIZED' error to be logged on your webserver.  Specify this option if you access the webpage over hidden basic authentication or you'll get a '404 NOT FOUND' error.  (Use with --credentials)   |
+| --legacy-password | Specify password for old authentication system.                                                                                                                                                                                                                                           |
+| --timeout         | Threshold for HTTP timeout (Default: 5)                                                                                                                                                                                                                                                     |
+| --command         | Set command.                                                                                                                                                                                                                                                                                |
+| --unknown-status  | Warning threshold for http response code. (Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300')                                                                                                                                                                                        |
+| --warning-status  | Warning threshold for http response code.                                                                                                                                                                                                                                                   |
+| --critical-status | Critical threshold for http response code.                                                                                                                                                                                                                                                  |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query' --help
+```

@@ -1,6 +1,7 @@
 ---
 id: macros
 title: Les macros
+description: "Référence des macros standard et personnalisées utilisées dans les commandes de contrôle, y compris les macros d'hôte, de service et de notification"
 ---
 
 Une macro est une variable qui définit une valeur utilisée par une commande pour contrôler des hôtes ou des services. Les macros vous permettent de personnaliser les contrôles en définissant une valeur particulière pour chaque hôte ou service contrôlé par le me^me modèle: la valeur de la macro pour un hôte ou service sepécifique est défini par l'utilisateur dans la formulaire de configuration de l'hôte ou du service.
@@ -56,6 +57,37 @@ Dans une commande de contrôle de service, les macros suivantes sont utilisées 
 Les champs **Communauté SNMP** et **Version** présents au sein d'une fiche d'hôte génèrent automatiquement les macros
 personnalisées suivantes : \$_HOSTSNMPCOMMUNITY$ et \$_HOSTSNMPVERSION$.
 
+## Macros dans les macros
+
+Lorsque Centreon Engine évalue une commande, la résolution des macros s'effectue en deux passes successives.
+
+**Niveau 1 — Niveau de la commande** : les macros présentes directement dans la ligne de commande sont résolues :
+
+- Une macro standard ou personnalisée résolue est remplacée par sa valeur.
+- Une macro non résolue ou vide est remplacée par une chaîne vide.
+
+**Niveau 2 — Niveau de la valeur de macro** : si la valeur produite au niveau 1 contient elle-même des tokens ressemblant à des macros, une seconde passe s'applique à cette valeur :
+
+- Une macro résolue est remplacée par sa valeur.
+- Une macro non résolue ou vide est **conservée telle quelle** (non supprimée).
+
+### Syntaxe d'échappement avec doubles accolades
+
+Utilisez le format `{{$MACRO$}}` lorsque vous souhaitez que les macros non résolues dans une valeur soient remplacées par une chaîne vide plutôt que conservées :
+
+- Au niveau 1 ou 2 : une macro résolue est remplacée par sa valeur et les doubles accolades sont supprimées.
+- Au niveau 1 ou 2 : une macro non résolue ou vide est remplacée par une chaîne vide et les doubles accolades sont supprimées.
+
+### Cas d'usage : syntaxes de plugins tiers
+
+Certains plugins de supervision utilisent des caractères `$` dans leur propre syntaxe d'arguments, qui ne sont pas des délimiteurs de macros Centreon. Un exemple courant est la syntaxe NSClient++, qui utilise des tokens tels que `${name}`, `${state}`, `${problem_list}` ou `${drive}`.
+
+Ces macros Centreon n'étant pas résolues, le comportement du niveau 2 les conserve telles quelles, ce qui permet au plugin de recevoir la ligne de commande correcte.
+
+> Si vous définissez une valeur de macro contenant de tels tokens et exportez la configuration avec une version de Engine n'implémentant pas le modèle à deux niveaux, ces tokens seront supprimés et le plugin recevra une ligne de commande mal formée.
+
+:::
+
 ## Liste des macros
 
 The following is an exhaustive list of macros by resource type, each type of resource also has a description section. 
@@ -98,10 +130,6 @@ The following is an exhaustive list of macros by resource type, each type of res
 | \$LONGHOSTOUTPUT\$                   | Yes            | Yes [(1)](#notes) | Yes                    | Yes                 |
 | \$HOSTPERFDATA\$                     | Yes            | Yes [(1)](#notes) | Yes                    | Yes                 |
 | \$HOSTCHECKCOMMAND\$                 | Yes            | Yes               | Yes                    | Yes                 |
-| \$HOSTACKAUTHOR\$ [(8)](#notes)      | No             | No                | No                     | No                  |
-| \$HOSTACKAUTHORNAME\$ [(8)](#notes)  | No             | No                | No                     | No                  |
-| \$HOSTACKAUTHORALIAS\$ [(8)](#notes) | No             | No                | No                     | No                  |
-| \$HOSTACKCOMMENT\$ [(8)](#notes)     | No             | No                | No                     | No                  |
 | \$HOSTACTIONURL\$                    | Yes            | Yes               | Yes                    | Yes                 |
 | \$HOSTNOTESURL\$                     | Yes            | Yes               | Yes                    | Yes                 |
 | \$HOSTNOTES\$                        | Yes            | Yes               | Yes                    | Yes                 |
@@ -146,10 +174,6 @@ The following is an exhaustive list of macros by resource type, each type of res
 - **\$LONGHOSTOUTPUT\\$** : Texte complet (à l'exception de la première ligne) du dernier résultat de vérification de l'hôte.  
 - **\$HOSTPERFDATA\\$** : Données de performance éventuellement retournées par la dernière vérification de l'hôte.  
 - **\$HOSTCHECKCOMMAND\\$** : Nom de la commande (et ses arguments éventuels) utilisée pour vérifier l'hôte.  
-- **\$HOSTACKAUTHOR\\$** [(8)](#notes) : Nom de l'utilisateur ayant accusé réception du problème de l'hôte. Valide uniquement dans les notifications où la macro \$NOTIFICATIONTYPE\$ vaut "ACKNOWLEDGEMENT".  
-- **\$HOSTACKAUTHORNAME\\$** [(8)](#notes) : Nom court du contact (si applicable) ayant accusé réception du problème. Valide uniquement pour les notifications d'accusé de réception.  
-- **\$HOSTACKAUTHORALIAS\\$** [(8)](#notes) : Alias du contact (si applicable) ayant accusé réception du problème. Valide uniquement pour les notifications d'accusé de réception.  
-- **\$HOSTACKCOMMENT\\$** [(8)](#notes) : Commentaire d'accusé de réception saisi par l'utilisateur ayant reconnu le problème. Valide uniquement pour les notifications d'accusé de réception.  
 - **\$HOSTACTIONURL\\$** : URL d'action pour l'hôte. Peut contenir d'autres macros (ex. : \$HOSTNAME\$), utile pour passer le nom de l'hôte à une page web.  
 - **\$HOSTNOTESURL\\$** : URL des notes pour l'hôte. Peut contenir d'autres macros comme \$HOSTNAME\$, utile pour passer le nom de l'hôte à une page web.   
 - **\$HOSTNOTES\\$** : Notes associées à l'hôte. Peut inclure d'autres macros pour afficher des informations spécifiques.  

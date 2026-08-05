@@ -1,0 +1,450 @@
+{
+    "103": {
+        "menu_en": "Home > Custom Views",
+        "menu_fr": "Accueil > Vues personnalis\u00e9es",
+        "Topology ID": "103",
+        "Topology Page": "./include/home/customViews/index.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/custom-views/"
+    },
+    "/home/dashboards": {
+        "menu_en": "Home > Dashboards",
+        "menu_fr": "Accueil > Tableaux de bord",
+        "Topology ID": "104",
+        "Topology Page": "/home/dashboards",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/dashboards/"
+    },
+    "/monitoring/resources": {
+        "menu_en": "Monitoring > Resources Status",
+        "menu_fr": "Supervision > Statut des ressources",
+        "Topology ID": "200",
+        "Topology Page": "/monitoring/resources",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/resources-status/"
+    },
+    "207": {
+        "menu_en": "Monitoring > Business Activity",
+        "menu_fr": "Supervision > Activit\u00e9s m\u00e9tiers",
+        "Topology ID": "207",
+        "Topology Page": "./modules/centreon-bam-server/core/dashboard/dashboard.php",
+        "Documentation": "https://docs.centreon.com/cloud/service-mapping/introduction/"
+    },
+    "210": {
+        "menu_en": "Monitoring > Downtimes",
+        "menu_fr": "Supervision >Planifier des plages de maintenance",
+        "Topology ID": "210",
+        "Topology Page": "",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/downtimes/"
+    },
+    "/monitoring/map": {
+        "menu_en": "Monitoring > Map",
+        "menu_fr": "Supervision > Map",
+        "Topology ID": "288",
+        "Topology Page": "/monitoring/map",
+        "Documentation": "https://docs.centreon.com/cloud/graph-views/introduction-map/"
+    },
+    "/administration/api-token": {
+        "menu_en": "Administration > API Tokens",
+        "menu_fr": "Administration > Jetons d'authentification",
+        "Topology ID": "515",
+        "Topology Page": "/administration/api-token",
+        "Documentation": "https://docs.centreon.com/cloud/administration/api-tokens/"
+    },
+    "/configuration/additional-connector-configurations": {
+        "menu_en": "Configuration > Connectors > Additional Configurations",
+        "menu_fr": "Configuration > Connecteurs > Configurations additionnelles",
+        "Topology ID": "618",
+        "Topology Page": "/configuration/additional-connector-configurations",
+        "Documentation": "https://docs.centreon.com/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration/"
+    },
+    "/configuration/bam/bas": {
+        "menu_en": "Configuration > Business Activity",
+        "menu_fr": "Configuration > Activit\u00e9s m\u00e9tiers",
+        "Topology ID": "62605",
+        "Topology Page": "/configuration/bam/bas",
+        "Documentation": "https://docs.centreon.com/cloud/service-mapping/ba-management/#business-activities-ba"
+    },
+    "650": {
+        "menu_en": "Configuration > Monitoring Connector Manager",
+        "menu_fr": "Configuration > Monitoring Connector Manager",
+        "Topology ID": "650",
+        "Topology Page": "./modules/centreon-pp-manager/core/manager/main.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/pluginpacks/"
+    },
+    "10301": {
+        "menu_en": "Home > Custom Views",
+        "menu_fr": "Accueil > Vues personnalis\u00e9es",
+        "Topology ID": "10301",
+        "Topology Page": "./include/home/customViews/form.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/custom-views/"
+    },
+    "10302": {
+        "menu_en": "Home > Custom Views",
+        "menu_fr": "Accueil > Vues personnalis\u00e9es",
+        "Topology ID": "10302",
+        "Topology Page": "./include/home/customViews/shareView.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/custom-views/"
+    },
+    "10303": {
+        "menu_en": "Home > Custom Views",
+        "menu_fr": "Accueil > Vues personnalis\u00e9es",
+        "Topology ID": "10303",
+        "Topology Page": "./include/home/customViews/widgetParam.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/custom-views/"
+    },
+    "10304": {
+        "menu_en": "Home > Custom Views",
+        "menu_fr": "Accueil > Vues personnalis\u00e9es",
+        "Topology ID": "10304",
+        "Topology Page": "./include/home/customViews/addWidget.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/custom-views/"
+    },
+    "10305": {
+        "menu_en": "Home > Custom Views",
+        "menu_fr": "Accueil > Vues personnalis\u00e9es",
+        "Topology ID": "10305",
+        "Topology Page": "./include/home/customViews/rotation.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/custom-views/"
+    },
+    "10306": {
+        "menu_en": "Home > Custom Views",
+        "menu_fr": "Accueil > Vues personnalis\u00e9es",
+        "Topology ID": "10306",
+        "Topology Page": "./include/home/customViews/actionDelete.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/custom-views/"
+    },
+    "10307": {
+        "menu_en": "Home > Custom Views",
+        "menu_fr": "Accueil > Vues personnalis\u00e9es",
+        "Topology ID": "10307",
+        "Topology Page": "./include/home/customViews/actionAddView.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/custom-views/"
+    },
+    "10308": {
+        "menu_en": "Home > Custom Views",
+        "menu_fr": "Accueil > Vues personnalis\u00e9es",
+        "Topology ID": "10308",
+        "Topology Page": "./include/home/customViews/actionSetDefault.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/custom-views/"
+    },
+    "/home/dashboards/library": {
+        "menu_en": "Home > Dashboards",
+        "menu_fr": "Accueil > Tableaux de bord",
+        "Topology ID": "-1",
+        "Topology Page": "/home/dashboards/library",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/dashboards/"
+    },
+    "/home/dashboards/playlists": {
+        "menu_en": "Home > Dashboards",
+        "menu_fr": "Accueil > Tableaux de bord",
+        "Topology ID": "-1",
+        "Topology Page": "/home/dashboards/playlists",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/dashboards/#managing-playlists"
+    },
+    "20301": {
+        "menu_en": "Monitoring > Event Logs",
+        "menu_fr": "Supervision > Journaux d'\u00e9v\u00e8nements",
+        "Topology ID": "20301",
+        "Topology Page": "./include/eventLogs/viewLog.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/event-log/"
+    },
+    "20302": {
+        "menu_en": "Monitoring > Event Logs > System Logs",
+        "menu_fr": "Supervision > Journaux d'\u00e9v\u00e8nements > Evenements li\u00e9s \u00e0 la collecte des donn\u00e9es",
+        "Topology ID": "20302",
+        "Topology Page": "./include/eventLogs/viewLog.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/event-log/"
+    },
+    "20320": {
+        "menu_en": "Monitoring > Event Logs > Ticket Logs",
+        "menu_fr": "Supervision > Journaux d'\u00e9v\u00e8nements > Ticket Logs",
+        "Topology ID": "20320",
+        "Topology Page": "./modules/centreon-open-tickets/views/logs/index.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/event-log/"
+    },
+    "20401": {
+        "menu_en": "Monitoring > Performances > Graphs",
+        "menu_fr": "Supervision > Informations de performance > Graphiques",
+        "Topology ID": "20401",
+        "Topology Page": "./include/views/graphs/graphs.php",
+        "Documentation": "https://docs.centreon.com/cloud/metrology/chart-management/"
+    },
+    "20404": {
+        "menu_en": "Monitoring > Performances > Template",
+        "menu_fr": "Supervision > Informations de performance > Mod\u00e8les",
+        "Topology ID": "20404",
+        "Topology Page": "./include/views/graphTemplates/graphTemplates.php",
+        "Documentation": "https://docs.centreon.com/cloud/metrology/chart-template/"
+    },
+    "20405": {
+        "menu_en": "Monitoring > Performances > Curves",
+        "menu_fr": "Supervision > Informations de performance > Courbes",
+        "Topology ID": "20405",
+        "Topology Page": "./include/views/componentTemplates/componentTemplates.php",
+        "Documentation": "https://docs.centreon.com/cloud/metrology/chart-curves/"
+    },
+    "20408": {
+        "menu_en": "Monitoring > Performances > Virtual Metrics",
+        "menu_fr": "Supervision > Informations de performance > M\u00e9triques virtuelles",
+        "Topology ID": "20408",
+        "Topology Page": "./include/views/virtualMetrics/virtualMetrics.php",
+        "Documentation": "https://docs.centreon.com/cloud/metrology/chart-virtual-metrics/"
+    },
+    "20701": {
+        "menu_en": "Monitoring > Business Activity > Monitoring",
+        "menu_fr": "Supervision > Activit\u00e9s m\u00e9tiers > Supervision",
+        "Topology ID": "20701",
+        "Topology Page": "./modules/centreon-bam-server/core/dashboard/dashboard.php",
+        "Documentation": "https://docs.centreon.com/cloud/service-mapping/ba-monitoring/"
+    },
+    "20702": {
+        "menu_en": "Monitoring > Business Activity > Reporting",
+        "menu_fr": "Supervision > Activit\u00e9s m\u00e9tiers > Rapports",
+        "Topology ID": "20702",
+        "Topology Page": "./modules/centreon-bam-server/core/reporting/reporting.php",
+        "Documentation": "https://docs.centreon.com/cloud/service-mapping/ba-reporting/"
+    },
+    "21001": {
+        "menu_en": "Monitoring > Downtimes",
+        "menu_fr": "Supervision > Planifier des plages de maintenance",
+        "Topology ID": "21001",
+        "Topology Page": "./include/monitoring/downtime/downtime.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/downtimes/"
+    },
+    "21002": {
+        "menu_en": "Monitoring > Downtimes > Comments",
+        "menu_fr": "Supervision > Planifier des plages de maintenance > Commentaires",
+        "Topology ID": "21002",
+        "Topology Page": "./include/monitoring/comments/comments.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/downtimes/"
+    },
+    "21003": {
+        "menu_en": "Monitoring > Downtimes > Recurrent downtimes",
+        "menu_fr": "Supervision > Planifier des plages de maintenance > Plages de maintenance r\u00e9currentes",
+        "Topology ID": "21003",
+        "Topology Page": "./include/monitoring/recurrentDowntime/downtime.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/downtimes/"
+    },
+    "50102": {
+        "menu_en": "Administration > Parameters > Images",
+        "menu_fr": "Administration > Param\u00e8tres > Images",
+        "Topology ID": "50102",
+        "Topology Page": "./include/options/media/images/images.php",
+        "Documentation": "https://docs.centreon.com/cloud/administration/media/"
+    },
+    "50104": {
+        "menu_en": "Administration > Parameters > My Account",
+        "menu_fr": "Administration > Param\u00e8tres > Mon compte",
+        "Topology ID": "50104",
+        "Topology Page": "./include/Administration/myAccount/formMyAccount.php",
+        "Documentation": "https://docs.centreon.com/cloud/users/"
+    },
+    "/administration/resource-access/rules": {
+        "menu_en": "Administration > ACL > Resource Access Management",
+        "menu_fr": "Administration > ACL > Gestion des acc\u00e8s aux ressources",
+        "Topology ID": "50206",
+        "Topology Page": "/administration/resource-access/rules",
+        "Documentation": "https://docs.centreon.com/cloud/administration/ram/"
+    },
+    "60101": {
+        "menu_en": "Configuration > Hosts",
+        "menu_fr": "Configuration > H\u00f4tes",
+        "Topology ID": "60101",
+        "Topology Page": "./include/configuration/configObject/host/host.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/basic-objects/hosts/"
+    },
+    "60102": {
+        "menu_en": "Configuration > Hosts > Host Groups",
+        "menu_fr": "Configuration > H\u00f4tes > Groupes d'h\u00f4tes",
+        "Topology ID": "60102",
+        "Topology Page": "./include/configuration/configObject/hostgroup/hostGroup.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/groups/"
+    },
+    "60103": {
+        "menu_en": "Configuration > Hosts > Templates",
+        "menu_fr": "Configuration > H\u00f4tes > Mod\u00e8les",
+        "Topology ID": "60103",
+        "Topology Page": "./include/configuration/configObject/host_template_model/hostTemplateModel.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/basic-objects/hosts-templates/"
+    },
+    "60104": {
+        "menu_en": "Configuration > Hosts > Categories",
+        "menu_fr": "Configuration > H\u00f4tes > Cat\u00e9gories",
+        "Topology ID": "60104",
+        "Topology Page": "./include/configuration/configObject/host_categories/hostCategories.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/categories/"
+    },
+    "/configuration/hosts/discovery/jobs": {
+        "menu_en": "Configuration > Hosts > Discovery",
+        "menu_fr": "Configuration > H\u00f4tes > D\u00e9couverte",
+        "Topology ID": "60130",
+        "Topology Page": "/configuration/hosts/discovery/jobs",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/discovery/hosts-discovery/"
+    },
+    "60201": {
+        "menu_en": "Configuration > Services > Services by host",
+        "menu_fr": "Configuration > Services > Services par h\u00f4te",
+        "Topology ID": "60201",
+        "Topology Page": "./include/configuration/configObject/service/serviceByHost.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/basic-objects/services/"
+    },
+    "60203": {
+        "menu_en": "Configuration > Services > Service Groups",
+        "menu_fr": "Configuration > Services > Groupes de services",
+        "Topology ID": "60203",
+        "Topology Page": "./include/configuration/configObject/servicegroup/serviceGroup.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/groups/"
+    },
+    "60206": {
+        "menu_en": "Configuration > Services > Templates",
+        "menu_fr": "Configuration > Services > Mod\u00e8les",
+        "Topology ID": "60206",
+        "Topology Page": "./include/configuration/configObject/service_template_model/serviceTemplateModel.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/basic-objects/services-templates/"
+    },
+    "60209": {
+        "menu_en": "Configuration > Services > Categories",
+        "menu_fr": "Configuration > Services > Cat\u00e9gories",
+        "Topology ID": "60209",
+        "Topology Page": "./include/configuration/configObject/service_categories/serviceCategories.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/categories/"
+    },
+    "60210": {
+        "menu_en": "Configuration > Services > Scan (Discovery)",
+        "menu_fr": "Configuration > Services > Manuelle (D\u00e9couverte)",
+        "Topology ID": "60210",
+        "Topology Page": "./modules/centreon-autodiscovery-server/views/scan/index.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/discovery/services-discovery/"
+    },
+    "60214": {
+        "menu_en": "Configuration > Services > Overview (Discovery)",
+        "menu_fr": "Configuration > Services > R\u00e8gles (D\u00e9couverte)",
+        "Topology ID": "60214",
+        "Topology Page": "./modules/centreon-autodiscovery-server/views/overview/index.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/discovery/services-discovery/"
+    },
+    "60215": {
+        "menu_en": "Configuration > Services > Rules (Discovery)",
+        "menu_fr": "Configuration > Services > Vue d'ensemble (D\u00e9couverte)",
+        "Topology ID": "60215",
+        "Topology Page": "./modules/centreon-autodiscovery-server/views/rules/index.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/discovery/services-discovery/"
+    },
+    "60220": {
+        "menu_en": "Configuration > Services > Anomaly Detection",
+        "menu_fr": "Configuration > Services > Anomaly Detection",
+        "Topology ID": "60220",
+        "Topology Page": "./modules/centreon-anomaly-detection/config/service.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/anomaly-detection/"
+    },
+    "60221": {
+        "menu_en": "Configuration > Services > Analysis",
+        "menu_fr": "Configuration > Services > Analysis",
+        "Topology ID": "60221",
+        "Topology Page": "./modules/centreon-anomaly-detection/config/listAnalysis.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/anomaly-detection/"
+    },
+    "60301": {
+        "menu_en": "Configuration > Users > Contacts / Users",
+        "menu_fr": "Configuration > Utilisateurs > Contacts / Utilisateurs",
+        "Topology ID": "60301",
+        "Topology Page": "./include/configuration/configObject/contact/contact.php",
+        "Documentation": "https://docs.centreon.com/cloud/category/managing-centreon-cloud-users/"
+    },
+    "60304": {
+        "menu_en": "Configuration > Users > Time Periods",
+        "menu_fr": "Configuration > Utilisateurs > P\u00e9riodes temporelles",
+        "Topology ID": "60304",
+        "Topology Page": "./include/configuration/configObject/timeperiod/timeperiod.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/basic-objects/timeperiods/"
+    },
+    "/configuration/notifications": {
+        "menu_en": "Configuration > Notifications > Notifications",
+        "menu_fr": "Configuration > Notifications > Notifications",
+        "Topology ID": "60413",
+        "Topology Page": "/configuration/notifications",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/notif-configuration/"
+    },
+    "60420": {
+        "menu_en": "Configuration > Notifications > Rules (Open Ticket)",
+        "menu_fr": "Configuration > Notifications > R\u00e8gles (Open Ticket)",
+        "Topology ID": "60420",
+        "Topology Page": "./modules/centreon-open-tickets/views/rules/index.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/ticketing/"
+    },
+    "60421": {
+        "menu_en": "Configuration > Notifications > Submit Ticket",
+        "menu_fr": "Configuration > Notifications > Soumettre un ticket",
+        "Topology ID": "60421",
+        "Topology Page": "./modules/centreon-open-tickets/views/rules/submitTicket/action.php",
+        "Documentation": "https://docs.centreon.com/cloud/alerts-notifications/ticketing-use/"
+    },
+    "60801": {
+        "menu_en": "Configuration > Commands > Checks",
+        "menu_fr": "Configuration > Commandes > Contr\u00f4les",
+        "Topology ID": "60801",
+        "Topology Page": "./include/configuration/configObject/command/command.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/basic-objects/commands/"
+    },
+    "60803": {
+        "menu_en": "Configuration > Commands > Miscellaneous",
+        "menu_fr": "Configuration > Commandes > Divers",
+        "Topology ID": "60803",
+        "Topology Page": "./include/configuration/configObject/command/command.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/event-handler/#step-1-create-a-command"
+    },
+    "60902": {
+        "menu_en": "Configuration > Pollers > Export configuration",
+        "menu_fr": "Configuration > Collecteurs > Exporter la configuration",
+        "Topology ID": "60902",
+        "Topology Page": "./include/configuration/configGenerate/generateFiles.php",
+        "Documentation": "https://docs.centreon.com/cloud/monitoring/monitoring-servers/deploying-a-configuration/"
+    },
+    "/configuration/bam/bvs": {
+        "menu_en": "Configuration > Business Activity > Business Views",
+        "menu_fr": "Configuration > Activit\u00e9s m\u00e9tiers > Vues m\u00e9tiers",
+        "Topology ID": "62604",
+        "Topology Page": "/configuration/bam/bvs",
+        "Documentation": "https://docs.centreon.com/cloud/service-mapping/ba-management/#business-view-bv"
+    },
+    "62606": {
+        "menu_en": "Configuration > Business Activity > Indicators",
+        "menu_fr": "Configuration > Activit\u00e9s m\u00e9tiers > Indicateurs (KPI)",
+        "Topology ID": "62606",
+        "Topology Page": "./modules/centreon-bam-server/core/configuration/kpi/configuration_kpi.php",
+        "Documentation": "https://docs.centreon.com/cloud/service-mapping/ba-management/#indicators-kpi"
+    },
+    "62607": {
+        "menu_en": "Configuration > Business Activity > Default Settings",
+        "menu_fr": "Configuration > Activit\u00e9s m\u00e9tiers > Param\u00e8tres par d\u00e9faut",
+        "Topology ID": "62607",
+        "Topology Page": "./modules/centreon-bam-server/core/options/general/general.php",
+        "Documentation": "https://docs.centreon.com/cloud/service-mapping/ba-settings/"
+    },
+    "62608": {
+        "menu_en": "Configuration > Business Activity > User Settings",
+        "menu_fr": "Configuration > Activit\u00e9s m\u00e9tiers > Param\u00e8tres utilisateurs",
+        "Topology ID": "62608",
+        "Topology Page": "./modules/centreon-bam-server/core/options/user/user.php",
+        "Documentation": "https://docs.centreon.com/cloud/service-mapping/ba-settings/#user-settings"
+    },
+    "62611": {
+        "menu_en": "Configuration > Business Activity > Boolean Rules",
+        "menu_fr": "Configuration > Activit\u00e9s m\u00e9tiers > R\u00e8gles bool\u00e9ennes",
+        "Topology ID": "62611",
+        "Topology Page": "./modules/centreon-bam-server/core/configuration/boolean/configuration_boolean.php",
+        "Documentation": "https://docs.centreon.com/cloud/service-mapping/ba-management/#boolean-rules"
+    },
+    "2040101": {
+        "menu_en": "Monitoring > Performances > Chart split",
+        "menu_fr": "Supervision > Informations de performance > Graphiques > Un graphique par courbe",
+        "Topology ID": "2040101",
+        "Topology Page": "./include/views/graphs/graph-split.php",
+        "Documentation": "https://docs.centreon.com/cloud/metrology/chart-management/"
+    },
+    "2040102": {
+        "menu_en": "Monitoring > Performances > Chart periods",
+        "menu_fr": "Supervision > Informations de performance > Graphiques > Afficher des p\u00e9riodes multiples",
+        "Topology ID": "2040102",
+        "Topology Page": "./include/views/graphs/graph-periods.php",
+        "Documentation": "https://docs.centreon.com/cloud/metrology/chart-management/"
+    }
+}

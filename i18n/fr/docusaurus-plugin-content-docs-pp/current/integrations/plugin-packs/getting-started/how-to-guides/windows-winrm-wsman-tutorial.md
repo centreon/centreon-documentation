@@ -1,6 +1,7 @@
 ---
 id: windows-winrm-wsman-tutorial
 title: Tutoriel de configuration de Windows WSMAN
+description: "Tutoriel pour configurer WinRM/WSMAN, le pare-feu, un utilisateur dédié et Kerberos afin de superviser des serveurs Windows avec Centreon."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -215,6 +216,8 @@ Dans cet exemple :
 
 À partir de là, votre utilisateur dédié est opérationnel et peut superviser votre serveur Windows sans nécessiter de compte administrateur local.
 
+> Remarque : Le SDDL doit donc être configuré pour `scmanager` et pour tous les services supplémentaires que vous souhaitez superviser. 
+
 </TabItem>
 <TabItem value="Configuration du domaine" label="Configuration du domaine">
 
@@ -233,7 +236,7 @@ Dans cet exemple :
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-edit.png)
 
-* Dans l'**Group Policy Editor**, accédez à **Computer Configuration > Policies > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Service**.
+* Dans le menu **Group Policy Management Editor**, accédez à **Computer Configuration > Policies > Administrative Templates > Windows Components > Windows Remote Management (WinRM) > WinRM Service**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-gpo-winrm.png)
 
@@ -866,9 +869,9 @@ Set-Item -Path WSMan:\localhost\Service\RootSDDL -Value $new_sddl -Force
 * Spécifiez les paramètres suivants :
     * Action : **Start a program**
     * Programme/script : **PowerShell.exe**
-    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1**\<span style=\{\{color:'#FF0000'\}\}\>**@SERVICE_USERNAME@**\</span\>
+    * Ajouter arguments : **-file C:\Windows\Temp\RootSDDL-Permision.ps1** **@SERVICE_USERNAME@**
         * Ajustez ce paramètre pour qu'il corresponde au paramètre "Destination du fichier" précédemment configuré
-        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1\<span style=\{\{color:'#FF0000'\}\}\>sa_centreon\</span\>**.
+        * Dans notre exemple, l'argument est **-file C:\Windows\Temp\RootSDDL-Permision.ps1 **sa_centreon**.
 
 ![image](../../../../assets/integrations/plugin-packs/how-to-guides/windows-winrm-wsman-gpo-tutorial/windows-winrm-wsman-rootsddl-2.png)
 
@@ -996,6 +999,115 @@ systemctl restart crond
 ```
 
 Tout est maintenant configuré pour superviser vos serveurs Windows à l'aide de WSMAN avec un compte d'utilisateur de service, en utilisant un protocole chiffré de bout en bout.
+
+#### Résolution de problèmes & limitations connues
+
+##### Échec du renouvellement du ticket Kerberos avec `No credentials cache found`
+
+Lors de l'utilisation du cron job recommandé pour renouveler les tickets Kerberos, vous pouvez rencontrer l'erreur suivante :
+
+```bash
+kinit: No credentials cache found while renewing credentials
+```
+
+Cela se produit car le cron job s'exécute dans un environnement minimal où la variable `KRB5CCNAME` n'est pas définie,
+empêchant `kinit -R` de localiser le cache de credentials utilisé par les processus `centreon-engine` et `centreon-gorgone`.
+
+###### Diagnostic
+
+Commencez par identifier l'emplacement réel du cache de credentials pour chaque utilisateur :
+
+```bash
+sudo -u centreon-engine klist
+sudo -u centreon-gorgone klist
+```
+
+La sortie affichera le chemin du cache, par exemple :
+
+```
+Credentials cache: FILE:/tmp/krb5cc_994
+```
+
+###### Correction — Option 1 : Forcer la réinitialisation complète du ticket toutes les 9 heures (recommandé)
+
+Plutôt que de s'appuyer sur `kinit -R` (renouvellement du ticket), remplacez le cron par une ré-authentification
+complète via le fichier keytab. Cette approche est plus robuste car elle ne dépend pas d'un cache existant :
+
+```bash
+cat <<EOF > /etc/cron.d/kerberos
+# ########################################
+#
+# Cron Configuration for Kerberos
+#
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+
+############################ Réinitialisation du ticket toutes les 9h
+0 */9 * * *  centreon-engine kinit -k -t /etc/centreon-engine/@USERNAME@.keytab @USERNAME@
+0 */9 * * *  centreon-gorgone kinit -k -t /etc/centreon-gorgone/@USERNAME@.keytab @USERNAME@
+EOF
+```
+
+> Remplacez `@USERNAME@` par le nom réel de votre compte de service (ex. `ServiceMonitor`).
+
+###### Correction — Option 2 : Définir `KRB5CCNAME` explicitement dans le cron
+
+Si vous préférez conserver l'approche par renouvellement, définissez explicitement le chemin du cache dans le cron :
+
+```bash
+0 */9 * * *  centreon-engine KRB5CCNAME=FILE:/tmp/krb5cc_centreon-engine kinit -R
+0 */9 * * *  centreon-gorgone KRB5CCNAME=FILE:/tmp/krb5cc_centreon-gorgone kinit -R
+```
+
+> Attention : Assurez-vous que le chemin du fichier de cache correspond bien à la sortie de `klist` pour chaque utilisateur.
+
+##### Erreur `Disk quota exceeded` lors de la supervision d'un grand nombre d'hôtes Windows
+
+Lors de la supervision de **plus de ~100 hôtes Windows**, vous pouvez observer l'erreur `Disk quota exceeded`
+pendant la régénération des tokens Kerberos. Cela entraîne l'arrêt de la supervision pour tous les hôtes concernés.
+
+###### Cause
+
+Chaque authentification Kerberos génère des fichiers temporaires (caches de credentials, tickets) dans `/tmp` ou dans
+le répertoire personnel des comptes de service `centreon-engine` / `centreon-gorgone`. Si un quota disque est appliqué
+à ces utilisateurs, il peut être dépassé lors de la supervision simultanée d'un grand nombre d'hôtes.
+
+###### Diagnostic
+
+Vérifiez le quota disque des comptes de service :
+
+```bash
+quota -u centreon-engine
+quota -u centreon-gorgone
+```
+
+Vérifiez la présence de fichiers de cache accumulés :
+
+```bash
+ls -lah /tmp/krb5*
+df -h /tmp
+```
+
+###### Résolution
+
+**1. Nettoyez les fichiers de cache obsolètes** dans `/tmp` :
+
+```bash
+find /tmp -name 'krb5*' -user centreon-engine -delete
+find /tmp -name 'krb5*' -user centreon-gorgone -delete
+```
+
+**2. Augmentez ou supprimez le quota disque** de ces comptes de service (nécessite les droits root) :
+
+```bash
+edquota -u centreon-engine
+edquota -u centreon-gorgone
+```
+
+**3. Redirigez le cache Kerberos** vers un répertoire dédié disposant d'un espace suffisant,
+en définissant la variable `KRB5CCNAME` dans l'environnement des services Centreon.
+
+> Ces comptes de service sont des utilisateurs système et ne nécessitent généralement pas de quota disque strict.
+> Il est en général sans risque d'augmenter ou de supprimer le quota pour `centreon-engine` et `centreon-gorgone`.
 
 ### Comment tester votre configuration depuis votre poller Centreon
 

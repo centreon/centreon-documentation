@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-modbus
 title: Modbus
+description: "Monitor Modbus devices with Centreon via TCP/RTU: install the connector and configure registers, thresholds, and calculated metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -23,8 +24,8 @@ No services are created by default for this host template.
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias         | Service Template                                 | Service Description         |
-|:----------------------|:-------------------------------------------------|:----------------------------|
+| Service Alias         | Service Template                                 | Service Description        |
+|:----------------------|:-------------------------------------------------|:---------------------------|
 | Numeric-Value-Generic | App-Protocol-Modbus-Numeric-Value-Generic-custom | Monitor metrics via Modbus |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -157,10 +158,10 @@ yum install centreon-plugin-Applications-Protocol-Modbus
 <Tabs groupId="sync">
 <TabItem value="Numeric-Value-Generic" label="Numeric-Value-Generic">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CONFIG       | Define the configuration of the check (can be a file or a json string directly).                                       |                   | X           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro        | Description                                                                                                                            | Default value | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CONFIG       | Define the configuration of the check (can be a file or a json string directly).                                                       |               |     X     |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 > **CONFIG :** More information is available [here](https://github.com/centreon/centreon-plugins/blob/master/doc/en/user/guide.rst#modbus-protocol).
 
@@ -188,6 +189,352 @@ The expected command output is shown below:
 ```bash
 OK: All metrics are OK | 'metric1'=10;;;; 'metric2'=40;;;; 'metric3'=72;;;; 
 ```
+
+> The JSON file content can also be passed directly:  
+> `--config='{ "selection": { "metric1": { ... } } }'`
+
+### General structure of the JSON file
+
+```json
+{
+  "selection": { ... },
+  "virtualcurve": { ... },
+  "command": { ... }
+}
+```
+
+| Section        | Required | Description                                   |
+|----------------|----------|-----------------------------------------------|
+| `selection`    | Yes      | Defines the Modbus registers to read          |
+| `virtualcurve` | No       | Aggregates and transforms the read values     |
+| `command`      | No       | Customizes the global formatting of the output |
+
+
+### Section `selection`
+
+Each entry in `selection` corresponds to a Modbus register (or group of registers) to read.
+The key is the **name of the resulting metric**.
+
+```json
+{
+  "selection": {
+    "<metric_name>": {
+      "address": <integer>,
+      "quantity": <integer>,
+      "type": "<register_type>",
+      "display": <true|false>,
+      "formatting": { ... }
+    }
+  }
+}
+```
+
+#### Available keys in `selection`
+
+| Key          | Type    | Required | Description                                                              |
+|--------------|---------|----------|--------------------------------------------------------------------------|
+| `address`    | integer | Yes      | Modbus register address (decimal)                                        |
+| `quantity`   | integer | Yes      | Number of consecutive registers to read                                  |
+| `type`       | string  | No       | Register type (see values below). Default: `holding`                     |
+| `display`    | boolean | No       | Display the raw value in the output. Default: `true`                     |
+| `formatting` | object  | No       | Customize the output message (see [Formatting](#formatting) section)     |
+
+#### Possible values for `type`
+
+| Value      | Description                                                  |
+|------------|--------------------------------------------------------------|
+| `holding`  | Holding register (read/write) — most common                  |
+| `input`    | Input register (read-only)                                   |
+| `coil`     | Coil (binary value 0/1, read/write)                          |
+| `discrete` | Discrete input (binary value 0/1, read-only)                 |
+
+#### Minimal example
+
+```json
+{
+  "selection": {
+    "temperature": {
+      "address": 100,
+      "quantity": 1,
+      "type": "holding",
+      "display": true
+    }
+  }
+}
+```
+
+#### Example with multiple metrics
+
+```json
+{
+  "selection": {
+    "metric1": { "address": 1, "quantity": 1, "type": "holding", "display": true },
+    "metric2": { "address": 2, "quantity": 1, "type": "holding", "display": true },
+    "metric3": { "address": 3, "quantity": 1, "type": "holding", "display": true }
+  }
+}
+```
+
+#### Reading multiple registers at once (`quantity > 1`)
+
+When `quantity` is greater than 1, the plugin reads multiple consecutive registers and names them automatically `<name>.0`, `<name>.1`, etc.
+This is useful to reduce network exchanges on low-bandwidth links.
+
+```json
+{
+  "selection": {
+    "phases": {
+      "address": 1045,
+      "quantity": 3,
+      "type": "holding",
+      "display": false
+    }
+  }
+}
+```
+
+> The generated metrics will be named: `phases.0`, `phases.1`, `phases.2`
+
+### Section `virtualcurve`
+
+The `virtualcurve` section allows you to create derived metrics from the values read in `selection`. It is essential for:
+- Applying a scaling factor (e.g. dividing by 10 if the device returns `153` for `15.3A`)
+- Aggregating multiple registers (average, sum, min, max)
+- Defining warning and critical thresholds
+- Performing complex calculations (e.g. power = current × voltage)
+
+```json
+{
+  "virtualcurve": {
+    "<metric_name>": {
+      "aggregation": "<method>",
+      "pattern": "<regex>",
+      "custom": "<expression>",
+      "unit": "<unit>",
+      "warning": "<threshold>",
+      "critical": "<threshold>",
+      "formatting": { ... }
+    }
+  }
+}
+```
+
+#### Available keys in `virtualcurve`
+
+| Key           | Type   | Required | Description                                                                                                                    |
+|---------------|--------|----------|--------------------------------------------------------------------------------------------------------------------------------|
+| `aggregation` | string | Yes      | Aggregation method for the selected values                                                                                     |
+| `pattern`     | string | No       | Regular expression to filter source metrics from `selection`. If absent, all metrics are used                                  |
+| `custom`      | string | No       | Arithmetic expression applied to the aggregated value                                                                          |
+| `unit`        | string | No       | Unit of the resulting metric (e.g. `A`, `W`, `°C`)                                                                             |
+| `warning`     | string | No       | Warning threshold (Nagios format: simple value or range `min:max`)                                                             |
+| `critical`    | string | No       | Critical threshold (Nagios format: simple value or range `min:max`)                                                            |
+| `formatting`  | object | No       | Customize the output message (see [Formatting](#formatting) section)                                                           |
+
+#### Possible values for `aggregation`
+
+| Value | Description                                 |
+|-------|---------------------------------------------|
+| `avg` | Average of the selected values              |
+| `sum` | Sum of the selected values                  |
+| `min` | Minimum value among the selected values     |
+| `max` | Maximum value among the selected values     |
+
+### Section `command` (global formatting)
+
+The `command` section allows you to modify the display of all metrics globally, and to override this behavior for a specific metric via `override`.
+
+```json
+{
+  "selection": { ... },
+  "command": {
+    "formatting": {
+      "printf_msg": "My Metric '%s' value is %.2f",
+      "printf_var": "$self->{result_values}->{instance}, $self->{result_values}->{value}"
+    },
+    "override": {
+      "metric3": {
+        "formatting": {
+          "printf_msg": "Override '%s' value is %.2f",
+          "printf_var": "$self->{result_values}->{instance}, $self->{result_values}->{value}"
+        }
+      }
+    }
+  }
+}
+```
+
+### Formatting output messages {#formatting}
+
+The `formatting` object (available in `selection`, `virtualcurve` or `command`) allows you to customize the text displayed for each metric.
+
+| Key          | Description                                                                     |
+|--------------|---------------------------------------------------------------------------------|
+| `printf_msg` | Message format, Perl `printf` syntax (e.g. `"Metric '%s' value is %.2f"`)       |
+| `printf_var` | Perl variables to inject into the message                                       |
+
+Available variables in `printf_var`:
+
+| Variable                             | Content                      |
+|--------------------------------------|------------------------------|
+| `$self->{result_values}->{instance}` | Name of the metric           |
+| `$self->{result_values}->{value}`    | Numeric value of the metric  |
+
+### Examples of custom calculations (`custom`)
+
+The `custom` attribute accepts a Perl arithmetic expression that will be applied to the aggregated value.
+The current value is implicit — the expression starts directly with the operator.
+
+#### Simple scaling
+
+The device returns `1530` to represent `15.3 A`:
+
+```json
+{
+  "selection": {
+    "rawCurrent": { "address": 1045, "quantity": 1, "display": false }
+  },
+  "virtualcurve": {
+    "currentA": {
+      "aggregation": "avg",
+      "custom": "/10",
+      "unit": "A",
+      "warning": "45",
+      "critical": "50"
+    }
+  }
+}
+```
+
+#### Power calculation (current × voltage)
+
+From the raw current value, calculate the power in kW (assuming 230V voltage):
+
+```json
+{
+  "selection": {
+    "rawCurrent": { "address": 1045, "quantity": 1, "display": false }
+  },
+  "virtualcurve": {
+    "currentA": {
+      "aggregation": "avg",
+      "custom": "/10",
+      "unit": "A"
+    },
+    "powerKW": {
+      "aggregation": "avg",
+      "custom": "/10*230/1000",
+      "unit": "kW",
+      "formatting": {
+        "printf_msg": "Power '%s' is %.3f kW",
+        "printf_var": "$self->{result_values}->{instance}, $self->{result_values}->{value}"
+      }
+    }
+  }
+}
+```
+
+#### Aggregating multiple registers with `pattern`
+
+Read 4 registers at once and calculate two averages over pairs:
+
+```json
+{
+  "selection": {
+    "phases": {
+      "address": 1,
+      "quantity": 4,
+      "type": "holding",
+      "display": false
+    }
+  },
+  "virtualcurve": {
+    "avg_phases_12": {
+      "pattern": "phases\\.[01]$",
+      "aggregation": "avg",
+      "unit": "V"
+    },
+    "avg_phases_34": {
+      "pattern": "phases\\.[23]$",
+      "aggregation": "avg",
+      "unit": "V"
+    }
+  }
+}
+```
+
+> The metrics `phases.0`, `phases.1`, `phases.2`, `phases.3` are created automatically by `quantity: 4`. The `pattern` then filters which ones are included in each `virtualcurve`.
+
+### Full example — Monitoring an electric generator [based on a community use case](https://thewatch.centreon.com/infra-monitoring-data-collection-6/monitor-an-electric-generator-with-modbus-376)
+
+This file monitors the battery voltage, current and power of a generator. The device returns values ×10 (e.g. `230` = `23.0 V`).
+
+```json
+{
+  "selection": {
+    "batteryVoltageRaw": { "address": 1029, "quantity": 1, "type": "holding", "display": false },
+    "currentPhase1Raw":  { "address": 1045, "quantity": 1, "type": "holding", "display": false },
+    "currentPhase2Raw":  { "address": 1046, "quantity": 1, "type": "holding", "display": false },
+    "currentPhase3Raw":  { "address": 1047, "quantity": 1, "type": "holding", "display": false }
+  },
+  "virtualcurve": {
+    "batteryVoltage": {
+      "aggregation": "avg",
+      "custom": "/10",
+      "unit": "V",
+      "warning": "22",
+      "critical": "20",
+      "formatting": {
+        "printf_msg": "Battery voltage '%s' is %.1f V",
+        "printf_var": "$self->{result_values}->{instance}, $self->{result_values}->{value}"
+      }
+    },
+    "currentPhase1": {
+      "pattern": "currentPhase1Raw",
+      "aggregation": "avg",
+      "custom": "/10",
+      "unit": "A",
+      "warning": "45",
+      "critical": "50"
+    },
+    "powerPhase1": {
+      "pattern": "currentPhase1Raw",
+      "aggregation": "avg",
+      "custom": "/10*230/1000",
+      "unit": "kW"
+    },
+    "currentPhase2": {
+      "pattern": "currentPhase2Raw",
+      "aggregation": "avg",
+      "custom": "/10",
+      "unit": "A",
+      "warning": "45",
+      "critical": "50"
+    },
+    "currentPhase3": {
+      "pattern": "currentPhase3Raw",
+      "aggregation": "avg",
+      "custom": "/10",
+      "unit": "A",
+      "warning": "45",
+      "critical": "50"
+    }
+  }
+}
+```
+
+### Threshold format (`warning` / `critical`)
+
+Thresholds follow the standard Nagios/Centreon syntax:
+
+| Example   | Meaning                                              |
+|-----------|------------------------------------------------------|
+| `"50"`    | Alert if value > 50                                  |
+| `"0:50"`  | Alert if value is outside `[0, 50]`                  |
+| `"@0:50"` | Alert if value is **inside** `[0, 50]` (inverted)    |
+| `"~:50"`  | Alert if value > 50 (no lower bound)                 |
+| `"50:"`   | Alert if value < 50                                  |
+
 
 ### Troubleshooting
 
@@ -243,7 +590,7 @@ All available options for each service template are listed below:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

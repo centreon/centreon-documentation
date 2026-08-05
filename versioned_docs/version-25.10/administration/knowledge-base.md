@@ -1,6 +1,7 @@
 ---
 id: knowledge-base
 title: Knowledge Base
+description: "Link Centreon hosts and services to wiki procedures via Knowledge Base"
 ---
 
 ## Introduction
@@ -18,12 +19,14 @@ To make things more flexible, procedures can be associated with templates.
 
 ## Prerequisites
 
-**Centreon Knowledge Base** requires **MediaWiki** to be installed (version =
-1.31) on your system.
+**Centreon Knowledge Base** requires **MediaWiki** to be installed (versions from
+1.39 to 1.43) on your system.
 
 You can [download MediaWiki
 here](http://www.mediawiki.org/wiki/MediaWiki) and access the [documentation
 here](http://www.mediawiki.org/wiki/User_hub).
+
+Mediawiki also requires PHP 8.2 to function, this is installed by default with Centreon.
 
 ## Configure the access to the wiki
 

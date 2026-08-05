@@ -1,6 +1,7 @@
 ---
 id: about-centreon-cloud
 title: À propos de Centreon Cloud
+description: "FAQ sur Centreon Cloud portant sur les garanties de SLA, l'hébergement et la conservation des données, la sécurité et la maintenance"
 ---
 
 ## Qu'est-ce que Centreon Cloud ?
@@ -23,7 +24,7 @@ Centreon utilise [plusieurs hébergeurs](../security/security.md#sécurité-de-l
 
 ## Combien de temps sont gardées mes données ?
 
-Les données de supervision sont gardées 12 mois : données de performance data (métriques), plages de maintenance, acquittements, commentaires, logs...
+Les données de supervision sont gardées 12 mois : données de performance (métriques), plages de maintenance, acquittements, commentaires, logs...
 Toutes les autres données (par exemple la configuration) sont gardées jusqu'à la fin de votre souscription.
 
 ## Quelles mesures de sécurité Centreon prend-il ?

@@ -1,6 +1,7 @@
 ---
 id: knowledge-base
 title: Base de connaissance
+description: "Lier les hôtes et services Centreon à des procédures via un wiki"
 ---
 
 ## Introduction
@@ -20,12 +21,14 @@ de connaissance avec Centreon Web.
 
 ## Pré-requis
 
-**Knowledge Base** requiert que **MediaWiki** (version = 1.31) soit
+**Knowledge Base** requiert que **MediaWiki** (versions 1.39 à 1.43) soit
 installé sur un serveur.
 
 Alternativement vous pouvez [télécharger MediaWiki
 ici](http://www.mediawiki.org/wiki/MediaWiki) et accéder à la [documentation
 ici](http://www.mediawiki.org/wiki/User_hub).
+
+Mediawiki requiert également PHP 8.2 pour fonctionner. Ceci est installé par défaut avec Centreon.
 
 ## Configuration de l'accès au wiki
 

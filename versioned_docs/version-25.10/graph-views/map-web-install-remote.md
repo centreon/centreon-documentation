@@ -1,6 +1,7 @@
 ---
 id: map-web-install-remote
 title: Installing MAP on a remote server
+description: "Install Centreon MAP on a remote poller server"
 ---
 
 ## Centreon MAP installation for a Centreon remote server
@@ -17,19 +18,7 @@ Then refer to the [installation procedure](map-web-install.md) to install the tw
 After that, you will have to perform the additional steps explained below, to finish
 installing Centreon Map on your remote server.
 
-## Architecture
-
-The diagram below summarizes the MAP architecture:
-
-![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
-
-## Image synchronization
-
-Add access to the image synchronization page **Administration  >  Parameters  >  Images**
-```shell
-[root@remote ~]# mysql centreon
-MariaDB [centreon]> update topology SET topology_show='1' where topology_name='Images' ;
-```
+For more information about the MAP architecture in a remote server setup, see the [MAP architecture](map-architecture.md) topic.
 
 ## Centreon Broker configuration
 
@@ -45,6 +34,10 @@ In the **Output** tab, create a new output with the following parameters:
 
 To complete the installation process, generate and deploy the Centreon remote
 server configuration by selecting **Restart**.
+
+## Image management
+
+If you want to use custom images, you can add them to the `centreon-map` directory from the web interface (see more information about [medias](../administration/parameters/medias.md)).
 
 ## Uninstalling Centreon MAP
 

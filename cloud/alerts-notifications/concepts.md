@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Possible statuses of a resource
+description: "Overview of host and service statuses, acknowledged and downtime states, and SOFT/HARD status types in Centreon Cloud"
 ---
 
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a
@@ -17,7 +18,7 @@ The table below summarizes all the possible statuses for a host.
 | Status                                             | Description                                                                                   |
 |----------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | <span style={{color:'#88b917'}}>UP</span>          | The host is available and reachable                                                           |
-| <span style={{color:'#e00b3d'}}>DOWN</span>        | The host is unavailable                                                                       |
+| <span style={{color:'#e00b3d'}}>DOWN</span>        | The host is unavailable. The corresponding services are no longer checked until the host becomes available again (they retain their last status).                                                                       |
 | <span style={{color:'#2ad1d4'}}>PENDING</span>     | The host has just been created and has not been checked yet by the monitoring engine |
 
 ### Service status

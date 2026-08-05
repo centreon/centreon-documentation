@@ -1,6 +1,7 @@
 ---
 id: map-web-manage
 title: Manage maps in MAP
+description: "Duplicate, delete, edit, share, and view status information for standard maps and geographic views in Centreon MAP"
 ---
 
 This topic provides information about how to perform actions on your maps from the Centreon MAP interface. You can create two types of map:
@@ -19,8 +20,6 @@ The homepage displays the list of existing maps and, for each map, you can view 
 ## Performing actions on a map
 
 You can perform actions on any standard map and geographic view you have access to. Use the following procedures if you need to edit map properties, share or delete a map.
-
-> The features to share and to copy a map URL are not available on a geographic view.
 
 ### Duplicate a map
 

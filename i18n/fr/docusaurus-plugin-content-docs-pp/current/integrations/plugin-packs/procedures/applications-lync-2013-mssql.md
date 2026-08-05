@@ -1,149 +1,556 @@
 ---
 id: applications-lync-2013-mssql
 title: Lync 2013
+description: "Supervisez Microsoft Lync 2013 via sa base MSSQL : qualité audio/vidéo (QoE), types de sessions, appels de mauvaise qualité et nombre d'utilisateurs."
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
+## Dépendances du connecteur de supervision
 
-### Centreon Plugin
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Lync 2013**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
-Install this plugin on each needed poller:
+## Contenu du pack
 
-``` shell
+### Modèles
+
+Le connecteur de supervision **Lync 2013** apporte un modèle d'hôte :
+
+* **App-Lync-2013-Mssql-custom**
+
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
+
+<Tabs groupId="sync">
+<TabItem value="App-Lync-2013-Mssql-custom" label="App-Lync-2013-Mssql-custom">
+
+| Alias              | Modèle de service                         | Description                                                                                                       |
+|:-------------------|:------------------------------------------|:------------------------------------------------------------------------------------------------------------------|
+| AppSharing-Qoe     | App-Lync-2013-AppSharing-Qoe-Mssql-custom | Contrôle les métriques du partage d'application Qoe dans la base Lync dédiée                                        |
+| Lync-Audio-Qoe     | App-Lync-2013-Audio-Qoe-Mssql-custom      | Contrôle les métriques Audio Qoe dans la base Lync dédiée                                                           |
+| Lync-Poor-Calls    | App-Lync-2013-Poor-Calls-Mssql-custom     | Contrôle le nombre d'appels de basse qualité durant les X dernières minutes de manière globale et par utilisateur |
+| Lync-Session-Types | App-Lync-2013-Session-Types-Mssql-custom  | Contrôle le nombre de sessions de chaque type durant les X dernières minutes                                     |
+| Lync-User-Count    | App-Lync-2013-User-Count-Mssql-custom     | Contrôle le nombre d'utilisateurs sur un serveur Lync FrontEnd                                                    |
+| Lync-Video-Qoe     | App-Lync-2013-Video-Qoe-Mssql-custom      | Contrôle les métriques Qoe dans la base Lync dédiée                                                                 |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Lync-2013-Mssql-custom** est utilisé.
+
+</TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+
+<Tabs groupId="sync">
+<TabItem value="AppSharing-Qoe" label="AppSharing-Qoe">
+
+| Nom                             | Unité     |
+|:--------------------------------|:----------|
+| spoiled-tile-prct-total-avg     | %         |
+| rdp-tile-processing-latency-avg | ms        |
+| relative-one-way-average        | ms        |
+| stream-count                    | streams/s |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Lync-Audio-Qoe" label="Lync-Audio-Qoe">
+
+| Nom          | Unité     |
+|:-------------|:----------|
+| jitter-avg   | ms        |
+| jitter-min   | ms        |
+| jitter-max   | ms        |
+| loss-avg     | %         |
+| loss-min     | %         |
+| loss-max     | %         |
+| stream-count | streams/s |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Lync-Poor-Calls" label="Lync-Poor-Calls">
+
+| Nom    | Unité |
+|:-------|:------|
+| global | calls |
+| user   | N/A   |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Lync-Session-Types" label="Lync-Session-Types">
+
+| Nom               | Unité    |
+|:------------------|:---------|
+| instant-messaging | sessions |
+| audio             | sessions |
+| video             | sessions |
+| file-transfer     | sessions |
+| remote-assistance | sessions |
+| app-sharing       | sessions |
+| app-invite        | sessions |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Lync-User-Count" label="Lync-User-Count">
+
+| Nom                | Unité |
+|:-------------------|:------|
+| users.total.count  | users |
+| users.unique.count | users |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Lync-Video-Qoe" label="Lync-Video-Qoe">
+
+| Nom              | Unité     |
+|:-----------------|:----------|
+| packet-loss      | %         |
+| post-fecplr      | %         |
+| local-frame-loss | %         |
+| recv-frame       | frames/s  |
+| inbound-frame    | %         |
+| outbound-frame   | %         |
+| stream-count     | streams/s |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+Assurez-vous que le serveur SQL de Lync est accessible depuis le poller Centreon et qu’un compte avec les droits de lecture sur la base est disponible.
+
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-applications-lync-2013-mssql
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-applications-lync-2013-mssql
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-lync-2013-mssql
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-lync-2013-mssql
+```
+
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Lync 2013**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Lync-2013-Mssql
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Lync-2013-Mssql
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-lync-2013-mssql
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-plugin-Applications-Lync-2013-Mssql
 ```
 
-## Username
+</TabItem>
+</Tabs>
 
-The username string should not be longer than 32 chararacters. Username must be
-in the following form: \[Servername|Domainname\] In order for the plugin to
-operate correctly, a database user with specific privileges is required. The
-most simple way is to assign the Nagios-user the role “serveradmin”. As an
-alternative you can use the sa-User for the database connection. Alas, this
-opens a serious security hole, as the (cleartext) administrator password can be
-found in the nagios configuration files Birk Bohne wrote the following script
-which allows the automated creation of a minimal, yet sufficient privileged
-monitoring-user.
+## Utiliser le connecteur de supervision
 
-    declare @dbname varchar(255)
-    declare @check_mssql_health_USER varchar(255)
-    declare @check_mssql_health_PASS varchar(255)
-    declare @check_mssql_health_ROLE varchar(255)
-    declare @source varchar(255)
-    declare @options varchar(255)
-    declare @backslash int
-    
-    /*******************************************************************/
-    SET @check_mssql_health_USER = '"[Servername|Domainname]\Username"'
-    SET @check_mssql_health_PASS = 'Password'
-    SET @check_mssql_health_ROLE = 'Rolename'
-    /******************************************************************
-    
-    PLEASE CHANGE THE ABOVE VALUES ACCORDING TO YOUR REQUIREMENTS
-    
-    - Example for Windows authentication:
-      SET @check_mssql_health_USER = '"[Servername|Domainname]\Username"'
-      SET @check_mssql_health_ROLE = 'Rolename'
-    
-    - Example for SQL Server authentication:
-      SET @check_mssql_health_USER = 'Username'
-      SET @check_mssql_health_PASS = 'Password'
-      SET @check_mssql_health_ROLE = 'Rolename'
-    
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    It is strongly recommended to use Windows authentication. Otherwise
-    you will get no reliable results for database usage.
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    
-    *********** NO NEED TO CHANGE ANYTHING BELOW THIS LINE *************/
-    
-    SET @options = 'DEFAULT_DATABASE=MASTER, DEFAULT_LANGUAGE=English'
-    SET @backslash = (SELECT CHARINDEX('\', @check_mssql_health_USER))
-    IF @backslash > 0
-      BEGIN
-        SET @source = ' FROM WINDOWS'
-        SET @options = ' WITH ' + @options
-      END
-    ELSE
-      BEGIN
-        SET @source = ''
-        SET @options = ' WITH PASSWORD=''' + @check_mssql_health_PASS + ''',' + @options
-      END
-    
-    PRINT 'create Nagios plugin user ' + @check_mssql_health_USER
-    EXEC ('CREATE LOGIN ' + @check_mssql_health_USER + @source + @options)
-    EXEC ('USE MASTER GRANT VIEW SERVER STATE TO ' + @check_mssql_health_USER)
-    EXEC ('USE MASTER GRANT ALTER trace TO ' + @check_mssql_health_USER)
-    EXEC ('USE MSDB GRANT SELECT ON sysjobhistory TO ' + @check_mssql_health_USER)
-    EXEC ('USE MSDB GRANT SELECT ON sysjobschedules TO ' + @check_mssql_health_USER)
-    EXEC ('USE MSDB GRANT SELECT ON sysjobs TO ' + @check_mssql_health_USER)
-    PRINT 'User ' + @check_mssql_health_USER + ' created.'
-    PRINT ''
-    
-    declare dblist cursor for
-      select name from sysdatabases WHERE name NOT IN ('master', 'tempdb', 'msdb') open dblist
-        fetch next from dblist into @dbname
-        while @@fetch_status = 0 begin
-          EXEC ('USE [' + @dbname + '] print ''Grant permissions in the db '' + ''"'' + DB_NAME() + ''"''')
-          EXEC ('USE [' + @dbname + '] CREATE ROLE ' + @check_mssql_health_ROLE)
-          EXEC ('USE [' + @dbname + '] GRANT EXECUTE TO ' + @check_mssql_health_ROLE)
-          EXEC ('USE [' + @dbname + '] GRANT VIEW DATABASE STATE TO ' + @check_mssql_health_ROLE)
-          EXEC ('USE [' + @dbname + '] GRANT VIEW DEFINITION TO ' + @check_mssql_health_ROLE)
-          EXEC ('USE [' + @dbname + '] CREATE USER ' + @check_mssql_health_USER + ' FOR LOGIN ' + @check_mssql_health_USER)
-          EXEC ('USE [' + @dbname + '] EXEC sp_addrolemember ' + @check_mssql_health_ROLE + ' , ' + @check_mssql_health_USER)
-          EXEC ('USE [' + @dbname + '] print ''Permissions in the db '' + ''"'' + DB_NAME() + ''" granted.''')
-          fetch next from dblist into @dbname
-        end
-    close dblist
-    deallocate dblist
+### Utiliser un modèle d'hôte issu du connecteur
 
-Please keep in mind that check\_mssql\_health’s functionality is limited when
-using SQL Server authentication. This method is strongly discouraged . Normally
-there is already a Nagios-(Windows-)-user which can be used for the Windows
-authentication method.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Lync-2013-Mssql-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-### RPM
+| Macro         | Description          | Valeur par défaut | Obligatoire |
+|:--------------|:---------------------|:------------------|:-----------:|
+| MSSQLUSERNAME | MSSQL username                     |                   |             |
+| MSSQLPASSWORD | MSSQL password                      |                   |             |
+| MSSQLPORT     | Database Server Port |                   |             |
 
-In order to use this template, the following RPM are needed:
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-  - freetds-0.82-6.el6.$ARCH
-  - perl-DBD-Sybase-1.10-1.el6.rf.$ARCH
-  - unixODBC-2.2.14-14.el6.$ARCH
-  - unixODBC-devel-2.2.14-14.el6.$ARCH
+### Utiliser un modèle de service issu du connecteur
 
-#### Configuration of freetds.conf file
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
-The /etc/freetds.conf file have to be modified in order to encrypt the password.
-To do that :
+<Tabs groupId="sync">
+<TabItem value="AppSharing-Qoe" label="AppSharing-Qoe">
 
-    vi /etc/freetds.conf
+| Macro                    | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME                | Set the timeframe to query in seconds (default: 900)                                               | 900               |             |
+| WARNSPOILEDPRCT          | Threshold                                                                                          |                   |             |
+| WARNRDPPROCESSINGLATENCY | Threshold                                                                                          |                   |             |
+| WARNRELATIVEONEWAY       | Threshold                                                                                          |                   |             |
+| CRITSPOILEDPRCT          | Threshold                                                                                          |                   |             |
+| CRITRDPPROCESSINGLATENCY | Threshold                                                                                          |                   |             |
+| CRITRELATIVEONEWAY       | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-Modify line tds 'version = 4.2' to 'tds version = 8.0'. Then remove comment
-symbol at the beginning of this line.
+</TabItem>
+<TabItem value="Lync-Audio-Qoe" label="Lync-Audio-Qoe">
 
-## Centreon Configuration
+| Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME     | Set the timeframe to query in seconds (default: 900)                                               | 900               |             |
+| WARNJITTERMIN | Threshold                                                                                          |                   |             |
+| CRITJITTERMIN | Threshold                                                                                          |                   |             |
+| WARNJITTERMAX | Threshold                                                                                          |                   |             |
+| CRITJITTERMAX | Threshold                                                                                          |                   |             |
+| WARNJITTERAVG | Threshold                                                                                          |                   |             |
+| CRITJITTERAVG | Threshold                                                                                          |                   |             |
+| WARNLOSSMIN   | Threshold                                                                                          |                   |             |
+| CRITLOSSMIN   | Threshold                                                                                          |                   |             |
+| WARNLOSSMAX   | Threshold                                                                                          |                   |             |
+| CRITLOSSMAX   | Threshold                                                                                          |                   |             |
+| WARNLOSSAVG   | Threshold                                                                                          |                   |             |
+| CRITLOSSAVG   | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-### Create a new Lync MSSQL instance
+</TabItem>
+<TabItem value="Lync-Poor-Calls" label="Lync-Poor-Calls">
 
-Go to "Configuration \> Hosts" and click "Add". Then, fill the form as shown by
-the following table :
+| Macro          | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME      | Set the timeframe to query in seconds (default: 900)                                               | 900               |             |
+| WARNINGGLOBAL  | Set warning threshold for number of poor calls                                                     |                   |             |
+| CRITICALGLOBAL | Set critical threshold for number of poor calls                                                    |                   |             |
+| WARNINGUSER    | Threshold                                                                                                   |                   |             |
+| CRITICALUSER   | Threshold                                                                                                   |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-| Field                   | Value                      |
-| :---------------------- | :------------------------- |
-| Host name               | *Name of the host*         |
-| Alias                   | *Host description*         |
-| IP                      | *Host IP Address*          |
-| Monitored from          | *Monitoring Poller to use* |
-| Host Multiple Templates | App-Lync-2013-MSSQL-custom |
+</TabItem>
+<TabItem value="Lync-Session-Types" label="Lync-Session-Types">
 
-Click "Save" button.
+| Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME        | Set the timeframe to query in seconds (default: 900)                                               | 900               |             |
+| WARNIM           | Threshold                                                                                          |                   |             |
+| CRITIM           | Threshold                                                                                          |                   |             |
+| WARNFILETRANSFER | Threshold                                                                                                   |                   |             |
+| CRITFILETRANSFER | Threshold                                                                                                   |                   |             |
+| WARNREMOTEASSIST | Threshold                                                                                          |                   |             |
+| CRITREMOTEASSIST | Threshold                                                                                          |                   |             |
+| WARNAPPSHARING   | Threshold                                                                                          |                   |             |
+| CRITAPPSHARING   | Threshold                                                                                          |                   |             |
+| WARNAUDIO        | Threshold                                                                                          |                   |             |
+| CRITAUDIO        | Threshold                                                                                          |                   |             |
+| CRITVIDEO        | Threshold                                                                                          |                   |             |
+| WARNAPPINVITE    | Threshold                                                                                          |                   |             |
+| CRITAPPINVITE    | Threshold                                                                                          |                   |             |
+| WARNINGVIDEO     | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-#### Host Macro Configuration
+</TabItem>
+<TabItem value="Lync-User-Count" label="Lync-User-Count">
 
-The following macros must be configured on host:
+| Macro          | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGTOTAL   | Threshold                                                                                          |                   |             |
+| CRITICALTOTAL  | Threshold                                                                                          |                   |             |
+| WARNINGUNIQUE  | Threshold                                                                                          |                   |             |
+| CRITICALUNIQUE | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-| Macro         | Description                                                             | Default value |
-| :------------ | :---------------------------------------------------------------------- | :------------ |
-| MSSQLUSERNAME | MSSQL username                                                          |               |
-| MSSQLPASSWORD | MSSQL password                                                          |               |
-| MSSQLPORT     | Port Of the MSSQL instance (need to check in the SQL Studio if dynamic) |               |
+</TabItem>
+<TabItem value="Lync-Video-Qoe" label="Lync-Video-Qoe">
+
+| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| TIMEFRAME         | Set the timeframe to query in seconds (default: 900)                                               | 900               |             |
+| WARNRECEIVEFRAME  | Threshold                                                                                          |                   |             |
+| CRITRECEIVEFRAME  | Threshold                                                                                          |                   |             |
+| WARNFRAMELOSS     | Threshold                                                                                          |                   |             |
+| CRITFRAMELOSS     | Threshold                                                                                          |                   |             |
+| WARNPOSTFECPLR    | Threshold                                                                                          |                   |             |
+| CRITPOSTFECPLR    | Threshold                                                                                          |                   |             |
+| WARNPCKTLOSS      | Threshold                                                                                          |                   |             |
+| CRITPACKETLOSS    | Threshold                                                                                          |                   |             |
+| WARNINBOUNDFRAME  | Threshold                                                                                                   |                   |             |
+| CRITINBOUNDFRAME  | Threshold                                                                                                  |                   |             |
+| WARNOUTBOUNDFRAME | Threshold                                                                                          |                   |             |
+| CRITOUTBOUNDFRAME | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+
+```bash
+/usr/lib/centreon/plugins/centreon_lync_2k13.pl \
+	--plugin=database::mssql::plugin \
+	--dyn-mode=centreon::common::microsoft::skype::mssql::mode::videoqoe \
+	--hostname=10.0.0.1 \
+	--username='xxxxxxx' \
+	--password='xxxxxxx' \
+	--port= \
+	--timeframe='900' \
+	--warning-recv-frame='' \
+	--critical-recv-frame='' \
+	--warning-local-frame-loss='' \
+	--critical-local-frame-loss='' \
+	--warning-post-fecplr='' \
+	--critical-post-fecplr='' \
+	--warning-packet-loss='' \
+	--critical-packet-loss='' \
+	--warning-inbound-frame='' \
+	--critical-inbound-frame= \
+	--warning-outbound-frame='' \
+	--critical-outbound-frame=''
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: Packet Loss Rate: 23047% Packet Loss Rate After Correction: 24759% Video Frame Loss: 17980% Receiver Frame Rate: 83989/s Inbound Video Frame Rate: 39067% Outbound Video Frame Rate: 40997% Streams Count: 77910/s | 'packet-loss'=23047%;;;0;100 'post-fecplr'=24759%;;;0;100 'local-frame-loss'=17980%;;;0;100 'recv-frame'=83989frames/s;;;0; 'inbound-frame'=39067%;;;0;100 'outbound-frame'=40997%;;;0;100 'stream-count'=77910streams/s;;;0;
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_lync_2k13.pl \
+	--plugin=database::mssql::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                              | Modèle de service associé                 |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
+| appsharingqoe [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/microsoft/skype/mssql/mode/appsharingqoe.pm)] | App-Lync-2013-AppSharing-Qoe-Mssql-custom |
+| audioqoe [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/microsoft/skype/mssql/mode/audioqoe.pm)]           | App-Lync-2013-Audio-Qoe-Mssql-custom      |
+| backup-age [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/backupage.pm)]                               | Not used in this Monitoring Connector     |
+| blocked-processes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/blockedprocesses.pm)]                 | Not used in this Monitoring Connector     |
+| cache-hitratio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/cachehitratio.pm)]                       | Not used in this Monitoring Connector     |
+| collection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/collection.pm)]               | Not used in this Monitoring Connector     |
+| connected-users [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/connectedusers.pm)]                     | Not used in this Monitoring Connector     |
+| connection-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/connectiontime.pm)]      | Not used in this Monitoring Connector     |
+| databases-size [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/databasessize.pm)]                       | Not used in this Monitoring Connector     |
+| dead-locks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/deadlocks.pm)]                               | Not used in this Monitoring Connector     |
+| failed-jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/failedjobs.pm)]                             | Not used in this Monitoring Connector     |
+| list-databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/listdatabases.pm)]                       | Not used in this Monitoring Connector     |
+| locks-waits [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/lockswaits.pm)]                             | Not used in this Monitoring Connector     |
+| lyncusers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/lync/2013/mssql/mode/lyncusers.pm)]                          | App-Lync-2013-User-Count-Mssql-custom     |
+| name [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database.pm)]                                                          | Not used in this Monitoring Connector     |
+| page-life-expectancy [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/pagelifeexpectancy.pm)]            | Not used in this Monitoring Connector     |
+| poorcalls [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/microsoft/skype/mssql/mode/poorcalls.pm)]         | App-Lync-2013-Poor-Calls-Mssql-custom     |
+| sessionstypes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/microsoft/skype/mssql/mode/sessionstypes.pm)] | App-Lync-2013-Session-Types-Mssql-custom  |
+| sql [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/sql.pm)]                             | Not used in this Monitoring Connector     |
+| sql-string [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/sqlstring.pm)]                | Not used in this Monitoring Connector     |
+| tables [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/tables.pm)]                                      | Not used in this Monitoring Connector     |
+| transactions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/mssql/mode/transactions.pm)]                          | Not used in this Monitoring Connector     |
+| videoqoe [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/microsoft/skype/mssql/mode/videoqoe.pm)]           | App-Lync-2013-Video-Qoe-Mssql-custom      |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --sqlmode                                  |   This plugin offers several ways to query the database (default: dbi). See --list-sqlmode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --list-sqlmode                             |   List all available sql modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --multiple                                 |   Enable connecting to multiple databases (required by some specific modes such as replication).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --hostname                                 |   Hostname to query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --port                                     |   Database Server Port.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --server                                   |   An alternative to hostname+port. \<server\> will be looked up in the file freetds.conf.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --database                                 |   Select database .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="AppSharing-Qoe" label="AppSharing-Qoe">
+
+| Option            | Description                                                                                                                         |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used).                                                                                  |
+| --timeframe       |   Set the timeframe to query in seconds (default: 900)                                                                              |
+| --warning-*       |   Set warning thresholds. Can be : 'spoiled-tile-prct-total-avg', 'rdp-tile-processing-latency-avg', 'relative-one-way-average'     |
+| --critical-*      |   Set critical thresholds. Can be : 'spoiled-tile-prct-total-avg', 'rdp-tile-processing-latency-avg', 'relative-one-way-average'    |
+
+</TabItem>
+<TabItem value="Lync-Audio-Qoe" label="Lync-Audio-Qoe">
+
+| Option            | Description                                                                                                         |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used).                                                                  |
+| --timeframe       |   Set the timeframe to query in seconds (default: 900)                                                              |
+| --warning-*       |   Set warning thresholds. Can be : 'jitter-min', 'jitter-max', 'jitter-avg', 'loss-min', 'loss-max', 'loss-avg'     |
+| --critical-*      |   Set critical thresholds. Can be : 'jitter-min', 'jitter-max', 'jitter-avg', 'loss-min', 'loss-max', 'loss-avg'    |
+
+</TabItem>
+<TabItem value="Lync-Poor-Calls" label="Lync-Poor-Calls">
+
+| Option            | Description                                              |
+|:------------------|:---------------------------------------------------------|
+| --filter-user     |   Filter user name (can be a regexp)                     |
+| --filter-counters |   Only display some counters (regexp can be used).       |
+| --timeframe       |   Set the timeframe to query in seconds (default: 900)   |
+| --warning-global  |   Set warning threshold for number of poor calls.        |
+| --critical-global |   Set critical threshold for number of poor calls.       |
+
+</TabItem>
+<TabItem value="Lync-Session-Types" label="Lync-Session-Types">
+
+| Option            | Description                                                                                                                   |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used).                                                                            |
+| --timeframe       |   Set the timeframe to query in seconds (default: 900)                                                                        |
+| --warning-*       |   Set warning threshold. Can be : 'instant-messaging', 'app-sharing', 'audio', 'video', 'app-invite', 'remote-assistance'     |
+| --critical-*      |   Set critical threshold. Can be : 'instant-messaging', 'app-sharing', 'audio', 'video', 'app-invite', 'remote-assistance'    |
+
+</TabItem>
+<TabItem value="Lync-User-Count" label="Lync-User-Count">
+
+| Option            | Description                                                                |
+|:------------------|:---------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used).                         |
+| --warning-*       |   Set warning threshold for number of user. Can be : 'total', 'unique'     |
+| --critical-*      |   Set critical threshold for number of user. Can be : 'total', 'unique'    |
+
+</TabItem>
+<TabItem value="Lync-Video-Qoe" label="Lync-Video-Qoe">
+
+| Option            | Description                                                                                                                            |
+|:------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used).                                                                                     |
+| --timeframe       |   Set the timeframe to query in seconds (default: 900)                                                                                 |
+| --warning-*       |   Set warning thresholds. Can be : 'recv-frame', 'local-frame-loss', 'post-fecplr', 'packet-loss', 'inboud-frame', 'outbound-frame'    |
+| --critical-*      |   Set critical thresholds. Can be : 'recv-frame', 'local-frame-loss', 'post-fecplr', packet-loss', 'inboud-frame', 'outbound-frame'    |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_lync_2k13.pl \
+	--plugin=database::mssql::plugin \
+	--dyn-mode=centreon::common::microsoft::skype::mssql::mode::videoqoe \
+	--help
+```

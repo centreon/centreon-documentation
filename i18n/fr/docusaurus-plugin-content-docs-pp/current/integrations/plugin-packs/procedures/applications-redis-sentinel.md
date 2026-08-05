@@ -1,57 +1,82 @@
 ---
 id: applications-redis-sentinel
 title: Redis Sentinel
+description: "Supervisez Redis Sentinel via redis-cli : statut du quorum, détection des instances et latence de ping des clusters Redis et Sentinel."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
 
-## Contenu du Pack
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Redis Sentinel** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
+
+## Contenu du pack
 
 ### Modèles
 
-Le Pack Centreon Redis Sentinel apporte 1 modèle d'hôte :
-* App-Redis-Sentinel-custom
+Le connecteur de supervision **Redis Sentinel** apporte un modèle d'hôte :
 
-Il apporte les Modèles de Service suivants :
+* **App-Redis-Sentinel-custom**
 
-| Service Alias     | Service Template                     | Default | Discovery |
-|:------------------|:-------------------------------------|:--------|:----------|
-| Redis-Clusters    | App-Redis-Sentinel-Redis-Clusters    | X       | X         |
-| Sentinel-Clusters | App-Redis-Sentinel-Sentinel-Clusters | X       | X         |
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
+
+<Tabs groupId="sync">
+<TabItem value="App-Redis-Sentinel-custom" label="App-Redis-Sentinel-custom">
+
+| Alias             | Modèle de service                           | Description                                                             | Découverte |
+|:------------------|:--------------------------------------------|:------------------------------------------------------------------------|:----------:|
+| Redis-Clusters    | App-Redis-Sentinel-Redis-Clusters-custom    | Contrôle permettant de vérifier les informations des instances redis    |     X      |
+| Sentinel-Clusters | App-Redis-Sentinel-Sentinel-Clusters-custom | Contrôle permettant de vérifier les informations des instances sentinel |     X      |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Redis-Sentinel-custom** est utilisé.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
+
+</TabItem>
+</Tabs>
 
 ### Règles de découverte
 
-| Rule name                                | Description                                                                |
+#### Découverte de services
+
+| Nom de la règle                          | Description                                                                |
 |:-----------------------------------------|:---------------------------------------------------------------------------|
 | App-Redis-Sentinel-Redis-Cluster-Name    | Découvre les clusters et supervise le statut et l'utilisation des Redis    |
 | App-Redis-Sentinel-Sentinel-Cluster-Name | Découvre les clusters et supervise le statut et l'utilisation des Sentinel |
 
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
+
 ### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Redis-Clusters" label="Redis-Clusters">
 
-| Metric name                                                                        | Description                                                      | Unit |
-|:---------------------------------------------------------------------------------- |:---------------------------------------------------------------- |:---- |
-| cluster.redis.slaves.detected.count                                                | Number of detected slaves                                        |      |
-| cluster.redis.subjectively_down.count                                              | Number of subjectively down redis instances                      |      |
-| cluster.redis.objectively_down.count                                               | Number of objectively down redis instances                       |      |
-| cluster.redis.slave_replication_offset.stddev.count                                | Slave replication offset standard deviation (between all slaves) |      |
-| status                                                                             | Status of redis instance                                         |      |
-| *cluster_name~redis_address:redis_port*#cluster.redis.ping_ok.latency.milliseconds | Last ok ping latency                                             | ms   |
+| Nom                                                               | Unité |
+|:------------------------------------------------------------------|:------|
+| *clusters*~cluster.redis.slaves.detected.count                    | count |
+| *clusters*~cluster.redis.subjectively_down.count                  | count |
+| *clusters*~cluster.redis.objectively_down.count                   | count |
+| *clusters*~cluster.redis.slave_replication_offset.stddev.count    | count |
+| status                                                            | N/A   |
+| *clusters*~*instances*#cluster.redis.ping_ok.latency.milliseconds | ms    |
 
 </TabItem>
 <TabItem value="Sentinel-Clusters" label="Sentinel-Clusters">
 
-| Metric name                                                                                 | Description                                    | Unit |
-|:------------------------------------------------------------------------------------------- |:---------------------------------------------- |:---- |
-| cluster.sentinels.slaves.detected.count                                                     | Number of detected sentinels                   |      |
-| cluster.sentinels.subjectively_down.count                                                   | Number of subjectively down sentinel instances |      |
-| cluster.sentinels.objectively_down.count                                                    | Number of objectively down sentinel instances  |      |
-| quorum status                                                                               | Status of sentinel voted quorum                |      |
-| status                                                                                      | Status of sentinel instance                    |      |
-| *cluster_name~sentinel_address:sentinel_port*#cluster.sentinel.ping_ok.latency.milliseconds | Last ok ping latency                           | ms   |
+| Nom                                                                  | Unité |
+|:---------------------------------------------------------------------|:------|
+| *clusters*~cluster.sentinels.detected.count                          | count |
+| *clusters*~cluster.sentinels.subjectively_down.count                 | count |
+| *clusters*~cluster.sentinels.objectively_down.count                  | count |
+| quorum-status                                                        | N/A   |
+| status                                                               | N/A   |
+| *clusters*~*instances*#cluster.sentinel.ping_ok.latency.milliseconds | ms    |
 
 </TabItem>
 </Tabs>
@@ -65,86 +90,189 @@ Voici la liste des commandes utilisées:
 * sentinel replicas \<cluster_name\>
 * sentinel sentinels \<cluster_name\>
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Redis Sentinel**:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Redis-Sentinel
+dnf install centreon-pack-applications-redis-sentinel
 ```
-
-2. Sur l'interface Web de Centreon, installer le Pack **Redis Sentinel** depuis la page **Configuration > Packs de plugins**.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin Centreon sur tous les collecteurs Centreon devant superviser des resources **Redis Sentinel**:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Redis-Sentinel
+dnf install centreon-pack-applications-redis-sentinel
 ```
 
-2. Sur le serveur Central Centreon, installer le RPM du Pack **Redis Sentinel**:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
- ```bash
+```bash
+apt install centreon-pack-applications-redis-sentinel
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install centreon-pack-applications-redis-sentinel
 ```
 
-3. Sur l'interface Web de Centreon, installer le Pack **Redis Sentinel** depuis la page **Configuration > Packs de plugins**.
-
 </TabItem>
 </Tabs>
 
-## Configuration
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Redis Sentinel**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
-### Hôte
+### Plugin
 
-* Ajoutez un Hôte à Centreon depuis la page **Configuration > Hôtes**
-* Complétez les champs **Nom**, **Alias** & **IP Address / DNS** correspondant à votre serveur **Redis Sentinel**.
-* Appliquez le Modèle d'Hôte **applications-redis-sentinel-custom**
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
 
-* Une fois le modèle appliqué, renseignez les macros correspondantes. Attention, certaines macros sont obligatoires ("mandatory").
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 
-| Mandatory | Name             | Description                                                                  |
-|:----------|:-----------------|:-----------------------------------------------------------------------------|
-|           | SENTINELPORT     | (Default: '26379')                                                           |
-|           | SENTINELUSERNAME | Sentinel username (redis-cli >= 6.x mandatory)                               |
-|           | SENTINELPASSWORD | Sentinel password                                                            |
-|           | EXTRAOPTIONS     | Any extra option you may want to add to the command (eg. a --tls --insecure) |
-
-## Comment installer redis-cli 6.x ?
-
-Pour le support TLS et des utilisateurs ACLs, une version 6.x minimum de **redis-cli** est nécessaire.
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
-<TabItem value="Centos 7" label="Centos 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install epel-release
-yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm 
-yum --enablerepo=remi install redis
+dnf install centreon-plugin-Applications-Redis-Sentinel
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Redis-Sentinel
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-redis-sentinel
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Redis-Sentinel
 ```
 
 </TabItem>
 </Tabs>
 
-## Comment puis-je tester le Plugin et que signifient les options des commandes ? 
+## Utiliser le connecteur de supervision
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
-de commande depuis votre collecteur Centreon en vous connectant avec 
-l'utilisateur **centreon-engine**:
+### Utiliser un modèle d'hôte issu du connecteur
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Redis-Sentinel-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro                | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:---------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SENTINELUSERNAME     | Sentinel username (redis-cli \>= 6.x mandatory)                                                      |                   |             |
+| SENTINELPASSWORD     | Sentinel password                                                                                    |                   |             |
+| SENTINELPORT         | Sentinel port                                                                       | 26379             |             |
+| SENTINELCACERT       | CA Certificate file to verify with (redis-cli \>= 6.x mandatory)                                     |                   |             |
+| SENTINELCERT         | Client certificate to authenticate with (redis-cli \>= 6.x mandatory)                                |                   |             |
+| SENTINELKEY          | Private key file to authenticate with (redis-cli \>= 6.x mandatory)                                  |                   |             |
+| SENTINELEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Redis-Clusters" label="Redis-Clusters">
+
+| Macro                         | Description                                                                                                                                                            | Valeur par défaut                                              | Obligatoire |
+|:------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|:-----------:|
+| FILTERCLUSTERNAME             | Filter clusters by name (can be a regexp)                                                                                                                              |                                                                |             |
+| WARNINGREDISODOWN             | Threshold                                                                                                                                                              |                                                                |             |
+| CRITICALREDISODOWN            | Threshold                                                                                                                                                              |                                                                |             |
+| WARNINGREDISPINGOKLATENCY     | Threshold                                                                                                                                                              |                                                                |             |
+| CRITICALREDISPINGOKLATENCY    | Threshold                                                                                                                                                              |                                                                |             |
+| WARNINGREDISSDOWN             | Threshold                                                                                                                                                              |                                                                |             |
+| CRITICALREDISSDOWN            | Threshold                                                                                                                                                              |                                                                |             |
+| WARNINGSLAVEREPLOFFSETSTDDEV  | Threshold                                                                                                                                                              |                                                                |             |
+| CRITICALSLAVEREPLOFFSETSTDDEV | Threshold                                                                                                                                                              |                                                                |             |
+| WARNINGSLAVESDETECTED         | Threshold                                                                                                                                                              |                                                                |             |
+| CRITICALSLAVESDETECTED        | Threshold                                                                                                                                                              |                                                                |             |
+| CRITICALSTATUS                | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{role\}, %\{address\}, %\{port\}, %\{cluster\_name\} | %\{status\} =~ /o\_down\|s\_down\|master\_down\|disconnected/i |             |
+| WARNINGSTATUS                 | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{role\}, %\{address\}, %\{port\}, %\{cluster\_name\}  |                                                                |             |
+| EXTRAOPTIONS                  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       | --verbose                                                      |             |
+
+</TabItem>
+<TabItem value="Sentinel-Clusters" label="Sentinel-Clusters">
+
+| Macro                         | Description                                                                                                                                                 | Valeur par défaut                                              | Obligatoire |
+|:------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------|:-----------:|
+| FILTERCLUSTERNAME             | Filter clusters by name (can be a regexp)                                                                                                                   |                                                                |             |
+| CRITICALQUORUMSTATUS          | Set critical threshold for quorum status. You can use the following variables: %\{status\}, %\{cluster\_name\}                                              | %\{status\} =~ /noQuorum/                                      |             |
+| WARNINGQUORUMSTATUS           | Set warning threshold for quorum status. You can use the following variables: %\{status\}, %\{address\}, %\{port\}, %\{cluster\_name\}                      |                                                                |             |
+| WARNINGSENTINELPINGOKLATENCY  | Threshold                                                                                                                                                   |                                                                |             |
+| CRITICALSENTINELPINGOKLATENCY | Threshold                                                                                                                                                   |                                                                |             |
+| WARNINGSENTINELSDETECTED      | Threshold                                                                                                                                                   |                                                                |             |
+| CRITICALSENTINELSDETECTED     | Threshold                                                                                                                                                   |                                                                |             |
+| WARNINGSENTINELSODOWN         | Threshold                                                                                                                                                   |                                                                |             |
+| CRITICALSENTINELSODOWN        | Threshold                                                                                                                                                   |                                                                |             |
+| WARNINGSENTINELSSDOWN         | Threshold                                                                                                                                                   |                                                                |             |
+| CRITICALSENTINELSSDOWN        | Threshold                                                                                                                                                   |                                                                |             |
+| CRITICALSTATUS                | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{address\}, %\{port\}, %\{cluster\_name\} | %\{status\} =~ /o\_down\|s\_down\|master\_down\|disconnected/i |             |
+| WARNINGSTATUS                 | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{address\}, %\{port\}, %\{cluster\_name\}  |                                                                |             |
+| EXTRAOPTIONS                  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).            | --verbose                                                      |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins/centreon_redis_sentinel.pl \
-    --plugin=apps::redis::sentinel::plugin \
-    --server='10.0.0.1' \
-    --port='26379' \
-    --mode=redis-clusters \
-    --filter-cluster-name='' \
-    --verbose
+	--username='SENTINELUSERNAME' \
+	--password='SENTINELPASSWORD'  \
+	--mode=redis-clusters \
+	--filter-cluster-name='' \
+	--warning-status='' \
+	--critical-status='%\{status\} =~ /o\_down|s\_down|master\_down|disconnected/i' \
+	--warning-redis-ping-ok-latency='' \
+	--critical-redis-ping-ok-latency='' \
+	--warning-slaves-detected='' \
+	--critical-slaves-detected='' \
+	--warning-redis-sdown='' \
+	--critical-redis-sdown='' \
+	--warning-redis-odown='' \
+	--critical-redis-odown='' \
+	--warning-slave-repl-offset-stddev='' \
+	--critical-slave-repl-offset-stddev='' \
+	--verbose
 ```
 
 La commande devrait retourner un message de sortie similaire à :
@@ -157,28 +285,135 @@ checking cluster 'mymaster'
     instance '10.25.52.107:6379' status: master [role: master], last ok ping: 1024 ms
     instance '10.25.52.90:6379' status: slave [role: slave], last ok ping: 185 ms
     instance '10.25.52.98:6379' status: slave [role: slave], last ok ping: 355 ms
+
 ```
-
-La liste de toutes les options complémentaires et leur signification peut être
-affichée en ajoutant le paramètre `--help` à la commande:
-
-```bash
-/usr/lib/centreon/plugins/centreon_redis_sentinel.pl \
-    --plugin=apps::redis::sentinel::plugin \
-    --mode=redis-clusters \
-    --help
- ```
-
-Tous les modes disponibles peuvent être affichés en ajoutant le paramètre 
-`--list-mode` à la commande:
-
-```bash
-/usr/lib/centreon/plugins/centreon_redis_sentinel.pl \
-    --plugin=apps::redis::sentinel::plugin \
-    --list-mode
- ```
 
 ### Diagnostic des erreurs communes
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
-pour le diagnostic des erreurs communes des Plugins Centreon.
+pour le diagnostic des erreurs communes des plugins Centreon.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_redis_sentinel.pl \
+	--plugin=apps::redis::sentinel::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                   | Modèle de service associé                   |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------|
+| list-clusters [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/redis/sentinel/mode/listclusters.pm)]         | Used for service discovery                  |
+| redis-clusters [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/redis/sentinel/mode/redisclusters.pm)]       | App-Redis-Sentinel-Redis-Clusters-custom    |
+| sentinel-clusters [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/redis/sentinel/mode/sentinelclusters.pm)] | App-Redis-Sentinel-Sentinel-Clusters-custom |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --ssh-backend                              |   Define the backend you want to use. It can be: C\<sshcli\> (default), C\<plink\> and C\<libssh\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --ssh-username                             |   Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --ssh-password                             |   Define the password associated with the user name. Cannot be used with the C\<sshcli\> backend. Warning: using a password is not recommended. Use C\<--ssh-priv-key\> instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --ssh-port                                 |   Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --ssh-priv-key                             |   Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --server                                   |   Sentinel server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --port                                     |   Sentinel port (default: 26379).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --tls                                      |   Establish a secure TLS connection (redis-cli \>= 6.x mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --cacert                                   |   CA Certificate file to verify with (redis-cli \>= 6.x mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --insecure                                 |   Allow insecure TLS connection by skipping cert validation (since redis-cli 6.2.0).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --username                                 |   Sentinel username (redis-cli \>= 6.x mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --password                                 |   Sentinel password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --ssh-hostname                             |   Remote ssh redis-cli execution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --timeout                                  |   Timeout in seconds for the command (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Redis-Clusters" label="Redis-Clusters">
+
+| Option                   | Description                                                                                                                                                                                                                                            |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-cluster-name    |   Filter clusters by name (can be a regexp).                                                                                                                                                                                                           |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{role\}, %\{address\}, %\{port\}, %\{cluster\_name\}                                                                                |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{role\}, %\{address\}, %\{port\}, %\{cluster\_name\}                                                                                |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /o\_down\|s\_down\|master\_down\|disconnected/i'). You can use the following variables: %\{status\}, %\{role\}, %\{address\}, %\{port\}, %\{cluster\_name\}   |
+| --warning-* --critical-* |   Thresholds. Can be:  'redis-ping-ok-latency', 'redis-sdown', 'redis-odown',  'slave-repl-offset-stddev', 'slaves-detected'.                                                                                                                          |
+
+</TabItem>
+<TabItem value="Sentinel-Clusters" label="Sentinel-Clusters">
+
+| Option                   | Description                                                                                                                                                                                                                                 |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-cluster-name    |   Filter clusters by name (can be a regexp).                                                                                                                                                                                                |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{address\}, %\{port\}, %\{cluster\_name\}                                                                                |
+| --warning-status         |   Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{address\}, %\{port\}, %\{cluster\_name\}                                                                                |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /o\_down\|s\_down\|master\_down\|disconnected/i'). You can use the following variables: %\{status\}, %\{address\}, %\{port\}, %\{cluster\_name\}   |
+| --warning-quorum-status  |   Set warning threshold for quorum status. You can use the following variables: %\{status\}, %\{address\}, %\{port\}, %\{cluster\_name\}                                                                                                    |
+| --critical-quorum-status |   Set critical threshold for quorum status (default: '%\{status\} =~ /noQuorum/'). You can use the following variables: %\{status\}, %\{cluster\_name\}                                                                                     |
+| --warning-* --critical-* |   Thresholds. Can be:  'sentinel-ping-ok-latency', 'sentinels-sdown', 'sentinels-odown', 'sentinels-detected'.                                                                                                                              |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_redis_sentinel.pl \
+	--plugin=apps::redis::sentinel::plugin \
+	--server='10.0.0.1' \
+	--help
+```

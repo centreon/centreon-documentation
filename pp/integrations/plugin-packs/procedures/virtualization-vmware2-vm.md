@@ -1,6 +1,7 @@
 ---
 id: virtualization-vmware2-vm
 title: VMware VM
+description: "Monitor VMware virtual machines via the VMware SDK: CPU, memory, disk I/O, snapshots, thin provisioning, and VMware Tools status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -22,26 +23,26 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Virt-VMWare2-VM-custom" label="Virt-VMWare2-VM-custom">
 
-| Service Alias       | Service Template                                | Service Description                                                     |
-|:--------------------|:------------------------------------------------|:------------------------------------------------------------------------|
-| Vm-Limit            | Virt-VMWare2-Vm-Limit-Generic-custom            | Check limit definition.                                                  |
-| Vm-Snapshot         | Virt-VMWare2-Vm-Snapshot-Generic-custom         | Check the age of the snapshot for a virtual machine.                                 |
-| Vm-Status           | Virt-VMWare2-Vm-Status-Generic-custom           | Check global status of a virtual machine.                                |
+| Service Alias       | Service Template                                | Service Description                                                       |
+|:--------------------|:------------------------------------------------|:--------------------------------------------------------------------------|
+| Vm-Limit            | Virt-VMWare2-Vm-Limit-Generic-custom            | Check limit definition.                                                   |
+| Vm-Snapshot         | Virt-VMWare2-Vm-Snapshot-Generic-custom         | Check the age of the snapshot for a virtual machine.                      |
+| Vm-Status           | Virt-VMWare2-Vm-Status-Generic-custom           | Check global status of a virtual machine.                                 |
 | Vm-Thinprovisioning | Virt-VMWare2-Vm-Thinprovisioning-Generic-custom | Check if a virtual machine has a disk in mode 'thin provisioning' or not. |
-| Vm-Tools            | Virt-VMWare2-Vm-Tools-Generic-custom            | Check the state of vmtools for a virtual machine.                                |
+| Vm-Tools            | Virt-VMWare2-Vm-Tools-Generic-custom            | Check the state of vmtools for a virtual machine.                         |
 
 > The services listed above are created automatically when the **Virt-VMWare2-VM-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias      | Service Template                               | Service Description                                   |
-|:-------------------|:-----------------------------------------------|:------------------------------------------------------|
-| Vm-Cpu             | Virt-VMWare2-Vm-Cpu-Generic-custom             | Check CPU usage for a virtual machine.                  |
-| Vm-Datastores-Iops | Virt-VMWare2-Vm-Datastores-Iops-Generic-custom | Check datastores IOPS linked to the virtual machine.  |
-| Vm-Device          | Virt-VMWare2-Vm-Device-Generic-custom          | Check CPU usage for a virtual machine.                  |
-| Vm-Memory          | Virt-VMWare2-Vm-Memory-Generic-custom          | Check memory usage for a virtual machine.               |
-| Vm-Swap            | Virt-VMWare2-Vm-Swap-Generic-custom            | Check if a virtual machine is swapping.                |
+| Service Alias      | Service Template                               | Service Description                                  |
+|:-------------------|:-----------------------------------------------|:-----------------------------------------------------|
+| Vm-Cpu             | Virt-VMWare2-Vm-Cpu-Generic-custom             | Check CPU usage for a virtual machine.               |
+| Vm-Datastores-Iops | Virt-VMWare2-Vm-Datastores-Iops-Generic-custom | Check datastores IOPS linked to the virtual machine. |
+| Vm-Device          | Virt-VMWare2-Vm-Device-Generic-custom          | Check CPU usage for a virtual machine.               |
+| Vm-Memory          | Virt-VMWare2-Vm-Memory-Generic-custom          | Check memory usage for a virtual machine.            |
+| Vm-Swap            | Virt-VMWare2-Vm-Swap-Generic-custom            | Check if a virtual machine is swapping.              |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -52,8 +53,8 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name       | Description                     |
-|:----------------|:--------------------------------|
+| Rule name       | Description                      |
+|:----------------|:---------------------------------|
 | VMWare VM       | Discover VMWare virtual machines |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
@@ -65,7 +66,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Vm-Cpu" label="Vm-Cpu">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | *vm*~status                                   | N/A   |
 | *vm*~vm.cpu.utilization.percentage            | %     |
@@ -78,7 +79,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Datastores-Iops" label="Vm-Datastores-Iops">
 
-| Metric name                                    | Unit  |
+| Name                                           | Unit  |
 |:-----------------------------------------------|:------|
 | *vm*~status                                    | N/A   |
 | *vm*~vm.datastore.latency.max.milliseconds     | ms    |
@@ -90,7 +91,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Device" label="Vm-Device">
 
-| Metric name                     | Unit  |
+| Name                            | Unit  |
 |:--------------------------------|:------|
 | vm.devices.connected.count      | count |
 | *vm*#status                     | N/A   |
@@ -101,7 +102,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Limit" label="Vm-Limit">
 
-| Metric name   | Unit  |
+| Name          | Unit  |
 |:--------------|:------|
 | cpu-status    | N/A   |
 | memory-status | N/A   |
@@ -112,7 +113,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Memory" label="Vm-Memory">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | *vm*~status                         | N/A   |
 | *vm*~vm.memory.consumed.usage.bytes | B     |
@@ -126,7 +127,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Snapshot" label="Vm-Snapshot">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | vm.snapshots.warning.current.count  | count |
 | vm.snapshots.critical.current.count | count |
@@ -134,7 +135,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Status" label="Vm-Status">
 
-| Metric name         | Unit  |
+| Name                | Unit  |
 |:--------------------|:------|
 | *vm*#status         | N/A   |
 | *vm*#overall-status | N/A   |
@@ -144,7 +145,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Swap" label="Vm-Swap">
 
-| Metric name                           | Unit  |
+| Name                                  | Unit  |
 |:--------------------------------------|:------|
 | *vm*#status                           | N/A   |
 | *vm*#vm.swap.in.usage.bytespersecond  | B/s   |
@@ -155,14 +156,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Thinprovisioning" label="Vm-Thinprovisioning">
 
-| Metric name | Description                                | Unit  |
-|:------------|:-------------------------------------------|:------|
-| status      | Status of the thin provisoning virtual disks |       |
+| Name   | Description                                  | Unit  |
+|:-------|:---------------------------------------------|:------|
+| status | Status of the thin provisoning virtual disks |       |
 
 </TabItem>
 <TabItem value="Vm-Tools" label="Vm-Tools">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | vm.tools.notupdated.current.count   | count |
 | vm.tools.notrunning.current.count   | count |
@@ -202,7 +203,7 @@ apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -227,14 +228,14 @@ make pure_install
 - Install the package with necessary tools
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Install the SDK
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 
 perl Makefile.PL
@@ -247,14 +248,14 @@ make pure_install
 - Install the package with necessary tools
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Install the SDK
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -751,7 +752,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

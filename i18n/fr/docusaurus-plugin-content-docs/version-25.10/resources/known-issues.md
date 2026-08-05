@@ -1,11 +1,24 @@
 ---
 id: known-issues
 title: Problèmes connus
+description: "Problèmes connus et contournements pour la plateforme Centreon"
 ---
 
 Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
 Nous essayons ici de fournir des contournements.
 Nous appliquons des correctifs lorsque cela est nécessaire et améliorons continuellement notre logiciel afin de résoudre les problèmes de prochaines versions.
+
+## Centreon Tableaux de bord
+
+### Un nombre trop élevé de widgets provoque une erreur "413 : Request Entity Too Large"
+
+Au-delà d’un certain nombre de widgets dans un même tableau de bord, tout ajout de nouveau widget génère une erreur `413 error on Save (POST | Request Entity Too Large)`.
+La taille maximale du corps de la requête a été atteinte. Vous pouvez résoudre cette erreur en modifiant la configuration PHP/Apache.
+
+#### Contournement
+
+1. Modifiez le fichier `/etc/httpd/conf.d/mod_security.conf` et augmentez la valeur de `SecRequestBodyNoFilesLimit`. Par défaut, cette valeur est de **131072 (128 Mo)**. Vous pouvez l'augmenter à **524288 (512 Mo)**.
+2. Redémarrez ensuite le service Apache.
 
 ## Anomaly Detection
 
@@ -79,12 +92,6 @@ L'autologin n'est actuellement pas géré pour les pages suivantes :
 
 Il n'existe actuellement pas de contournement.
 
-## Centreon Tableaux de bord
-
-### Le widget MAP n'est pas encore supporté dans les listes de diffusion publiques
-
-Il n'y a pas de solution de contournement, mais la fonctionnalité sera disponible dans une prochaine version.
-
 ## Centreon MBI
 
 ### Vous obtenez des erreurs lors de l'import journalier et calcul des statistiques
@@ -108,7 +115,7 @@ Cette erreur est due à un problème de mise à jour des colonnes dans la base d
   php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
   ```
 
-2. Puis suivez cette procédure pour [reprendre partiellement les données de reporting](../reporting/concepts.md#comment-reprendre-partiellement-les-données-de-reporting-).
+2. Puis suivez cette procédure pour [reprendre partiellement les données de reporting](../reporting/rebuilding-data.md#reconstruction-partielle--conserver-lhistorique-de-vos-données).
 
 ### MBI ne fonctionne pas si les bases de données ont des noms personnalisés
 
@@ -169,3 +176,34 @@ Si vous possédez une très large infrastructure, il est possible que la taille 
     ```shell
     /usr/share/centreon-bi/bin/centreonBIETL -rIEDP -s YYYY-MM-DD -e YYYY-MM-DD
     ```
+
+## Base de données
+
+### Vous avez un conflit entre les paquets mysql-common et MariaDB-common
+
+#### Description
+
+Si vous avez installé mariadb depuis les dépôts officiels de mariadb, il est possible que vous obteniez l'erreur suivante lors de la mise à jour de votre plateforme (`dnf update`) :
+
+```shell
+Error: Transaction test error:
+  file /usr/share/mysql/charsets/Index.xml conflicts between attempted installs of mysql-common-8.0.43-1.el9_6.x86_64 and MariaDB-common-10.11.15-1.el9.x86_64
+  file /usr/share/mysql/charsets/armscii8.xml conflicts between attempted installs of mysql-common-8.0.43-1.el9_6.x86_64 and MariaDB-common-10.11.15-1.el9.x86_64
+  ...
+```
+
+Cela est dû à la version 4.053 de perl-DBD-MySQL qui nécessite maintenant mysql-common et qui rentre en conflit avec MariaDB-common.
+
+#### Contournement
+
+Afin de pouvoir mettre à jour la plateforme, il est nécessaire de bloquer l'installation de perl-DBD-MySQL-4.053 :
+
+```shell
+echo "exclude=perl-DBD-MySQL-4.053*" >> /etc/dnf/dnf.conf
+```
+
+Vous devriez maintenant pouvoir mettre à jour votre plateforme :
+
+```shell
+dnf update
+```

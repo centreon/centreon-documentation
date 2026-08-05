@@ -1,6 +1,7 @@
 ---
 id: glossary
 title: Glossaire des concepts Centreon
+description: "Définitions des principaux concepts et termes utilisés dans la documentation Centreon Cloud"
 ---
 
 ## Acquittement
@@ -17,6 +18,10 @@ Acquitter une ressource ne signifie pas que l'incident est résolu : il le sera 
 
 Toute action exécutée depuis l’interface permettant d’agir sur votre supervision en temps réel. Par exemple, [faire un acquittement](#acquittement), planifier une [plage de maintenance](#plage-de-maintenance), forcer un contrôle, etc. 
 
+## Agent
+
+Un agent est un composant logiciel, fourni par Centreon (par exemple Centreon Monitoring Agent) ou par un tiers (par exemple NSClient), installé sur une ressource à superviser et destiné à collecter localement les données techniques relatives à cette ressource (états, indicateurs, événements) puis à les transmettre à la plateforme de supervision, directement ou par l’intermédiaire d’un [collecteur](#collecteur).
+
 ## Alerte
 
 Une alerte correspond à l'un des statuts suivants : **Alerte**, **Indisponible**, **Critique**, **Inconnu**.
@@ -31,7 +36,6 @@ Un collecteur est un serveur de supervision installé dans votre infrastructure,
 
 - Il n’a pas d’interface graphique : les ressources qu’il supervise s’affichent dans l’interface utilisateur de la plateforme SaaS.
 
-
 ## Connecteur de supervision
 
 L'expression "connecteur de supervision" désigne un [plugin](#plugin) et son pack :
@@ -42,6 +46,10 @@ Le pack contient la configuration associée au plugin dans Centreon (commandes, 
 
 - [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
 - [Introduction aux connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
+
+## Contrôle
+
+Un contrôle est une opération qui détermine le [statut](#statut) d'une ressource, et peut produire des [métriques](#statut) (données de performance). Le résultat d’un contrôle met à jour la ligne correspondant à la ressource dans la page **Statut des ressources**.
 
 ## Donnée de performance
 
@@ -76,6 +84,14 @@ Principe qui permet qu’un paramètre d’un [modèle](#modèle) soit appliqué
 Un hôte peut avoir les [statuts](#statut) suivants : DISPONIBLE, INDISPONIBLE et INJOIGNABLE.
 
 **Voir aussi** : [Mettre un hôte en supervision](../monitoring/basic-objects/hosts-create.md) et les autres topics de cette section.
+
+## Interface utilisateur
+
+Dans Centreon, l'interface utilisateur est la console principale de votre supervision. Elle permet :
+
+- de configurer toute la supervision de votre infrastructure,
+- des superviser des ressources,
+- de consulter la supervision de tous les serveurs Centreon (tous les [collecteurs](#collecteur)) dans son interface web.
 
 ## Métrique
 
@@ -136,14 +152,6 @@ Est appelé "plugin" une sonde de supervision, c'est-à-dire un binaire exécuta
 ## Ressource
 
 Objet supervisé par une plateforme Centreon (hôtes, services, métaservices).
-
-## Interface utilisateur
-
-Dans Centreon, l'interface utilisateur est la console principale de votre supervision. Elle permet :
-
-- de configurer toute la supervision de votre infrastructure,
-- des superviser des ressources,
-- de consulter la supervision de tous les serveurs Centreon (tous les [collecteurs](#collecteur)) dans son interface web.
 
 ## Service
 

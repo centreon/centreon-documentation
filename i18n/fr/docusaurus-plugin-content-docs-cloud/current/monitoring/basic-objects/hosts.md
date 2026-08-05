@@ -1,6 +1,7 @@
 ---
 id: hosts
 title: Créer un hôte manuellement
+description: "Liste complète des champs à renseigner pour créer un hôte manuellement dans Centreon, des informations générales aux options d'ordonnancement"
 ---
 
 Pour créer un hôte manuellement :
@@ -13,10 +14,10 @@ Pour créer un hôte manuellement :
 
 ### Informations générales
 
-* Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
+* Le champ **Nom** définit le nom d’hôte qui sera utilisé par le moteur de supervision. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces. L'utilisation d'un nom contenant `/` peut également avoir un impact technique sur les requêtes SQL, l'interface web ou d'autres problèmes de compatibilité avec des outils tiers. Nous recommandons de n'utiliser que `_-.` pour les noms d'hôtes.
 * Le champ **Alias** indique l’alias de l’hôte.
 * Le champ **Adresse** définit l'adresse IP ou le nom DNS de l’hôte. Le bouton **Résoudre** permet de résoudre le nom de
-  domaine en interrogeant le serveur DNS configuré sur la plateforme SaaS.
+  domaine en interrogeant le serveur DNS configuré sur la plateforme SaaS. Notez que pour des raisons de sécurité, les adresses au format `<protocol>://<ip-address>` ne sont pas acceptés.
 * Le champ **Modèles** permet d’associer un ou plusieurs modèles d’hôtes à cet objet.
 
    En cas de conflits de paramètres présents sur plusieurs modèles, le modèle d’hôte au-dessus écrase les propriétés
@@ -33,7 +34,7 @@ identiques définies dans modèles d’hôtes en dessous.
 * Les champs **Communauté SNMP & Version** contiennent respectivement le nom de la communauté ainsi que la version SNMP.
 * Section **Macros personnalisées** :
 
-   * Les champs **Nom** et **Valeur** permettent respectivement de définir le nom et la valeur de la macro.
+   * Les champs **Nom** et **Valeur** permettent respectivement de définir le nom et la valeur de la macro. Notez que pour des raisons de sécurité, les paramètres au format `<protocol>://<ip-address>` ne sont pas acceptés.
    * La case **Mot de passe** permet de cacher la valeur de la macro.
 
    Pour réinitialiser la macro avec sa valeur par défaut (définie dans le template) cliquez sur ![image](../../assets/configuration/common/undo.png#thumbnail2)

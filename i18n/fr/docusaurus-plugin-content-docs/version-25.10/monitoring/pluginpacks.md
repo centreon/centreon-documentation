@@ -1,6 +1,7 @@
 ---
 id: pluginpacks
 title: Utiliser des connecteurs de supervision
+description: "Installer, mettre à jour et désinstaller des connecteurs de supervision"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -99,11 +100,6 @@ depuis votre serveur central :
 dnf install centreon-pack-*
 ```
 
-ou :
-
-```shell
-dnf update centreon-pack-*
-```
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -111,23 +107,11 @@ dnf update centreon-pack-*
 dnf install centreon-pack-*
 ```
 
-ou :
-
-```shell
-dnf update centreon-pack-*
-```
-
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install centreon-pack-*
-```
-
-ou :
-
-```shell
-apt install --only-upgrade centreon-pack-\*
 ```
 
 </TabItem>

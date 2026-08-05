@@ -1,6 +1,7 @@
 ---
 id: application-virtualization-vmware8-esx-restapi
 title: VMware8 ESX REST API
+description: "Monitor VMware ESX 8 physical servers via the vCenter REST API: CPU, memory, disk I/O, network throughput, power, and swap."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -64,6 +65,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | cpu.capacity.demand.hertz          | Hz    |
 | cpu.corecount.usage.count          | count |
 
+
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
@@ -72,6 +74,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | disk.throughput.usage.bytespersecond    | Bps   |
 | disk.throughput.contention.milliseconds | ms    |
 
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
@@ -79,6 +82,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:----------------------------|:------|
 | vms.memory.usage.percentage | %     |
 | vms.memory.usage.bytes      | B     |
+
 
 </TabItem>
 <TabItem value="Network-Throughput" label="Network-Throughput">
@@ -89,12 +93,13 @@ Here is the list of services for this connector, detailing all metrics and statu
 | network.throughput.usage.percent        | %     |
 | network.throughput.contention.count     | count |
 
+
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Name                       | Unit  |
-|:---------------------------|:------|
-| power.capacity.usage.watts | W     |
+| Name                      | Unit  |
+|:--------------------------|:------|
+| power.capacity.usage.watt | W     |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -116,6 +121,8 @@ of version 8 or above and having the following privileges:
 - Collect Stats Data
 - Query Stats Data
 
+These privileges are granted by the predefined role VMware super admin.
+
 NB: This connector has only been tested with a 'Basic' authentication (like `user@vsphere.local`).
 
 ## Installing the monitoring connector
@@ -123,7 +130,6 @@ NB: This connector has only been tested with a 'Basic' authentication (like `use
 ### Pack
 
 The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
-
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -204,7 +210,6 @@ If necessary, add the vCenter server's certificate to the poller's OS's list of 
 openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/pki/ca-trust/source/anchors/my_vcenter.crt
 update-ca-trust
 ```
-
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
@@ -231,7 +236,6 @@ If necessary, add the vCenter server's certificate to the poller's OS's list of 
 openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /etc/pki/ca-trust/source/anchors/my_vcenter.crt
 update-ca-trust
 ```
-
 </TabItem>
 </Tabs>
 
@@ -244,15 +248,15 @@ update-ca-trust
 3. Apply the **Virt-VMware8-ESX-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro           | Description                                                                                                                              | Default value | Mandatory |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| VMWARE8USERNAME | Define the username for authentication                                                                                                   | USERNAME      |     X     |
-| VMWARE8PASSWORD | Define the password for authentication                                                                                                   | PASSWORD      |     X     |
-| VMWARE8PROTO    | Define the protocol to use                                                                                                               | https         |           |
-| VMWARE8PORT     | Define the port of the vSphere server                                                                                                    | 443           |           |
-| VMWARE8HOSTID   | Define which physical server to monitor based on its resource ID (example: `host-16`)                                                    |               |           |
-| VMWARE8VCENTER  | Define the hostname of the vSphere server                                                                                                |               |     X     |
-| EXTRAOPTIONS    | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+| Macro           | Description                                                                                          | Default value     | Mandatory   |
+|:----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| VMWARE8USERNAME | Define the username for authentication                                                               | USERNAME          | X           |
+| VMWARE8PASSWORD | Define the password for authentication                                                               | PASSWORD          | X           |
+| VMWARE8PROTO    | Define the protocol to use (default: https)                                                          | https             |             |
+| VMWARE8PORT     | Define the port of the vSphere server (default: 443)                                                 | 443               |             |
+| VMWARE8HOSTID   | Define which physical server to monitor based on its resource ID (example: `host-16`)                |                   |             |
+| VMWARE8VCENTER  | Define the hostname of the vSphere server                                                            |                   | X           |
+| EXTRAOPTIONS    | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -318,11 +322,11 @@ update-ca-trust
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Macro              | Description                                                                                        | Default value     | Mandatory   |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGEWATTS  | Threshold in Watts                                                                                 |                   |             |
-| CRITICALUSAGEWATTS | Threshold in Watts                                                                                 |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro             | Description                                                                                        | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGEWATT  | Threshold in Watts                                                                                 |                   |             |
+| CRITICALUSAGEWATT | Threshold in Watts                                                                                 |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -360,14 +364,14 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--esx-id='host-18' \
 	--username='USERNAME' \
 	--password='PASSWORD'  \
-	--warning-usage-watts='' \
-	--critical-usage-watts='' 
+	--warning-usage-watt='' \
+	--critical-usage-watt='' 
 ```
 
 The expected command output is shown below:
 
 ```bash
-OK: Power usage is 219 Watts | 'power.capacity.usage.watts'=219W;;;;
+OK: Power usage is 219 Watts | 'power.capacity.usage.watt'=219W;;;;
 
 ```
 
@@ -431,9 +435,9 @@ All generic options are listed here:
 | --change-perfdata                          | Change or extend perfdata. Syntax: `--extend-perfdata=searchlabel,newlabel,target[,[<new-unit-of-mesure>],[min],[max]]`. Common examples: Convert storage free perfdata into used: `--change-perfdata='free,used,invert()'`. Convert storage free perfdata into used: `--change-perfdata='used,free,invert()'`. Scale traffic values automatically: `--change-perfdata='traffic,,scale(auto)'`. Scale traffic values in Mbps: `--change-perfdata='traffic_in,,scale(Mbps),mbps'`. Change traffic values in percent: `--change-perfdata='traffic_in,,percent()'`.                                                                                                                                                                                                                                                           |
 | --extend-perfdata                          | Change or extend perfdata. Syntax: `--extend-perfdata=searchlabel,newlabel,target[,[<new-unit-of-mesure>],[min],[max]]`. Common examples: Convert storage free perfdata into used: `--change-perfdata='free,used,invert()'`. Convert storage free perfdata into used: `--change-perfdata='used,free,invert()'`. Scale traffic values automatically: `--change-perfdata='traffic,,scale(auto)'`. Scale traffic values in Mbps: `--change-perfdata='traffic_in,,scale(Mbps),mbps'`. Change traffic values in percent: `--change-perfdata='traffic_in,,percent()'`.                                                                                                                                                                                                                                                           |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: `--extend-perfdata-group=regex,<names-of-new-metrics>,calculation[,[<new-unit-of-mesure>],[min],[max]]` regex: regular expression `<names-of-new-metrics>`: how the new metrics' names are composed (can use `$1`, `$2`... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated `<new-unit-of-mesure>` (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples: Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): `--extend-perfdata-group=',packets_wrong,sum(packets_(discard |error)_(in|out))'`. Sum traffic by interface: `--extend-perfdata-group='traffic_in_(.*),traffic_$1,sum(traffic_(in |out)_$1)'` |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --change-output-adv                        | Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -539,10 +543,10 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Option                 | Description              |
-|:-----------------------|:-------------------------|
-| --warning-usage-watts  |   Threshold in Watts.    |
-| --critical-usage-watts |   Threshold in Watts.    |
+| Option                | Description              |
+|:----------------------|:-------------------------|
+| --warning-usage-watt  |   Threshold in Watts.    |
+| --critical-usage-watt |   Threshold in Watts.    |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">

@@ -248,6 +248,10 @@
             },
             {
               "type": "doc",
+              "id": "monitoring/active-passive-checks"
+            },
+            {
+              "type": "doc",
               "id": "monitoring/metrics"
             },
             {
@@ -732,152 +736,242 @@
           },
           "items": [
             {
-              "type": "doc",
-              "id": "graph-views/introduction-map"
-            },
-            {
               "type": "category",
-              "label": "Information for MAP Legacy users",
+              "label": "Overview",
               "link": {
                 "type": "generated-index"
               },
               "items": [
                 {
                   "type": "doc",
-                  "id": "graph-views/map-legacy-eol"
+                  "id": "graph-views/introduction-map"
                 },
                 {
                   "type": "doc",
-                  "id": "graph-views/upgrading-map-legacy"
-                },
-                {
-                  "type": "doc",
-                  "id": "graph-views/import-into-map-web"
+                  "id": "graph-views/map-architecture"
                 }
               ]
             },
             {
-              "type": "doc",
-              "id": "graph-views/map-web-install"
+              "type": "category",
+              "label": "Setting up MAP",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-install"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-install-remote"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/secure-your-map-platform"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-change-port"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-access"
+                }
+              ]
             },
             {
-              "type": "doc",
-              "id": "graph-views/map-web-install-remote"
+              "type": "category",
+              "label": "Using MAP",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-manage"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-create-standard-map"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-create-geoview"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-understanding-access"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/map-api"
+                }
+              ]
             },
             {
-              "type": "doc",
-              "id": "graph-views/map-web-update"
+              "type": "category",
+              "label": "Administrating MAP",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-update"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-upgrade"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-migrate"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-backup-restore"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-monitoring"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-advanced"
+                }
+              ]
             },
             {
-              "type": "doc",
-              "id": "graph-views/map-web-upgrade"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-access"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-manage"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-create-standard-map"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-create-geoview"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-migrate"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-advanced-configuration"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-advanced"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-known-issues"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-troubleshooting"
-            },
-            {
-              "type": "doc",
-              "id": "api/map-api"
+              "type": "category",
+              "label": "Fixing MAP issues",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "category",
+                  "label": "Information for MAP Legacy users",
+                  "link": {
+                    "type": "generated-index"
+                  },
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "graph-views/map-legacy-eol"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "graph-views/upgrading-map-legacy"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "graph-views/import-into-map-web"
+                    }
+                  ]
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-known-issues"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-troubleshooting"
+                }
+              ]
             }
           ]
         },
         {
           "type": "doc",
           "id": "alerts-notifications/custom-views"
+        },
+        {
+          "type": "doc",
+          "id": "alerts-notifications/availability"
         }
       ]
     },
     {
       "type": "category",
-      "label": "Reporting",
+      "label": "Reporting (MBI)",
       "link": {
         "type": "generated-index"
       },
       "items": [
         {
           "type": "doc",
-          "id": "alerts-notifications/availability"
-        },
-        {
-          "type": "doc",
           "id": "reporting/introduction"
         },
         {
+          "type": "doc",
+          "id": "reporting/concepts"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/how-mbi-works"
+        },
+        {
+          "type": "doc",
+          "id": "reporting/installation"
+        },
+        {
           "type": "category",
-          "label": "Guide",
+          "label": "Using MBI",
           "link": {
             "type": "generated-index"
           },
           "items": [
             {
               "type": "doc",
-              "id": "reporting/manage-reports"
+              "id": "reporting/preparing-data"
             },
             {
               "type": "doc",
-              "id": "reporting/reports"
+              "id": "reporting/generating-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/reports-publication-rule"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/share"
             },
             {
               "type": "doc",
               "id": "reporting/widgets"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/configure"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/concepts"
-            },
-            {
-              "type": "doc",
-              "id": "reporting/report-development"
             }
           ]
         },
         {
           "type": "category",
-          "label": "Administrate",
+          "label": "Fixing MBI issues",
           "link": {
             "type": "generated-index"
           },
           "items": [
             {
               "type": "doc",
-              "id": "reporting/installation"
+              "id": "reporting/troubleshooting"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/rebuilding-data"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "MBI administration",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "reporting/backup-restore"
             },
             {
               "type": "doc",
@@ -893,7 +987,57 @@
             },
             {
               "type": "doc",
-              "id": "reporting/backup-restore"
+              "id": "reporting/report-development"
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Available reports",
+          "link": {
+            "type": "doc",
+            "id": "reporting/available-reports/available-reports"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/ba-monitoring-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/availability-events-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/performance-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/storage-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/network-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/virtualization-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/electric-consumption-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/profiling-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/inventory-configuration-reports"
+            },
+            {
+              "type": "doc",
+              "id": "reporting/available-reports/database-diagnostics-reports"
             }
           ]
         }
@@ -1098,6 +1242,10 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-mariadb"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-mysql"
             }
           ]
         },
@@ -1151,6 +1299,39 @@
     },
     {
       "type": "category",
+      "label": "Centreon Monitoring Agent",
+      "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-certificates"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-custom"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-migratenscpp"
+                },
+                {
+                  "type": "doc",
+                  "id": "cma/cma-troubleshooting"
+                }
+              ]
+    },
+    {
+      "type": "category",
       "label": "Integrations",
       "link": {
         "type": "doc",
@@ -1165,6 +1346,10 @@
             "id": "integrations/stream-connectors"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "integrations/stream-connectors-rn"
+            },
             {
               "type": "doc",
               "id": "integrations/event-management/sc-hp-bsm"
@@ -1388,11 +1573,11 @@
         },
         {
           "type": "doc",
-          "id": "developer/developer-translate-centreon"
+          "id": "developer/developer-widget"
         },
         {
           "type": "doc",
-          "id": "developer/developer-widget"
+          "id": "developer/mcp-server"
         },
         {
           "type": "category",
@@ -1557,38 +1742,18 @@
     },
     {
       "type": "category",
-      "label": "Monitoring your platform",
-      "link": {
-        "type": "generated-index"
-      },
-      "items": [
-        {
-          "type": "doc",
-          "id": "health/helios"
-        }
-      ]
-    },
-    {
-      "type": "category",
       "label": "Releases",
       "link": {
         "type": "generated-index"
       },
       "items": [
         {
-          "type": "doc",
-          "id": "releases/introduction"
-        },
-        {
-          "type": "doc",
-          "id": "releases/lifecycle"
-        },
-        {
           "type": "category",
-          "label": "Release notes by component",
-          "link": {
-            "type": "generated-index"
-          },
+          "label": "Release notes for Centreon 24.10",
+          "link": { 
+            "type": "doc",
+            "id": "releases/introduction"
+          }, 
           "items": [
             {
               "type": "doc",
@@ -1599,6 +1764,10 @@
               "id": "releases/centreon-commercial-extensions"
             }
           ]
+        },
+        {
+          "type": "doc",
+          "id": "releases/lifecycle"
         }
       ]
     },
@@ -1650,6 +1819,10 @@
         {
           "type": "doc",
           "id": "resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "resources/logs"
         },
         {
           "type": "doc",

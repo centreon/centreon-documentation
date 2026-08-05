@@ -1,6 +1,7 @@
 ---
 id: plugin-telegram
 title: Notifications Telegram
+description: "Envoyer des alertes d'hôtes et de services vers Telegram via un bot"
 ---
 
 ## Introduction
@@ -76,15 +77,15 @@ Allez sur **Configuration > Commandes > Notifications** et cliquez sur **Ajouter
 Selectionnez **Notification** pour le type de commande et copiez la commande suivante dans l'espace **Ligne de commande** en remplaçant les macros avec vos informations :
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
---plugin=notification::telegram::plugin \
---mode=alert \
---http-peer-addr='api.telegram.org' \
---bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
---chat-id='-xxxxxxxxxx' \
---host-name='$HOSTNAME$' \
---service-description='$SERVICEDESC$' \
---service-state=$SERVICESTATE$ \
+/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl
+--plugin=notification::telegram::plugin
+--mode=alert
+--http-peer-addr='api.telegram.org'
+--bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+--chat-id='-xxxxxxxxxx'
+--host-name='$HOSTNAME$'
+--service-description='$SERVICEDESC$'
+--service-state=$SERVICESTATE$
 --service-output='$SERVICEOUTPUT$'
 ``` 
 
@@ -97,14 +98,14 @@ Allez sur **Configuration > Commandes > Notifications** et cliquez sur **Ajouter
 Selectionnez **Notification** pour le type de commande et copiez la commande suivante dans l'espace **Ligne de commande** en remplaçant les macros avec vos informations :
 
 ```bash
-/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
---plugin=notification::telegram::plugin \
---mode=alert \
---http-peer-addr='api.telegram.org' \
---bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' \
---chat-id='-xxxxxxx' \ 
---host-name='$HOSTNAME$' \
---host-state=$HOSTSTATE$  \
+/usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl
+--plugin=notification::telegram::plugin
+--mode=alert
+--http-peer-addr='api.telegram.org'
+--bot-token='xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+--chat-id='-xxxxxxx'
+--host-name='$HOSTNAME$'
+--host-state=$HOSTSTATE$
 --host-output='$HOSTOUTPUT$'
 ```
 

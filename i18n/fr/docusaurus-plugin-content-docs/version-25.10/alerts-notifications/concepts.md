@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Statuts possibles d'une ressource
+description: "Comprendre les statuts, états et types de statut des ressources"
 ---
 
 Les statuts indiquent la disponibilité d'un hôte, et la disponibilité ou la performance d'un service. Chaque
@@ -59,6 +60,8 @@ Le statut d'une ressource peut avoir deux types :
 * **HARD** : Signifie que le statut de l'incident est confirmé. Lorsque le
     statut est confirmé, le processus de notification est enclenché
     (envoi d'un mail, SMS, …).
+
+La colonne **Tentatives** dans la page **Statut des ressources** indique le nombre d'essais réalisés pour confirmer un statut. Le type de statut est indiqué par une lettre (H ou S).
 
 Vous pouvez filtrer la page [Resources Status](resources-status.md) suivant le type de statut des ressources.
 

@@ -1,6 +1,7 @@
 ---
 id: ba-management
 title: Gestion
+description: "Configurer les activités métier, les indicateurs (KPI), les règles booléennes et les vues métier pour modéliser vos services informatiques dans Centreon BAM"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -120,16 +121,19 @@ dépendra alors des paramètres présents dans la section Indicateur.
 
 ### Création d'une activité métier
 
-Pour créer une nouvelle activité métier, cliquer sur **+AJOUTER**. Le
-formulaire ci-dessous apparaît :
+#### Informations de base
 
-![image](../assets/service-mapping/guide/business-activity-add.png)
+1. Pour ajouter une Activité Métier (BA), cliquez sur le bouton **Ajouter**. Une fenêtre s'ouvre pour configurer la BA.
 
-La création de l'activité métier se fait directement dans le panneau qui
-s'ouvre. Après avoir donné un nom (obligatoire & unique) à votre
-activité métier, vous devrez configurer plusieurs sections. La section
-**Indicateur** est la plus importante.
-Les caractères suivants ne sont pas autorisés dans le nom d'une BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
+2. Donnez un nom unique à la BA. Les caractères suivants ne sont pas acceptés dans le nom de la BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
+
+Vous pouvez choisir une icône pour la BA et ajouter une description, ces deux éléments sont optionnels.
+
+4. Sélectionnez la [méthode de calcul](#méthodes-de-calcul).
+
+5. Vous devez également assigner la BA à une [Vue Métier](#vue-métier) (BV) ou la BA ne sera pas visible.
+
+> Lorsque vous cliquerez sur **Créer**, un nouveau panneau s'ouvrira sur le côté où vous devrez configurer plusieurs sections pour avoir un indicateur aggrégé.
 
 #### Indicateurs
 
@@ -239,8 +243,6 @@ du statut de l'activité métier
 La gestion des activité(s) métier est réalisée via le menu
 `Configuration > Activités métiers > Activités métiers`.
 
-![image](../assets/service-mapping/guide/business-activity-listing.png)
-
 Des actions de duplication, suppression, activation/désactivation ou
 changement massif sont possible lorsque vous cochez une ou plusieurs
 lignes
@@ -337,8 +339,6 @@ vers un formulaire de saisie.
 
 Il permet de saisir la valeur des impacts manuellement.
 
-![image](../assets/service-mapping/guide/kpi_advanced.png)
-
 | Paramètre                             | Description                                                                         |
 |---------------------------------------|-------------------------------------------------------------------------------------|
 | Mode de configuration                 | Mode de configuration standard ou avancé                                            |
@@ -409,6 +409,14 @@ Expression booléenne :
     soumettre des états aux différents services permettant de simuler
     une situation et voir le retour de l'expression
 
+## Comportement spécifique aux acquittements d'une alerte
+
+> Les acquittements d'une alerte s'appliquent uniquement à l'objet concerné (activité métier ou KPI).
+
+Les acquittements s'appliquent aux activités métier (BA) comme suit :
+- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un méta-service).
+- L'acquittement d'un KPI n'entraîne pas l'acquittement de l'activité métier qui en dépend.
+
 ## Les vues métier
 
 *Business Views - BV*
@@ -444,14 +452,14 @@ La configuration des vues métier est réalisée via le menu
 |-------------|--------------------------------------------------------------------------------------|
 | Nom         | Nom de la vue métier                                                                 |
 | Description | Description                                                                          |
-| Affiché     | Affichage ou non de la BV sur les écrans du logiciel **Centreon BAM** *(deprecated)* |
-| Actions     | Liste d'actions pouvant être effectuées sur la vue métier (modification/affichage)   |
+| Etat     | Affichage ou non de la BV sur les écrans du logiciel **Centreon BAM** *(deprecated)* |
 
-Supprimer une vue métier:
+Liste d'actions pouvant être effectuées sur la vue métier (modification/affichage).
 
--   La suppression d'une vue métier ne supprime pas les activités
-    métier qui lui sont rattachées.
--   La suppression d'une BV la supprime définitivement.
+> Supprimer une vue métier:
+> 
+>   - La suppression d'une vue métier ne supprime pas les activités métier qui lui sont rattachées.
+>   - La suppression d'une BV la supprime définitivement.
 
 ### Création d'une vue métier
 

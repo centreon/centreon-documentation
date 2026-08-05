@@ -1,6 +1,7 @@
 ---
 id: ba-reporting
 title: Report Business Activities
+description: "View Business Activity availability reports and manually rebuild reporting statistics using the BAM rebuild-events script"
 ---
 
 You can view history data at any time on the
@@ -9,7 +10,7 @@ similar to those used on the Centreon server.
 
 ## Reporting
 
-The reporting page is similar to the **Reporting > Dashboard** page on Centreon.
+The reporting page is in the **Reporting > Availability** menu in Centreon.
 Select a BA to display operational availability, warning and critical
 statistics for a given period:
 
@@ -18,34 +19,33 @@ statistics for a given period:
 You can export the data to a .csv file by clicking the **Export in CSV
 format** link.
 
-## Logs
+## Force statistics calculation
 
-The **Logs** menu displays the evolution of the BA level over time along
-with its KPI status when impacting the BA, for a given period. The
-maximum history period is *the last 30 days*.
+Events & availability statistics are automatically calculated daily. In
+case you modify the default reporting period, add an extra one or change
+BV association, you may need to rebuild the previously calculated data.
 
-Only changes in BA status are recorded.
-KPIs at a specific point in time.
+To do so, run the following script:
 
-First, select the BA and the time period:
+``` shell
+/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --all
+```
 
-![image](../assets/service-mapping/guide/log_param.png)
+It is also possible to rebuild a specific BA:
 
-The **Display details** box shows the BA status on a growth curve.
+``` shell
+/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --ba=<id of ba>
+```
 
-This chart displays the evolution of the BA health level in a given time
-frame. Click each spike to display the KPIs impacting the BA.
+For more information regarding this script, run the following command:
 
-![image](../assets/service-mapping/guide/log_chart.png)
+``` shell
+/usr/share/centreon/www/modules/centreon-bam-server/engine/centreon-bam-rebuild-events --help
+```
 
-The table below details the KPI screen:
+**If you are also using Centreon MBI** and wish to use the updated data, run
+the following command on the reporting server:
 
-| Column                     | Description                                                                     |
-|----------------------------|---------------------------------------------------------------------------------|
-| Key Performance Indicators | KPI List                                                                        |
-| KPI Type                   | KPI type (service, meta service or BA)                                          |
-| Status                     | KPI status (Operational, Warning, Critical, Unknown)                            |
-| Impact                     | KPI impact weight on the BA                                                     |
-| In Downtime                | Programming or no programming of downtime on the KPI at the time of calculation |
-| Check Time                 | Time during which the KPI was verified                                          |
-| Output                     | KPI output message during the KPI check                                         |
+``` shell
+/usr/share/centreon-bi/etl/importData.pl -r --bam-only
+```

@@ -1,6 +1,7 @@
 ---
 id: services-discovery
 title: Discovering services automatically
+description: "Configure discovery rules and commands to create services automatically"
 ---
 
 ## Launch a manual scan
@@ -108,7 +109,7 @@ Here is the description of the other fields located inside the *General* tab:
   - **Update existing services**: update created service property if enable
     (custom macro, etc.).
   - **Activate**: activate or deactivate the rule (will be ignored by the
-    discovery process if deactivated)
+    discovery process if deactivated). You need to select **Activate** to be able to perform a discovery using the API.
 
 Click the **Save** button to save the discovery rule.
 
@@ -325,6 +326,8 @@ You can run discovery manually using the following options:
 | filter\_hosts   | array   | Run all discovery rules linked to all templates of host used by selected host |
 | filter\_pollers | array   | Run all discovery rules linked to all poller linked with rule                 |
 | dry\_run        | boolean | Run discovery without configuration change (as a test)                        |
+
+You need to select **Activate** in the general options of your discovery rule to be able to perform a discovery using the API.
 
 ### Examples
 

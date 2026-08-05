@@ -1,6 +1,7 @@
 ---
 id: meta-services
 title: Creating Meta Services
+description: "Aggregate metrics from multiple services into a virtual meta-service"
 ---
 
 ## Definition
@@ -34,7 +35,7 @@ The types of data source available are as follows:
   for capacities, for example to measure the rate of people entering or leaving a room.
 * The **ABSOLUTE** type is for counters which reset on reading. It is used for fast counters that have a tendency to overrun.
 
-> More information on the *[RRDTools website](http://oss.oetiker.ch/rrdtool/doc/rrdcreate.en)*.
+> More information on the *[RRDTools website](https://oss.oetiker.ch/rrdtool/doc/rrdcreate.en.html)*.
 
 ## Configuration
 

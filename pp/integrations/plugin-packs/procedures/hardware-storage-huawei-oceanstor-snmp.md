@@ -1,89 +1,121 @@
 ---
 id: hardware-storage-huawei-oceanstor-snmp
 title: Huawei OceanStor SNMP
+description: "Monitor Huawei OceanStor storage systems via SNMP, tracking controller CPU/memory, hardware health, LUN space, and storage pool usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Monitoring Connector Assets
+The following monitoring connectors will be installed when you install the **Huawei OceanStor SNMP** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
+## Pack assets
 
 ### Templates
 
-The Centreon Pack **Huawei OceanStor SNMP** brings a host template:
+The Monitoring Connector **Huawei OceanStor SNMP** brings a host template:
 
-* HW-Storage-Huawei-Oceanstor-SNMP-custom
+* **HW-Storage-Huawei-Oceanstor-SNMP-custom**
 
-It brings the following service templates:
-
-| Service Alias   | Service Template                                 | Service Description | Default | Discovery |
-|:----------------|:-------------------------------------------------|:--------------------|:--------|:----------|
-| Controllers     | HW-Storage-Huawei-Oceanstor-Controllers-SNMP     | Check controllers   | X       | X         |
-| Hardware-Global | HW-Storage-Huawei-Oceanstor-Hardware-Global-SNMP | Check hardware      | X       |           |
-| Luns            | HW-Storage-Huawei-Oceanstor-Luns-SNMP            | Check LUNs          | X       | X         |
-| Storage-Pools   | HW-Storage-Huawei-Oceanstor-Storage-Pools-SNMP   | Check storage pools |         | X         |
-
-### Discovery rules
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Services" label="Services">
+<TabItem value="HW-Storage-Huawei-Oceanstor-SNMP-custom" label="HW-Storage-Huawei-Oceanstor-SNMP-custom">
 
-| Rule name                                          | Description                                           |
-| :------------------------------------------------- | :---------------------------------------------------- |
-| HW-Storage-Huawei-Oceanstor-SNMP-Controller-Id     | Discover controllers and monitor cpu and memory usage |
-| HW-Storage-Huawei-Oceanstor-SNMP-Lun-Name          | Discover LUNs and monitor space usage                 |
-| HW-Storage-Huawei-Oceanstor-SNMP-Storage-Pool-Name | Discover storage pools and monitor space usage        |
+| Service Alias   | Service Template                                        | Service Description | Discovery  |
+|:----------------|:--------------------------------------------------------|:--------------------|:----------:|
+| Controllers     | HW-Storage-Huawei-Oceanstor-Controllers-SNMP-custom     | Check controllers   | X          |
+| Hardware-Global | HW-Storage-Huawei-Oceanstor-Hardware-Global-SNMP-custom | Check all hardware  |            |
+| Luns            | HW-Storage-Huawei-Oceanstor-Luns-SNMP-custom            | Check LUNs          | X          |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+> The services listed above are created automatically when the **HW-Storage-Huawei-Oceanstor-SNMP-custom** host template is used.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+
+</TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias | Service Template                                      | Service Description | Discovery  |
+|:--------------|:------------------------------------------------------|:--------------------|:----------:|
+| Storage-Pools | HW-Storage-Huawei-Oceanstor-Storage-Pools-SNMP-custom | Check storage pools | X          |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
 
+### Discovery rules
+
+#### Host discovery
+
+| Rule name       | Description                                                                                                                                                                                                                                                      |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **HW-Storage-Huawei-Oceanstor-SNMP-custom** host template. |
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+#### Service discovery
+
+| Rule name                                          | Description                                               |
+|:---------------------------------------------------|:----------------------------------------------------------|
+| HW-Storage-Huawei-Oceanstor-SNMP-Controller-Id     | Discover the disk partitions and monitor space occupation |
+| HW-Storage-Huawei-Oceanstor-SNMP-Lun-Name          | Discover LUNs and monitor space usage |
+| HW-Storage-Huawei-Oceanstor-SNMP-Storage-Pool-Name | Discover storage pools and monitor space usage |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
 ### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Controllers" label="Controllers">
 
-| Metric name                                           | Unit |
-| :---------------------------------------------------- | :--- |
-| status                                                |      |
-| *controller_id*#controller.cpu.utilization.percentage | %    |
-| *controller_id*#controller.memory.usage.percentage    | %    |
+| Name                                                | Unit  |
+|:----------------------------------------------------|:------|
+| status                                              | N/A   |
+| *controllers*~controller.cpu.utilization.percentage | %     |
+| *controllers*~controller.memory.usage.percentage    | %     |
 
 </TabItem>
-<TabItem value="Hardware" label="Hardware">
+<TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Metric name                                            | Unit |
+| Name                                            | Unit |
 | :----------------------------------------------------- | :--- |
-| bbu status                                             |      |
-| disk status                                            |      |
+| bbu status                                             | N/A     |
+| disk status                                            | N/A     |
 | *disk_instance*#hardware.disk.temperature.celsius      | C    |
-| enclosure status                                       |      |
+| enclosure status                                       | N/A     |
 | *enclosure\_id*#hardware.enclosure.temperature.celsius | C    |
-| expboard status                                        |      |
-| fan status                                             |      |
-| psu status                                             |      |
+| expboard status                                        | N/A     |
+| fan status                                             | N/A     |
+| psu status                                             | N/A     |
 
 </TabItem>
 <TabItem value="Luns" label="Luns">
 
-| Metric name                           | Unit |
-| :------------------------------------ | :--- |
-| *lun_name*#lun.space.usage.bytes      | B    |
-| *lun_name*#lun.space.free.bytes       | B    |
-| *lun_name*#lun.space.usage.percentage | %    |
-| *lun_name*#lun.space.prot.bytes       | B    |
+| Name                             | Unit  |
+|:---------------------------------|:------|
+| *lun*~lun.space.usage.bytes      | B     |
+| *lun*~lun.space.free.bytes       | B     |
+| *lun*~lun.space.usage.percentage | %     |
+| *lun*~lun.space.prot.bytes       | B     |
 
 </TabItem>
 <TabItem value="Storage-Pools" label="Storage-Pools">
 
-| Metric name                                            | Unit |
-| :----------------------------------------------------- | :--- |
-| status                                                 |      |
-| *storagepool_name*#storage_pool.space.usage.bytes      | B    |
-| *storagepool_name*#storage_pool.space.free.bytes       | B    |
-| *storagepool_name*#storage_pool.space.usage.percentage | %    |
+| Name                                     | Unit  |
+|:-----------------------------------------|:------|
+| status                                   | N/A   |
+| *sp*~storage_pool.space.usage.bytes      | B     |
+| *sp*~storage_pool.space.free.bytes       | B     |
+| *sp*~storage_pool.space.usage.percentage | %     |
 
 </TabItem>
 </Tabs>
@@ -92,19 +124,20 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ### SNMP Configuration
 
-To control your Huawei OceanStor, the SNMP must be configured.
+The SNMP agent must be enabled and configured on the resource. Please refer to the official documentation. Your resource may require a list of addresses authorized to query it to be set up. Please ensure that the addresses of the Centreon pollers are included in this list.
 
 ### Network flow
 
-The target server must be reachable from the Centreon poller on the UDP/161
-SNMP port.
+The target resource must be reachable from the Centreon poller on the UDP/161 SNMP port.
 
-## Setup
+## Installing the monitoring connector
 
-### Monitoring Pack
+### Pack
 
-If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the pack displayed within the
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
 **Configuration > Connectors > Monitoring Connectors** menu.
 If the platform uses an *offline* license, install the package on the **central server**
 with the command corresponding to the operating system's package manager:
@@ -117,10 +150,10 @@ dnf install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-pack-hardware-storage-huawei-oceanstor-snmp
+dnf install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 ```
 
 </TabItem>
@@ -131,9 +164,16 @@ apt install centreon-pack-hardware-storage-huawei-oceanstor-snmp
 ```
 
 </TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-hardware-storage-huawei-oceanstor-snmp
+```
+
+</TabItem>
 </Tabs>
 
-Whatever the license type (*online* or *offline*), install the **Huawei OceanStor SNMP** Pack through
+2. Whatever the license type (*online* or *offline*), install the **Huawei OceanStor SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -146,6 +186,7 @@ You still have to manually install the plugin on the poller(s) when:
 - You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
 > More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
 Use the commands below according to your operating system's package manager:
 
 <Tabs groupId="sync">
@@ -156,10 +197,10 @@ dnf install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
+dnf install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
 ```
 
 </TabItem>
@@ -170,76 +211,293 @@ apt install centreon-plugin-hardware-storage-huawei-oceanstor-snmp
 ```
 
 </TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Storage-Huawei-Oceanstor-Snmp
+```
+
+</TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
-* Log into Centreon and add a new host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your **Huawei OceanStor** server settings.
-* Apply the **HW-Storage-Huawei-Oceanstor-SNMP-custom** template to the host.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **HW-Storage-Huawei-Oceanstor-SNMP-custom** template to the host.
 
-If you are using SNMP Version 3, use the **SNMPEXTRAOPTIONS** macro to configure
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters.
+> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Mandatory   | Macro            | Description                                  |
-|:------------|:-----------------|:---------------------------------------------|
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo  |
+| Macro            | Description                                                                                          | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Controllers" label="Controllers">
+
+| Macro                  | Description                                                                                                                                                                                                            | Default value                                        | Mandatory   |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
+| FILTERID               | Filter controller by ID (can be a regexp)                                                                                                                                                                              |                                                      |             |
+| UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{id\}                                                                   |                                                      |             |
+| WARNINGCPUUTILIZATION  | Threshold                                                                                                                                                                                                              |                                                      |             |
+| CRITICALCPUUTILIZATION | Threshold                                                                                                                                                                                                              |                                                      |             |
+| WARNINGMEMORYUSAGE     | Threshold                                                                                                                                                                                                              |                                                      |             |
+| CRITICALMEMORYUSAGE    | Threshold                                                                                                                                                                                                              |                                                      |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (default: '%\{health\_status\} =~ /degraded\|partially broken/i'). You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{id\} | %\{health\_status\} =~ /degraded\|partially broken/i |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%\{health\_status\} =~ /fault\|fail/i'). You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{id\}               | %\{health\_status\} =~ /fault\|fail/i                |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                     | --verbose                                            |             |
+
+</TabItem>
+<TabItem value="Hardware-Global" label="Hardware-Global">
+
+| Macro        | Description                                                                                            | Default value     | Mandatory   |
+|:-------------|:-------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'bbu', 'disk', 'enclosure', 'expboard', 'fan', 'psu' | .*                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).     | --verbose         |             |
+
+</TabItem>
+<TabItem value="Luns" label="Luns">
+
+| Macro                  | Description                                                                                        | Default value     | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME             | Filter LUN by name (can be a regexp)                                                               |                   |             |
+| WARNINGSPACEUSAGE      | Threshold                                                                                          |                   |             |
+| CRITICALSPACEUSAGE     | Threshold                                                                                          |                   |             |
+| WARNINGSPACEUSAGEFREE  | Threshold                                                                                          |                   |             |
+| CRITICALSPACEUSAGEFREE | Threshold                                                                                          |                   |             |
+| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                          |                   |             |
+| CRITICALSPACEUSAGEPRCT | Threshold                                                                                          |                   |             |
+| WARNINGSPACEUSAGEPROT  | Threshold                                                                                                   |                   |             |
+| CRITICALSPACEUSAGEPROT | Threshold                                                                                                   |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Storage-Pools" label="Storage-Pools">
+
+| Macro                  | Description                                                                                                                                                                                                              | Default value                                        | Mandatory   |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:-----------:|
+| FILTERNAME             | Filter storage pool by name (can be a regexp)                                                                                                                                                                            |                                                      |             |
+| FILTERDOMAINNAME       | Filter storage pool by domain name (can be a regexp)                                                                                                                                                                     |                                                      |             |
+| UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{name\}                                                                   |                                                      |             |
+| WARNINGSPACEUSAGE      | Threshold                                                                                                                                                                                                                |                                                      |             |
+| CRITICALSPACEUSAGE     | Threshold                                                                                                                                                                                                                |                                                      |             |
+| WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                                                                                                                |                                                      |             |
+| CRITICALSPACEUSAGEFREE | Threshold                                                                                                                                                                                                                |                                                      |             |
+| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                                                                                                                                                |                                                      |             |
+| CRITICALSPACEUSAGEPRCT | Threshold                                                                                                                                                                                                                |                                                      |             |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING (default: '%\{health\_status\} =~ /degraded\|partially broken/i'). You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{name\} | %\{health\_status\} =~ /degraded\|partially broken/i |             |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL (default: '%\{health\_status\} =~ /fault\|fail/i'). You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{name\}               | %\{health\_status\} =~ /fault\|fail/i                |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                       | --verbose                                            |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
 Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`) and test the plugin by
-running the following command:
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_huawei_oceanstor_snmp.pl \
-    --plugin=storage::huawei::oceanstor::snmp::plugin \
-    --mode=controllers \
-    --hostname=10.30.2.114 \
-    --snmp-version='2c' \
-    --snmp-community='huawei_ro' \
-    --warning-cpu-utilization=90 \
-    --warning-cpu-utilization=95 \
-    --verbose
+	--plugin=storage::huawei::oceanstor::snmp::plugin \
+	--mode=controllers \
+	--hostname='10.0.0.1' \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--filter-id='' \
+	--unknown-status='' \
+	--warning-status='%\{health\_status\} =~ /degraded|partially broken/i' \
+	--critical-status='%\{health\_status\} =~ /fault|fail/i' \
+	--warning-cpu-utilization='' \
+	--critical-cpu-utilization='' \
+	--warning-memory-usage='' \
+	--critical-memory-usage='' \
+	--verbose
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
-OK: All controllers are ok | '0A#controller.cpu.utilization.percentage'=6.00%;0:95;;0;100 '0A#controller.memory.usage.percentage'=76.00%;;;0;100 '0B#controller.cpu.utilization.percentage'=8.00%;0:95;;0;100 '0B#controller.memory.usage.percentage'=75.00%;;;0;100
-checking controller '0A'
-    health status: Normal [running status: Online]
-    cpu usage: 6.00 %
-    memory used: 76.00 %
-checking controller '0B'
-    health status: Normal [running status: Online]
-    cpu usage: 8.00 %
-    memory used: 75.00 %
-```
-
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
-
-```bash
-/usr/lib/centreon/plugins/centreon_huawei_oceanstor_snmp.pl \
-    --plugin=storage::huawei::oceanstor::snmp::plugin \
-    --mode=controllers \
-    --help
-```
-
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
-
-```bash
-/usr/lib/centreon/plugins/centreon_huawei_oceanstor_snmp.pl \
-    --plugin=storage::huawei::oceanstor::snmp::plugin \
-    --list-mode
+OK: cpu usage: 70063 % memory used: 62960 % | 'controllers~controller.cpu.utilization.percentage'=70063%;;;0;100 'controllers~controller.memory.usage.percentage'=62960%;;;0;100
 ```
 
 ### Troubleshooting
 
 Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
 for Centreon Plugins typical issues.
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_huawei_oceanstor_snmp.pl \
+	--plugin=storage::huawei::oceanstor::snmp::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                              | Linked service template                                 |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|
+| controllers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/huawei/oceanstor/snmp/mode/controllers.pm)]             | HW-Storage-Huawei-Oceanstor-Controllers-SNMP-custom     |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/huawei/oceanstor/snmp/mode/hardware.pm)]                   | HW-Storage-Huawei-Oceanstor-Hardware-Global-SNMP-custom |
+| list-controllers [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/huawei/oceanstor/snmp/mode/listcontrollers.pm)]    | Used for service discovery                              |
+| list-luns [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/huawei/oceanstor/snmp/mode/listluns.pm)]                  | Used for service discovery                              |
+| list-storage-pools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/huawei/oceanstor/snmp/mode/liststoragepools.pm)] | Used for service discovery                              |
+| luns [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/huawei/oceanstor/snmp/mode/luns.pm)]                           | HW-Storage-Huawei-Oceanstor-Luns-SNMP-custom            |
+| storage-pools [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/storage/huawei/oceanstor/snmp/mode/storagepools.pm)]          | HW-Storage-Huawei-Oceanstor-Storage-Pools-SNMP-custom   |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --hostname                                 |   Name or address of the host to monitor (mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --snmp-community                           |   SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-version                             |   Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --snmp-port                                |   UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-timeout                             |   Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-retries                             |   Maximum number of retries (default: 5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --maxrepetitions                           |   Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --subsetleef                               |   How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-autoreduce                          |    Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (by default, the number is divided by 2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-force-getnext                       |   Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --snmp-cache-file                          |   Use SNMP cache file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-username                            |   SNMP v3 only: User name (securityName).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --authpassphrase                           |   SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the  --authprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --authprotocol                             |   SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --privpassphrase                           |   SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --privprotocol                             |   SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --snmp-tls-their-hostname                  |   Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-trust-cert                      |   A trusted CA certificate used to verify a remote host's certificate.  If you use this option, you must also  define --snmp-tls-their-hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Controllers" label="Controllers">
+
+| Option                   | Description                                                                                                                                                                                                                |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                |
+| --filter-id              |   Filter controller by ID (can be a regexp).                                                                                                                                                                               |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{id\}                                                                     |
+| --warning-status         |   Define the conditions to match for the status to be WARNING (default: '%\{health\_status\} =~ /degraded\|partially broken/i'). You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{id\}   |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{health\_status\} =~ /fault\|fail/i'). You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{id\}                 |
+| --warning-* --critical-* |   Thresholds. Can be: 'cpu-utilization', 'memory-usage'.                                                                                                                                                                   |
+
+</TabItem>
+<TabItem value="Hardware-Global" label="Hardware-Global">
+
+| Option               | Description                                                                                                                                                                                                              |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          |   Which component to check (default: '.*'). Can be: 'bbu', 'disk', 'enclosure', 'expboard', 'fan', 'psu'.                                                                                                                |
+| --filter             |   Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=psu,0.0A.0                                                                     |
+| --absent-problem     |   Return an error if a component is not 'present' (default is skipping).  It can be set globally or for a specific instance: --absent-problem='component\_name' or --absent-problem='component\_name,instance\_value'.   |
+| --no-component       |   Define the expected status if no components are found (default: critical).                                                                                                                                             |
+| --threshold-overload |   Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='psu,CRITICAL,degraded'   |
+| --warning            |   Set warning threshold for 'disk.temperature', 'enclosure.temperature' (syntax: type,regexp,threshold) Example: --warning='enclosure.temperature,.*,40'                                                                 |
+| --critical           |   Set critical threshold for 'disk.temperature', 'enclosure.temperature' (syntax: type,regexp,threshold) Example: --critical='enclosure.temperature,.*,50'                                                               |
+| --warning-count-*    |   Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                           |
+| --critical-count-*   |   Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                          |
+| --add-name-instance  |   Add literal description for instance value (used in filter and threshold options).                                                                                                                                     |
+
+</TabItem>
+<TabItem value="Luns" label="Luns">
+
+| Option                     | Description                                                                                                                   |
+|:---------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --filter-name              |   Filter LUN by name (can be a regexp).                                                                                       |
+| --include-non-exposed-luns |   Include LUN not exposed to an iniator, usually LUN snapshots.                                                               |
+| --warning-* --critical-*   |   Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.                                                  |
+
+</TabItem>
+<TabItem value="Storage-Pools" label="Storage-Pools">
+
+| Option                   | Description                                                                                                                                                                                                                  |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                  |
+| --filter-name            |   Filter storage pool by name (can be a regexp).                                                                                                                                                                             |
+| --filter-domain-name     |   Filter storage pool by domain name (can be a regexp).                                                                                                                                                                      |
+| --unknown-status         |   Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{name\}                                                                     |
+| --warning-status         |   Define the conditions to match for the status to be WARNING (default: '%\{health\_status\} =~ /degraded\|partially broken/i'). You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{name\}   |
+| --critical-status        |   Define the conditions to match for the status to be CRITICAL (default: '%\{health\_status\} =~ /fault\|fail/i'). You can use the following variables: %\{health\_status\}, %\{running\_status\}, %\{name\}                 |
+| --warning-* --critical-* |   Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.                                                                                                                                                 |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_huawei_oceanstor_snmp.pl \
+	--plugin=storage::huawei::oceanstor::snmp::plugin \
+	--mode=controllers \
+	--help
+```

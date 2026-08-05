@@ -1,6 +1,7 @@
 ---
 id: openid
 title: Configuring connection via OpenId Connect
+description: "Configure authentication via OpenID Connect identity providers"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -118,7 +119,7 @@ If you turn on **Enable automatic management**, users who log in to Centreon wil
 
 - Define which attribute from which endpoint will be used to retrieve values for enforcing relationships with access groups.
 - **Apply only first role**: If several roles are found for a specific user in the identity provider's information, then only the first role will be applied. If the option is turned off, all roles will be applied.
-- Match an attribute retrieved from the identity provider with the access group you want the user to belong to.
+- Match an attribute retrieved from the identity provider with the access group you want the user to belong to. Please note that roles must have been created beforehand in your identity provider. Regex and wildcards are not permitted.
 
 For example, the **Introspection endpoint** gives you the following response and **Apply only first role** is enabled. The **Roles attribute path** will
 be **realm_access.roles** and **Define the relation between roles and ACL access groups** will establish a relationship

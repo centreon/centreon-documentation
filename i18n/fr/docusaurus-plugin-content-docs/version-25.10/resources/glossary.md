@@ -1,6 +1,7 @@
 ---
 id: glossary
 title: Glossaire des concepts Centreon
+description: "Définitions des principaux concepts de supervision Centreon"
 ---
 
 ## ACL
@@ -28,6 +29,10 @@ Acquitter une ressource ne signifie pas que l'incident est résolu : il le sera 
 ## Action de supervision
 
 Toute action exécutée depuis l’interface permettant d’agir sur votre supervision en temps réel. Par exemple, [faire un acquittement](#acquittement), planifier une [plage de maintenance](#plage-de-maintenance), forcer un contrôle, etc. 
+
+## Agent
+
+Un agent est un composant logiciel, fourni par Centreon (par exemple Centreon Monitoring Agent) ou par un tiers (par exemple NSClient), installé sur une ressource à superviser et destiné à collecter localement les données techniques relatives à cette ressource (états, indicateurs, événements) puis à les transmettre à la plateforme de supervision, directement ou par l’intermédiaire d’un [collecteur](#collecteur).
 
 ## Alerte
 
@@ -83,6 +88,12 @@ Certains connecteurs ont également une option de “découverte” qui leur per
 
 - [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
 - [Introduction aux connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
+
+## Contrôle
+
+Un contrôle est une opération qui détermine le [statut](#statut) d'une ressource, et peut produire des [métriques](#statut) (données de performance). Le résultat d’un contrôle met à jour la ligne correspondant à la ressource dans la page **Statut des ressources**.
+
+Un contrôle peut être effectué soit par le moteur de supervision ([contrôle actif](../monitoring/active-passive-checks.md#contrôles-actifs)), soit par l’équipement lui-même ([contrôle passif](../monitoring/active-passive-checks.md#contrôles-passifs)).
 
 ## Donnée de performance
 

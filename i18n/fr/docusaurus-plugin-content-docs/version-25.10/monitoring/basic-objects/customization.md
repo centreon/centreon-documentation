@@ -1,6 +1,7 @@
 ---
 id: customization
 title: Changer les paramètres de votre compte Centreon
+description: "Personnaliser le mode d'affichage, la langue et la page par défaut de votre compte Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -34,9 +35,6 @@ Dans la liste de sélection des langues, sélectionnez la vôtre :
 Puis cliquez sur **Sauvegarder**. Votre interface est maintenant traduite dans votre
 langue.
 
-> Si votre langue n'apparaît pas dans la liste, vous pouvez aider la communauté Centreon à traduire l'interface web.
-> Rendez-vous dans le chapitre [Comment traduire Centreon](../../developer/developer-translate-centreon.md) pour plus d'informations.
-
 ## Réinitialiser le mot de passe
 
 Seuls les comptes locaux peuvent changer leur mot de passe via l'interface Centreon. Si vous vous connectez via un fournisseur d'identité, votre mot de passe est celui défini auprès du fournisseur d'identité.
@@ -48,7 +46,7 @@ bandeau à droite à côté de l'icône de profil :
 
 ![image](../../assets/administration/password_will_expire.png)
 
-Cliquez sur **Editer le profil**, puis modifiez votre mot de passe :
+Cliquez sur **Editer le profil**, puis modifiez votre mot de passe en renseignant également votre mot de passe actuel :
 
 ![image](../../assets/administration/password_expiration.png)
 

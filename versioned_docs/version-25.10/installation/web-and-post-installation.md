@@ -1,6 +1,7 @@
 ---
 id: web-and-post-installation
 title: Web And Post Installation
+description: "Complete the web setup wizard and initialize your monitoring"
 ---
 
 ## Web installation
@@ -40,7 +41,7 @@ Then click **Next**.
 
 ### Step 5: Admin information
 
-Define the information needed to create the default admin account. This is the account you will use to log in to Centreon for the first time. The password must comply with the default password security policy: at least 12 characters, lower and upper case letters, numbers and special characters. You can change this policy later.
+Define the information needed to create the default admin account. This is the account you will use to log in to Centreon for the first time. The password must comply with the default password security policy: at least 12 characters, lower and upper case letters, numbers and special characters (at least one of these: @$!%*?&). You can change this policy later.
 
 ![image](../assets/installation/aadmininfo.png)
 
@@ -91,8 +92,6 @@ displayed.
 The installation is complete. Click **Finish**.
 
 You can now log in using the **admin** account and [initialize the monitoring](#initialization-of-the-monitoring).
-
-![image](../assets/installation/aconnection.png)
 
 ## Initialization of the monitoring
 

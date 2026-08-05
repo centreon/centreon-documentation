@@ -1,81 +1,129 @@
 ---
 id: applications-antivirus-kaspersky-snmp
 title: Kaspersky
+description: "Supervisez Kaspersky Security Center en SNMP : déploiement antivirus, statut de la protection, mises à jour, évènements et découverte réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
 
-## Vue d'ensemble
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Kaspersky**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
-Kaspersky est une société privée qui fournit des solutions de cybersécurité et 
-antivirus. Elle a été fondée en 1997 par Eugene Kaspersky, Natalya Kaspersky et
-Alexey De-Monderik.
+## Contenu du pack
 
-Le connecteur de supervision Centreon Kaspersky permet de récupérer, par l'intermédiaire du
-protocole SNMP, le statut du Serveur d'Administration et des applications 
-administrées.
+### Modèles
 
-## Contenu du connecteur de supervision 
+Le connecteur de supervision **Kaspersky** apporte un modèle d'hôte :
 
-### Elément supervisés
+* **App-Antivirus-Kaspersky-SNMP-custom**
 
-* Kaspersky Security Center
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
-### Métriques collectées
+<Tabs groupId="sync">
+<TabItem value="App-Antivirus-Kaspersky-SNMP-custom" label="App-Antivirus-Kaspersky-SNMP-custom">
+
+| Alias           | Modèle de service                                   | Description                                                                                   |
+|:----------------|:----------------------------------------------------|:----------------------------------------------------------------------------------------------|
+| Deployment      | App-Antivirus-Kaspersky-Deployment-SNMP-custom      | Contrôle le statut du déploiement                                                             |
+| Events          | App-Antivirus-Kaspersky-Events-SNMP-custom          | Contrôle le statut des évènements                                                             |
+| Full-Scan       | App-Antivirus-Kaspersky-Full-Scan-SNMP-custom       | Contrôle le statut des scans                                                                  |
+| Logical-Network | App-Antivirus-Kaspersky-Logical-Network-SNMP-custom | Contrôle le statut de la découverte réseau                                                    |
+| Protection      | App-Antivirus-Kaspersky-Protection-SNMP-custom      | Contrôle le statut de la protection                                                           |
+| Updates         | App-Antivirus-Kaspersky-Updates-SNMP-custom         | Contrôle le temps depuis la dernière mise à jour du serveur et le nombre de client non à jour |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Antivirus-Kaspersky-SNMP-custom** est utilisé.
+
+</TabItem>
+</Tabs>
+
+### Règles de découverte
+
+#### Découverte d'hôtes
+
+| Nom de la règle | Description                                                                                                                                                                                                                                          |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Découvre les ressources via un scan réseau SNMP. Installez le connecteur [Generic SNMP](./applications-protocol-snmp.md) pour obtenir la règle de découverte et créez un modificateur pour le modèle d'hôte **App-Antivirus-Kaspersky-SNMP-custom**. |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Deployment" label="Deployment">
 
-| Metric name                          | Description                               |
-|:-------------------------------------|:------------------------------------------|
-| hosts.antivirus.installed.count      | Number of successful remote installations |
-| hosts.antivirus.install.failed.count | Number of failed remote installations     |
-| hosts.expiring.licence.count         | Number of hosts with expiring licence     |
-| hosts.expired.licence.count          | Number of hosts with expired licence      |
+| Nom                                  | Unité |
+|:-------------------------------------|:------|
+| status                               | N/A   |
+| hosts.antivirus.installed.count      | count |
+| hosts.antivirus.install.failed.count | count |
+| hosts.expiring.licence.count         | count |
+| hosts.expired.licence.count          | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Events" label="Events">
 
-| Metric name           | Description               |
-|:---------------------|:---------------------------| 
-| events.critical.count | Number of critical events |     
+| Nom                   | Unité |
+|:----------------------|:------|
+| status                | N/A   |
+| events.critical.count | count |
 
-</TabItem>
-<TabItem value="Logical-Network" label="Logical-Network">
-
-| Metric name              | Description                                             |
-| :------------------------| :-------------------------------------------------------|
-| hosts.new.count          | Number of new hosts                                     |
-| groups.total.count       | Number of groups on the server                          |
-| hosts.notconnected.count | Number of hosts that have not connected for a long time |
-| hosts.uncontrolled.count | Number of uncontrolled hosts                            |
-
-</TabItem>
-<TabItem value="Protection" label="Protection">
-
-| Metric name                                        | Description                                            |
-|:---------------------------------------------------|:-------------------------------------------------------|
-| protection.hosts.antivirus.notrunning.count        | Number of hosts without a running antivirus            |
-| protection.hosts.realtime.notrunning.count         | Number of hosts without a running real time protection |
-| protection.hosts.realtime.unacceptable.level.count | Number of hosts with unacceptable protection level     |
-| protection.hosts.uncured.objects.count             | Number of hosts with uncured objects                   |
-| protection.hosts.2manythreats.count                | Number of hosts with too many threats                  |
-
-</TabItem>
-<TabItem value="Updates" label="Updates">
-
-| Metric name                     | Description                    | Unit   |
-|:--------------------------------|:-------------------------------|:------ |
-| update.server.freshness.seconds | Date of the last server update | s      |
-| update.hosts.outdated.count     | Number of outdated hosts       |        |
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Full-Scan" label="Full-Scan">
 
-| Metric name           | Description                          |
-|:----------------------|:-------------------------------------|
-| hosts.unscanned.count | Number of hosts not recently scanned |
+| Nom                   | Unité |
+|:----------------------|:------|
+| status                | N/A   |
+| hosts.unscanned.count | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Logical-Network" label="Logical-Network">
+
+| Nom                      | Unité |
+|:-------------------------|:------|
+| status                   | N/A   |
+| hosts.new.count          | count |
+| groups.total.count       | count |
+| hosts.notconnected.count | count |
+| hosts.uncontrolled.count | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Protection" label="Protection">
+
+| Nom                                                | Unité |
+|:---------------------------------------------------|:------|
+| status                                             | N/A   |
+| protection.hosts.antivirus.notrunning.count        | count |
+| protection.hosts.realtime.notrunning.count         | count |
+| protection.hosts.realtime.unacceptable.level.count | count |
+| protection.hosts.uncured.objects.count             | count |
+| protection.hosts.toomanythreats.count              | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Nom                             | Unité |
+|:--------------------------------|:------|
+| status                          | N/A   |
+| update.server.freshness.seconds | s     |
+| update.hosts.outdated.count     | count |
+
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 </Tabs>
@@ -85,7 +133,7 @@ administrées.
 ### Configuration de l'équipement
 
 Afin de superviser le serveur Kaspersky Security Center, le SNMP v2 ou v3 doit
-être configuré comme indiqué sur la documentation officielle : 
+être configuré comme indiqué sur la documentation officielle :
 https://support.kaspersky.com/fr/12603#block3
 
 ### Flux réseaux
@@ -93,116 +141,419 @@ https://support.kaspersky.com/fr/12603#block3
 La communication doit être possible depuis le collecteur Centreon vers le port
 SNMP (UDP/161) du Kaspersky Security Center.
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin Centreon Kaspersky sur l'ensemble des collecteurs Centreon supervisant des ressources Kaspersky Security Center :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
+dnf install centreon-pack-applications-antivirus-kaspersky-snmp
 ```
-
-2. Installer le connecteur de supervision 'Kaspersky' depuis la page **Configuration > Connecteurs > Connecteurs de supervision** de l'interface Web Centreon
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin Centreon Kaspersky sur l'ensemble des collecteurs Centreon supervisant des ressources Kaspersky Security Center :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
+dnf install centreon-pack-applications-antivirus-kaspersky-snmp
 ```
 
-2. Installer le RPM du connecteur de supervision contenant les Modèles de supervision sur le serveur Central Centreon :
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-antivirus-kaspersky-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-antivirus-kaspersky-snmp
 ```
 
-3. Installer le connecteur de supervision 'Kaspersky' depuis la page **Configuration > Connecteurs > Connecteurs de supervision** de l'interface Web Centreon
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Kaspersky**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-antivirus-kaspersky-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Antivirus-Kaspersky-Snmp
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration de l'Hôte
+## Utiliser le connecteur de supervision
 
-* Ajoutez un nouvel Hôte depuis la page "Configuration > Hôtes"
-* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre serveur Kaspersky Security Center
-* Appliquez le Modèle d'Hôte *App-Antivirus-Kaspersky-SNMP-custom*
+### Utiliser un modèle d'hôte issu du connecteur
 
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro SNMPEXTRAOPTIONS.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Antivirus-Kaspersky-SNMP-custom**.
+
+> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
-| Obligatoire | Nom              | Description                                 |
-|:----------- |:---------------- |:------------------------------------------- |
-|             | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-## FAQ
+4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-### Comment tester mes configurations et le Plugin en ligne de commande ?
+### Utiliser un modèle de service issu du connecteur
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne 
-de commande depuis un collecteur Centreon en vous connectant avec l'utilisateur 
-*centreon-engine* :
- 
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Deployment" label="Deployment">
+
+| Macro            | Description                                                                                                                                        | Valeur par défaut          | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| CRITICEXPIRING   | Threshold                                                                                                                                          |                            |             |
+| WARNINGEXPIRED   | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALEXPIRED  | Threshold                                                                                                                                          |                            |             |
+| WARNINGEXPIRING  | Threshold                                                                                                                                          | 0                          |             |
+| WARNINGFAILED    | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALFAILED   | Threshold                                                                                                                                          |                            |             |
+| WARNINGPROGRESS  | Threshold                                                                                                                                          | 100:                       |             |
+| CRITICALPROGRESS | Threshold                                                                                                                                          | 95:                        |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}   | %\{status\} =~ /Warning/i  |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\} | %\{status\} =~ /Critical/i |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                            |             |
+
+</TabItem>
+<TabItem value="Events" label="Events">
+
+| Macro          | Description                                                                                                                                        | Valeur par défaut          | Obligatoire |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| WARNINGEVENTS  | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALEVENTS | Threshold                                                                                                                                          |                            |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}   | %\{status\} =~ /Warning/i  |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\} | %\{status\} =~ /Critical/i |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                            |             |
+
+</TabItem>
+<TabItem value="Full-Scan" label="Full-Scan">
+
+| Macro              | Description                                                                                                                                        | Valeur par défaut          | Obligatoire |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| WARNINGNOTSCANNED  | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALNOTSCANNED | Threshold                                                                                                                                          |                            |             |
+| WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}   | %\{status\} =~ /Warning/i  |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\} | %\{status\} =~ /Critical/i |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                            |             |
+
+</TabItem>
+<TabItem value="Logical-Network" label="Logical-Network">
+
+| Macro                        | Description                                                                                                                                        | Valeur par défaut          | Obligatoire |
+|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| WARNINGGROUPS                | Threshold                                                                                                                                          |                            |             |
+| CRITICALGROUPS               | Threshold                                                                                                                                          |                            |             |
+| WARNINGNEWHOSTS              | Threshold                                                                                                                                          |                            |             |
+| CRITICALNEWHOSTS             | Threshold                                                                                                                                          |                            |             |
+| WARNINGNOTCONNECTEDLONGTIME  | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALNOTCONNECTEDLONGTIME | Threshold                                                                                                                                          |                            |             |
+| WARNINGNOTCONTROLLED         | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALNOTCONTROLLED        | Threshold                                                                                                                                          |                            |             |
+| WARNINGSTATUS                | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}   | %\{status\} =~ /Warning/i  |             |
+| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\} | %\{status\} =~ /Critical/i |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                            |             |
+
+</TabItem>
+<TabItem value="Protection" label="Protection">
+
+| Macro                      | Description                                                                                                                                        | Valeur par défaut          | Obligatoire |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| WARNINGNOANTIVIRUS         | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALNOANTIVIRUS        | Threshold                                                                                                                                          |                            |             |
+| WARNINGNOREALTIME          | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALNOREALTIME         | Threshold                                                                                                                                          |                            |             |
+| WARNINGNOTACCEPTABLELEVEL  | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALNOTACCEPTABLELEVEL | Threshold                                                                                                                                          |                            |             |
+| WARNINGNOTCUREDOBJECTS     | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALNOTCUREDOBJECTS    | Threshold                                                                                                                                          |                            |             |
+| WARNINGSTATUS              | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}   | %\{status\} =~ /Warning/i  |             |
+| CRITICALSTATUS             | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\} | %\{status\} =~ /Critical/i |             |
+| WARNINGTOOMANYTHREATS      | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALTOOMANYTHREATS     | Threshold                                                                                                                                          |                            |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                            |             |
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Macro                    | Description                                                                                                                                        | Valeur par défaut          | Obligatoire |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------|:-----------:|
+| WARNINGLASTSERVERUPDATE  | Threshold                                                                                                                                          | 120                        |             |
+| CRITICALLASTSERVERUPDATE | Threshold                                                                                                                                          | 240                        |             |
+| WARNINGNOTUPDATED        | Threshold                                                                                                                                          | 0                          |             |
+| CRITICALNOTUPDATED       | Threshold                                                                                                                                          |                            |             |
+| WARNINGSTATUS            | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}   | %\{status\} =~ /Warning/i  |             |
+| CRITICALSTATUS           | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\} | %\{status\} =~ /Critical/i |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                 |                            |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+
 ```bash
-/usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
-  --plugin=apps::antivirus::kaspersky::snmp::plugin --mode=protection \
-  --hostname=10.0.0.1 --snmp-version='2c' --snmp-community='kaseprsky_ro' \
-  --warning-status='%\{status\} =~ /Warning/i' --critical-status='%\{status\} =~ /Critical/i'
-  --warning-no-antivirus='0' --critical-no-antivirus='' --warning-no-real-time='0' --critical-no-real-time='' \
-  --warning-not-acceptable-level='0' --critical-not-acceptable-level='' \
-  --warning-not-cured-objects='0' --critical-not-cured-objects='' \
-  --warning-too-many-threats='0' --critical-too-many-threats='' \
-  --warning-too-many-threats='0' --critical-too-many-threats='' \
-  --use-new-perfdata
+/usr/lib/centreon/plugins/centreon_kaspersky_snmp.pl \
+	--plugin=apps::antivirus::kaspersky::snmp::plugin \
+	--mode=protection \
+	--hostname=10.0.0.1 \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--warning-status='%\{status\} =~ /Warning/i' \
+	--critical-status='%\{status\} =~ /Critical/i' \
+	--warning-no-antivirus='0' \
+	--critical-no-antivirus='' \
+	--warning-no-real-time='0' \
+	--critical-no-real-time='' \
+	--warning-not-acceptable-level='0' \
+	--critical-not-acceptable-level='' \
+	--warning-not-cured-objects='0' \
+	--critical-not-cured-objects='' \
+	--warning-too-many-threats='0' \
+	--critical-too-many-threats=''
 ```
 
-La commande devrait retourner un message de sortie de la forme ci-dessous :
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 WARNING: 2 host(s) without running antivirus - 1 hosts(s) without running real time protection - 8 host(s) with not cured objects - 5 host(s) with too many threats | 'protection.hosts.antivirus.notrunning.count'=2;0:0;;0; 'protection.hosts.realtime.notrunning.count'=1;0:0;;0; 'protection.hosts.realtime.unacceptable.level.count'=0;0:0;;0; 'protection.hosts.uncured.objects.count'=8;0:0;;0; 'protection.hosts.toomanythreats.count'=5;0:0;;0;
+
 ```
 
-Dans cet exemple, le Plugin contrôle le statut de la protection des éléments du parc
-(```--plugin=apps::antivirus::kaspersky::snmp::plugin--mode=protection```) indiqué par 
-le Kasperky Security Center à l'adresse 10.0.0.1 par l'intermédiaire du 
-protocole SNMP 
-(```--hostname='10.0.0.1'  --snmp-version='2c' --snmp-community='kaseprsky_ro'```).
+### Diagnostic des erreurs communes
 
-Dans cet exemple, une alarme est déclenchée si le statut global de la protection est différent de 'OK' 
-(```--warning-status='%{status} =~ /Warning/i'``` et ```--critical-status='%{status} =~ /Critical/i'```) 
-ou alors que le nombre de PC sans protection ou avec une protection insuffisante est supérieur à 0 (```--warning-no-antivirus='0'```).
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
-La liste de toutes les options complémentaires et leur signification
-peut être affichée en ajoutant le paramètre ```--help``` à la commande:
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
-  --plugin=apps::antivirus::kaspersky::snmp::plugin \
-  --mode=deployment \
-  --help
+/usr/lib/centreon/plugins/centreon_kaspersky_snmp.pl \
+	--plugin=apps::antivirus::kaspersky::snmp::plugin \
+	--list-mode
 ```
 
-Tous les modes disponibles peuvent être affichés via l'option 
-```--list-mode``` :
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                         | Modèle de service associé                           |
+|:---------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------|
+| deployment [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/kaspersky/snmp/mode/deployment.pm)]          | App-Antivirus-Kaspersky-Deployment-SNMP-custom      |
+| events [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/kaspersky/snmp/mode/events.pm)]                  | App-Antivirus-Kaspersky-Events-SNMP-custom          |
+| full-scan [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/kaspersky/snmp/mode/fullscan.pm)]             | App-Antivirus-Kaspersky-Full-Scan-SNMP-custom       |
+| logical-network [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/kaspersky/snmp/mode/logicalnetwork.pm)] | App-Antivirus-Kaspersky-Logical-Network-SNMP-custom |
+| protection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/kaspersky/snmp/mode/protection.pm)]          | App-Antivirus-Kaspersky-Protection-SNMP-custom      |
+| updates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/antivirus/kaspersky/snmp/mode/updates.pm)]                | App-Antivirus-Kaspersky-Updates-SNMP-custom         |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --hostname                                 |   Name or address of the host to monitor (mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --snmp-community                           |   SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --snmp-version                             |   Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --snmp-port                                |   UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --snmp-timeout                             |   Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --snmp-retries                             |   Maximum number of retries (default: 5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --maxrepetitions                           |   Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --subsetleef                               |   How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --snmp-autoreduce                          |    Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (by default, the number is divided by 2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --snmp-force-getnext                       |   Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --snmp-cache-file                          |   Use SNMP cache file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --snmp-username                            |   SNMP v3 only: User name (securityName).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --authpassphrase                           |   SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the  --authprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --authprotocol                             |   SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --privpassphrase                           |   SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --privprotocol                             |   SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-their-hostname                  |   Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --snmp-tls-trust-cert                      |   A trusted CA certificate used to verify a remote host's certificate.  If you use this option, you must also  define --snmp-tls-their-hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --output-file                              |   Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Deployment" label="Deployment">
+
+| Option            | Description                                                                                                                                            |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-status  |   Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}     |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\}   |
+| --warning-*       |   Warning threshold. Can be: 'progress' (counter or %), 'failed', 'expiring', 'expired'.                                                               |
+| --critical-*      |   Critical threshold. Can be: 'progress' (counter or %), 'failed', 'expiring', 'expired'.                                                              |
+| --percent         |   Set this option if you want to use percent on progress thresholds.                                                                                   |
+
+</TabItem>
+<TabItem value="Events" label="Events">
+
+| Option            | Description                                                                                                                                            |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-status  |   Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}     |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\}   |
+| --warning-*       |   Warning threshold. Can be: 'events'.                                                                                                                 |
+| --critical-*      |   Critical threshold. Can be: 'events'.                                                                                                                |
+
+</TabItem>
+<TabItem value="Full-Scan" label="Full-Scan">
+
+| Option            | Description                                                                                                                                            |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-status  |   Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}     |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\}   |
+| --warning-*       |   Warning threshold. Can be: 'not-scanned'.                                                                                                            |
+| --critical-*      |   Critical threshold. Can be: 'not-scanned'.                                                                                                           |
+
+</TabItem>
+<TabItem value="Logical-Network" label="Logical-Network">
+
+| Option            | Description                                                                                                                                            |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-status  |   Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}     |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\}   |
+| --warning-*       |   Warning threshold. Can be: 'new-hosts', 'groups', 'not-connected-long-time', 'not-controlled'.                                                       |
+| --critical-*      |   Critical threshold. Can be: 'new-hosts', 'groups', 'not-connected-long-time', 'not-controlled'.                                                      |
+
+</TabItem>
+<TabItem value="Protection" label="Protection">
+
+| Option            | Description                                                                                                                                            |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-status  |   Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}     |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\}   |
+| --warning-*       |   Warning threshold. Can be: 'no-antivirus', 'no-real-time', 'not-acceptable-level', 'not-cured-objects', 'too-many-threats'.                          |
+| --critical-*      |   Critical threshold. Can be: 'no-antivirus', 'no-real-time', 'not-acceptable-level', 'not-cured-objects', 'too-many-threats'.                         |
+
+</TabItem>
+<TabItem value="Updates" label="Updates">
+
+| Option            | Description                                                                                                                                            |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-status  |   Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /Warning/i'). Can use special variables like: %\{status\}     |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /Critical/i'). Can use special variables like: %\{status\}   |
+| --warning-*       |   Warning threshold. Can be: 'last-server-update', 'not-updated'.                                                                                      |
+| --critical-*      |   Critical threshold. Can be: 'last-server-update', 'not-updated'.                                                                                     |
+| --timezone        |   Timezone options. Default is 'GMT'.                                                                                                                  |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_kaspersky_snmp.pl \
-  --plugin=apps::antivirus::kaspersky::snmp::plugin \
-  --list-mode
+/usr/lib/centreon/plugins/centreon_kaspersky_snmp.pl \
+	--plugin=apps::antivirus::kaspersky::snmp::plugin \
+	--mode=protection \
+	--help
 ```
-
-### UNKNOWN: SNMP GET Request : Timeout
-
-Si vous obtenez ce message, cela signifie le collecteur Centreon ne parvient
-pas à contacter le serveur Kaspersky Security Center sur le port 161 (firewall
-ou autre équipement en coupure) ou que la communauté SNMP configurée n'est pas 
-correcte.
-
-### UNKNOWN: SNMP GET Request : Cant get a single value.
-
-Les autorisations données à l'utilisateur en SNMP sont trop restreintes pour
-faire fonctionner le mode/plugin.

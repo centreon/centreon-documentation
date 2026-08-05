@@ -1,66 +1,591 @@
 ---
 id: applications-voip-xivo
 title: XiVO VoIP Server
+description: "Supervisez XiVO VoIP Server via SNMP en vérifiant l'état des processus critiques (nginx, postgres, xivo-agentd, etc.)."
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-## Prerequisites
+## Dépendances du connecteur de supervision
 
-This chapter describes the prerequisites installation needed by plugins to run.
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **XiVO VoIP Server** 
+depuis la page **Configuration > Gestionnaire de connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
+* [Asterisk VoIP SNMP](./applications-voip-asterisk-snmp.md)
+* [HTTP Server](./applications-protocol-http.md)
+* [Linux SNMP](./operatingsystems-linux-snmp.md)
+* [NTP Server](./applications-protocol-ntp.md)
 
-### Dependencies
+## Contenu du pack
 
-This Monitoring Connector depends on "NTP Server" "HTTP Server" and "Asterisk VoIP
-Server SNMP", so you might have to install these packages before being able to
-add this Monitoring Connector:
+### Modèles
 
-``` shell
-yum install centreon-pack-applications-protocol-ntp centreon-pack-applications-protocol-http centreon-pack-applications-voip-asterisk-snmp
+Le connecteur de supervision **XiVO VoIP Server** apporte un modèle d'hôte :
+
+* **App-VoIP-XiVO-custom**
+
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
+
+<Tabs groupId="sync">
+<TabItem value="App-VoIP-XiVO-custom" label="App-VoIP-XiVO-custom">
+
+| Alias                      | Modèle de service                          | Description                                                                  |
+|:---------------------------|:-------------------------------------------|:-----------------------------------------------------------------------------|
+| XiVO-process-nginx         | App-VoIP-XiVO-Process-nginx-custom         | Contrôle permettant de vérifier le fonctionnement du processus nginx         |
+| XiVO-process-postgres      | App-VoIP-XiVO-Process-postgres-custom      | Contrôle permettant de vérifier le fonctionnement du processus postgres      |
+| XiVO-process-xivo-agentd   | App-VoIP-XiVO-Process-xivo-agentd-custom   | Contrôle permettant de vérifier le fonctionnement du processus xivo-agentd   |
+| XiVO-process-xivo-agid     | App-VoIP-XiVO-Process-xivo-agid-custom     | Contrôle permettant de vérifier le fonctionnement du processus xivo-agid     |
+| XiVO-process-xivo-amid     | App-VoIP-XiVO-Process-xivo-amid-custom     | Contrôle permettant de vérifier le fonctionnement du processus xivo-amid     |
+| XiVO-process-xivo-confgend | App-VoIP-XiVO-Process-xivo-confgend-custom | Contrôle permettant de vérifier le fonctionnement du processus xivo-confgend |
+| XiVO-process-xivo-ctid     | App-VoIP-XiVO-Process-xivo-ctid-custom     | Contrôle permettant de vérifier le fonctionnement du processus xivo-ctid     |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-VoIP-XiVO-custom** est utilisé.
+
+</TabItem>
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
+
+| Alias                       | Modèle de service                           | Description                                                                   |
+|:----------------------------|:--------------------------------------------|:------------------------------------------------------------------------------|
+| XiVO-process-xivo-call-logd | App-VoIP-XiVO-Process-xivo-call-logd-custom | Contrôle permettant de vérifier le fonctionnement du processus xivo-call-logd |
+| XiVO-process-xivo-confd     | App-VoIP-XiVO-Process-xivo-confd-custom     | Contrôle permettant de vérifier le fonctionnement du processus xivo-confd     |
+| XiVO-process-xivo-dxtora    | App-VoIP-XiVO-Process-xivo-dxtora-custom    | Contrôle permettant de vérifier le fonctionnement du processus xivo-dxtora    |
+| XiVO-process-xivo-provd     | App-VoIP-XiVO-Process-xivo-provd-custom     | Contrôle permettant de vérifier le fonctionnement du processus xivo-provd     |
+| XiVO-process-xivo-sysconfd  | App-VoIP-XiVO-Process-xivo-sysconfd-custom  | Contrôle permettant de vérifier le fonctionnement du processus xivo-sysconfd  |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+</TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+
+<Tabs groupId="sync">
+<TabItem value="XiVO-process-nginx" label="XiVO-process-nginx">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-postgres" label="XiVO-process-postgres">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-agentd" label="XiVO-process-xivo-agentd">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-agid" label="XiVO-process-xivo-agid">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-amid" label="XiVO-process-xivo-amid">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-call-logd" label="XiVO-process-xivo-call-logd">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-confd" label="XiVO-process-xivo-confd">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-confgend" label="XiVO-process-xivo-confgend">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-ctid" label="XiVO-process-xivo-ctid">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-dxtora" label="XiVO-process-xivo-dxtora">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-provd" label="XiVO-process-xivo-provd">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-sysconfd" label="XiVO-process-xivo-sysconfd">
+
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
+
+</TabItem>
+</Tabs>
+
+## Prérequis
+
+### Configuration SNMP
+L'agent SNMP doit être activé et configuré sur l'équipement. 
+Référez vous à la documentation officielle. 
+Il se peut que votre équipement nécessite qu'une liste d'adresses autorisées à l'interroger soit paramétrée. 
+Veillez à ce que les adresses des collecteurs Centreon y figurent bien.
+
+### Flux réseau
+La communication doit être possible sur le port UDP 161 depuis le collecteur Centreon vers la ressource supervisée.
+
+## Installer le connecteur de supervision
+
+### Pack
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-applications-voip-xivo
 ```
 
-### Centreon Plugin
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Install this plugin on each needed poller:
-
-``` shell
-yum install centreon-plugin-Operatingsystems-Linux-Snmp centreon-plugin-Applications-Protocol-Ntp centreon-plugin-Applications-Voip-Asterisk-Snmp centreon-plugin-Applications-Protocol-Http
+```bash
+dnf install centreon-pack-applications-voip-xivo
 ```
 
-### Remote server
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-The remote server must have a XiVO Appliance running and available.
+```bash
+apt install centreon-pack-applications-voip-xivo
+```
 
-## Centreon Configuration
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
-### Create a XiVO server
+```bash
+yum install centreon-pack-applications-voip-xivo
+```
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+</TabItem>
+</Tabs>
 
-| Field                                   | Value                      |
-| :-------------------------------------- | :------------------------- |
-| Host name                               | *Name of the host*         |
-| Alias                                   | *Host description*         |
-| IP                                      | *Host IP Address*          |
-| Monitored from                          | *Monitoring Poller to use* |
-| Host Multiple Templates                 | App-VoIP-XiVO-custom       |
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **XiVO VoIP Server**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
-Click on the *Save* button.
+### Plugin
 
-This service was automatically created for this host:
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
 
-| Service                    | Description                     |
-| :------------------------- | :------------------------------ |
-| XiVO-process-nginx         | Monitor nginx processus         |
-| XiVO-process-postgres      | Monitor postgres processus      |
-| XiVO-process-xivo-agentd   | Monitor xivo-agentd processus   |
-| XiVO-process-xivo-agid     | Monitor xivo-agid processus     |
-| XiVO-process-xivo-amid     | Monitor xivo-amid processus     |
-| XiVO-process-xivo-confgend | Monitor xivo-confgend processus |
-| XiVO-process-xivo-ctid     | Monitor xivo-ctid processus     |
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 
-| Optionnal Service           | Description                      |
-| :-------------------------- | :------------------------------- |
-| XiVO-process-xivo-call-logd | Monitor xivo-call-logd processus |
-| XiVO-process-xivo-confd     | Monitor xivo-confd processus     |
-| XiVO-process-xivo-dxtora    | Monitor xivo-dxtora processus    |
-| XiVO-process-xivo-provd     | Monitor xivo-provd processus     |
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-Linux-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-Linux-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-operatingsystems-linux-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Operatingsystems-Linux-Snmp
+```
+
+</TabItem>
+</Tabs>
+
+## Utiliser le connecteur de supervision
+
+### Utiliser un modèle d'hôte issu du connecteur
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-VoIP-XiVO-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="XiVO-process-nginx" label="XiVO-process-nginx">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | nginx             |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 5:5               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-postgres" label="XiVO-process-postgres">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | postgres          |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 5:                |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-agentd" label="XiVO-process-xivo-agentd">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | xivo-agentd       |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-agid" label="XiVO-process-xivo-agid">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | xivo-agid         |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-amid" label="XiVO-process-xivo-amid">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | xivo-amid         |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-call-logd" label="XiVO-process-xivo-call-logd">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | xivo-call-logd    |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-confd" label="XiVO-process-xivo-confd">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | xivo-confd        |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-confgend" label="XiVO-process-xivo-confgend">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSARGS  | Filter process arguments                                                                                                                         | xivo-confgend     |             |
+| PROCESSNAME  | Filter process name                                                                                                                              |                   |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-ctid" label="XiVO-process-xivo-ctid">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | xivo-ctid         |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-dxtora" label="XiVO-process-xivo-dxtora">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | xivo-dxtora       |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-provd" label="XiVO-process-xivo-provd">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSARGS  | Filter process arguments                                                                                                                         | xivo-provd        |             |
+| PROCESSNAME  | Filter process name                                                                                                                              |                   |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="XiVO-process-xivo-sysconfd" label="XiVO-process-xivo-sysconfd">
+
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | xivo-sysconfd     |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
+
+```bash
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
+	--plugin=os::linux::snmp::plugin \
+	--mode=processcount \
+	--hostname=10.0.0.1 \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--process-name='xivo-sysconfd' \
+	--process-path='' \
+	--process-args='' \
+	--regexp-name \
+	--regexp-path \
+	--regexp-args \
+	--warning='' \
+	--critical='1:1' 
+```
+
+La commande devrait retourner un message de sortie similaire à :
+
+```bash
+OK: Number of current processes running: 1 | 'nbproc'=1;;;0; 'mem_total'=63850B;;;0; 'mem_avg'=93737B;;;0; 'cpu_total'=25%;;;0; 
+```
+
+### Diagnostic des erreurs communes
+
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
+
+### Modes disponibles
+
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
+	--plugin=os::linux::snmp::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                 | Modèle de service associé                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| arp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/arp.pm)]                                | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| channel-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/voip/asterisk/snmp/mode/channelusage.pm)]   | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| collection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/collection.pm)]            | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpu.pm)]                                | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/cpudetailed.pm)]               | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| disk-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/diskusage.pm)]                   | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/diskio.pm)]                          | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| expected-content [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/expectedcontent.pm)] | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/inodes.pm)]                          | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/interfaces.pm)]                  | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| json-content [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/jsoncontent.pm)]         | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| list-diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listdiskio.pm)]                 | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| list-diskspath [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listdiskspath.pm)]           | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listinterfaces.pm)]         | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| list-processes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/listprocesses.pm)]           | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/liststorages.pm)]             | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/loadaverage.pm)]                       | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/memory.pm)]                          | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| offset [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/ntp/mode/offset.pm)]                     | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| processcount [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/processcount.pm)]              | App-VoIP-XiVO-Process-nginx-custom<br />App-VoIP-XiVO-Process-postgres-custom<br />App-VoIP-XiVO-Process-xivo-agentd-custom<br />App-VoIP-XiVO-Process-xivo-agid-custom<br />App-VoIP-XiVO-Process-xivo-amid-custom<br />App-VoIP-XiVO-Process-xivo-call-logd-custom<br />App-VoIP-XiVO-Process-xivo-confd-custom<br />App-VoIP-XiVO-Process-xivo-confgend-custom<br />App-VoIP-XiVO-Process-xivo-ctid-custom<br />App-VoIP-XiVO-Process-xivo-dxtora-custom<br />App-VoIP-XiVO-Process-xivo-provd-custom<br />App-VoIP-XiVO-Process-xivo-sysconfd-custom |
+| response [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/response.pm)]                | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| response-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/ntp/mode/responsetime.pm)]        | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| soap-content [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/protocols/http/mode/soapcontent.pm)]         | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/storage.pm)]                        | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/swap.pm)]                              | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| tcpcon [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/tcpcon.pm)]                          | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/ntp.pm)]                               | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| udpcon [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/udpcon.pm)]                          | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/snmp_standard/mode/uptime.pm)]                          | Non utilisé pour ce connecteur de supervision                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                 | Description                                                                                                                                                                                                                                     |
+|:-----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --memcached            |   Memcached server to use (only one server).                                                                                                                                                                                                    |
+| --redis-server         |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
+| --redis-attribute      |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
+| --redis-db             |   Set Redis database index.                                                                                                                                                                                                                     |
+| --failback-file        |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                          |
+| --memexpiration        |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                |
+| --statefile-dir        |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
+| --statefile-suffix     |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                |
+| --statefile-concat-cwd |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
+| --statefile-format     |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
+| --statefile-key        |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
+| --statefile-cipher     |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                            |
+| --process-status       |   Filter process status. Can be a regexp.  (default: 'running\|runnable').                                                                                                                                                                      |
+| --process-name         |   Filter process name.                                                                                                                                                                                                                          |
+| --regexp-name          |   Allows to use regexp to filter process  name (with option --process-name).                                                                                                                                                                    |
+| --process-path         |   Filter process path.                                                                                                                                                                                                                          |
+| --regexp-path          |   Allows to use regexp to filter process  path (with option --process-path).                                                                                                                                                                    |
+| --process-args         |   Filter process arguments.                                                                                                                                                                                                                     |
+| --regexp-args          |   Allows to use regexp to filter process  arguments (with option --process-args).                                                                                                                                                               |
+| --warning              |   Warning threshold of matching processes count.                                                                                                                                                                                                |
+| --critical             |   Critical threshold of matching processes count.                                                                                                                                                                                               |
+| --memory               |   Check memory usage.                                                                                                                                                                                                                           |
+| --warning-mem-each     |   Warning threshold of memory  used by each matching processes (in Bytes).                                                                                                                                                                      |
+| --critical-mem-each    |   Critical threshold of memory  used by each matching processes (in Bytes).                                                                                                                                                                     |
+| --warning-mem-total    |   Warning threshold of total  memory used by matching processes (in Bytes).                                                                                                                                                                     |
+| --critical-mem-total   |   Critical threshold of total  memory used by matching processes (in Bytes).                                                                                                                                                                    |
+| --warning-mem-avg      |   Warning threshold of average  memory used by matching processes (in Bytes).                                                                                                                                                                   |
+| --critical-mem-avg     |   Critical threshold of average  memory used by matching processes (in Bytes).                                                                                                                                                                  |
+| --cpu                  |   Check CPU usage. Should be used with fix processes. If processes pid changes too much, the plugin can't compute values.                                                                                                                       |
+| --warning-cpu-total    |   Warning threshold of CPU usage for all processes (in percent). CPU usage is in % of one CPU, so maximum can be 100% * number of CPU  and a process can have a value greater than 100%.                                                        |
+| --critical-cpu-total   |   Critical threshold of CPU usage for all processes (in percent). CPU usage is in % of one CPU, so maximum can be 100% * number of CPU  and a process can have a value greater than 100%.                                                       |
+| --top                  |   Enable top memory usage display.                                                                                                                                                                                                              |
+| --top-num              |   Number of processes in top memory display (default: 5).                                                                                                                                                                                       |
+| --top-size             |   Minimum memory usage to be in top memory display  (default: 52428800 -\> 50 MB).                                                                                                                                                              |
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl \
+	--plugin=os::linux::snmp::plugin \
+	--mode=processcount \
+	--help
+```

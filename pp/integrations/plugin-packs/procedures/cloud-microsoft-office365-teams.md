@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-teams
 title: Office365 Teams
+description: "Monitor Microsoft Office 365 Teams via the Graph and Management APIs: device usage counts and user activity like calls, meetings, and chats."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -18,10 +19,10 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Cloud-Microsoft-Office365-Teams-Api-custom" label="Cloud-Microsoft-Office365-Teams-Api-custom">
 
-| Service Alias  | Service Template                                          | Service Description                |
-|:---------------|:----------------------------------------------------------|:-----------------------------------|
-| Devices-Usage  | Cloud-Microsoft-Office365-Teams-Devices-Usage-Api-custom  | Check user count per device type |
-| Users-Activity | Cloud-Microsoft-Office365-Teams-Users-Activity-Api-custom | Check user activity               |
+| Service Alias        | Service Template                                          | Service Description              |
+|:---------------------|:----------------------------------------------------------|:---------------------------------|
+| Devices-Usage-Teams  | Cloud-Microsoft-Office365-Teams-Devices-Usage-Api-custom  | Check user count per device type |
+| Users-Activity-Teams | Cloud-Microsoft-Office365-Teams-Users-Activity-Api-custom | Check user activity              |
 
 > The services listed above are created automatically when the **Cloud-Microsoft-Office365-Teams-Api-custom** host template is used.
 
@@ -33,7 +34,7 @@ The connector brings the following service templates (sorted by the host templat
 Here is the list of services for this connector, detailing all metrics linked to each service.
 
 <Tabs groupId="sync">
-<TabItem value="Devices-Usage" label="Devices-Usage">
+<TabItem value="Devices-Usage-Teams" label="Devices-Usage-Teams">
 
 | Metric name                      | Unit  |
 |:---------------------------------|:------|
@@ -48,7 +49,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Teams" label="Users-Activity-Teams">
 
 | Metric name                                | Unit  |
 |:-------------------------------------------|:------|
@@ -215,7 +216,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
-<TabItem value="Devices-Usage" label="Devices-Usage">
+<TabItem value="Devices-Usage-Teams" label="Devices-Usage-Teams">
 
 | Macro                 | Description                                                                                                                                        | Default value     | Mandatory   |
 |:----------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -239,7 +240,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Teams-Api
 | EXTRAOPTIONS          | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).             |                   |             |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Teams" label="Users-Activity-Teams">
 
 | Macro                    | Description                                                                                                                              | Default value     | Mandatory   |
 |:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -361,7 +362,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -407,7 +408,7 @@ All generic options are listed here:
 All available options for each service template are listed below:
 
 <Tabs groupId="sync">
-<TabItem value="Devices-Usage" label="Devices-Usage">
+<TabItem value="Devices-Usage-Teams" label="Devices-Usage-Teams">
 
 | Option            | Description                                                                                                                                                       |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -418,7 +419,7 @@ All available options for each service template are listed below:
 | --units           | Unit of thresholds (default: '%') ('%', 'count').                                                                                                                 |
 
 </TabItem>
-<TabItem value="Users-Activity" label="Users-Activity">
+<TabItem value="Users-Activity-Teams" label="Users-Activity-Teams">
 
 | Option            | Description                                                                                                                                                                                                                           |
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

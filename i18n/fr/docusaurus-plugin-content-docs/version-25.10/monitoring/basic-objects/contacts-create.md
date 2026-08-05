@@ -1,6 +1,7 @@
 ---
 id: contacts-create
 title: Créer des utilisateurs/contacts manuellement
+description: "Créer un utilisateur manuellement et configurer ses paramètres de notification et d'authentification"
 ---
 
 Pour ajouter un contact, allez à la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, puis cliquez sur **Add**.
@@ -29,11 +30,14 @@ les notifications pourront être envoyées. En-dehors de ces périodes de temps,
 ## Onglet Authentification Centreon
  
 * **Autoriser l'utilisateur à se connecter à l'interface web** : permet d’autoriser l’utilisateur à accéder à l’interface web de Centreon.
+* Le champ **Votre mot de passe actuel** est requis lorsque vous (l'utilisateur actuellement connecté) devez modifier le mot de passe d'un autre utilisateur. Vous devez faire vérifier votre identité en saisissant votre propre mot de passe.
+  > Vous ne pouvez modifier le mot de passe d'un autre utilisateur que si vous êtes connecté en utilisant une authentification locale, et non via un fournisseur d'identité (pour des raisons de sécurité).
 * **Mot de passe** et **Confirmation du mot de passe** : contiennent le mot de passe de l'utilisateur.
+  > Pour changer le mot de passe d'un utilisateur local, il est nécessaire de saisir également votre **Mot de passe actuel**. Dans le cas où vous êtes identifié par une connexion SSO, ce champ n'est pas visible. Pour créer un nouvel utilisateur, il n'est pas nécessaire de saisir cette information.
 * **Langue par défaut** permet de définir la langue de l’interface Centreon pour cet utilisateur.
 * **Administrateur** définit si cet utilisateur est administrateur de la plateforme de supervision ou non. Un administrateur a tous les droits (lecture, écriture) et peut accéder à toutes les pages de l'interface.
 * **Clé d'auto-connexion** : permet de définir une clé de connexion pour l’utilisateur. L’utilisateur n’aura plus
-  besoin d’entrer son login et mot de passe mais utilisera directement cette clé pour se connecter. Syntaxe de connexion :
+  besoin d’entrer son login et mot de passe mais utilisera directement cette clé pour se connecter. Pour des raisons de sécurité, cette fonctionnalité n'est pas disponible pour les utilisateurs LDAP. Syntaxe de connexion :
 
     ```url
     http://[IP_DU_SERVER_CENTRAL]/index.php?autologin=1&useralias=[login_user]&token=[value_autologin]

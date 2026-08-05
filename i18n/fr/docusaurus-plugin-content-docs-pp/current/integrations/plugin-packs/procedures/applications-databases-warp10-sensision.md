@@ -1,6 +1,7 @@
 ---
 id: applications-databases-warp10-sensision
 title: Warp10 Sensision
+description: "Supervisez Warp10 Sensision via son API HTTP : suivez les statistiques des requêtes fetch et l'exécution des scripts et fonctions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -19,9 +20,9 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-DB-Warp10-Sensision-Web-custom" label="App-DB-Warp10-Sensision-Web-custom">
 
-| Alias             | Modèle de service                                    | Description                         |
-|:------------------|:-----------------------------------------------------|:------------------------------------|
-| Fetch-Statistics  | App-DB-Warp10-Sensision-Fetch-Statistics-Web-custom  | Contrôle les statistiques sur les requêtes "fetch". |
+| Alias             | Modèle de service                                    | Description                                                 |
+|:------------------|:-----------------------------------------------------|:------------------------------------------------------------|
+| Fetch-Statistics  | App-DB-Warp10-Sensision-Fetch-Statistics-Web-custom  | Contrôle les statistiques sur les requêtes "fetch".         |
 | Script-Statistics | App-DB-Warp10-Sensision-Script-Statistics-Web-custom | Contrôle les statistiques sur les scripts et les fonctions. |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-DB-Warp10-Sensision-Web-custom** est utilisé.
@@ -36,7 +37,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Fetch-Statistics" label="Fetch-Statistics">
 
-| Métrique                                   | Unité |
+| Nom                                        | Unité |
 |:-------------------------------------------|:------|
 | *fetchs*#fetch.calls.count                 | count |
 | *fetchs*#fetch.calls.persecond             | N/A   |
@@ -50,7 +51,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Script-Statistics" label="Script-Statistics">
 
-| Métrique                               | Unité |
+| Nom                                    | Unité |
 |:---------------------------------------|:------|
 | time.total.microseconds                | us    |
 | requests.count                         | count |
@@ -170,13 +171,13 @@ yum install centreon-plugin-Applications-Databases-Warp10-Sensision
 3. Appliquez le modèle d'hôte **App-DB-Warp10-Sensision-Web-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires, notamment la macro permettant de définir le [custom mode](#custom-modes-disponibles), c'est-à-dire la méthode de connexion à la ressource.
 
-| Macro                       | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:----------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARP10SENSISIONUSERNAME     | Username to access the endpoint.                                                             |                   |             |
-| WARP10SENSISIONPASSWORD     | Password to access the endpoint.                                      |                   |             |
-| WARP10SENSISIONPROTO        | Specify https if needed (default: 'http')                                                            | http              |             |
-| WARP10SENSISIONPORT         | Port used (default: 80)                                                                              | 80                |             |
-| WARP10SENSISIONURLPATH      | URL to scrape metrics from (default: '/metrics')                                                     | /metrics          |             |
+| Macro                       | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARP10SENSISIONUSERNAME     | Username to access the endpoint.                                                                                                                   |                   |             |
+| WARP10SENSISIONPASSWORD     | Password to access the endpoint.                                                                                                                   |                   |             |
+| WARP10SENSISIONPROTO        | Specify https if needed                                                                                                                            | http              |             |
+| WARP10SENSISIONPORT         | Port used                                                                                                                                          | 80                |             |
+| WARP10SENSISIONURLPATH      | URL to scrape metrics from (default: '/metrics')                                                                                                   | /metrics          |             |
 | WARP10SENSISIONEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -189,63 +190,63 @@ yum install centreon-plugin-Applications-Databases-Warp10-Sensision
 <Tabs groupId="sync">
 <TabItem value="Fetch-Statistics" label="Fetch-Statistics">
 
-| Macro                        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERAPPNAME                | Define which applications should be monitored based on their names. This option will be treated as a regular expression.                                                                  |                   |             |
-| WARNINGBYTESKEYSCOUNT        | Thresholds.                                                                                        |                   |             |
-| CRITICALBYTESKEYSCOUNT       | Thresholds.                                                                                        |                   |             |
-| WARNINGBYTESKEYSPERSECOND    | Thresholds.                                                                                        |                   |             |
-| CRITICALBYTESKEYSPERSECOND   | Thresholds.                                                                                        |                   |             |
-| WARNINGBYTESVALUESCOUNT      | Thresholds.                                                                                        |                   |             |
-| CRITICALBYTESVALUESCOUNT     | Thresholds.                                                                                        |                   |             |
-| WARNINGBYTESVALUESPERSECOND  | Thresholds.                                                                                        |                   |             |
-| CRITICALBYTESVALUESPERSECOND | Thresholds.                                                                                        |                   |             |
-| WARNINGCALLSCOUNT            | Thresholds.                                                                                        |                   |             |
-| CRITICALCALLSCOUNT           | Thresholds.                                                                                        |                   |             |
-| WARNINGCALLSPERSECOND        | Thresholds.                                                                                        |                   |             |
-| CRITICALCALLSPERSECOND       | Thresholds.                                                                                        |                   |             |
-| WARNINGDATAPOINTSCOUNT       | Thresholds.                                                                                        |                   |             |
-| CRITICALDATAPOINTSCOUNT      | Thresholds.                                                                                        |                   |             |
-| WARNINGDATAPOINTSPERSECOND   | Thresholds.                                                                                        |                   |             |
-| CRITICALDATAPOINTSPERSECOND  | Thresholds.                                                                                        |                   |             |
+| Macro                        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERAPPNAME                | Define which applications should be monitored based on their names. This option will be treated as a regular expression.                         |                   |             |
+| WARNINGBYTESKEYSCOUNT        | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALBYTESKEYSCOUNT       | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGBYTESKEYSPERSECOND    | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALBYTESKEYSPERSECOND   | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGBYTESVALUESCOUNT      | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALBYTESVALUESCOUNT     | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGBYTESVALUESPERSECOND  | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALBYTESVALUESPERSECOND | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGCALLSCOUNT            | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALCALLSCOUNT           | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGCALLSPERSECOND        | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALCALLSPERSECOND       | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGDATAPOINTSCOUNT       | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALDATAPOINTSCOUNT      | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGDATAPOINTSPERSECOND   | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALDATAPOINTSPERSECOND  | Thresholds.                                                                                                                                      |                   |             |
 | EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Script-Statistics" label="Script-Statistics">
 
-| Macro                           | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERAPPNAME                   | Define which functions should be monitored based on their names. This option will be treated as a regular expression. |                   |             |
-| WARNINGBOOTSTRAPLOADSCOUNT      | Thresholds.                                                                                        |                   |             |
-| CRITICALBOOTSTRAPLOADSCOUNT     | Thresholds.                                                                                        |                   |             |
-| WARNINGBOOTSTRAPLOADSPERSECOND  | Thresholds.                                                                                        |                   |             |
-| CRITICALBOOTSTRAPLOADSPERSECOND | Thresholds.                                                                                        |                   |             |
-| WARNINGBYTESVALUESCOUNT         | Thresholds.                                                                                        |                   |             |
-| CRITICALBYTESVALUESCOUNT        | Thresholds.                                                                                        |                   |             |
-| WARNINGCALLSCOUNT               | Thresholds.                                                                                        |                   |             |
-| CRITICALCALLSCOUNT              | Thresholds.                                                                                        |                   |             |
-| WARNINGCALLSPERSECOND           | Thresholds.                                                                                        |                   |             |
-| CRITICALCALLSPERSECOND          | Thresholds.                                                                                        |                   |             |
-| WARNINGERRORSCOUNT              | Thresholds.                                                                                        |                   |             |
-| CRITICALERRORSCOUNT             | Thresholds.                                                                                        |                   |             |
-| WARNINGERRORSPERSECOND          | Thresholds.                                                                                        |                   |             |
-| CRITICALERRORSPERSECOND         | Thresholds.                                                                                        |                   |             |
-| WARNINGOPSCOUNT                 | Thresholds.                                                                                        |                   |             |
-| CRITICALOPSCOUNT                | Thresholds.                                                                                        |                   |             |
-| WARNINGOPSPERSECOND             | Thresholds.                                                                                        |                   |             |
-| CRITICALOPSPERSECOND            | Thresholds.                                                                                        |                   |             |
-| WARNINGREQUESTSCOUNT            | Thresholds.                                                                                        |                   |             |
-| CRITICALREQUESTSCOUNT           | Thresholds.                                                                                        |                   |             |
-| WARNINGREQUESTSPERSECOND        | Thresholds.                                                                                        |                   |             |
-| CRITICALREQUESTSPERSECOND       | Thresholds.                                                                                        |                   |             |
-| WARNINGTIME                     | Thresholds.                                                                                        |                   |             |
-| CRITICALTIME                    | Thresholds.                                                                                        |                   |             |
-| WARNINGTIMETOTAL                | Thresholds.                                                                                        |                   |             |
-| CRITICALTIMETOTAL               | Thresholds.                                                                                        |                   |             |
-| WARNINGUSESCOUNT                | Thresholds.                                                                                        |                   |             |
-| CRITICALUSESCOUNT               | Thresholds.                                                                                        |                   |             |
-| WARNINGUSESPERSECOND            | Thresholds.                                                                                        |                   |             |
-| CRITICALUSESPERSECOND           | Thresholds.                                                                                        |                   |             |
+| Macro                           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERAPPNAME                   | Define which functions should be monitored based on their names. This option will be treated as a regular expression.                            |                   |             |
+| WARNINGBOOTSTRAPLOADSCOUNT      | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALBOOTSTRAPLOADSCOUNT     | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGBOOTSTRAPLOADSPERSECOND  | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALBOOTSTRAPLOADSPERSECOND | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGBYTESVALUESCOUNT         | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALBYTESVALUESCOUNT        | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGCALLSCOUNT               | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALCALLSCOUNT              | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGCALLSPERSECOND           | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALCALLSPERSECOND          | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGERRORSCOUNT              | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALERRORSCOUNT             | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGERRORSPERSECOND          | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALERRORSPERSECOND         | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGOPSCOUNT                 | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALOPSCOUNT                | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGOPSPERSECOND             | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALOPSPERSECOND            | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGREQUESTSCOUNT            | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALREQUESTSCOUNT           | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGREQUESTSPERSECOND        | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALREQUESTSPERSECOND       | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGTIME                     | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALTIME                    | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGTIMETOTAL                | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALTIMETOTAL               | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGUSESCOUNT                | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALUSESCOUNT               | Thresholds.                                                                                                                                      |                   |             |
+| WARNINGUSESPERSECOND            | Thresholds.                                                                                                                                      |                   |             |
+| CRITICALUSESPERSECOND           | Thresholds.                                                                                                                                      |                   |             |
 | EXTRAOPTIONS                    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -381,7 +382,7 @@ Les options génériques sont listées ci-dessous :
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -465,38 +466,38 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="Fetch-Statistics" label="Fetch-Statistics">
 
-| Option                  | Description                                                                                                                                                            |
-|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                     |
-| --ssh-username          | Define the user name to log in to the host.                                                                                                                            |
-| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.   |
-| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                         |
-| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                            |
-| --sshcli-command        | SSH command (default: 'ssh').                                                                                                                                          |
-| --sshcli-path           | SSH command path (default: none)                                                                                                                                       |
-| --sshcli-option         | Specify SSH CLI options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                      |
-| --plink-command         | plink command (default: 'plink').                                                                                                                                      |
-| --plink-path            | plink command path (default: none)                                                                                                                                     |
-| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                  |
-| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                    |
-| --filter-name           | Define which applications should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                    |
-| --filter-counters       | Only display some counters (regexp can be used). Example: --filter-counters='calls'                                                                                    |
-| --warning-*-count       | Warning threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                            |
-| --warning-*-persecond       | Warning threshold. Replace * with 'calls', 'bytes-values'or 'bytes-keys'.                                                                                            |
-| --critical-*-count      | Critical threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                          |
-| --critical-*-persecond      | Critical threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                          |
+| Option                  | Description                                                                                                                                                                                                                                                                                                                                                                                          |
+|:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --ssh-backend           | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                                                                                                                                                                                   |
+| --ssh-username          | Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                          |
+| --ssh-password          | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                                                                                                                                                                                 |
+| --ssh-port              | Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                       |
+| --ssh-priv-key          | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                          |
+| --sshcli-command        | SSH command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                        |
+| --sshcli-path           | SSH command path (default: none)                                                                                                                                                                                                                                                                                                                                                                     |
+| --sshcli-option         | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no'). The default option is --sshcli-options='-o=LogLevel=ERROR' which hides the SSH banner. If you override this parameter, make sure to append '-o=LogLevel=ERROR' to your new value to maintain this behavior. This parameter can be used multiple times and multiple options can be specified in the same parameter. |
+| --plink-command         | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                    |
+| --plink-path            | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                   |
+| --plink-option          | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                |
+| --libssh-strict-connect | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                                                                                                                                                                                  |
+| --filter-name           | Define which applications should be monitored based on their names. This option will be treated as a regular expression.                                                                                                                                                                                                                                                                             |
+| --filter-counters       | Only display some counters (regexp can be used). Example: --filter-counters='calls'                                                                                                                                                                                                                                                                                                                  |
+| --warning-*-count       | Warning threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                                                                                                                                                                                                                                                           |
+| --warning-*-persecond   | Warning threshold. Replace * with 'calls', 'bytes-values'or 'bytes-keys'.                                                                                                                                                                                                                                                                                                                            |
+| --critical-*-count      | Critical threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                                                                                                                                                                                                                                                          |
+| --critical-*-persecond  | Critical threshold. Replace * with 'calls', 'bytes-values' or 'bytes-keys'.                                                                                                                                                                                                                                                                                                                          |
 
 </TabItem>
 <TabItem value="Script-Statistics" label="Script-Statistics">
 
-| Option             | Description                                                                                                                            |
-|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-name      | Filter function name (can be a regexp).                                                                                                |
-| --filter-counters  | Only display some counters (regexp can be used). Example: --filter-counters='^time$\|uses'                                             |
-| --warning-*-count  | Warning threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.     |
-| --warning-*-persecond  | Warning threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.     |
-| --critical-*-count  | Critical threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.     |
-| --critical-*-persecond  | Critical threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.     |
+| Option                 | Description                                                                                                                      |
+|:-----------------------|:---------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name          | Filter function name (can be a regexp).                                                                                          |
+| --filter-counters      | Only display some counters (regexp can be used). Example: --filter-counters='^time$\|uses'                                       |
+| --warning-*-count      | Warning threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.  |
+| --warning-*-persecond  | Warning threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'.  |
+| --critical-*-count     | Critical threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'. |
+| --critical-*-persecond | Critical threshold. Replace * with 'time-total' (delta), 'requests', 'ops', 'errors', 'bootstrap-loads', 'time' (delta), 'uses'. |
 
 </TabItem>
 </Tabs>

@@ -1,6 +1,7 @@
 ---
 id: ot-itop
 title: iTop
+description: "Configure the iTop open-tickets provider that connects to your iTop server through its REST API"
 ---
 
 ## How it works
@@ -27,9 +28,7 @@ This integration is (at least) compatible with the following Itop versions:
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md)
-into your Centreon instance.
+You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
 
 Our provider requires the following parameters:
 

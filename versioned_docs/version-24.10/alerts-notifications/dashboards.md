@@ -1,6 +1,7 @@
 ---
 id: dashboards
 title: Dashboards
+description: "Create dashboards, add widgets, and manage playlists for monitoring"
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
@@ -111,6 +112,9 @@ You are using the Dashboards feature with a **viewer** or an **editor** profile:
 
 1. Click the **share** button at the bottom right of the dashboard.
 2. In the **Add contact** dropdown list, select the user to add.
+  > Only users meeting the following two conditions are displayed:
+  > - belong to the same access groups as yours,
+  > - have access to the Dashboards menu (can be activated using access rights).
 3. Select either **Viewer** or **Editor** profile.
 4. Click the **+** button to add it.
 5. Repeat the action for each user you want to add.
@@ -190,9 +194,12 @@ The three dots action menu at the end of a playlist row allows you to edit prope
 
 ## List of widgets
 
+> Note that some widgets require a specific license.
+
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Business Activity Diagram           | Displays graphically a business activity hierarchy of KPIs and lets you navigate through it.   |
+| Business Activity status timeline           | Displays the distribution of current statuses on a Business Activity, as a chronological timeline for a given time period.
 | Clock/Timer           | Displays the time according to the selected time zone, or a timer.   |
 | Generic text           | Allows you to add free text to your dashboards (section titles, information, etc.).   |
 | Group monitoring           | Displays the distribution of current statuses on selected groups of resources, as a table.   |

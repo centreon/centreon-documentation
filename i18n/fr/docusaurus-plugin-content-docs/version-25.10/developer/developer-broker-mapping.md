@@ -1,6 +1,7 @@
 ---
 id: developer-broker-mapping
 title: Mapping d’évènements Centreon Broker
+description: "Référence des propriétés des événements NEB et Storage de Centreon Broker"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,37 +13,7 @@ Centreon Broker utilise des tables de correspondance globales pour les évèneme
 
 ### Acknowledgement
 
-Lorsqu'un incident est acquitté, cela signifie que le problème a été pris en compte par un utilisateur de la supervision. Quand l'utilisateur acquitte le problème, Centreon Engine émet un évènement **acknowledgement**. Cet évènement est différent en BBDO v2 et en BBDO v3.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::Acknowledgement
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 1       | 65537 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                                    | Type             | Description                                                                    |
-| -------------------------------------------- | ---------------- | ------------------------------------------------------------------------------ |
-| acknowledgement\_type                        | entier court     | Acquittement de l’hôte quand 0, acquittement du service quand 1.               |
-| author                                       | chaîne           | Auteur de l’acquittement.                                                      |
-| comment                                      | chaîne           | Commentaire associé à l’acquittement.                                          |
-| deletion\_time                               | temps            | Heure à laquelle l’acquittement a été supprimé. Si 0, il n’a pas été supprimé. |
-| entry\_time                                  | temps            | Heure à laquelle l’acquittement a été créé.                                    |
-| host\_id                                     | entier non signé | ID de l’hôte.                                                                  |
-| instance\_id                                 | entier non signé | ID de l’instance.                                                              |
-| is\_sticky                                   | booléen          | Indicateur "Persistant (non-OK)".                                              |
-| notify\_contacts                             | booléen          | Indicateur de notification.                                                    |
-| persistent\_comment                          | booléen          | True si le commentaire est persistant.                                         |
-| service\_id                                  | entier non signé | ID de service. 0 pour un acquittement de l’hôte.                               |
-| state                                        | entier court     | État de l’hôte / du service.                                                   |
-| notify\_only\_if\_not\_already\_acknowledged | booléen          | Une notification ne doit être envoyée qu’en cas de non acquittement.           |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+Lorsqu'un incident est acquitté, cela signifie que le problème a été pris en compte par un utilisateur de la supervision. Quand l'utilisateur acquitte le problème, Centreon Engine émet un évènement **acknowledgement**.
 
 #### NEB::PbAcknowledgement
 
@@ -50,7 +21,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 45      | 65581 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::Acknowledgement** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbAcknowledgement** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::Acknowledgement** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbAcknowledgement** à la place.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -75,43 +46,9 @@ message Acknowledgement {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Comment
 
-Dans certaines situations, l'utilisateur doit saisir un commentaire dans l'interface Centreon. Quand le commentaire est validé, Centreon Engine émet un évènement **comment**. Cet évènement est différent en BBDO v2 et en BBDO v3.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::Comment
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 2       | 65538 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété      | Type             | Description                                                                                                                                                                |
-| -------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| author         | chaîne           | Auteur du commentaire.                                                                                                                                                     |
-| comment\_type  | entier court     | 1 pour un commentaire pour un hôte, 2 pour un commentaire pour un service.                                                                                                 |
-| data           | chaîne           | Données du commentaire (texte).                                                                                                                                            |
-| deletion\_time | temps            | Heure à laquelle le commentaire a été supprimé. 0 si le commentaire n’a pas (encore) été supprimé.                                                                         |
-| entry\_time    | temps            | Heure à laquelle le commentaire a été créé.                                                                                                                                |
-| entry\_type    | entier court     | 1 pour un commentaire de l’utilisateur (par commande externe), 2 pour un commentaire d’arrêt, 3 pour un commentaire de bagotement et 4 pour un commentaire d’acquittement. |
-| expire\_time   | temps            | Délai d’expiration des commentaires. 0 si aucun délai d’expiration.                                                                                                        |
-| expires        | bool             | True si le commentaire expire.                                                                                                                                             |
-| host\_id       | entier non signé | ID de l’hôte.                                                                                                                                                              |
-| internal\_id   | entier non signé | ID du moteur de supervision interne du commentaire.                                                                                                                        |
-| persistent     | booléen          | True si le commentaire est persistant.                                                                                                                                     |
-| instance\_id   | entier non signé | ID de l’instance.                                                                                                                                                          |
-| service\_id    | entier non signé | ID de service. 0 si c’est un commentaire de l’hôte.                                                                                                                        |
-| source         | entier court     | 0 lorsque le commentaire provient du moteur de supervision (interne) ou 1 lorsque le commentaire provient d’une autre source (externe).                                    |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+Dans certaines situations, l'utilisateur doit saisir un commentaire dans l'interface Centreon. Quand le commentaire est validé, Centreon Engine émet un évènement **comment**.
 
 #### NEB::PbComment
 
@@ -119,7 +56,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 35      | 65571 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::Comment** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbComment** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -167,39 +104,10 @@ message Comment {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Custom variable
 
 Une variable personnalisée consiste en une variable ayant un nom et une valeur. Elle provient souvent de macros Centreon Engine.
-Pour que Centreon fonctionne correctement, ces variables personnalisées doivent être envoyées à Centreon Broker. Elles sont envoyées via un évènement **custom variable**. Cet évènement est différent en BBDO v2 et en BBDO v3.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::CustomVariable
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 3       | 65539 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété      | Type             | Description                                                                             |
-| -------------- | ---------------- | --------------------------------------------------------------------------------------- |
-| enabled        | booléen          | True si la variable personnalisée est activée.                                          |
-| host\_id       | entier non signé | ID de l’hôte.                                                                           |
-| modified       | booléen          | True si la variable a été modifiée.                                                     |
-| name           | chaîne           | Nom de la variable.                                                                     |
-| service\_id    | entier non signé | ID de service. 0 si c’est une variable d’hôte personnalisée.                            |
-| update\_time   | temps            | Dernière heure à laquelle la variable a été mise à jour.                                |
-| var\_type      | entier court     | 0 pour une variable d’hôte personnalisée, 1 pour une variable de service personnalisée. |
-| value          | chaîne           | Valeur variable.                                                                        |
-| default\_value | chaîne           | La valeur par défaut de la variable personnalisée.                                      |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+Pour que Centreon fonctionne correctement, ces variables personnalisées doivent être envoyées à Centreon Broker. Elles sont envoyées via un évènement **custom variable**.
 
 #### NEB::PbCustomVariable
 
@@ -207,7 +115,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 37      | 65573 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::CustomVariable** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbCustomVariable** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -236,35 +144,9 @@ message CustomVariable {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Custom variable status
 
 Les évènements **Custom variable status** sont générés lorsqu’une variable personnalisée doit être mise à jour.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::CustomVariableStatus
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 4       | 65540 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété    | Type             | Description                                                  |
-| ------------ | ---------------- | ------------------------------------------------------------ |
-| host\_id     | entier non signé | ID de l’hôte.                                                |
-| modified     | booléen          | True si la variable a été modifiée.                          |
-| name         | chaîne           | Nom de la variable.                                          |
-| service\_id  | entier non signé | ID de service. 0 si c’est une variable d’hôte personnalisée. |
-| update\_time | temps            | Dernière heure à laquelle la variable a été mise à jour.     |
-| value        | chaîne           | Valeur variable.                                             |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbCustomVariableStatus
 
@@ -302,50 +184,9 @@ message CustomVariable {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Downtime
 
 Cet évènement est émis par Centreon Engine lorsqu'une plage de maintenance est définie sur une ressource.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::Downtime
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 5       | 65541 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété           | Type             | Description                                                            |
-| ------------------- | ---------------- | ---------------------------------------------------------------------- |
-| actual\_end\_time   | temps            | Heure réelle à laquelle le temps d’arrêt s’est terminé.                |
-| actual\_start\_time | temps            | Heure réelle à laquelle le temps d’arrêt a commencé.                   |
-| author              | chaîne           | Créateur du temps d’arrêt.                                             |
-| downtime\_type      | entier court     | 1 pour un arrêt de service, 2 pour un arrêt d’hôte.                    |
-| deletion\_time      | temps            | Heure à laquelle le temps d’arrêt a été supprimé.                      |
-| duration            | temps            | Durée du temps d’arrêt.                                                |
-| end\_time           | temps            | Heure de fin du temps d’arrêt programmé.                               |
-| entry\_time         | temps            | Heure à laquelle le temps d’arrêt a été créé.                          |
-| fixed               | booléen          | True si le temps d’arrêt est fixe, False s’il est flexible.            |
-| host\_id            | entier non signé | ID de l’hôte.                                                          |
-| instance\_id        | entier non signé | ID de l’instance.                                                      |
-| internal\_id        | entier non signé | ID du moteur de supervision interne.                                   |
-| service\_id         | entier non signé | ID de service. 0 s’il s’agit d’un arrêt de l’hôte.                     |
-| start\_time         | temps            | Heure de début de l’arrêt programmé.                                   |
-| triggered\_by       | entier non signé | ID interne du temps d’arrêt qui a déclenché ce temps d’arrêt.          |
-| was\_cancelled      | booléen          | True si le temps d’arrêt a été annulé.                                 |
-| was\_started        | booléen          | True si le temps d’arrêt a été démarré.                                |
-| comment             | chaîne           | Commentaire sur le temps d’arrêt.                                      |
-| is\_recurring       | booléen          | True si ce temps d’arrêt est récurrent.                                |
-| recurring\_tp       | chaîne           | La période de temps récurrente du temps d’arrêt récurrent.             |
-| come\_from          | court            | Id du temps d’arrêt récurrent parent pour les temps d’arrêt engendrés. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbDowntime
 
@@ -353,7 +194,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 36      | 65572 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::Downtime** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbDowntime** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -386,51 +227,6 @@ message Downtime {
 }
 ```
 
-</TabItem>
-</Tabs>
-
-### Event handler
-
-Les **Event handlers** sont des commandes système optionnelles (scripts ou exécutables) qui sont exécutées lorsqu'un changment de statut se produit pour une ressource. Lorsqu'une commande de ce type est configurée, un évènement **event handler** est émis par Centreon Engine. Ces évènements BBDO sont généralement envoyés lorsque Centreon Engine est redémarré ou rechargé.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::EventHandler
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 6       | 65542 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété       | Type             | Description                                                                                                                                                                                                                                      |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| early\_timeout  | booléen          | True si le gestionnaire d’évènements a été interrompu.                                                                                                                                                                                           |
-| end\_time       | temps            | Heure à laquelle l’exécution du gestionnaire d’évènements s’est terminée.                                                                                                                                                                        |
-| execution\_time | réel             | Temps d’exécution en secondes.                                                                                                                                                                                                                   |
-| handler\_type   | entier court     | 0 pour le gestionnaire d’évènements spécifiques à l’hôte, 1 pour le gestionnaire d’évènements spécifiques au service, 2 pour le gestionnaire d’évènements global pour les hôtes et 3 pour le gestionnaire d’évènements global pour les services. |
-| host\_id        | entier non signé | ID de l’hôte.                                                                                                                                                                                                                                    |
-| return\_code    | entier court     | Valeur renvoyée par le gestionnaire d’évènements.                                                                                                                                                                                                |
-| service\_id     | entier non signé | ID de service. 0 si c’est un gestionnaire d’évènements d’hôte.                                                                                                                                                                                   |
-| start\_time     | temps            | Heure à laquelle le gestionnaire d’évènements a démarré.                                                                                                                                                                                         |
-| state           | entier court     | État de l’hôte / du service.                                                                                                                                                                                                                     |
-| state\_type     | entier court     | 0 pour SOFT, 1 pour HARD.                                                                                                                                                                                                                        |
-| timeout         | entier court     | Délai d’attente du gestionnaire d’évènements en secondes.                                                                                                                                                                                        |
-| command\_args   | chaîne           | Arguments du gestionnaire d’évènements.                                                                                                                                                                                                          |
-| command\_line   | chaîne           | Ligne de commande du gestionnaire d’évènements.                                                                                                                                                                                                  |
-| output          | chaîne           | Output retourné par le gestionnaire d’évènements.                                                                                                                                                                                                |
-| source\_id      | entier non signé | L’id de l’instance source de cet évènement.                                                                                                                                                                                                      |
-| destination\_id | entier non signé | L’id de l’instance de destination de cet évènement.                                                                                                                                                                                              |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
-
-</TabItem>
-</Tabs>
-
 ### Flapping status
 
 Lorsque le statut d'une ressource est instable, Centreon Engine le marque comme en bagotage (**flapping**). Historiquement, un évènement **flapping status** était émis dans ces cas-là. Cela n'est plus d'actualité. L'évènement **flapping status** n'existe plus.
@@ -441,22 +237,13 @@ L'évènement **tag** est un nouvel évènement de configuration, actuellement u
 
 En ce moment il est utilisé (entre autres) en parallèle avec les évènements **group**, mais devrait devenir plus global dans le futur.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-L'évènement **tag** n'existe pas en BBDO v2.
-
-</TabItem>
-
-<TabItem value="BBDO v3" label="BBDO v3">
-
 #### NEB::PbTag
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
 | 1         | 34      | 65570 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3.  Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::Tag** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbTag** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -483,108 +270,9 @@ message Tag {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Host
 
 Cet évènement est émis chaque fois que la configuration d'un hôte est modifiée et la configuration déployée.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::Host
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 12      | 65548 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                         | Type             | Description | Version |
-| --------------------------------- | ---------------- | ----------- | ------- |
-| acknowledged                      | booléen          |             |
-| acknowledgement\_type             | entier court     |             |
-| action\_url                       | chaîne           |             |
-| active\_checks\_enabled           | booléen          |             |
-| address                           | chaîne           |             |
-| alias                             | chaîne           |             |
-| check\_freshness                  | booléen          |             |
-| check\_interval                   | réel             |             |
-| check\_period                     | chaîne           |             |
-| check\_type                       | entier court     |             |
-| current\_check\_attempt           | entier court     |             |
-| current\_state                    | entier court     |             |
-| default\_active\_checks\_enabled  | booléen          |             |
-| default\_event\_handler\_enabled  | booléen          |             |
-| default\_flap\_detection\_enabled | booléen          |             |
-| default\_notifications\_enabled   | booléen          |             |
-| default\_passive\_checks\_enabled | booléen          |             |
-| downtime\_depth                   | entier court     |             |
-| display\_name                     | chaîne           |             |
-| enabled                           | booléen          |             |
-| event\_handler                    | chaîne           |             |
-| event\_handler\_enabled           | booléen          |             |
-| execution\_time                   | réel             |             |
-| first\_notification\_delay        | réel             |             |
-| flap\_detection\_enabled          | booléen          |             |
-| flap\_detection\_on\_down         | booléen          |             |
-| flap\_detection\_on\_unreachable  | booléen          |             |
-| flap\_detection\_on\_up           | booléen          |             |
-| freshness\_threshold              | réel             |             |
-| has\_been\_checked                | booléen          |             |
-| high\_flap\_threshold             | réel             |             |
-| host\_name                        | chaîne           |             |
-| host\_id                          | entier non signé |             |
-| icon\_image                       | chaîne           |             |
-| icon\_image\_alt                  | chaîne           |             |
-| instance\_id                      | entier non signé |             |
-| is\_flapping                      | booléen          |             |
-| last\_check                       | temps            |             |
-| last\_hard\_state                 | entier court     |             |
-| last\_hard\_state\_change         | temps            |             |
-| last\_notification                | temps            |             |
-| last\_state\_change               | temps            |             |
-| last\_time\_down                  | temps            |             |
-| last\_time\_unreachable           | temps            |             |
-| last\_time\_up                    | temps            |             |
-| last\_update                      | temps            |             |
-| latency                           | réel             |             |
-| low\_flap\_threshold              | réel             |             |
-| max\_check\_attempts              | entier court     |             |
-| next\_check                       | temps            |             |
-| next\_notification                | temps            |             |
-| no\_more\_notifications           | booléen          |             |
-| notes                             | chaîne           |             |
-| notes\_url                        | chaîne           |             |
-| notification\_interval            | réel             |             |
-| notification\_number              | entier court     |             |
-| notification\_period              | chaîne           |             |
-| notifications\_enabled            | booléen          |             |
-| notify\_on\_down                  | booléen          |             |
-| notify\_on\_downtime              | booléen          |             |
-| notify\_on\_flapping              | booléen          |             |
-| notify\_on\_recovery              | booléen          |             |
-| notify\_on\_unreachable           | booléen          |             |
-| obsess\_over                      | booléen          |             |
-| passive\_checks\_enabled          | booléen          |             |
-| percent\_state\_change            | réel             |             |
-| retry\_interval                   | réel             |             |
-| should\_be\_scheduled             | booléen          |             |
-| stalk\_on\_down                   | booléen          |             |
-| stalk\_on\_unreachable            | booléen          |             |
-| stalk\_on\_up                     | booléen          |             |
-| statusmap\_image                  | chaîne           |             |
-| state\_type                       | entier court     |             |
-| check\_command                    | chaîne           |             |
-| output                            | chaîne           |             |
-| perf\_data                        | chaîne           |             |
-| retain\_nonstatus\_information    | booléen          |             |
-| retain\_status\_information       | booléen          |             |
-| timezone                          | chaîne           |             |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbHost
 
@@ -592,7 +280,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 30      | 65566 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::Host** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbHost** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -712,36 +400,9 @@ message Host {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Host check
 
 Ce type d'évènement est émis par Centreon Engine lorsqu'un contrôle est exécuté sur un hôte.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::HostCheck
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 8       | 65544 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété               | Type             | Description                                           | Version |
-| ----------------------- | ---------------- | ----------------------------------------------------- | ------- |
-| active\_checks\_enabled | booléen          | True si les contrôles actifs sont activés sur l’hôte. |
-| check\_type             | entier court     |                                                       |
-| host\_id                | entier non signé | ID de l’hôte.                                         |
-| next\_check             | temps            | Heure à laquelle le prochain contrôle est prévu.      |
-| command\_line           | chaîne           | Ligne de commande du contrôle.                        |
-| source\_id              | entier non signé | L’ID de l’instance source de cet évènement.           |
-| destination\_id         | entier non signé | L’ID de l’instance de destination de cet évènement.   |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbHostCheck
 
@@ -749,7 +410,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 39      | 65575 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::HostCheck** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbHostCheck** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -775,194 +436,97 @@ message Check {
 }
 ```
 
-</TabItem>
-</Tabs>
-
-### Host dependency
-
-Cet évènement est émis lorsqu'une dépendance entre hôtes est définie, et que la configuration est déployée.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::HostDependency
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 9       | 65545 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                      | Type             | Description | Version |
-| ------------------------------ | ---------------- | ----------- | ------- |
-| dependency\_period             | chaîne           |             |
-| dependent\_host\_id            | entier non signé |             |
-| enabled                        | booléen          |             |
-| execution\_failure\_options    | chaîne           |             |
-| inherits\_parent               | booléen          |             |
-| host\_id                       | entier non signé |             |
-| notification\_failure\_options | chaîne           |             |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
-
-</TabItem>
-</Tabs>
-
 ### Host group
 
 Cet évènement est émis lorsqu'un groupe d'hôtes est créé.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::HostGroup
+#### NEB::PbHostGroup
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 10      | 65546 |
+| 1         | 49      | 65585 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété       | Type             | Description                                                          | Version |
-| --------------- | ---------------- | -------------------------------------------------------------------- | ------- |
-| host\_group\_id | entier non signé |                                                                      |
-| name            | chaîne           | Nom du groupe.                                                       |
-| enabled         | booléen          | True si le groupe est activé, False s’il ne l’est pas (suppression). |
-| poller\_id      | entier non signé |                                                                      |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
 
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
+message HostGroup {  
+  BBDOHeader header = 1;  
 
-</TabItem>
-</Tabs>
+  bool enabled = 2;                    // True si le groupe est activé, False s’il ne l’est pas (suppression).  
+  uint64 hostgroup_id = 3;             // ID du groupe.  
+  string name = 4;                     // Nom du groupe.  
+  uint64 poller_id = 5;                // ID du poller.  
+  string alias = 6;                    // Alias du groupe.  
+}
+```
 
 ### Host group member
 
 Ceci est un évènement de configuration. Il est envoyé juste après un évènement **hostgroup** afin de détailler les membres du groupe à configurer. En BBDO v3, la version BBDO v2 de cet évènement est toujours utilisée.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::HostGroupMember
+#### NEB::PBHostGroupMember
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 11      | 65547 |
+| 1         | 50      | 65586 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété       | Type             | Description                                                                 | Version |
-| --------------- | ---------------- | --------------------------------------------------------------------------- | ------- |
-| group\_id       | unsigned integer | ID du groupe.
-| host\_id        | entier non signé | ID de l’hôte.                                                               |
-| enabled         | booléen          | True si l'hôte est membre du groupe, False s'il ne l’est pas (suppression). |
-| group           | chaîne           | Nom du groupe.                                                              |
-| instance\_id    | entier non signé | ID de l’instance.                                                           |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
 
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
+message HostGroupMember {  
+  BBDOHeader header = 1;  
 
-</TabItem>
-</Tabs>
+  bool enabled = 2;                    // True si l'hôte est membre du groupe, False s'il ne l’est pas (suppression).  
+  uint64 hostgroup_id = 3;       // ID du groupe.  
+  string name = 4;                     // Nom du groupe.  
+  uint64 poller_id = 6;              // ID de l'instance.  
+} 
+```
 
 ### Host parent
 
 Ceci est un évènement de configuration envoyé lorsqu'un hôte parent est défini. En BBDO v3, la version BBDO v2 de cet évènement est toujours utilisée.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::HostParent
+#### NEB::PbHostParent
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 13      | 65549 |
+| 1         | 53      | 65589 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
 
-| Propriété  | Type             | Description                                                                       | Version |
-| ---------- | ---------------- | --------------------------------------------------------------------------------- | ------- |
-| enabled    | booléen          | True si la fonction parent est activée, False si elle ne l’est pas (suppression). |
-| child\_id  | entier non signé | ID d’hôte enfant.                                                                 |
-| parent\_id | entier non signé | ID d’hôte parent.                                                                 |
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
 
-</TabItem>
-</Tabs>
+message HostParent {  
+  BBDOHeader header = 1;  
+
+  bool enabled = 2;                     // True si la fonction parent est activée, False si elle ne l’est pas (suppression).  
+  uint64 child_id = 3;                  // ID de l'hôte enfant  
+  uint64 parent_id = 4;              // ID de l'hôte parent  
+}
+```  
 
 ### Host status
 
 Ceci est un évènement émis par Centreon Engine lorsqu'une modification en temps réel est appliquée à un hôte (statut, output, métriques...).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::HostStatus
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 14      | 65550 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                 | Type             | Description | Version |
-| ------------------------- | ---------------- | ----------- | ------- |
-| acknowledged              | booléen          |             |
-| acknowledgement\_type     | entier court     |             |
-| active\_checks\_enabled   | booléen          |             |
-| check\_interval           | réel             |             |
-| check\_period             | chaîne           |             |
-| check\_type               | entier court     |             |
-| current\_check\_attempt   | entier court     |             |
-| current\_state            | entier court     |             |
-| downtime\_depth           | entier court     |             |
-| enabled                   | booléen          |             |
-| event\_handler            | chaîne           |             |
-| event\_handler\_enabled   | booléen          |             |
-| execution\_time           | réel             |             |
-| flap\_detection\_enabled  | booléen          |             |
-| has\_been\_checked        | booléen          |             |
-| host\_id                  | entier non signé |             |
-| is\_flapping              | booléen          |             |
-| last\_check               | temps            |             |
-| last\_hard\_state         | entier court     |             |
-| last\_hard\_state\_change | temps            |             |
-| last\_notification        | temps            |             |
-| last\_state\_change       | temps            |             |
-| last\_time\_down          | temps            |             |
-| last\_time\_unreachable   | temps            |             |
-| last\_time\_up            | temps            |             |
-| last\_update              | temps            |             |
-| latency                   | réel             |             |
-| max\_check\_attempts      | entier court     |             |
-| next\_check               | temps            |             |
-| next\_host\_notification  | temps            |             |
-| no\_more\_notifications   | booléen          |             |
-| notification\_number      | entier court     |             |
-| notifications\_enabled    | booléen          |             |
-| obsess\_over              | booléen          |             |
-| passive\_checks\_enabled  | booléen          |             |
-| percent\_state\_change    | réel             |             |
-| retry\_interval           | réel             |             |
-| should\_be\_scheduled     | booléen          |             |
-| state\_type               | entier court     |             |
-| check\_command            | chaîne           |             |
-| output                    | chaîne           |             |
-| perf\_data                | chaîne           |             |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbHostStatus
 
@@ -970,7 +534,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 32      | 65538 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::HostStatus** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbHostStatus** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::HostStatus** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbHostStatus** à la place.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1032,37 +596,9 @@ message HostStatus {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Instance
 
 Cet évènement est émis par Centreon Engine lorsqu'Engine commence à envoyer sa configuration, ou bien lorqu'Engine s'arrête.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::Instance
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 15      | 65551 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété      | Type             | Description                                                  | Version |
-| -------------- | ---------------- | ------------------------------------------------------------ | ------- |
-| engine         | chaîne           | Nom du moteur de supervision utilisé sur cette instance.     |
-| id             | entier non signé | ID de l’instance.                                            |
-| name           | chaîne           | Nom de l’instance.                                           |
-| is\_running    | booléen          | Si cette instance est en cours d’exécution ou non.           |
-| pid            | entier non signé | Supervision du PID du moteur.                                |
-| program\_end   | temps            | Heure à laquelle l’instance s’est arrêtée.                   |
-| program\_start | temps            | Heure à laquelle l’instance a démarré.                       |
-| version        | chaîne           | Version du moteur de supervision utilisé sur cette instance. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbInstance
 
@@ -1070,7 +606,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 44      | 65580 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::Instance** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbInstance** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1093,45 +629,9 @@ message Instance {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Instance status
 
 Cet évènement est émis régulièrement par Centreon Engine en tant que watchdog. Cet évènement informe Broker que le collecteur est toujours vivant (en même temps que diverses autres informations).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::InstanceStatus
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 16      | 65552 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                         | Type             | Description                                                                               | Version |
-| --------------------------------- | ---------------- | ----------------------------------------------------------------------------------------- | ------- |
-| active\_host\_checks\_enabled     | booléen          | Si les contrôles d’hôtes actifs sont activés ou non de manière globale.                   |
-| active\_service\_checks\_enabled  | booléen          | Si les contrôles de services actifs sont activés ou non de manière globale.               |
-| check\_hosts\_freshness           | booléen          | Si le contrôle de la fraîcheur des hôtes est activé ou non de manière globale.            |
-| check\_services\_freshness        | booléen          | Si le contrôle de la fraîcheur des services est activé ou non de manière globale.         |
-| event\_handler\_enabled           | booléen          | Si les gestionnaires d’évènements sont activés ou non de manière globale.                 |
-| flap\_detection\_enabled          | booléen          | Si la détection des bagotements est activée ou non de manière globale.                    |
-| id                                | entier non signé | ID de l’instance.                                                                         |
-| last\_alive                       | temps            | La dernière fois que l’instance a été identifiée comme étant vivante.                     |
-| last\_command\_check              | temps            | Dernière fois qu’une commande de contrôle a été exécutée.                                 |
-| notifications\_enabled            | booléen          | Si les notifications sont activées ou non de manière globale.                             |
-| obsess\_over\_hosts               | booléen          | Si oui ou non le moteur de supervision remontera les résultats de contrôles des hôtes.    |
-| obsess\_over\_services            | booléen          | Si oui ou non le moteur de supervision remontera les résultats de contrôles des services. |
-| passive\_host\_checks\_enabled    | booléen          | Si les contrôles passifs d’hôtes sont activés ou non de manière globale.                  |
-| passive\_service\_checks\_enabled | booléen          | Si les contrôles passifs de services sont activés ou non de manière globale.              |
-| global\_host\_event\_handler      | chaîne           | Gestionnaire d’évènements global pour les hôtes.                                          |
-| global\_service\_event\_handler   | chaîne           | Gestionnaire d’évènements global pour les services.                                       |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbInstanceStatus
 
@@ -1139,7 +639,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 42      | 65578 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::InstanceStatus** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbInstanceStatus** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::InstanceStatus** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbInstanceStatus** à la place.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1170,43 +670,10 @@ message InstanceStatus {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Log entry
 
 Centreon Engine génère beaucoup de logs. Certains sont envoyés à Centreon Broker
 afin d'être stockés dans la base de données. Ces logs sont envoyés via des évènements **log entry**.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::LogEntry
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 17      | 65553 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété             | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Version |
-| --------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
-| c\_time               | temps            | Temps de connexion.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| host\_id              | entier non signé | ID de l’hôte. 0 si l’entrée du journal ne fait pas référence à un hôte ou un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| host\_name            | chaîne           | Nom de l’hôte. Peut être vide si l’entrée du journal ne fait pas référence à un hôte ou un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| instance\_name        | chaîne           | Nom de l’instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| log\_type             | entier court     | 0 pour SOFT, 1 pour HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| msg\_type             | entier court     | 0 pour SERVICE ALERT (envoyé lors du changement d’état du service), 1 pour HOST ALERT (envoyé lors du changement d’état de l’hôte), 2 pour SERVICE NOTIFICATION (notification envoyée pour un service), 3 pour HOST NOTIFICATION (notification envoyée pour un hôte), 4 pour Warning (avertissement de Centreon Engine), 5 pour EXTERNAL COMMAND (commande externe reçue), 6 pour CURRENT SERVICE STATE (état actuel du service supervisé, généralement envoyé lors du rechargement de la configuration), 7 pour CURRENT HOST STATE (état actuel de l’hôte supervisé, (état actuel de l’hôte supervisé, généralement envoyé lors du rechargement de la configuration), 8 pour INITIAL SERVICE STATE (état initial du service, après traitement de rétention, envoyé au début du processus), 9 pour INITIAL HOST STATE (état initial de l’hôte surveillé, après traitement de rétention, envoyé au début du processus), 10 pour la commande externe ACKNOWLEDGE\_SVC\_PROBLEM (cas particulier de EXTERNAL COMMAND pour l’acquittement du service), 11 pour la commande externe ACKNOWLEDGE\_HOST\_PROBLEM (cas particulier de EXTERNAL COMMAND pour l’acquittement de l’hôte). |
-| notification\_cmd     | chaîne           | Commande de notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| notification\_contact | chaîne           | Contact pour la notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| retry                 | entier           | Tentative de contrôle actuelle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| service\_description  | chaîne           | Description du service. Vide si l’entrée du journal ne fait pas référence à un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| service\_id           | entier non signé | ID de service. 0 si l’entrée du journal ne fait pas référence à un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| status                | entier court     | Statut de l’hôte / du service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| output                | chaîne           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbLogEntry
 
@@ -1214,7 +681,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 41      | 65577 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::LogEntry** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbLogEntry** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1257,145 +724,9 @@ message LogEntry {
 }
 ```
 
-</TabItem>
-</Tabs>
-
-### Module
-
-Les évènements relatifs aux modules sont générés lors du chargement ou du déchargement des modules de Centreon Broker. Ils sont peu utiles car les seuls modules disponibles dans Engine sont les modules obligatoires **external command** et **cbmod**.
-
-L'évènement **Module** devrait être supprimé dans un futur proche.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::Module
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 18      | 65554 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété          | Type             | Description                                            | Version |
-| ------------------ | ---------------- | ------------------------------------------------------ | ------- |
-| args               | chaîne           | Arguments du module.                                   |
-| enabled            | booléen          | Si ce module est activé ou non.                        |
-| filename           | chaîne           | Chemin d’accès au fichier du module.                   |
-| instance\_id       | entier non signé | ID de l’instance.                                      |
-| loaded             | booléen          | Si ce module est chargé ou non.                        |
-| should\_be\_loaded | booléen          | Si ce module doit être (aurait dû être) chargé ou non. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
-
-</TabItem>
-</Tabs>
-
 ### Service
 
 Ceci est un évènement de configuration. Il est émis par Centreon Engine lorsque la configuration d'un service est modifiée, et que la configuration est déployée.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::Service
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 23      | 65559 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                         | Type             | Description | Version |
-| --------------------------------- | ---------------- | ----------- | ------- |
-| acknowledged                      | booléen          |             |
-| acknowledged\_type                | entier court     |             |
-| action\_url                       | chaîne           |             |
-| active\_checks\_enabled           | booléen          |             |
-| check\_freshness                  | booléen          |             |
-| check\_interval                   | réel             |             |
-| check\_period                     | chaîne           |             |
-| check\_type                       | entier court     |             |
-| current\_check\_attempt           | entier court     |             |
-| current\_state                    | entier court     |             |
-| default\_active\_checks\_enabled  | booléen          |             |
-| default\_event\_handler\_enabled  | booléen          |             |
-| default\_flap\_detection\_enabled | booléen          |             |
-| default\_notifications\_enabled   | booléen          |             |
-| default\_passive\_checks\_enabled | booléen          |             |
-| dowtine\_depth                    | entier court     |             |
-| display\_name                     | chaîne           |             |
-| enabled                           | booléen          |             |
-| event\_handler                    | chaîne           |             |
-| event\_handler\_enabled           | booléen          |             |
-| execution\_time                   | réel             |             |
-| first\_notification\_delay        | réel             |             |
-| flap\_detection\_enabled          | booléen          |             |
-| flap\_detection\_on\_critical     | booléen          |             |
-| flap\_detection\_on\_ok           | booléen          |             |
-| flap\_detection\_on\_unknown      | booléen          |             |
-| flap\_detection\_on\_warning      | booléen          |             |
-| freshness\_threshold              | réel             |             |
-| has\_been\_checked                | booléen          |             |
-| high\_flap\_threshold             | réel             |             |
-| host\_id                          | entier non signé |             |
-| host\_name                        | chaîne           |             |
-| icon\_image                       | chaîne           |             |
-| icon\_image\_alt                  | chaîne           |             |
-| service\_id                       | entier non signé |             |
-| is\_flapping                      | booléen          |             |
-| is\_volatile                      | booléen          |             |
-| last\_check                       | temps            |             |
-| last\_hard\_state                 | entier court     |             |
-| last\_hard\_state\_change         | temps            |             |
-| last\_notification                | temps            |             |
-| last\_state\_change               | temps            |             |
-| last\_time\_critical              | temps            |             |
-| last\_time\_ok                    | temps            |             |
-| last\_time\_unknown               | temps            |             |
-| last\_time\_warning               | temps            |             |
-| last\_update                      | temps            |             |
-| latency                           | réel             |             |
-| low\_flap\_threshold              | réel             |             |
-| max\_check\_attempts              | entier court     |             |
-| next\_check                       | temps            |             |
-| next\_notification                | temps            |             |
-| no\_more\_notifications           | booléen          |             |
-| notes                             | chaîne           |             |
-| notes\_url                        | chaîne           |             |
-| notification\_interval            | réel             |             |
-| notification\_number              | entier court     |             |
-| notification\_period              | chaîne           |             |
-| notifications\_enabled            | booléen          |             |
-| notify\_on\_critical              | booléen          |             |
-| notify\_on\_downtime              | booléen          |             |
-| notify\_on\_flapping              | booléen          |             |
-| notify\_on\_recovery              | booléen          |             |
-| notify\_on\_unknown               | booléen          |             |
-| notify\_on\_warning               | booléen          |             |
-| obsess\_over                      | booléen          |             |
-| passive\_checks\_enabled          | booléen          |             |
-| percent\_state\_change            | réel             |             |
-| retry\_interval                   | réel             |             |
-| scheduled\_downtime\_depth        | entier court     |             |
-| service\_description              | chaîne           |             |
-| should\_be\_scheduled             | booléen          |             |
-| stalk\_on\_critical               | booléen          |             |
-| stalk\_on\_ok                     | booléen          |             |
-| stalk\_on\_unknown                | booléen          |             |
-| stalk\_on\_warning                | booléen          |             |
-| state\_type                       | entier court     |             |
-| check\_command                    | chaîne           |             |
-| output                            | chaîne           |             |
-| perf\_data                        | chaîne           |             |
-| retain\_nonstatus\_information    | booléen          |             |
-| retain\_status\_information       | booléen          |             |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbService
 
@@ -1403,7 +734,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 27      | 65563 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::Service** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbService** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1535,35 +866,9 @@ message Service {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Service check
 
 Cet évènement est émis par Centreon Engine lorsqu'un contrôle est effectué sur un service.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::ServiceCheck
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 19      | 65555 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété               | Type             | Description                                               | Version |
-| ----------------------- | ---------------- | --------------------------------------------------------- | ------- |
-| active\_checks\_enabled | booléen          | True si les contrôles actifs sont activés sur le service. |
-| check\_type             | court            |                                                           |
-| host\_id                | entier non signé | ID de l’hôte.                                             |
-| next\_check             | temps            | Heure à laquelle le prochain contrôle est prévu.          |
-| service\_id             | entier non signé | ID de service.                                            |
-| command\_line           | chaîne           | Ligne de commande du contrôle.                            |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbServiceCheck
 
@@ -1571,7 +876,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 40      | 65576 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::ServiceCheck** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbServiceCheck** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1597,173 +902,69 @@ message Check {
 }
 ```
 
-</TabItem>
-</Tabs>
-
-### Service dependency
-
-Ceci est un évènement de configuration envoyé lorsqu'une dépendance entre services est définie.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::ServiceDependency
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 20      | 65556 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                      | Type             | Description | Version |
-| ------------------------------ | ---------------- | ----------- | ------- |
-| dependency\_period             | chaîne           |             |
-| dependent\_host\_id            | entier non signé |             |
-| dependent\_service\_id         | entier non signé |             |
-| enabled                        | booléen          |             |
-| execution\_failure\_options    | chaîne           |             |
-| host\_id                       | entier non signé |             |
-| inherits\_parent               | booléen          |             |
-| notification\_failure\_options | chaîne           |             |
-| service\_id                    | entier non signé |             |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
-
-</TabItem>
-</Tabs>
-
 ### Service group
 
 Cet évènement de configuration est émis lorsqu'un groupe de services est créé.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::ServiceGroup
+#### NEB::PbServiceGroup
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 21      | 65557 |
+| 1         | 51      | 65587 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété  | Type             | Description                                                         | Version |
-| ---------- | ---------------- | ------------------------------------------------------------------- | ------- |
-| id         | entier non signé |                                                                     |
-| name       | chaîne           | Nom du groupe.                                                      |
-| enabled    | enabled          | True si le groupe est activé, faux s’il ne l’est pas (suppression). |
-| poller\_id | entier non signé |                                                                     |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
 
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
+message ServiceGroup {  
+  BBDOHeader header = 1;  
 
-</TabItem>
-</Tabs>
+  bool enabled = 2;                     // True si le groupe est activé, False s’il ne l’est pas (suppression).  
+  uint64 servicegroup_id = 3;   // ID du groupe.  
+  string name = 4;                      // Nom du groupe.  
+  uint64 poller_id = 5;                // ID du poller.  
+}
+```
 
 ### Service group member
 
 Ceci est un évènement de configuration. Il est envoyé juste après un évènement **servicegroup** afin de détailler les membres du groupe à configurer. En BBDO v3, la version BBDO v2 de l'évènement est toujours utilisée.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::ServiceGroupMember
+#### NEB::PbServiceGroupMember
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 22      | 65558 |
+| 1         | 50      | 65586 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété   | Type             | Description                                                         | Version |
-| ----------- | ---------------- | ------------------------------------------------------------------- | ------- |
-| id          | entier non signé |                                                                     |
-| host\_id    | entier non signé |                                                                     |
-| service\_id | entier non signé |                                                                     |
-| enabled     | enabled          | True si le groupe est activé, faux s’il ne l’est pas (suppression). |
-| group\_name | chaîne           | Nom du groupe.                                                      |
-| poller\_id  | entier non signé |                                                                     |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
 
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
+message ServiceGroupMember {  
+  BBDOHeader header = 1;  
 
-</TabItem>
-</Tabs>
+  bool enabled = 2;                    // True si le groupe est activé, False s’il ne l’est pas (suppression).  
+  uint64 servicegroup_id = 3;             // ID du groupe.  
+  string name = 4;                     // Nom du groupe.  
+  uint64 host_id = 5;                 // ID de l'hôte.  
+  uint64 poller_id = 6;                // ID du poller.  
+  uint64 service_id = 7;                    // ID du service.  
+} 
+```
 
 ### Service status
 
 Cet évènement est émis par Centreon Engine losque des modifications en temps réel sont apportées à un service.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::ServiceStatus
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 24      | 65560 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété                 | Type             | Description |
-| ------------------------- | ---------------- | ----------- |
-| acknowledged              | booléen          |             |
-| acknowledgement\_type     | entier court     |             |
-| active\_checks\_enabled   | booléen          |             |
-| check\_interval           | réel             |             |
-| check\_period             | chaîne           |             |
-| check\_type               | entier court     |             |
-| current\_check\_attempt   | entier court     |             |
-| current\_state            | entier court     |             |
-| downtime\_depth           | entier court     |             |
-| enabled                   | booléen          |             |
-| event\_handler            | chaîne           |             |
-| event\_handler\_enabled   | booléen          |             |
-| execution\_time           | réel             |             |
-| flap\_detection\_enabled  | booléen          |             |
-| has\_been\_checked        | booléen          |             |
-| host\_id                  | entier non signé |             |
-| host\_name                | chaîne           |             |
-| is\_flapping              | booléen          |             |
-| last\_check               | temps            |             |
-| last\_hard\_state         | entier court     |             |
-| last\_hard\_state\_change | temps            |             |
-| last\_notification        | temps            |             |
-| last\_state\_change       | temps            |             |
-| last\_time\_critical      | temps            |             |
-| last\_time\_ok            | temps            |             |
-| last\_time\_unknown       | temps            |             |
-| last\_time\_warning       | temps            |             |
-| last\_update              | temps            |             |
-| latency                   | réel             |             |
-| max\_check\_attempts      | entier court     |             |
-| modified\_attributes      | entier non signé |             |
-| next\_check               | temps            |             |
-| next\_notification        | temps            |             |
-| no\_more\_notifications   | booléen          |             |
-| notification\_number      | entier court     |             |
-| notifications\_enabled    | booléen          |             |
-| obsess\_over              | booléen          |             |
-| passive\_checks\_enabled  | booléen          |             |
-| percent\_state\_change    | réel             |             |
-| retry\_interval           | réel             |             |
-| service\_description      | chaîne           |             |
-| service\_id               | entier non signé |             |
-| should\_be\_scheduled     | booléen          |             |
-| state\_type               | entier court     |             |
-| check\_command            | chaîne           |             |
-| output                    | chaîne           |             |
-| perf\_data                | chaîne           |             |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbServiceStatus
 
@@ -1771,7 +972,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 29      | 65565 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::ServiceStatus** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbServiceStatus** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1836,59 +1037,36 @@ message ServiceStatus {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Instance configuration
 
 Ceci est un évènement de configuration annonçant tous les évènements de configuration qui seront envoyés par un collecteur.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::InstanceConfiguration
+#### NEB::PbInstanceConfiguration
 
 | Catégorie | élément | ID    |
 | --------- | ------- | ----- |
-| 1         | 25      | 65561 |
+| 1         | 54      | 65590 |
 
-Le contenu de ce message est sérialisé de la manière suivante :
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
-| Propriété  | Type             | Description                                                                          | Version |
-| ---------- | ---------------- | ------------------------------------------------------------------------------------ | ------- |
-| loaded     | booléen          | True si l’instance s’est chargée avec succès.                                        |
-| poller\_id | entier non signé | ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload). |
+Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
+```cpp
+message BBDOHeader {  
+  uint32 conf_version = 1;   // Un nombre interne, non utilisé actuellement.  
+}  
 
-Cet évènement est le même qu'en BBDO v2. Il n'existe pas d'évènement Protobuf.
+message InstanceConfiguration {  
+  BBDOHeader header = 1;  
 
-</TabItem>
-</Tabs>
+  bool loaded = 2;           // True si l’instance s’est chargée avec succès.  
+  uint64 poller_id = 3;      // ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload).  
+}
+```
 
 ### Responsive instance
 
 Cet évènement est émis par cbd. Il indique si un collecteur répond ou non.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### NEB::ResponsiveInstance
-
-| Catégorie | élément | ID    |
-| --------- | ------- | ----- |
-| 1         | 26      | 65562 |
-
-Le contenu de ce message est sérialisé de la manière suivante :
-
-| Propriété  | Type             | Description                                                                          | Version |
-| ---------- | ---------------- | ------------------------------------------------------------------------------------ | ------- |
-| poller\_id | entier non signé | ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload). |
-| responsive | booléen          | Un booléen indiquant si le collecteur ayant l’ID **poller_id** répond ou non.        |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbResponsiveInstance
 
@@ -1896,7 +1074,7 @@ Le contenu de ce message est sérialisé de la manière suivante :
 | --------- | ------- | ----- |
 | 1         | 46      | 65582 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::ResponsiveInstance** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbResponsiveInstance** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1913,20 +1091,9 @@ message ResponsiveInstance {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Adaptive service
 
 Cet évènement a été introduit en BBDO v3. Il est émis lorsque la configuration d'un service est mise à jour à chaud (par exemple à l'aide d'une commande externe).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-**Adaptive service** n'est pas disponible en BBDO v2.
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbAdaptiveService
 
@@ -1934,7 +1101,7 @@ Cet évènement a été introduit en BBDO v3. Il est émis lorsque la configurat
 | --------- | ------- | ----- |
 | 1         | 41      | 65577 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::AdaptiveService** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbAdaptiveService** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -1961,21 +1128,9 @@ message AdaptiveService {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Adaptive host
 
 Cet évènement a été introduit en BBDO v3. Il est émis lorsque la configuration d'un hôte est mise à jour à chaud (par exemple à l'aide d'une commande externe).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-**Adaptive host** n'est pas disponible en BBDO v2.
-
-</TabItem>
-
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbAdaptiveHost
 
@@ -1983,7 +1138,7 @@ Cet évènement a été introduit en BBDO v3. Il est émis lorsque la configurat
 | --------- | ------- | ----- |
 | 1         | 31      | 65567 |
 
-Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements précédents, mais en utilisant le mécanisme de sérialisation Protobuf 3. Lorsque la version BBDO 3 est utilisée, plus aucun message **NEB::AdaptiveHost** ne devrait être envoyé, vous devriez voir des évènements **NEB::PbAdaptiveHost** à la place.
+Cet évènement est un évènement Protobuf, de sorte que les éléments ne sont pas sérialisés comme dans les évènements BBDOv2, mais en utilisant le mécanisme de sérialisation Protobuf 3.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3) est le suivant :
 
@@ -2009,20 +1164,9 @@ message AdaptiveHost {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Severity
 
 Ceci est un évènement de configuration. il définit une sévérité. Cet évènement a été introduit en BBDO v3.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-IL n'y a pas de version BBDO v2 de cet évènement.
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbSeverity
 
@@ -2055,22 +1199,10 @@ message Severity {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Adaptive service status
 
 Ce message concerne le temps réel. Il contient une partie d'un Service status. Il a
 été introduit avec BBDO v3.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-Ce message n'existe pas dans la version BBDO v2.
-
-</TabItem>
-
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbAdaptiveServiceStatus
 
@@ -2093,22 +1225,10 @@ message AdaptiveServiceStatus {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Adaptive host status
 
 Ce message concerne le temps réel. Il contient une partie d'un host status. Il a
 été introduit avec BBDO v3.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-Ce message n'existe pas dans la version BBDO v2.
-
-</TabItem>
-
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### NEB::PbAdaptiveHostStatus
 
@@ -2128,41 +1248,11 @@ message AdaptiveHostStatus {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ## Storage
 
 ### Metric
 
 Cet évènement est généré par un point de terminaison Storage pour notifier qu’un graphique de métriques RRD doit être mis à jour.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::Metric
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 3         | 1       | 196609 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété        | Type             | Description                                                                                   |
-| ---------------- | ---------------- | --------------------------------------------------------------------------------------------- |
-| ctime            | temps            | Heure à laquelle la valeur métrique a été générée.                                            |
-| interval         | entier non signé | Intervalle de contrôle du service normal en secondes.                                         |
-| metric\_id       | entier non signé | ID de la métrique (à partir du tableau des métriques).                                        |
-| name             | chaîne           | Nom de la métrique.                                                                           |
-| rrd\_len         | entier           | Durée de rétention des données RRD en secondes.                                               |
-| value            | réel             | Valeur de la métrique.                                                                        |
-| value\_type      | entier court     | Type de métrique (1 =3D compteur, 2 =3D dérive, 3 =3D absolu, autre =3D jauge).               |
-| is\_for\_rebuild | booléen          | Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild). |
-| host\_id         | entier non signé | ID de l’hôte auquel cette métrique est attachée.                                              |
-| service\_id      | entier non signé | ID du service auquel cette métrique est attachée.                                             |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### Storage::PbMetric
 
@@ -2199,107 +1289,10 @@ message Metric {
 }
 ```
 
-</TabItem>
-</Tabs>
-
-### Rebuild
-
-Les évènements de reconstruction sont générés lorsqu’un point de terminaison Storage détecte qu’un graphique doit être reconstruit. Il envoie d’abord un évènement de début de reconstruction (end `false`),
-puis des valeurs métriques (évènement métrique avec is\_for\_rebuild défini sur True) et enfin un évènement de fin de reconstruction (end `true`).
-
-Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
-Avec BBDO v3, on profite de la puissance de Protobuf. Pour reconstruire les
-graphiques, on utilise l'événement [Storage::PbRebuildMessage](#storagepbrebuildmessage).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::Rebuild
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 3         | 2       | 196610 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété | Type             | Description                                                                                                                        |
-| --------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| end       | booléen          | Indicateur de fin. Défini sur True si la reconstruction commence, False si elle se termine.                                        |
-| id        | entier non signé | ID de la métrique à reconstruire si is\_index est False, ou ID de l’index à reconstruire (graphique d’état) si is\_index est True. |
-| is\_index | booléen          | Indicateur d’index. Reconstruction de l’index (état) si True, reconstruction de la métrique si False.                              |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Non disponible avec Protobuf 3.
-
-Veuillez consulter [Storage::PbRebuildMessage](#storagepbrebuildmessage) pour l'alternative.
-
-</TabItem>
-</Tabs>
-
-### Remove graph
-
-Un point de terminaison Storage génère un évènement de suppression de graphique lorsqu’un graphique doit être supprimé.
-
-Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
-Avec BBDO v3, on profite de la puissance de Protobuf. Pour supprimer les
-graphiques, on utilise l'événement [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::RemoveGraph
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 3         | 3       | 196611 |
-
-Le contenu de ce message est sérialisé comme suit:
-
-| Propriété | Type             | Description                                                                                                               |
-| --------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| id        | entier non signé | ID de l’index (is\_index =`true`) ou ID de la métrique (is\_index =`false`) à supprimer.                                  |
-| is\_index | booléen          | Indicateur d’index. Si True, un graphique d’index (état) sera supprimé. Si False, un graphique de métrique sera supprimé. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Non disponible avec Protobuf 3.
-
-Veuillez consulter [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage)
-pour l'alternative.
-
-</TabItem>
-</Tabs>
-
 ### Status
 
 Cet événement est émis par Centreon Broker lorsqu'un événement de type **Service Status** ou **Host Status** est reçu.
 Il contient essentiellement une ressource avec son état.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::Status
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 3         | 4       | 196612 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété        | Type             | Description                                                                                   |
-| ---------------- | ---------------- | --------------------------------------------------------------------------------------------- |
-| ctime            | temps            | Heure à laquelle l’état a été généré.                                                         |
-| index\_id        | entier non signé | ID de l’index.                                                                                |
-| interval         | entier non signé | Intervalle de contrôle du service normal en secondes.                                         |
-| rrd\_len         | temps            | Rétention des données RRD en secondes.                                                        |
-| state            | entier court     | État du service.                                                                              |
-| is\_for\_rebuild | booléen          | Défini sur True quand un graphique est en cours de reconstruction (voir l’évènement rebuild). |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### Storage::PbStatus
 
@@ -2310,8 +1303,7 @@ Le contenu de ce message est sérialisé comme suit :
 Cet évènement est un évènement Protobuf, par conséquent ses éléments ne sont pas
 sérialisés comme avec BBDO v2 mais en utilisant le mécanisme de sérialisation
 Protobuf 3. Lorsque BBDO v3 est utilisé, il ne devrait plus y avoir d'émission
-d'évènements **Storage::Status**, à la place on devrait avoir des
-**Storage::PbStatus**.
+d'évènements *
 
 Voici la définition de l'évènement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
 
@@ -2325,34 +1317,12 @@ message Status {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Metric mapping
 
 Cet évènement est émis par Centreon Broker lorsqu'une nouvelle configuration de
 service est reçue. Il établit la relation entre un ID d'index d'un service et un
 ID de métrique. Voir [Index mapping](#index-mapping) pour davantage d'informations
 sur les ID d'index.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::MetricMapping
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 3         | 6       | 196614 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété | Type             | Description    |
-| --------- | ---------------- | -------------- |
-| index\_id | entier non signé | ID de l’index. |
-| metric\_d | entier non signé | ID de l’index. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### Storage::PbMetricMapping
 
@@ -2362,8 +1332,7 @@ Le contenu de ce message est sérialisé comme suit :
 
 Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
 comme avec BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de
-Protobuf 3. Quand BBDO v3 est actif, il ne devrait plus y avoir d'évènements
-**Storage::MetricMapping** émis mais plutôt des **Storage::PbIndexMapping**.
+Protobuf 3.
 
 Voici la définition de cet événement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
 
@@ -2374,35 +1343,12 @@ message MetricMapping {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Index mapping
 
 Cet évènement est émis par Centreon Broker lorsqu'une nouvelle configuration de service
 est reçue. Il crée l'association entre un ID et un service identifié par le couple
 **(host ID/service ID)**. Ce nouvel ID est utile pour la déclaration des métriques
 de service.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### Storage::IndexMapping
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 3         | 5       | 196613 |
-
-Le contenu de ce message est sérialisé de la façon suivante :
-
-| Propriété   | Type             | Description    |
-| ----------- | ---------------- | -------------- |
-| index\_id   | entier non signé | ID de l’index. |
-| host\_id    | entier non signé | ID de l’index. |
-| service\_id | entier non signé | ID de l’index. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### Storage::PbIndexMapping
 
@@ -2426,24 +1372,11 @@ message IndexMapping {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Rebuild Message
 
 Cet événement arrive avec BBDO v3. Quand on doit reconstruire des graphes,
 c'est cet évènement qui contient les informations de reconstruction. Il remplace
 les anciens messages BBDO v2 de **rebuild**.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-Non disponible en BBDO v2.
-
-Voir [Storage::Rebuild](#storagerebuild)
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### Storage::PbRebuildMessage
 
@@ -2487,22 +1420,9 @@ message RebuildMessage {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Remove Graph Message
 
 Cet évènement est compris dans BBDO 3. Lorsque nous voulons supprimer des fichiers graphiques, nous pouvons utiliser l’API gRPC de centengine et cet appel fait en sorte que cbd génère un **Pb Remove Graph Message**. Deux possibilités sont combinées dans cet évènement. Nous pouvons supprimer les graphiques correspondant à certaines données d’index ou les graphiques correspondant à certaines données métriques. Il est également possible de combiner les deux types.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-Non disponible en BBDO v2.
-
-Voir [Storage::RemoveGraph](#storageremovegraph)
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### Storage::PbRemoveGraphMessage
 
@@ -2519,42 +1439,37 @@ message RemoveGraphMessage {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ## BBDO
 
-### Version response
+### Welcome
 
 Voici le message de négociation utilisé jusqu'à la version BBDO v3.0.0.
 Chaque fois qu'une connexion BBDO est établie, chaque interlocuteur envoie
 ce message pour négocier les options à activer.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
+#### BBDO::PbWelcome
 
-#### BBDO::VersionResponse
 
 | Catégorie | élément | ID     |
 | --------- | ------- | ------ |
-| 2         | 1       | 131073 |
+| 2         | 7       | 131079 |
 
-Le contenu de ce message est sérialisé comme suit :
+Voici la définition de cet évènement [protobuf](https://developers.google.com/protocol-buffers/docs/proto3) :
 
-| Propriété   | Type         | Description                                                                                                                                               |
-| ----------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bbdo\_major | entier court | La version majeure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**. La seule version actuelle du protocole est la 1.0.0. |
-| bbdo\_minor | entier court | La version mineure du protocole BBDO utilisée par le pair qui envoie ce paquet **version_response**.                                                      |
-| bbdo\_patch | entier court | Le correctif du protocole BBDO utilisé par le pair qui envoie ce paquet **version_response**.                                                             |
-| extensions  | chaîne       | Chaîne séparée par des espaces des extensions prises en charge par le pair qui envoie ce paquet **version_response**.                                     |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-L'événement est le même qu'en BBDO v2. Il n'y a pas d'évènement Protobuf.
-
-</TabItem>
-</Tabs>
+```text
+message Welcome {
+  Bbdo version = 1;
+  string extensions = 2;
+  uint64 poller_id = 3;
+  string poller_name = 4;
+  /* Broker name is more relevant than poller name because for example on the
+   * central, rrd broker, central broker and engine share the same poller name
+   * that is 'Central'. */
+  string broker_name = 5;
+  com.centreon.common.PeerType peer_type = 6;
+  bool extended_negotiation = 7;
+}
+```
 
 ### Ack
 
@@ -2567,24 +1482,6 @@ envoie au récepteur. Et lorsque le récepteur a terminé d'en traiter un lot, i
 envoie un **Ack** avec le nombre d'évènements qu'il a traité. L'envoyeur peut
 alors les jeter.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BBDO::Ack
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 2         | 2       | 131074 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété           | Type             | Description                                                                                                                                                                                       |
-| ------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| acknowledged events | entier non signé | Nombre d’évènements acquittés. Utilisé uniquement par les clients « intelligents » (c’est-à-dire capables d’acquitter des évènements). Ne doit pas être utilisé par des clients non intelligents. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
 #### NEB::PbAck
 
 | Catégorie | élément | ID     |
@@ -2593,8 +1490,6 @@ Le contenu de ce message est sérialisé comme suit :
 
 Cet évènement est un évènement Protobuf, ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf 3.
-Quand BBDO v3 est actif, il ne devrait plus y avoir d'évènements **NEB::Ack**
-émis mais plutôt des **NEB::PbAck**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant:
@@ -2605,28 +1500,11 @@ message Ack {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Stop
 
 Quand un côté d'une connexion BBDO va s'éteindre, il émet un événement **Stop**
 afin que l'autre côté puisse, si possible, lui envoyer un **Ack** permettant de
 jeter les éventuels événements déjà traités.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BBDO::Stop
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 2         | 3       | 131075 |
-
-Le contenu de ce message est vide.
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BBDO::PbStop
 
@@ -2636,8 +1514,6 @@ Le contenu de ce message est vide.
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de Protobuf.
-Quand BBDO v3 est actif, on ne devrait plus voir de **BBDO::Stop** émis mais plutôt
-des **BBDO::PbStop**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant :
@@ -2646,39 +1522,11 @@ est le suivant :
 message Stop {}
 ```
 
-</TabItem>
-</Tabs>
-
 ## BAM
 
 ### BA status event
 
 Cet évènement est envoyé lorsque le statut d’une BA a changé.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::BaStatus
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 1       | 393217 |
-
-Le contenu de ce message est sérialisé comme suit:
-
-| Propriété              | Type             | Description                                    |
-| ---------------------- | ---------------- | ---------------------------------------------- |
-| ba\_id                 | entier non signé | L’id de la BA.                                 |
-| in\_downtime           | booléen          | True si la BA est en temps d’arrêt.            |
-| last\_state\_change    | temps            | L’heure du dernier changement d’état de la BA. |
-| level\_acknowledgement | réel             | Le niveau d’acquittement de la BA.             |
-| level\_downtime        | réel             | Le niveau de temps d’arrêt de la BA.           |
-| level\_nominal         | réel             | Le niveau nominal de la BA.                    |
-| state                  | entier court     | L’état de la BA.                               |
-| state\_changed         | booléen          | True si l’état de la BA vient de changer.      |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbBaStatus
 
@@ -2688,8 +1536,7 @@ Le contenu de ce message est sérialisé comme suit:
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisé
 comme avec BBDO v2 mais plutôt en utilisant le mécanisme de sérialisation de
-Protobuf. Quand BBDO v3 est actif, les évènements **BAM::BaStatus** devraient
-être remplacés par les évènements **BAM::PbBaStatus**.
+Protobuf.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant:
@@ -2714,42 +1561,9 @@ message BaStatus {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### KPI status event
 
 Cet évènement est envoyé lorsque le statut d’un KPI a changé.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::KpiStatus
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 2       | 393218 |
-
-Le contenu de ce message est sérialisé comme suit:
-
-| Propriété                    | Type             | Description                                  |
-| ---------------------------- | ---------------- | -------------------------------------------- |
-| kpi\_id                      | entier non signé | L’ID du KPI.                                 |
-| in\_downtime                 | bool             | True si le KPI est en temps d’arrêt.         |
-| level\_acknowledgement\_hard | réel             | Le niveau d’acquittement hard du KPI.        |
-| level\_acknowledgement\_soft | réel             | Le niveau d’acquittement soft du KPI.        |
-| level\_downtime\_hard        | réel             | Le niveau de temps d’arrêt hard du KPI.      |
-| level\_downtime\_soft        | réel             | Le niveau de temps d’arrêt soft du KPI.      |
-| level\_nominal\_hard         | réel             | Le niveau nominal hard du KPI.               |
-| level\_nominal\_soft         | réel             | Le niveau nominal soft du KPI.               |
-| state\_hard                  | entier court     | L’état hard du KPI.                          |
-| state\_soft                  | entier court     | L’état soft du KPI.                          |
-| last\_state\_change          | temps            | L’heure du dernier changement d’état du KPI. |
-| last\_impact                 | réel             | Le dernier impact du KPI.                    |
-| valid                        | bool             | True si le KPI est valide.                   |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbKpiStatus
 
@@ -2759,8 +1573,6 @@ Le contenu de ce message est sérialisé comme suit:
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utlisant le mécanisme de sérialisation de Protobuf.
-Quand BBDO v3 est actif, les évènements **BAM::KpiStatus** ne sont plus envoyés
-et sont remplacés par des évènements **BAM::PbKpiStatus**.
 
 The [protobuf message](https://developers.google.com/protocol-buffers/docs/proto3)
 is the following:
@@ -2790,67 +1602,9 @@ message KpiStatus {
 }
 ```
 
-</TabItem>
-</Tabs>
-
-### Meta service status event
-
-Cet évènement a été créé pour envoyer les changements d'état d'un méta-service.
-
-Actuellement, les méta-services n'étant pas gérés par Centreon Broker, cet
-évènement n'est pas utilisé.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::MetaServiceStatus
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 3       | 393219 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété         | Type             | Description                      |
-| ----------------- | ---------------- | -------------------------------- |
-| meta\_service\_id | entier non signé | L’ID du méta-service.            |
-| value             | réel             | La valeur du méta-service.       |
-| state\_changed    | booléen          | True si l’état vient de changer. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-Il n'y a pas d'évènement Protobuf.
-
-</TabItem>
-</Tabs>
-
 ### BA-event event
 
 Cet évènement est envoyé lorsqu’un nouvel évènement BA est ouvert, ou qu’un ancien est fermé.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::BaEvent
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 4       | 393220 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété    | Type             | Description                                                             |
-| ------------ | ---------------- | ----------------------------------------------------------------------- |
-| ba\_id       | entier non signé | L’ID de la BA.                                                          |
-| first\_level | réel             | Le premier niveau de l’évènement BA.                                    |
-| end\_time    | temps            | L’heure de fin de l’évènement. 0 ou (temps)-1 pour un évènement ouvert. |
-| in\_downtime | booléen          | True si BA était en arrêt pendant l’évènement BA.                       |
-| start\_time  | temps            | L’heure de début de l’évènement.                                        |
-| status       | entier court     | Le statut de la BA pendant l’évènement.                                 |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbBaEvent
 
@@ -2860,8 +1614,6 @@ Le contenu de ce message est sérialisé comme suit :
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comment en BBDO v2 mais en utilisant le mécanisme de sérialisation Protobuf.
-Quand BBDO v3 est actif, les événements **BAM::BaEvent** ne devraient plus être
-envoyés et sont remplacés par des **BAM::PbBaEvent**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant :
@@ -2884,37 +1636,9 @@ message BaEvent {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### KPI Event
 
 Cet évènement est envoyé lorsqu’un nouvel évènement KPI est ouvert, ou qu’un ancien est fermé.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::KpiEvent
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 5       | 393221 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété     | Type             | Description                                                             |
-| ------------- | ---------------- | ----------------------------------------------------------------------- |
-| kpi\_id       | entier non signé | L’ID du KPI.                                                            |
-| end\_time     | temps            | L’heure de fin de l’évènement. 0 ou (temps)-1 pour un évènement ouvert. |
-| impact\_level | entier           | Le niveau de l’impact.                                                  |
-| in\_downtime  | booléen          | True si BA était en arrêt pendant l’évènement BA.                       |
-| first\_output | chaîne           | Le premier output du KPI pendant l’évènement.                           |
-| perfdata      | chaîne           | La première perfdata du KPI pendant l’évènement.                        |
-| start\_time   | temps            | L’heure de début de l’évènement.                                        |
-| status        | entier court     | Le statut de la BA pendant l’évènement.                                 |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbKpiEvent
 
@@ -2924,8 +1648,6 @@ Le contenu de ce message est sérialisé comme suit :
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation Protobuf.
-Quand BBDO v3 est actif, les évènements **BAM::KpiEvent** devraient être
-remplacés par des **BAM::PbKpiEvent**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant :
@@ -2951,36 +1673,9 @@ message KpiEvent {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### BA duration event event
 
 Cet évènement est envoyé lorsqu’un nouvel évènement de durée BA est calculé par le broker BAM.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::BaDurationEvent
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 6       | 393222 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété               | Type             | Description                                                         |
-| ----------------------- | ---------------- | ------------------------------------------------------------------- |
-| ba\_id                  | entier non signé | L’ID de la BA.                                                      |
-| real\_start\_time       | temps            | Le premier niveau de l’évènement BA.                                |
-| end\_time               | temps            | L’heure de fin de l’évènement, dans la période de temps donnée.     |
-| start\_time             | temps            | L’heure de début de l’évènement, dans la période de temps donnée.   |
-| duration                | entier non signé | end\_time - start\_time.                                            |
-| sla\_duration           | entier non signé | La durée de l’évènement dans la période de temps donnée.            |
-| timeperiod\_is\_default | booléen          | True si la période de temps est la valeur par défaut pour cette BA. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbBaDurationEvent
 
@@ -3008,36 +1703,10 @@ message BaDurationEvent {
     bool timeperiod_is_default = 8;   // Vrai si la timeperiod est celle par défaut pour cette BA.
 }
 ```
-</TabItem>
-</Tabs>
 
 ### Dimension BA
 
 Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::DimensionBaEvent
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 7       | 393223 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété                  | Type             | Description              |
-| -------------------------- | ---------------- | ------------------------ |
-| ba\_id                     | entier non signé | L’ID de la BA.           |
-| ba\_name                   | chaîne           | Le nom de la BA.         |
-| ba\_description            | chaîne           | La description de la BA. |
-| sla\_month\_percent\_crit  | réel             |                          |
-| sla\_month\_percent\_warn  | réel             |                          |
-| sla\_month\_duration\_crit | entier non signé |                          |
-| sla\_month\_duration\_warn | entier non signé |                          |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbDimensionBaEvent
 
@@ -3047,8 +1716,6 @@ Le contenu de ce message est sérialisé comme suit :
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation Protobuf.
-Quand BBDO v3 est actif, les messages **BAM::DimensionBaEvent** devraient
-être remplacés par des **BAM::PbDimensionBaEvent**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant :
@@ -3064,45 +1731,10 @@ message DimensionBaEvent {
     uint32 sla_duration_warn = 7;
 }
 ```
-</TabItem>
-</Tabs>
 
 ### Dimension KPI
 
 Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::DimensionKpiEvent
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 8       | 393224 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété            | Type             | Description                                                             |
-| -------------------- | ---------------- | ----------------------------------------------------------------------- |
-| kpi\_id              | entier non signé | L’ID du KPI.                                                            |
-| ba\_id               | entier non signé | L’identifiant de la BA parent de ce KPI.                                |
-| ba\_name             | chaîne           | Le nom de la BA parent de ce KPI.                                       |
-| host\_id             | entier non signé | L’ID de l’hôte associé à ce KPI pour le KPI de service.                 |
-| host\_name           | chaîne           | Le nom de l’hôte associé à ce KPI pour le KPI de service.               |
-| service\_id          | entier non signé | L’ID du service associé à ce KPI pour le KPI de service.                |
-| service\_description | chaîne           | La description du service associé à ce KPI pour le KPI de service.      |
-| kpi\_ba\_id          | entier non signé | L’ID de la BA associée à ce KPI pour le KPI de BA.                      |
-| kpi\_ba\_name        | chaîne           | Le nom de la BA associée à ce KPI pour le KPI de BA.                    |
-| meta\_service\_id    | entier non signé | L’ID du méta-service associé à ce KPI pour le KPI de méta-service.      |
-| meta\_service\_name  | chaîne           | Le nom du méta-service associé à ce KPI pour le KPI de méta-service.    |
-| boolean\_id          | entier non signé | L’ID de l’expression booléenne associée à ce KPI pour le KPI booléen.   |
-| boolean\_name        | chaîne           | Le nom de l’expression booléenne associée à ce KPI pour le KPI booléen. |
-| impact\_warning      | réel             | L’impact d’un état d’alerte pour ce KPI.                                |
-| impact\_critical     | réel             | L’impact d’un état critique pour ce KPI.                                |
-| impact\_unknown      | réel             | L’impact d’un état inconnu pour ce KPI.                                 |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbDimensionKpiEvent
 
@@ -3112,8 +1744,6 @@ Le contenu de ce message est sérialisé comme suit :
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation Protobuf.
-Quand BBDO v3 est actif, les messages **BAM::DimensionKpiEvent** devraient
-être remplacés par des **BAM::PbDimensionKpiEvent**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant :
@@ -3139,55 +1769,18 @@ message DimensionKpiEvent {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Dimension BA BV relation
 
 Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
 | Propriété | Type             | Description    |
 | --------- | ---------------- | -------------- |
 | ba\_id    | entier non signé | L’ID de la BA. |
 | bv\_id    | entier non signé | L’ID de la BV. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-| Propriété | Type             | Description    |
-| --------- | ---------------- | -------------- |
-| ba\_id    | entier non signé | L’ID de la BA. |
-| bv\_id    | entier non signé | L’ID de la BV. |
-
-</TabItem>
-</Tabs>
 
 ### Dimension BV
 
 Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::DimensionBvEvent
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 10      | 393226 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété       | Type             | Description              |
-| --------------- | ---------------- | ------------------------ |
-| bv\_id          | entier non signé | L’ID de la BV.           |
-| bv\_name        | chaîne           | Le nom de la BV.         |
-| bv\_description | chaîne           | La description de la BV. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbDimensionBvEvent
 
@@ -3197,8 +1790,6 @@ Le contenu de ce message est sérialisé comme suit :
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf.
-Quand BBDO v3 est actif, les évènements **BAM::DimensionBvEvent** devraient
-être remplacés par des évènements **BAM::PbDimentionBvEvent**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant :
@@ -3210,32 +1801,12 @@ message DimensionBvEvent {
     string bv_description = 3;  // Description de la BV.
 }
 ```
-</TabItem>
-</Tabs>
 
 ### Dimension Truncate Table Signal
 
 Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
 
 Ce signal est envoyé avant le dump de toutes les dimensions, et à nouveau à la fin du dump.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::DimensionTruncateTableSignal
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 11      | 393228 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété       | Type    | Description                                            |
-| --------------- | ------- | ------------------------------------------------------ |
-| update\_started | booléen | True si c’est le début du dump, False si c’est la fin. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbDimensionTruncateTableSignal
 
@@ -3245,9 +1816,6 @@ Le contenu de ce message est sérialisé comme suit :
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf.
-Quand BBDO v3 est actif, les évènements **BAM::DimensionTruncateTableSignal**
-devraient être remplacés par des évènements
-**BAM::PbDimensionTruncateTableSignal**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant :
@@ -3258,15 +1826,9 @@ message DimensionTruncateTableSignal {
 }
 ```
 
-</TabItem>
-</Tabs>
-
 ### Rebuild signal
 
 Cet évènement est envoyé lorsqu’une reconstruction des durées et des disponibilités des évènements est demandée au point de terminaison du broker BAM.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::Rebuild
 
@@ -3280,43 +1842,9 @@ Le contenu de ce message est sérialisé comme suit :
 | ---------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------- |
 | bas\_to\_rebuild | chaîne | Une chaîne contenant les ID de toutes les BA à reconstruire, séparés par une virgule et un espace (par exemple « 1, 5, 8, 12 »). |
 
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
-
-L'évènement est le même qu'en BBDO v2. Il n'y a pas d'évènement Protobuf.
-
-</TabItem>
-</Tabs>
-
 ### Dimension timeperiod
 
 Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::DimensionTimeperiod
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 13      | 393230 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété | Type             | Description                                   |
-| --------- | ---------------- | --------------------------------------------- |
-| tp\_id    | entier non signé | L’ID de la période de temps.                  |
-| name      | chaîne           | Le nom de la période de temps.                |
-| monday    | chaîne           | La règle de la période de temps pour ce jour. |
-| tuesday   | chaîne           | La règle de la période de temps pour ce jour. |
-| wednesday | chaîne           | La règle de la période de temps pour ce jour. |
-| thursday  | chaîne           | La règle de la période de temps pour ce jour. |
-| friday    | chaîne           | La règle de la période de temps pour ce jour. |
-| saturday  | chaîne           | La règle de la période de temps pour ce jour. |
-| sunday    | chaîne           | La règle de la période de temps pour ce jour. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbDimensionTimeperiod
 
@@ -3326,8 +1854,6 @@ Le contenu de ce message est sérialisé comme suit :
 
 Cet évènement est un évènement Protobuf ainsi ses éléments ne sont pas sérialisés
 comme en BBDO v2 mais en utilisant le mécanisme de sérialisation de Protobuf.
-Quand BBDO v3 est actif, les **BAM::DimensionTimeperiod** devraient être remplacés
-par des **BAM::PbDimensionTimeperiod**.
 
 Le [message protobuf](https://developers.google.com/protocol-buffers/docs/proto3)
 est le suivant :
@@ -3345,32 +1871,10 @@ message DimensionTimeperiod {
     string sunday = 9;      // Règle de la période de temps pour ce jour.
 }
 ```
-</TabItem>
-</Tabs>
 
 ### Dimension BA timeperiod relation
 
 Cet évènement fait partie du dump de dimension (c’est-à-dire, la configuration) qui se produit au démarrage et après chaque rechargement de la configuration BAM.
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::DimensionBaTimeperiodRelation
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 14      | 393231 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété      | Type             | Description                                                     |
-| -------------- | ---------------- | --------------------------------------------------------------- |
-| ba\_id         | entier non signé | L’ID de la BA.                                                  |
-| timeperiod\_id | entier non signé | L’ID de la période de temps.                                    |
-| is\_default    | booléen          | True si la période de temps est celle par défaut pour cette BA. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbDimensionBaTimeperiodRelation
 
@@ -3393,29 +1897,8 @@ message DimensionBaTimeperiodRelation {
     bool is_default = 3;        // Vrai si la période de temps est celle par défaut de cette BA.
 }
 ```
-</TabItem>
-</Tabs>
 
 ### Inherited downtime
-
-<Tabs groupId="sync">
-<TabItem value="BBDO v2" label="BBDO v2">
-
-#### BAM::InheritedDowntime
-
-| Catégorie | élément | ID     |
-| --------- | ------- | ------ |
-| 6         | 17      | 393233 |
-
-Le contenu de ce message est sérialisé comme suit :
-
-| Propriété    | Type             | Description                         |
-| ------------ | ---------------- | ----------------------------------- |
-| bad\_id      | entier non signé | L’ID de la BA en temps d’arrêt.     |
-| in\_downtime | booléen          | True si la BA est en temps d’arrêt. |
-
-</TabItem>
-<TabItem value="BBDO v3" label="BBDO v3">
 
 #### BAM::PbInheritedDowntime
 
@@ -3441,6 +1924,3 @@ message InheritedDowntime {
     bool in_downtime = 3;   // Vrai si la BA est en downtime.
 }
 ```
-
-</TabItem>
-</Tabs>

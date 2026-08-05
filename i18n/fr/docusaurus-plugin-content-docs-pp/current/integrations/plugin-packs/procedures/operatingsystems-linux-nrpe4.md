@@ -1,11 +1,18 @@
 ---
 id: operatingsystems-linux-nrpe4
 title: Linux NRPE4
+description: "Supervisez les serveurs Linux via le protocole NRPE : CPU, mémoire, charge, disques, processus, services systemd et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 NRPE (Nagios Remote Plugin Executor) est un protocole qui a été conçu pour lancer à distance des commandes de supervision locales sur les serveurs supervisés.
+
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Linux SSH**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision**  :
+* [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 
@@ -21,15 +28,15 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="OS-Linux-NRPE4-custom" label="OS-Linux-NRPE4-custom">
 
-| Alias  | Modèle de service            | Description                                                                                                                                                               |
-|:-------|:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu    | OS-Linux-Cpu-NRPE4-custom    | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Load   | OS-Linux-Load-NRPE4-custom   | Contrôle de la charge serveur                                                                                                                                             |
-| Memory | OS-Linux-Memory-NRPE4-custom | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |
-| Ntp    | OS-Linux-Ntp-NRPE4-custom    | Contrôle la synchronisation du système avec un serveur NTP                                                                                                           |
-| Protocol-NRPE4 | OS-Linux-Protocol-NRPE4-custom | Contrôle de la bonne configuration du protocole NRPE v4.    |
-| Swap   | OS-Linux-Swap-NRPE4-custom   | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |
-| Uptime | OS-Linux-Uptime-NRPE4-custom | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |
+| Alias          | Modèle de service              | Description                                                                                                                                                               |
+|:---------------|:-------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cpu            | OS-Linux-Cpu-NRPE4-custom      | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
+| Load           | OS-Linux-Load-NRPE4-custom     | Contrôle de la charge serveur                                                                                                                                             |
+| Memory         | OS-Linux-Memory-NRPE4-custom   | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |
+| Ntp            | OS-Linux-Ntp-NRPE4-custom      | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |
+| Protocol-NRPE4 | OS-Linux-Protocol-NRPE4-custom | Contrôle de la bonne configuration du protocole NRPE v4.                                                                                                                  |
+| Swap           | OS-Linux-Swap-NRPE4-custom     | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |
+| Uptime         | OS-Linux-Uptime-NRPE4-custom   | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Linux-NRPE4-custom** est utilisé.
 
@@ -43,16 +50,16 @@ Le connecteur apporte les modèles de service suivants
 | Cpu-Detailed        | OS-Linux-Cpu-Detailed-NRPE4-custom        | Contrôle du taux d'utilisation détaillé du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
 | Disk-IO             | OS-Linux-Disk-IO-NRPE4-custom             | Contrôle les compteurs I/O des disques                                                                                                                                                |            |
 | Disks               | OS-Linux-Disks-NRPE4-custom               | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                               | X          |
-| File-Date-Generic   | OS-Linux-File-Date-Generic-NRPE4-custom   | Permet de vérifier la date de modification/création/accès/... de fichiers et/ou répertoires                                                                                          |            |
+| File-Date-Generic   | OS-Linux-File-Date-Generic-NRPE4-custom   | Permet de vérifier la date de modification/création/accès/... de fichiers et/ou répertoires                                                                                           |            |
 | File-Size-Generic   | OS-Linux-File-Size-Generic-NRPE4-custom   | Permet de vérifier la taille de fichiers et/ou répertoires                                                                                                                            |            |
 | Inodes              | OS-Linux-Inodes-NRPE4-custom              | Contrôle du taux d'inodes disponible des disques                                                                                                                                      |            |
 | Is-File-Generic     | OS-Linux-Is-File-Generic-NRPE4-custom     | Permet de vérifier si le fichier 'xxx' est présent                                                                                                                                    |            |
 | Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-NRPE4-custom | Permet de vérifier si le fichier 'xxx' n'est pas présent                                                                                                                              |            |
-| Open-Files          | OS-Linux-Open-Files-NRPE4-custom          | Permet de vérifier le nombre de modification/création/accès/... de fichiers et/ou répertoires                                                                                          |            |
-| Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                    |            |
+| Open-Files          | OS-Linux-Open-Files-NRPE4-custom          | Permet de vérifier le nombre de modification/création/accès/... de fichiers et/ou répertoires                                                                                         |            |
+| Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                   |            |
 | Pending-Updates     | OS-Linux-Pending-Updates-NRPE4-custom     | Contrôle le statut des services systemd                                                                                                                                               |            |
 | Process-Generic     | OS-Linux-Process-Generic-NRPE4-custom     | Contrôle permettant de vérifier des processus Linux                                                                                                                                   |            |
-| Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Compte les entrées de journal grâce à la commande `journalctl`             |            |
+| Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Compte les entrées de journal grâce à la commande `journalctl`                                                                                                                        |            |
 | Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-NRPE4-custom   | Contrôle le statut des services systemd                                                                                                                                               |            |
 | Traffic             | OS-Linux-Traffic-NRPE4-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                   | X          |
 
@@ -67,9 +74,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle             | Description                                                             |
-|:----------------------------|:------------------------------------------------------------------------|
-| OS-Linux-NRPE4-Disk-Name    | Découvre les partitions disque et supervise l'occupation de l'espace               |
+| Nom de la règle             | Description                                                            |
+|:----------------------------|:-----------------------------------------------------------------------|
+| OS-Linux-NRPE4-Disk-Name    | Découvre les partitions disque et supervise l'occupation de l'espace   |
 | OS-Linux-NRPE4-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
@@ -77,19 +84,19 @@ pour en savoir plus sur la découverte automatique de services et sa [planificat
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Connections-Generic" label="Connections-Generic">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
 | total            | count |
 | con\_synSent     | count |
@@ -107,7 +114,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Métrique                                   | Unité |
+| Nom                                        | Unité |
 |:-------------------------------------------|:------|
 | cpu.utilization.percentage                 | %     |
 | *cpu_core*#core.cpu.utilization.percentage | %     |
@@ -115,7 +122,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | core.cpu.utilization.percentage | %     |
 | cpu.utilization.percentage      | %     |
@@ -123,7 +130,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *device*#device.io.read.usage.bytespersecond  | B/s   |
 | *device*#device.io.write.usage.bytespersecond | B/s   |
@@ -137,21 +144,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Métrique                              | Unité |
+| Nom                                   | Unité |
 |:--------------------------------------|:------|
 | *disk_name*#storage.space.usage.bytes | B     |
 
 </TabItem>
 <TabItem value="File-Date-Generic" label="File-Date-Generic">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | file.mtime.last.seconds | s     |
 
 </TabItem>
 <TabItem value="File-Size-Generic" label="File-Size-Generic">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
 | file.size.bytes  | B     |
 | files.size.bytes | B     |
@@ -159,40 +166,40 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Inodes" label="Inodes">
 
-| Métrique                                 | Unité |
+| Nom                                      | Unité |
 |:-----------------------------------------|:------|
 | *inodes*#storage.inodes.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Is-File-Generic" label="Is-File-Generic">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Is-Not-File-Generic" label="Is-Not-File-Generic">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Métrique     | Unité |
-|:-------------|:------|
-| avg\_load1   | N/A   |
-| avg\_load5   | N/A   |
-| avg\_load15  | N/A   |
-| load1        | N/A   |
-| load5        | N/A   |
-| load15       | N/A   |
+| Nom         | Unité |
+|:------------|:------|
+| avg\_load1  | N/A   |
+| avg\_load5  | N/A   |
+| avg\_load15 | N/A   |
+| load1       | N/A   |
+| load5       | N/A   |
+| load15      | N/A   |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Métrique                    | Unité |
+| Nom                         | Unité |
 |:----------------------------|:------|
 | memory.usage.bytes          | B     |
 | memory.free.bytes           | B     |
@@ -209,7 +216,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Métrique                              | Unité |
+| Nom                                   | Unité |
 |:--------------------------------------|:------|
 | peers.detected.count                  | count |
 | *peers*#status                        | N/A   |
@@ -219,14 +226,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
 | system.files.open.count | count |
 
 </TabItem>
 <TabItem value="Packet-Errors" label="Packet-Errors">
 
-| Métrique                                             | Unité |
+| Nom                                                  | Unité |
 |:-----------------------------------------------------|:------|
 | *interface*#status                                   | N/A   |
 | *interface*#interface.packets.in.discard.percentage  | %     |
@@ -237,7 +244,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Pending-Updates" label="Pending-Updates">
 
-| Métrique                     | Unité |
+| Nom                          | Unité |
 |:-----------------------------|:------|
 | pending.updates.total.count  | count |
 | security.updates.total.count | count |
@@ -246,13 +253,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Métrique                                      | Unité |
+| Nom                                           | Unité |
 |:----------------------------------------------|:------|
 | *processes*#time                              | N/A   |
 | *processes*#memory-usage                      | N/A   |
 | *processes*#cpu-utilization                   | N/A   |
 | *processes*#disks-read                        | N/A   |
 | *processes*#disks-write                       | N/A   |
+| *processes*#open-files                        | count |
+| *processes*#open-files-prct                   | %     |
 | processes.total.count                         | count |
 | processes.memory.usage.bytes                  | B     |
 | processes.cpu.utilization.percentage          | %     |
@@ -262,12 +271,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Protocol-NRPE4" label="Protocol-NRPE4">
 
-Pas de métrique pour ce service.
+Pas de Nom pour ce service.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Métrique              | Unité |
+| Nom                   | Unité |
 |:----------------------|:------|
 | swap.usage.bytes      | B     |
 | swap.free.bytes       | B     |
@@ -278,14 +287,14 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Systemd-Journal" label="Systemd-Journal">
 
-| Métrique              | Unité |
+| Nom                   | Unité |
 |:----------------------|:------|
 | journal.entries.count | count |
 
 </TabItem>
 <TabItem value="Systemd-Sc-Status" label="Systemd-Sc-Status">
 
-| Métrique                       | Unité |
+| Nom                            | Unité |
 |:-------------------------------|:------|
 | systemd.services.running.count | count |
 | systemd.services.failed.count  | count |
@@ -298,7 +307,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
 
-| Métrique                                        | Unité |
+| Nom                                             | Unité |
 |:------------------------------------------------|:------|
 | *interface*#status                              | N/A   |
 | *interface*#interface.traffic.in.bitspersecond  | b/s   |
@@ -307,7 +316,7 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Métrique              | Unité |
+| Nom                   | Unité |
 |:----------------------|:------|
 | system.uptime.seconds | s     |
 
@@ -322,14 +331,14 @@ Les prérequis ci-dessous doivent être appliqués sur les serveurs Linux à sup
 
 Le port TCP par défaut pour le protocole NRPE est le port 5666.
 
-| Source | Destination    | Protocole | Port |
-| ------ | -------------- | --------- | ---- |
+| Source     | Destination    | Protocole | Port |
+|------------| -------------- | --------- | ---- |
 | Collecteur | Hôte supervisé | TCP       | 5666 |
 
 ### Prérequis système
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 - Installer l'agent.
 
@@ -384,7 +393,7 @@ reboot
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
 [centreon-plugins-stable]
 name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/$basearch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/stable/$basearch/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -392,7 +401,7 @@ module_hotfixes=1
 
 [centreon-plugins-stable-noarch]
 name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el8/stable/noarch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/stable/noarch/
 enabled=1
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -400,7 +409,7 @@ module_hotfixes=1
 
 [centreon-plugins-testing]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/$basearch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/testing/$basearch/
 enabled=0
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -408,7 +417,7 @@ module_hotfixes=1
 
 [centreon-plugins-testing-noarch]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/testing/noarch/
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/testing/noarch/
 enabled=0
 gpgcheck=1
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
@@ -416,7 +425,7 @@ module_hotfixes=1
 
 [centreon-plugins-unstable]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/ 
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/unstable/$basearch/
 enabled=0 
 gpgcheck=1 
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
@@ -424,7 +433,7 @@ module_hotfixes=1
  
 [centreon-plugins-unstable-noarch] 
 name=Centreon plugins repository. (UNSUPPORTED) 
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/ 
+baseurl=https://packages.centreon.com/rpm-plugins/el$releasever/unstable/noarch/
 enabled=0 
 gpgcheck=1 
 gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
@@ -439,114 +448,12 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-1. Installez l'agent.
-
-```bash
-dnf -y install nrpe
-dnf -y config-manager --set-enabled 'crb'
-mkdir -p /var/lib/centreon/centplugins/
-chown nrpe: /var/lib/centreon/centplugins/
-```
-
-2. Modifiez l'adresse IP pour le paramètre allowed_hosts dans `/etc/nagios/nrpe.cfg` (remplacez `POLLER_IP_ADDRESS` 
-par l'adresse IP du collecteur qui en fera la supervision).
-
-```bash 
-sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/' /etc/nagios/nrpe.cfg 
-sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg 
-``` 
-
-3. Ajoutez la définition de la commande `check_centreon_plugins`.
- 
-```bash
-cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
-command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.pl --plugin=$ARG1$ --mode=$ARG2$ $ARG3$
-EOF
-```
-
-4. Redémarrez le service pour que le changement soit pris en compte.
-
-```bash
-systemctl restart nrpe
-systemctl enable nrpe
-```
-
-5. Pour permettre la supervision de **systemd-journal**, lancez les commandes suivantes :
-
-```bash
-usermod -a -G systemd-journal nrpe
-systemctl restart nrpe
-```
-
-6. Ajoutez le dépôt des plugins Centreon :
-
-```bash
-cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
-[centreon-plugins-stable]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/$basearch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-stable-noarch]
-name=Centreon plugins repository.
-baseurl=https://packages.centreon.com/rpm-plugins/el9/stable/noarch/
-enabled=1
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-testing-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/testing/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/$basearch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-
-[centreon-plugins-unstable-noarch]
-name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el9/unstable/noarch/
-enabled=0
-gpgcheck=1
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-module_hotfixes=1
-EOF
-```
-
-7. Installez le plugin :
-
-```bash
-dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 1. Ajoutez le dépôt des plugins Centreon.
 
 ```bash
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+wget -O- https://apt-key.centreon.com | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 apt update
 ```
@@ -608,21 +515,14 @@ sur le **serveur central** via la commande correspondant au gestionnaire de paqu
 associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```bash
 dnf install centreon-pack-operatingsystems-linux-nrpe4
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install centreon-pack-operatingsystems-linux-nrpe4
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-nrpe4
@@ -646,21 +546,14 @@ depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de
 Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```bash
 dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install nagios-plugins-nrpe
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 ```bash
 apt install nagios-nrpe-plugin
@@ -685,12 +578,12 @@ yum install nagios-plugins-nrpe
 3. Appliquez le modèle d'hôte **OS-Linux-NRPE4-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro            | Description                                                                                          | Valeur par défaut              | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| NRPEPORT         |                                                                                                      | 5666                           |             |
-| NRPECLIENT       |                                                                                                      | check\_nrpe                    |             |
-| NRPESTATEFILEDIR | Define the cache directory (default: '/var/lib/centreon/centplugins')                                | /var/lib/centreon/centplugins/ |             |
-| NRPETIMEOUT      |                                                                                                      | 5                              |             |
+| Macro            | Description                                                                                                                                        | Valeur par défaut              | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| NRPEPORT         | TCP port the NRPE daemon is listening to                                                                                                           | 5666                           |             |
+| NRPECLIENT       | Name of the plugin to use to dialog with the NRPE daemon                                                                                           | check\_nrpe                    |             |
+| NRPESTATEFILEDIR | Define the cache directory                                                                                                                         | /var/lib/centreon/centplugins/ |             |
+| NRPETIMEOUT      | Command timeout                                                                                                                                    | 5                              |             |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -708,193 +601,195 @@ yum install nagios-plugins-nrpe
 | COMMAND        | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                                                                           |                   | X           |
 | COMMANDOPTIONS | Command options (default: none)                                                                                                                   |                   |             |
 | THRESHOLDS     | Set action according command exit code. Example: %(code) == 0,OK,File xxx exist#%(code) == 1,CRITICAL,File xxx not exist#,UNKNOWN,Command problem |                   | X           |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).  |                   |             |
 
 </TabItem>
 <TabItem value="Connections-Generic" label="Connections-Generic">
 
-| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CONNECTIONCOMMAND | Default mode for parsing and command: 'netstat' (default) or 'ss'                                  | ss                | X           |
-| WARNING           | Warning threshold for total connections                                                            |                   |             |
-| CRITICAL          | Critical threshold for total connections                                                           |                   |             |
+| Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CONNECTIONCOMMAND | Default mode for parsing and command: 'netstat' or 'ss'                                                                                          | ss                | X           |
+| WARNING           | Warning threshold for total connections                                                                                                          |                   |             |
+| CRITICAL          | Critical threshold for total connections                                                                                                         |                   |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGAVERAGE  | Warning threshold average CPU utilization                                                          |                   |             |
-| CRITICALAVERAGE | Critical threshold average CPU utilization                                                         |                   |             |
-| WARNINGCORE     | Warning thresholds for each CPU core                                                               |                   |             |
-| CRITICALCORE    | Critical thresholds for each CPU core                                                              |                   |             |
+| Macro           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGAVERAGE  | Warning threshold average CPU utilization                                                                                                        |                   |             |
+| CRITICALAVERAGE | Critical threshold average CPU utilization                                                                                                       |                   |             |
+| WARNINGCORE     | Warning thresholds for each CPU core                                                                                                             |                   |             |
+| CRITICALCORE    | Critical thresholds for each CPU core                                                                                                            |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGIDLE  | Warning threshold in percent                                                                       |                   |             |
-| CRITICALIDLE | Critical threshold in percent                                                                      |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGIDLE  | Warning threshold in percent                                                                                                                     |                   |             |
+| CRITICALIDLE | Critical threshold in percent                                                                                                                    |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
-| Macro              | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERPARTITIONAME | Filter partition name (regexp can be used)                                                         |                   |             |
-| WARNINGREADUSAGE   | Thresholds                                                                                         |                   |             |
-| CRITICALREADUSAGE  | Thresholds                                                                                         |                   |             |
-| WARNINGREADWAIT    | Thresholds                                                                                         |                   |             |
-| CRITICALREADWAIT   | Thresholds                                                                                         |                   |             |
-| WARNINGSVCTIME     | Thresholds                                                                                         |                   |             |
-| CRITICALSVCTIME    | Thresholds                                                                                         |                   |             |
-| WARNINGUTILS       | Thresholds                                                                                         |                   |             |
-| CRITICALUTILS      | Thresholds                                                                                         |                   |             |
-| WARNINGWRITEUSAGE  | Thresholds                                                                                         |                   |             |
-| CRITICALWRITEUSAGE | Thresholds                                                                                         |                   |             |
-| WARNINGWRITEWAIT   | Thresholds                                                                                         |                   |             |
-| CRITICALWRITEWAIT  | Thresholds                                                                                         |                   |             |
+| Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERPARTITIONAME | Filter partition name (regexp can be used)                                                                                                       |                   |             |
+| WARNINGREADUSAGE   | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREADUSAGE  | Thresholds                                                                                                                                       |                   |             |
+| WARNINGREADWAIT    | Thresholds                                                                                                                                       |                   |             |
+| CRITICALREADWAIT   | Thresholds                                                                                                                                       |                   |             |
+| WARNINGSVCTIME     | Thresholds                                                                                                                                       |                   |             |
+| CRITICALSVCTIME    | Thresholds                                                                                                                                       |                   |             |
+| WARNINGUTILS       | Thresholds                                                                                                                                       |                   |             |
+| CRITICALUTILS      | Thresholds                                                                                                                                       |                   |             |
+| WARNINGWRITEUSAGE  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALWRITEUSAGE | Thresholds                                                                                                                                       |                   |             |
+| WARNINGWRITEWAIT   | Thresholds                                                                                                                                       |                   |             |
+| CRITICALWRITEWAIT  | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --skip  |             |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERMOUNTPOINT | Filter filesystem mount point (regexp can be used)                                                 |                   |             |
-| WARNING          | Warning threshold                                                                                  |                   |             |
-| CRITICAL         | Critical threshold                                                                                 |                   |             |
+| Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERMOUNTPOINT | Filter filesystem mount point (regexp can be used)                                                                                               |                   |             |
+| WARNING          | Warning threshold                                                                                                                                |                   |             |
+| CRITICAL         | Critical threshold                                                                                                                               |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="File-Date-Generic" label="File-Date-Generic">
 
-| Macro        | Description                                                                                                                                | Valeur par défaut | Obligatoire |
-|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILES        | Files/Directories to check. (Shell expansion is ok)                                                                                        |                   | X           |
-| FILTERPLUGIN | Filter files/directories in the plugin. Values from exclude files/directories are counted in parent directories!!! Perl Regexp can be used |                   |             |
-| WARNING      | Warning threshold in seconds for each files/directories (diff time)                                                                        |                   |             |
-| CRITICAL     | Critical threshold in seconds for each files/directories (diff time)                                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                         | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILES        | Files/Directories to check. (Shell expansion is ok)                                                                                              |                   | X           |
+| FILTERPLUGIN | Filter files/directories in the plugin. Values from exclude files/directories are counted in parent directories!!! Perl Regexp can be used       |                   |             |
+| WARNING      | Warning threshold in seconds for each files/directories (diff time)                                                                              |                   |             |
+| CRITICAL     | Critical threshold in seconds for each files/directories (diff time)                                                                             |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="File-Size-Generic" label="File-Size-Generic">
 
-| Macro         | Description                                                                                                                                | Valeur par défaut | Obligatoire |
-|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILES         | Files/Directories to check. (Shell expansion is ok)                                                                                        |                   | X           |
-| FILTERPLUGIN  | Filter files/directories in the plugin. Values from exclude files/directories are counted in parent directories!!! Perl Regexp can be used |                   |             |
-| WARNINGONE    | Warning threshold in bytes for each files/directories                                                                                      |                   |             |
-| CRITICALONE   | Critical threshold in bytes for each files/directories                                                                                     |                   |             |
-| WARNINGTOTAL  | Warning threshold in bytes for all files/directories                                                                                       |                   |             |
-| CRITICALTOTAL | Critical threshold in bytes for all files/directories                                                                                      |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                         | --verbose         |             |
+| Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILES         | Files/Directories to check. (Shell expansion is ok)                                                                                              |                   | X           |
+| FILTERPLUGIN  | Filter files/directories in the plugin. Values from exclude files/directories are counted in parent directories!!! Perl Regexp can be used       |                   |             |
+| WARNINGONE    | Warning threshold in bytes for each files/directories                                                                                            |                   |             |
+| CRITICALONE   | Critical threshold in bytes for each files/directories                                                                                           |                   |             |
+| WARNINGTOTAL  | Warning threshold in bytes for all files/directories                                                                                             |                   |             |
+| CRITICALTOTAL | Critical threshold in bytes for all files/directories                                                                                            |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Inodes" label="Inodes">
 
-| Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERMOUNTPOINT | Filter filesystem mount point (regexp can be used)                                                 |                   |             |
-| WARNING          | Warning threshold in percent                                                                       |                   |             |
-| CRITICAL         | Critical threshold in percent                                                                      |                   |             |
+| Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERMOUNTPOINT | Filter filesystem mount point (regexp can be used)                                                                                               |                   |             |
+| WARNING          | Warning threshold in percent                                                                                                                     |                   |             |
+| CRITICAL         | Critical threshold in percent                                                                                                                    |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Is-File-Generic" label="Is-File-Generic">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMMAND      | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                            | test              | X           |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMMAND      | Command to test. You can use 'sh' to use '&&' or '\|\|'                                                                                          | test              | X           |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Is-Not-File-Generic" label="Is-Not-File-Generic">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMMAND      | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                            | test              | X           |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMMAND      | Command to test. You can use 'sh' to use '&&' or '\|\|'                                                                                          | test              | X           |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold (1min,5min,15min)                                                                |                   |             |
-| CRITICAL     | Critical threshold (1min,5min,15min)                                                               |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold (1min,5min,15min)                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold (1min,5min,15min)                                                                                                             |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Thresholds.                                                                                                   |                   |             |
-| CRITICAL     | Thresholds.                                                                                                   |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Thresholds.                                                                                                                                      |                   |             |
+| CRITICAL     | Thresholds.                                                                                                                                      |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro           | Description                                                                                                                                                         | Valeur par défaut            | Obligatoire |
-|:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| NTPCOMMAND      | Default mode for parsing and command: 'ntpq' (default), 'chronyc' or 'all'                                                                                          | all                          |             |
-| FILTERPEERNAME  | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
-| FILTERPEERSTATE | Filter peer state (can be a regexp)                                                                                                                                 | .*                           |             |
-| WARNINGOFFSET   | Warning threshold offset deviation value in milliseconds                                                                                                            |                              |             |
-| CRITICALOFFSET  | Critical threshold offset deviation value in milliseconds                                                                                                           |                              |             |
-| WARNINGPEERS    | Warning threshold minimum amount of NTP-Server                                                                                                                      |                              |             |
-| CRITICALPEERS   | Critical threshold minimum amount of NTP-Server                                                                                                                     |                              |             |
-| WARNINGSTATUS   | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
-| CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
-| WARNINGSTRATUM  | Warning threshold                                                                                                                                                   |                              |             |
-| CRITICALSTRATUM | Critical threshold                                                                                                                                                  |                              |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                  | --use-new-perfdata --verbose |             |
+| Macro            | Description                                                                                                                                                                     | Valeur par défaut            | Obligatoire |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| NTPCOMMAND       | Default mode for parsing and command: 'auto', 'ntpq', 'chronyc' or 'all'                                                                                                        | auto                         |             |
+| FILTERPEERNAME   | Filter peer name (can be a regexp)                                                                                                                                              | .*                           |             |
+| EXCLUDEPEERNAME  | Exclude by peer name (can be a regexp)                                                                                                                                          |                              |             |
+| FILTERPEERSTATE  | Filter peer state (can be a regexp)                                                                                                                                             | .*                           |             |
+| EXCLUDEPEERSTATE | Exclude by peer state (can be a regexp)                                                                                                                                         |                              |             |
+| WARNINGOFFSET    | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |                              |             |
+| CRITICALOFFSET   | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |                              |             |
+| WARNINGPEERS     | Warning threshold minimum amount of NTP-Server                                                                                                                                  |                              |             |
+| CRITICALPEERS    | Critical threshold minimum amount of NTP-Server                                                                                                                                 |                              |             |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}  |                              |             |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\} |                              |             |
+| WARNINGSTRATUM   | Warning threshold                                                                                                                                                               |                              |             |
+| CRITICALSTRATUM  | Critical threshold                                                                                                                                                              |                              |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                | --use-new-perfdata --verbose |             |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
 
-| Macro          | Description                                                                                        | Valeur par défaut            | Obligatoire |
-|:---------------|:---------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| FILTERAPPNAME  | Filter application name (can be a regexp)                                                          |                              |             |
-| FILTERUSERNAME | Filter username name (can be a regexp)                                                             |                              |             |
-| FILTERPID      | Filter PID (can be a regexp)                                                                       |                              |             |
-| WARNING        | Thresholds                                                                                         |                              |             |
-| CRITICAL       | Thresholds                                                                                         |                              |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut            | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| FILTERAPPNAME  | Filter application name (can be a regexp)                                                                                                        |                              |             |
+| FILTERUSERNAME | Filter username name (can be a regexp)                                                                                                           |                              |             |
+| FILTERPID      | Filter PID (can be a regexp)                                                                                                                     |                              |             |
+| WARNING        | Thresholds                                                                                                                                       |                              |             |
+| CRITICAL       | Thresholds                                                                                                                                       |                              |             |
 | EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --use-new-perfdata |             |
 
 </TabItem>
 <TabItem value="Packet-Errors" label="Packet-Errors">
 
-| Macro              | Description                                                                                        | Valeur par défaut       | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| FILTERINTERFACE    | Filter interface name (regexp can be used)                                                         |                         |             |
-| FILTERSTATE        | Filter filesystem type (regexp can be used)                                                        |                         |             |
-| WARNINGINDISCARD   | Thresholds.                                                                                        |                         |             |
-| CRITICALINDISCARD  | Thresholds.                                                                                        |                         |             |
-| WARNINGINERROR     | Thresholds.                                                                                        |                         |             |
-| CRITICALINERROR    | Thresholds.                                                                                        |                         |             |
-| WARNINGOUTDISCARD  | Thresholds.                                                                                        |                         |             |
-| CRITICALOUTDISCARD | Thresholds.                                                                                        |                         |             |
-| WARNINGOUTERROR    | Thresholds.                                                                                        |                         |             |
-| CRITICALOUTERROR   | Thresholds.                                                                                        |                         |             |
+| Macro              | Description                                                                                                                                      | Valeur par défaut       | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| FILTERINTERFACE    | Filter interface name (regexp can be used)                                                                                                       |                         |             |
+| FILTERSTATE        | Filter filesystem type (regexp can be used)                                                                                                      |                         |             |
+| WARNINGINDISCARD   | Thresholds.                                                                                                                                      |                         |             |
+| CRITICALINDISCARD  | Thresholds.                                                                                                                                      |                         |             |
+| WARNINGINERROR     | Thresholds.                                                                                                                                      |                         |             |
+| CRITICALINERROR    | Thresholds.                                                                                                                                      |                         |             |
+| WARNINGOUTDISCARD  | Thresholds.                                                                                                                                      |                         |             |
+| CRITICALOUTDISCARD | Thresholds.                                                                                                                                      |                         |             |
+| WARNINGOUTERROR    | Thresholds.                                                                                                                                      |                         |             |
+| CRITICALOUTERROR   | Thresholds.                                                                                                                                      |                         |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --no-loopback |             |
 
 </TabItem>
 <TabItem value="Pending-Updates" label="Pending-Updates">
 
-| Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| OSMODE           | Default mode for parsing and command: 'rhel' (default), 'debian', 'suse'                           | rhel              |             |
-| FILTERPACKAGE    | Filter package name                                                                                |                   |             |
-| FILTERREPOSITORY | Filter repository name                                                                             |                   |             |
-| WARNINGTOTAL     | Warning threshold for total amount of pending updates                                              |                   |             |
-| CRITICALTOTAL    | Critical threshold for total amount of pending updates                                             |                   |             |
+| Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| OSMODE           | Default mode for parsing and command: 'rhel', 'debian', 'suse'                                                                                   | rhel              |             |
+| FILTERPACKAGE    | Filter package name                                                                                                                              |                   |             |
+| FILTERREPOSITORY | Filter repository name                                                                                                                           |                   |             |
+| WARNINGTOTAL     | Warning threshold for total amount of pending updates                                                                                            |                   |             |
+| CRITICALTOTAL    | Critical threshold for total amount of pending updates                                                                                           |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -914,65 +809,65 @@ yum install nagios-plugins-nrpe
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Threshold, can be 'usage' (in Bytes), 'usage-free' (in Bytes), 'usage-prct' (%)                    |                   |             |
-| CRITICAL     | Threshold, can be 'usage' (in Bytes), 'usage-free' (in Bytes), 'usage-prct' (%)                    |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Threshold, can be 'usage' (in Bytes), 'usage-free' (in Bytes), 'usage-prct' (%)                                                                  |                   |             |
+| CRITICAL     | Threshold, can be 'usage' (in Bytes), 'usage-free' (in Bytes), 'usage-prct' (%)                                                                  |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Systemd-Journal" label="Systemd-Journal">
 
-| Macro           | Description                                                                                                                                                     | Valeur par défaut | Obligatoire |
-|:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution. (default: 'cache') | cache             |             |
-| TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache. (default: 'local')                                              | local             |             |
-| UNIT            | Only look for messages of the specified unit, ie the name of thesystemd service who created the message                                                         |                   |             |
-| FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                                     |                   |             |
-| WARNINGENTRIES  | Thresholds on the number of entries found in the journal for the specified parameters                                                                           |                   |             |
-| CRITICALENTRIES | Thresholds on the number of entries found in the journal for the specified parameters                                                                           |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                              |                   |             |
+| Macro           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution      | cache             |             |
+| TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache                                                   | local             |             |
+| UNIT            | Only look for messages of the specified unit, ie the name of thesystemd service who created the message                                          |                   |             |
+| FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                      |                   |             |
+| WARNINGENTRIES  | Thresholds on the number of entries found in the journal for the specified parameters                                                            |                   |             |
+| CRITICALENTRIES | Thresholds on the number of entries found in the journal for the specified parameters                                                            |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Systemd-Sc-Status" label="Systemd-Sc-Status">
 
-| Macro                | Description                                                                                                                                                                                                                                                                                                                                                                                                                             | Valeur par défaut            | Obligatoire |
-|:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| FILTERNAME           | Filter service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                   | .*                           |             |
-| EXCLUDENAME          | Exclude service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{active\}, %\{sub\}, %\{load\}, %\{boot\} Example of statuses for the majority of these variables: %\{active\}: active, inactive %\{sub\}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %\{load\}: loaded, not-found %\{boot\}: enabled, disabled, static, indirect                                      |                              |             |
+| Macro                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Valeur par défaut            | Obligatoire |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| FILTERNAME           | Filter service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                                       | .*                           |             |
+| EXCLUDENAME          | Exclude service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                                      |                              |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{active\}, %\{sub\}, %\{load\}, %\{boot\} Example of statuses for the majority of these variables: %\{active\}: active, inactive %\{sub\}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %\{load\}: loaded, not-found %\{boot\}: enabled, disabled, static, indirect                                        |                              |             |
 | CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (default: '%\{active\} =~ /failed/i'). You can use the following variables: %\{display\}, %\{active\}, %\{sub\}, %\{load\}, %\{boot\} Example of statuses for the majority of these variables: %\{active\}: active, inactive %\{sub\}: waiting, plugged, mounted, dead, failed, running, exited, listening, active %\{load\}: loaded, not-found %\{boot\}: enabled, disabled, static, indirect |                              |             |
-| WARNINGTOTALDEAD     | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
-| CRITICALTOTALDEAD    | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
-| WARNINGTOTALEXITED   | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
-| CRITICALTOTALEXITED  | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
-| CRITICALTOTALFAILED  | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              | 0                            |             |
-| WARNINGTOTALFAILED   | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
-| WARNINGTOTALRUNNING  | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
-| CRITICALTOTALRUNNING | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                                                                                                                                                      | --use-new-perfdata --verbose |             |
+| WARNINGTOTALDEAD     | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
+| CRITICALTOTALDEAD    | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
+| WARNINGTOTALEXITED   | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
+| CRITICALTOTALEXITED  | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
+| CRITICALTOTALFAILED  | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 0                            |             |
+| WARNINGTOTALFAILED   | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
+| WARNINGTOTALRUNNING  | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
+| CRITICALTOTALRUNNING | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                                                                                                                            | --use-new-perfdata --verbose |             |
 
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
 
-| Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERSTATE     | Filter interfaces type (regexp can be used)                                                        | RU                |             |
-| FILTERINTERFACE | Filter interface name (regexp can be used)                                                         |                   |             |
-| SPEED           | Set interface speed (in Mb)                                                                        |                   | X           |
-| WARNINGIN       | Warning threshold in percent for 'in' traffic                                                      |                   |             |
-| CRITICALIN      | Critical threshold in percent for 'in' traffic                                                     |                   |             |
-| WARNINGOUT      | Warning threshold in percent for 'out' traffic                                                     |                   |             |
-| CRITICALOUT     | Critical threshold in percent for 'out' traffic                                                    |                   |             |
+| Macro           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERSTATE     | Filter interfaces type (regexp can be used)                                                                                                      | RU                |             |
+| FILTERINTERFACE | Filter interface name (regexp can be used)                                                                                                       |                   |             |
+| SPEED           | Set interface speed (in Mb)                                                                                                                      |                   | X           |
+| WARNINGIN       | Warning threshold in percent for 'in' traffic                                                                                                    |                   |             |
+| CRITICALIN      | Critical threshold in percent for 'in' traffic                                                                                                   |                   |             |
+| WARNINGOUT      | Warning threshold in percent for 'out' traffic                                                                                                   |                   |             |
+| CRITICALOUT     | Critical threshold in percent for 'out' traffic                                                                                                  |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in seconds                                                                       |                   |             |
-| CRITICAL     | Critical threshold in seconds                                                                      |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in seconds                                                                                                                     |                   |             |
+| CRITICAL     | Critical threshold in seconds                                                                                                                    |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -1070,57 +965,57 @@ Le plugin apporte les modes suivants :
 
 Les options génériques sont listées ci-dessous :
 
-| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
-| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --hostname                                 | Hostname to query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --timeout                                  | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --command                                  | Command to get information. Used it you have output in a file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --command-path                             | Command path.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --command-options                          | Command options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --sudo  sudo command                       | .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --ssh-backend                              | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --ssh-username                             | Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --ssh-password                             | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --ssh-port                                 | Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --ssh-priv-key                             | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --sshcli-command                           | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --sshcli-path                              | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --plink-command                            | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --plink-path                               | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --plink-option                             | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --libssh-strict-connect                    | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --custommode                               | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --list-custommode                          | List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --multiple                                 | Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                              |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)' |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --hostname                                 | Hostname to query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --timeout                                  | Timeout in seconds for the command (default: 45). Default value can be override by the mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --command                                  | Command to get information. Used it you have output in a file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --command-path                             | Command path.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --command-options                          | Command options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --sudo  sudo command                       | .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --ssh-backend                              | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --ssh-username                             | Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --ssh-password                             | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --ssh-port                                 | Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --ssh-priv-key                             | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --sshcli-command                           | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --sshcli-path                              | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --sshcli-option                            | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no'). The default option is --sshcli-options='-o=LogLevel=ERROR' which hides the SSH banner. If you override this parameter, make sure to append '-o=LogLevel=ERROR' to your new value to maintain this behavior. This parameter can be used multiple times and multiple options can be specified in the same parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --plink-command                            | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --plink-path                               | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --plink-option                             | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --libssh-strict-connect                    | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 #### Options des modes
 
@@ -1321,8 +1216,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-state     | Filter peer state (can be a regexp).                                                                                                                                   |
 | --warning-peers    | Warning threshold minimum amount of NTP-Server                                                                                                                         |
 | --critical-peers   | Critical threshold minimum amount of NTP-Server                                                                                                                        |
-| --warning-offset   | Warning threshold offset deviation value in milliseconds                                                                                                               |
-| --critical-offset  | Critical threshold offset deviation value in milliseconds                                                                                                              |
+| --warning-offset   | Time warning threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns WARNING when the offset is less than -n seconds or greater than n seconds. |
+| --critical-offset  | Time critical threshold range (in milliseconds), in the format `-n:n` (e.g., `-5:5`). Returns CRITICAL when the offset is less than -n seconds or greater than n seconds. |
 | --warning-stratum  | Warning threshold.                                                                                                                                                     |
 | --critical-stratum | Critical threshold.                                                                                                                                                    |
 | --unknown-status   | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{state\}, %\{rawstate\}, %\{type\}, %\{rawtype\}, %\{reach\}, %\{display\}     |
@@ -1400,13 +1295,42 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --add-cpu                | Monitor CPU usage.                                                                                                                                                                                                                            |
 | --add-memory             | Monitor memory usage. It's inaccurate but it provides a trend.                                                                                                                                                                                |
 | --add-disk-io            | Monitor disk I/O.                                                                                                                                                                                                                             |
+| --add-open-files         | Monitor open file usage per process. This functionality requires that the `centreon_linux_sudoers` package be installed on the monitored host and configured in the sudoers file. Please refer to the notice below.                           |
 | --filter-command         | Filter process commands (regexp can be used).                                                                                                                                                                                                 |
 | --exclude-command        | Exclude process commands (regexp can be used).                                                                                                                                                                                                |
 | --filter-arg             | Filter process arguments (regexp can be used).                                                                                                                                                                                                |
 | --exclude-arg            | Exclude process arguments (regexp can be used).                                                                                                                                                                                               |
 | --filter-ppid            | Filter process ppid (regexp can be used).                                                                                                                                                                                                     |
 | --filter-state           | Filter process states (regexp can be used). You can use: 'zombie', 'dead', 'paging', 'stopped', 'InterrupibleSleep', 'running', 'UninterrupibleSleep'.                                                                                        |
-| --warning-* --critical-* | Thresholds. Can be: 'total', 'total-memory-usage', 'total-cpu-utilization', 'total-disks-read', 'total-disks-write', 'time', 'memory-usage', 'cpu-utilization', 'disks-read', 'disks-write'.                                                  |
+| --privileged-script-path         | This parameter allows specifying a custom path to the centreon\_plugin\_local\_process.pl script used for monitoring open file usage per process (default: '/usr/lib/centreon/plugins').                                              |
+| --warning-total                  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total                 | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-memory-usage     | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-memory-usage    | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-cpu-utilization  | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-cpu-utilization | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-read       | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-read      | Thresholds.                                                                                                                                                                                                                           |
+| --warning-total-disks-write      | Thresholds.                                                                                                                                                                                                                           |
+| --critical-total-disks-write     | Thresholds.                                                                                                                                                                                                                           |
+| --warning-time                   | Thresholds.                                                                                                                                                                                                                           |
+| --critical-time                  | Thresholds.                                                                                                                                                                                                                           |
+| --warning-memory-usage           | Thresholds.                                                                                                                                                                                                                           |
+| --critical-memory-usage          | Thresholds.                                                                                                                                                                                                                           |
+| --warning-cpu-utilization        | Thresholds.                                                                                                                                                                                                                           |
+| --critical-cpu-utilization       | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-read             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-read            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-disks-write            | Thresholds.                                                                                                                                                                                                                           |
+| --critical-disks-write           | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files             | Thresholds.                                                                                                                                                                                                                           |
+| --critical-open-files            | Thresholds.                                                                                                                                                                                                                           |
+| --warning-open-files-prct        | Thresholds in percentage.                                                                                                                                                                                                             |
+| --critical-open-files-prct       | Thresholds in percentage.                                                                                                                                                                                                             |
+
+> To monitor open file usage per process, you need to install the `centreon-plugin-Operatingsystems-Linux-sudoers` package on each monitored host.
+> This package installs the `centreon_linux_local_process.pl` script and adds the `sudoersCentreonLinuxPlugins` file to the `sudoers` configuration.
+> Depending on the monitored hosts, this package will be installed with ```dnf install centreon-plugin-Operatingsystems-Linux-sudoers``` or ```apt install centreon-plugin-operatingsystems-linux-sudoers```.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -1499,8 +1423,5 @@ Pour un mode, la liste de toutes les options disponibles et leur signification p
 affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic'  ' \
-	--filter-interface="" \
-	--warning-in="" \
-	--help
+/usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic' --help
 ```

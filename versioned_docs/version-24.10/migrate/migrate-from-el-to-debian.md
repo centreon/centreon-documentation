@@ -1,6 +1,7 @@
 ---
 id: migrate-from-el-to-debian
 title: Migrate from an EL-type OS to Debian
+description: "Migrate a Centreon platform from an EL-type OS to Debian"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,6 +14,8 @@ This procedure only applies if the following conditions are met:
 - Your version of Centreon is 18.10 or newer and you wish to upgrade to the latest version of Centreon. If you wish to migrate from an older version, [contact the Centreon support team](https://support.centreon.com).
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
+
+> If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
 
 Be sure that you have fully backed up your environment for the following
 servers:

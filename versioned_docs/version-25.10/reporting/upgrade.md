@@ -1,6 +1,7 @@
 ---
 id: upgrade
 title: Upgrade the extension
+description: "Upgrade Centreon MBI to a new major version"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,7 +9,7 @@ import TabItem from '@theme/TabItem';
 > When updating from version < 18.10 to a version >= 18.10, you need to
 >
 > - Retrieve a new license from Centreon support
-> - Make sure your Centreon MBI server is based on CentOS/RH 7. You may use the
+> - Make sure your Centreon MBI server is [based on a supported OS](../installation/compatibility.md). You may use the
 >   following procedure to migrate your server: [Migrate your
 >   reporting server](migrate.md)
 
@@ -31,7 +32,7 @@ On EL8, for security reasons, the keys used to sign Centreon RPMs are rotated re
 
 ## Step 1: Update the repository
 
-When you upgrade from a previous major version to 24.10.x, you first need to update the repository on your Central & Reporting servers.
+When you upgrade from a previous major version to 25.10.x, you first need to update the repository on your Central & Reporting servers.
 
 You will find the new "Business" repository on the "Repositories" page in your [Centreon Support account](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
@@ -60,6 +61,7 @@ dnf update centreon-bi-server
 
 ```shell
 apt clean
+apt update
 apt install --only-upgrade centreon-bi-server
 ```
 

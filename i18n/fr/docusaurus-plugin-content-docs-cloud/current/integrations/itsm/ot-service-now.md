@@ -1,6 +1,7 @@
 ---
 id: ot-servicenow
 title: ServiceNow
+description: "Configurez le fournisseur de tickets ServiceNow utilisant l'API REST de ServiceNow, compatible avec les versions Madrid, London et New York"
 ---
 
 ## How it works
@@ -23,9 +24,7 @@ versions:
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md)
-into your Centreon instance
+You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
 
 Our provider requires the following parameters:
 

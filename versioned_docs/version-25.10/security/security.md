@@ -1,12 +1,13 @@
 ---
 id: security
 title: Centreon and Security
+description: "Overview of Centreon's approach to product and data security"
 ---
 
 Organizations around the world turn to Centreon to provide business-aware monitoring of their IT
 for always-on operations and performance excellence. Centreon is committed to the security of the
 data they rely on and is continuously improving policies, processes, and products to meet the highest
-standards. Read more information throughout this page.
+standards.
 
 ## Product security by design
 
@@ -28,7 +29,7 @@ versions by pulling the packages from “unstable” public repositories.
 
 ### Opensource security
 
-Centreon distributes its core platform under GPLv2 and Apache Open Source licenses, which makes it
+Centreon distributes its core platform under Apache Open Source license (GPLv2 for some files), which makes it
 possible for [contributors](https://github.com/centreon/.github/blob/master/CONTRIBUTING.md) to extend it.
 Any person who wants to contribute and participate in
 developing the project must respect Centreon’s [Code of Conduct](https://github.com/centreon/.github/blob/master/CODE_OF_CONDUCT.md).
@@ -43,46 +44,61 @@ On top of security checks performed through continuous integration such as relea
 penetration tests are run on a yearly basis to independently identify vulnerabilities and tune best
 practice recommendations for safe implementation.
 
-## Vulnerability response
+## Vulnerability publication
+
+To mark its commitment to security and vulnerability management, Centreon has become a [CNA](https://www.cve.org/Media/News/item/news/2025/02/11/Centreon-Added-as-CNA) (CVE Numbering Authority). Centreon is now authorized to assign CVE identifiers to vulnerabilities affecting its products, including open-source software components. This designation ensures a more efficient and transparent process for identifying, managing, and disclosing security vulnerabilities. 
+This role enables Centreon to swiftly address potential security issues, keeping users and IT professionals informed while enhancing the overall security posture of its solutions.
+
+Centreon also publishes security bulletins to communicate about security fixes. 
+Subscribe to the [Security Bulletins thread](https://thewatch.centreon.com/latest-security-bulletins-64) on our community platform The Watch to keep up with the latest vulnerability fixes.
+
+### Vulnerability identification
+
+Managing vulnerabilities means detecting and classifying them. To detect them, certain tools exist
+in the Centreon environment:
+* SAST (Static application security testing) : This is a built-in CI/CD functionality that
+scans 100% of the codebase but also dependencies. It discovers vulnerabilities early in
+the SDLC process.
+* Infrastructure vulnerability scanning : quite the same as DAST but related to
+infrastructure: servers, VM, containers...
+* Bug Bounty Program & Public vulnerability disclosure program
+* Penetration testing
 
 Upon receipt of a report for a vulnerability, Centreon will attempt to replicate the reported
 vulnerability and build an action plan with timelines depending on the computed severity.
 
-Centreon will provide feedback to the reporter of the vulnerability and work with them to mitigate
+Centreon will provide feedback to the reporter of the vulnerability and work with them to mitigate or to fix
 the vulnerability.
-
-Subscribe to the [Security Bulletins thread](https://thewatch.centreon.com/latest-security-bulletins-64) on our community platform The Watch to keep up with the latest vulnerability fixes.
 
 ### Vulnerability scoring
 
-Centreon uses version 3.1 of the Common Vulnerability Scoring System (CVSS) as part of its standard
-process of evaluating reported potential vulnerabilities.
-
-Centreon will compute the environmental score assuming the tested Centreon product is configured
-as defined in the online product documentation and placed behind appropriate in-depth protections.
-
-Depending on the CVSS score of the vulnerability, the Centreon security team will determine the urgency
-of fixing the vulnerability:
+The discovered vulnerabilities are analyzed and assessed to rule out false positives, identify
+the issues that pose the most risk to Centreon and remediation that has the least impact on Centreon’s
+environment.
+The classification must follow the CVSS v3:
 
 | CVSS score           | Remediation plan                                                                                                                                                                                      |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 9.0 - 10 (Critical)  | Centreon will begin corrective action immediately, develop a fix or workaround, and provide it to customers in the shortest commercially reasonable time in the form of a patch and/or update release |
-| 7.0 - 8.9 (High)     | Centreon will deliver a fix or workaround with the next planned maintenance as  an update release (typically within 30 days)                                                                          |
-| 4.0 - 6.9 (Medium)   | Centreon will deliver a fix or workaround with the next planned release (typically  within 6 months)                                                                                                  |
-| 0.1 – 3.9 (Low)      | Centreon will deliver a fix or workaround with the next two planned releases of  the Centreon product (typically within 12 months)                                                                    |
+| 9.0 - 10 (Critical)  | This is a blocker and  must be taken into account immediately by the team; this will require a hotfix. |
+| 7.0 - 8.9 (High)     | Fix or workaround within 30 days                                                                         |
+| 4.0 - 6.9 (Medium)   | Next planned release : 6 months (typically within 6 months)                                                                                                  |
+| 0.1 – 3.9 (Low)      | 12 months                                                                    |
 
-### Reporting a vulnerability
+### Vulnerability disclosure program
 
-If you believe you have found a security vulnerability, please report it to us as described in the
-[reporting process](https://github.com/centreon/centreon/security/policy#reporting-a-vulnerability).
+Centreon is committed to the security of its product and services and is continuously improving policies, processes, and products to meet the highest standards. Despite our best efforts, due to the highly complex and sophisticated nature of our products and services, vulnerabilities and errors may still be present in our products and services.
 
-Please do not report security vulnerabilities through public GitHub issues.
+As an open source project, Centreon welcomes vulnerability disclosure from the community with a process governed by the vulnerability disclosure policy available at this URL: [Vulnerability disclosure policy](https://vdp.centreon.com/p/centreon-VDP). This policy describes Centreon's approach to requesting and receiving reports related to potential vulnerabilities and errors in its products and services. Customers, users, researchers, partners and any other person that interacts with Centreon's products and services are encouraged to report identified vulnerabilities and errors by using the form present on the Vulnerability Disclosure Policy platform.
 
-Open source users can send an email to [security@centreon.com](mailto:security@centreon.com). If possible, encrypt your message with the [provided PGP
-key](https://github.com/centreon/centreon/security/policy#pgp-information). Commercial edition customers, please report vulnerabilities through the [support portal](https://support.centreon.com).
+Furthermore, Centreon follows a reponsible disclosure policy:
 
-You should receive a response within 48 hours. If for some reason you do not, please follow up via
-email to ensure we received your original message.
+* Denial of service (DoS) attacks on Centreon applications, servers, networks or infrastructure are strictly forbidden.
+* Avoid tests that could cause degradation or interruption of our services.
+* Do not use automated scanners or tools that generate large amounts of network traffic.
+* Do not leak, manipulate, or destroy any user data or files in any of our applications/servers.
+* Do not copy any files from our applications/servers and disclose them.
+
+The vulnerability disclosure program is implemented and must be followed for the disclosure to be taken into account.
 
 ## Securing your Centreon installation
 

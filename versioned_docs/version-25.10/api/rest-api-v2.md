@@ -1,9 +1,10 @@
 ---
 id: rest-api-v2
 title: Using the v2 API with Postman
+description: "Build a Postman collection to explore the REST API v2"
 ---
 
-This page describes how to use [the v2 API](https://docs-api.centreon.com/api/centreon-web/24.10/) for Centreon Web with Postman.
+This page describes how to use [the v2 API](https://docs-api.centreon.com/api/centreon-web/25.10/) for Centreon Web with Postman.
 
 ## Create a Postman collection from the OpenAPI definition
 
@@ -20,7 +21,7 @@ From your workspace, click the **Import** button.
 Go to the **Link** tab and enter the URL to the OpenAPI definition from GitHub:
 
 ```text
-https://raw.githubusercontent.com/centreon/centreon/24.10.x/centreon/doc/API/centreon-api.yaml
+https://raw.githubusercontent.com/centreon/centreon/refs/tags/25.10-latest/centreon/doc/API/centreon-api.yaml
 ```
 
 ![image](../assets/api/postman-import-link.png)
@@ -59,7 +60,7 @@ Then click **Add**, and select it in the environments list.
 > ![image](../assets/api/postman-collection-edit.png)
 >
 > In the **Variables** tab, change the *version* value to either
-> "latest" or your `v<major>.<minor>` version number, e.g. "v24.10".
+> "latest" or your `v<major>.<minor>` version number, e.g. "v25.10".
 >
 > You can obtain your "major.minor" version number using the following command:
 > `curl -s http://127.0.0.1:80/centreon/api/latest/platform/versions | jq '.web '`
@@ -67,7 +68,7 @@ Then click **Add**, and select it in the environments list.
 > Here is an example of output for this command:
 >
 > \{
->   "version": "24.10.1",
+>   "version": "25.10.1",
 >   "major": "24",
 >   "minor": "10",
 >   "fix": "1"

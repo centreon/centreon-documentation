@@ -1,6 +1,7 @@
 ---
 id: groups
 title: Groups
+description: "Group hosts and services together for ACLs, reports, and filtering"
 ---
 
 ## Description
@@ -35,16 +36,8 @@ Go to the **Configuration > Hosts > Host Groups** menu and click **Add**
 
 * The **Name** and **Alias** defines the name and the alias of the host group.
 * The **Members** list allows us to add hosts in the hostgroup.
-* The **Notes** field allows us to add optional notes concerning the host group.
-* The **Notes URL** field defines a URL that can be used to give more information on the hostgroup.
-* The **Action URL** field defines a URL normally used to give information on actions on the hostgroup (maintenance, etc.).
 * The **Icon** field indicates the icon to be used for the host group.
-* The **Map Icon** is the icon used for mapping.
 * The **Geographic coordinates** field defines geographical coordinates used by the Centreon MAP module to position the resource on a map
-* The **RRD retention** field is expressed in days. It is used to define the duration of retention of the services
-  belonging to this hostgroup in the RRD database. It will be the default duration defined in the
-  **Administration > Options > CentStorage** menu if this value is not defined.
-* The **Enable/disable resource** and **Comments** fields are used to enable or disable the host group and to make comments on it.
 
 ## Creating a service group
 

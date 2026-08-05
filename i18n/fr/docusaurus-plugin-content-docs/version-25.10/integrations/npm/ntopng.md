@@ -1,6 +1,7 @@
 ---
 id: ntopng
 title: Widget NtopNG
+description: "Afficher les données d'utilisation réseau NtopNG dans un widget de vue personnalisée"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,36 +14,6 @@ Le widget peut afficher les vues suivantes (voir [**Exemples**](#exemples) ci-de
 * **Top N Remote address** : Affiche les n hôtes distants qui reçoivent/émettent le plus de trafic
 * **Top N Flows** : Affiche les flux réseaux les plus importants (client local vers distant)
 * **Top N Applications** : Affiche les n applications qui reçoivent/émettent le plus de trafic (les flux sont regroupés par application, protocolaire ou site Web comme Amazon/Google)
-
-## Installer le widget
-
-1. Installez le paquet suivant sur le serveur central :
-  
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-widget-ntopng-listing
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install centreon-widget-ntopng-listing
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt update && apt install centreon-widget-ntopng-listing
-```
-
-</TabItem>
-</Tabs>
-
-2. À la page **Administration > Extensions > Gestionnaire**, installez le widget **NtopNG**.
 
 ## Configurer le widget
 

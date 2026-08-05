@@ -1,6 +1,7 @@
 ---
 id: key-rotation
 title: Rotating keys
+description: "Rotate the keys used to sign Centreon packages and repositories"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -17,11 +18,11 @@ no additional actions are necessary, apart from accepting the new rpm key.
 
 ```shell
 Retrieving key from https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-Importing GPG key 0x3FC49C1B:
-Userid     : "Centreon Enterprise Server Official Signing Key <admin@centreon.com>"
-Fingerprint: 1035 e42c b766 7952 ee42 dee9 a97d aa5a 3fc4 9c1b
+Importing GPG key 0xFAA09FEB:
+Userid     : "Centreon RPM 2025 2027 <technique+gpg@centreon.com>"
+Fingerprint: 41fb bebf aeaf 6d07 2267 540a 0b08 79fe faa0 9feb
 From       : https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
-Is this ok [y/N]: 
+Is this ok [y/N]:
 ```
 
 </TabItem>
@@ -40,13 +41,12 @@ However, you can [check that you have the correct key](#checks).
 <Tabs groupId="sync">
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
-If you performed a fresh installation of a Centreon platform 
-before the new RPM key was published, the existing key must be replaced with the new one.
+If you performed a fresh installation of a Centreon platform before the new RPM key was published, the existing key must be replaced with the new one.
 
 1. Download the following script:
 
     ```shell
-    curl -JO https://raw.githubusercontent.com/centreon/centreon/master/centreon/check-centreon-gpg-key.sh
+    curl -JLO https://raw.githubusercontent.com/centreon/centreon/refs/heads/develop/centreon/check-centreon-gpg-key.sh
     ```
 
 2. Make the script executable:
@@ -92,7 +92,7 @@ before the new RPM key was published, the existing key must be replaced with the
 <Tabs groupId="sync">
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
-You can then check that the new key has been correctly imported. For the [new key published on October 14, 2021](#list-of-keys):
+You can then check that the new key has been correctly imported. For the [new key published on December 2, 2025](#list-of-keys):
 
 <Tabs groupId="sync">
 <TabItem value="Fresh installation" label="Fresh installation">
@@ -100,73 +100,85 @@ You can then check that the new key has been correctly imported. For the [new ke
 * After installation, check if the new key has been correctly imported into the RPM database:
 
     ```shell
-    rpm -qi gpg-pubkey-3fc49c1b-651d4c25
+    rpm -qi gpg-pubkey-faa09feb-692eaf2a
     ```
 
     The results should be as follows:
 
     ```shell
     Name        : gpg-pubkey
-    Version     : 3fc49c1b
-    Release     : 651d4c25
+    Version     : faa09feb
+    Release     : 692eaf2a
     Architecture: (none)
-    Install Date: Mon Apr 22 11:49:38 2024
+    Install Date: Tue 02 Dec 2025 12:52:18 PM GMT
     Group       : Public Keys
     Size        : 0
     License     : pubkey
     Signature   : (none)
     Source RPM  : (none)
-    Build Date  : Wed Oct  4 11:27:33 2023
+    Build Date  : Tue 02 Dec 2025 09:19:38 AM GMT
     Build Host  : localhost
     Relocations : (not relocatable)
-    Packager    : Centreon Enterprise Server Official Signing Key <admin@centreon.com>
-    Summary     : gpg(Centreon Enterprise Server Official Signing Key <admin@centreon.com>)
+    Packager    : Centreon RPM 2025 2027 (Centreon RPM 2025 2027) <technique+gpg@centreon.com>
+    Summary     : gpg(Centreon RPM 2025 2027 (Centreon RPM 2025 2027) <technique+gpg@centreon.com>)
     Description :
     -----BEGIN PGP PUBLIC KEY BLOCK-----
     Version: rpm-4.14.3 (NSS-3)
-
-    mQGNBGFm61IBDADen8ge1CEXjHG/9CWwu1sNkhQ1w5oaExK1FtkVO4ueI8k9jNPn
-    pZYeD8ZaqouSSFP8Rl0acz2MfNBZvhxLpTUIothea2HcWQ7fsuIJVPnADazDr045
-    YhxfjDy6qMsZ2yWfh3cRzpbJ2BqRFsMcMkGgq/et9LUbDy8WJ0O86YDPL5RX4wDE
-    ske7b8ffRu2uhK29hs76UeuuUIGLrVFqlnkuMC8u9YxVgxSONonja3tdkmhl+qR/
-    xCRN++l2GNjwRVwE0TyoGN5kNLHVoPWMGUZmQMG0CRZx4+H1wNualUvzRNn/y9V/
-    X9Z2+kjEv1c+Zi7oJ7bsYtHgulqEXVEKT5fTPLXapwhKw+uv23JjP7IAFBLlaNhn
-    MdRxiM+x2Ej+ZwKaxlXl578wBmpXOlQw6sji+2PM8aWmmO4A4ekYyO5ZRMG0X6OG
-    Y+doln8oe5djmvVp9iNvdmblHPOFTzDtpsAJRkRywipSnH21dqqMuZFrU1G46nW3
-    f150TbH2zSv1AccAEQEAAbREQ2VudHJlb24gRW50ZXJwcmlzZSBTZXJ2ZXIgT2Zm
-    aWNpYWwgU2lnbmluZyBLZXkgPGFkbWluQGNlbnRyZW9uLmNvbT6JAc4EEwEKADgC
-    GwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AWIQQQNeQst2Z5Uu5C3umpfapaP8Sc
-    GwUCZR1MJQAKCRCpfapaP8ScG4OwDACdOUJekvmHX3LJTdP5xm6mWOnlaAhuPZoo
-    csMvJp8oEeeZeIXPq3py0IVyBzB1GrXHVdPYZ6VZ9BREJrZO99lxdgME+2lsFfLW
-    oGeGotr99e5c/28kaM/lZdakHelwo42b3Ik9W/SdHMjWIE3dUhIKRIktC5/R2X6m
-    Zj7lrAjNdATLyyc6WvrmxoRU3Kw9THb9m+U3Scw+DH9tLNf3gTmXLZLQeN2unGIM
-    /bo/VGsg8inZxY0+yABNrIS+xNwx9p0/1deDMk631VTvfi5OwxBZOE7Gv2mcOc4P
-    /wgx//X/wQUGitJ2nGEgndg/ab8VxlSgOPWHsNpDFDT7xmFt/d+FYgEO7aNNl4x/
-    KlN5RL/NfToBK4kCUiNY7dCCx13w/bXQoTdstlrtV4F3urGyKy5l3JLD6MWg3SYA
-    KRaVY9cCU+ZHdITzOSQUHPFEXrxi/4Dl7hfGqL2l1Y6s3DZdJKCO3c1EM4ERVx2Z
-    Vrd3a4nRnqGbPvpNQhdt/VfPJ1j9K525AY0EYWbrUgEMAKTcgo0/qtDuB44K4qVD
-    K2MchhNENEfx3EbgybfEuRMd2q6MvYcd1LsKfTKT0vQJnWffPq+BhleHQ0HYNvII
-    ohKBu24T3LUZnl+bz4Pb4zJXKSm7yVhwg4W4rW+mH6nvyjVzP2KzK2/AI004UKKc
-    u693eOpvT5LLlCFz47gXGysJH9v2dDI7u3r7G/xZRd29V+aLk1T+O2RI31HXVSSF
-    Zqxnwh1albTTSCOCiae7WeG4ON0jluBLUZCRsTvWG7osubQzxcEO9zT/Ilwdv8ig
-    yiYc78j8WPFLb4ngukDOr65NpVWf0gyqf1CtpDxhNue9myTVXce6w3oXW4npX3Ze
-    KZwtaCYyvrfuKhXXG8fy0M0mGVvxRVsVJGgq1h1j7dJQI+d9yJmZrYxRmDtO7jgi
-    r1YBk/j5noTzbjUSyuztkUGJwwrOXCI+CE/9jKZRFsn5dz8hmRGz/64v13ctNV6b
-    Pz1zFDGGeav4ZJzyyXM0XI7LDY834WhCQHwXX6lkXqYp6wARAQABiQG2BBgBCgAg
-    AhsMFiEEEDXkLLdmeVLuQt7pqX2qWj/EnBsFAmUdSvkACgkQqX2qWj/EnBuoNAwA
-    hwst2AZCSmNNDUPSypCvpTkKdOPG315kJHQv/rcqDkCG2p2jvfT08Kd2636ErPBU
-    7yCDOvanNzSOloNKodOsY7MrcGVnY5qSyJPxHNwp0niR+eGtwBpowLf6wO7LzWL+
-    UOBzcAhgL+xIBaxlGC2CaV+ilq+wVqsJkBvJSdr/L5fydpW8y0Qk+O2Deml4bQVF
-    tKRSTz+pDuII63189T7B5LnlWExNmhF8U0R+MEqZb+TWMorBrEy5giSsMV+LgXy5
-    8lBqheQL3uasxNH/zaihBHA0sp7jpswiBOSnwiSOaRJOhGk/BLksCnf8yFnPEUMa
-    CqskzKhfZDOYBol226SMavErj/6/5fy8dfoLYsDUW2UB0ojqGSYIYG9invVhEg5+
-    exr+xNI6MB01EJkcSw/GowXUh5MFDtSdtRNGtZxymEObjkauLj9L1daAkHWYdFmn
-    LCEHvNUqYnxkVFiNRQHlY3ZoZMYOmLleEbTPnGiRmukG+EipqeI1nmeFUmPXeDnC
-    =sZGh
+ 
+    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
+    kHPSiA==
+    =1bjv
     -----END PGP PUBLIC KEY BLOCK-----
     ```
 
-* Check that the only Centreon key in the RPM database is this one: **gpg-pubkey-3fc49c1b-651d4c25**:
+* Check that the only Centreon key in the RPM database is this one: **gpg-pubkey-faa09feb-692eaf2a**:
 
     ```shell
     rpm -q gpg-pubkey --qf '%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n'
@@ -175,9 +187,8 @@ You can then check that the new key has been correctly imported. For the [new ke
     The results should be as follows:
 
     ```shell
-    gpg-pubkey-f4a80eb5-53a7ff4b	gpg(CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>)
-    gpg-pubkey-f2ee9d55-560cfc0a	gpg(CentOS SoftwareCollections SIG (https://wiki.centos.org/SpecialInterestGroup/SCLo) <security@centos.org>)
-    gpg-pubkey-3fc49c1b-651d4c25	gpg(Centreon Enterprise Server Official Signing Key <admin@centreon.com>)
+    gpg-pubkey-b86b3716-61e69f29	AlmaLinux OS 9 <packager@almalinux.org> public key
+    gpg-pubkey-faa09feb-692eaf2a	Centreon RPM 2025 2027 <technique+gpg@centreon.com> public key
     ```
 
 </TabItem>
@@ -186,74 +197,85 @@ You can then check that the new key has been correctly imported. For the [new ke
 * Check if the new key has been correctly imported into the RPM database:
 
     ```shell
-    rpm -qi gpg-pubkey-3fc49c1b-651d4c25
+    rpm -qi gpg-pubkey-faa09feb-692eaf2a
     ```
 
     The results should be as follows:
 
     ```shell
     Name        : gpg-pubkey
-    Version     : 3fc49c1b
-    Release     : 651d4c25
+    Version     : faa09feb
+    Release     : 692eaf2a
     Architecture: (none)
-    Install Date: Mon Apr 22 11:49:38 2024
+    Install Date: Tue 02 Dec 2025 12:52:18 PM GMT
     Group       : Public Keys
     Size        : 0
     License     : pubkey
     Signature   : (none)
     Source RPM  : (none)
-    Build Date  : Wed Oct  4 11:27:33 2023
+    Build Date  : Tue 02 Dec 2025 09:19:38 AM GMT
     Build Host  : localhost
     Relocations : (not relocatable)
-    Packager    : Centreon Enterprise Server Official Signing Key <admin@centreon.com>
-    Summary     : gpg(Centreon Enterprise Server Official Signing Key <admin@centreon.com>)
+    Packager    : Centreon RPM 2025 2027 (Centreon RPM 2025 2027) <technique+gpg@centreon.com>
+    Summary     : gpg(Centreon RPM 2025 2027 (Centreon RPM 2025 2027) <technique+gpg@centreon.com>)
     Description :
     -----BEGIN PGP PUBLIC KEY BLOCK-----
     Version: rpm-4.14.3 (NSS-3)
-
-    mQGNBGFm61IBDADen8ge1CEXjHG/9CWwu1sNkhQ1w5oaExK1FtkVO4ueI8k9jNPn
-    pZYeD8ZaqouSSFP8Rl0acz2MfNBZvhxLpTUIothea2HcWQ7fsuIJVPnADazDr045
-    YhxfjDy6qMsZ2yWfh3cRzpbJ2BqRFsMcMkGgq/et9LUbDy8WJ0O86YDPL5RX4wDE
-    ske7b8ffRu2uhK29hs76UeuuUIGLrVFqlnkuMC8u9YxVgxSONonja3tdkmhl+qR/
-    xCRN++l2GNjwRVwE0TyoGN5kNLHVoPWMGUZmQMG0CRZx4+H1wNualUvzRNn/y9V/
-    X9Z2+kjEv1c+Zi7oJ7bsYtHgulqEXVEKT5fTPLXapwhKw+uv23JjP7IAFBLlaNhn
-    MdRxiM+x2Ej+ZwKaxlXl578wBmpXOlQw6sji+2PM8aWmmO4A4ekYyO5ZRMG0X6OG
-    Y+doln8oe5djmvVp9iNvdmblHPOFTzDtpsAJRkRywipSnH21dqqMuZFrU1G46nW3
-    f150TbH2zSv1AccAEQEAAbREQ2VudHJlb24gRW50ZXJwcmlzZSBTZXJ2ZXIgT2Zm
-    aWNpYWwgU2lnbmluZyBLZXkgPGFkbWluQGNlbnRyZW9uLmNvbT6JAc4EEwEKADgC
-    GwMFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AWIQQQNeQst2Z5Uu5C3umpfapaP8Sc
-    GwUCZR1MJQAKCRCpfapaP8ScG4OwDACdOUJekvmHX3LJTdP5xm6mWOnlaAhuPZoo
-    csMvJp8oEeeZeIXPq3py0IVyBzB1GrXHVdPYZ6VZ9BREJrZO99lxdgME+2lsFfLW
-    oGeGotr99e5c/28kaM/lZdakHelwo42b3Ik9W/SdHMjWIE3dUhIKRIktC5/R2X6m
-    Zj7lrAjNdATLyyc6WvrmxoRU3Kw9THb9m+U3Scw+DH9tLNf3gTmXLZLQeN2unGIM
-    /bo/VGsg8inZxY0+yABNrIS+xNwx9p0/1deDMk631VTvfi5OwxBZOE7Gv2mcOc4P
-    /wgx//X/wQUGitJ2nGEgndg/ab8VxlSgOPWHsNpDFDT7xmFt/d+FYgEO7aNNl4x/
-    KlN5RL/NfToBK4kCUiNY7dCCx13w/bXQoTdstlrtV4F3urGyKy5l3JLD6MWg3SYA
-    KRaVY9cCU+ZHdITzOSQUHPFEXrxi/4Dl7hfGqL2l1Y6s3DZdJKCO3c1EM4ERVx2Z
-    Vrd3a4nRnqGbPvpNQhdt/VfPJ1j9K525AY0EYWbrUgEMAKTcgo0/qtDuB44K4qVD
-    K2MchhNENEfx3EbgybfEuRMd2q6MvYcd1LsKfTKT0vQJnWffPq+BhleHQ0HYNvII
-    ohKBu24T3LUZnl+bz4Pb4zJXKSm7yVhwg4W4rW+mH6nvyjVzP2KzK2/AI004UKKc
-    u693eOpvT5LLlCFz47gXGysJH9v2dDI7u3r7G/xZRd29V+aLk1T+O2RI31HXVSSF
-    Zqxnwh1albTTSCOCiae7WeG4ON0jluBLUZCRsTvWG7osubQzxcEO9zT/Ilwdv8ig
-    yiYc78j8WPFLb4ngukDOr65NpVWf0gyqf1CtpDxhNue9myTVXce6w3oXW4npX3Ze
-    KZwtaCYyvrfuKhXXG8fy0M0mGVvxRVsVJGgq1h1j7dJQI+d9yJmZrYxRmDtO7jgi
-    r1YBk/j5noTzbjUSyuztkUGJwwrOXCI+CE/9jKZRFsn5dz8hmRGz/64v13ctNV6b
-    Pz1zFDGGeav4ZJzyyXM0XI7LDY834WhCQHwXX6lkXqYp6wARAQABiQG2BBgBCgAg
-    AhsMFiEEEDXkLLdmeVLuQt7pqX2qWj/EnBsFAmUdSvkACgkQqX2qWj/EnBuoNAwA
-    hwst2AZCSmNNDUPSypCvpTkKdOPG315kJHQv/rcqDkCG2p2jvfT08Kd2636ErPBU
-    7yCDOvanNzSOloNKodOsY7MrcGVnY5qSyJPxHNwp0niR+eGtwBpowLf6wO7LzWL+
-    UOBzcAhgL+xIBaxlGC2CaV+ilq+wVqsJkBvJSdr/L5fydpW8y0Qk+O2Deml4bQVF
-    tKRSTz+pDuII63189T7B5LnlWExNmhF8U0R+MEqZb+TWMorBrEy5giSsMV+LgXy5
-    8lBqheQL3uasxNH/zaihBHA0sp7jpswiBOSnwiSOaRJOhGk/BLksCnf8yFnPEUMa
-    CqskzKhfZDOYBol226SMavErj/6/5fy8dfoLYsDUW2UB0ojqGSYIYG9invVhEg5+
-    exr+xNI6MB01EJkcSw/GowXUh5MFDtSdtRNGtZxymEObjkauLj9L1daAkHWYdFmn
-    LCEHvNUqYnxkVFiNRQHlY3ZoZMYOmLleEbTPnGiRmukG+EipqeI1nmeFUmPXeDnC
-    =sZGh
+ 
+    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
+    kHPSiA==
+    =1bjv
     -----END PGP PUBLIC KEY BLOCK-----
     ```
 
-* Check that the old key is no longer in the RPM database (there should 
-only be **gpg-pubkey-3fc49c1b-651d4c25**):
+* Check that the old key is no longer in the RPM database (there should only be **gpg-pubkey-faa09feb-692eaf2a**):
 
   ```shell
   rpm -q gpg-pubkey --qf '%{NAME}-%{VERSION}-%{RELEASE}\t%{SUMMARY}\n'
@@ -262,9 +284,8 @@ only be **gpg-pubkey-3fc49c1b-651d4c25**):
   The results should be as follows:
 
   ```shell
-  gpg-pubkey-f4a80eb5-53a7ff4b	gpg(CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>)
-  gpg-pubkey-f2ee9d55-560cfc0a	gpg(CentOS SoftwareCollections SIG (https://wiki.centos.org/SpecialInterestGroup/SCLo) <security@centos.org>)
-  gpg-pubkey-3fc49c1b-651d4c25	gpg(Centreon Enterprise Server Official Signing Key <admin@centreon.com>)
+  gpg-pubkey-b86b3716-61e69f29	AlmaLinux OS 9 <packager@almalinux.org> public key
+  gpg-pubkey-faa09feb-692eaf2a	Centreon RPM 2025 2027 <technique+gpg@centreon.com> public key
   ```
 
 </TabItem>
@@ -295,7 +316,8 @@ sub   cv25519 2024-04-11 [E]
 
 | OS | Fingerprint                                       | Validity                                        |
 | -- |---------------------------------------------------|-------------------------------------------------|
-| Alma/RHEL/Oracle Linux | 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | revoked October 14, 2021                        |
-| Alma/RHEL/Oracle Linux | [1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B](https://yum-gpg.centreon.com/RPM-GPG-KEY-CES) | valid from October 14, 2021 |
-| Debian | 1441 882B ED29 D70C F2E8 74D6 5E9C 3745 59B6 C02E | revoked April 11, 2024 |
-| Debian | [C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4](https://apt-key.centreon.com) | valid from April 12, 2024 |
+| Alma/RHEL/Oracle Linux | [41FB BEBF AEAF 6D07 2267 540A 0B08 79FE FAA0 9FEB](https://yum-gpg.centreon.com/RPM-GPG-KEY-CES) | Valid from December 2, 2025 to December 2, 2027 |
+| Alma/RHEL/Oracle Linux | 1035 E42C B766 7952 EE42 DEE9 A97D AA5A 3FC4 9C1B | Revoked December 1, 2025 |
+| Alma/RHEL/Oracle Linux | 0E52 401B 40F6 044F 928C 0B7B F6FC 4AE3 8A76 52BC | Revoked October 14, 2021                        |
+| Debian | [C903 FA90 C5EC 3C69 C922 9203 0395 7625 73E5 0BC4](https://apt-key.centreon.com) | Valid from April 12, 2024 |
+| Debian | 1441 882B ED29 D70C F2E8 74D6 5E9C 3745 59B6 C02E | Revoked April 11, 2024 |

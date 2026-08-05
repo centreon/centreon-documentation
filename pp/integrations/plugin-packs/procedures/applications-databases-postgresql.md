@@ -1,9 +1,16 @@
 ---
 id: applications-databases-postgresql
 title: PostgreSQL DB
+description: "Monitor PostgreSQL databases: connections, cache hit ratio, locks, query time, vacuum, bloat, and tablespace size."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **PostgreSQL** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
 ## Pack assets
 
@@ -31,15 +38,15 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias   | Service Template                       | Service Description                                                  | Discovery  |
-|:----------------|:---------------------------------------|:---------------------------------------------------------------------|:----------:|
-| Bloat           | App-DB-Postgres-Bloat-custom           | Check tables and btrees bloat                                        |            |
-| Database-Size   | App-DB-Postgres-Database-Size-custom   | Check the databases size                                             | X          |
-| Sql-Statement   | App-DB-Postgres-Sql-Statement-custom   | Check allowing to execute a custom SQL request with a digital answer |            |
-| Statistics      | App-DB-Postgres-Statistics-custom      | Check database statistics                                            |            |
-| Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Check time between poller and the Postgres server                    |            |
-| Time-Sync       | App-DB-Postgres-Time-Sync-custom       | Check time between poller and the Postgres server                    |            |
-| Vacuum          | App-DB-Postgres-Vacuum-custom          | Check the execution of Vacuum on a DB for a given amount of days     |            |
+| Service Alias   | Service Template                       | Service Description                                                    | Discovery |
+|:----------------|:---------------------------------------|:-----------------------------------------------------------------------|:---------:|
+| Bloat           | App-DB-Postgres-Bloat-custom           | Check tables and btrees bloat                                          |           |
+| Database-Size   | App-DB-Postgres-Database-Size-custom   | Check the databases size                                               |     X     |
+| Sql-Statement   | App-DB-Postgres-Sql-Statement-custom   | Check allowing to execute a custom SQL request with a numerical result |           |
+| Statistics      | App-DB-Postgres-Statistics-custom      | Check database statistics                                              |           |
+| Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Check time between poller and the Postgres server                      |           |
+| Time-Sync       | App-DB-Postgres-Time-Sync-custom       | Check time between poller and the Postgres server                      |           |
+| Vacuum          | App-DB-Postgres-Vacuum-custom          | Check the execution of Vacuum on a DB for a given amount of days       |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -61,7 +68,7 @@ and in the [following chapter](/docs/monitoring/discovery/services-discovery/#di
 
 ### Collected metrics & status
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Bloat" label="Bloat">
@@ -79,8 +86,8 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 | Metric Name                                    | Unit  |
 |:-----------------------------------------------|:------|
-| *db_name*#database.hitratio.average.percentage |       |
-| *db_name*#database.hitratio.delta.percentage   |       |
+| *db_name*#database.hitratio.average.percentage | %     |
+| *db_name*#database.hitratio.delta.percentage   | %     |
 
 </TabItem>
 <TabItem value="Connection" label="Connection">
@@ -92,9 +99,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Metric name                      | Unit  |
-|:---------------------------------|:------|
-| database.clients.connected.count | count |
+| Metric name                              | Unit  |
+|:-----------------------------------------|:------|
+| instance.connected.count                 | count |
+| instance.connected.percentage            | %     |
+| *backends*#database.connected.count      | count |
+| *backends*#database.connected.percentage | %     |
+| *roles*#role.connected.count             | count |
+| *roles*#role.connected.percentage        | %     |
 
 </TabItem>
 <TabItem value="Database-Size" label="Database-Size">
@@ -106,9 +118,10 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Locks" label="Locks">
 
-| Metric name          | Unit  |
-|:---------------------|:------|
-| database.locks.count | count |
+| Metric name                          | Unit  |
+|:-------------------------------------|:------|
+| *locks*#database.locks.total.count   | count |
+| *locks*#database.locks.waiting.count | count |
 
 </TabItem>
 <TabItem value="Query-Time" label="Query-Time">
@@ -283,7 +296,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 ### Using a host template provided by the connector
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your ressource settings.
 3. Apply the **App-DB-Postgres-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
@@ -325,12 +338,13 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 </TabItem>
 <TabItem value="Cache-Hitratio" label="Cache-Hitratio">
 
-| Macro        | Description                                                                                         | Default value                         | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| FILTER       | Filter databases by name (can be a regexp).                                                                                    | ^(?!(postgres\|template1\|template0)) |             |
-| WARNING      | Warning threshold                                                                                   |                                       |             |
-| CRITICAL     | Critical threshold                                                                                  |                                       |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                             |             |
+| Macro           | Description                                                                                          | Default value                         | Mandatory   |
+|:-----------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
+| EXCLUDE_DATABASE | Exclude databases using a regular expression                                                        |                                       |             |
+| INCLUDE_DATABASE | Filter databases using a regular expression                                                         |                                       |             |
+| WARNING          | Warning threshold                                                                                   |                                       |             |
+| CRITICAL         | Critical threshold                                                                                  |                                       |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                             |             |
 
 </TabItem>
 <TabItem value="Connection" label="Connection">
@@ -344,12 +358,25 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Macro        | Description                                                                                         | Default value                         | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| FILTER       | Filter databases by name (can be a regexp).                                                                                    | ^(?!(postgres\|template1\|template0)) |             |
-| CRITICAL     | Critical threshold in percent                                                                       | 95                                    |             |
-| WARNING      | Warning threshold in percent                                                                        | 90                                    |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) | --verbose                             |             |
+| Macro                | Description                                                                                         | Default value                         | Mandatory   |
+|:---------------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
+| EXCLUDE_DATABASE     | Exclude databases using a regular expression                                                        |                                       |             |
+| INCLUDE_DATABASE     | Filter databases using a regular expression                                                         |                                       |             |
+| EXCLUDE_ROLE         | Exclude roles using a regular expression                                                            |                                       |             |
+| INCLUDE_ROLE         | Filter roles using a regular expresssion                                                            |                                       |             |
+| CRITICAL             | Critical threshold in percentage                                                                    | 95                                    |             |
+| WARNING              | Warning threshold in percentage                                                                     | 90                                    |             |
+| WARNINGDATABASE      | Threshold                                                                                           |                                       |             |
+| CRITICALDATABASE     | Threshold                                                                                           |                                       |             |
+| WARNINGDATABASEPCT   | Threshold in percentage                                                                             |                                       |             |
+| CRITICALDATABASEPCT  | Threshold in percentage                                                                             |                                       |             |
+| WARNINGINSTANCEPRCT  | Threshold                                                                                           |                                       |             |
+| CRITICALINSTANCEPRCT | Threshold                                                                                           |                                       |             |
+| WARNINGROLE          | Threshold                                                                                           |                                       |             |
+| CRITICALROLE         | Threshold                                                                                           |                                       |             |
+| WARNINGROLEPRCT      | Threshold in percentage                                                                             |                                       |             |
+| CRITICALROLEPRCT     | Threshold in percentage                                                                             |                                       |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options).  | --verbose                   |             |
 
 </TabItem>
 <TabItem value="Database-Size" label="Database-Size">
@@ -364,23 +391,26 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 </TabItem>
 <TabItem value="Locks" label="Locks">
 
-| Macro        | Description                                                                                                                       | Default value                         | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| FILTER       | Filter databases by name (can be a regexp).                                                                                                                  | ^(?!(postgres\|template1\|template0)) |             |
-| CRITICAL     | Critical threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres | total=250,waiting=5,exclusive=20      |             |
-| WARNING      | Warning threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres  | total=200                             |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)                               | --verbose                             |             |
+| Macro            | Description                                                                                                                       | Default value                         | Mandatory   |
+|:-----------------|:----------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
+| EXCLUDE_DATABASE | Exclude databases using a regular expression                                                                                      |                                       |             |
+| INCLUDE_DATABASE | Filter databases using a regular expression                                                                                       |                                       |             |
+| CRITICAL         | Critical threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres | total=250,waiting=5,exclusive=20      |             |
+| WARNING          | Warning threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres  | total=200                             |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options)    | --verbose                             |             |
 
 </TabItem>
 <TabItem value="Query-Time" label="Query-Time">
 
-| Macro        | Description                                                                                         | Default value                         | Mandatory   |
-|:-------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| FILTER       | Filter databases by name (can be a regexp).                                                                                    | ^(?!(postgres\|template1\|template0)) |             |
-| FILTERUSER   | Filter users                                                                                        | postgres                              |             |
-| CRITICAL     | Critical threshold in seconds                                                                       | 60                                    |             |
-| WARNING      | Warning threshold in seconds                                                                        | 30                                    |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                                       |             |
+| Macro            | Description                                                                                         | Default value                         | Mandatory   |
+|:-----------------|:----------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
+| EXCLUDE_DATABASE | Exclude databases using a regular expression                                                        |                                       |             |
+| INCLUDE_DATABASE | Filter databases using a regular expression                                                         |                                       |             |
+| EXCLUDE_USER     | Exclude users a regular expression                                                                  |                                       |             |
+| INCLUDE_USER     | Filter users a regular expression                                                                   |                                       |             |
+| CRITICAL         | Critical threshold in seconds                                                                       | 60                                    |             |
+| WARNING          | Warning threshold in seconds                                                                        | 30                                    |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                                       |             |
 
 </TabItem>
 <TabItem value="Sql-Statement" label="Sql-Statement">
@@ -389,7 +419,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 |:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SQLSTATEMENT | SQL statement that returns a number                                                                 |                   | X           |
 | WARNING      | Thresholds.                                                                                         |                   |             |
-| CRITICAL     |  Thresholds.                                                                                        |                   |             |
+| CRITICAL     | Thresholds.                                                                                         |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
 
 </TabItem>
@@ -435,7 +465,7 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on page **Resources Status**. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
@@ -530,7 +560,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -585,7 +615,8 @@ All available options for each service template are listed below:
 | --critical             | Critical threshold.                                                                                                                                                                                                                           |
 | --lookback             | Threshold isn't on the percent calculated from the difference ('xxx\_hitratio\_now').                                                                                                                                                         |
 | --exclude              | Filter databases.                                                                                                                                                                                                                             |
-
+| --include-database     | Filter databases using a regular expression.                                                                                                                                                                                                  |
+| --exclude-database     | Exclude databases using a regular expression.                                                                                                                                                                                                 |
 </TabItem>
 <TabItem value="Connection" label="Connection">
 
@@ -597,12 +628,28 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Option     | Description                          |
-|:-----------|:-------------------------------------|
-| --warning  | Warning threshold in percent.        |
-| --critical | Critical threshold in percent.       |
-| --exclude  | Filter databases.                    |
-| --noidle   | Idle connections are not counted.    |
+| Option                   | Description                                                                                                               |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --check                  | What to check (default: 'database') Can be: 'database', 'role', 'all'.                                                    |
+| --include-database       | Filter databases using a regular expression.                                                                              |
+| --exclude-database       | Exclude databases using a regular expression.                                                                             |
+| --include-user           | Filter users using a regular expression.                                                                                  |
+| --exclude-user           | Exclude users using a regular expression.                                                                                 |
+| --noidle                 | Idle connections are not counted.                                                                                         |
+| --warning-database       | Threshold.                                                                                                                |
+| --critical-database      | Threshold.                                                                                                                |
+| --warning-database-pct   | Threshold in percentage.                                                                                                  |
+| --critical-database-pct  | Threshold in percentage.                                                                                                  |
+| --warning-instance       | Threshold.                                                                                                                |
+| --critical-instance      | Threshold.                                                                                                                |
+| --warning-instance-prct  | Threshold.                                                                                                                |
+| --critical-instance-prct | Threshold.                                                                                                                |
+| --warning-role           | Threshold.                                                                                                                |
+| --critical-role          | Threshold.                                                                                                                |
+| --warning-role-prct      | Threshold in percentage.                                                                                                  |
+| --critical-role-prct     | Threshold in percentage.                                                                                                  |
+
 
 </TabItem>
 <TabItem value="Database-Size" label="Database-Size">
@@ -616,22 +663,25 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Locks" label="Locks">
 
-| Option     | Description                                                                                                                          |
-|:-----------|:-------------------------------------------------------------------------------------------------------------------------------------|
-| --warning  | Warning threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres.    |
-| --critical | Critical threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres.   |
-| --exclude  | Filter databases.                                                                                                                    |
+| Option             | Description                                                                                                                          |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------|
+| --warning          | Warning threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres.    |
+| --critical         | Critical threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres.   |
+| --include-database | Filter databases using a regular expression.                                                                                         |
+| --exclude-database | Exclude databases using a regular expression.                                                                                        |
 
 </TabItem>
 <TabItem value="Query-Time" label="Query-Time">
 
-| Option         | Description                      |
-|:---------------|:---------------------------------|
-| --warning      | Warning threshold in seconds.    |
-| --critical     | Critical threshold in seconds.   |
-| --exclude      | Filter databases.                |
-| --exclude-user | Filter users.                    |
-| --idle         | Idle queries are counted.        |
+| Option             | Description                                                 |
+|:-------------------|:------------------------------------------------------------|
+| --warning          | Warning threshold in seconds.                               |
+| --critical         | Critical threshold in seconds.                              |
+| --include-database | Filter databases using a regular expression.                |
+| --exclude-database | Exclude databases using a regular expression.               |
+| --include-user     | Filter users a regular expression.                          |
+| --exclude-user     | Exclude users a regular expression.                         |
+| --idle             | Idle queries are counted.                                   |
 
 </TabItem>
 <TabItem value="Sql-Statement" label="Sql-Statement">

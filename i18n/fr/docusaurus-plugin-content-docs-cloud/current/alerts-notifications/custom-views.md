@@ -1,7 +1,12 @@
 ---
 id: custom-views
 title: Vues personnalisées (legacy)
+description: "Comment créer, éditer, partager et faire tourner les vues personnalisées (legacy) composées de widgets"
 ---
+
+> Veuillez noter que la page **Vues personnalisées** ne sera plus disponible lors de nouvelles installations.
+
+> Vous pouvez désormais profiter de la fonctionnalité [**Tableaux de bord**](./dashboards.md) pour créer et partager des tableaux de bord intuitifs pour la supervision en temps réel de vos ressources.
 
 Les vues personnalisées sont des tableaux de bord, créés à l'aide de widgets. Vous pouvez partager des vues avec les autres utilisateurs. Voir aussi notre [tutoriel](../getting-started/create-custom-view.md) sur les vues personnalisées.
 

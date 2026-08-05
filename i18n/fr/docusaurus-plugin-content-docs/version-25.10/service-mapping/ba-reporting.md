@@ -1,6 +1,7 @@
 ---
 id: ba-reporting
 title: Reporting
+description: "Consulter les rapports de disponibilité et recalculer les statistiques des BA"
 ---
 
 Consulter à tout moment les évolutions des données archivées et
@@ -10,7 +11,7 @@ utilisés dans **Centreon**.
 
 ### Rapport
 
-La page de reporting correspond à celle de **Centreon**, il suffit de
+La page de reporting se trouve dans le menu **Rapports > Disponibilité** de Centreon, il suffit de
 sélectionner une BA pour consulter ses statistiques de disponibilité
 opérationnelle, dégradée et non fonctionnelle sur une période donnée.
 

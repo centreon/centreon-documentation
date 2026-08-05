@@ -1,6 +1,7 @@
 ---
 id: dashboards
 title: Tableaux de bord
+description: "Créer des tableaux de bord, ajouter des widgets et gérer des listes de diffusion"
 ---
 
 Commencez par créer des tableaux de bord et ajoutez des widgets spécialement conçus pour optimiser votre expérience utilisateur. Bénéficiez ensuite d'options de visualisation de données pour afficher et suivre vos ressources en temps réel.
@@ -111,6 +112,9 @@ Vous utilisez la fonctionnalité Tableaux de bord avec un profil de **viewer** o
 
 1. Cliquez sur le bouton **partager** en bas à droite du tableau de bord.
 2. Dans la liste déroulante **Ajouter un contact**, sélectionnez l'utilisateur à ajouter.
+  > Seuls les utilisateurs remplissant les deux conditions suivantes sont affichés : 
+  >  - appartenir aux mêmes groupes d'accès que les vôtres,
+  >  - avoir accès au menu des Tableaux de bord (activable via les droits d'accès).
 3. Sélectionnez le profil **Viewer** ou **Editor**.
 4. Cliquez sur le bouton **+** pour l'ajouter.
 5. Répétez l'action pour chaque utilisateur que vous souhaitez ajouter.
@@ -190,9 +194,12 @@ Le menu d'action à trois points situé à la fin de la ligne de la liste de dif
 
 ## Liste des widgets
 
+> Notez que certains widgets nécessitent une licence spécifique.
+
 | Widget                   | Description                                                                                                                                                                                                                                                                                                    |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Diagramme d'activité métier           | Affiche graphiquement et permet la navigation dans la hiérarchie d'une activité métier.   |
+| Historique du statut d’une Activité Métier           | Affiche la répartition des statuts actuels sur une activité métier, sous forme de frise chronologique pour une période donnée.   |
 | Horloge/Minuteur           | Affiche l'heure en fonction du fuseau horaire sélectionné, ou un minuteur.   |
 | Texte générique           | Permet d'ajouter du texte libre à vos tableaux de bord (titres de sections, informations, etc.).   |
 | Group monitoring           | Affiche la répartition des statuts actuels pour les groupes de ressources sélectionnés, sous forme de tableau.   |

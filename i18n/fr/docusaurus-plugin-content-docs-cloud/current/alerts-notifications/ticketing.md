@@ -1,6 +1,7 @@
 ---
 id: ticketing
 title: Configurer Open Tickets
+description: "Comment les administrateurs configurent les règles de notification, macros et widgets pour activer la création de tickets dans Centreon Cloud"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -44,9 +45,9 @@ Donnez à vos deux widgets des titres parlants afin que vos utilisateurs sachent
 
 2. Dans les sections **Propriétés du widget** et **Paramètres des valeurs**, remplissez les propriétés à votre convenance. Vérifiez soigneusement les statuts, les états et les types d'état que vous souhaitez que le widget affiche. Pour assurer la cohérence de l'affichage des ressources, appliquez le même paramétrage aux deux widgets.
 
-3. Définissez les paramètres de vos tickets dans la section **Gestion des tickets** (y compris la **Règle** que vous avez créée à l'étape 1) :
-   * Dans le premier widget, pour créer une vue qui permettra aux utilisateurs d'ouvrir des tickets, sélectionnez **Ressources sans ticket**.
-   * Dans le deuxième widget, pour créer une vue qui permettra aux utilisateurs de voir tous les tickets ouverts et de les fermer, sélectionnez **Ressources liées à un ticket**.
+3. Définissez les paramètres de vos tickets dans la section **Gestion des tickets**.
+   - Dans **Règle (fournisseur de tickets)**, vous pouvez choisir d'afficher les **Ressources sans ticket** ou les **Ressources liés à un ticket**.
+   - Dans **Afficher les boutons de création de tickets**, vous pouvez **Activer la création de tickets pour les hôtes** et **Activer la création de tickets pour les services**.
 
 4. Enregistrez vos modifications.
 
@@ -56,7 +57,7 @@ Votre tableau de bord affiche désormais deux widgets **Tableau des ressources**
 * Lorsqu'un utilisateur ferme un ticket, si votre fournisseur le permet, le ticket sera également automatiquement fermé dans votre outil ITSM.
 
 </TabItem>
-<TabItem value="Vues personnalisées (legacy)" label="Vues personnalisées (legacy)">
+<TabItem value="Vues personnalisees (legacy)" label="Vues personnalisées (legacy)">
 
 1. Allez à la page **Accueil > Vues personnalisées**, sélectionnez votre vue et ajoutez deux widgets **Open Tickets**.
 

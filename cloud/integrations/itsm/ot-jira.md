@@ -1,6 +1,7 @@
 ---
 id: ot-jira
 title: Jira
+description: "Configure the Jira open-tickets provider that connects to Jira Cloud through the Jira REST API"
 ---
 
 ## How it works
@@ -23,7 +24,7 @@ This integration is (at least) compatible with Jira cloud.
 ## Requirements
 
 Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing-install.md)
+[centreon-open-ticket](../../alerts-notifications/ticketing.md)
 into your Centreon instance.
 
 Our provider requires the following parameters:

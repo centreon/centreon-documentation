@@ -1,7 +1,7 @@
 ---
 id: model-it-services
 title: Model your IT services
-description: BAM tutorial
+description: "How to model IT services and applications with Centreon BAM"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -167,8 +167,8 @@ Examples:
 
 In this example, the following availability will be calculated:
 
-  - % Up and optimum performance \~ 98.61% (OK+Warning)
-  - % Up but degraded \~ 97.91% (OK)
-  - % Not available \~ 1.38% (Critical).
+  - % Up and optimum performance ~ 97.91% (OK)
+  - % Up but degraded ~ 98.61% (OK+Warning)
+  - % Not available ~ 1.38% (Critical)
 
 You can use the **Centreon MBI extension** to access advanced reporting capabilities on business activities data.

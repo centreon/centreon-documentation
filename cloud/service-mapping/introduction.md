@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction to Centreon BAM
+description: "Overview of Centreon Business Activity Monitoring (BAM) and how it correlates IT operations with business service performance"
 ---
 
 The service mapping capabilities in Centreon rely on the **Centreon Business
@@ -14,7 +15,7 @@ Prioritizing and proactively managing IT operations and service delivery for
 the required SLA becomes easier. Centreon BAM contributes to showing that IT counts for
 business operations.
 
-![image](../assets/service-mapping/first_page.gif)
+![image](../assets/service-mapping/New%20BA%20Monitoring%20page.gif)
 
 **Centreon BAM** uses an advanced Business Activities (BA) calculation engine
 based on Key Performance Indicators.
@@ -28,8 +29,8 @@ making the best use of the real-time and reporting data in **Centreon BAM**.
 Definitions:
 
   - **BA**: Business Activity
-  - **BV**: Business View: the displayed business activity
+  - **BV**: Business View: a group of business activities.
   - **KPI**: Key Performance Indicator: the weighted indicator considered in the
     BA calculation.
 
-![image](../assets/service-mapping/about/ba_detailed.png)
+> Centreon BAM can also be used [through its API](https://docs-api.centreon.com/api/centreon-bam/cloud/).

@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-poller
 title: Centreon Poller
+description: "Supervisez les collecteurs Centreon en SSH et SNMP : statistiques Broker et statut des processus clés (centengine, gorgoned, ntpd, sshd)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -41,7 +42,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 <Tabs groupId="sync">
 <TabItem value="Broker-Stats" label="Broker-Stats">
 
-| Métrique                         | Unité    |
+| Nom                              | Unité    |
 |:---------------------------------|:---------|
 | *endpoint*#status                | N/A      |
 | *endpoint*#speed-events          | events/s |
@@ -53,42 +54,42 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="proc-centengine" label="proc-centengine">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | N/A   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
 
 </TabItem>
 <TabItem value="proc-gorgoned" label="proc-gorgoned">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | N/A   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
 
 </TabItem>
 <TabItem value="proc-ntpd" label="proc-ntpd">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | N/A   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
 
 </TabItem>
 <TabItem value="proc-sshd" label="proc-sshd">
 
-| Métrique    | Unité |
-|:------------|:------|
-| nbproc      | N/A   |
-| mem_total   | B     |
-| mem_avg     | B     |
-| cpu_total   | %     |
+| Nom       | Unité |
+|:----------|:------|
+| nbproc    | N/A   |
+| mem_total | B     |
+| mem_avg   | B     |
+| cpu_total | %     |
 
 </TabItem>
 </Tabs>
@@ -218,9 +219,9 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller
 3. Appliquez le modèle d'hôte **App-Monitoring-Centreon-Poller-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro            | Description                                                                                          | Valeur par défaut                            | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
-| MODULESTATSFILE  | Specify the centreon-broker json stats file (required). Can be multiple                              | /var/lib/centreon-engine/*-module-stats.json | X           |
+| Macro            | Description                                                                                                                                        | Valeur par défaut                            | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------|:-----------:|
+| MODULESTATSFILE  | Specify the centreon-broker json stats file (required). Can be multiple                                                                            | /var/lib/centreon-engine/*-module-stats.json | X           |
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                              |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -233,65 +234,65 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-Poller
 <Tabs groupId="sync">
 <TabItem value="Broker-Stats" label="Broker-Stats">
 
-| Macro                        | Description                                                                                                                                                                                                                                 | Valeur par défaut                                               | Obligatoire |
-|:-----------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:-----------:|
-| FILTERNAME                   | Filter endpoint name                                                                                                                                                                                                                        |                                                                 |             |
-| WARNINGQUEUEDEVENTS          | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALQUEUEDEVENTS         | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| WARNINGSPEEDEVENTS           | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALSPEEDEVENTS          | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL (default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\} | %\{type\} eq "output" and %\{queue_file_enabled\}=~ /true\|yes/i |             |
-| WARNINGSTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                         |                                                                 |             |
-| WARNINGUNACKNOWLEDGEDEVENTS  | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| CRITICALUNACKNOWLEDGEDEVENTS | Thresholds                                                                                                                                                                                                                                  |                                                                 |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                          | --verbose --ssh-username='centreon'                             |             |
+| Macro                        | Description                                                                                                                                                                  | Valeur par défaut                                               | Obligatoire |
+|:-----------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------|:-----------:|
+| FILTERNAME                   | Filter endpoint name                                                                                                                                                         |                                                                 |             |
+| WARNINGQUEUEDEVENTS          | Thresholds                                                                                                                                                                   |                                                                 |             |
+| CRITICALQUEUEDEVENTS         | Thresholds                                                                                                                                                                   |                                                                 |             |
+| WARNINGSPEEDEVENTS           | Thresholds                                                                                                                                                                   |                                                                 |             |
+| CRITICALSPEEDEVENTS          | Thresholds                                                                                                                                                                   |                                                                 |             |
+| CRITICALSTATUS               | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\} | %\{type\} eq "output" and %\{queue_file_enabled\}=~ /true\|yes/i |             |
+| WARNINGSTATUS                | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}  |                                                                 |             |
+| WARNINGUNACKNOWLEDGEDEVENTS  | Thresholds                                                                                                                                                                   |                                                                 |             |
+| CRITICALUNACKNOWLEDGEDEVENTS | Thresholds                                                                                                                                                                   |                                                                 |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                             | --verbose --ssh-username='centreon'                             |             |
 
 </TabItem>
 <TabItem value="proc-centengine" label="proc-centengine">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | centengine        |             |
-| PROCESSPATH  | Filter process path                                                                                | /usr/sbin/        |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | centengine        |             |
+| PROCESSPATH  | Filter process path                                                                                                                              | /usr/sbin/        |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="proc-gorgoned" label="proc-gorgoned">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | perl              |             |
-| PROCESSARGS  | Filter process arguments                                                                           | /usr/bin/gorgoned |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1               |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | perl              |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         | /usr/bin/gorgoned |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   | 1:1               |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --cpu --memory    |             |
 
 </TabItem>
 <TabItem value="proc-ntpd" label="proc-ntpd">
 
-| Macro        | Description                                                                                        | Default value                  | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | ntpd\|chronyd\|systemd-timesyn |             |
-| PROCESSPATH  | Filter process path                                                                                |                                |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                                |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     | 1:1                            |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                                |             |
+| Macro        | Description                                                                                                                              | Default value                  | Mandatory   |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                      | ntpd\|chronyd\|systemd-timesyn |             |
+| PROCESSPATH  | Filter process path                                                                                                                      |                                |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                 |                                |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                           | 1:1                            |             |
+| WARNING      | Warning threshold of matching processes count                                                                                            |                                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="proc-sshd" label="proc-sshd">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| PROCESSNAME  | Filter process name                                                                                | sshd              |             |
-| PROCESSPATH  | Filter process path                                                                                |                   |             |
-| PROCESSARGS  | Filter process arguments                                                                           |                   |             |
-| WARNING      | Warning threshold of matching processes count                                                      |                   |             |
-| CRITICAL     | Critical threshold of matching processes count                                                     |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PROCESSNAME  | Filter process name                                                                                                                              | sshd              |             |
+| PROCESSPATH  | Filter process path                                                                                                                              |                   |             |
+| PROCESSARGS  | Filter process arguments                                                                                                                         |                   |             |
+| WARNING      | Warning threshold of matching processes count                                                                                                    |                   |             |
+| CRITICAL     | Critical threshold of matching processes count                                                                                                   |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -409,7 +410,7 @@ Les options génériques sont listées ci-dessous :
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale"Mbps",mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
@@ -432,28 +433,28 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="Broker-Stats" label="Broker-Stats">
 
-| Option                   | Description                                                                                                                                                                                                                                    |
-|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --ssh-backend            | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                             |
-| --ssh-username           | Define the user name to log in to the host.                                                                                                                                                                                                    |
-| --ssh-password           | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                           |
-| --ssh-port               | Define the TCP port on which SSH is listening.                                                                                                                                                                                                 |
-| --ssh-priv-key           | Define the private key file to use for user authentication.                                                                                                                                                                                    |
-| --sshcli-command         | ssh command (default: 'ssh').                                                                                                                                                                                                                  |
-| --sshcli-path            | ssh command path (default: none)                                                                                                                                                                                                               |
-| --sshcli-option          | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no').                                                                                                                                                              |
-| --plink-command          | plink command (default: 'plink').                                                                                                                                                                                                              |
-| --plink-path             | plink command path (default: none)                                                                                                                                                                                                             |
-| --plink-option           | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                          |
-| --libssh-strict-connect  | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                            |
-| --hostname               | Hostname to query in ssh.                                                                                                                                                                                                                      |
-| --timeout                | Timeout in seconds for the command (default: 30).                                                                                                                                                                                              |
-| --sudo                   | Use 'sudo' to execute the command.                                                                                                                                                                                                             |
-| --broker-stats-file      | Specify the centreon-broker json stats file (required). Can be multiple.                                                                                                                                                                       |
-| --filter-name            | Filter endpoint name.                                                                                                                                                                                                                          |
-| --warning-* --critical-* | Thresholds. Can be: 'speed-events', 'queued-events', 'unacknowledged-events'.                                                                                                                                                                  |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                            |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}    |
+| Option                   | Description                                                                                                                                                                                                                                                                                                                                                                                          |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --ssh-backend            | Define the backend you want to use. It can be: sshcli (default), plink and libssh.                                                                                                                                                                                                                                                                                                                   |
+| --ssh-username           | Define the user name to log in to the host.                                                                                                                                                                                                                                                                                                                                                          |
+| --ssh-password           | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead.                                                                                                                                                                                                                                 |
+| --ssh-port               | Define the TCP port on which SSH is listening.                                                                                                                                                                                                                                                                                                                                                       |
+| --ssh-priv-key           | Define the private key file to use for user authentication.                                                                                                                                                                                                                                                                                                                                          |
+| --sshcli-command         | ssh command (default: 'ssh').                                                                                                                                                                                                                                                                                                                                                                        |
+| --sshcli-path            | ssh command path (default: none)                                                                                                                                                                                                                                                                                                                                                                     |
+| --sshcli-option          | Specify ssh cli options (example: --sshcli-option='-o=StrictHostKeyChecking=no'). The default option is --sshcli-options='-o=LogLevel=ERROR' which hides the SSH banner. If you override this parameter, make sure to append '-o=LogLevel=ERROR' to your new value to maintain this behavior. This parameter can be used multiple times and multiple options can be specified in the same parameter. |
+| --plink-command          | plink command (default: 'plink').                                                                                                                                                                                                                                                                                                                                                                    |
+| --plink-path             | plink command path (default: none)                                                                                                                                                                                                                                                                                                                                                                   |
+| --plink-option           | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                |
+| --libssh-strict-connect  | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                                                                                                                                                                                  |
+| --hostname               | Hostname to query in ssh.                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                | Timeout in seconds for the command (default: 30).                                                                                                                                                                                                                                                                                                                                                    |
+| --sudo                   | Use 'sudo' to execute the command.                                                                                                                                                                                                                                                                                                                                                                   |
+| --broker-stats-file      | Specify the centreon-broker json stats file (required). Can be multiple.                                                                                                                                                                                                                                                                                                                             |
+| --filter-name            | Filter endpoint name.                                                                                                                                                                                                                                                                                                                                                                                |
+| --warning-* --critical-* | Thresholds. Can be: 'speed-events', 'queued-events', 'unacknowledged-events'.                                                                                                                                                                                                                                                                                                                        |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                                                                                                                                                                          |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{type\} eq "output" and %\{queue_file_enabled\}=~ /yes/i'). You can use the following variables: %\{queue_file_enabled\}, %\{state\}, %\{status\}, %\{type\}, %\{display\}                                                                                                                                                 |
 
 </TabItem>
 <TabItem value="proc-centengine" label="proc-centengine">
@@ -479,7 +480,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --contextname             | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                 |
 | --contextengineid         | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                         |
 | --securityengineid        | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                              |
-| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                |
+| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                |
 | --snmp-tls-transport      | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                       |
 | --snmp-tls-our-identity   | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                             |
 | --snmp-tls-their-identity | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                      |
@@ -544,7 +545,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --contextname             | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                 |
 | --contextengineid         | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                         |
 | --securityengineid        | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                              |
-| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                |
+| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                |
 | --snmp-tls-transport      | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                       |
 | --snmp-tls-our-identity   | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                             |
 | --snmp-tls-their-identity | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                      |
@@ -609,7 +610,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --contextname             | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                 |
 | --contextengineid         | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                         |
 | --securityengineid        | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                              |
-| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                |
+| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                |
 | --snmp-tls-transport      | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                       |
 | --snmp-tls-our-identity   | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                             |
 | --snmp-tls-their-identity | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                      |
@@ -674,7 +675,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --contextname             | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                 |
 | --contextengineid         | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                         |
 | --securityengineid        | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                              |
-| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                |
+| --snmp-errors-exit        | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                |
 | --snmp-tls-transport      | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                       |
 | --snmp-tls-our-identity   | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                             |
 | --snmp-tls-their-identity | X.509 certificate to identify the remote host. Can be the path to the certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                      |

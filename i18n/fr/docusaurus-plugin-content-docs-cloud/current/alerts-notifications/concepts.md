@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Statuts possibles d'une ressource
+description: "Vue d'ensemble des statuts d'hôtes et de services, des états acquitté et en maintenance, et des types de statut SOFT/HARD dans Centreon Cloud"
 ---
 
 Les statuts indiquent la disponibilité d'un hôte, et la disponibilité ou la performance d'un service. Chaque
@@ -18,7 +19,7 @@ Le tableau ci-dessous résume l'ensemble des statuts possibles pour un hôte.
 | Status                                               | Description                        |
 |------------------------------------------------------|------------------------------------|
 | <span style={{color:'#88b917'}}>DISPONIBLE</span>    | L'hôte est disponible et joignable |
-| <span style={{color:'#e00b3d'}}>INDISPONIBLE</span>  | L'hôte est indisponible            |
+| <span style={{color:'#e00b3d'}}>INDISPONIBLE</span>  | L'hôte est indisponible. Les services correspondants ne sont plus contrôlés jusqu'à ce que l'hôte redevienne disponible (ils gardent leur dernier statut).            |
 | <span style={{color:'#2ad1d4'}}>EN ATTENTE</span>    | L'hôte vient d'être créé mais n'a pas encore été contrôlé par le moteur de supervision |
 
 ## Statut des services

@@ -1,6 +1,7 @@
 ---
 id: groups
 title: Groupes
+description: "Regrouper les hôtes et services pour les ACLs, rapports et filtres"
 ---
 
 Il est possible de regrouper des hôtes ou des services au sein de groupes.
@@ -34,18 +35,8 @@ Rendez-vous dans le menu **Configuration > Hôtes > Groupes d'hôtes** et clique
 
 * Les champs **Nom** et **Alias** regroupent le nom et l’alias du groupe d’hôtes.
 * La liste **Membres** permet d’ajouter des hôtes au sein du nouveau groupe d’hôtes.
-* Le champ **Notes** permet d’ajouter des notes optionnelles concernant le groupe d’hôtes.
-* Le champ **URL** définit une URL qui peut être utilisée pour donner davantage d’informations sur le groupe d’hôtes.
-* Le champ **URL d'action** définit une URL habituellement utilisée pour donner des informations d’actions sur le groupe
-  d’hôtes (maintenance...).
 * Le champ **Icône** indique l’icône à utiliser pour le groupe d’hôtes.
-* Le champ **Icône pour la carte** est l’icône utilisée pour la cartographie.
 * Le champ **Coordonnées géographiques** définit les coordonnées géographiques utilisées par le module Centreon Map pour positionner
-  l'élément sur la carte. Définissez "Latitude, Longitude", par exemple pour le jeu de coordonnées de Paris "48.51,2.20"
-* Le champ **Rétention des fichiers RRD** est exprimé en jours, il permet de définir la durée de rétention des services appartenant
-  à ce groupe d’hôtes au sein de la base de données RRD. Si cette valeur est vide, la valeur sera celle par défaut
-  définie dans le menu **Administration > Options > CentStorage**.
-* Les champs **Activer/désactiver la ressource** et **Commentaires** permettent d’activer ou de désactiver le groupe d’hôtes et de commenter celui-ci.
 
 ## Créer un groupe de services
 

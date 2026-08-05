@@ -1,6 +1,7 @@
 ---
 id: database-partitioning
 title: Partitionnement des bases de données
+description: "Configurer et surveiller le partitionnement des tables MariaDB de Centreon"
 ---
 
 ## Présentation
@@ -25,7 +26,7 @@ Une partition par jour est créée pour les tables suivantes :
 > - Les clés étrangères ne sont pas supportées
 
 Plus de détails sur le partitionnement MariaDB [à cette
-adresse](https://mariadb.com/kb/en/library/partitioning-overview/).
+adresse](https://mariadb.com/docs/server/server-usage/partitioning-tables/partitioning-overview).
 
 ## Prérequis
 

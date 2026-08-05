@@ -1,6 +1,7 @@
 ---
 id: using-packages
 title: À partir des paquets
+description: "Installer et enregistrer un serveur distant à partir des paquets RPM ou DEB"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -168,16 +169,11 @@ systemctl disable firewalld
 <Tabs groupId="sync">
 <TabItem value="Alma 8" label="Alma 8">
 
-#### Dépôt remi
-
-Afin d'installer les logiciels Centreon, le dépôt **remi** doit être installé.
-
 Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled 'powertools'
 ```
 
@@ -185,22 +181,21 @@ Activez PHP 8.2 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
-#### Dépôt remi et CodeReady Builder
+#### Dépôt CodeReady Builder
 
-Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
+Afin d'installer les logiciels Centreon, le dépôt **CodeReady Builder** doit être installé.
 
 Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
@@ -214,23 +209,22 @@ Activez PHP 8.2 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
 
 <TabItem value="Oracle Linux 8" label="Oracle Linux 8">
 
-#### Dépôt remi et CodeReady Builder
+#### Dépôt CodeReady Builder
 
-Afin d'installer les logiciels Centreon, les dépôts **remi** et **CodeReady Builder** doivent être installés.
+Afin d'installer les logiciels Centreon, le dépôt **CodeReady Builder** doit être installé.
 
 Exécutez les commandes suivantes :
 
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-8.rpm
 dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
@@ -238,7 +232,7 @@ Activez PHP 8.2 en utilisant les commandes suivantes :
 
 ```shell
 dnf module reset php
-dnf module install php:remi-8.2
+dnf module install php:8.2
 ```
 
 </TabItem>
@@ -524,10 +518,12 @@ Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur C
 -t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
 ```
 
-Exemple:
+Si vous utilisez une [URI personnalisée](../../administration/secure-platform.md#uri-personnalisée), ajoutez-la à la fin de la commande, au format suivant : **/uri_personnalisée**.
+
+Exemple (avec une URI personnalisée) :
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1
+/usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1 /monitoring
 ```
 
 > Remplacez **\<IP_TARGET_NODE\>** par l'adresse IP du serveur Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).

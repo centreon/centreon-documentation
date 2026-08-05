@@ -1,6 +1,7 @@
 ---
 id: ba-monitoring
 title: Supervision
+description: "Superviser en temps réel le statut et la santé des activités métier"
 ---
 
 Après avoir créé / modifié / supprimé des objets liés à Centreon BAM,
@@ -44,29 +45,13 @@ charge, cette dernière est une vue détaillée de la BA.
 
 ### Vue détaillée
 
-La vue détaillée d'une BA est divisée en 7 parties.
+La vue détaillée d'une BA est divisée en 6 parties.
 
 ![image](../assets/service-mapping/guide/mon_detailed.png)
 
-1.  Tableau listant les indicateurs de performance impactant
-    actuellement la BA.
-2.  Tableau d'information sur l'état de santé de la BA et les seuils
-    d'alertes.
-3.  Onglet présentant l'arbre d'impact de la BA. Il est possible de
-    déployer les niveaux inférieurs, zoomer et se déplacer dans le
-    graphique.
-4.  Onglet contenant les graphiques de niveau de services de la BA
-5.  Onglet contenant un tableau listant tous les KPIs de la BA
-6.  Menu déroulant permettant de modifier la BA
-7.  Lien vers la page de reporting de la BA
-
-Le tableau des KPI affichent en temps réel les informations sur leurs
-états mais aussi les impacts sur la BA.
-
-![image](../assets/service-mapping/guide/mon_kpi_list.png)
-
-L'onglet "Tendance" affiche 4 graphique : un journalier, un
-hebdomadaire, un mensuel et un annuel affichant le niveau de la BA dans
-le temps et son statut.
-
-![image](../assets/service-mapping/guide/mon_trend.png)
+- Liste déroulante **Activités métiers** pour sélectionner une autre activité métier.
+- Informations sur le statut du niveau de Santé actuelle de l'activité métier et les seuils d'alerte.
+- Bouton **Reporting view** pour accéder à la page des rapports.
+- Zone contenant l'arbre d'impact de l'activité métier. Vous pouvez ouvrir un sous-niveau, zoomer et dézoomer, et déplacer l'arborescence.
+- Tableau contenant la liste des KPIs ayant un impact sur le niveau de l'activité métier.
+- Barre de chronologie des statuts affichant une séquence chronologique des différents statuts.

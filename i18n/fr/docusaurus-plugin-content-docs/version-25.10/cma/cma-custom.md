@@ -1,0 +1,55 @@
+---
+id: cma-custom
+title: Utiliser des plugins personnalisés avec CMA
+description: "Exécuter des plugins Bash, Perl, Python ou PowerShell personnalisés avec CMA"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+**Centreon Monitoring Agent** est capable d'exécuter des plugins personnalisés. Utilisez cette fonctionnalité si vos besoins de supervision sont spécifiques et non couverts par les contrôles natifs et plugins Centreon. Les langages supportés sont : PowerShell, Perl, Python, Bash.
+
+Pour commencer, créez votre plugin : vous pouvez par exemple utiliser [notre guide développeur](/pp/integrations/plugin-packs/dev-resources/introduction).
+L'exécution des plugins personnalisés nécessite de déclarer les commandes associées dans un fichier dédié, sur l'hôte. Ces commandes seront utilisées comme valeurs de macros dans le service correspondant.
+
+## Actions sur l'hôte
+
+1. Copiez le plugin sur l'hôte, dans le répertoire de votre choix.
+2. Créez le fichier de commandes. Les formats supportés sont **.txt** ou **.ini**. Le fichier doit être encodé en **UTF-8** (sans BOM). D'autres encodages tels que UTF-16 ou UTF-16 LE BOM empêcheront le fonctionnement des checks personnalisés.
+
+   Exemple de contenu :
+
+   ```bash
+   [custom_checks]
+   check_echo = /usr/bin/echo "$ARG1$ $ARG2$"
+   custom_check_2 = /path/to/custom_check_2 -c /arg=$ARG1$
+   ...
+   ```
+
+3. Déclarez le chemin vers le fichier dans la configuration de l'agent, via le paramètre **custom_check_file**.
+
+   * **Linux** : centagent.json
+
+   ```json
+   {
+     ...
+     "custom_check_file":"/path/to/commandsfile.ini",
+     ...
+   }
+   ```
+
+   * **Windows** : via l'installeur/mode silencieux (**/CUSTOMCHECK**) ou directement en base de registre (en ajoutant une clé de registre **custom_check_file**).
+
+## Actions dans Centreon
+
+1. Sur votre serveur central, si ce n'est pas déjà fait, [créez l'hôte](../monitoring/basic-objects/hosts.md) correspondant à la ressource à superviser.
+
+2. Créez un service basé sur le modèle de service proposé ou créez un modèle de service dédié. Auquel cas, le modèle doit hériter (directement ou via son parent) des modèles **OS-Linux-Custom-Script-Centreon-Monitoring-Agent** ou **OS-Windows-Custom-Script-Centreon-Monitoring-Agent**, et être configuré avec les contrôles passifs activés et les contrôles actifs désactivés.
+
+3. Renseignez les macros suivantes :
+
+   * $_SERVICECUSTOMCHECK$ : le nom de la commande déclarée sur l'hôte (ex : **check_echo**)
+   * $_SERVICEARG1$ : valeur qui sera passée à **$ARG1$** dans la commande déclarée.
+
+   Il est possible de passer jusqu'à 8 valeurs ($_SERVICEARG1$ à $_SERVICEARG8$).
+
+4. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).

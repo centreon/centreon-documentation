@@ -1,6 +1,7 @@
 ---
 id: web-import-export
 title: Import/Export
+description: "Export and import Centreon configuration objects between platforms using AWIE"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -16,6 +17,8 @@ replicated.
 
 Centreon AWIE is based on CLAPI commands, but its added value is to allow the use of
 the Centreon Web UI instead of command lines.
+
+To be able to use AWIE, you need to be an administrator.
 
 ## Installation
 

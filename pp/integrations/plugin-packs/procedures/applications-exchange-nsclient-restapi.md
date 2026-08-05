@@ -1,89 +1,717 @@
 ---
 id: applications-exchange-nsclient-restapi
-title: Exchange NSClient++ API
+title: Microsoft Exchange NSClient RestAPI
+description: "Monitor Microsoft Exchange via the NSClient++ REST API: databases, services, queues, and mailbox connectivity checks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Overview
-
-The Monitoring Connector *Exchange NSClient API* works with the Centreon NSClient++ monitoring
-agent and its built-in web server to run Powershell code to check the health and 
-performance of Microsoft Exchange Servers.
+The following monitoring connectors will be installed when you install the **Microsoft Exchange NSClient RestAPI** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
 ## Pack assets
 
-### Monitored objects
+### Templates
 
-* From Exchange Server 2k10 to latest
+The Monitoring Connector **Microsoft Exchange NSClient RestAPI** brings a host template:
 
-### Collected metrics
+* **App-Exchange-NSClient-Restapi-custom**
 
-*Coming soon ...*
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="App-Exchange-NSClient-Restapi-custom" label="App-Exchange-NSClient-Restapi-custom">
+
+| Service Alias     | Service Template                               | Service Description      |
+|:------------------|:-----------------------------------------------|:-------------------------|
+| Databases         | App-Exchange-Databases-NSClient-Restapi-custom | Check Exchange Databases |
+| Exchange-Services | App-Exchange-Services-NSClient-Restapi-custom  | Check exchange services  |
+| Queues            | App-Exchange-Queues-NSClient-Restapi-custom    | Check queue status       |
+
+> The services listed above are created automatically when the **App-Exchange-NSClient-Restapi-custom** host template is used.
+
+</TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias       | Service Template                                         | Service Description                                    |
+|:--------------------|:---------------------------------------------------------|:-------------------------------------------------------|
+| Activesync-Mailbox  | App-Exchange-Activesync-Mailbox-NSClient-Restapi-custom  | Check activesync to a mailbox                          |
+| Imap-Mailbox        | App-Exchange-Imap-Mailbox-NSClient-Restapi-custom        | Check IMAP to a mailbox                                |
+| Mailboxes           | App-Exchange-Mailboxes-NSClient-Restapi-custom           | Check mailboxes (quota and user mailboxes by database) |
+| Mapi-Mailbox        | App-Exchange-Mapi-Mailbox-NSClient-Restapi-custom        | Check MAPI to a mailbox                                |
+| Outlook-Webservices | App-Exchange-Outlook-Webservices-NSClient-Restapi-custom | Check outlook autodiscovery webservices                |
+| Owa-Mailbox         | App-Exchange-Owa-Mailbox-NSClient-Restapi-custom         | Check OWA connection to a mailbox                      |
+| Replication-Health  | App-Exchange-Replication-Health-NSClient-Restapi-custom  | Check replication health                               |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+</TabItem>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<TabItem value="Activesync-Mailbox" label="Activesync-Mailbox">
+
+No metric for this service.
+
+</TabItem>
+<TabItem value="Databases" label="Databases">
+
+| Name                                          | Unit  |
+|:----------------------------------------------|:------|
+| databases.space.size.bytes                    | B     |
+| databases.space.available.bytes               | B     |
+| status                                        | N/A   |
+| *databases*~database.space.size.bytes         | B     |
+| *databases*~database.space.available.bytes    | B     |
+| mapi                                          | N/A   |
+| mailflow                                      | N/A   |
+| *databases*~database.mailflow.latency.seconds | s     |
+| copystatus                                    | N/A   |
+
+</TabItem>
+<TabItem value="Exchange-Services" label="Exchange-Services">
+
+No metrics for this service.
+
+</TabItem>
+<TabItem value="Imap-Mailbox" label="Imap-Mailbox">
+
+No metrics for this service.
+
+</TabItem>
+<TabItem value="Mailboxes" label="Mailboxes">
+
+| Name                                                     | Unit  |
+|:---------------------------------------------------------|:------|
+| *databases*#database.mailboxes.total.count               | count |
+| *users*#user.soft.limit.count                            | count |
+| *users*#user.hard.limit.count                            | count |
+| *users*#user.quota.unlimited.limit.count                 | count |
+| *users*#user.total.count                                 | count |
+| *publicfolders*#publicfolder.soft.limit.count            | count |
+| *publicfolders*#publicfolder.hard.limit.count            | count |
+| *publicfolders*#publicfolder.quota.unlimited.limit.count | count |
+| *publicfolders*#publicfolder.total.count                 | count |
+
+</TabItem>
+<TabItem value="Mapi-Mailbox" label="Mapi-Mailbox">
+
+No metrics for this service.
+
+</TabItem>
+<TabItem value="Outlook-Webservices" label="Outlook-Webservices">
+
+No metrics for this service.
+
+</TabItem>
+<TabItem value="Owa-Mailbox" label="Owa-Mailbox">
+
+No metrics for this service.
+
+</TabItem>
+<TabItem value="Queues" label="Queues">
+
+| Name   | Unit  |
+|:-------|:------|
+| status | N/A   |
+
+</TabItem>
+<TabItem value="Replication-Health" label="Replication-Health">
+
+No metrics for this service.
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-### NSClient++
+### Centreon NSClient++
 
-To monitor an *Exchange Server* through NSClient++ API, install the Centreon packaged version 
-of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) 
-and make sure that the **Webserver / RESTApi** configuration is correct. 
+To monitor a resource through NSClient++ API, install the Centreon
+packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
+and make sure that the **Webserver / RESTApi** configuration is correct.
 
-### Powershell 
+## Installing the monitoring connector
 
-Powershell and the `Microsoft.Exchange.Management.PowerShell` snap-in must be installed
-on the target Server.
+### Pack
 
-## Installation 
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon NRPE Client package on every Poller expected to monitor *Microsoft Exchange servers*:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Operatingsystems-Windows-Restapi
+dnf install centreon-pack-applications-exchange-nsclient-restapi
 ```
-
-2. On the Centreon Web interface, install the Centreon Monitoring Connector *Exchange NSClient API* 
-from the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Poller expected to monitor *Microsoft Exchange*:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Operatingsystems-Windows-Restapi
+dnf install centreon-pack-applications-exchange-nsclient-restapi
 ```
 
-2. Install the Centreon Monitoring Connector RPM on the Central server:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-exchange-nsclient-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-exchange-nsclient-restapi
 ```
 
-3. On the Centreon Web interface, install the Centreon Monitoring Connector *Exchange NSClient API* 
-from the **Configuration > Connectors > Monitoring Connectors** page
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Microsoft Exchange NSClient RestAPI** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-Windows-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Operatingsystems-Windows-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-operatingsystems-windows-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Operatingsystems-Windows-Restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Host configuration
+## Using the monitoring connector
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**.
-* Apply the *App-Exchange-NRPE-custom* template and configure all the mandatory Macros:
+### Using a host template provided by the connector
 
-| Mandatory | Name                      | Description                                                                |
-|:----------|:--------------------------|:-------------------------------------------------------------------------- |
-| X         | NSCPRESTAPIPORT           | NSClient++ RestAPI port (Default: '8443')                                  |
-| X         | NSCPRESTAPIPROTO          | NSClient++ RestAPI protocol to use (Default: 'https')                      |
-|           | NSCPRESTAPILEGACYPASSWORD | Password to authenticate against the API if relevant                       |
-|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --verbose flag) |
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Exchange-NSClient-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-## Important information
+| Macro                     | Description                                                                                                                              | Default value | Mandatory |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                                                                                  | PASSWORD      |           |
+| NSCPRESTAPIPROTO          | Protocol used                                                                                                                            | https         |           |
+| NSCPRESTAPIPORT           | Port used by the REST API NSClient++                                                                                                     | 8443          |           |
+| NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
-* The *Queue* monitoring Service only works on Exchange Server running with the 
-hub/transport role
-* Use this format to define MAILBOX macro at the service level: DOMAIN\\USER
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Activesync-Mailbox" label="Activesync-Mailbox">
+
+| Macro        | Description                                                                                                                            | Default value                 | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
+| PASSWORD     | Set the password for the mailbox                                                                                                       |                               |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                 |                               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                     |           |
+
+</TabItem>
+<TabItem value="Databases" label="Databases">
+
+| Macro                           | Description                                                                                                                            | Default value                                 | Mandatory |
+|:--------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------|:---------:|
+| FILTER                          | Filter database (only wilcard '*' can be used. In Powershell)                                                                          | *                                             |           |
+| CRITICALCOPYSTATUS              | Set critical threshold. You can use the following variables: %\{copystatus\_indexstate\}, %\{database\}, %\{server\}                   | not %\{copystatus\_indexstate\} =~ /Healthy/i |           |
+| WARNINGCOPYSTATUS               | Set warning threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                          |                                               |           |
+| WARNINGDATABASESPACEAVAILABLE   | Threshold                                                                                                                              |                                               |           |
+| CRITICALDATABASESPACEAVAILABLE  | Threshold                                                                                                                              |                                               |           |
+| WARNINGDATABASESPACESIZE        | Threshold                                                                                                                              |                                               |           |
+| CRITICALDATABASESPACESIZE       | Threshold                                                                                                                              |                                               |           |
+| WARNINGDATABASESSPACEAVAILABLE  | Threshold                                                                                                                              |                                               |           |
+| CRITICALDATABASESSPACEAVAILABLE | Threshold                                                                                                                              |                                               |           |
+| WARNINGDATABASESSPACESIZE       | Threshold                                                                                                                              |                                               |           |
+| CRITICALDATABASESSPACESIZE      | Threshold                                                                                                                              |                                               |           |
+| CRITICALMAILFLOW                | Set critical threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                         | not %\{mailflow\_result\} =~ /Success/i       |           |
+| WARNINGMAILFLOW                 | Set warning threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                          |                                               |           |
+| WARNINGMAILFLOWLATENCY          | Threshold                                                                                                                              |                                               |           |
+| CRITICALMAILFLOWLATENCY         | Threshold                                                                                                                              |                                               |           |
+| CRITICALMAPI                    | Set critical threshold. You can use the following variables: %\{mapi\_result\}, %\{database\}, %\{server\}                             | not %\{mapi\_result\} =~ /Success/i           |           |
+| WARNINGMAPI                     | Set warning threshold. You can use the following variables: %\{mapi\_result\}, %\{database\}, %\{server\}                              |                                               |           |
+| CRITICALSTATUS                  | Set critical threshold. You can use the following variables: %\{mounted\}, %\{database\}, %\{server\}                                  | %\{mounted\} == 0                             |           |
+| WARNINGSTATUS                   | Set warning threshold. You can use the following variables: %\{mounted\}, %\{database\}, %\{server\}                                   |                                               |           |
+| EXTRAOPTIONS                    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --no-mapi --no-mailflow             |           |
+
+</TabItem>
+<TabItem value="Exchange-Services" label="Exchange-Services">
+
+| Macro        | Description                                                                                                                                         | Default value                                                                       | Mandatory |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------|:---------:|
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{servicesrunning\}, %\{servicesnotrunning\}, %\{role\}, %\{requiredservicesrunning\} | %\{requiredservicesrunning\} =~ /True/i and %\{servicesnotrunning\} =~ /\[a-zA-Z\]/ |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{servicesrunning\}, %\{servicesnotrunning\}, %\{role\}, %\{requiredservicesrunning\}  |                                                                                     |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).              | --verbose                                                                           |           |
+
+</TabItem>
+<TabItem value="Imap-Mailbox" label="Imap-Mailbox">
+
+| Macro        | Description                                                                                                                            | Default value                 | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
+| PASSWORD     | Set the password for the mailbox                                                                                                       |                               |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                 |                               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                     |           |
+
+</TabItem>
+<TabItem value="Mailboxes" label="Mailboxes">
+
+| Macro                               | Description                                                                                                                            | Default value | Mandatory |
+|:------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| PSERVER                             | Select mailboxes by an uniq server name (In Powershell)                                                                                |               |           |
+| PSDATABASE                          | Select mailboxes by an uniq database name (In Powershell)                                                                              |               |           |
+| PSMATCHSERVER                       | Filter mailboxes by server name (regexp can be used. In Powershell)                                                                    |               |           |
+| PSMATCHDATABASE                     | Filter mailboxes by database name (regexp can be used. In Powershell)                                                                  |               |           |
+| WARNINGDATABASEMAILBOXESTOTAL       | Threshold                                                                                                                              |               |           |
+| CRITICALDATABASEMAILBOXESTOTAL      | Threshold                                                                                                                              |               |           |
+| WARNINGPUBLICFOLDERSHARDLIMIT       | Threshold                                                                                                                              |               |           |
+| CRITICALPUBLICFOLDERSHARDLIMIT      | Threshold                                                                                                                              |               |           |
+| WARNINGPUBLICFOLDERSQUOTAUNLIMITED  | Threshold                                                                                                                              |               |           |
+| CRITICALPUBLICFOLDERSQUOTAUNLIMITED | Threshold                                                                                                                              |               |           |
+| WARNINGPUBLICFOLDERSSOFTLIMIT       | Threshold                                                                                                                              |               |           |
+| CRITICALPUBLICFOLDERSSOFTLIMIT      | Threshold                                                                                                                              |               |           |
+| WARNINGPUBLICFOLDERSTOTAL           | Threshold                                                                                                                              |               |           |
+| CRITICALPUBLICFOLDERSTOTAL          | Threshold                                                                                                                              |               |           |
+| WARNINGUSERSHARDLIMIT               | Threshold                                                                                                                              |               |           |
+| CRITICALUSERSHARDLIMIT              | Threshold                                                                                                                              |               |           |
+| WARNINGUSERSQUOTAUNLIMITED          | Threshold                                                                                                                              |               |           |
+| CRITICALUSERSQUOTAUNLIMITED         | Threshold                                                                                                                              |               |           |
+| WARNINGUSERSSOFTLIMIT               | Threshold                                                                                                                              |               |           |
+| CRITICALUSERSSOFTLIMIT              | Threshold                                                                                                                              |               |           |
+| WARNINGUSERSTOTAL                   | Threshold                                                                                                                              |               |           |
+| CRITICALUSERSTOTAL                  | Threshold                                                                                                                              |               |           |
+| EXTRAOPTIONS                        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
+
+</TabItem>
+<TabItem value="Mapi-Mailbox" label="Mapi-Mailbox">
+
+| Macro        | Description                                                                                                                            | Default value                 | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                 |                               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                     |           |
+
+</TabItem>
+<TabItem value="Outlook-Webservices" label="Outlook-Webservices">
+
+| Macro        | Description                                                                                                                            | Default value                            | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|:---------:|
+| MAILBOX      | Set the mailbox to check                                                                                                               |                                          |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{type\}, %\{id\}, %\{message\}                                          | not %\{type\} =~ /Success\|Information/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{type\}, %\{id\}, %\{message\}                                           |                                          |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                |           |
+
+</TabItem>
+<TabItem value="Owa-Mailbox" label="Owa-Mailbox">
+
+| Macro        | Description                                                                                                                            | Default value                 | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------------|:---------:|
+| URL          | Set the OWA Url                                                                                                                        |                               |     X     |
+| MAILBOX      | Set the mailbox to check                                                                                                               |                               |     X     |
+| PASSWORD     | Set the password for the mailbox                                                                                                       |                               |     X     |
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                | not %\{result\} =~ /Success/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                 |                               |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                     |           |
+
+</TabItem>
+<TabItem value="Queues" label="Queues">
+
+| Macro        | Description                                                                                                                                       | Default value                       | Mandatory |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------:|
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{status\}, %\{identity\}, %\{is\_valid\}, %\{delivery\_type\}, %\{message\_count\} | not %\{status\} =~ /Ready\|Active/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{status\}, %\{identity\}, %\{is\_valid\}, %\{delivery\_type\}, %\{message\_count\}  |                                     |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).            | --verbose                           |           |
+
+</TabItem>
+<TabItem value="Replication-Health" label="Replication-Health">
+
+| Macro        | Description                                                                                                                            | Default value                | Mandatory |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:---------:|
+| CRITICAL     | Set critical threshold. You can use the following variables: %\{result\}, %\{server\}, %\{isvalid\}, %\{check\}                        | not %\{result\} =~ /Passed/i |           |
+| WARNING      | Set warning threshold. You can use the following variables: %\{result\}, %\{server\}, %\{isvalid\}, %\{check\}                         |                              |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                    |           |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
+
+```bash
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
+	--plugin=apps::nsclient::restapi::plugin \
+	--mode=query \
+	--hostname='10.0.0.1' \
+	--port='8443' \
+	--proto='https' \
+	--legacy-password='PASSWORD'  \
+	--command=check_centreon_plugins \
+	--arg='apps::microsoft::exchange::local::plugin' \
+	--arg='queues'  \
+	--arg='  \
+	--warning-status="" \
+	--critical-status="not %\{status\} =~ /Ready|Active/i" \
+	--verbose'
+```
+
+The expected command output is shown below:
+
+```bash
+OK: All queues are ok 
+```
+
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
+	--plugin=apps::nsclient::restapi::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                                 | Linked service template                                  |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------|
+| activesync-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/activesyncmailbox.pm)]   | App-Exchange-Activesync-Mailbox-NSClient-Restapi-custom  |
+| databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/databases.pm)]                    | App-Exchange-Databases-NSClient-Restapi-custom           |
+| imap-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/imapmailbox.pm)]               | App-Exchange-Imap-Mailbox-NSClient-Restapi-custom        |
+| list-databases [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/listdatabases.pm)]           | Not used in this Monitoring Connector                    |
+| mailboxes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/mailboxes.pm)]                    | App-Exchange-Mailboxes-NSClient-Restapi-custom           |
+| mapi-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/mapimailbox.pm)]               | App-Exchange-Mapi-Mailbox-NSClient-Restapi-custom        |
+| outlook-webservices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/outlookwebservices.pm)] | App-Exchange-Outlook-Webservices-NSClient-Restapi-custom |
+| owa-mailbox [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/owamailbox.pm)]                 | App-Exchange-Owa-Mailbox-NSClient-Restapi-custom         |
+| queues [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/queues.pm)]                          | App-Exchange-Queues-NSClient-Restapi-custom              |
+| replication-health [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/replicationhealth.pm)]   | App-Exchange-Replication-Health-NSClient-Restapi-custom  |
+| services [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/microsoft/exchange/local/mode/services.pm)]                      | App-Exchange-Services-NSClient-Restapi-custom            |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Activesync-Mailbox" label="Activesync-Mailbox">
+
+| Option            | Description                                                                                                                                |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
+| --remote-host     |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                          |
+| --remote-user     |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                              |
+| --remote-password |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                  |
+| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                 |
+| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                   |
+| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!   |
+| --command-path    |   Command path (default: none).                                                                                                            |
+| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                  |
+| --ps-display      |   Display powershell script.                                                                                                               |
+| --ps-exec-only    |   Print powershell output.                                                                                                                 |
+| --warning         |   Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                   |
+| --critical        |   Set critical threshold (default: '%\{result\} !~ /Success/i'). You can use the following variables: %\{result\}, %\{scenario\}           |
+| --mailbox         |   Set the mailbox to check (required).                                                                                                     |
+| --password        |   Set the password for the mailbox (required).                                                                                             |
+| --no-trust-ssl    |   By default, SSL certificate validy is not checked.                                                                                       |
+
+</TabItem>
+<TabItem value="Databases" label="Databases">
+
+| Option                    | Description                                                                                                                                                                 |
+|:--------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters         |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                 |
+| --remote-host             |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                                                           |
+| --remote-user             |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                                                               |
+| --remote-password         |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                                                   |
+| --no-mailflow             |   Don't check mailflow connectivity.                                                                                                                                        |
+| --no-mapi                 |   Don't check mapi connectivity.                                                                                                                                            |
+| --no-copystatus           |   Don't check copy status.                                                                                                                                                  |
+| --timeout                 |   Set timeout time for command execution (default: 50 sec)                                                                                                                  |
+| --no-ps                   |   Don't encode powershell. To be used with --command and 'type' command.                                                                                                    |
+| --command                 |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                    |
+| --command-path            |   Command path (default: none).                                                                                                                                             |
+| --command-options         |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                   |
+| --ps-exec-only            |   Print powershell output.                                                                                                                                                  |
+| --ps-display              |   Display powershell script.                                                                                                                                                |
+| --ps-server-filter        |   Filter mailboxes by database server name (regexp can be used. In Powershell).                                                                                             |
+| --ps-database-filter      |   Filter database (only wilcard '*' can be used. In Powershell).                                                                                                            |
+| --ps-database-test-filter |   Skip mapi/mailflow test (regexp can be used. In Powershell).                                                                                                              |
+| --warning-status          |   Set warning threshold. You can use the following variables: %\{mounted\}, %\{database\}, %\{server\}                                                                      |
+| --critical-status         |   Set critical threshold (default: '%\{mounted\} == 0'). You can use the following variables: %\{mounted\}, %\{database\}, %\{server\}                                      |
+| --warning-mapi            |   Set warning threshold. You can use the following variables: %\{mapi\_result\}, %\{database\}, %\{server\}                                                                 |
+| --critical-mapi           |   Set critical threshold (default: '%\{mapi\_result\} !~ /Success/i'). You can use the following variables: %\{mapi\_result\}, %\{database\}, %\{server\}                   |
+| --warning-mailflow        |   Set warning threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                                                             |
+| --critical-mailflow       |   Set critical threshold (default: '%\{mailflow\_result\} !~ /Success/i'). You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}           |
+| --warning-copystatus      |   Set warning threshold. You can use the following variables: %\{mailflow\_result\}, %\{database\}, %\{server\}                                                             |
+| --critical-copystatus     |   Set critical threshold (default: '%\{contentindexstate\} !~ /Healthy/i'). You can use the following variables: %\{copystatus\_indexstate\}, %\{database\}, %\{server\}    |
+
+</TabItem>
+<TabItem value="Exchange-Services" label="Exchange-Services">
+
+| Option            | Description                                                                                                                                                                                                                                     |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --remote-host     |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                                                                                                                               |
+| --remote-user     |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                                                                                                                                   |
+| --remote-password |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                                                                                                                       |
+| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                                                                                                                      |
+| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                                                        |
+| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                                        |
+| --command-path    |   Command path (default: none).                                                                                                                                                                                                                 |
+| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                                                       |
+| --ps-display      |   Display powershell script.                                                                                                                                                                                                                    |
+| --ps-exec-only    |   Print powershell output.                                                                                                                                                                                                                      |
+| --warning         |   Set warning threshold. You can use the following variables: %\{servicesrunning\}, %\{servicesnotrunning\}, %\{role\}, %\{requiredservicesrunning\}                                                                                            |
+| --critical        |   Set critical threshold (default: '%\{requiredservicesrunning\} =~ /True/i and %\{servicesnotrunning\} ne ""'). You can use the following variables: %\{servicesrunning\}, %\{servicesnotrunning\}, %\{role\}, %\{requiredservicesrunning\}    |
+
+</TabItem>
+<TabItem value="Imap-Mailbox" label="Imap-Mailbox">
+
+| Option            | Description                                                                                                                                |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
+| --remote-host     |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                          |
+| --remote-user     |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                              |
+| --remote-password |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                  |
+| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                 |
+| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                   |
+| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!   |
+| --command-path    |   Command path (default: none).                                                                                                            |
+| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                  |
+| --ps-display      |   Display powershell script.                                                                                                               |
+| --ps-exec-only    |   Print powershell output.                                                                                                                 |
+| --warning         |   Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                   |
+| --critical        |   Set critical threshold (default: '%\{result\} !~ /Success/i'). You can use the following variables: %\{result\}, %\{scenario\}           |
+| --mailbox         |   Set the mailbox to check (required).                                                                                                     |
+| --password        |   Set the password for the mailbox (required).                                                                                             |
+
+</TabItem>
+<TabItem value="Mailboxes" label="Mailboxes">
+
+| Option                   | Description                                                                                                                                                                                                                                         |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                         |
+| --remote-host            |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                                                                                                                                   |
+| --remote-user            |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                                                                                                                                       |
+| --remote-password        |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                                                                                                                           |
+| --timeout                |   Set timeout time for command execution (default: 50 sec)                                                                                                                                                                                          |
+| --no-ps                  |   Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                                                            |
+| --command                |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                                            |
+| --command-path           |   Command path (default: none).                                                                                                                                                                                                                     |
+| --command-options        |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                                                           |
+| --ps-exec-only           |   Print powershell output.                                                                                                                                                                                                                          |
+| --ps-display             |   Display powershell script.                                                                                                                                                                                                                        |
+| --ps-match-server        |   Filter mailboxes by server name (regexp can be used. In Powershell).                                                                                                                                                                              |
+| --ps-match-database      |   Filter mailboxes by database name (regexp can be used. In Powershell).                                                                                                                                                                            |
+| --ps-server              |   Select mailboxes by an uniq server name (In Powershell).                                                                                                                                                                                          |
+| --ps-database            |   Select mailboxes by an uniq database name (In Powershell).                                                                                                                                                                                        |
+| --warning-* --critical-* |   Thresholds. Can be: 'users-soft-limit', 'users-hard-limit', 'users-quota-unlimited', 'users-total', 'publicfolders-soft-limit', 'publicfolders-hard-limit', 'publicfolders-quota-unlimited', 'publicfolders-total' 'database-mailboxes-total'.    |
+
+</TabItem>
+<TabItem value="Mapi-Mailbox" label="Mapi-Mailbox">
+
+| Option            | Description                                                                                                                                |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
+| --remote-host     |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                          |
+| --remote-user     |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                              |
+| --remote-password |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                  |
+| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                 |
+| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                   |
+| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!   |
+| --command-path    |   Command path (default: none).                                                                                                            |
+| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                  |
+| --ps-display      |   Display powershell script.                                                                                                               |
+| --ps-exec-only    |   Print powershell output.                                                                                                                 |
+| --warning         |   Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                   |
+| --critical        |   Set critical threshold (default: '%\{result\} !~ /Success/i'). You can use the following variables: %\{result\}, %\{scenario\}           |
+| --mailbox         |   Set the mailbox to check (required).                                                                                                     |
+
+</TabItem>
+<TabItem value="Outlook-Webservices" label="Outlook-Webservices">
+
+| Option            | Description                                                                                                                                         |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| --remote-host     |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                                   |
+| --remote-user     |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                                       |
+| --remote-password |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                           |
+| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                          |
+| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                            |
+| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!            |
+| --command-path    |   Command path (default: none).                                                                                                                     |
+| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                           |
+| --ps-display      |   Display powershell script.                                                                                                                        |
+| --ps-exec-only    |   Print powershell output.                                                                                                                          |
+| --warning         |   Set warning threshold. You can use the following variables: %\{type\}, %\{id\}, %\{message\}                                                      |
+| --critical        |   Set critical threshold (default: '%\{type\} !~ /Success\|Information/i'). You can use the following variables: %\{type\}, %\{id\}, %\{message\}   |
+| --mailbox         |   Set the mailbox to check (required).                                                                                                              |
+| --password        |   Set the password for the mailbox.                                                                                                                 |
+
+</TabItem>
+<TabItem value="Owa-Mailbox" label="Owa-Mailbox">
+
+| Option            | Description                                                                                                                                |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------|
+| --remote-host     |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                          |
+| --remote-user     |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                              |
+| --remote-password |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                  |
+| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                 |
+| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                   |
+| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!   |
+| --command-path    |   Command path (default: none).                                                                                                            |
+| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                  |
+| --ps-display      |   Display powershell script.                                                                                                               |
+| --ps-exec-only    |   Print powershell output.                                                                                                                 |
+| --warning         |   Set warning threshold. You can use the following variables: %\{result\}, %\{scenario\}                                                   |
+| --critical        |   Set critical threshold (default: '%\{result\} !~ /Success/i'). You can use the following variables: %\{result\}, %\{scenario\}           |
+| --url             |   Set the OWA Url (required).                                                                                                              |
+| --mailbox         |   Set the mailbox to check (required).                                                                                                     |
+| --password        |   Set the password for the mailbox (required).                                                                                             |
+| --no-trust-ssl    |   By default, SSL certificate validy is not checked.                                                                                       |
+
+</TabItem>
+<TabItem value="Queues" label="Queues">
+
+| Option            | Description                                                                                                                                                                                         |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                         |
+| --remote-host     |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                                                                                   |
+| --remote-user     |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                                                                                       |
+| --remote-password |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                                                                           |
+| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                                                                          |
+| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                                                                            |
+| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                            |
+| --command-path    |   Command path (default: none).                                                                                                                                                                     |
+| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                           |
+| --ps-display      |   Display powershell script.                                                                                                                                                                        |
+| --ps-exec-only    |   Print powershell output.                                                                                                                                                                          |
+| --warning-status  |   Set warning threshold. You can use the following variables: %\{status\}, %\{identity\}, %\{is\_valid\}, %\{delivery\_type\}, %\{message\_count\}                                                  |
+| --critical-status |   Set critical threshold (default: '%\{status\} !~ /Ready\|Active/i'). You can use the following variables: %\{status\}, %\{identity\}, %\{is\_valid\}, %\{delivery\_type\}, %\{message\_count\}    |
+
+</TabItem>
+<TabItem value="Replication-Health" label="Replication-Health">
+
+| Option            | Description                                                                                                                                                |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --remote-host     |   Open a session to the remote-host (fully qualified host name). --remote-user and --remote-password are optional                                          |
+| --remote-user     |   Open a session to the remote-host with authentication. This also needs --remote-host and --remote-password.                                              |
+| --remote-password |   Open a session to the remote-host with authentication. This also needs --remote-user and --remote-host.                                                  |
+| --timeout         |   Set timeout time for command execution (default: 50 sec)                                                                                                 |
+| --no-ps           |   Don't encode powershell. To be used with --command and 'type' command.                                                                                   |
+| --command         |   Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                   |
+| --command-path    |   Command path (default: none).                                                                                                                            |
+| --command-options |   Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                  |
+| --ps-display      |   Display powershell script.                                                                                                                               |
+| --ps-exec-only    |   Print powershell output.                                                                                                                                 |
+| --warning         |   Set warning threshold. You can use the following variables: %\{result\}, %\{server\}, %\{isvalid\}, %\{check\}                                           |
+| --critical        |   Set critical threshold (default: '%\{result\} !~ /Passed/i'). You can use the following variables: %\{result\}, %\{server\}, %\{isvalid\}, %\{check\}    |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_nsclient_restapi.pl \
+	--plugin=apps::nsclient::restapi::plugin \
+	--mode=query \
+	--help
+```

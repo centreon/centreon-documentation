@@ -1,6 +1,7 @@
 ---
 id: groups
 title: Groups
+description: "How to create host groups and service groups to organize resources and manage access rules"
 ---
 
 ## Description
@@ -31,11 +32,15 @@ We also try to group services by application jobs. Example: Salary management ap
 
 ## Creating a host group
 
-Go to the **Configuration > Hosts > Host Groups (simplified)** menu and click **Add**
+Go to **Configuration > Hosts > Host Groups** and click **Add**.
 
-* The **Name** and **Alias** defines the name and the alias of the host group.
-* The **Geographic coordinates** field defines geographical coordinates used by the Centreon MAP module to position the resource on a map
-* The **Members** list allows us to add hosts in the hostgroup.
+* Use the **Name** field to define a clear, relevant name for the host group. The name can be used in the **Resource status** search bar using the syntax "host_group:" to display the group's hosts.
+* Use the **Alias** field to better describe the host group. The alias is only visible in the host groups list.
+* Use the **Group members** field to add hosts to the hostgroup.
+* Use the [**Resource access rules**](../administration/resource_access.md) section to grant members of the group access to the resources defined in the rule.
+* The **Geographic coordinates** field is used by the Centreon [MAP module](../graph-views/introduction-map.md) to position the resource on a map.
+* The selected **Icon** will be displayed in the list of host groups.
+* The **Comments** added here are only visible on this window.
 
 ## Creating a service group
 

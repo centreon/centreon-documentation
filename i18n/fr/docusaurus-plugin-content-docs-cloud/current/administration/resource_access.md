@@ -1,9 +1,10 @@
 ---
 id: ram
 title: Attribuer des droits aux utilisateurs sur les ressources
+description: "Comment créer et gérer les règles d'accès aux ressources qui déterminent quels utilisateurs peuvent voir quelles ressources dans Centreon Cloud"
 ---
 
-Les règles d'accès aux ressources vous permettent d'attribuer aux utilisateurs le droit de voir des [ressources](../resources/glossary.md#ressource) spécifiques.
+Les règles d'accès aux ressources vous permettent d'attribuer aux utilisateurs le droit de voir des [ressources](../resources/glossary.md#ressource) spécifiques et des dossiers d'images.
 
 Par défaut, tous les utilisateurs peuvent voir toutes les ressources. En effet, une règle par défaut nommée "ALL" est créée automatiquement à l'installation de la plateforme. Les utilisateurs ayant le rôle **Administrator** peuvent voir toutes les ressources dans tous les cas, même si aucune règle ne leur attribue explicitement ce droit.
 
@@ -27,10 +28,10 @@ Voici la marche à suivre si vous ne souhaitez pas que tous les utilisateurs pui
    * Pour affiner votre sélection, cliquez sur **Add filter** et sélectionnez des critères plus restrictifs : le deuxième filtre montre uniquement les ressources qui dépendent du premier filtre.
    * Si vous voulez ajouter un autre groupe de ressources indépendant des critères définis au-dessus, cliquez sur **Ajouter un nouveau jeu de données**. La liste propose à nouveau tous les types de ressources.
 
-   > Vous pouvez également sélectionner **All resources** : les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles crées par la suite.
-   > Si vous sélectionnez un groupe de ressources (hôtes, services, BVs), les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles ajoutées au groupe par la suite.
+   > Vous pouvez également sélectionner **All resources** : les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles créées par la suite.
+   > Si vous sélectionnez un groupe de ressources (hôtes, services, BVs, dossiers d'images), les utilisateurs pourront voir toutes les ressources existantes ainsi que toutes celles ajoutées au groupe par la suite.
 
-4. Dans la section **Contacts/Groupes de contacts**, définissez quels utilisateurs verront ces ressources. Si vous sélectionnez **Tous les contacts/Tous les groupes de contact**, la règle s'appliquera à tous les contacts/groupes de contacts existants, mais aussi à tout contact créé dans le futur. Attention, les utilisateurs et groupes d'utilisateurs sont gérés via le [CIAM](../ciam/ciam.md).
+4. Dans la section **Contacts/Groupes de contacts**, définissez quels utilisateurs verront ces ressources. Si vous sélectionnez **Tous les contacts/Tous les groupes de contact**, la règle s'appliquera à tous les contacts/groupes de contacts existants, mais aussi à tout contact créé dans le futur. Attention, les utilisateurs et groupes d'utilisateurs sont gérés via [Centreon Hub](../users/centreon-hub.md).
 
 5. Cliquez sur **Enregistrer**. La nouvelle règle apparaît dans la liste. Celle-ci peut mettre une minute à être appliquée.
 

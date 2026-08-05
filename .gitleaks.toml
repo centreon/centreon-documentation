@@ -1,0 +1,24 @@
+title = "Gitleaks custom rules"
+
+[extend]
+useDefault = true
+
+[allowlist]
+paths = [
+  '''node_modules\/''',
+  '''vendor\/''',
+  '''(.*?)\.rptlibrary''',
+  '''package\.json''',
+  '''package-lock\.json''',
+  '''composer\.json''',
+  '''composer\.lock''',
+  '''\.gitleaks\.toml$''',
+  '''(.*?)(jpg|gif|doc|pdf|bin)$'''
+]
+
+regexTarget = "match"
+regexes = [
+  '''ABCDEFG1234567890''',
+  '''deactivation/expiration/revocation''',
+  '''78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216''' # token example
+]

@@ -1,6 +1,7 @@
 ---
 id: upgrade-centreon-ha-from-21-04
 title: Upgrade Centreon HA from Centreon 21.04
+description: "Upgrade a Centreon HA cluster from version 21.04 to 24.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,7 +9,7 @@ import TabItem from '@theme/TabItem';
 This chapter describes how to upgrade your Centreon HA platform from version 21.04
 to version 24.10.
 
-You cannot simply upgrade a platform with Centreon HA (or Centreon Failover) from a version earlier than 21.04 to version 24.04, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../../migrate/introduction.md), then install Centreon HA on the new platform. You can also contact Centreon to order a migration service.
+You cannot simply upgrade a platform with Centreon HA (or Centreon Failover) from a version earlier than 21.04 to version 24.04, as CentOS 7 is no longer supported. You need to [migrate your platform to a supported OS](../../migrate/introduction.md), then install Centreon HA on the new platform. Contact your Centreon sales representative to discuss any migration with HA.
 
 ## Prerequisites
 
@@ -31,6 +32,22 @@ servers:
 ### Update the RPM signing key
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
+
+### Update the centreon_central_sync script (MBI only)
+
+This step is only necessary if you use [MBI](../../reporting/introduction.md). Update the script `/usr/share/centreon-ha/bin/centreon_central_sync` at the following lines:
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua"],
+```
+
+For MBI reports to still be downloadable later on, the lines must be updated like this:
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua", "/var/lib/centreon/centreon-bi-server/archives"],
+```
 
 ## Upgrade process
 

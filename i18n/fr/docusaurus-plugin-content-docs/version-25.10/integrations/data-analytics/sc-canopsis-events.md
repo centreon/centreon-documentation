@@ -1,6 +1,7 @@
 ---
 id: sc-canopsis-events
 title: Canopsis Events
+description: "Envoyer les évènements hôtes, services, acquittements et maintenances vers Canopsis"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -26,8 +27,7 @@ dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-a
 
 ## Compatibilité
 
-Ce stream connector est conçu pour être compatible avec l'API v.4 de Canopsis, ce qui inclut les versions suivantes de **Canopsis** : 22.10, 
-23.04, 23.10 et 24.04.
+Ce stream connector est conçu pour être compatible avec l'API v.4 de Canopsis.
 
 ## Installation
 
@@ -67,10 +67,10 @@ apt install centreon-stream-connector-canopsis
 ## Configuration de Canopsis 
 
 Vous devrez paramétrer votre interface Canopsis pour qu'elle puisse recevoir des données 
-de la part de Centreon. Reportez-vous au [guide d'utilisation Canopsis](https://doc.canopsis.net/guide-utilisation/)
+de la part de Centreon. Reportez-vous au [guide d'utilisation Canopsis](https://doc.canopsis.net/latest/)
 , notamment vérifiez que les droits de création, lecture et suppression sont activés (voir la documentation d'
-[administration des droits](https://doc.canopsis.net/guide-utilisation/menu-administration/droits/) et celle d'
-[administration de la planification](https://doc.canopsis.net/guide-utilisation/menu-administration/planification/) 
+[administration des droits](https://doc.canopsis.net/latest/guide-utilisation/menu-administration/droits/) et celle d'
+[administration de la planification](https://doc.canopsis.net/latest/guide-utilisation/menu-administration/planification/) 
 dans le cas des plages de maintenance). 
 Pour l'utilisateur associé à la clé d'authentification, il faut modifier la matrice de droits à la page **Administration > Droits**.
 Vous devez avoir au minimum coché les cases indiquées dans le tableau suivant :

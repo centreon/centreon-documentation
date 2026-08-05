@@ -1,6 +1,7 @@
 ---
 id: customization
 title: Changing your Centreon account's settings
+description: "Customize your Centreon account's display mode, language, and default page"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -34,9 +35,6 @@ In the language selection box, choose your language:
 
 Then click **Save**. Your interface is now translated.
 
-> If your language doesn't appear in the available language list, you can help the Centreon community to translate
-> the web interface. For more details go to  [How to translate Centreon](../../developer/developer-translate-centreon.md).
-
 ## Reset your password
 
 Only local accounts can change their password via the Centreon interface. If you connect using an identity provider, your password is the one you defined with your identity provider.
@@ -48,7 +46,7 @@ next to the profile icon:
 
 ![image](../../assets/administration/password_will_expire.png)
 
-Click **Edit profile**, then change your password:
+Click **Edit profile**, then change your password by also entering your current password:
 
 ![image](../../assets/administration/password_expiration.png)
 

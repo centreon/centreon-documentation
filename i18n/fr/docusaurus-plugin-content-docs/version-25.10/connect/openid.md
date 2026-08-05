@@ -1,6 +1,7 @@
 ---
 id: openid
 title: Configurer une authentification par OpenId Connect
+description: "Configurer l'authentification via un fournisseur OpenID Connect"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -140,7 +141,7 @@ automatiquement accorder des [droits](../administration/access-control-lists.md)
 - **Appliquer uniquement le premier rôle**: si plusieurs rôles sont trouvés pour un utilisateur spécifique dans les informations du fournisseur
   d'identité, alors seul le premier rôle sera appliqué. Si l'option est désactivée, tous les rôles seront appliqués.
 - Faites correspondre un attribut extrait du fournisseur d'identité avec le groupe d'accès auquel vous souhaitez que l'utilisateur
-  appartienne.
+  appartienne. Attention, les rôles doivent avoir été créés au préalable dans votre fournisseur d'identité. Les regex et les wildcards ne sont pas autorisées.
 
 Par exemple, le **Point d'entrée d'introspection** vous donne la réponse suivante et l'option **Appliquer uniquement le premier rôle**
 est activée. Le **Chemin de l'attribut de rôles** sera **realm_access.roles** et l'option

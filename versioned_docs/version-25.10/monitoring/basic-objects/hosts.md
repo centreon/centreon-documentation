@@ -1,6 +1,7 @@
 ---
 id: hosts
 title: Creating hosts manually
+description: "Detailed reference for host configuration fields, notifications, and dependencies"
 ---
 
 To create a host manually:
@@ -13,7 +14,7 @@ To create a host manually:
 
 ### Host basic information
 
-* **Name**: host name used by the Monitoring Engine. Cannot contain `~!$%^&|'"<>?,()=*{}` and spaces will be automatically replaced with _. You may use the `h.name:` syntax in the **Search bar** of the **Resource status** to look up a host.
+* **Name**: host name used by the Monitoring Engine. Cannot contain `~!$%^&|'"<>?,()=*{}` and spaces will be automatically replaced with _. Using names containing `/` can also have technical impacts on SQL queries, on the interface or cause other compatibility problems with third-party tools. We recommend that you only use `_-.` for host names. You may use the `h.name:` syntax in the **Search bar** of the **Resource status** to look up a host.
 * **Alias**: another name for the host. Spaces and characters unauthorized in the name are allowed here. You may use the `h.alias:` syntax in the **Search bar** of the **Resource status** to look up a host.
 * **Address**: IP address or DNS name of the host. The **Resolve** button tests the domain name by questioning the DNS server configured on the central server. If given a DNS name, the **Resolve** button will also replace the text with the matching IP address. You may use the `h.address:` syntax in the **Search bar** of the **Resource status** to look up a host.
 * **SNMP Community & Version**: name of the community that you have defined for the equipment and its version. If the version is 1 or 2c, enter the community's name in the first field. If the version is 3, leave the first field empty and fill in the [`snmpextraoptions`](/pp/integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins/#snmpv3-options-mapping) custom macro that will automatically appear in the **Host check options** section.
@@ -72,7 +73,7 @@ If multiple templates modify the same field, the properties of the template plac
   host as not OK. When the status is confirmed, the notification process is triggered.
 * **Normal Check Interval**: interval in minutes between checks when the host status is OK.
 * **Retry Check Interval**: interval expressed in minutes referring to the wait between the checks done to confirm the status of the host is not "OK". Once the max check attempts have been made, the interval between checks returns to its normal value.
-* **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md) are information the monitored resource sends to the monitoring engine without it having been actively requested.
+* **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable [active and passive checks](../active-passive-checks.md) on the host.
 
 ## Notification tab
 Learn more about [notifications](../../alerts-notifications/notif-concept.md) and [contacts](contacts.md).

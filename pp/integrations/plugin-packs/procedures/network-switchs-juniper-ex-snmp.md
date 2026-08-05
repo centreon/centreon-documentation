@@ -1,13 +1,14 @@
 ---
 id: network-switchs-juniper-ex-snmp
-title: Juniper EX Series
+title: Juniper EX Series SNMP
+description: "Monitor Juniper EX Series switches via SNMP: CPU, memory, hardware status, disk usage, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Juniper EX Series** connector through the
+The following monitoring connectors will be installed when you install the **Juniper EX Series SNMP** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +16,7 @@ The following monitoring connectors will be installed when you install the **Jun
 
 ### Templates
 
-The Monitoring Connector **Juniper EX Series** brings a host template:
+The Monitoring Connector **Juniper EX Series SNMP** brings a host template:
 
 * **Net-Juniper-EX-custom**
 
@@ -26,23 +27,23 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias  | Service Template                     | Service Description                  |
 |:---------------|:-------------------------------------|:-------------------------------------|
-| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Check CPU usage of routing engine    |
+| Cpu-Routing    | Net-Juniper-Ex-Cpu-Routing-custom    | Check CPU Usage of routing engine    |
 | Hardware       | Net-Juniper-Ex-Hardware-custom       | Check hardware                       |
-| Memory-Routing | Net-Juniper-Ex-Memory-Routing-custom | Check Memory usage of routing engine |
+| Memory-Routing | Net-Juniper-Ex-Memory-Routing-custom | Check Memory Usage of routing engine |
 
 > The services listed above are created automatically when the **Net-Juniper-EX-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias        | Service Template                           | Service Description                                                                                                                     | Discovery  |
-|:---------------------|:-------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Disk-Generic-Id      | Net-Juniper-Ex-Disk-Generic-Id-custom      | Check the rate of free space on the disk (use the ID). Thresholds can be in percentage or in free remaining space |            |
-| Disk-Generic-Name    | Net-Juniper-Ex-Disk-Generic-Name-custom    | Check the rate of free space on the disk (use the Name.                                                                 |            |
-| Disk-Global          | Net-Juniper-Ex-Disk-Global-custom          | Check the rate of free space on the disk (use the Name.                                                                 | X          |
-| Traffic-Generic-Id   | Net-Juniper-Ex-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each check the name of the interface will appear ("label" shortcut describing the interface) |            |
-| Traffic-Generic-Name | Net-Juniper-Ex-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each check the name of the interface will appear ("label" shortcut describing the interface) |            |
-| Traffic-Global       | Net-Juniper-Ex-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each check the name of the interface will appear ("label" shortcut describing the interface)   | X          |
+| Service Alias        | Service Template                           | Service Description                                                                                                                     | Discovery |
+|:---------------------|:-------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------|:---------:|
+| Disk-Generic-Id      | Net-Juniper-Ex-Disk-Generic-Id-custom      | Check the rate of free space on the disk (use the ID). Thresholds can be in percentage or in free space remaining                       |           |
+| Disk-Generic-Name    | Net-Juniper-Ex-Disk-Generic-Name-custom    | Check the rate of free space on the disk (use the Name. Difficult to use                                                                |           |
+| Disk-Global          | Net-Juniper-Ex-Disk-Global-custom          | Check the rate of free space on the disk (use the Name. Difficult to use                                                                | X         |
+| Traffic-Generic-Id   | Net-Juniper-Ex-Traffic-Generic-Id-custom   | Check the bandwidth of the interface. For each checks the name of the interface will appear ("label" shortcut describing the interface) |           |
+| Traffic-Generic-Name | Net-Juniper-Ex-Traffic-Generic-Name-custom | Check the bandwidth of the interface. For each checks the name of the interface will appear ("label" shortcut describing the interface) |           |
+| Traffic-Global       | Net-Juniper-Ex-Traffic-Global-custom       | Check the bandwidth of  interfaces. For each checks the name of the interface will appear ("label" shortcut describing the interface)   | X         |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -55,9 +56,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name       | Description                                                                                                                                                                                                                                    |
-|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Juniper-EX-custom** host template. |
+| Rule name   | Description                                                                                                                                                                                                                                    |
+|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **Net-Juniper-EX-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -78,12 +79,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Cpu-Routing" label="Cpu-Routing">
 
-| Name                             | Unit  |
-|:---------------------------------|:------|
-| *cpu*#cpu.utilization.percentage | %     |
-| *cpu*#cpu.load.1m.percentage     | %     |
-| *cpu*#cpu.load.5m.percentage     | %     |
-| *cpu*#cpu.load.15m.percentage    | %     |
+| Name                             | Unit |
+|:---------------------------------|:-----|
+| *cpu*#cpu.utilization.percentage | %    |
+| *cpu*#cpu.load.1m.percentage     | %    |
+| *cpu*#cpu.load.5m.percentage     | %    |
+| *cpu*#cpu.load.15m.percentage    | %    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
@@ -115,22 +116,22 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Memory-Routing" label="Memory-Routing">
 
-| Name                             | Unit  |
-|:---------------------------------|:------|
-| *memory*#memory.usage.bytes      | B     |
-| *memory*#memory.free.bytes       | B     |
-| *memory*#memory.usage.percentage | %     |
+| Name                             | Unit |
+|:---------------------------------|:-----|
+| *memory*#memory.usage.bytes      | B    |
+| *memory*#memory.free.bytes       | B    |
+| *memory*#memory.usage.percentage | %    |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 
-| Name                                                 | Unit  |
-|:-----------------------------------------------------|:------|
-| status                                               | N/A   |
-| *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
-| *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+| Name                                                 | Unit |
+|:-----------------------------------------------------|:-----|
+| status                                               | N/A  |
+| *interface_name*#interface.traffic.in.bitspersecond  | b/s  |
+| *interface_name*#interface.traffic.out.bitspersecond | b/s  |
 
 > Applies to the following service templates: Traffic-Generic-Id, Traffic-Generic-Name, Traffic-Global
 
@@ -141,8 +142,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ### SNMP Configuration
 
-The SNMP agent must be enabled and configured on the resource. 
-Please refer to the official documentation from the manufacturer/publisher. 
+The SNMP service must be configured and activated on the host. 
+Please refer to the official documentation. 
 Your resource may require a list of addresses authorized to query it to be set up. 
 Please ensure that the addresses of the Centreon pollers are included in this list.
 
@@ -194,7 +195,7 @@ yum install centreon-pack-network-switchs-juniper-ex-snmp
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Juniper EX Series** connector through
+2. Whatever the license type (*online* or *offline*), install the **Juniper EX Series SNMP** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -247,14 +248,14 @@ yum install centreon-plugin-Network-Switchs-Juniper-Ex-Snmp
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **Net-Juniper-EX-custom** template to the host. 
+3. Apply the **Net-Juniper-EX-custom** template to the host.
 
 > When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Macro            | Description                                                                                          | Default value     | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| Macro            | Description                                                                                                                                        | Default value | Mandatory |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -266,112 +267,112 @@ yum install centreon-plugin-Network-Switchs-Juniper-Ex-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu-Routing" label="Cpu-Routing">
 
-| Macro           | Description                                                                                        | Default value     | Mandatory   |
-|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER          | Filter operating                                                   | routing           |             |
-| WARNING         | Warning threshold for CPU utilization (in percent)                                                 | 80                |             |
-| CRITICAL        | Critical threshold for CPU utilization (in percent)                                                | 90                |             |
-| WARNINGLOAD15M  | Warning threshold for CPU load 15 minutes (in percent)                                             |                   |             |
-| CRITICALLOAD15M | Critical threshold for CPU load 15 minutes (in percent)                                            |                   |             |
-| WARNINGLOAD1M   | Warning threshold for CPU load 1 minute (in percent)                                               |                   |             |
-| CRITICALLOAD1M  | Critical threshold for CPU load 1 minute (in percent)                                              |                   |             |
-| WARNINGLOAD5M   | Warning threshold for CPU load 5 minutes (in percent)                                              |                   |             |
-| CRITICALLOAD5M  | Critical threshold for CPU load 5 minutes (in percent)                                             |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro           | Description                                                                                                                                      | Default value | Mandatory |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTER          | Filter operating                                                                                                                                 | routing       |           |
+| WARNING         | Warning threshold for CPU utilization (in percent)                                                                                               | 80            |           |
+| CRITICAL        | Critical threshold for CPU utilization (in percent)                                                                                              | 90            |           |
+| WARNINGLOAD15M  | Warning threshold for CPU load 15 minutes (in percent)                                                                                           |               |           |
+| CRITICALLOAD15M | Critical threshold for CPU load 15 minutes (in percent)                                                                                          |               |           |
+| WARNINGLOAD1M   | Warning threshold for CPU load 1 minute (in percent)                                                                                             |               |           |
+| CRITICALLOAD1M  | Critical threshold for CPU load 1 minute (in percent)                                                                                            |               |           |
+| WARNINGLOAD5M   | Warning threshold for CPU load 5 minutes (in percent)                                                                                            |               |           |
+| CRITICALLOAD5M  | Critical threshold for CPU load 5 minutes (in percent)                                                                                           |               |           |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Disk-Generic-Id" label="Disk-Generic-Id">
 
-| Macro        | Description                                                                                                                                                                                     | Default value       | Mandatory   |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| DISKID       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           |                     |             |
-| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | $1                  |             |
-| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | ^.*mounted on: (.*) |             |
-| CRITICAL     | Critical threshold                                                                                                                                                                              | 90                  |             |
-| WARNING      | Warning threshold                                                                                                                                                                               | 80                  |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                              |                     |             |
+| Macro        | Description                                                                                                                                                                                     | Default value       | Mandatory |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:---------:|
+| DISKID       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           |                     |           |
+| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | $1                  |           |
+| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | ^.*mounted on: (.*) |           |
+| CRITICAL     | Critical threshold                                                                                                                                                                              | 90                  |           |
+| WARNING      | Warning threshold                                                                                                                                                                               | 80                  |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                          |                     |           |
 
 </TabItem>
 <TabItem value="Disk-Generic-Name" label="Disk-Generic-Name">
 
-| Macro        | Description                                                                                                                                                                                     | Default value       | Mandatory   |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:-----------:|
-| DISKNAME     | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           |                     |             |
-| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | $1                  |             |
-| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | ^.*mounted on: (.*) |             |
-| CRITICAL     | Critical threshold                                                                                                                                                                              | 90                  |             |
-| WARNING      | Warning threshold                                                                                                                                                                               | 80                  |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                              |                     |             |
+| Macro        | Description                                                                                                                                                                                     | Default value       | Mandatory |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------|:---------:|
+| DISKNAME     | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           |                     |           |
+| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | $1                  |           |
+| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | ^.*mounted on: (.*) |           |
+| CRITICAL     | Critical threshold                                                                                                                                                                              | 90                  |           |
+| WARNING      | Warning threshold                                                                                                                                                                               | 80                  |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                          |                     |           |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
 
-| Macro        | Description                                                                                                                                                                                     | Default value          | Mandatory   |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:-----------:|
-| FILTER       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           | ^(?!(devfs\|/dev/md0)) |             |
-| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | $1                     |             |
-| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | ^.*mounted on: (.*)    |             |
-| CRITICAL     | Critical threshold                                                                                                                                                                              | 95                     |             |
-| WARNING      | Warning threshold                                                                                                                                                                               | 90                     |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                              | --verbose              |             |
+| Macro        | Description                                                                                                                                                                                     | Default value          | Mandatory |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------|:---------:|
+| FILTER       | Set the storage (number expected) example: 1, 2,... (empty means 'check all storage')                                                                                                           | ^(?!(devfs\|/dev/md0)) |           |
+| TRANSFORMDST | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | $1                     |           |
+| TRANSFORMSRC | Modify the storage name displayed by using a regular expression.  Example: adding --display-transform-src='dev' --display-transform-dst='run'  will replace all occurrences of 'dev' with 'run' | ^.*mounted on: (.*)    |           |
+| CRITICAL     | Critical threshold                                                                                                                                                                              | 95                     |           |
+| WARNING      | Warning threshold                                                                                                                                                                               | 90                     |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                          | --verbose              |           |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Default value | Mandatory |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Memory-Routing" label="Memory-Routing">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER            | Filter operating (default: 'routing\|fpc')                                                         | routing           |             |
-| WARNING           | Threshold                                                                                          | 80                |             |
-| CRITICAL          | Threshold                                                                                          | 90                |             |
-| WARNINGUSAGE      | Threshold                                                                                          |                   |             |
-| CRITICALUSAGE     | Threshold                                                                                          |                   |             |
-| WARNINGUSAGEFREE  | Threshold                                                                                          |                   |             |
-| CRITICALUSAGEFREE | Threshold                                                                                          |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| Macro             | Description                                                                                                                                      | Default value | Mandatory |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTER            | Filter operating                                                                                                                                 | routing       |           |
+| WARNING           | Threshold                                                                                                                                        | 80            |           |
+| CRITICAL          | Threshold                                                                                                                                        | 90            |           |
+| WARNINGUSAGE      | Threshold                                                                                                                                        |               |           |
+| CRITICALUSAGE     | Threshold                                                                                                                                        |               |           |
+| WARNINGUSAGEFREE  | Threshold                                                                                                                                        |               |           |
+| CRITICALUSAGEFREE | Threshold                                                                                                                                        |               |           |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Macro        | Description                                                                                                                                                         | Default value     | Mandatory   |
-|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| WARNINGIN    | Threshold                                                                                                                                                           | 80                |             |
-| CRITICALIN   | Threshold                                                                                                                                                           | 90                |             |
-| WARNINGOUT   | Threshold                                                                                                                                                           | 80                |             |
-| CRITICALOUT  | Threshold                                                                                                                                                           | 90                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  |                   |             |
+| Macro        | Description                                                                                                                                                         | Default value | Mandatory |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACEID  | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |               |           |
+| WARNINGIN    | Threshold                                                                                                                                                           | 80            |           |
+| CRITICALIN   | Threshold                                                                                                                                                           | 90            |           |
+| WARNINGOUT   | Threshold                                                                                                                                                           | 80            |           |
+| CRITICALOUT  | Threshold                                                                                                                                                           | 90            |           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                                                                                         | Default value     | Mandatory   |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |                   |             |
-| WARNINGIN     | Threshold                                                                                                                                                           | 80                |             |
-| CRITICALIN    | Threshold                                                                                                                                                           | 90                |             |
-| WARNINGOUT    | Threshold                                                                                                                                                           | 80                |             |
-| CRITICALOUT   | Threshold                                                                                                                                                           | 90                |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  |                   |             |
+| Macro         | Description                                                                                                                                                         | Default value | Mandatory |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACENAME | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name |               |           |
+| WARNINGIN     | Threshold                                                                                                                                                           | 80            |           |
+| CRITICALIN    | Threshold                                                                                                                                                           | 90            |           |
+| WARNINGOUT    | Threshold                                                                                                                                                           | 80            |           |
+| CRITICALOUT   | Threshold                                                                                                                                                           | 90            |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |               |           |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro          | Description                                                                                                                                                                                                                     | Default value     | Mandatory   |
-|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name                                                             | .*                |             |
-| WARNINGIN      | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALIN     | Threshold                                                                                                                                                                                                                       | 90                |             |
-| WARNINGOUT     | Threshold                                                                                                                                                                                                                       | 80                |             |
-| CRITICALOUT    | Threshold                                                                                                                                                                                                                       | 90                |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                              |                   |             |
+| Macro          | Description                                                                                                                                                         | Default value                                    | Mandatory |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------|:---------:|
+| FILTER         | Check only the interfaces with the specified IDs (OID indexes, e.g.: 1,2,...). If empty, all interfaces will be monitored. To filter on interface names, see --name | .*                                               |           |
+| WARNINGIN      | Threshold                                                                                                                                                           | 80                                               |           |
+| CRITICALIN     | Threshold                                                                                                                                                           | 90                                               |           |
+| WARNINGOUT     | Threshold                                                                                                                                                           | 80                                               |           |
+| CRITICALOUT    | Threshold                                                                                                                                                           | 90                                               |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}   | %\{admstatus\} eq "up" and %\{opstatus\} ne "up" |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              |                                                  |           |
 
 </TabItem>
 </Tabs>
@@ -395,7 +396,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--name \
 	--add-status \
 	--add-traffic \
-	--critical-status='' \
+	--critical-status='%\{admstatus\} eq "up" and %\{opstatus\} ne "up"' \
 	--warning-in-traffic='80' \
 	--critical-in-traffic='90' \
 	--warning-out-traffic='80' \
@@ -405,7 +406,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=19b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=68b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=46b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=22b/s;80;90;; 
+OK: All interfaces are ok | 'interface_name1#interface.traffic.in.bitspersecond'=45b/s;80;90;; 'interface_name2#interface.traffic.in.bitspersecond'=69b/s;80;90;; 'interface_name1#interface.traffic.out.bitspersecond'=63b/s;80;90;; 'interface_name2#interface.traffic.out.bitspersecond'=26b/s;80;90;; 
 ```
 
 ### Troubleshooting
@@ -475,7 +476,7 @@ All generic options are listed here:
 | --contextname                              | SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --contextengineid                          | SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --securityengineid                         | SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --snmp-errors-exit                         | Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --snmp-tls-transport                       | Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --snmp-tls-our-identity                    | X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --snmp-tls-their-identity                  | X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -490,9 +491,9 @@ All generic options are listed here:
 | --change-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --extend-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  um wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --change-output-adv                        | Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -586,15 +587,13 @@ All available options for each service template are listed below:
 | --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                |
 | --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                          |
 | --component            | Which component to check (default: C\<'.*'\>). Can be: `fru`, `operating`, `alarm`.                                                                                                                                                         |
+| --add-name-instance    | Add literal description for instance value (used in filter, absent-problem and threshold options).                                                                                                                                          |
 | --filter               | Exclude the items given as a comma-separated list (example: `--filter=fru`). You can also exclude items from specific instances: C\<--filter=fru,7.3.0.0\>                                                                                  |
 | --absent-problem       | Return an error if an entity is not 'present' (default is skipping) (comma separated list) Can be specific or global: C\<--absent-problem=fru,7.1.0.0\>                                                                                     |
 | --no-component         | Define the expected status if no components are found (default: `critical`).                                                                                                                                                                |
 | --threshold-overload   | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: C\<--threshold-overload='operating,CRITICAL,^(?!(running)$)'\>      |
 | --warning              | Set warning threshold  (syntax: type,regexp,threshold) Example: C\<--warning='operating-temperature,.*,30'\>                                                                                                                                |
 | --critical             | Set critical threshold (syntax: type,regexp,threshold) Example: C\<--critical='operating-temperature,.*,40'\>                                                                                                                               |
-| --warning-count-*      | Define the warning threshold for the number of components of one type (replace '*' with the component type).                                                                                                                                |
-| --critical-count-*     | Define the critical threshold for the number of components of one type (replace '*' with the component type).                                                                                                                               |
-| --add-name-instance    | Add literal description for instance value (used in filter, absent-problem and threshold options).                                                                                                                                          |
 | --reload-cache-time    | Time in minutes before reloading cache file (default: 180). Use '-1' to disable cache reload.                                                                                                                                               |
 
 </TabItem>

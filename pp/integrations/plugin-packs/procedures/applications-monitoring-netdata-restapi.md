@@ -1,121 +1,139 @@
 ---
 id: applications-monitoring-netdata-restapi
 title: Netdata RestAPI
+description: "Monitor Netdata via its REST API: CPU, memory, disk space, inodes, load, swap, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Overview
+The following monitoring connectors will be installed when you install the **Netdata RestAPI** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
-Netdata is an open source tool to visualize and monitor real-time metrics, optimized to accumulate all types of data, such as CPU usage, disk activity,
-SQL queries, visits to a website, etc.
+## Pack assets
 
-The tool is designed to visualize activity in the greatest possible detail, allowing the user to obtain an overview of what is happening and 
-what has just happened in their system or application.
+### Templates
 
-## Monitoring Connector assets
+The Monitoring Connector **Netdata RestAPI** brings a host template:
 
-### Monitored Objects
+* **App-Monitoring-Netdata-Restapi-custom**
 
-The Netdata RestAPI Centreon Monitoring Connector allows to collect and monitor servers' key metrics by interacting with the Netdata agent RestAPI.
-The open-source and highly efficient Netdata agent can be used on the following platforms
+The connector brings the following service templates (sorted by the host template they are attached to):
 
-* Linux (Debian, Ubuntu, RedHat, CentOS, Fedora, Arch...)
-* BSD
-* MacOs
-* pfSense
-* Synology
+<Tabs groupId="sync">
+<TabItem value="App-Monitoring-Netdata-Restapi-custom" label="App-Monitoring-Netdata-Restapi-custom">
 
-### Available services
+| Service Alias  | Service Template                                     | Service Description                                                                                                                                | Discovery  |
+|:---------------|:-----------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
+| Alarms         | App-Monitoring-Netdata-Restapi-Alarms-custom         | Check current active alarms from Netdata on the server                                                                                             |            |
+| Cpu            | App-Monitoring-Netdata-Restapi-Cpu-custom            | Check the CPU utilization rate for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPU |            |
+| Disks-Global   | App-Monitoring-Netdata-Restapi-Disks-Global-custom   | Check the rate of free space on disks. For each checks the mount point of disks will appear                                                       | X          |
+| Inodes-Global  | App-Monitoring-Netdata-Restapi-Inodes-Global-custom  | Check the rate of free inodes on the disk                                                                                                          | X          |
+| Load           | App-Monitoring-Netdata-Restapi-Load-custom           | Check the server load average                                                                                                                      |            |
+| Memory         | App-Monitoring-Netdata-Restapi-Memory-custom         | Check the rate of the utilization of memory (RAM)                                                                                                  |            |
+| Swap           | App-Monitoring-Netdata-Restapi-Swap-custom           | Check virtual memory usage (SWAP)                                                                                                                  |            |
+| Traffic-Global | App-Monitoring-Netdata-Restapi-Traffic-Global-custom | Check the bandwidth of interfaces. For each check the name of the interface will appear                                                          | X          |
 
-The current version of the Netdata RestAPI Monitoring Connector can monitor the following services:
+> The services listed above are created automatically when the **App-Monitoring-Netdata-Restapi-custom** host template is used.
 
-* Alarms
-* CPU
-* Disks (Usage & Inodes)
-* Load
-* RAM
-* Swap
-* Inodes
-* Network traffic
-* Custom Netdata "chart"
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
-### Collected metrics
+</TabItem>
+</Tabs>
 
-The following metrics are collected by the Centreon Netdata RestAPI Plugin:
+### Discovery rules
+
+#### Service discovery
+
+| Rule name                                   | Description                                                   |
+|:--------------------------------------------|:--------------------------------------------------------------|
+| App-Monitoring-Netdata-Restapi-Disk-Name    | Discover the disk partitions and monitor space occupation     |
+| App-Monitoring-Netdata-Restapi-Inodes-Name  | Discover the disk partitions and monitor inodes usage         |
+| App-Monitoring-Netdata-Restapi-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Alarms" label="Alarms">
 
-| Metric name                           | Description                                                | Unit |
-| :------------------------------------ | :--------------------------------------------------------- | :--- |
-| netdata.alarms.current.total.count    | Current total active alarms triggered by the Netdata agent |      |
-| netdata.alarms.current.warning.count  | Current warning alarms triggered by the Netdata agent      |      |
-| netdata.alarms.current.critical.count | Current critical alarms triggered by the Netdata agent     |      |
+| Name                                  | Unit  |
+|:--------------------------------------|:------|
+| netdata.alarms.current.total.count    | count |
+| netdata.alarms.current.warning.count  | count |
+| netdata.alarms.current.critical.count | count |
+| alarm                                 | N/A   |
 
 </TabItem>
-<TabItem value="CPU" label="CPU">
+<TabItem value="Cpu" label="Cpu">
 
-| Metric name                     | Description             | Unit |
-| :------------------------------ | :---------------------- | :--- |
-| cpu.utilization.percentage      | Average total CPU usage | %    |
-| core.cpu.utilization.percentage | Per core CPU usage      | %    |
-
-</TabItem>
-<TabItem value="Disks" label="Disks">
-
-| Metric name                    | Description                          | Unit |
-| :----------------------------- | :----------------------------------- | :--- |
-| storage.partitions.count       | Total number of partitions           |      |
-| storage.space.usage.bytes      | Per partition space usage (in Bytes) | B    |
-| storage.space.usage.percentage | Per partition space usage (in %)     | %    |
-| storage.space.free.bytes       | Per partition free space (in Bytes)  | B    |
+| Name                                          | Unit  |
+|:----------------------------------------------|:------|
+| cpu.utilization.percentage                    | %     |
+| *cpu_results*#core.cpu.utilization.percentage | %     |
 
 </TabItem>
-<TabItem value="Inodes" label="Inodes">
+<TabItem value="Disks-Global" label="Disks-Global">
 
-| Metric name                     | Description                | Unit |
-| :------------------------------ | :------------------------- | :--- |
-| storage.inodes.usage.percentage | Per partition Inodes usage | %    |
+| Name                                       | Unit  |
+|:-------------------------------------------|:------|
+| storage.partitions.count                   | count |
+| *disk_name*#storage.space.usage.bytes      | B     |
+| *disk_name*#storage.space.free.bytes       | B     |
+| *disk_name*#storage.space.usage.percentage | %     |
+
+</TabItem>
+<TabItem value="Inodes-Global" label="Inodes-Global">
+
+| Name                                     | Unit  |
+|:-----------------------------------------|:------|
+| *inodes*#storage.inodes.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Metric name | Description                                | Unit |
-| :---------- | :----------------------------------------- | :--: |
-| load1       | System load average on a 1 minute period   |      |
-| load5       | System load average on a 5 minutes period  |      |
-| load15      | System load average on a 15 minutes period |      |
+| Name                         | Unit  |
+|:-----------------------------|:------|
+| system.loadaverage.1m.count  | count |
+| system.loadaverage.5m.count  | count |
+| system.loadaverage.15m.count | count |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name             | Description                                    | Unit |
-| :---------------------- | :--------------------------------------------- | :--: |
-| memory.usage.bytes      | Total current memory usage (in Bytes)          |  B   |
-| memory.usage.percentage | Total current memory usage (in %)              |  %   |
-| memory.free.bytes       | Current free memory                            |  B   |
-| memory.buffer.bytes     | Current amount of memory allocated to 'buffer' |  B   |
-| memory.cached.bytes     | Current amount of memory allocated to 'cached' |  B   |
-| memory.shared.bytes     | Current amount of memory allocated to 'shared' |  B   |
+| Name                    | Unit  |
+|:------------------------|:------|
+| memory.usage.bytes      | B     |
+| memory.free.bytes       | B     |
+| memory.usage.percentage | %     |
+| memory.buffer.bytes     | B     |
+| memory.cached.bytes     | B     |
+| memory.shared.bytes     | B     |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric name           | Description                 | Unit |
-| :-------------------- | :-------------------------- | :--: |
-| swap.usage.bytes      | Swap space usage (in Bytes) |  B   |
-| swap.usage.percentage | Swap space usage (in %)     |  %   |
-| swap.free.bytes       | Free Swap space             |  B   |
+| Name                  | Unit  |
+|:----------------------|:------|
+| swap.usage.bytes      | B     |
+| swap.free.bytes       | B     |
+| swap.usage.percentage | %     |
 
 </TabItem>
-<TabItem value="Traffic" label="Traffic">
+<TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Metric name                       | Description                    | Unit |
-| :-------------------------------- | :----------------------------- | :--: |
-| network.traffic.in.bitspersecond  | Per interface incoming traffic | b/s  |
-| network.traffic.out.bitspersecond | Per interface outgoing traffic | b/s  |
+| Name                                            | Unit  |
+|:------------------------------------------------|:------|
+| *interfaces1*#network.traffic.in.bitspersecond  | b/s   |
+| *interfaces2*#network.traffic.in.bitspersecond  | b/s   |
+| *interfaces1*#network.traffic.out.bitspersecond | b/s   |
+| *interfaces2*#network.traffic.out.bitspersecond | b/s   |
 
 </TabItem>
 </Tabs>
@@ -129,115 +147,469 @@ The Netdata agent has to be set up and configured on the targeted server in orde
 More information about how to get and install the agent is available in the official Netdata documentation:
 https://learn.netdata.cloud/docs/agent/packaging/installer
 
-## Installation
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor Netdata agents:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
+dnf install centreon-pack-applications-monitoring-netdata-restapi
 ```
-
-2. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor Netdata agents:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
+dnf install centreon-pack-applications-monitoring-netdata-restapi
 ```
 
-2. Install the Centreon Monitoring Connector RPM on the Centreon Central server:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-yum install centreon-pack-applications-monitoring-netdata-restapi.noarch
+apt install centreon-pack-applications-monitoring-netdata-restapi
 ```
 
-3. On the centreon Web interface, install the *Netdata RestAPI* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-monitoring-netdata-restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+2. Whatever the license type (*online* or *offline*), install the **Netdata RestAPI** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
-* Log into Centreon and add new host through "Configuration > Hosts".
-* Apply the template *App-Monitoring-Netdata-Restapi* to the Host and configure all the mandatories Macros:
+### Plugin
 
-| Mandatory | Name                | Description                                                                  |
-| :-------- | :------------------ | :--------------------------------------------------------------------------- |
-| X         | NETDATAAPIPORT      | Port used (Default: 19999)                                                   |
-| X         | NETDATAAPIPROTOCOL  | Specify https if needed (Default: 'http')                                    |
-| X         | NETDATAAPIENDPOINT  | Specify the API URL path (Default: '/api/v1')                                |
-|           | EXTRAOPTIONS        | Any extra option you may want to add to the command (eg. a `--verbose` flag) |
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
 
-## FAQ
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-### How can I test my configuration and what do the main parameters stand for ?
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
 
-Once the Centreon plugin installed, you can test it directly from the Centreon Poller CLI by logging with the *centreon-engine* user:
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Monitoring-Netdata-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Monitoring-Netdata-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-monitoring-netdata-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Monitoring-Netdata-Restapi
+```
+
+</TabItem>
+</Tabs>
+
+## Using the monitoring connector
+
+### Using a host template provided by the connector
+
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Monitoring-Netdata-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
+
+| Macro              | Description                                                                                          | Default value     | Mandatory   |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NETDATAAPIPROTOCOL | Specify https if needed (default: 'http')                                                            | http              |             |
+| NETDATAAPIPORT     | Port used (default: 19999)                                                                           | 19999             |             |
+| NETDATAAPIENDPOINT | Specify the API URL path (Default: '/api/v1')                                                                                                     | /api/v1           |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
+
+| Macro                  | Description                                                                                        | Default value     | Mandatory   |
+|:-----------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| ALARMSTATUS            | Filter on specific alarm status. Can be 'WARNING' or 'CRITICAL' (default: both status shown)       |                   |             |
+| WARNINGALARMSWARNING   | Threshold                                                                                          |                   |             |
+| CRITICALALARMSWARNING  | Threshold                                                                                          |                   |             |
+| WARNINGALARMSCRITICAL  | Threshold                                                                                          |                   |             |
+| CRITICALALARMSCRITICAL | Threshold                                                                                          |                   |             |
+| WARNINGALARMSTOTAL     | Threshold                                                                                                   |                   |             |
+| CRITICALALARMSTOTAL    | Threshold                                                                                                   |                   |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
+
+| Macro           | Description                                                                                        | Default value     | Mandatory   |
+|:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGAVERAGE  | Warning threshold on average CPU utilization                                                       |                   |             |
+| CRITICALAVERAGE | Critical threshold on average CPU utilization                                                      |                   |             |
+| WARNINGCORE     | Warning threshold for each CPU core                                                                |                   |             |
+| CRITICALCORE    | Critical threshold for each CPU core                                                               |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Disks-Global" label="Disks-Global">
+
+| Macro             | Description                                                                                        | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FSNAME            | Filter on one or more specific FS. Regexp can be used Example: --fs-name='(^/$\|^/boot$)'          | .*                |             |
+| WARNINGCOUNT      | Threshold                                                                                                   |                   |             |
+| CRITICALCOUNT     | Threshold                                                                                                   |                   |             |
+| WARNINGFREE       | Warning threshold on FS free space                                                                 |                   |             |
+| CRITICALFREE      | Critical threshold on FS free space                                                                |                   |             |
+| WARNINGUSAGE      | Warning threshold on FS space usage (in B)                                                         |                   |             |
+| CRITICALUSAGE     | Critical threshold on FS space usage (in B)                                                        |                   |             |
+| WARNINGUSAGEPRCT  | Warning threshold on FS percentage space usage (in %)                                              |                   |             |
+| CRITICALUSAGEPRCT | Critical threshold on FS percentage space usage (in %)                                             |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Inodes-Global" label="Inodes-Global">
+
+| Macro             | Description                                                                                        | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FSNAME            | Filter on one or more specific FS. Regexp can be used Example: --fs-name='(^/$\|^/boot$)'          | .*                |             |
+| WARNINGUSAGEPRCT  | Warning threshold on FS used Inodes  (in %)                                                        |                   |             |
+| CRITICALUSAGEPRCT | Critical threshold on FS used Inodes (in %)                                                        |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Macro          | Description                                                                                        | Default value     | Mandatory   |
+|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGLOAD1   | Threshold                                                                                          |                   |             |
+| CRITICALLOAD1  | Threshold                                                                                          |                   |             |
+| WARNINGLOAD15  | Threshold                                                                                          |                   |             |
+| CRITICALLOAD15 | Threshold                                                                                          |                   |             |
+| WARNINGLOAD5   | Threshold                                                                                          |                   |             |
+| CRITICALLOAD5  | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Macro             | Description                                                                                        | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGBUFFER     | Threshold                                                                                          |                   |             |
+| CRITICALBUFFER    | Threshold                                                                                          |                   |             |
+| WARNINGCACHED     | Threshold                                                                                          |                   |             |
+| CRITICALCACHED    | Threshold                                                                                          |                   |             |
+| WARNINGSHARED     | Threshold                                                                                          |                   |             |
+| CRITICALSHARED    | Threshold                                                                                          |                   |             |
+| WARNINGUSAGE      | Warning threshold on used memory (in B)                                                            |                   |             |
+| CRITICALUSAGE     | Critical threshold on used memory (in B)                                                           |                   |             |
+| WARNINGUSAGEFREE  | Warning threshold on free memory (in B)                                                            |                   |             |
+| CRITICALUSAGEFREE | Critical threshold on free memory (in B)                                                           |                   |             |
+| WARNINGUSAGEPRCT  | Warning threshold on used memory (in %)                                                            |                   |             |
+| CRITICALUSAGEPRCT | Critical threshold on percentage used memory (in %)                                                |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Macro             | Description                                                                                        | Default value     | Mandatory   |
+|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGE      | Warning threshold on used swap (in B)                                                              |                   |             |
+| CRITICALUSAGE     | Critical threshold on used swap (in B)                                                             |                   |             |
+| WARNINGUSAGEFREE  | Warning threshold on free swap (in B)                                                              |                   |             |
+| CRITICALUSAGEFREE | Critical threshold on free swap (in B)                                                             |                   |             |
+| WARNINGUSAGEPRCT  | Warning threshold on used swap (in %)                                                              |                   |             |
+| CRITICALUSAGEPRCT | Critical threshold on percentage used swap (in %)                                                  |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Traffic-Global" label="Traffic-Global">
+
+| Macro              | Description                                                                                        | Default value     | Mandatory   |
+|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACENAME      | Filter on a specific interface. Regexp can be used. Example: --interface-name='^eth0$'             | .*                |             |
+| INTERFACESPEED     | Set interfaces speed in b/s. Default: 1000000000 (1Gb/s)                                           |                   |             |
+| WARNINGTRAFFICIN   | Threshold                                                                                          |                   |             |
+| CRITICALTRAFFICIN  | Threshold                                                                                          |                   |             |
+| WARNINGTRAFFICOUT  | Threshold                                                                                          |                   |             |
+| CRITICALTRAFFICOUT | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
 	--plugin=apps::monitoring::netdata::restapi::plugin \
-	--hostname=10.0.0.1 \
-	--mode=cpu \
-	--warning-average=70 \
-	--critical-average=80 \
+	--mode=traffic \
+	--hostname='10.0.0.1' \
+	--port='19999' \
+	--proto='http' \
+	--endpoint='/api/v1'  \
+	--interface-name='.*' \
+	--speed='' \
+	--warning-traffic-in='' \
+	--critical-traffic-in='' \
+	--warning-traffic-out='' \
+	--critical-traffic-out='' \
 	--verbose
 ```
 
-Expected command output is shown below:
-
-```bash 	
-OK: 2 CPU(s) average usage is 17.23 % | 
-'cpu.utilization.percentage'=17.23%;0:40;0:50;0;100 '0#core.cpu.utilization.percentage'=16.71%;;;0;100 '1#core.cpu.utilization.percentage'=17.75%;;;0;100
-CPU '0' usage: 16.71 %
-CPU '1' usage: 17.75 %
-```
-
-The above command checks the average CPU usage (```--mode=cpu```) of an Unix server hosting the Netdata agent. The Plugin gets the information by
-requesting the agent API (```--plugin=apps::monitoring::netdata::restapi::plugin --hostname=10.0.0.1```).
-
-This command would trigger a WARNING alarm if the average CPU usage raises beyond 70% (```--warning-average=70```)
-and a CRITICAL beyond 80% (```--critical-average=80```).
-
-The available thresholds as well as all of the options that can be used with this Plugin 
-can be displayed by adding the ```--help``` parameter to the command:
-
-```
-/usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
-	--plugin=apps::monitoring::netdata::restapi::plugin \
-	--hostname=10.0.0.1 \
-	--mode=cpu \
-	--help
-```
-
-### Why do I get the following error message: 
-
-#### ```UNKNOWN: 500 Can't connect to myserver.mycompany.com:19999```
-
-This error message means that the Centreon Plugin couldn't successfully connect to the Netdata agent API.
-Check that no third party device (such as a firewall) is blocking the request.
-A proxy connection may also be necessary to connect to the API. 
-This can be done by using this option in the command: ```--proxyurl='http://proxy.mycompany:8080'```.
-
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
-
-When using a proxy to connect to the Netdata agent API, this error message means that the Centreon Plugin library does not support
-the proxy connection protocol.
-
-In order to prevent this issue, use the *curl* HTTP backend by adding the following option to the command: ```--http-backend='curl'```.
-
-#### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
-
-This error message means that a Perl library required to use the *curl* backend is missing.
-
-In order to fix this issue, install the 'Net::Curl::Easy' Perl library using the following command:
+The expected command output is shown below:
 
 ```bash
-yum install perl-Net-Curl
+OK: All interfaces are ok | 'interfaces1#network.traffic.in.bitspersecond'=23283b/s;;;0;speed 'interfaces2#network.traffic.in.bitspersecond'=18326b/s;;;0;speed 'interfaces1#network.traffic.out.bitspersecond'=35543b/s;;;0;speed 'interfaces2#network.traffic.out.bitspersecond'=22681b/s;;;0;speed
+```
+
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
+	--plugin=apps::monitoring::netdata::restapi::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                                           | Linked service template                              |
+|:-----------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|
+| alarms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/alarms.pm)]                  | App-Monitoring-Netdata-Restapi-Alarms-custom         |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/cpu.pm)]                        | App-Monitoring-Netdata-Restapi-Cpu-custom            |
+| disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/disks.pm)]                    | App-Monitoring-Netdata-Restapi-Disks-Global-custom   |
+| get-chart [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/getchart.pm)]             | Not used in this Monitoring Connector                |
+| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/inodes.pm)]                  | App-Monitoring-Netdata-Restapi-Inodes-Global-custom  |
+| list-charts [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/listcharts.pm)]         | Used for service discovery                           |
+| list-disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/listdisks.pm)]           | Used for service discovery                           |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/listinterfaces.pm)] | Not used in this Monitoring Connector                |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/load.pm)]                      | App-Monitoring-Netdata-Restapi-Load-custom           |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/memory.pm)]                  | App-Monitoring-Netdata-Restapi-Memory-custom         |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/swap.pm)]                      | App-Monitoring-Netdata-Restapi-Swap-custom           |
+| traffic [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/monitoring/netdata/restapi/mode/traffic.pm)]                | App-Monitoring-Netdata-Restapi-Traffic-Global-custom |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --hostname                                 |   Netdata API hostname (server address)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --port                                     |   Port used (default: 19999)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --proto                                    |   Specify https if needed (default: 'http')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --timeout                                  |   Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
+
+| Option              | Description                                                                                         |
+|:--------------------|:----------------------------------------------------------------------------------------------------|
+| --filter-status     |   Filter on specific alarm status. Can be 'WARNING' or 'CRITICAL' (default: both status shown)      |
+| --warning-alarms-*  |   Set Warning threshold for alarms count (default: '') where '*' can be warning or 'critical'       |
+| --critical-alarms-* |   Set Critical threshold for alarms count (default: '') where '*' can be 'warning' or 'critical'    |
+
+</TabItem>
+<TabItem value="Cpu" label="Cpu">
+
+| Option             | Description                                                                                                             |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------|
+| --chart-period     |   The period in seconds on which the values are calculated Default: 300                                                 |
+| --chart-statistic  |   The statistic calculation method used to parse the collected data. Can be : average, sum, min, max Default: average   |
+| --warning-average  |   Warning threshold on average CPU utilization.                                                                         |
+| --critical-average |   Critical threshold on average CPU utilization.                                                                        |
+| --warning-core     |   Warning threshold for each CPU core                                                                                   |
+| --critical-core    |   Critical threshold for each CPU core                                                                                  |
+
+</TabItem>
+<TabItem value="Disks-Global" label="Disks-Global">
+
+| Option                | Description                                                                                                                                                             |
+|:----------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --chart-period        |   The period in seconds on which the values are calculated Default: 300                                                                                                 |
+| --chart-statistic     |   The statistic calculation method used to parse the collected data. Can be : average, sum, min, max Default: average                                                   |
+| --fs-name             |   Filter on one or more specific FS. Regexp can be used Example: --fs-name='(^/$\|^/boot$)'                                                                             |
+| --warning-usage       |   Warning threshold on FS space usage (in B).                                                                                                                           |
+| --critical-usage      |   Critical threshold on FS space usage (in B).                                                                                                                          |
+| --warning-usage-prct  |   Warning threshold on FS percentage space usage (in %).                                                                                                                |
+| --critical-usage-prct |   Critical threshold on FS percentage space usage (in %).                                                                                                               |
+| --warning-free        |   Warning threshold on FS free space.                                                                                                                                   |
+| --critical-free       |   Critical threshold on FS free space.                                                                                                                                  |
+| --space-reservation   |   On specific systems, partitions can have reserved space (like ext4 for root). This option will consider this space in the calculation (like for the 'df' command).    |
+
+</TabItem>
+<TabItem value="Inodes-Global" label="Inodes-Global">
+
+| Option                | Description                                                                                                                                                                    |
+|:----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --chart-period        |   The period in seconds on which the values are calculated Default: 300                                                                                                        |
+| --chart-statistic     |   The statistic calculation method used to parse the collected data. Can be : average, sum, min, max Default: average                                                          |
+| --fs-name             |   Filter on one or more specific FS. Regexp can be used Example: --fs-name='(^/$\|^/boot$)'                                                                                    |
+| --warning-usage-prct  |   Warning threshold on FS used Inodes  (in %).                                                                                                                                 |
+| --critical-usage-prct |   Critical threshold on FS used Inodes (in %).                                                                                                                                 |
+| --space-reservation   |   On specific systems, partitions can have reserved space/inodes (like ext4 for root). This option will consider this space in the calculation (like for the 'df' command).    |
+
+</TabItem>
+<TabItem value="Load" label="Load">
+
+| Option                   | Description                                                                                                              |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------|
+| --chart-period           |   The period in seconds on which the values are calculated. Default: 300                                                 |
+| --chart-statistic        |   The statistic calculation method used to parse the collected data. Can be : average, sum, min, max. Default: average   |
+| --average                |   Load average for the number of CPUs.                                                                                   |
+| --warning-* --critical-* |   Threshold where '*' can be: load1, load5, load15                                                                       |
+
+</TabItem>
+<TabItem value="Memory" label="Memory">
+
+| Option                | Description                                                                                                             |
+|:----------------------|:------------------------------------------------------------------------------------------------------------------------|
+| --chart-period        |   The period in seconds on which the values are calculated Default: 300                                                 |
+| --chart-statistic     |   The statistic calculation method used to parse the collected data. Can be : average, sum, min, max Default: average   |
+| --warning-usage       |   Warning threshold on used memory (in B).                                                                              |
+| --critical-usage      |   Critical threshold on used memory (in B)                                                                              |
+| --warning-usage-prct  |   Warning threshold on used memory (in %).                                                                              |
+| --critical-usage-prct |   Critical threshold on percentage used memory (in %)                                                                   |
+| --warning-usage-free  |   Warning threshold on free memory (in B).                                                                              |
+| --critical-usage-free |   Critical threshold on free memory (in B)                                                                              |
+| --warning-*           |   Warning threshold (in B) on other metrics where '*' can be: buffer,cached,shared                                      |
+| --critical-*          |   Critical threshold (in B) on other metrics where '*' can be: buffer,cached,shared                                     |
+
+</TabItem>
+<TabItem value="Swap" label="Swap">
+
+| Option                | Description                                                                                                             |
+|:----------------------|:------------------------------------------------------------------------------------------------------------------------|
+| --chart-period        |   The period in seconds on which the values are calculated Default: 300                                                 |
+| --chart-statistic     |   The statistic calculation method used to parse the collected data. Can be : average, sum, min, max Default: average   |
+| --warning-usage       |   Warning threshold on used swap (in B).                                                                                |
+| --critical-usage      |   Critical threshold on used swap (in B)                                                                                |
+| --warning-usage-prct  |   Warning threshold on used swap (in %).                                                                                |
+| --critical-usage-prct |   Critical threshold on percentage used swap (in %)                                                                     |
+| --warning-usage-free  |   Warning threshold on free swap (in B).                                                                                |
+| --critical-usage-free |   Critical threshold on free swap (in B)                                                                                |
+
+</TabItem>
+<TabItem value="Traffic-Global" label="Traffic-Global">
+
+| Option               | Description                                                                                                             |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------|
+| --chart-period       |   The period in seconds on which the values are calculated Default: 300                                                 |
+| --chart-statistic    |   The statistic calculation method used to parse the collected data. Can be : average, sum, min, max Default: average   |
+| --interface-name     |   Filter on a specific interface. Regexp can be used. Example: --interface-name='^eth0$'                                |
+| --speed              |   Set interfaces speed in b/s. Default: 1000000000 (1Gb/s).                                                             |
+| --warning-traffic-*  |   Warning threshold on interface traffic where '*' can be: in,out.                                                      |
+| --critical-traffic-* |   Critical threshold on interface traffic where '*' can be: in,out.                                                     |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_monitoring_netdata_restapi.pl \
+	--plugin=apps::monitoring::netdata::restapi::plugin \
+	--mode=traffic \
+	--help
 ```

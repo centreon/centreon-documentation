@@ -1,6 +1,7 @@
 ---
 id: secure-your-map-platform
-title: Secure your MAP platform
+title: Securing your MAP platform
+description: "Secure Centreon MAP with HTTPS/TLS and encrypted database connections"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -125,8 +126,7 @@ systemctl start centreon-map-engine
 
 Centreon MAP server is now configured to respond to requests from HTTPS at port 9443.
 
-To change the default port, refer to the [dedicated
-procedure](map-web-advanced-configuration.md#change-the-centreon-map-servers-port).
+To change the default port, refer to the [dedicated procedure](./map-web-change-port.md).
 
 > Don't forget to modify the URL on Centreon side in the **MAP server address**
 > field in the **Administration > Extensions > Map > Options** menu.
@@ -240,3 +240,447 @@ keytool -import -alias centreon-broker -file central_public.crt -keystore /etc/c
 If the broker public certificate is signed with a recognized CA, the JVM
 default trust store **cacerts (/etc/pki/java/cacerts)** will be used. Nothing
 to configure for Centreon MAP service.
+
+## Configure TLS on a MySQL or MariaDB database
+
+This section describes how to enable SSL on a MySQL/MariaDB server and configure a Spring Boot application to connect securely using the certificate authority verification (VERIFY_CA mode).
+
+> **Note:** This procedure covers the VERIFY_CA mode only. In this mode, the server certificate is validated against a trusted Certificate Authority, but the hostname/IP address is not verified. For other SSL verification modes, see the [SSL Mode reference](#ssl-mode-reference) section.
+
+- Select the tab corresponding to the database you want to use.
+
+### Step 1 - Generate keys and certificates
+
+<Tabs groupId="db" queryString>
+<TabItem value="MySQL" label="MySQL">
+
+**1. Create a directory** (`/etc/mysql/newcerts` in this example) to store your certificate files:
+
+    ```shell
+    mkdir -p /etc/mysql/newcerts
+    cd /etc/mysql/newcerts
+    ```
+
+**2. Generate the Certificate Authority (CA).** The CA is used to sign both the server and client certificates, establishing a chain of trust.
+
+    ```shell
+    # Generate the CA private key
+    openssl genrsa 2048 > ca-key.pem
+    # Generate the CA self-signed certificate
+    openssl req -new -x509 -nodes -days 365000 -key ca-key.pem -out ca-cert.pem
+    ```
+
+**3. Generate the server certificate.** The server certificate is presented by MySQL to clients during the SSL handshake.
+
+    ```shell
+    # Generate the server private key and CSR (Certificate Signing Request)
+    openssl req -newkey rsa:2048 -days 365000 -nodes -keyout server-key.pem -out server-req.pem
+    
+    # Convert the server key to RSA format (required by MySQL)
+    openssl rsa -in server-key.pem -out server-key.pem
+    
+    # Sign the server certificate with the CA
+    openssl x509 -req -in server-req.pem -days 365000 -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
+    ```
+
+**4. Generate the client certificate.** The client certificate is used by the application to authenticate itself to MySQL (mutual TLS).
+
+    ```shell
+    # Generate the client private key and CSR
+    openssl req -newkey rsa:2048 -days 365000 -nodes -keyout client-key.pem -out client-req.pem
+    # Convert the client key to RSA format
+    openssl rsa -in client-key.pem -out client-key.pem
+    # Sign the client certificate with the CA
+    openssl x509 -req -in client-req.pem -days 365000 -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem
+    ```
+
+**5. Verify the certificates.** Ensure both certificates are correctly signed by the CA before proceeding.
+
+    ```shell
+    openssl verify -CAfile ca-cert.pem server-cert.pem client-cert.pem
+    # Expected output:
+    # server-cert.pem: OK
+    # client-cert.pem: OK
+    ```
+
+</TabItem>
+<TabItem value="MariaDB" label="MariaDB">
+
+**1. Create a directory** (`/etc/mariadb/newcerts` in this example) to store your certificate files:
+
+    ```shell
+    mkdir -p /etc/mariadb/newcerts
+    cd /etc/mariadb/newcerts
+    ```
+
+**2. Generate the Certificate Authority (CA).** The CA is used to sign both the server and client certificates, establishing a chain of trust.
+
+    ```shell
+    # Generate the CA private key
+    openssl genrsa 2048 > ca-key.pem
+    
+    # Generate the CA self-signed certificate
+    openssl req -new -x509 -nodes -days 365000 -key ca-key.pem -out ca-cert.pem
+    ```
+
+**3. Generate the server certificate.** The server certificate is presented by MariaDB to clients during the SSL handshake.
+
+    ```shell
+    # Generate the server private key and CSR (Certificate Signing Request)
+    openssl req -newkey rsa:2048 -days 365000 -nodes -keyout server-key.pem -out server-req.pem
+    
+    # Convert the server key to RSA format (required by MariaDB)
+    openssl rsa -in server-key.pem -out server-key.pem
+    
+    # Sign the server certificate with the CA
+    openssl x509 -req -in server-req.pem -days 365000 \
+    -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
+    -out server-cert.pem
+    ```
+
+**4. Generate the client certificate.** The client certificate is used by the application to authenticate itself to MariaDB (mutual TLS). Skip this section if you only need `REQUIRE SSL`.
+
+    ```shell
+    # Generate the client private key and CSR
+    openssl req -newkey rsa:2048 -days 365000 -nodes -keyout client-key.pem -out client-req.pem
+   
+    # Convert the client key to RSA format
+    openssl rsa -in client-key.pem -out client-key.pem
+    
+    # Sign the client certificate with the CA
+    openssl x509 -req -in client-req.pem -days 365000 \
+    -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
+    -out client-cert.pem
+    ```
+
+**5. Verify the certificates.** Ensure both certificates are correctly signed by the CA before proceeding.
+
+    ```shell
+    openssl verify -CAfile ca-cert.pem server-cert.pem client-cert.pem
+    # Expected output:
+    # server-cert.pem: OK
+    # client-cert.pem: OK
+    ```
+
+**6. Set the file ownership.** MariaDB requires ownership of all certificate files.
+
+</TabItem>
+</Tabs>
+
+### Step 2 - Configure the MySQL/MariaDB server
+
+<Tabs groupId="db" queryString>
+<TabItem value="MySQL" label="MySQL">
+
+**1. Set the file ownership.** MySQL requires ownership of all certificate files.
+
+    > Ensure you are using the directory you previously created (`/etc/mysql/newcerts` in this example).
+
+    ```shell
+    chown -Rv mysql:root /etc/mysql/newcerts/*
+    ```
+
+**2. Edit the MySQL server configuration.** Add the following block to your MySQL server configuration file (typically `/etc/mysql/mysql.conf.d/mysqld.cnf`):
+
+    ```shell
+    [mysqld]
+    ssl-ca   = /etc/mysql/newcerts/ca-cert.pem
+    ssl-cert = /etc/mysql/newcerts/server-cert.pem
+    ssl-key  = /etc/mysql/newcerts/server-key.pem
+    # Restrict to secure TLS versions only
+    tls_version = TLSv1.2,TLSv1.3
+    ```
+
+**3. Optional - Edit the MySQL client configuration.** This allows the mysql CLI tool to connect using SSL as well.
+
+    ```shell
+        [mysql]
+        ssl-ca   = /etc/mysql/newcerts/ca-cert.pem
+        ssl-cert = /etc/mysql/newcerts/client-cert.pem
+        ssl-key  = /etc/mysql/newcerts/client-key.pem
+    ```
+
+**4. Restart MySQL.**
+
+    ```shell
+    systemctl restart mysqld
+    ```
+
+**5. Verify SSL is active.**
+
+    
+
+</TabItem>
+<TabItem value="MariaDB" label="MariaDB">
+
+> Ensure you are using the directory you previously created (`/etc/mariadb/newcerts` in this example).
+
+**1. Add the following block to your MariaDB server configuration file** (typically `/etc/mariadb/mariadb.conf.d/50-server.cnf`):
+
+    ```shell
+    [mariadb]
+    ssl-ca   = /etc/mariadb/newcerts/ca-cert.pem
+    ssl-cert = /etc/mariadb/newcerts/server-cert.pem
+    ssl-key  = /etc/mariadb/newcerts/server-key.pem
+    
+    # Restrict to secure TLS versions only
+    tls_version = TLSv1.2,TLSv1.3
+    ```
+
+**2. Optional - Edit the MariaDB client configuration.** This allows the mariadb CLI tool to connect using SSL as well (/etc/mariadb/mariadb.conf.d/client.cnf):
+
+    ```shell
+    [client-mariadb]
+    ssl-ca   = /etc/mariadb/newcerts/ca-cert.pem
+    ssl-cert = /etc/mariadb/newcerts/client-cert.pem
+    ssl-key  = /etc/mariadb/newcerts/client-key.pem
+    ```
+
+**4. Restart MariaDB.**
+
+    ```shell
+    systemctl restart mariadb
+    ```
+
+**5. Verify SSL is active.**
+
+    ```shell
+    SHOW VARIABLES LIKE '%ssl%';
+    -- have_ssl should be YES
+    -- ssl_ca, ssl_cert, ssl_key should point to your certificate files
+    ```
+
+</TabItem>
+</Tabs>
+
+### Step 3 - Configure the MySQL/MariaDB user
+
+<Tabs groupId="db" queryString>
+<TabItem value="MySQL" label="MySQL">
+
+**1. Require SSL for the user.**
+
+    ```shell
+    ALTER USER 'centreon_map'@'<ip_or_hostname>' REQUIRE SSL;
+    -- Verify: ssl_type should now show ANY
+    SELECT user, host, ssl_type FROM mysql.user WHERE user='centreon_map';
+    ```
+
+**2. Grant privileges.**
+
+    ```shell
+    GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
+          CREATE TEMPORARY TABLES, LOCK TABLES
+      ON `centreon_map`.*
+      TO `centreon_map`@`<ip_or_hostname>`;
+    -- Verify grants
+    SHOW GRANTS FOR 'centreon_map'@'<ip_or_hostname>';
+    ```
+
+</TabItem>
+<TabItem value="MariaDB" label="MariaDB">
+
+**1. Require SSL for the user.**
+
+    ```shell
+    - SSL only (no client certificate required)
+    ALTER USER 'centreon_map'@'<ip_or_hostname>' REQUIRE SSL;
+   
+    -- Or mutual TLS (client certificate required)
+    -- ALTER USER 'centreon_map'@'<ip_or_hostname>' REQUIRE X509;
+   
+    -- Verify: ssl_type should now show ANY (for SSL) or X509 (for mTLS)
+    SELECT user, host, ssl_type FROM mysql.user WHERE user='centreon_map';
+    ```
+
+**2. Grant privileges.**
+
+    ```shell
+    GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
+        CREATE TEMPORARY TABLES, LOCK TABLES
+    ON `centreon_map`.*
+    TO `centreon_map`@`<ip_or_hostname>`;
+    -- Verify grants
+    SHOW GRANTS FOR 'centreon_map'@'<ip_or_hostname>';
+    ```
+</TabItem>
+</Tabs>
+
+### Step 4 - Configure JDBC (Spring Boot)
+
+<Tabs groupId="db" queryString>
+<TabItem value="MySQL" label="MySQL">
+
+From the migration to MariaDB Connector/J, the MySQL connector is no longer bundled. Even when your database server is MySQL, the JDBC URL uses the `jdbc:mariadb://` scheme and the `org.mariadb.jdbc.Driver` driver. MariaDB Connector/J 3.x supports PEM files natively via the `serverSslCert` parameter directly in the JDBC URL. No Java keystore conversion is needed for SSL simple mode.
+
+A keystore file is only needed for mTLS (client certificate authentication):
+
+| File    | Contains     | Purpose               | Required      |
+|----------------|------------|---------------------------|-----------|
+| ca-cert.pem     | CA certificate | Lets the driver verify the MySQL server's identity     | Yes - Always      |
+| keystore.p12       | Client cert + private key  | Lets MySQL verify the application's identity  | Only if REQUIRE X509     |
+
+> **Note: mTLS is optional.** It is only needed if the MySQL user was created with REQUIRE X509. If the user was created with REQUIRE SSL, only `serverSslCert` pointing to the CA is needed and the keystore steps below can be skipped.
+
+**1. Optional: Create the KeyStore for mTLS**.
+
+    > **Note:** Skip this step if the MySQL user was created with REQUIRE SSL. It is only required for REQUIRE X509 (mutual TLS). `keytool` cannot import a PEM private key directly, so we first convert to PKCS12.
+
+    1.1. Bundle the client cert and key into a PKCS12 file:
+
+        ```shell
+        openssl pkcs12 -export \
+        -in /etc/mysql/newcerts/client-cert.pem \
+        -inkey /etc/mysql/newcerts/client-key.pem \
+        -out /etc/mysql/newcerts/client.p12 \
+        -name mysqlClient \
+        -passout pass:changeit
+        ```
+
+**2. Set file permissions.** Ensure only the user running the Java application can read the keystore files.
+
+    ```shell
+    chown your_java_user: /etc/mysql/newcerts/keystore.p12
+    chmod 640 /etc/mysql/newcerts/keystore.p12
+    ```
+
+**3. Set the JDBC URL.** Add the following to your configuration file (/etc/centreon-map/*-database.properties):
+
+    ```shell
+    *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mysql/newcerts/ca-cert.pem&rewriteBatchedStatements=true
+    ```
+    > **Note: sslMode=trust for MySQL 8.** On a MySQL 8 server, the `sslMode=trust` parameter is added by default: the `caching_sha2_password` authentication hardened setup, replace `trust` with `verify-ca` (as shown above) or `verify-full`. Never use `sslMode=disable` on MySQL 8, as it would break authentication.
+
+**4. Optional — only if mTLS is enabled - (REQUIRE X509)**. Add options `keyStore`, `keyStorePassword` and `keyStoreType`:
+
+        ```shell
+        *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mysql/newcerts/ca-cert.pem&keyStore=/etc/mysql/newcerts/keystore.p12&keyStorePassword=changeit&keyStoreType=PKCS12&rewriteBatchedStatements=true
+        ```
+
+</TabItem>
+<TabItem value="MariaDB" label="MariaDB">
+
+Unlike MySQL Connector/J, **MariaDB Connector/J 3.x supports PEM files natively** via the `serverSslCert` parameter directly in the JDBC URL. No Java keystore conversion is needed for SSL simple mode.
+
+A keystore file is only needed for mTLS (client certificate authentication):
+
+| File    | Contains     | Purpose               | Required      |
+|----------------|------------|---------------------------|-----------|
+| ca-cert.pem     | CA certificate | Lets the driver verify the MariaDB server's identity     | Yes - Always      |
+| keystore.p12      | Client cert + private key  | Lets MariaDB verify the application's identity  | Only if REQUIRE X509     |
+
+> **Note: mTLS is optional.** It is only needed if the MariaDB user was created with REQUIRE X509. If the user was created with REQUIRE SSL, only serverSslCert pointing to the CA is needed and the keystore steps below can be skipped.
+
+**1. Optional - Create the KeyStore for mTLS.**
+
+    Skip this step if the MariaDB user was created with REQUIRE SSL. It is only required for REQUIRE X509 (mutual TLS).
+
+    `keytool` cannot import a PEM private key directly, so we first bundle via PKCS12.
+
+        1.1. Bundle the client cert and key into a PKCS12 file:
+
+        ```shell
+        openssl pkcs12 -export \
+        -in /etc/mariadb/newcerts/client-cert.pem \
+        -inkey /etc/mariadb/newcerts/client-key.pem \
+        -out /etc/mariadb/newcerts/keystore.p12 \
+        -name mariadbClient \
+        -passout pass:changeit
+        ```
+
+**2. Set file permissions.** Ensure only the user running the Java application can read the keystore files.
+   
+        ```shell
+        chown your_java_user: /etc/mariadb/newcerts/keystore.p12
+        chmod 640 /etc/mariadb/newcerts/keystore.p12
+        ```
+
+**3. Set file permissions.** Ensure only the user running the Java application can read the keystore files.
+
+    ```shell
+    chown your_java_user: /etc/mariadb/newcerts/*.jks
+    chmod 640 /etc/mariadb/newcerts/*.jks
+    ```
+
+**4. Set the JDBC URL.** Add the following to your configuration file (/etc/centreon-map/*-database.properties):
+
+    ```shell
+    *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mariadb/newcerts/ca-cert.pem&rewriteBatchedStatements=true
+    ```
+
+**5. Optional — only if mTLS is enabled (REQUIRE X509).** Add options keyStore, keyStorePassword and keyStoreType:
+
+        ```shell
+        *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mariadb/newcerts/ca-cert.pem&keyStore=/etc/mariadb/newcerts/keystore.p12&keyStorePassword=changeit&keyStoreType=PKCS12&rewriteBatchedStatements=true
+        ```
+
+</TabItem>
+</Tabs>
+
+### Step 5 - Check Certificate Expiry
+
+<Tabs groupId="db" queryString>
+<TabItem value="MySQL" label="MySQL">
+
+Certificates generated with `-days 365000` are valid for ~1000 years, but this should still be monitored in shorter-lived setups.
+
+**1. Check the CA certificate**:
+
+    ```shell
+    openssl x509 -in /etc/mysql/newcerts/ca-cert.pem -noout -dates
+    # notBefore=...
+    # notAfter=...
+    ```
+
+**2. Check the server certificate**:
+
+    ```shell
+    openssl x509 -in /etc/mysql/newcerts/server-cert.pem -noout -dates
+    ```
+
+**3. Check the KeyStore (mTLS only)**:
+
+    ```shell
+    keytool -list -v -keystore /etc/mysql/newcerts/keystore.p12 -storepass changeit
+    # Look for: Valid from ... until ...
+    ```
+
+</TabItem>
+<TabItem value="MariaDB" label="MariaDB">
+
+**1. Check the CA certificate**.
+
+    ```shell
+    openssl x509 -in /etc/mariadb/newcerts/ca-cert.pem -noout -dates
+    # notBefore=...
+    # notAfter=...
+    ```
+
+**2. Check the server certificate.**
+
+    ```shell
+    openssl x509 -in /etc/mariadb/newcerts/server-cert.pem -noout -dates
+    ```
+
+**3. Check the KeyStore (mTLS only).**
+
+    ```shell
+    keytool -list -v -keystore /etc/mariadb/newcerts/keystore.p12 -storepass changeit
+    # Look for: Valid from ... until ...
+    ```
+
+</TabItem>
+</Tabs>
+
+### SSL Mode reference
+
+The `VERIFY_CA` mode is the recommended minimum for production. This table lists other available modes depending on your security requirements:
+
+| Mode         | Server cert verified | Hostname/IP verified | Use case                         |
+|--------------|----------------------|----------------------|----------------------------------|
+| `DISABLED`     | No                 | No                 | Development only — no encryption |
+| `trust`     | No                   | No                | Encrypts traffic but does not validate the server cert  |
+| `verify-ca`     | Yes                   | No                | Used in this procedure — validates the CA chain  |
+| `verify-full`     | Yes                   | Yes               | Strictest — also checks hostname/IP against the certificate SAN    |
+
+> **Note:** If you want to use the `verify-full` mode, the server certificate must include a Subject Alternative Name (SAN) matching the exact IP or hostname used in the JDBC URL. The CN field alone is not sufficient for IP-based connections.

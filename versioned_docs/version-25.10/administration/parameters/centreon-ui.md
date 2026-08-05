@@ -1,6 +1,7 @@
 ---
 id: centreon-ui
 title: Centreon UI
+description: "Configure general Centreon web interface and proxy options"
 ---
 
 This part covers the configuration of the general options of the Centreon web
@@ -50,7 +51,7 @@ The proxy configuration is mandatory when using the Centreon IT Edition.
 
 Define the required information:
 
-- **Proxy URL**
+- **Proxy URL** (the URL must include the protocol, http:// or https://)
 - **Proxy port**
 - **Proxy user**
 - **Proxy password**

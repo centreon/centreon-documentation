@@ -1,6 +1,7 @@
 ---
 id: platform
 title: Éléments d'une plateforme Centreon
+description: "Présentation des serveurs centraux, distants, collecteurs et du CMA"
 ---
 
 Selon vos besoins, votre plateforme peut être constituée de plusieurs éléments : un [serveur central](#serveur-central), un ou plusieurs [serveurs distants](#serveur-distant), et un ou plusieurs [collecteurs](#collecteur).
@@ -31,8 +32,14 @@ Un collecteur peut être rattaché à un [serveur distant](#serveur-distant) ou 
 - Un collecteur Centreon supervise des [ressources](../resources/glossary.md#ressource). Il possède un [moteur de supervision](../resources/glossary.md#moteur-de-supervision).
 - Il n’a pas d’interface graphique : les ressources qu’il supervise s’affichent dans l’interface du serveur central et du serveur distant auxquels il est rattaché.
 
+## Centreon Monitoring Agent
+
+L'agent de supervision Centreon [(Centreon Monitoring Agent, CMA)](../cma/cma.md) est une brique logicielle optionnelle installée sur un hôte pour le superviser.
+- CMA collecte des métriques et calcule des statuts, et les envoie à Centreon.
+- Il exécute des contrôles natifs lui-même ou des contrôles non-natifs grâce aux plugins installés localement.
+
 ## Architecture distribuée
 
-![image](../assets/getting-started/archi.png)
+![image](../assets/getting-started/elements_of_centreon_platform.svg)
 
 Voir aussi [**Architectures**](../installation/architectures.md).

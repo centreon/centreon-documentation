@@ -1,27 +1,53 @@
 ---
 id: applications-databases-rrdtool
 title: RRDtool
+description: "Supervisez les sources de données RRDtool en ligne de commande ou en SSH, en vérifiant les valeurs minimale, maximale et moyenne sur une période donnée."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
 
-## Contenu du connecteur de supervision
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **RRDtool**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
-### Objets supervisés
+## Contenu du pack
 
-Le connecteur de supervision inclue la supervision Query.
+### Modèles
 
-### Métriques collectées
+Le connecteur de supervision **RRDtool** n'apporte pas de modèle d'hôte.
+
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Query" label="Query">
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Metric name                                  | Description                | Unit |
-| :------------------------------------------- | :------------------------- | :--- |
-| *dsname*#datasource.value.minimum.count      | Minimun value on timeframe |      |
-| *dsname*#datasource.value.average.count      | Average value on timeframe |      |
-| *dsname*#datasource.value.maximum.count      | Maximul value on timeframe |      |
+| Alias | Modèle de service                 | Description                                                                        |
+|:------|:----------------------------------|:-----------------------------------------------------------------------------------|
+| Query | App-DB-Rrdtool-SSH-Query-custom   | Contrôle permettant de vérifier les valeurs min/max/average d'un DS sur une période |
+| Query | App-DB-Rrdtool-Local-Query-custom | Contrôle permettant de vérifier les valeurs min/max/average d'un DS sur une période |
+
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
+
+</TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+
+<Tabs groupId="sync">
+<TabItem value="Query*" label="Query*">
+
+| Nom                            | Unité |
+|:-------------------------------|:------|
+| datasource.value.minimum.count | count |
+| datasource.value.average.count | count |
+| datasource.value.maximum.count | count |
+
+> Concerne les modèles de service suivants : Query, Query
 
 </TabItem>
 </Tabs>
@@ -35,148 +61,208 @@ La sonde permet de requêter RRDtool avec :
 
 ```rrdcached``` n'est pas encore supporté.
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Databases-Rrdtool
+dnf install centreon-pack-applications-databases-rrdtool
 ```
-
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *RRDtool* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Databases-Rrdtool
+dnf install centreon-pack-applications-databases-rrdtool
 ```
 
-2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-databases-rrdtool
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-databases-rrdtool
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *RRDtool* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
-
 </TabItem>
 </Tabs>
 
-## Configuration d'un service
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **RRDtool**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
-<TabItem value="Local" label="Local">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-* Créer un service et appliquer le modèle de service the *App-DB-Rrdtool-Local-Query*.
-
-> Une fois le modèle appliqué, certaines Macros doivent être renseignées :
-
-| Mandatory | Name      | Description                                                                  |
-| :-------- | :-------- | :--------------------------------------------------------------------------- |
-| X         | RRDFILE   | Ficher rrd cible                                                             |
-| X         | DSNAME    | Datasource cible  (Défaut: 'value')                                          |
-| X         | TIMEFRAME | Set timeframe in seconds (E.g '3600' to check last 60 minutes) (Défaut: 600) |
+```bash
+dnf install centreon-plugin-Applications-Databases-Rrdtool
+```
 
 </TabItem>
-<TabItem value="SSH" label="SSH">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-* Créer un service et appliquer le modèle de service *App-DB-Rrdtool-SSH-Query*.
-
-> Une fois le modèle appliqué, certaines Macros doivent être renseignées :
-
-| Mandatory | Name      | Description                                                                 |
-| :-------- | :-------- | :-------------------------------------------------------------------------- |
-| X         | RRDFILE   | Ficher rrd cible                                                            |
-| X         | DSNAME    | Datasource cible (Défaut: 'value')                                          |
-| X         | TIMEFRAME | Période en seconde (cf: '3600' pour les 60 dernières minutes) (Défaut: 600) |
-
-* Sur votre hôte, certaines Macros doivent être renseignées :
+```bash
+dnf install centreon-plugin-Applications-Databases-Rrdtool
+```
 
 </TabItem>
-<TabItem value="sshcli backend" label="sshcli backend">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-| Mandatory   | Name            | Description                                                                                     |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```sshcli```                                                                    |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |          
-|             | SSHPASSWORD     | Ne peut pas être utilisé avec le backend. Seulement avec la clé d'authentication                |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
-
-> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
-et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
+```bash
+apt install centreon-plugin-applications-databases-rrdtool
+```
 
 </TabItem>
-<TabItem value="plink backend" label="plink backend">
+<TabItem value="CentOS 7" label="CentOS 7">
 
-| Mandatory   | Name            | Description                                                                                     |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- | 
-| X           | SSHBACKEND      | Nom du backend: ```plink```                                                                     |
-| X           | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
-
-> Avec ce backend, il est nécessaire d'effectuer une connexion manuelle entre l'utilisateur centreon-engine du Collecteur
-et l'utilisateur applicatif créé sur le serveur distant. (Macro SSHUSERNAME).
-
-</TabItem>
-<TabItem value="libssh backend (par défaut)" label="libssh backend (par défaut)">
-
-| Mandatory   | Name            | Description                                                                                     |
-| :---------- | :-------------- | :---------------------------------------------------------------------------------------------- |
-| X           | SSHBACKEND      | Nom du backend: ```libssh```                                                                    |          
-|             | SSHUSERNAME     | Par default, il utilise l'utilisateur en cours d'exécution ```centengine``` de votre Collecteur |
-|             | SSHPASSWORD     | Peut être utilisé. Si aucune valeur n'est définie, l'authentification par clé ssh est utilisée  |
-|             | SSHPORT         | Par default: 22                                                                                 |
-|             | SSHEXTRAOPTIONS | Personnalisez-le avec le vôtre si nécessaire. E.g.: ```--ssh-priv-key=/user/.ssh/id_rsa```      |
-
-Avec ce backend, vous n'avez pas à valider manuellement le fingerprint du serveur cible.
+```bash
+yum install centreon-plugin-Applications-Databases-Rrdtool
+```
 
 </TabItem>
 </Tabs>
 
-## FAQ
+## Utiliser le connecteur de supervision
 
-#### Comment faire le test en ligne de commande et que signifient les principales options ?
+### Utiliser un modèle d'hôte issu du connecteur
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine* :
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Query" label="Query">
+
+| Macro                | Description                                                                                                                | Valeur par défaut | Obligatoire |
+|:---------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| CUSTOMMODE           | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | perlmod           |             |
+| DSNAME               | Set DS name to query (default: 'value')                                                                                    | value             | X           |
+| TIMEFRAME            | Set timeframe in seconds (E.g '3600' to check last 60 minutes)                                                             | 600               | X           |
+| RRDFILE              | Set rrd file to query                                                                                                      |                   | X           |
+| WARNINGVALUEAVERAGE  | Threshold                                                                                                                  |                   |             |
+| CRITICALVALUEAVERAGE | Threshold                                                                                                                  |                   |             |
+| WARNINGVALUEMAXIMUM  | Threshold                                                                                                                  |                   |             |
+| CRITICALVALUEMAXIMUM | Threshold                                                                                                                  |                   |             |
+| WARNINGVALUEMINIMUM  | Threshold                                                                                                                  |                   |             |
+| CRITICALVALUEMINIMUM | Threshold                                                                                                                  |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                         |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rrdtool.pl \
-    --plugin=database::rrdtool::local::plugin \
-    --custommode=perlmod \
-    --mode=query \
-    --rrd-file='/var/lib/centreon/metrics/1490.rrd' \
-    --ds-name='value' \
-    --timeframe='3600' \
-    --warning-value-maximum=50 \
-    --critical-value-maximum=100
+	--plugin=database::rrdtool::local::plugin \
+	--mode=query \
+	--custommode='perlmod' \
+	--rrd-file='xxxxxx' \
+	--ds-name='value' \
+	--timeframe='600' \
+	--warning-value-minimum='' \
+	--critical-value-minimum='' \
+	--warning-value-average='' \
+	--critical-value-average='' \
+	--warning-value-maximum='' \
+	--critical-value-maximum=''
 ```
 
-Exemple de sortie:
+La commande devrait retourner un message de sortie similaire à :
+
 ```
-OK: datasource 'value': 3.12 (min), 4.52 (avg), 5.13 (max) | 'value#datasource.value.minimum.count'=3.12;;;; 'value#datasource.value.average.count'=4.52;;;; 'value#datasource.value.maximum.count'=5.13;0:50;0:100;;
+OK: datasource 'value': 3.12 (min), 4.52 (avg), 5.13 (max) | 'value#datasource.value.minimum.count'=3.12;;;; 'value#datasource.value.average.count'=4.52;;;; 'value#datasource.value.maximum.count'=5.13;;;;
 ```
 
-La commande ci-dessus contrôle (```--mode=query```) une métrique de la base de données RRDtool */var/lib/centreon/metrics/1490.rrd* (les fichiers Centreon rrd sont visibles dans l'interface : ```Administration  >  Parameters  >  Data```).
+### Diagnostic des erreurs communes
 
-Le plugin vérifie la datasource *value* (```--ds-name='value'```. Centreon utilise toujours ```value``` comme datasource. Il est toujours possible de vérifier le nom de la datasource avec la commande: ```rrdtool info /var/lib/centreon/metrics/1490.rrd```) during the last hour (--timeframe='3600').
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
-Cette commande déclenchera une alarme WARNING si la valeur maxium est supérieur à 50 (```--warning-value-maximum=50```)
-et une alarme CRITICAL si la valeur est supérieur à 100 (```--critical-value-maximum=100```).
+### Modes disponibles
 
-Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_rrdtool.pl \
-    --plugin=database::rrdtool::local::plugin \
-    --custommode=perlmod \
-    --help
+	--plugin=database::rrdtool::local::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                               | Modèle de service associé                                              |
+|:-------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------|
+| query [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/rrdtool/local/mode/query.pm)] | App-DB-Rrdtool-SSH-Query-custom<br />App-DB-Rrdtool-Local-Query-custom |
+
+### Options disponibles
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Query*" label="Query*">
+
+| Option                   | Description                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+| --rrd-file               |   Set rrd file to query.                                                                                                      |
+| --ds-name                |   Set DS name to query (default: 'value').                                                                                    |
+| --timeframe              |   Set timeframe in seconds (E.g '3600' to check last 60 minutes).                                                             |
+| --warning-* --critical-* |   Thresholds. Can be: 'value-minimum', 'value-average', 'value-maximum'.                                                      |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_rrdtool.pl \
+	--plugin=database::rrdtool::local::plugin \
+	--mode=query \
+	--help
 ```

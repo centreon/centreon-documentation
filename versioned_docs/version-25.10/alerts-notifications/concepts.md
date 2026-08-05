@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Possible statuses of a resource
+description: "Understand host and service statuses, states, and status types"
 ---
 
 Statuses show the availability of a host, and the availability or performance of a service. Each status has a
@@ -56,6 +57,9 @@ The status of a resource can be one of these two types:
 
 * **SOFT**: Means that an incident has just been detected and that it has to be confirmed.
 * **HARD**: Means that the status of the incident is confirmed. Once the status is confirmed, the notification process is triggered (sending of an email, SMS, etc.).
+
+The **Tries** column in the **Resource Status** page indicates the number of attempts made to confirm a status. It also shows a letter (H or S) corresponding the type of status.
+
 
 You can filter the view on the [Resources Status](resources-status.md) page according to the resources' status type.
 

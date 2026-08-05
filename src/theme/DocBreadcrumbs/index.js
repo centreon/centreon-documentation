@@ -68,7 +68,7 @@ export default function DocBreadcrumbs() {
 
   // Hack: Swizzle component to use baseUrl until https://github.com/facebook/docusaurus/issues/6953
   let homePath = '/docs/getting-started/welcome';
-  let homeLabel = 'Centreon OnPrem';
+  let homeLabel = 'Infra Monitoring OnPrem';
   if (docSection === 'docs' && activeVersion) {
     homePath = `${activeVersion.path}/${activeVersion.mainDocId}`;
   } else if (docSection === 'pp') {
@@ -76,7 +76,13 @@ export default function DocBreadcrumbs() {
     homeLabel = 'Monitoring Connectors';
   } else if (docSection === 'cloud') {
     homePath = '/cloud/getting-started/welcome';
-    homeLabel = 'Centreon Cloud';
+    homeLabel = 'Infra Monitoring Cloud';
+  } else if (docSection === 'experience-monitoring') {
+    homePath = '/experience-monitoring/getting-started/welcome';
+    homeLabel = 'Centreon Experience Monitoring';
+  } else if (docSection === 'logmanagement') {
+    homePath = '/logmanagement/getting-started/welcome';
+    homeLabel = 'Centreon Log Management';
   }
 
   breadcrumbs.unshift({

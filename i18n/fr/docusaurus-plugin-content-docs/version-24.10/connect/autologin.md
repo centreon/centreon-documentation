@@ -1,11 +1,14 @@
 ---
 id: autologin
-title: Configurer une authentification par Autologin
+title: Configurer une authentification en auto-connexion
+description: "Configurer l'auto-connexion pour accéder à Centreon sans mot de passe"
 ---
 
-La fonctionnalité d'Autologin vous permet de donner accès à la plateforme via une simple URL, sans login ni mot de passe. Utilisez l'Autologin par exemple pour afficher des custom views sur un grand écran dans votre espace de travail. 
+La fonctionnalité d'auto-connexion vous permet de donner accès à la plateforme via une simple URL, sans login ni mot de passe. Utilisez l'auto-connexion par exemple pour afficher des custom views sur un grand écran dans votre espace de travail. 
 
-## Étape 1 : Activer l'autologin
+> Pour des raisons de sécurité, les utilisateurs LDAP ne peuvent pas utiliser l'auto-connexion.
+
+## Étape 1 : Activer l'auto-connexion
 
 1. Allez à la page **Administration > Paramètres > Centreon web**.
 
@@ -23,6 +26,7 @@ La fonctionnalité d'Autologin vous permet de donner accès à la plateforme via
 2. Éditez l'utilisateur. Allez à l'onglet **Authentification** :
     - activez l'option **Autoriser l'utilisateur à se connecter à l'interface web**.
     - à droite du champ **Clé d'auto-connexion**, cliquez sur **Générer**. Notez la clé ainsi générée.
+Notez que pour des raisons de sécurité, les utilisateurs LDAP ne peuvent pas utiliser l'auto-connexion (administrateurs inclus). Pour cette raison, le champ "Clé d'auto-connexion" est désactivé chez ces utilisateurs.
 
 3. Cliquez sur **Sauvegarder**.
 
@@ -32,7 +36,7 @@ La fonctionnalité d'Autologin vous permet de donner accès à la plateforme via
 
 2. Allez à la page que vous voudrez afficher, puis cliquez sur l'icône profil en haut à droite de l'écran.
 
-3. Cliquez sur **Copier le lien de connexion automatique** pour obtenir l'URL à utiliser. Les URLs d'autologin ont la structure suivante :
+3. Cliquez sur **Copier le lien de connexion automatique** pour obtenir l'URL à utiliser. Les URLs d'auto-connexion ont la structure suivante :
 
     ```
     http://[IP_CENTREON]/centreon/main.php?p=[numéro_page]&autologin=1&useralias=[login_utilisateur]&token=[clé_autologin]

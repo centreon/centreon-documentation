@@ -1,6 +1,7 @@
 ---
 id: cloud-cadvisor-api
 title: cAdvisor API
+description: "Monitor Docker containers via the cAdvisor REST API: CPU, memory, disk I/O, network traffic, and node status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -32,11 +33,11 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias     | Service Template                            | Service Description           | Discovery  |
-|:------------------|:--------------------------------------------|:------------------------------|:----------:|
-| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Check container disk I/O.    | X          |
-| Container-Traffic | Cloud-cAdvisor-Container-Traffic-Api-custom | Check container network usage | X          |
-| Container-Usage   | Cloud-cAdvisor-Container-Usage-Api-custom   | Check container usage         | X          |
+| Service Alias     | Service Template                            | Service Description           | Discovery |
+|:------------------|:--------------------------------------------|:------------------------------|:---------:|
+| Container-Disk-IO | Cloud-cAdvisor-Container-Disk-IO-Api-custom | Check container disk I/O.     |     X     |
+| Container-Traffic | Cloud-cAdvisor-Container-Traffic-Api-custom | Check container network usage |     X     |
+| Container-Usage   | Cloud-cAdvisor-Container-Usage-Api-custom   | Check container usage         |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -111,6 +112,26 @@ Here is the list of services for this connector, detailing all metrics linked to
 
 A running cAdvisor container should be available. You can refer to the official
 [quick start](https://github.com/google/cadvisor#quick-start-running-cadvisor-in-a-docker-container).
+
+### Best practice: naming your containers
+
+cAdvisor identifies each container by its name. By default, Docker generates a random name each time a container is recreated, 
+causing Centreon to create new metrics and a new RRD file in `/var/lib/centreon/metrics` on every change, leading to a proliferation of stale data.
+
+**Always assign a fixed name to each monitored container:**
+
+```bash
+# Command line
+docker run -d --name my-nginx nginx
+
+# Docker Compose
+services:
+  web:
+    image: nginx
+    container_name: my-nginx
+```
+
+> If you are using Kubernetes, prefer `StatefulSets` to ensure stable pod names (`my-service-0`, `my-service-1`, etc.), which are compatible with the `--container` and `--pod` filter options of the connector.
 
 ### Network flow
 
@@ -393,7 +414,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

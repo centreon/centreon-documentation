@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hpe-primera-restapi
 title: HPE Primera REST API
+description: "Monitor HPE Primera storage arrays via REST API: disk status and usage, volume usage, storage capacity, licenses, and node states."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -12,7 +13,6 @@ This connector is designed to be compatible with the following products.
 | Product     | Model        | Versions |
 |-------------|--------------|----------|
 | HPE Primera | C650 2 nodes | 4.5.24.7 |
-| HPE Alletra | 9000         | NA       |
 
 ## Pack assets
 
@@ -41,10 +41,10 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template                                   | Service Description    | Discovery  |
-|:--------------|:---------------------------------------------------|:-----------------------|:----------:|
-| Disk-Usage    | HW-Storage-HPE-Primera-Disk-Usage-RESTAPI-custom   | Check the disk usage   | X          |
-| Volume-Usage  | HW-Storage-HPE-Primera-Volume-Usage-RESTAPI-custom | Check the volume usage | X          |
+| Service Alias | Service Template                                   | Service Description    | Discovery |
+|:--------------|:---------------------------------------------------|:-----------------------|:---------:|
+| Disk-Usage    | HW-Storage-HPE-Primera-Disk-Usage-RESTAPI-custom   | Check disk usage   |     X     |
+| Volume-Usage  | HW-Storage-HPE-Primera-Volume-Usage-RESTAPI-custom | Check volume usage |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -57,14 +57,14 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                                           | Description                                                |
-|:----------------------------------------------------|:-----------------------------------------------------------|
-| HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Id       | Discover the physical disks and monitor their status.     |
-| HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Position | Discover the physical disks and monitor their status.     |
-| HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Id        | Discover the physical disks and monitor their usage. |
-| HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Position  | Discover the physical disks and monitor their usage. |
-| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Id      | Discover the volumes and monitor their usage.           |
-| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Name    | Discover the volumes and monitor their usage.           |
+| Rule name                                           | Description                                           |
+|:----------------------------------------------------|:------------------------------------------------------|
+| HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Id       | Discover the physical disks and monitor their status. |
+| HW-Storage-HPE-Primera-RESTAPI-Disk-Status-Position | Discover the physical disks and monitor their status. |
+| HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Id        | Discover the physical disks and monitor their usage.  |
+| HW-Storage-HPE-Primera-RESTAPI-Disk-Usage-Position  | Discover the physical disks and monitor their usage.  |
+| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Id      | Discover the volumes and monitor their usage.         |
+| HW-Storage-HPE-Primera-RESTAPI-Volume-Usage-Name    | Discover the volumes and monitor their usage.         |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -76,7 +76,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Capacity" label="Capacity">
 
-| Metric name                                               | Unit  |
+| Name                                                      | Unit  |
 |:----------------------------------------------------------|:------|
 | *storage_type*~storage.space.usage.bytes                  | B     |
 | *storage_type*~storage.space.free.bytes                   | B     |
@@ -92,7 +92,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Disk-Status" label="Disk-Status">
 
-| Metric name          | Unit  |
+| Name                 | Unit  |
 |:---------------------|:------|
 | disks.total.count    | count |
 | disks.normal.count   | count |
@@ -105,7 +105,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Disk-Usage" label="Disk-Usage">
 
-| Metric name                           | Unit |
+| Name                                  | Unit |
 |:--------------------------------------|:-----|
 | disks.total.space.usage.bytes         | B    |
 | disks.total.space.usage.percent       | %    |
@@ -117,7 +117,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Metric name                                     | Unit  |
+| Name                                            | Unit  |
 |:------------------------------------------------|:------|
 | licenses.total.count                            | count |
 | licenses.expired.count                          | count |
@@ -126,7 +126,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Nodes" label="Nodes">
 
-| Metric name           | Unit  |
+| Name                  | Unit  |
 |:----------------------|:------|
 | nodes.total.count     | count |
 | nodes.online.count    | count |
@@ -136,7 +136,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Volume-Usage" label="Volume-Usage">
 
-| Metric                                    | Unit |
+| Name                                      | Unit |
 |:------------------------------------------|:-----|
 | *volume_id*#volume.space.usage.bytes      | B    |
 | *volume_id*#volume.space.free.bytes       | B    |
@@ -369,18 +369,18 @@ yum install centreon-plugin-Hardware-Storage-Hpe-Primera-Restapi
 </TabItem>
 <TabItem value="Nodes" label="Nodes">
 
-| Macro              | Description                                                                                                                            | Default value         | Mandatory |
-|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:---------:|
-| FILTERNODEID       | Define which nodes (filtered by regular expression) should be monitored. Example: --filter-node='^(0\|1)$'                             |                       |           |
-| WARNINGNODESTATUS  | Define the conditions to match for the status to be WARNING. You can use the %\{status\} variables.                                      | %\{status\} ne "online" |           |
-| CRITICALNODESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the %\{status\} variables.                                     |                       |           |
-| WARNINGOFFLINE     | Thresholds for the number of offline nodes                                                                                             | 0:0                   |           |
-| CRITICALOFFLINE    | Thresholds for the number of offline nodes                                                                                             |                       |           |
-| WARNINGONLINE      | Thresholds for the number of online nodes                                                                                              |                       |           |
-| CRITICALONLINE     | Thresholds for the number of online nodes                                                                                              |                       |           |
-| WARNINGTOTAL       | Thresholds for the total number of nodes                                                                                               |                       |           |
-| CRITICALTOTAL      | Thresholds for the total number of nodes                                                                                               |                       |           |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                       |           |
+| Macro              | Description                                                                                                                            | Default value           | Mandatory |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:---------:|
+| FILTERNODEID       | Define which nodes (filtered by regular expression) should be monitored. Example: --filter-node='^(0\|1)$'                             |                         |           |
+| WARNINGNODESTATUS  | Define the conditions to match for the status to be WARNING. You can use the %\{status\} variables.                                    | %\{status\} ne "online" |           |
+| CRITICALNODESTATUS | Define the conditions to match for the status to be CRITICAL. You can use the %\{status\} variables.                                   |                         |           |
+| WARNINGOFFLINE     | Thresholds for the number of offline nodes                                                                                             | 0:0                     |           |
+| CRITICALOFFLINE    | Thresholds for the number of offline nodes                                                                                             |                         |           |
+| WARNINGONLINE      | Thresholds for the number of online nodes                                                                                              |                         |           |
+| CRITICALONLINE     | Thresholds for the number of online nodes                                                                                              |                         |           |
+| WARNINGTOTAL       | Thresholds for the total number of nodes                                                                                               |                         |           |
+| CRITICALTOTAL      | Thresholds for the total number of nodes                                                                                               |                         |           |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                         |           |
 
 </TabItem>
 <TabItem value="Volume-Usage" label="Volume-Usage">
@@ -491,7 +491,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata='free,used,invert()'      Convert storage free perfdata into used:     --change-perfdata='used,free,invert()'      Scale traffic values automatically:     --change-perfdata='traffic,,scale(auto)'      Scale traffic values in Mbps:     --change-perfdata='traffic\_in,,scale(Mbps),mbps'      Change traffic values in percent:     --change-perfdata='traffic\_in,,percent()'                                                                                                                                                                                                                                                                                                                                                                |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

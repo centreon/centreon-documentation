@@ -1,11 +1,14 @@
 ---
 id: upgrade-centreon-ha-from-21-10
 title: Montée de version de Centreon HA depuis Centreon 21.10
+description: "Mettre à niveau un cluster Centreon HA depuis la version 21.10 vers la 24.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.10 vers la version 24.10.
+
+Si vous envisagez également de migrer votre plateforme vers un autre système d’exploitation, contactez votre représentant commercial Centreon pour en discuter.
 
 ## Prérequis
 
@@ -29,13 +32,29 @@ Avant toute chose, il est préférable de s’assurer de l’état et de la cons
 Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021.
 Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
 
+### Modifier le script centreon_central_sync script (MBI uniquement)
+
+Cette étape n'est nécessaire que si vous utilisez [MBI](../../reporting/introduction.md). Modifiez le script `/usr/share/centreon-ha/bin/centreon_central_sync` aux lignes suivantes :
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua"],
+```
+
+Pour que les rapports soient toujours téléchargeables, remplacez ces lignes par :
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua", "/var/lib/centreon/centreon-bi-server/archives"],
+```
+
 ## Processus de mise à jour
 
 Pour effectuer la montée de version:
 
-> Pour le **nœud central actif** et **le nœud base de données actif s'il existe** merci de [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md) **jusqu'à l'étape "Actions post montée de version" incluse**.
+> Pour le **nœud central actif** et **le nœud base de données actif s'il existe**, [suivez la documentation officielle](../../upgrade/upgrade-from-21-10.md) **jusqu'à l'étape "Mettre à jour MariaDB" incluse**.
 
-> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, merci de [suivre la documentation officielle](../../upgrade/upgrade-from-21-10.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse uniquement. Ne pas procéder à l'étape "Finalisation de la mise à jour**.
+> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, [suivez la documentation officielle](../../upgrade/upgrade-from-21-10.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse. Ensuite, sautez à l'étape "Mettre à jour MariaDB"**. Ne procédez pas aux étapes "Finalisation de la mise à jour" et "Actions post montée de version".
 
 Uniquement sur les serveurs deux nœuds centraux, restaurer le fichier `/etc/centreon-ha/centreon_central_sync.pm`.
 

@@ -1,6 +1,7 @@
 ---
 id: resources-status
 title: Resources Status page
+description: "How to use the Resources Status page to view, filter, search, and take action on host and service alerts"
 ---
 
 The **Monitoring > Resources Status** page is your main view to track
@@ -35,6 +36,20 @@ You can display the view in the mode that suits you best by changing the visual 
 Click the dedicated button to improve the readability of the information in the tables:
 - Compact view mode ![image](../assets/alerts/resources-status/compact-icon.png)
 - Extended view mode ![image](../assets/alerts/resources-status/extended-icon.png)
+
+### Export to CSV
+
+You can quickly get a detailed report on the status of your resources in a CSV file format, easy to work with. The file created contains the list of resources you have filtered and you can export up to 10,000 rows.
+
+- Click the **Export to CSV** button above the list of resources.
+- In the window that opens, set the following parameters:
+  - **Select columns**: **Visible columns only** or **All columns**.
+  - **Select pages**: **Current page only** or **All pages**.
+- Click **Export** to start the export processing. You will get a downloaded file.
+
+> Note that export processing might take some time. The real time data displayed at the output may have changed since the start of processing.
+
+- Once the download is complete, retrieve the file in the **Downloads** folder.
 
 ## Take actions on events
 

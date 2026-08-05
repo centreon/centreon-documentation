@@ -1,6 +1,7 @@
 ---
 id: poller-versions
 title: Versions des collecteurs
+description: "Comment connaître la version de votre collecteur, quelle version utiliser, et la fréquence des mises à jour Centreon"
 ---
 
 ## Comment connaître la version de mon collecteur ?
@@ -15,10 +16,10 @@ Pour connaître la version de votre collecteur, allez à la page **Configuration
 
 ## Que se passe-t-il si je ne mets pas mon collecteur à jour ?
 
-Si vous ne mettez pas à jour votre collecteur, vous risquez de manquer d'importants correctifs de sécurité ou des améliorations. Pensez à vous abonner à [nos bulletins de sécurité sur notre plateforme communautaire The Watch] (https://thewatch.centreon.com/latest-security-bulletins-64).
+Si vous ne mettez pas à jour votre collecteur, vous risquez de manquer d'importants correctifs de sécurité ou des améliorations. Pensez à vous abonner à [nos bulletins de sécurité sur notre plateforme communautaire The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
 
 ## À quelle fréquence publiez-vous des mises à jour ?
 
-Nous publions régulièrement des mises à jour pour les collecteurs, en général une fois par mois, mais nous vous recommandons de consulter les [release notes de Centreon Collect OnPrem](/docs/releases/centreon-os#centreon-collect) toutes les semaines.
+Nous publions régulièrement des mises à jour pour les collecteurs, en général une fois par mois, mais nous vous recommandons de consulter les [release notes de Centreon Collect OnPrem](/docs/releases/centreon-os) toutes les semaines.
 
 Notez que toute modification impactante ("breaking change") sera annoncée directement dans l'interface de Centreon Cloud.

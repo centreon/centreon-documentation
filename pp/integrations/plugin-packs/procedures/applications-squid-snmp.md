@@ -1,178 +1,423 @@
 ---
 id: applications-squid-snmp
 title: Squid SNMP
+description: "Monitor Squid proxy servers via SNMP: cache usage, CPU, memory, and HTTP/ICP traffic statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Squid SNMP** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
 ## Pack assets
 
-### Monitored objects
+### Templates
 
-* Cache Usage
-* Protocol statistics
+The Monitoring Connector **Squid SNMP** brings a host template:
+
+* **App-Squid-SNMP-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="App-Squid-SNMP-custom" label="App-Squid-SNMP-custom">
+
+| Service Alias  | Service Template                     | Service Description  |
+|:---------------|:-------------------------------------|:---------------------|
+| Caches-Usage   | App-Squid-Cache-Usage-SNMP-custom    | Check cache usage    |
+| Protocol-Stats | App-Squid-Protocol-Stats-SNMP-custom | Check protocol statistics |
+
+> The services listed above are created automatically when the **App-Squid-SNMP-custom** host template is used.
+
+</TabItem>
+</Tabs>
+
+### Discovery rules
+
+#### Host discovery
+
+| Rule name       | Description                                                                                                                                                                                                                                    |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| SNMP Agents     | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **App-Squid-SNMP-custom** host template. |
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
 ### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Caches-Usage" label="Caches-Usage">
 
-| Metric name                      | Description                | Unit  |
-|:---------------------------------|:---------------------------|:------|
-| cache.cpu.utilization.percentage | Cpu usage                  | %     |
-| cache.memory.usage.bytes         | Memory usage               | B     |
-| cache.filedescriptors.count      | Number of file descriptors | count |
-| cache.objects.count              | Number of object stored    | count |
+| Name                             | Unit  |
+|:---------------------------------|:------|
+| cache.cpu.utilization.percentage | %     |
+| cache.memory.usage.bytes         | B     |
+| cache.filedescriptors.count      | count |
+| cache.objects.count              | count |
+
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Protocol-Stats" label="Protocol-Stats">
 
-* HTTP statistics
+| Name                                   | Unit  |
+|:---------------------------------------|:------|
+| http.hits.percentage                   | %     |
+| http.errors.count                      | count |
+| http.traffic.in.bitspersecond          | b/s   |
+| http.traffic.out.bitspersecond         | b/s   |
+| icp.traffic.in.bitspersecond           | b/s   |
+| icp.traffic.out.bitspersecond          | b/s   |
+| cache.server.traffic.in.bitspersecond  | b/s   |
+| cache.server.traffic.out.bitspersecond | b/s   |
+| cache.clients.count                    | count |
 
-| Metric name                    | Description           | Unit  |
-|:-------------------------------|:----------------------|:------|
-| http.hits.percentage           | HTTP hits rate        | %     |
-| http.errors.count              | Number of HTTP errors | count |
-| http.traffic.in.bitspersecond  | HTTP traffic in       | b/s   |
-| http.traffic.out.bitspersecond | HTTP traffic out      | b/s   |
-
-* ICP statistics
-
-| Metric name                   | Description     | Unit |
-|:------------------------------|:----------------|:-----|
-| icp.traffic.in.bitspersecond  | ICP traffic in  | b/s  |
-| icp.traffic.out.bitspersecond | ICP traffic out | b/s  |
-
-* Cache statistics
-
-| Metric name                            | Description                   | Unit  |
-|:---------------------------------------|:------------------------------|:------|
-| cache.server.traffic.in.bitspersecond  | Cache server traffic in       | b/s   |
-| cache.server.traffic.out.bitspersecond | Cache server traffic out      | b/s   |
-| cache.clients.count                    | Current number of clients: %s | count |
+> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-To use this pack, the SNMP service must be properly configured on your Squid 
-proxy. Squid provides an official documentation to achieve this: 
+To use this pack, the SNMP service must be properly configured on your Squid
+proxy. Squid provides an official documentation to achieve this:
 https://wiki.squid-cache.org/Features/Snmp
 
 ### Network flow
 
-The Squid proxy must be reachable from the Centreon Poller on the 
+The Squid proxy must be reachable from the Centreon Poller on the
 UDP/161 SNMP port.
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Monitoring Connector Manager** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor your *Squid proxy* ressources:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Squid-Snmp
+dnf install centreon-pack-applications-squid-snmp
 ```
-
-2. On the Centreon Web interface, install the *Squid SNMP* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor your *Squid proxy* ressources:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Squid-Snmp
+dnf install centreon-pack-applications-squid-snmp
 ```
 
-2. Install the *Squid SNMP* Centreon Monitoring Connector RPM on the Centreon Central server:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-squid-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-squid-snmp
 ```
 
-3. On the Centreon Web interface, install the *Squid SNMP* Centreon Monitoring Connector on the **Configuration > Connectors > Monitoring Connectors** page
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Squid SNMP** connector through
+the **Configuration > Monitoring Connector Manager** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Squid-Snmp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Squid-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-squid-snmp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Squid-Snmp
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**.
-* Fill the "Name", "Alias" & "IP Address / DNS" fields according to your *Squid proxy* settings
-* Select the *Applications-Squid-Snmp-custom* template to apply to the Host
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Squid-SNMP-custom** template to the host.
 
-> When using SNMP v3, use the SNMPEXTRAOPTIONS Macro to add specific authentication parameters 
+> When using SNMP v3, use the **SNMPEXTRAOPTIONS** macro to add specific authentication parameters.
 > More information in the [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#snmpv3-options-mapping) section.
 
-| Mandatory | Name             | Description                                 |
-|:----------|:-----------------|:--------------------------------------------|
-|           | SNMPEXTRAOPTIONS | Configure your own SNMPv3 credentials combo |
+| Macro            | Description                                                                                          | Default value     | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-## How to check in the CLI that the configuration is OK and what are the main options for ? 
+4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-Once the plugin installed, log into your Centreon Poller CLI using the 
-*centreon-engine* user account and test the Plugin by running the following 
-command:
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Caches-Usage" label="Caches-Usage">
+
+| Macro          | Description                                                                                        | Default value     | Mandatory   |
+|:---------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS | Only display some counters (regexp can be used). Example: --filter-counters='^(cpu)$'              |                   |             |
+| WARNINGCPU     | Threshold                                                                                          |                   |             |
+| CRITICALCPU    | Threshold                                                                                          |                   |             |
+| WARNINGFD      | Threshold                                                                                          |                   |             |
+| CRITICALFD     | Threshold                                                                                          |                   |             |
+| WARNINGMEMORY  | Threshold                                                                                          |                   |             |
+| CRITICALMEMORY | Threshold                                                                                          |                   |             |
+| WARNINGOBJECT  | Threshold                                                                                          |                   |             |
+| CRITICALOBJECT | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Protocol-Stats" label="Protocol-Stats">
+
+| Macro                    | Description                                                                                        | Default value     | Mandatory   |
+|:-------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERCOUNTERS           | Only display some counters (regexp can be used). Example: --filter-counters='http'                 |                   |             |
+| WARNINGCLIENTS           | Threshold                                                                                          |                   |             |
+| CRITICALCLIENTS          | Threshold                                                                                          |                   |             |
+| WARNINGHTTPERRORS        | Threshold                                                                                          |                   |             |
+| CRITICALHTTPERRORS       | Threshold                                                                                          |                   |             |
+| WARNINGHTTPHITSRATE      | Threshold                                                                                          |                   |             |
+| CRITICALHTTPHITSRATE     | Threshold                                                                                          |                   |             |
+| WARNINGHTTPTRAFFICIN     | Threshold                                                                                          |                   |             |
+| CRITICALHTTPTRAFFICIN    | Threshold                                                                                          |                   |             |
+| WARNINGHTTPTRAFFICOUT    | Threshold                                                                                          |                   |             |
+| CRITICALHTTPTRAFFICOUT   | Threshold                                                                                          |                   |             |
+| WARNINGICPTRAFFICIN      | Threshold                                                                                          |                   |             |
+| CRITICALICPTRAFFICIN     | Threshold                                                                                          |                   |             |
+| WARNINGICPTRAFFICOUT     | Threshold                                                                                          |                   |             |
+| CRITICALICPTRAFFICOUT    | Threshold                                                                                          |                   |             |
+| WARNINGSERVERTRAFFICIN   | Threshold                                                                                          |                   |             |
+| CRITICALSERVERTRAFFICIN  | Threshold                                                                                          |                   |             |
+| WARNINGSERVERTRAFFICOUT  | Threshold                                                                                          |                   |             |
+| CRITICALSERVERTRAFFICOUT | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib/centreon/plugins//centreon_squid_snmp.pl \
-    --plugin=apps::squid::snmp::plugin \
-    --mode=cache-usage \
-    --hostname='10.0.0.1' \
-    --snmp-version='2c' \
-    --snmp-community='my-snmp-community' \
-    --filter-counters='' \
-    --warning-cpu='80' \
-    --critical-cpu='90' \
-    --use-new-perfdata
+/usr/lib/centreon/plugins/centreon_squid_snmp.pl \
+	--plugin=apps::squid::snmp::plugin \
+	--mode=protocol-stats \
+	--hostname='10.0.0.1' \
+	--snmp-version='2c' \
+	--snmp-community='my-snmp-community'  \
+	--filter-counters='' \
+	--warning-icp-traffic-in='' \
+	--critical-icp-traffic-in='' \
+	--warning-icp-traffic-out='' \
+	--critical-icp-traffic-out='' \
+	--warning-server-traffic-in='' \
+	--critical-server-traffic-in='' \
+	--warning-server-traffic-out='' \
+	--critical-server-traffic-out='' \
+	--warning-clients='' \
+	--critical-clients='' \
+	--warning-http-hits-rate='' \
+	--critical-http-hits-rate='' \
+	--warning-http-errors='' \
+	--critical-http-errors='' \
+	--warning-http-traffic-in='' \
+	--critical-http-traffic-in='' \
+	--warning-http-traffic-out='' \
+	--critical-http-traffic-out=''
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
-OK : Cpu usage: 30 % Memory usage: 265289728 B Number of file descriptors: 45 Number of object stored: 23 | 'cache.cpu.utilization.percentage'=30%;;;0;100 
-'cache.memory.usage.bytes'=265289728B;;;0; 'cache.filedescriptors.count'=45;;;0; 'cache.objects.count'=23;;;0; 
-```
-
-This command would trigger a WARNING alarm if the *cpu* utilization is reported 
-as over 80% (`--warning-cpu='80'`) and a CRITICAL alarm if over 90% 
-(`--critical-cpu='90'`).
-
-All available options for a given mode can be displayed by adding the 
-`--help` parameter to the command:
-
-```bash
-/usr/lib/centreon/plugins//centreon_squid_snmp.pl  \
-    --plugin=apps::squid::snmp::plugin  \
-    --mode=cache-usage  \
-    --help
-```
-
-All available options for a given mode can be displayed by adding the 
-`--list-mode` parameter to the command:
-
-```bash
- /usr/lib/centreon/plugins//centreon_squid_snmp.pl  \
-    --plugin=apps::squid::snmp::plugin  \
-    --list-mode
+OK: hits rate: 34475 % errors: 39935 traffic in: 91390 91390/s traffic out: 98007 98007/s traffic in: 37782 37782/s traffic out: 83186 83186/s traffic in: 72394 72394/s traffic out: 94209 94209/s current number of clients: 76292 | 'http.hits.percentage'=34475%;;;0;100 'http.errors.count'=39935;;;0; 'http.traffic.in.bitspersecond'=91390b/s;;;0; 'http.traffic.out.bitspersecond'=98007b/s;;;0; 'icp.traffic.in.bitspersecond'=37782b/s;;;0; 'icp.traffic.out.bitspersecond'=83186b/s;;;0; 'cache.server.traffic.in.bitspersecond'=72394b/s;;;0; 'cache.server.traffic.out.bitspersecond'=94209b/s;;;0; 'cache.clients.count'=76292;;;0;
 ```
 
 ### Troubleshooting
 
-#### UNKNOWN: SNMP GET Request : Timeout
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
 
-If you get this message, you're probably facing one of theses issues:
+### Available modes
 
-* Your SNMP server isn't started or misconfigured
-* An external device is blocking your request (firewall, ...)
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
 
-#### UNKNOWN: SNMP GET Request : Cant get a single value
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
-This message generally means that SNMP privileges are not wide enough for
-the mode/Plugin to work properly.
+```bash
+/usr/lib/centreon/plugins/centreon_squid_snmp.pl \
+	--plugin=apps::squid::snmp::plugin \
+	--list-mode
+```
+
+The plugin brings the following modes:
+
+| Mode                                                                                                                         | Linked service template              |
+|:-----------------------------------------------------------------------------------------------------------------------------|:-------------------------------------|
+| cache-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/squid/snmp/mode/cacheusage.pm)]       | App-Squid-Cache-Usage-SNMP-custom    |
+| protocol-stats [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/squid/snmp/mode/protocolstats.pm)] | App-Squid-Protocol-Stats-SNMP-custom |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --hostname                                 |   Name or address of the host to monitor (mandatory).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --snmp-community                           |   SNMP community (default value: public). It is recommended to use a read-only community.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-version                             |   Version of the SNMP protocol. 1 for SNMP v1 (default), 2 for SNMP v2c, 3 for SNMP v3.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --snmp-port                                |   UDP port to send the SNMP request to (default: 161).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-timeout                             |   Time to wait before sending the request again if no reply has been received, in seconds (default: 1). See also --snmp-retries.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-retries                             |   Maximum number of retries (default: 5).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --maxrepetitions                           |   Max repetitions value (default: 50) (only for SNMP v2 and v3).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --subsetleef                               |   How many OID values per SNMP request (default: 50) (for get\_leef method. Be cautious when you set it. Prefer to let the default value).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-autoreduce                          |    Progressively reduce the number of requested OIDs in bulk mode. Use it in case of SNMP errors (by default, the number is divided by 2).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --snmp-force-getnext                       |   Use SNMP getnext function in SNMP v2c and v3. This will request one OID at a time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --snmp-cache-file                          |   Use SNMP cache file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --snmp-username                            |   SNMP v3 only: User name (securityName).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --authpassphrase                           |   SNMP v3 only: Pass phrase hashed using the authentication protocol defined in the  --authprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --authprotocol                             |   SNMP v3 only: Authentication protocol: MD5\|SHA. Since net-snmp 5.9.1: SHA224\|SHA256\|SHA384\|SHA512.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --privpassphrase                           |   SNMP v3 only: Privacy pass phrase (privPassword) to encrypt messages using the protocol defined in the --privprotocol option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --privprotocol                             |   SNMP v3 only: Privacy protocol (privProtocol) used to encrypt messages. Supported protocols are: DES\|AES and since net-snmp 5.9.1: AES192\|AES192C\|AES256\|AES256C.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --contextname                              |   SNMP v3 only: Context name (contextName), if relevant for the monitored host.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --contextengineid                          |   SNMP v3 only: Context engine ID (contextEngineID), if relevant for the monitored host, given  as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --securityengineid                         |   SNMP v3 only: Security engine ID, given as a hexadecimal string.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --snmp-errors-exit                         |   Expected status in case of SNMP error or timeout. Possible values are ok, warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --snmp-tls-transport                       |   Transport protocol for TLS communication (can be: 'dtlsudp', 'tlstcp').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-our-identity                    |   X.509 certificate to identify ourselves. Can be the path to the certificate file or its contents.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --snmp-tls-their-identity                  |   X.509 certificate to identify the remote host. Can be the path to the  certificate file or its contents. This option is unnecessary if the certificate is already trusted by your system.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --snmp-tls-their-hostname                  |   Common Name (CN) expected in the certificate sent by the host if it differs from the value of the --hostname parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --snmp-tls-trust-cert                      |   A trusted CA certificate used to verify a remote host's certificate.  If you use this option, you must also  define --snmp-tls-their-hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Caches-Usage" label="Caches-Usage">
+
+| Option            | Description                                                                               |
+|:------------------|:------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example: --filter-counters='^(cpu)$'   |
+| --warning-*       |   Warning threshold. Can be: 'cpu', 'memory', 'fd', 'object'.                             |
+| --critical-*      |   Critical threshold. Can be: 'cpu', 'memory', 'fd', 'object'.                            |
+
+</TabItem>
+<TabItem value="Protocol-Stats" label="Protocol-Stats">
+
+| Option            | Description                                                                                                                                                                                         |
+|:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example: --filter-counters='http'                                                                                                                |
+| --warning-*       |   Warning threshold. Can be: 'http-hits-rate', 'http-errors', 'http-traffic-in', 'http-traffic-out', 'icp-traffic-in', 'icp-traffic-out', 'server-traffic-in', 'server-traffic-out', 'clients'.     |
+| --critical-*      |   Critical threshold. Can be: 'http-hits-rate', 'http-errors', 'http-traffic-in', 'http-traffic-out', 'icp-traffic-in', 'icp-traffic-out', 'server-traffic-in', 'server-traffic-out', 'clients'.    |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_squid_snmp.pl \
+	--plugin=apps::squid::snmp::plugin \
+	--mode=protocol-stats \
+	--help
+```

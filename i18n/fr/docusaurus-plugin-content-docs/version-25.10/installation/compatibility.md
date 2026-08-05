@@ -1,6 +1,7 @@
 ---
 id: compatibility
 title: Compatibilité
+description: "Navigateurs, systèmes d'exploitation et SGBD compatibles avec Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -44,6 +45,8 @@ Attention, les modules de l'IT Edition et de la Business Edition ne fonctionnent
 | Logiciel | Version          |
 |----------|------------------|
 | MariaDB  | 10.11            |
-| MySQL    | 8.0              |
+| MySQL    | <ul><li>8.4 (recommandé)</li><li>8.0 jusqu'à sa fin de support (avril 2026)</li></ul> |
 
 > Vous pouvez utiliser un autre SGBD basé sur MySQL, mais celui-ci sera uniquement supporté par la communauté.
+
+> Pour les bases de données, ce qui compte est le moteur et la version. Vous pouvez héberger la base de données sur le serveur central, à distance en tant que nœud unique ou cluster, ou utiliser un service de base de données cloud managé — le choix vous appartient. Centreon ne peut pas tester toutes les configurations possibles, mais en plus des bases de données locales et distantes, nous supportons également AWS RDS (avec un moteur MySQL).

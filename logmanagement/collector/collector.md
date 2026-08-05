@@ -1,0 +1,203 @@
+﻿---
+id: collector
+title: Full collector configuration (multiple log sources)
+description: Configure an OpenTelemetry collector to collect multiple log sources from one host
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+[Simple collector configurations](opentelemetry-collector.md) provides a configuration file to set up log collection from a Windows machine. The procedure below is better suited to cases where multiple log types are collected on the same host (Windows or Linux).
+
+> **Save time with Centreon templates**
+>
+> Centreon provides [ready-to-use configuration templates for the most common log sources](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main). Use them as a starting point to quickly configure your collector.
+
+If you run into any problems, refer to the [Troubleshooting](collector-troubleshooting.md) page.
+
+<!-- attributs custom
+resource attributes -->
+
+## Prerequisites
+
+* Generate [a token to authenticate the host to your Centreon Log Management platform](../administration/tokens.md).
+* The endpoint required to connect an OpenTelemetry Collector to your Centreon Log Management platform is `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
+
+> Log Management can process log batches up to 5 MiB in size. Beyond that, you will receive a 413 error. (If necessary, use [the **sending_queue.sizer.bytes** parameter in your exporter](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) to adjust the size of your batches.)
+
+## Step 1: Install OpenTelemetry Collector on your host
+
+Use the **otelcol-contrib** packages to install OpenTelemetry Collector on each device from which you want to collect logs.
+
+<Tabs groupId="os" queryString>
+<TabItem value="Linux" label="Linux">
+
+<Tabs groupId="distrib" queryString>
+<TabItem value="EL" label="EL">
+
+```shell
+wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.rpm
+dnf install ./otelcol-contrib_0.145.0_linux_amd64.rpm
+```
+
+</TabItem>
+<TabItem value="Debian" label="Debian">
+
+```shell
+wget https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.145.0/otelcol-contrib_0.145.0_linux_amd64.deb
+apt install ./otelcol-contrib_0.145.0_linux_amd64.deb
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+```shell
+https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.147.0/otelcol-contrib_0.147.0_windows_x64.msi 
+```
+
+</TabItem>
+</Tabs>
+
+## Step 2: Define the global parameters of the collector
+
+1. Edit the **config.yaml** file that was created when you installed the collector:
+
+   <Tabs groupId="os" queryString>
+   <TabItem value="Linux" label="Linux">
+
+   You must be logged in as **root**.
+
+   ```text
+   /etc/otelcol-contrib/config.yaml
+   ```
+
+   </TabItem>
+   <TabItem value="Windows" label="Windows">
+
+   ```text
+   C:\Program Files\OpenTelemetry Collector\config.yaml
+   ```
+
+   Make sure you save the file as an administrator.
+
+   </TabItem>
+   </Tabs>
+
+2. In this file, enter the global log collection settings specific to this device. These will apply to all log sources for this device.
+
+   * In **endpoint**, enter `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp`.
+   * In **X-Api-Key**, enter the [token required to authenticate to your Log Management platform](../administration/tokens.md).
+
+   Example:
+
+   ```yaml
+   # Copyright 2025 Centreon.
+   # SPDX-License-Identifier: Apache-2.0
+   exporters:
+     otlphttp/centreon:
+       endpoint: "https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp"
+       headers:
+         "X-Api-Key": "mytoken"
+     debug:
+       verbosity: detailed
+   processors:
+     batch:
+     resourcedetection:
+       detectors: ["system"]
+       system:
+         resource_attributes:
+           host.name:
+             enabled: true
+           os.name:
+             enabled: true
+           os.type:
+             enabled: true
+           os.version:
+             enabled: true
+   ```
+
+   > The indentation of the parameters in your YAML file must be identical to that in the example. The indentations are two spaces for each level.
+
+## Step 3: Configure each log source for your host
+
+Configure a log source for each desired service (syslog, apache, etc.) in the form of a YAML file.
+
+1. Create the following directory:
+
+   <Tabs groupId="os" queryString>
+   <TabItem value="Linux" label="Linux">
+
+   ```shell
+   mkdir /etc/otelcol-contrib/conf.d/
+   ```
+
+   </TabItem>
+   <TabItem value="Windows" label="Windows">
+
+   ```shell
+   C:\Program Files\OpenTelemetry Collector\conf.d
+   ```
+
+   </TabItem>
+   </Tabs>
+
+2. In this directory, create one file per log source. For example: the **httpd-combined.yaml** and **httpd-error.yaml** files will contain the configuration for the Apache access log and Apache error log, respectively.
+
+3. [Retrieve from GitHub](https://github.com/CentreonLabs/centreon-otel-col-log-template/tree/main) the sample file for the log source you want.
+
+4. On the source device, copy and paste the code snippet into the corresponding file, and adapt it to your environment and your OS. Save the file. If you are using several log sources for a collector, make sure you define the pipeline only once (in one of the files). The pipeline must mention all your receivers. In our example:
+
+    ```shell
+    service:
+      pipelines:
+        logs:
+          receivers: [filelog/httpd-combined,filelog/apache-error]
+    ```
+
+   > The indentation of the parameters in your YAML file must be identical to that in the example. The indentations are two spaces for each level.
+
+5. Declare each of the files you created: declare a **--config** option for each file, as in the following example (be sure to keep the declaration of the global configuration file **config.yaml**):
+
+   <Tabs groupId="os" queryString>
+   <TabItem value="Linux" label="Linux">
+
+   In **/etc/otelcol-contrib/otelcol-contrib.conf**, add the following line (adapt it to your actual file names):
+
+   ```shell
+   OTELCOL_OPTIONS="--config=/etc/otelcol-contrib/config.yaml --config=/etc/otelcol-contrib/conf.d/httpd-combined.yaml --config=/etc/otelcol-contrib/conf.d/httpd-error.yaml"
+   ```
+
+   </TabItem>
+   <TabItem value="Windows" label="Windows">
+
+   In a PowerShell terminal, run the following command (adapt it to your actual file names):
+
+   ```shell
+   Get-WmiObject win32_service -filter "Name='otelcol-contrib'" | Invoke-WmiMethod -Name Change -ArgumentList @($null,$null,$null,$null,$null, '"C:\Program Files\OpenTelemetry Collector\otelcol-contrib.exe" --config "C:\Program Files\OpenTelemetry Collector\config.yaml" --config "C:\Program Files\OpenTelemetry Collector\conf.d\windows-event-log.yaml"')
+   ```
+
+   </TabItem>
+   </Tabs>
+
+6. Restart the OpenTelemetry Collector service.
+
+   <Tabs groupId="os" queryString>
+   <TabItem value="Linux" label="Linux">
+
+   ```shell
+   systemctl restart otelcol-contrib.service
+   ```
+
+   </TabItem>
+   <TabItem value="Windows" label="Windows">
+
+   ```shell
+   net stop otelcol-contrib
+   net start otelcol-contrib
+   ```
+
+   </TabItem>
+   </Tabs>

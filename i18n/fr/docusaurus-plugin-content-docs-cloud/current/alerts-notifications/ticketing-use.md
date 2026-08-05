@@ -1,6 +1,7 @@
 ---
 id: ticketing-use
 title: Utiliser Open Tickets
+description: "Comment les opérateurs ouvrent et ferment des tickets ITSM depuis les widgets des tableaux de bord ou des vues personnalisées"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -24,11 +25,22 @@ En règle générale, votre administrateur aura créé deux widgets, avec des ti
 <Tabs groupId="sync">
 <TabItem value="Dans les tableaux de bord" label="Dans les tableaux de bord">
 
-1. Pour ouvrir un ticket, dans le widget d'ouverture de ticket, cliquez sur le bouton **Ouvrir un ticket pour le service** pour le service que vous souhaitez. Vous pouvez également ouvrir un ticket pour l'hôte, en utilisant le bouton **Ouvrir un ticket pour l'hôte** : tous les services de cet hôte seront inclus dans le ticket et affichés dans le widget des tickets ouverts.
-2. Une fenêtre apparaît : remplissez les caractéristiques de votre ticket.
-3. Cliquez sur **Ouvrir**.
-3. Une fois le ticket créé, la fenêtre affiche l'ID du ticket (qui est celui qu'il aura dans votre outil ITSM).
-4. Le(s) service(s) disparaissent du widget d'ouverture de ticket et apparaissent dans le widget affichant les tickets ouverts. (Il se peut que vous deviez rafraîchir votre page pour le voir.) Les alertes sont automatiquement acquittées.
+> Dans la fonctionnalité **Tableaux de bord**, Open Ticket est disponible via le widget **Tableau des ressources**, dans la liste des événements.
+
+Pour utiliser **Open Ticket**, vous devez l'ajouter à un tableau de bord.
+
+1. Allez dans le menu **Accueil > Tableaux de bord**, sélectionnez votre tableau de bord et ajoutez un widget **Tableau des ressources**.
+
+2. Renseignez les propriétés.
+
+3. Définissez les paramètres de vos tickets dans la section **Gestion des tickets**.
+   - Définissez si vous souhaitez afficher les **Ressources sans ticket** ou les **Ressources liées à un ticket**.
+
+4. Enregistrez vos modifications.
+
+Votre tableau de bord affiche maintenant le widget **Tableau des ressources** contenant les ressources avec ou sans ticket.
+
+> Vous pouvez également fermer les tickets directement à partir du widget.
 
 </TabItem>
 <TabItem value="Dans les vues personnalisées (legacy)" label="Dans les vues personnalisées (legacy)">
@@ -49,9 +61,7 @@ Vous pouvez fermer les tickets dans Centreon : pour certains fournisseurs, le ti
 <Tabs groupId="sync">
 <TabItem value="Dans les tableaux de bord" label="Dans les tableaux de bord">
 
-1. Pour fermer un ticket, dans le widget des tickets ouverts, cliquez sur le bouton **Fermer le ticket** dans la colonne **Actions**.
-2. Le ticket est fermé dans Centreon, et, si votre fournisseur le permet, dans votre outil ITSM.
-3. Le service disparaît du widget des tickets ouverts.
+Vous pouvez fermer les tickets directement depuis le widget Tableau des ressources.
 
 > Ouvrir un ticket acquitte automatiquement le service. Si vous fermez un ticket dans Centreon alors que l'alerte est toujours en cours dans Centreon, le service sera désacquitté.
 

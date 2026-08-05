@@ -1,6 +1,7 @@
 ---
 id: loginpwd
 title: Configuring a local authentication
+description: "Configure local authentication and the password security policy"
 ---
 
 ## Authorize users to access Centreon
@@ -32,7 +33,7 @@ Go to **Administration > Authentication> Password Security Policy**:
 ### Password case policy
 
 - Define the **Minimum password length**.
-- Define which characters the password must contain to make it stronger (lower case letters, upper case letters, numbers, special characters). The following special characters are allowed: `'@$!%*?&'`
+- Define which characters the password must contain to make it stronger (lower case letters, upper case letters, numbers, special characters). These characters are considered special: `@$!%*?&`
 
 ### Password expiration policy
 

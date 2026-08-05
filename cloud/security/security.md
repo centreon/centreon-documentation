@@ -1,6 +1,7 @@
 ---
 id: security
 title: Centreon Cloud security management
+description: "Overview of the security governance, infrastructure, data protection, and vulnerability response practices applied to Centreon Cloud"
 ---
 
 ## Introduction
@@ -111,7 +112,7 @@ Admin access to the product is strictly limited to duly authorized administrator
 ### User authentication
 
 User access to the product is strictly limited to duly authorized users. This authorization can be multi-factor, depending on the customer's requirements and their ability to make their environment secure (radius authentication, MFA, network security and filtering, etc).
-Customers can configure their user accesses and authorizations using Centreon's CIAM (Customer Identity and Access Management) portal. This portal uses OpenID Connect, and can be configured to use the customer's own identity provider.
+Customers can configure their user accesses and authorizations using the Centreon Hub portal. This portal uses OpenID Connect, and can be configured to use the customer's own identity provider.
 
 ### Logs
 

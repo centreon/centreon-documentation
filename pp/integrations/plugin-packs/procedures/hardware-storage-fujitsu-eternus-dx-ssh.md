@@ -1,13 +1,14 @@
 ---
 id: hardware-storage-fujitsu-eternus-dx-ssh
-title: Fujitsu Eternus DX
+title: Fujitsu Eternus DX SSH
+description: "Monitor Fujitsu Eternus DX storage bays via SSH, covering CPU usage, disks, ports, power supply, RAID groups, and volume I/O stats."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Fujitsu Eternus DX** connector through the
+The following monitoring connectors will be installed when you install the **Fujitsu Eternus DX SSH** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +16,7 @@ The following monitoring connectors will be installed when you install the **Fuj
 
 ### Templates
 
-The Monitoring Connector **Fujitsu Eternus DX** brings a host template:
+The Monitoring Connector **Fujitsu Eternus DX SSH** brings a host template:
 
 * **HW-Storage-Fujitsu-Eternus-DX-SSH-custom**
 
@@ -24,14 +25,14 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="HW-Storage-Fujitsu-Eternus-DX-SSH-custom" label="HW-Storage-Fujitsu-Eternus-DX-SSH-custom">
 
-| Service Alias | Service Template                                       | Service Description                             |
-|:--------------|:-------------------------------------------------------|:------------------------------------------------|
+| Service Alias | Service Template                                       | Service Description                       |
+|:--------------|:-------------------------------------------------------|:------------------------------------------|
 | Cpu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Cpu-custom           | Check the CPU utilization rate of the bay |
-| Physical-Disk | HW-Storage-Fujitsu-Eternus-DX-SSH-Physical-Disk-custom | Check the state of the disks                    |
-| Port-Stats    | HW-Storage-Fujitsu-Eternus-DX-SSH-Port-Stats-custom    | Check the state of the ports                    |
-| Psu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Psu-custom           | Check the state of the power supply             |
-| Raid-Groups   | HW-Storage-Fujitsu-Eternus-DX-SSH-Raid-Groups-custom   | Check the disk capacity                                                |
-| Volume-Stats  | HW-Storage-Fujitsu-Eternus-DX-SSH-Stats-custom         | Check the global health of the bay                                                |
+| Physical-Disk | HW-Storage-Fujitsu-Eternus-DX-SSH-Physical-Disk-custom | Check the state of the disks              |
+| Port-Stats    | HW-Storage-Fujitsu-Eternus-DX-SSH-Port-Stats-custom    | Check the state of the ports              |
+| Psu           | HW-Storage-Fujitsu-Eternus-DX-SSH-Psu-custom           | Check the state of the power supply       |
+| Raid-Groups   | HW-Storage-Fujitsu-Eternus-DX-SSH-Raid-Groups-custom   | Check the disk capacity                   |
+| Volume-Stats  | HW-Storage-Fujitsu-Eternus-DX-SSH-Stats-custom         | Check the global health of the bay        |
 
 > The services listed above are created automatically when the **HW-Storage-Fujitsu-Eternus-DX-SSH-custom** host template is used.
 
@@ -54,9 +55,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Physical-Disk" label="Physical-Disk">
 
-| Name                                          | Unit  |
-|:----------------------------------------------|:------|
-| disk-status                | N/A  |
+| Name        | Unit  |
+|:------------|:------|
+| disk-status | N/A  |
 
 </TabItem>
 <TabItem value="Port-Stats" label="Port-Stats">
@@ -73,9 +74,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Psu" label="Psu">
 
-| Name                                          | Unit  |
-|:----------------------------------------------|:------|
-| hardware.powersupply.power.watt                | W  |
+| Name                            | Unit  |
+|:--------------------------------|:------|
+| hardware.powersupply.power.watt | W  |
 
 </TabItem>
 <TabItem value="Raid-Groups" label="Raid-Groups">
@@ -168,7 +169,7 @@ yum install centreon-pack-hardware-storage-fujitsu-eternus-dx-ssh
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Fujitsu Eternus DX** connector through
+2. Whatever the license type (*online* or *offline*), install the **Fujitsu Eternus DX SSH** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -229,8 +230,8 @@ yum install centreon-plugin-Hardware-Storage-Fujitsu-Eternus-Dx-Ssh
 | SSHUSERNAME     | Define the user name to log in to the host                                                                                                                          | centreon          |             |
 | SSHPASSWORD     | Define the password associated with the user name. Cannot be used with the sshcli backend. Warning: using a password is not recommended. Use --ssh-priv-key instead |                   |             |
 | SSHPORT         | Define the TCP port on which SSH is listening                                                                                                                       |                   |             |
-| SSHBACKEND      | Define the backend you want to use. It can be: sshcli (default), plink and libssh                                                                                   | libssh            |             |
-| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                                |                   |             |
+| SSHBACKEND      | Define the backend you want to use. It can be: sshcli, plink and libssh                                                                                             | libssh            |             |
+| SSHEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                            |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -419,9 +420,9 @@ All generic options are listed here:
 | --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
-| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |

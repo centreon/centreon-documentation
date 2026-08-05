@@ -1,6 +1,7 @@
 ---
 id: map-legacy-eol
 title: Fin de vie de MAP Legacy
+description: "Étapes pour monter de version et désinstaller complètement MAP Legacy après le passage à MAP"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -30,7 +31,7 @@ Si vous aviez utilisé MAP par le passé, puis êtes retournés à MAP Legacy, s
 * [Migrez de MAP Legacy à MAP](import-into-map-web.md) dans votre version actuelle. Cela inclut d'activer le nouveau module MAP et d'importer vos cartes legacy dans MAP.
 * [Désinstallez MAP Legacy de votre plateforme Centreon](#comment-désinstaller-complètement-map-legacy).
 
-## J'utilisais toujours MAP Legacy et j'ai déjà monté de version ma platefrome et MAP Legacy et MAP vers la 24.10
+## J'utilisais toujours MAP Legacy et j'ai déjà monté de version ma plateforme et MAP Legacy et MAP vers la 24.10
 
 * Faites une sauvegarde de vos données MAP legacy : sauvegardez tous les fichiers présents dans **/etc/centreon-studio** et faites un dump de la base de données MAP.
 * [Migrez de MAP Legacy à MAP](import-into-map-web.md) dans votre version actuelle. Cela inclut d'activer le nouveau module MAP et d'importer vos cartes legacy dans MAP.

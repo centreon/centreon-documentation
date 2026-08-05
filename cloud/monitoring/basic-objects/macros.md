@@ -1,6 +1,7 @@
 ---
 id: macros
 title: Macros
+description: "Reference of standard and custom macros used in check commands, including host, service, and notification macros"
 ---
 A macro is a variable that defines a value to be used in a [command](commands.md) when checking hosts or services. Macros allow you to customize checks by defining a particular value for each host or service being checked by the same template: the value of the macro for a specific host of service is defined by the user in the configuration form for the host or the service.
 
@@ -55,6 +56,37 @@ In a service check command, the following macros are used: **$_SERVICEPARTITION$
 The **Community SNMP & Version** fields in a host form automatically generate the following custom macros:
 **$_HOSTSNMPCOMMUNITY$** and **$_HOSTSNMPVERSION$**.
 
+## Macros within macros
+
+When Centreon Engine evaluates a command, macro resolution happens in two successive steps.
+
+**Level 1 — Command level**: Macros embedded directly in the command line are resolved:
+
+- A resolved standard or custom macro is replaced with its value.
+- An unresolved or empty macro is replaced with an empty string.
+
+**Level 2 — Macro value level**: If the value produced at Level 1 itself contains macro-like tokens, a second step is applied to that value:
+
+- A resolved macro is replaced with its value.
+- An unresolved or empty macro is **left as-is** (preserved verbatim, not stripped).
+
+### Double-brace escape syntax
+
+Use the `{{$MACRO$}}` format when you want unresolved macros inside a value to be replaced with an empty string rather than preserved verbatim:
+
+- At Level 1 or Level 2: a resolved macro is replaced with its value and the double braces are removed.
+- At Level 1 or Level 2: an unresolved or empty macro is replaced with an empty string and the double braces are removed.
+
+### Use case: third-party plugin syntaxes
+
+Some monitoring plugins use `$` characters in their own argument syntax that are not Centreon macro delimiters. A common example is NSClient++ syntax, which uses tokens such as `${name}`, `${state}`, `${problem_list}`, and `${drive}`.
+
+Because these tokens are unresolved Centreon macros, Level 2 behaviour preserves them verbatim, allowing the plugin to receive the correct argument string.
+
+> If you define a macro value that contains such tokens and export the configuration with an older Engine version that does not implement the two-level model, those tokens will be stripped and the plugin will receive a malformed command line.
+
+:::
+
 ## List of macros
 
 The following is an exhaustive list of macros by resource type, each type of resource also has a description section. 
@@ -97,10 +129,6 @@ The following is an exhaustive list of macros by resource type, each type of res
 | \$LONGHOSTOUTPUT\$                   | Yes            | Yes [(1)](#notes) | Yes                    | Yes                 |
 | \$HOSTPERFDATA\$                     | Yes            | Yes [(1)](#notes) | Yes                    | Yes                 |
 | \$HOSTCHECKCOMMAND\$                 | Yes            | Yes               | Yes                    | Yes                 |
-| \$HOSTACKAUTHOR\$ [(8)](#notes)      | No             | No                | No                     | No                  |
-| \$HOSTACKAUTHORNAME\$ [(8)](#notes)  | No             | No                | No                     | No                  |
-| \$HOSTACKAUTHORALIAS\$ [(8)](#notes) | No             | No                | No                     | No                  |
-| \$HOSTACKCOMMENT\$ [(8)](#notes)     | No             | No                | No                     | No                  |
 | \$HOSTACTIONURL\$                    | Yes            | Yes               | Yes                    | Yes                 |
 | \$HOSTNOTESURL\$                     | Yes            | Yes               | Yes                    | Yes                 |
 | \$HOSTNOTES\$                        | Yes            | Yes               | Yes                    | Yes                 |
@@ -145,10 +173,6 @@ The following is an exhaustive list of macros by resource type, each type of res
 - **\$LONGHOSTOUTPUT\$**: The full text output (aside from the first line) from the last host check.
 - **\$HOSTPERFDATA\$**: This macro contains any performance data that may have been returned by the last host check.
 - **\$HOSTCHECKCOMMAND\$**: This macro contains the name of the command (along with any arguments passed to it) used to perform the host check.
-- **\$HOSTACKAUTHOR\$** [(8)](#notes): A string containing the name of the user who acknowledged the host problem. This macro is only valid in notifications where the \$NOTIFICATIONTYPE\$ macro is set to "ACKNOWLEDGEMENT".
-- **\$HOSTACKAUTHORNAME\$** [(8)](#notes): A string containing the short name of the contact (if applicable) who acknowledged the host problem. This macro is only valid in notifications where the \$NOTIFICATIONTYPE\$ macro is set to "ACKNOWLEDGEMENT".
-- **\$HOSTACKAUTHORALIAS\$** [(8)](#notes): A string containing the alias of the contact (if applicable) who acknowledged the host problem. This macro is only valid in notifications where the \$NOTIFICATIONTYPE\$ macro is set to "ACKNOWLEDGEMENT".
-- **\$HOSTACKCOMMENT\$** [(8)](#notes): 8	A string containing the acknowledgement comment that was entered by the user who acknowledged the host problem. This macro is only valid in notifications where the \$NOTIFICATIONTYPE\$ macro is set to "ACKNOWLEDGEMENT".
 - **\$HOSTACTIONURL\$**: Action URL for the host. This macro may contain other macros (e.g. \$HOSTNAME\$), which can be useful when you want to pass the host name to a web page.
 - **\$HOSTNOTESURL\$**: Notes URL for the host. This macro may contain other macros (e.g. \$HOSTNAME\$), which can be useful when you want to pass the host name to a web page.
 - **\$HOSTNOTES\$**: Notes for the host. This macro may contain other macros (e.g. \$HOSTNAME\$), which can be useful when you want to host-specific status information, etc. in the description.

@@ -1,51 +1,66 @@
 ---
 id: cloud-aws-cloudwatch-discover
 title: AWS Discover
+description: "Auto-discover AWS resources such as EC2, RDS, S3, and Lambda via the AWS API using the AWS Discover monitoring connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Overview
+The following monitoring connectors will be installed when you install the **AWS Discover** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+* [Amazon API Gateway](./cloud-aws-apigateway.md)
+* [Amazon Backup Vault](./cloud-aws-backup.md)
+* [Amazon EBS](./cloud-aws-ebs.md)
+* [Amazon EC2](./cloud-aws-ec2.md)
+* [Amazon EFS](./cloud-aws-efs.md)
+* [Amazon FSx](./cloud-aws-fsx.md)
+* [Amazon Kinesis](./cloud-aws-kinesis.md)
+* [AWS Lamba](./cloud-aws-lambda.md)
+* [Amazon RDS](./cloud-aws-rds.md)
+* [Amazon S3](./cloud-aws-s3.md)
+* [Amazon SNS](./cloud-aws-sns.md)
+* [Amazon SQS](./cloud-aws-sqs.md)
+* [AWS VPN](./cloud-aws-vpn.md)
 
-The Centreon **AWS Discover** Monitoring Connector allows you to discover the following AWS resources:
-* API Gateway
-* Backup Vault
-* EBS
-* EC2
-* EFS
-* FSx
-* Kinesis
-* Lamba
-* RDS
-* S3
-* SNS
-* SQS
-* VPN
+## Pack assets
 
-This pack relies on the AWS API to retrieve AWS resources and on all the Centreon Monitoring Connectors for AWS to define 
-appropriate monitoring models and indicators for each type of resource.
+The **AWS Discover** monitoring connector does not offer a host template directly,
+it is based on the packs listed above.
 
-## Pack Assets
+#### Host discovery
 
-> The Centreon Monitoring Connector **AWS Discover** is only a *discovery* pack. It doesn't natively provide any templates nor
-> indicators to monitor AWS resources
+| Rule name                       | Description                                  |
+|:--------------------------------|:---------------------------------------------|
+| Amazon AWS API Gateway          | Discover Amazon AWS API Gateway instances    |
+| Amazon Web Service Backup Vault | Discover AWS Backup Vault host               |
+| Amazon AWS EBS                  | Discover Amazon AWS Elastic Block Store host |
+| Amazon AWS EC2                  | Discover Amazon AWS EC2 instance             |
+| Amazon AWS ASG                  | Discover Amazon AWS Auto Scaling Groups      |
+| Amazon AWS EFS                  | Discover Amazon AWS EFS instances            |
+| Amazon AWS FSX                  | Discover Amazon AWS FSX intances             |
+| Amazon AWS Kinesis              | Discover Amazon AWS Kinesis streams hosts    |
+| Amazon Web Service Lambda       | Discover AWS Lambda instances                |
+| Amazon AWS RDS                  | Discover Amazon AWS RDS instances            |
+| Amazon AWS S3                   | Discover Amazon AWS S3 instances             |
+| Amazon Web Service SNS          | Discover AWS SNS Topics                      |
+| Amazon Web Service SQS          | Discover AWS SQS queues                      |
+| Amazon AWS VPN                  | Discover AWS VPN                             |
 
-### Discovery rules
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
-The Centreon Monitoring Connector **AWS Discover** includes a Host Discovery *provider* to automatically discover AWS resources
-This provider is named **Amazon AWS Discover**:
+### Collected metrics & status
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-provider.png)
-
-More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+No metrics or status for this monitoring connector.
 
 ## Prerequisites
 
 ### AWS Privileges
 
-Whether using a service account or a dedicated monitoring account to monitor Cloudwatch metrics, the following rights have to be granted to the IAM role (accesskey/secretkey or AssumeRole):
+Configure a service account (access/secret key combo).
+The following rights have to be granted to the IAM role (accesskey/secretkey or AssumeRole):
 
 | AWS Privilege                  | 
 |:-------------------------------|
@@ -57,7 +72,7 @@ Whether using a service account or a dedicated monitoring account to monitor Clo
 | ec2:DescribeVpnConnections     |
 | efs:DescribeFileSystems        |
 | elb:DescribeLoadBalancers      |
-| elbv2DdescribeLoadBalancers    |
+| elbv2:DdescribeLoadBalancers    |
 | fsx:DescribeFileSystems        |
 | kinesis:ListStreams            |
 | lambda:ListFunctions           |
@@ -67,11 +82,12 @@ Whether using a service account or a dedicated monitoring account to monitor Clo
 | sqs:ListQueues                 |
 | cloudwatch:listMetrics         | 
 | cloudwatch:getMetricStatistics |
+
 ### Plugin dependencies
 
-To interact with Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources. 
+To interact with the Amazon APIs, you can use either use the *awscli* binary provided by Amazon or *paws*, a Perl AWS SDK (recommended). You must install it on every poller expected to monitor AWS resources.
 
-> For now, it is not possible to use *paws* if you are using a proxy to reach AWS Cloudwatch APIs. 
+> Please note that you cannot use paws if you are connecting via a proxy.
 
 <Tabs groupId="sync">
 <TabItem value="perl-Paws-installation" label="perl-Paws-installation">
@@ -92,47 +108,96 @@ sudo ./aws/install
 </TabItem>
 </Tabs>
 
-## Setup 
+## Installing the monitoring connector
+
+### Pack
+
+ The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the package on every Centreon poller expected to monitor **AWS** resources:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
+dnf install ccentreon-pack-cloud-aws\*
 ```
-
-2. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **AWS Discover** Centreon Monitoring Connector.
- You'll be prompted to install several other AWS Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
-on the discovered elements).
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the package on every Centreon poller expected to monitor **AWS** resources:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
+dnf install centreon-pack-cloud-aws\*
 ```
 
-2. Install all the Centreon Monitoring Connector AWS RPM on the Centreon central server in order
-to make all the dependencies available:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-cloud-aws\*
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-cloud-aws\*
 ```
 
-3. On the Centreon web interface, on page **Configuration > Connectors > Monitoring Connectors**, install the **AWS Discover** Centreon Monitoring Connector.
-You'll be prompted to install several other AWS Monitoring Connectors as dependencies (they will be used to set the proper templates/indicators
-on the discovered elements).
-
 </TabItem>
 </Tabs>
 
-## Set up a discovery job
+2. Whatever the license type (*online* or *offline*), install the **Amazon API Gateway** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
 
-> The general specifications and mechanics of the *Host Discovery* feature is available [here](/docs/monitoring/discovery/hosts-discovery)
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Cloud-Aws-Cloudwatch-Api
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Cloud-Aws-Cloudwatch-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-cloud-aws-cloudwatch-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
+```
+
+</TabItem>
+</Tabs>
 
 ### Access parameters
 
@@ -158,7 +223,7 @@ Adjust the following settings:
 
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-discoparameters.png)
 
-> All the fields of this form are optional
+> All the fields of this form are optional.
 
 - AWS Region : Set the region name
 - AWS Assume Role : Set arn of the role to be assumed if you are not using an **AWS credentials profile**
@@ -179,7 +244,7 @@ corresponding to the discovered AWS resources will be automatically set, like in
 ![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-results.png)
 
 > Some discovered elements may come up without any predefined Host Template; this is usually due to one or several **mappers**
-> conditions that cannot be applied
+> conditions that cannot be applied.
 
 Just select the elements you want to add to the Centreon configuration and click on *save*. And... you're done !
 

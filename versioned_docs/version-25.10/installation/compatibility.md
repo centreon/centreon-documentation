@@ -1,6 +1,7 @@
 ---
 id: compatibility
 title: Compatibility
+description: "Supported browsers, operating systems, and DBMS versions for Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -28,7 +29,7 @@ Centreon supports the following operating systems:
 |--------------------------------|--------------------------------------------------------|
 | RHEL/Oracle Linux 8            | RPM packages, sources                                  |
 | Alma Linux 8                   | RPM packages, virtual machine, sources                 |
-| RHEL/Oracle Linux/ALma Linux 9 | RPM packages, sources                                  |
+| RHEL/Oracle Linux/Alma Linux 9 | RPM packages, sources                                  |
 | Debian 12 (bookworm)           | DEB packages                                           |
 
 See our knowledge base article [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759).
@@ -44,6 +45,8 @@ Bear in mind that IT Edition and Business Edition modules do not work yet on uns
 | Software | Version |
 |----------|---------|
 | MariaDB  | 10.11.x |
-| MySQL    | 8.0     |
+| MySQL    | <ul><li>8.4 (recommended)</li><li>8.0 until its end of support (April 2026)</li></ul> |
 
 > You can use another DBMS based on MySQL, but it will only be supported by the community.
+
+> For databases, what matters is the engine and version. You can run the database on the central server, remotely as a single node or cluster, or use a managed cloud database service — the choice is yours. Centreon cannot test every possible configuration, but in addition to local and remote databases, we also support AWS RDS (with a MySQL engine).  

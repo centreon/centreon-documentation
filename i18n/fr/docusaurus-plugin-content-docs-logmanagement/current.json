@@ -1,0 +1,54 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+    "sidebar.logmanagement.category.Getting started with Centreon Log Management": {
+    "message": "Démarrer avec Centreon Log Management",
+    "description": "The label for category Getting started with Centreon Log Management in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Managing users": {
+    "message": "Gérer les utilisateurs",
+    "description": "The label for category Managing users in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Sending logs to Centreon Log Management": {
+    "message": "Envoyer des logs à Centreon Log Management",
+    "description": "The label for category Sending logs to Centreon Log Management in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Exploring and analyzing logs": {
+    "message": "Explorer et analyser les logs",
+    "description": "The label for category Exploring and analyzing logs in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Managing alerts and notifications": {
+    "message": "Gérer alertes et notifications",
+    "description": "The label for category Managing alerts and notifications in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Administration": {
+    "message": "Administration",
+    "description": "The label for category Administration in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Resources": {
+    "message": "Ressources",
+    "description": "The label for category Resources in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.User journeys (STM)": {
+    "message": "Parcours utilisateur (STM)",
+    "description": "The label for category User journeys (STM) in sidebar logmanagement"
+  }  ,
+    "sidebar.logmanagement.category.Real User Monitoring (RUM)": {
+    "message": "Real User Monitoring (RUM)",
+    "description": "The label for category Real User Monitoring (RUM) in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Digital sobriety": {
+    "message": "Sobriété numérique",
+    "description": "The label for category Digital sobriety in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.Business data (Google Analytics/Matomo)": {
+    "message": "Données business (Google Analytics/Matomo)",
+    "description": "The label for category Business data (Google Analytics/Matomo) in sidebar logmanagement"
+  },
+    "sidebar.logmanagement.category.System data (host server health)": {
+    "message": "Données système (santé du serveur hôte)",
+    "description": "The label for category System data (host server health) in sidebar logmanagement"
+  }
+}

@@ -1,231 +1,475 @@
 ---
 id: applications-backupexec-nscp-restapi
-title: Veritas Backup Exec NSCP Rest API
+title: Veritas Backup Exec NSCP API
+description: "Monitor Veritas Backup Exec via NSClient++ REST API: alerts, disks, and backup jobs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Pack Assets
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **Veritas Backup Exec NSCP API** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
+## Pack assets
 
 ### Templates
 
-The Centreon Pack Backup Exec brings a host template:
-* App-Backupexec-Nscp-Restapi-custom
+The Monitoring Connector **Veritas Backup Exec NSCP API** brings a host template:
 
-It brings the following service templates:
+* **App-Backupexec-Nscp-Restapi-custom**
 
-| Service Alias | Service Template                   | Default | Discovery |
-|:--------------|:-----------------------------------|:--------|:----------|
-| Alerts        | App-Backupexec-Alerts-Nscp-Restapi | X       |           |
-| Disks         | App-Backupexec-Disks-Nscp-Restapi  | X       | X         |
-| Jobs          | App-Backupexec-Jobs-Nscp-Restapi   | X       |           |
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="App-Backupexec-Nscp-Restapi-custom" label="App-Backupexec-Nscp-Restapi-custom">
+
+This host template doesn't have any associated services.
+
+</TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias | Service Template                          | Service Description | Discovery |
+|:--------------|:------------------------------------------|:--------------------|:---------:|
+| Alerts        | App-Backupexec-Alerts-Nscp-Restapi-custom | Check alerts        |           |
+| Disks         | App-Backupexec-Disks-Nscp-Restapi-custom  | Check disks         |     X     |
+| Jobs          | App-Backupexec-Jobs-Nscp-Restapi-custom   | Check jobs          |           |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+
+</TabItem>
+</Tabs>
 
 ### Discovery rules
 
-| Rule name                             | Description                            |
-|:--------------------------------------|:---------------------------------------|
-| App-Backupexec-Nscp-Restapi-Disk-Name | Discover disks and monitor utilization |
+#### Service discovery
+
+| Rule name                             | Description                                               |
+|:--------------------------------------|:----------------------------------------------------------|
+| App-Backupexec-Nscp-Restapi-Disk-Name | Discover the disk partitions and monitor space occupation |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
 <TabItem value="Alerts" label="Alerts">
 
-| Metric name                       | Description                                  | Unit  |
-| :-------------------------------- | :------------------------------------------- | :---- |
-| alerts.severity.none.count        | Number of alerts with none severity          |       |
-| alerts.severity.question.count    | Number of alerts with question severity      |       |
-| alerts.severity.error.count       | Number of alerts with error severity         |       |
-| alerts.severity.warning.count     | Number of alerts with warning severity       |       |
-| alerts.severity.information.count | Number of alerts with informational severity |       |
-| alert status                      | Current alert status                         |       |
+| Name                              | Unit  |
+|:----------------------------------|:------|
+| alerts.severity.none.count        | count |
+| alerts.severity.information.count | count |
+| alerts.severity.question.count    | count |
+| alerts.severity.warning.count     | count |
+| alerts.severity.error.count       | count |
+| status                            | N/A   |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Metric name                             | Description                                                | Unit |
-|:--------------------------------------- |:---------------------------------------------------------- |:---- |
-| disk status                             | Status of the disk (enabled or disabled)                   |      |
-| *disk_name*#disk.space.usage.bytes      | Space used on the disk                                     | B    |
-| *disk_name*#disk.space.free.bytes       | Free space left on the disk                                | B    |
-| *disk_name*#disk.space.usage.percentage | Space used on the disk in percentage                       | %    |
-
+| Name                                    | Unit |
+|:----------------------------------------|:-----|
+| status                                  | N/A  |
+| *disk_name*~disk.space.usage.bytes      | B    |
+| *disk_name*~disk.space.free.bytes       | B    |
+| *disk_name*~disk.space.usage.percentage | %    |
 
 </TabItem>
 <TabItem value="Jobs" label="Jobs">
 
-| Metric name         | Description                     | Unit  |
-| :------------------ | :------------------------------ | :---- |
-| jobs.detected.count | Number of jobs detected         |       |
-| job status          | Current job status              |       |
-| job long status     | Current active job elapsed time |       |
+| Name                | Unit  |
+|:--------------------|:------|
+| jobs.detected.count | count |
+| status              | N/A   |
+| long                | N/A   |
 
 </TabItem>
 </Tabs>
 
 ## Prerequisites
 
-### NSClient Configuration
+### Centreon NSClient++
 
-To monitor **Backup Exec** through NRPE, install the Centreon packaged version of the NSClient++ agent.
-Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md).
+To monitor a resource through the NSClient++ API, install the Centreon
+packaged version of the NSClient++ agent on the resource you want to monitor. Follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
+and make sure that the **Webserver / RESTApi** configuration is correct.
 
-Please download and install the last release of **Centreon-NSClient-xxx.exe**: https://github.com/centreon/centreon-nsclient-build/releases.
+## Installing the monitoring connector
 
-By default, the username/password is **centreon/centreon**.
+### Pack
 
-### Network flow
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
-The target equipment must be reachable from the Centreon poller on the TCP/8443 port.
-
-## Setup
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Protocol-Nrpe
+dnf install centreon-pack-applications-backupexec-nscp-restapi
 ```
-
-2. On the Centreon web interface, install the **Veritas Backup Exec NSCP API** Centreon Pack on the **Configuration > Connectors > Monitoring Connectors** page.
 
 </TabItem>
-
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon package on every Centreon poller expected to monitor **Veritas Backup Exec NSCP API** resources:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Protocol-Nrpe
+dnf install centreon-pack-applications-backupexec-nscp-restapi
 ```
 
-2. Install the **Veritas Backup Exec NSCP API** Centreon Pack RPM on the Centreon central server:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-backupexec-nscp-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-backupexec-nscp-restapi
 ```
 
-3. On the Centreon web interface, install the **Veritas Backup Exec NSCP API** Centreon Pack on the **Configuration > Connectors > Monitoring Connectors** page.
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Veritas Backup Exec NSCP API** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-applications-backupexec-nscp-restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-applications-backupexec-nscp-restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-backupexec-nscp-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-backupexec-nscp-restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+## Using the monitoring connector
 
-### Host
+### Using a host template provided by the connector
 
-* Log into Centreon and add a new Host through **Configuration > Hosts**.
-* Fill the **Name**, **Alias** & **IP Address / DNS** fields according to your **Veritas Backup Exec** server settings.
-* Apply the **App-Backupexec-Nscp-Restapi-custom** template to the host.
-* Once the template is applied, fill in the corresponding macros. Some macros are mandatory.
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Backupexec-Nscp-Restapi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Mandatory | Name                      | Description                                                                                  |
-| :-------- | :------------------------ | :------------------------------------------------------------------------------------------- |
-|           | NSCPRESTAPIPORT           | Port used (Default: 8443)                                                                    |
-|           | NSCPRESTAPIPROTO          | Protocol used (Default: https)                                                               |
-|           | NSCPRESTAPIUSERNAME       | NSClient API username                                                                        |
-|           | NSCPRESTAPIPASSWORD       | NSClient API password                                                                        |
-|           | NSCPRESTAPILEGACYPASSWORD | NSClient API legacy authentication password                                                  |
-|           | NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to the command (eg. a --insecure)                       |
-|           | BEMCLIFILE                | Powershell module file (Default: C:/Program Files/Veritas/Backup Exec/Modules/BEMCLI/bemcli) |
+| Macro                     | Description                                                                                                                              | Default value                                              | Mandatory |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------|:---------:|
+| NSCPRESTAPIUSERNAME       | Nsclient username                                                                                                                        |                                                            |             |
+| NSCPRESTAPIPASSWORD       | Nsclient password                                                                                                                        |                                                            |             |
+| NSCPRESTAPILEGACYPASSWORD | Password used (configured in the prerequisites section)                                                                                  |                                                            |             |
+| NSCPRESTAPIPROTO          | Protocol used                                                                                                                            | https                                                      |             |
+| NSCPRESTAPIPORT           | Port used by the REST API NSClient++                                                                                                     | 8443                                                       |             |
+| BEMCLIFILE                | Powershell module file (Default: C:/Program Files/Veritas/Backup Exec/Modules/BEMCLI/bemcli)                                             | C:/Program Files/Veritas/Backup Exec/Modules/BEMCLI/bemcli |             |
+| NSCPRESTAPIEXTRAOPTIONS   | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                                                            |           |
+
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Alerts" label="Alerts">
+
+| Macro                       | Description                                                                                                                                                                            | Default value               | Mandatory |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:---------:|
+| FILTERCATEGORY              | Only get alerts by category (can be a regexp)                                                                                                                                          |                             |           |
+| FILTERSOURCE                | Filter alerts by source (can be a regexp)                                                                                                                                              |                             |           |
+| FILTERSEVERITY              | Only get alerts by severity (can be a regexp)                                                                                                                                          |                             |           |
+| WARNINGSEVERITYWARNING      | Threshold                                                                                                                                                                              |                             |           |
+| CRITICALSEVERITYWARNING     | Threshold                                                                                                                                                                              |                             |           |
+| WARNINGSEVERITYERROR        | Threshold                                                                                                                                                                              |                             |           |
+| CRITICALSEVERITYERROR       | Threshold                                                                                                                                                                              |                             |           |
+| WARNINGSEVERITYINFORMATION  | Threshold                                                                                                                                                                              |                             |           |
+| CRITICALSEVERITYINFORMATION | Threshold                                                                                                                                                                              |                             |           |
+| WARNINGSEVERITYNONE         | Threshold                                                                                                                                                                              |                             |           |
+| CRITICALSEVERITYNONE        | Threshold                                                                                                                                                                              |                             |           |
+| WARNINGSEVERITYQUESTION     | Threshold                                                                                                                                                                              |                             |           |
+| CRITICALSEVERITYQUESTION    | Threshold                                                                                                                                                                              |                             |           |
+| WARNINGSTATUS               | Define the conditions to match for the status to be WARNING You can use the following variables: %\{name\}, %\{severity\}, %\{source\}, %\{category\}, %\{timeraised\}, %\{message\}   | %\{severity\} =~ /warning/i |           |
+| CRITICALSTATUS              | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{severity\}, %\{source\}, %\{category\}, %\{timeraised\}, %\{message\} | %\{severity\} =~ /error/i   |           |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                 | --verbose                   |           |
+
+</TabItem>
+<TabItem value="Disks" label="Disks">
+
+| Macro                  | Description                                                                                                                                      | Default value | Mandatory |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERNAME             | Filter disks by name (can be a regexp)                                                                                                           |               |           |
+| FILTERTYPE             | Filter disks by type (can be a regexp)                                                                                                           |               |           |
+| WARNINGSPACEUSAGE      | Threshold                                                                                                                                        |               |           |
+| CRITICALSPACEUSAGE     | Threshold                                                                                                                                        |               |           |
+| WARNINGSPACEUSAGEFREE  | Threshold                                                                                                                                        |               |           |
+| CRITICALSPACEUSAGEFREE | Threshold                                                                                                                                        |               |           |
+| WARNINGSPACEUSAGEPRCT  | Threshold                                                                                                                                        |               |           |
+| CRITICALSPACEUSAGEPRCT | Threshold                                                                                                                                        |               |           |
+| WARNINGSTATUS          | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{type\}              |               |           |
+| CRITICALSTATUS         | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{type\}             |               |           |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose     |           |
+
+</TabItem>
+<TabItem value="Jobs" label="Jobs">
+
+| Macro            | Description                                                                                                                                                         | Default value                   | Mandatory |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------|:---------:|
+| FILTERENDTIME    | Filter job with end time greater than current time less value in seconds                                                                                            | 86400                           |           |
+| FILTERNAME       | Filter job name (can be a regexp)                                                                                                                                   |                                 |           |
+| FILTERTYPE       | Filter job type (can be a regexp)                                                                                                                                   |                                 |           |
+| FILTERSTARTTIME  | Filter job with start time greater than current time less value in seconds                                                                                          |                                 |           |
+| WARNINGDETECTED  | Set warning threshold for detected jobs                                                                                                                             |                                 |           |
+| CRITICALDETECTED | Set critical threshold for detected jobs                                                                                                                            |                                 |           |
+| WARNINGLONG      | Set warning threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{subStatus\}, %\{type\}, %\{isActive\}, %\{elapsed\}            |                                 |           |
+| CRITICALLONG     | Set critical threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{subStatus\}, %\{type\}, %\{isActive\}, %\{elapsed\}           |                                 |           |
+| CRITICALSTATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{name\}, %\{status\}, %\{subStatus\}, %\{type\}, %\{isActive\} | not %\{status\} =~ /succeeded/i |           |
+| WARNINGSTATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}, %\{subStatus\}, %\{type\}, %\{isActive\}  |                                 |           |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                              | --verbose                       |           |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
-Once the plugin is installed, log into your Centreon poller CLI using the
-**centreon-engine** user account and test the Plugin by running the following
-command to check NSClient configuration:
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_protocol_nrpe.pl \
-    --plugin=apps::protocols::nrpe::plugin \
-    --mode=query \
-    --custommode=nsclient \
-    --hostname='10.0.0.1' \
-    --username=centreon \
-    --password=centreon \
-    --insecure \
-    --http-backend=curl \
-    --command=check_version
+	--plugin=apps::protocols::nrpe::plugin \
+	--custommode=nsclient \
+	--mode=query \
+	--hostname='10.0.0.1' \
+	--port='8443' \
+	--proto='https' \
+	--username='' \
+	--password='' \
+	--legacy-password='password'  \
+	--command=check_centreon_plugins \
+	--arg='apps::backup::backupexec::local::plugin' \
+	--arg='jobs' \
+	--arg='  \
+	--bemcli-file="C:/Program Files/Veritas/Backup Exec/Modules/BEMCLI/bemcli" \
+	--filter-name="" \
+	--filter-type="" \
+	--filter-start-time="" \
+	--filter-end-time="86400" \
+	--warning-status="" \
+	--critical-status="not %\{status\} =~ /succeeded/i" \
+	--warning-long="" \
+	--critical-long="" \
+	--warning-detected="" \
+	--critical-detected="" \
+	--verbose'
 ```
 
 The expected command output is shown below:
 
 ```bash
-0.5.2.41 2018-04-26
+OK: Jobs detected: 70423 All jobs are ok | 'jobs.detected.count'=70423;;;0; 
 ```
 
-Check the Backup Exec plugin by running the following command:
+### Troubleshooting
+
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the 
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_protocol_nrpe.pl \
-    --plugin=apps::protocols::nrpe::plugin \
-    --mode=query \
-    --custommode=nsclient \
-    --hostname='10.0.0.1' \
-    --username=centreon \
-    --password=centreon \
-    --insecure \
-    --http-backend=curl \
-    --command=check_centreon_plugins \
-    --arg='apps::backup::backupexec::local::plugin' \
-    --arg='disks' \
-    --arg='--filter-name="" --verbose' \
-    --verbose
+	--plugin=apps::protocols::nrpe::plugin \
+	--list-mode
 ```
 
-The expected command output is shown below:
+The plugin brings the following modes:
 
-```bash
-OK: All disks are ok | 'disk 1#disk.space.usage.bytes'=1000000B;;;0;100000000 'disk 1#disk.space.free.bytes'=99000000B;;;0;100000000 'disk 1#disk.space.usage.percentage'=1.00%;;;0;100 'disk 2#disk.space.usage.bytes'=1000000B;;;0;250000000 'disk 2#disk.space.free.bytes'=249000000B;;;0;250000000 'disk 2#disk.space.usage.percentage'=0.40%;;;0;100
-checking disk 'disk 1' [type: tapeDriveDevice]
-    status: enabled
-    space usage total: 95.37 MB used: 976.56 KB (1.00%) free: 94.41 MB (99.00%)
-checking disk 'disk 2' [type: deduplicationDiskStorageDevice]
-    status: enabled
-    space usage total: 238.42 MB used: 976.56 KB (0.40%) free: 237.46 MB (99.60%)
-```
+| Mode                                                                                                                              | Linked service template                   |
+|:----------------------------------------------------------------------------------------------------------------------------------|:------------------------------------------|
+| alerts [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/backupexec/local/mode/alerts.pm)]        | App-Backupexec-Alerts-Nscp-Restapi-custom |
+| disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/backupexec/local/mode/disks.pm)]          | App-Backupexec-Disks-Nscp-Restapi-custom  |
+| jobs [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/backupexec/local/mode/jobs.pm)]            | App-Backupexec-Jobs-Nscp-Restapi-custom   |
+| list-disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/backupexec/local/mode/listdisks.pm)] | Used for service discovery                |
+
+### Available options
+
+#### Generic options
+
+All generic options are listed here:
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --show-password                            | By default, sensitive information in command lines is hidden in debug output and replaced with `***` (however, debug logs may still display sensitive information). Using the C option will display the passwords in plain text.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --extend-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  um wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --change-output-adv                        | Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-file                              | Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-counters                          | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --warning-xxx                              | Warning threshold.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --critical-xxx                             | Critical threshold.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Alerts" label="Alerts">
+
+| Option                   | Description                                                                                                                                                                                                                   |
+|:-------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout                | Set timeout time for command execution (default: 50 sec)                                                                                                                                                                      |
+| --no-ps                  | Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                                        |
+| --command                | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                        |
+| --command-path           | Command path (default: none).                                                                                                                                                                                                 |
+| --command-options        | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                                       |
+| --ps-display             | Display powershell script.                                                                                                                                                                                                    |
+| --ps-exec-only           | Print powershell output.                                                                                                                                                                                                      |
+| --bemcli-file            | Set powershell module file (default: 'C:/Program Files/Veritas/Backup Exec/Modules/BEMCLI/bemcli').                                                                                                                           |
+| --filter-category        | Only get alerts by category (can be a regexp).                                                                                                                                                                                |
+| --filter-source          | Filter alerts by source (can be a regexp).                                                                                                                                                                                    |
+| --filter-severity        | Only get alerts by severity (can be a regexp).                                                                                                                                                                                |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: '%\{severity\} =~ /warning/i') You can use the following variables: %\{name\}, %\{severity\}, %\{source\}, %\{category\}, %\{timeraised\}, %\{message\} |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{severity\} =~ /error/i'). You can use the following variables: %\{name\}, %\{severity\}, %\{source\}, %\{category\}, %\{timeraised\}, %\{message\} |
+| --warning-* --critical-* | Thresholds. Can be: 'severity-none', 'severity-information', 'severity-question', 'severity-warning', 'severity-error'.                                                                                                       |
+
+</TabItem>
+<TabItem value="Disks" label="Disks">
+
+| Option                   | Description                                                                                                                            |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout                | Set timeout time for command execution (default: 50 sec)                                                                               |
+| --no-ps                  | Don't encode powershell. To be used with --command and 'type' command.                                                                 |
+| --command                | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!! |
+| --command-path           | Command path (default: none).                                                                                                          |
+| --command-options        | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                |
+| --ps-display             | Display powershell script.                                                                                                             |
+| --ps-exec-only           | Print powershell output.                                                                                                               |
+| --bemcli-file            | Set powershell module file (default: 'C:/Program Files/Veritas/Backup Exec/Modules/BEMCLI/bemcli').                                    |
+| --filter-name            | Filter disks by name (can be a regexp).                                                                                                |
+| --filter-type            | Filter disks by type (can be a regexp).                                                                                                |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}, %\{type\}.   |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}, %\{type\}.  |
+| --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-usage-free', 'space-usage-prct'.                                                             |
+
+</TabItem>
+<TabItem value="Jobs" label="Jobs">
+
+| Option              | Description                                                                                                                                                                                                       |
+|:--------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --timeout           | Set timeout time for command execution (default: 50 sec)                                                                                                                                                          |
+| --no-ps             | Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                            |
+| --command           | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                            |
+| --command-path      | Command path (default: none).                                                                                                                                                                                     |
+| --command-options   | Command options (default: '-InputFormat none -NoLogo -EncodedCommand').                                                                                                                                           |
+| --ps-display        | Display powershell script.                                                                                                                                                                                        |
+| --ps-exec-only      | Print powershell output.                                                                                                                                                                                          |
+| --bemcli-file       | Set powershell module file (default: 'C:/Program Files/Veritas/Backup Exec/Modules/BEMCLI/bemcli').                                                                                                               |
+| --filter-name       | Filter job name (can be a regexp).                                                                                                                                                                                |
+| --filter-type       | Filter job type (can be a regexp).                                                                                                                                                                                |
+| --filter-start-time | Filter job with start time greater than current time less value in seconds.                                                                                                                                       |
+| --filter-end-time   | Filter job with end time greater than current time less value in seconds (default: 86400).                                                                                                                        |
+| --warning-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{name\}, %\{status\}, %\{subStatus\}, %\{type\}, %\{isActive\}.                                               |
+| --critical-status   | Define the conditions to match for the status to be CRITICAL (default: 'not %\{status\} =~ /succeeded/i'). You can use the following variables: %\{name\}, %\{status\}, %\{subStatus\}, %\{type\}, %\{isActive\}. |
+| --warning-long      | Set warning threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{subStatus\}, %\{type\}, %\{isActive\}, %\{elapsed\}.                                                         |
+| --critical-long     | Set critical threshold for long jobs. You can use the following variables: %\{name\}, %\{status\}, %\{subStatus\}, %\{type\}, %\{isActive\}, %\{elapsed\}.                                                        |
+| --warning-detected  | Set warning threshold for detected jobs.                                                                                                                                                                          |
+| --critical-detected | Set critical threshold for detected jobs.                                                                                                                                                                         |
+
+</TabItem>
+</Tabs>
 
 All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_protocol_nrpe.pl \
-    --plugin=apps::protocols::nrpe::plugin \
-    --mode=query \
-    --custommode=nsclient \
-    --hostname='10.0.0.1' \
-    --username=centreon \
-    --password=centreon \
-    --insecure \
-    --http-backend=curl \
-    --command=check_centreon_plugins \
-    --arg='apps::backup::backupexec::local::plugin' \
-    --arg='disks' \
-    --arg='--help'
+	--plugin=apps::protocols::nrpe::plugin \
+	--custommode=nsclient \
+	--help
 ```
-
-All available modes can be displayed by adding the
-`--list-mode` parameter to the command:
-
-```bash
-/usr/lib/centreon/plugins/centreon_protocol_nrpe.pl \
-    --plugin=apps::protocols::nrpe::plugin \
-    --mode=query \
-    --custommode=nsclient \
-    --hostname='10.0.0.1' \
-    --username=centreon \
-    --password=centreon \
-    --insecure \
-    --http-backend=curl \
-    --command=check_centreon_plugins \
-    --arg='apps::backup::backupexec::local::plugin' \
-    --arg='xxx' \
-    --arg='--list-mode'
-```
-
-### Troubleshooting
-
-Please find the troubleshooting documentation for the API-based plugins in
-this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md)

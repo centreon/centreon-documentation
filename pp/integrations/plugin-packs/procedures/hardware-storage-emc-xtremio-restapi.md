@@ -1,13 +1,14 @@
 ---
 id: hardware-storage-emc-xtremio-restapi
-title: EMC Xtremio
+title: EMC Xtremio Rest API
+description: "Monitor Dell EMC XtremIO storage via REST API: cluster health, SSD endurance and IOPS, and XenVS CPU and state."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **EMC Xtremio** connector through the
+The following monitoring connectors will be installed when you install the **EMC Xtremio Rest API** connector through the
 **Configuration > Monitoring Connector Manager** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +16,7 @@ The following monitoring connectors will be installed when you install the **EMC
 
 ### Templates
 
-The Monitoring Connector **EMC Xtremio** brings a host template:
+The Monitoring Connector **EMC Xtremio Rest API** brings a host template:
 
 * **HW-Storage-EMC-Xtremio-Restapi-custom**
 
@@ -44,21 +45,21 @@ Here is the list of services for this connector, detailing all metrics and statu
 <Tabs groupId="sync">
 <TabItem value="Cluster-Health" label="Cluster-Health">
 
-| Name          | Unit  |
-|:--------------|:------|
-| consistency-state         | N/A  |
-| shared-memory-efficiency-level    | N/A  |
-| free-ud-ssd-space-level   | N/A  |
-| vaai-tp-limit-crossing | N/A  |
+| Name                             | Unit |
+|:---------------------------------|:-----|
+| consistency-state                | N/A  |
+| shared-memory-efficiency-level   | N/A  |
+| free-ud-ssd-space-level          | N/A  |
+| vaai-tp-limit-crossing           | N/A  |
 | shared-memory-in-use-ratio-level | N/A  |
-| sys-health-state | N/A  |
+| sys-health-state                 | N/A  |
 
 </TabItem>
 <TabItem value="SSDs-Endurance" label="SSDs-Endurance">
 
-| Name          | Unit  |
-|:--------------|:------|
-| ssd-endurence         | %  |
+| Name          | Unit |
+|:--------------|:-----|
+| ssd-endurence | %    |
 
 </TabItem>
 <TabItem value="SSDs-Iops" label="SSDs-Iops">
@@ -80,16 +81,16 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="XenVS-CPU" label="XenVS-CPU">
 
-| Name          | Unit  |
-|:--------------|:------|
-| cpu-usage         | %  |
+| Name      | Unit |
+|:----------|:-----|
+| cpu-usage | %    |
 
 </TabItem>
 <TabItem value="XenVS-State" label="XenVS-State">
 
-| Name          | Unit  |
-|:--------------|:------|
-| xenv-status         | N/A  |
+| Name        | Unit |
+|:------------|:-----|
+| xenv-status | N/A  |
 
 </TabItem>
 </Tabs>
@@ -139,7 +140,7 @@ yum install centreon-pack-hardware-storage-emc-xtremio-restapi
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **EMC Xtremio** connector through
+2. Whatever the license type (*online* or *offline*), install the **EMC Xtremio Rest API** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -195,11 +196,11 @@ yum install centreon-plugin-Hardware-Storage-Emc-Xtremio-Restapi
 3. Apply the **HW-Storage-EMC-Xtremio-Restatpi-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro           | Description      | Default value     | Mandatory   |
-|:----------------|:-----------------|:------------------|:-----------:|
-| XTREMIOUSERNAME | Xtremio username |                   |     X       |
-| XTREMIOPASSWORD | Xtremio password |                   |     X       |
-| APIEXTRAOPTS    |                  |                   |             |
+| Macro           | Description                                                                                                                              | Default value     | Mandatory   |
+|:----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| XTREMIOUSERNAME | Xtremio username                                                                                                                         |                   |     X       |
+| XTREMIOPASSWORD | Xtremio password                                                                                                                         |                   |     X       |
+| APIEXTRAOPTS    | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -350,9 +351,9 @@ All generic options are listed here:
 | --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                           |
 | --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[newuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
-| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |

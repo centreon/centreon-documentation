@@ -1,6 +1,7 @@
 ---
 id: acknowledge
 title: Acknowledging an alert
+description: "How to acknowledge an alert to pause notifications, and how to disacknowledge it from the Resources Status page"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -28,6 +29,14 @@ of disk.
 > has taken the problem into account - not that the incident has been
 > corrected; this can only take effect when the check returns to its
 > nominal state.
+
+### Specific behavior for Business Activities
+
+> If you are using the **Business Activity Monitoring** module, acknowledgments apply only to the specific object (BA or KPI).
+
+Acknowledgements apply to Business Activities (BAs) as follows:
+- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or meta-services).
+- Acknowledging a KPI does not acknowledge the BA that depends on it.
 
 ### Practice
 

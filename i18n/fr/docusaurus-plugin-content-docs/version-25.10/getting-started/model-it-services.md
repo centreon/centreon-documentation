@@ -1,7 +1,7 @@
 ---
 id: model-it-services
 title: Modéliser un service IT
-description: Tutoriel BAM
+description: "Comment modéliser des services IT avec Centreon BAM"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -178,6 +178,8 @@ Exemples : 
 
 Dans le cas présent, la disponibilité se calcul comme suit: 
 
--   % de disponibilité & performance optimale ~ 97,917% (Opérationnel)
--   % de disponibilité ~ 0,694% (Dégradé)
--   % d'indisponibilité ~ 1,388% (Critique)
+-   % de disponibilité & performance optimale ~ 97.91% (Opérationnel)
+-   % de disponibilité mais en dégradé ~ 98.61% (Opérationnel+Dégradé)
+-   % d'indisponibilité ~ 1.38% (Critique)
+
+Vous pouvez utiliser l'extension **Centreon MBI** pour accéder à des fonctionnalités avancées de reporting sur les données relatives aux activités métier.

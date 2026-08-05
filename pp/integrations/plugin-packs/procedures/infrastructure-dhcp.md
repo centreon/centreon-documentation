@@ -1,53 +1,200 @@
 ---
 id: infrastructure-dhcp
 title: DHCP Server
+description: "Monitor DHCP server availability with Centreon's DHCP Server connector, using host/service templates and check_dhcp via CLI."
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Connector dependencies
+
+The following monitoring connectors will be installed when you install the **DHCP Server** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
+
+## Pack assets
+
+### Templates
+
+The Monitoring Connector **DHCP Server** brings a host template:
+
+* **Infra-DHCP-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
+
+<Tabs groupId="sync">
+<TabItem value="Infra-DHCP-custom" label="Infra-DHCP-custom">
+
+| Service Alias | Service Template         | Service Description                       |
+|:--------------|:-------------------------|:------------------------------------------|
+| DHCP          | App-Protocol-DHCP-custom | Check the availability of the DHCP server |
+
+> The services listed above are created automatically when the **Infra-DHCP-custom** host template is used.
+
+</TabItem>
+</Tabs>
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+
+<Tabs groupId="sync">
+<TabItem value="DHCP" label="DHCP">
+
+| Name | Unit  |
+|:-----|:------|
+| time | s    |
+
+</TabItem>
+</Tabs>
 
 ## Prerequisites
 
-This chapter describes the prerequisites installation needed by plugins to run.
+To use the DHCP Server connector, ensure the DHCP server is accessible over the network.
 
-### Centreon Plugin
+## Installing the monitoring connector
 
-Install this plugin on each needed poller:
+### Pack
 
-``` shell
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-pack-infrastructure-dhcp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-pack-infrastructure-dhcp
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-infrastructure-dhcp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-infrastructure-dhcp
+```
+
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **DHCP Server** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install nagios-plugins-dhcp
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install nagios-plugins-dhcp
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install nagios-plugins-dhcp
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
 yum install nagios-plugins-dhcp
 ```
 
-### Local Network
+</TabItem>
+</Tabs>
 
-The local network must have a DHCP service running and available, the monitoring
-server must be able to communicate with this network.
+## Using the monitoring connector
 
-## Centreon Configuration
+### Using a host template provided by the connector
 
-### Create a host using the appropriate template
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **Infra-DHCP-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-Go to *Configuration \> Hosts* and click *Add*. Then, fill the form as shown by
-the following table:
+There are no predefined macros for this host template. You can add them manually if required.
 
-| Field                                | Value                      |
-| :----------------------------------- | :------------------------- |
-| Host name                            | *Name of the host*         |
-| Alias                                | *Host description*         |
-| IP                                   | *Host IP Address*          |
-| Monitored from                       | *Monitoring Poller to use* |
-| Host Multiple Templates              | Infra-DHCP-custom          |
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-Click on the *Save* button.
+### Using a service template provided by the connector
 
-Those services were automatically created for this host:
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
-| Service | Description                |
-| :------ | :------------------------- |
-| ping    | Monitor host response time |
-| DHCP    | Check DHCP Availability    |
+<Tabs groupId="sync">
+<TabItem value="DHCP" label="DHCP">
 
-### Host Macro Configuration
+| Macro         | Description                                                                                                                            | Default value | Mandatory |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INTERFACENAME | Interface to to use for listening                                                                                                      | eth0          |           |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
-No macro is defined for this template.
+</TabItem>
+</Tabs>
 
-### Service Macro configuration
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
-No macro is defined for this template.
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
+
+```bash
+sudo ./check_dhcp -i eth0
+```
+
+The expected command output is shown below:
+
+```bash
+OK: Received 1 DHCPOFFER(s), max lease time = 600 sec.
+```
+
+### Troubleshooting
+
+Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
+for Centreon Plugins typical issues.
+
+### Available options
+
+Here is a complete list of available options for [Nagios check_dhcp Plugin](https://nagios-plugins.org/doc/man/check_dhcp.html).
+

@@ -1,9 +1,10 @@
 ---
 id: architecture
 title: Architecture of Centreon Cloud
+description: "Overview of the Centreon Cloud architecture, including the SaaS platform, pollers, and the Centreon Hub module"
 ---
 
-Centreon Cloud consists mainly of a SaaS platform provided by Centreon, and pollers that you install in your infrastructure. In addition, the Centreon [CIAM](../ciam/ciam.md) module allows you to manage organizations and users, and to log in to Centreon Cloud.
+Centreon Cloud consists mainly of a SaaS platform provided by Centreon, and pollers that you install in your infrastructure. In addition, the [Centreon Hub](../users/centreon-hub.md) module allows you to manage organizations and users, and to log in to Centreon Cloud.
 
 ![image](../assets/getting-started/infra3.png)
 
@@ -24,7 +25,7 @@ Centreon Cloud consists mainly of a SaaS platform provided by Centreon, and poll
 * You [install your pollers](../installation/deploy-poller.md) using a simple script.
 * The communication between the central and the pollers uses HTTPS.
 
-## Centreon CIAM
+## Centreon Hub
 
-* The [CIAM](../ciam/ciam.md) has a user interface that is separate from the SaaS platform's.
-* Before you can use Centreon Cloud, you need to configure your organization in the CIAM, and invite your users to your platform.
+* The [Centreon Hub module](../users/centreon-hub.md) has a user interface that is separate from the SaaS platform's.
+* Before you can use Centreon Cloud, you need to configure your organization in Centreon Hub, and invite your users to your platform.

@@ -1,6 +1,7 @@
 ---
 id: loginpwd
 title: Configurer une authentification locale
+description: "Configurer l'authentification locale et la politique de mot de passe"
 ---
 
 ## Autoriser les utilisateurs à accéder à Centreon
@@ -33,7 +34,7 @@ Allez à la page **Administration > Authentification> Politique de sécurité de
 ### Politique de casse du mot de passe
 
 - Définissez la longueur minimum du mot de passe.
-- Définissez quels caractères le mot de passe doit contenir pour qu'il soit plus fort (minuscules/majuscules, chiffres, caractères spéciaux). Les caractères spéciaux autorisés sont les suivants : `'@$!%*?&'`
+- Définissez quels caractères le mot de passe doit contenir pour qu'il soit plus fort (minuscules/majuscules, chiffres, caractères spéciaux). Les caractères considérés comme spéciaux sont les suivants : `@$!%*?&`
 
 ### Politique d'expiration du mot de passe
 

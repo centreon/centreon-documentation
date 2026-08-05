@@ -1,6 +1,7 @@
 ---
 id: platform
 title: Elements of a Centreon platform
+description: "Overview of central servers, remote servers, pollers, and CMA"
 ---
 
 According to your needs, your platform can consist of several elements: a [central server](#central-server), one or several [remote servers](#remote-server), and one or several [pollers](#poller).
@@ -31,8 +32,14 @@ A poller can be attached to a [remote server](#remote-server), or directly to a 
 - A Centreon poller monitors resources. It has a monitoring engine.
 - A poller has no graphical interface: the resources it monitors are displayed in the interface of the central server and of the remote server it is attached to.
 
+## Centreon Monitoring Agent
+
+The [Centreon Monitoring Agent (CMA)](../cma/cma.md) is an optional piece of software installed on a host to monitor it.
+- CMA collects metrics and computes statuses, and sends them to Centreon.
+- It can perform native checks by itself or non-native checks using locally installed plugins.
+
 ## Distributed architecture
 
-![image](../assets/getting-started/archi.png)
+![image](../assets/getting-started/elements_of_centreon_platform.svg)
 
 See also [**Architectures**](../installation/architectures.md).

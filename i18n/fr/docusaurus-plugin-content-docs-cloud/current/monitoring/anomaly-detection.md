@@ -1,6 +1,7 @@
 ---
 id: anomaly-detection
 title: Anomaly Detection
+description: "Comment configurer et utiliser le module Anomaly Detection de Centreon, qui détecte les déviations du comportement normal d'un service"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,7 +14,7 @@ Le module **Anomaly Detection** détecte les déviations par rapport au comporte
 
 Avec la supervision classique, les alertes sont déclenchées à partir de seuils fixes : par exemple, on alerte quand le ping sur un serveur dépasse 700 ms. Cependant, pour certains services, les valeurs "normales" varient au cours du temps, ce qui rend des seuils fixes peu pertinents. Il est possible d'utiliser la détection automatique d'anomalies lorsque le comportement du service est régulier et prévisible :
 
-![image](../../../docusaurus-plugin-content-docs/version-23.10/assets/monitoring/anomaly/simple_scheme.png)
+![image](../assets/monitoring/anomaly/simple_scheme.png)
 
 On détermine quelles sont les valeurs normales au cours du temps : la prévision permet de calculer un seuil bas et un seuil élevé. Lorsque le comportement du service dévie du modèle attendu, ces seuils sont dépassés (c'est-à-dire que la métrique descend en-dessous du seuil bas ou dépasse le seuil élevé). Le service passe en statut CRITIQUE et une notification est envoyée. Exemple : un serveur a habituellement peu de trafic la nuit. Une nuit, Centreon détecte des flux réseau plus élevés
 que la normale et déclenche une alerte. Cela permet à l'entreprise de se rendre compte d'un piratage.
@@ -36,7 +37,7 @@ pour mettre en évidence les écarts et générer des alertes. Pour ne pas fauss
 
 ### Ajouter votre jeton
 
-1. Récupérez votre jeton dans la page de votre organisation dans le [CIAM](../ciam/ciam.md).
+1. Récupérez votre jeton dans la page de votre organisation dans [Centreon Hub](../users/centreon-hub.md).
 
 2. Rendez-vous dans le menu **Configuration > Services > Anomaly Detection** et
 cliquez sur le bouton **Add Centreon Cloud Token**.
@@ -128,12 +129,12 @@ La liste des services existant de votre plateforme Centreon est affichée ainsi
 qu'un score en nombre d'étoiles : de 5 étoiles à 0, 5 étoiles représentant les
 services à fort potentiel :
 
-![image](../../../docusaurus-plugin-content-docs/version-23.10/assets/monitoring/anomaly/configure_analysis_01.png)
+![image](../assets/monitoring/anomaly/configure_analysis_01.png)
 
 Après avoir sélectionné un service intéressant, cliquez sur le bouton **ADD** à
 gauche de la ligne. Vous arrivez sur le formulaire de création pré-rempli :
 
-![image](../../../docusaurus-plugin-content-docs/version-23.10/assets/monitoring/anomaly/configure_analysis_02.png)
+![image](../assets/monitoring/anomaly/configure_analysis_02.png)
 
 Modifez le nom du service puis cliquez sur le bouton **Sauvegarder**.
 

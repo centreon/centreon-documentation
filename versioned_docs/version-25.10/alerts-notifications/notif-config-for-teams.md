@@ -1,6 +1,7 @@
 ---
 id: notif-config-for-teams
 title: Microsoft Teams notifications
+description: "Configure Centreon alerts to notify Microsoft Teams channels"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -110,14 +111,9 @@ CONTACT;setparam;notify_teams_consulting_channel;hostnotifcmd;host-notify-by-mic
 CONTACT;setparam;notify_teams_consulting_channel;svcnotifcmd;service-notify-by-microsoft-teams
  ```
 
-2. If your Teams workflow URL is longer than 200 characters, extend the size of the **contact_pager** row in the Centreon configuration database, using the following query:
- ``` shell
- ALTER TABLE centreon.contact MODIFY contact_pager VARCHAR(255);
- ```
-
-3. Use your Centreon credentials and CLAPI to load the file:
+2. Use your Centreon credentials and CLAPI to load the file:
  ``` shell
  centreon -u ‘<adminuser>’ -p ‘<password>’ -i /tmp/clapi-teams.import
  ```
 
-4. The file will create the **Microsoft-Teams-Consulting-Channel** contact. Use this contact at the [Configuring notifications](../alerts-notifications/notif-configuration.md) step so that you can receive notifications in your Teams channel.
+3. The file will create the **Microsoft-Teams-Consulting-Channel** contact. Use this contact at the [Configuring notifications](../alerts-notifications/notif-configuration.md) step so that you can receive notifications in your Teams channel.

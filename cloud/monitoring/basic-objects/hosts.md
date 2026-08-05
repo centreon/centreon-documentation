@@ -1,6 +1,7 @@
 ---
 id: hosts
 title: Creating hosts manually
+description: "Full list of fields to fill in when creating a host manually in Centreon, from general information to scheduling options"
 ---
 
 To create a host manually:
@@ -13,10 +14,10 @@ To create a host manually:
 
 ### General information
 
-* The **Name** field defines the host name that will be used by the Monitoring Engine. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
+* The **Name** field defines the host name that will be used by the Monitoring Engine. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces. Using names containing `/` can also have technical impacts on SQL queries, on the interface or cause other compatibility problems with third-party tools. We recommend that you only use `_-.` for host names.
 * The **Alias** field shows the alias of the host.
 * The **Address** field defines the IP address or DNS name of the host. The **Resolve** button enables us to
-  resolve the domain name by questioning the DNS server configured on the SaaS platform.
+  resolve the domain name by questioning the DNS server configured on the SaaS platform. Note that for security reasons, addresses formatted as `<protocol>://<ip-address>` are not accepted.
 * The **Templates** field enables us to associate one or more host templates with this object.
 
   In case of conflicts between settings present on multiple templates, the host template above overwrites the identical properties
@@ -35,7 +36,7 @@ defined in the host templates below.
 * The **SNMP Community & Version** fields contain the name of the community and the SNMP version.
 * **Custom macros**:
 
-   * The **Name** and **Value** field enable us to define the name and value of the macro.
+   * The **Name** and **Value** field are used to define the name and value of the macro. Note that for security reasons, parameters formatted as `<protocol>://<ip-address>` are not accepted.
    * The **Password** box is used to hide the value of the macro.
 
   To reinitialize to the default value (defined in the template), click ![image](../../assets/configuration/common/undo.png#thumbnail1)

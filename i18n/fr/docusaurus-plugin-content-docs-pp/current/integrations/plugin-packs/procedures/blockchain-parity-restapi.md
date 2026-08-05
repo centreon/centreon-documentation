@@ -1,171 +1,389 @@
 ---
 id: blockchain-parity-restapi
 title: Parity API
+description: "Supervisez les nœuds Ethereum Parity via API REST : métriques de blocs Eth, usage du gas, statut de synchronisation, infos et pairs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
 
-## Vue d'ensemble
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Parity API**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
-Parity est un fork de la Blockchain Ethereum. 
+## Contenu du pack
 
-Le connecteur de supervision *Parity API* collecte des informations et métriques sur l'activité 
-des noeuds d'un réseau Blockchain au travers d'une API. 
+### Modèles
 
-## Contenu du Pack
+Le connecteur de supervision **Parity API** apporte un modèle d'hôte :
 
-### Objets supervisés
+* **Blockchain-Parity-Restapi-custom**
 
-* Noeud(s) d'une Blockchain Parity
-     * Parity
-     * Info
-     * Eth
-     * Net
-
-### Métriques collectées
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="Parity" label="Parity">
+<TabItem value="Blockchain-Parity-Restapi-custom" label="Blockchain-Parity-Restapi-custom">
 
-| Metric name                 | Description                      | Unit |
-|:----------------------------|:---------------------------------|------|
-| parity.pending.transactions | Number of pending transactions   |      |
-| parity.mempol.usage         | Memory pool usage                |   B  |
-| parity.mempol.size          | Memory pool size                 |   B  |
-| parity.peers.connected      | Number of connected peers        |      |
-| parity.peers.max            | Maximum number of peers          |      |
-| parity.peers.usage          | Peers usage expressed in percent |   %  |
+| Alias  | Modèle de service                       | Description                                    |
+|:-------|:----------------------------------------|:-----------------------------------------------|
+| Eth    | Blockchain-Parity-Restapi-Eth-custom    | Contrôle l'état du module Ethereum d'un nœud Parity par API |
+| Info   | Blockchain-Parity-Restapi-Info-custom   | Récupérer les informations Parity par API      |
+| Parity | Blockchain-Parity-Restapi-Parity-custom | Contrôle l'état de Parity par API              |
+| Parity | Blockchain-Parity-Restapi-Net-custom    | Contrôle l'état du réseau Parity par API       |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Blockchain-Parity-Restapi-custom** est utilisé.
 
 </TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
+
+<Tabs groupId="sync">
 <TabItem value="Eth" label="Eth">
 
-| Metric name                          | Description                   |
-|:-------------------------------------|:------------------------------|
-| parity.eth.sync.status               | State of node synchronization |
-| parity.eth.block.gas                 | Gas                           |
-| parity.eth.block.usage               | Block Usage                   |
-| parity.eth.block.size                | Size of Block                 |
-| parity.eth.block.transactions.number | Number of block transactions  |
-| parity.eth.block.uncles              | Number of block uncles        |
-| parity.eth.gas.limit                 | Maximum Gas available         |
-| parity.eth.gas.price                 | Gas price                     |
-| parity.eth.gas.used                  | Gas consumption               |
+| Nom                    | Unité |
+|:-----------------------|:------|
+| gas-price              | N/A   |
+| gas-used               | N/A   |
+| gas-limit              | N/A   |
+| block-size             | N/A   |
+| parity.eth.block.usage | %     |
+| block-transactions     | N/A   |
+| block-gas              | N/A   |
+| block-uncles           | N/A   |
+| sync-status            | N/A   |
 
 </TabItem>
-<TabItem value="Net" label="Net">
+<TabItem value="Info" label="Info">
 
-| Metric name                   | Description              |
-|:------------------------------|:-------------------------|
-| parity.network.peers.count    | Number of known peers    |
+| Nom                    | Unité |
+|:-----------------------|:------|
+| parity.version              | N/A   |
+| parity.chain               | N/A   |
+| parity.nodeName              | N/A   |
+| parity.is_validator             | N/A   |
+
+</TabItem>
+<TabItem value="Parity" label="Parity">
+
+| Nom                        | Unité |
+|:---------------------------|:------|
+| parity.network.peers.count | count |
 
 </TabItem>
 </Tabs>
 
 ## Prérequis
 
-Le Poller doit pouvoir communiquer avec le noeud Parity via le protocole HTTP et 
+Le collecteur doit pouvoir communiquer avec le noeud Parity via le protocole HTTP et
 via le port configuré (par défaut: 8545).
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des noeuds Parity:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Blockchain-Parity-Restapi
+dnf install centreon-pack-blockchain-parity-restapi
 ```
-
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Parity API* depuis 
-la page  **Configuration > Connecteurs > Connecteurs de supervision**.
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur tous les Collecteurs Centreon supervisant des noeuds Parity:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Blockchain-Parity-Restapi
+dnf install centreon-pack-blockchain-parity-restapi
 ```
 
-2. Installer le RPM du connecteur de supervision *Parity API* sur le serveur Central: 
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-blockchain-parity-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-blockchain-parity-restapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Parity API* depuis 
-la page  **Configuration > Connecteurs > Connecteurs de supervision**.
+</TabItem>
+</Tabs>
+
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Parity API**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+
+### Plugin
+
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
+
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Blockchain-Parity-Restapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Blockchain-Parity-Restapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-blockchain-parity-restapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Blockchain-Parity-Restapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration d'un Hôte
+## Utiliser le connecteur de supervision
 
-* Ajoutez un nouvel Hôte via le menu `Configuration > Hosts`
-* Complétez les champs "Nom","Alias" & "IP Address / DNS" correspondant à votre noeud Parity
-* Appliquez le Modèle d'Hôte *Blockchain-Parity-Restapi-custom* et configurer les macros associées
+### Utiliser un modèle d'hôte issu du connecteur
 
-| Mandatory | Name               | Description                                                                        |
-|:----------|:-------------------|:-----------------------------------------------------------------------------------|
-|           | PARITYAPIPORT      | (Default: '8545')                                                                  |
-|           | PARITYPROTO        | (Default: 'http')                                                                  |
-|           | PARITYAPIURLPATH   | (Default: '/')                                                                     |
-|           | TIMEOUT            |                                                                                    |
-|           | PARITYEXTRAOPTIONS | Any extra option you may want to add to every command_line (eg. a --verbose flag)  |
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **Blockchain-Parity-Restapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-## Comment tester mes configurations et le Plugin en ligne de commande ?
+| Macro              | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:-------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| PARITYPROTO        | Protocol used                                                                                                     | http              |             |
+| PARITYAPIPORT      | Port used                                                                                                     | 8545              |             |
+| PARITYAPIPATH      | API base url path (default: '/')                                                                     |                   |             |
+| PARITYAPIURLPATH   | API endpoint path used to access the Parity JSON-RPC interface                                                                                                     | /                 |             |
+| TIMEOUT            | Set HTTP timeout in seconds (default: '10')                                                          |                   |             |
+| PARITYEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
-Une fois le Plugin déployé, connectez vous à votre Collecteur en SSH et executez 
-la commande suivante au travers de l'utilisateur *centreon-engine*:
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Eth" label="Eth">
+
+| Macro                     | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:--------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGBLOCKGAS           | Threshold                                                                                                   |                   |             |
+| CRITICALBLOCKGAS          | Threshold                                                                                                   |                   |             |
+| WARNINGBLOCKSIZE          | Threshold                                                                                                   |                   |             |
+| CRITICALBLOCKSIZE         | Threshold                                                                                                   |                   |             |
+| WARNINGBLOCKTRANSACTIONS  | Threshold                                                                                                   |                   |             |
+| CRITICALBLOCKTRANSACTIONS | Threshold                                                                                                   |                   |             |
+| WARNINGBLOCKUNCLES        | Threshold                                                                                                   |                   |             |
+| CRITICALBLOCKUNCLES       | Threshold                                                                                                   |                   |             |
+| WARNINGBLOCKUSAGE         | Threshold                                                                                                   |                   |             |
+| CRITICALBLOCKUSAGE        | Threshold                                                                                                   |                   |             |
+| WARNINGGASLIMIT           | Threshold                                                                                                   |                   |             |
+| CRITICALGASLIMIT          | Threshold                                                                                                   |                   |             |
+| WARNINGGASPRICE           | Threshold                                                                                                   |                   |             |
+| CRITICALGASPRICE          | Threshold                                                                                                   |                   |             |
+| WARNINGGASUSED            | Threshold                                                                                                   |                   |             |
+| CRITICALGASUSED           | Threshold                                                                                                   |                   |             |
+| WARNINGSYNCSTATUS         | Threshold                                                                                                   |                   |             |
+| CRITICALSYNCSTATUS        | Threshold                                                                                                   |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="Info" label="Info">
+
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+<TabItem value="Parity" label="Parity">
+
+| Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGPEERS  | Threshold                                                                                                   |                   |             |
+| CRITICALPEERS | Threshold                                                                                                  |                   |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_blockchain_parity_api.pl  \ 
-   --plugin=blockchain::parity::restapi::plugin  \ 
-   --mode=net  \ 
-   --hostname=10.0.0.1  \ 
-   --port=8545  \ 
-   --proto=http \
-   --timeout=10  \ 
-   --proto=http  \ 
-   --api-path=/  \ 
-   --warning-peers=''  \ 
-   --critical-peers='1:'   
+/usr/lib/centreon/plugins/centreon_blockchain_parity_api.pl \
+	--plugin=blockchain::parity::restapi::plugin \
+	--mode=net \
+	--hostname=10.0.0.1 \
+	--port='8545' \
+	--api-path='' \
+	--timeout=''  \
+	--warning-peers='' \
+	--critical-peers=''
 ```
 
-Le retour de la commande doit être similaire à:
-
-`OK: Parity network module: connected peers: 2`
-
-Cette commande déclenchera une alerte WARNING si le nombre de peers connecté est 
-inférieur à 1 (`--critical-peers=1:`).
-
-Tous les modes d'un Plugin donné peuvent être listés au moyen de la commande suivante:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_blockchain_parity_api.pl  \ 
-    --plugin=blockchain::parity::restapi::plugin  \ 
-    --list-mode
+OK: connected peers: 67568 | 'parity.network.peers.count'=67568;;;0;
 ```
 
-## Diagnostic des erreurs communes
+### Diagnostic des erreurs communes
 
-### UNKNOWN: Can't connect to ... 
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
+des plugins basés sur HTTP/API.
 
-Cette erreur signifie que Centreon n'a pas réussi à se connecter à l'API du 
-BCM Poller. Vérifiez que la requête n'est pas bloquée par un outil externe
-(un pare-feu par exemple). Si vous utilisez un proxy, renseignez son URL dans la
-Macro EXTRAOPTIONS de l'Hôte ou directement dans la commande avec l'option 
-```--proxyurl='http://proxy.mycompany:8080'```.
+### Modes disponibles
 
-Vérifiez également que le port configuré est correct.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-### J'obtiens le message d'erreur suivant:  ``UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
-Dans certains cas, et plus spécifiquement lors de l'usage d'un proxy 
-d'entreprise, le protocole de connexion n'est pas supporté par la libraire lwp 
-utlisée par défaut par le Plugin Centreon.
-Cette erreur peut être résolue en utilisant le backend HTTP curl. Pour ce faire, 
-ajoutez l'option ```--http-backend='curl'``` dans la Macro EXTRAOPTIONS de 
-l'Hôte ou directement à la commande.
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_blockchain_parity_api.pl \
+	--plugin=blockchain::parity::restapi::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                    | Modèle de service associé               |
+|:------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
+| eth [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/blockchain/parity/restapi/mode/eth.pm)]       | Blockchain-Parity-Restapi-Eth-custom    |
+| infos [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/blockchain/parity/restapi/mode/infos.pm)]   | Blockchain-Parity-Restapi-Info-custom   |
+| net [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/blockchain/parity/restapi/mode/net.pm)]       | Blockchain-Parity-Restapi-Net-custom    |
+| parity [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/blockchain/parity/restapi/mode/parity.pm)] | Blockchain-Parity-Restapi-Parity-custom |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --hostname                                 |   Parity node hostname or IP                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --timeout                                  |   Set HTTP timeout in seconds (default: '10').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --api-path                                 |   API base url path (default: '/').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Eth" label="Eth">
+
+| Option            | Description                                                                                                                   |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+
+</TabItem>
+<TabItem value="Info" label="Info">
+
+| Option            | Description                                                                                                                   |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+
+</TabItem>
+<TabItem value="Parity" label="Parity">
+
+| Option            | Description                                                                                                                   |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'   |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_blockchain_parity_api.pl \
+	--plugin=blockchain::parity::restapi::plugin \
+	--mode=net \
+	--help
+```

@@ -1,47 +1,64 @@
 ---
 id: hardware-devices-pexip-infinity-managementapi
 title: Pexip Infinity ManagementAPI
+description: "Supervisez Pexip Infinity via l'API ManagementAPI (HTTPS/REST) : alarmes et qualité des conférences et des participants."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Dépendances du connecteur de supervision
 
-## Vue d'ensemble
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Pexip Infinity ManagementAPI**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
-Pexip Infinity est une application d’entreprise dans le Cloud qui permet la compatibilité de vidéoconférence et de visoconférence d’entreprise 
-à toutes les plates-formes de collaboration. Le logiciel fonctionne comme une passerelle entre les plates-formes et connecte de manière transparente 
-les solutions de communication et de collaboration d’entreprise dans les salles de réunion virtuelles.
+## Contenu du pack
 
-Pexip Infinity comprend une API de gestion qui permet à des tiers de contrôler, de configurer et d'obtenir des informations sur l'état de la plate-forme Pexip Infinity.
+### Modèles
 
-## Contenu du connecteur de supervision
+Le connecteur de supervision **Pexip Infinity ManagementAPI** apporte un modèle d'hôte :
 
-### Objets supervisés
+* **HW-Device-Pexip-Infinity-Managementapi-custom**
 
-* Alarmes
-* Conférences
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
-### Métriques collectées
+<Tabs groupId="sync">
+<TabItem value="HW-Device-Pexip-Infinity-Managementapi-custom" label="HW-Device-Pexip-Infinity-Managementapi-custom">
 
-Vous pouvez vous renseigner en détails sur les métriques présentées ci-après sur la documentation officielle 
-de Pexip Infinity ManagementAPI : https://docs.pexip.com/api_manage/management_intro.htm
+| Alias       | Modèle de service                                         | Description                                                               |
+|:------------|:----------------------------------------------------------|:--------------------------------------------------------------------------|
+| Alarms      | HW-Device-Pexip-Infinity-Alarms-Managementapi-custom      | Contrôle les alarmes                                                      |
+| Conferences | HW-Device-Pexip-Infinity-Conferences-Managementapi-custom | Contrôle le nombre de conférences et la qualité d'appels des participants |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **HW-Device-Pexip-Infinity-Managementapi-custom** est utilisé.
+
+</TabItem>
+</Tabs>
+
+### Métriques & statuts collectés
+
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Alarms" label="Alarms">
 
-| Metric name                                | Description                         | Unit  |
-| :----------------------------------------- | :-----------------------------------| :---- |
-| status                                     | Alarms status                       |       |
-| alerts.problems.current.count              | Number of  current alerts problems  | count |
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="Conferences" label="Conferences">
 
-| Metric name                                 | Description                                                                            | Unit  |
-| :------------------------------------------ | :------------------------------------------------------------------------------------- | :---- |
-| conferences.total.count                     | Total number of conferences                                                            | count |
-| participants.total.count                    | Total number of participants			                                               | count |
-| participants.callquality.$state.count       | Number of states participants callquality ('good', 'ok', 'bad', 'terrible', 'unknown') | count |
+| Nom                                     | Unité |
+|:----------------------------------------|:------|
+| conferences.total.count                 | count |
+| participants.total.count                | count |
+| participants.callquality.good.count     | count |
+| participants.callquality.ok.count       | count |
+| participants.callquality.bad.count      | count |
+| participants.callquality.terrible.count | count |
+| participants.callquality.unknown.count  | count |
 
 </TabItem>
 </Tabs>
@@ -49,116 +66,329 @@ de Pexip Infinity ManagementAPI : https://docs.pexip.com/api_manage/management_i
 ## Prérequis
 
 Tous les accès à l'API de gestion sont effectués via HTTPS.
-Si vous n'utilisez pas de base de données LDAP pour l'authentification, l'accès se fait via les informations d'identification de l'utilisateur administrateur Web. 
+Si vous n'utilisez pas de base de données LDAP pour l'authentification, l'accès se fait via les informations d'identification de l'utilisateur administrateur Web.
 Le nom d'utilisateur par défaut de ce compte est *admin*.
 Si vous utilisez une base de données LDAP, il est recommandé de créer un compte spécifiquement à l'usage de l'API.
 
 Plus d'informations sont disponible sur la documentation officielle de Pexip Infinity ManagementAPI : https://docs.pexip.com/admin/integrate_api.htm
 
-## Installation
+## Installer le connecteur de supervision
+
+### Pack
+
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Pexip Infinity ManagementAPI :
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
+dnf install centreon-pack-hardware-devices-pexip-infinity-managementapi
 ```
-
-2. Sur l'interface Web de Centreon, installer le connecteur de supervision *Pexip Infinity ManagementAPI* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Installer le Plugin sur tous les collecteurs Centreon supervisant des ressources Pexip Infinity ManagementAPI :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi.noarch
+dnf install centreon-pack-hardware-devices-pexip-infinity-managementapi
 ```
 
-2. Sur le serveur Central Centreon, installer le connecteur de supervision via le RPM:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-yum install centreon-pack-hardware-devices-pexip-infinity-managementapi.noarch
+apt install centreon-pack-hardware-devices-pexip-infinity-managementapi
 ```
 
-3. Sur l'interface Web de Centreon, installer le connecteur de supervision *Pexip Infinity ManagementAPI* depuis la page **Configuration > Connecteurs > Connecteurs de supervision**
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-hardware-devices-pexip-infinity-managementapi
+```
 
 </TabItem>
 </Tabs>
 
-## Configuration
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Pexip Infinity ManagementAPI**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
-Ce connecteur de supervision est conçu de manière à avoir dans Centreon un hôte par environnement Pexip Infinity ManagementAPI
-Lorsque vous ajoutez un hôte à Centreon, appliquez-lui le modèle *HW-Device-Pexip-Infinity-Managementapi-custom*.
-Une fois celui-ci configuré, certaines macros doivent être renseignées:
+### Plugin
 
-| Mandatory | Name            | Description                                                                |
-| :-------- | :-------------- | :------------------------------------------------------------------------- |
-| X         | APIPORT         | Port used (Default: 443)                                                   |
-| X         | APIPROTO        | Specify https if needed (Default: 'https')                                 |
-| X         | APIKUSERNAME    | Pexip Infinity ManagementAPI username                                      |
-| X         | APIPASSWORD     | Pexip Infinity ManagementAPI password     	                               |
-|           | APIEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+À partir de Centreon 22.04, il est possible de demander le déploiement automatique
+du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
+que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
+étape n'est pas requise.
 
-## FAQ
+> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
 
-### Comment puis-je tester le Plugin et que signifient les options des commandes ?
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
-Une fois le Plugin installé, vous pouvez tester celui-ci directement en ligne de commande depuis votre collecteur Centreon avec l'utilisateur *centreon-engine*
-(Les paramètres tels que ```api-username``` ou ```api-password``` doivront être ajustés):
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-hardware-devices-pexip-infinity-managementapi
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Hardware-Devices-Pexip-Infinity-Managementapi
+```
+
+</TabItem>
+</Tabs>
+
+## Utiliser le connecteur de supervision
+
+### Utiliser un modèle d'hôte issu du connecteur
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **HW-Device-Pexip-Infinity-Managementapi-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro                     | Description                                                                                          | Valeur par défaut | Obligatoire |
+|:--------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MANAGEMENTAPIUSERNAME     | API username                                                                                         |                   | X           |
+| MANAGEMENTAPIPASSWORD     | API password                                                                                         |                   | X           |
+| MANAGEMENTAPIPROTO        | Specify https if needed (default: 'https')                                                           | https             |             |
+| MANAGEMENTAPIPORT         | Port used (default: 443)                                                                             | 443               |             |
+| MANAGEMENTAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+### Utiliser un modèle de service issu du connecteur
+
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
+
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
+
+| Macro          | Description                                                                                                                                                                                 | Valeur par défaut                       | Obligatoire |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:-----------:|
+| FILTERNAME     | Filter by alert name (can be a regexp)                                                                                                                                                      |                                         |             |
+| UNKNOWNSTATUS  |                                                                                                                                                                                             |                                         |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: '%\{level\} =~ /warning\|minor/i') You can use the following variables: %\{level\}, %\{details\}, %\{name\}           | %\{level\} =~ /warning\|minor/i         |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{level\} =~ /critical\|major\|error/i'). You can use the following variables: %\{level\}, %\{details\}, %\{name\} | %\{level\} =~ /critical\|major\|error/i |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                          | --verbose                               |             |
+
+</TabItem>
+<TabItem value="Conferences" label="Conferences">
+
+| Macro                                   | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:----------------------------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGCONFERENCESTOTAL                 | Threshold                                                                                          |                   |             |
+| CRITICALCONFERENCESTOTAL                | Threshold                                                                                          |                   |             |
+| WARNINGPARTICIPANTSCALLQUALITYBAD       | Threshold                                                                                          |                   |             |
+| CRITICALPARTICIPANTSCALLQUALITYBAD      | Threshold                                                                                          |                   |             |
+| WARNINGPARTICIPANTSCALLQUALITYGOOD      | Threshold                                                                                          |                   |             |
+| CRITICALPARTICIPANTSCALLQUALITYGOOD     | Threshold                                                                                          |                   |             |
+| WARNINGPARTICIPANTSCALLQUALITYOK        | Threshold                                                                                          |                   |             |
+| CRITICALPARTICIPANTSCALLQUALITYOK       | Threshold                                                                                          |                   |             |
+| WARNINGPARTICIPANTSCALLQUALITYTERRIBLE  | Threshold                                                                                          |                   |             |
+| CRITICALPARTICIPANTSCALLQUALITYTERRIBLE | Threshold                                                                                          |                   |             |
+| WARNINGPARTICIPANTSCALLQUALITYUNKNOWN   | Threshold                                                                                          |                   |             |
+| CRITICALPARTICIPANTSCALLQUALITYUNKNOWN  | Threshold                                                                                          |                   |             |
+| WARNINGPARTICIPANTSTOTAL                | Threshold                                                                                          |                   |             |
+| CRITICALPARTICIPANTSTOTAL               | Threshold                                                                                          |                   |             |
+| EXTRAOPTIONS                            | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
+
+</TabItem>
+</Tabs>
+
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
+
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib/centreon/plugins/centreon_pexip_infinity_managementapi.pl \
-    --plugin=hardware::devices::pexip::infinity::managementapi::plugin \
-    --mode=alarms \
-    --hostname='mypexipinfnitapi.com' \
-    --port='443' \
-    --proto='https' \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --filter-name='mycall1.centreon.com' \
-    --warning-status='%\{level\} =~ /warning|minor/i' \
-    --critical-status='%\{level\} =~ /critical|major|error/i' \
-    --verbose
+	--plugin=hardware::devices::pexip::infinity::managementapi::plugin \
+	--mode=conferences \
+	--hostname='10.0.0.1' \
+	--api-username='xxxxxx' \
+	--api-password='xxxxxx' \
+	--port='443' \
+	--proto='https'  \
+	--warning-participants-callquality-good='' \
+	--critical-participants-callquality-good='' \
+	--warning-participants-callquality-ok='' \
+	--critical-participants-callquality-ok='' \
+	--warning-participants-callquality-bad='' \
+	--critical-participants-callquality-bad='' \
+	--warning-participants-callquality-terrible='' \
+	--critical-participants-callquality-terrible='' \
+	--warning-participants-callquality-unknown='' \
+	--critical-participants-callquality-unknown='' \
+	--warning-conferences-total='' \
+	--critical-conferences-total='' \
+	--warning-participants-total='' \
+	--critical-participants-total='' \
+	--verbose
 ```
 
-La commande ci-dessus contrôle le statut d'une alarme de l'application Pexip Infinity via Managementapi (```--mode=alarms```) nommée *mycall1.centreon.com* (```--filter-name='mycall1.centreon.com'```). 
-Le Plugin utilise l'api-username (```--api-username='myapiusername'```), l'api-password (```--api-password='myapipassword'```)
-et il se connecte à l'hôte _mypexipinfnitapi.com_ (```--hostname='mypexipinfnitapi.com'```) sur le port _443_ (```--port='443'```) utilisant le protocol _https_ (```--proto='https'```).
-
-Cette commande déclenchera une alarme WARNING i le statut retourné de l'alarme est égale de */warning|minor/i* (```--warning-status='%{level} =~ /warning|minor/i'```)
-et une alarme CRITICAL si l'alarme est égale de */critical|major|error/i* (```--critical-status='%{level} =~ /critical|major|error/i'```).
-
-Toutes les options et leur utilisation peuvent être consultées avec le paramètre ```--help``` ajouté à la commande:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-/usr/lib/centreon/plugins//centreon_pexip_infinity_managementapi.pl --plugin=hardware::devices::pexip::infinity::managementapi::plugin \
-    --mode=alarms \
-    --help
+OK: conferences total: 33277 participants total: 2480 good: 22381 ok: 85376 bad: 54597 terrible: 48658 unknown: 33431 | 'conferences.total.count'=33277;;;0; 'participants.total.count'=2480;;;0; 'participants.callquality.good.count'=22381;;;0;total 'participants.callquality.ok.count'=85376;;;0;total 'participants.callquality.bad.count'=54597;;;0;total 'participants.callquality.terrible.count'=48658;;;0;total 'participants.callquality.unknown.count'=33431;;;0;total
 ```
 
-### J'obtiens le message d'erreur suivant: 
+### Diagnostic des erreurs communes
 
-#### ```UNKNOWN: 500 Can't connect to mypexipinfnitapi.com:443 |```
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
+des plugins basés sur HTTP/API.
 
-Lors du déploiement de mes contrôles, j'obtiens le message suivant ```UNKNOWN: 500 Can't connect to mypexipinfnitapi.com:443 |```.
-Cela signifie que Centreon n'a pas réussi à se connecter à Pexip Infinity ManagementAPI (*mypexipinfnitapi.com*).
-La plupart du temps, il faut préciser le proxy à utiliser pour requêter l'URL *mypexipinfnitapi.com* en utilisant l'option ```--proxyurl='http://proxy.mycompany:8080'```.
+### Modes disponibles
 
-#### ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |``` 
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-Suite à la mise en place du proxy, j'obtiens le message suivant ```UNKNOWN: 501 Protocol scheme 'connect' is not supported |```
-Cela signifie que le protocole de connexion au proxy n'est pas supporté par la libraire *LWP* utlisée par défaut par le Plugin Centreon.
-Cette erreur peut être résolue en utilisant le backend HTTP *curl*. Pour ce faire, ajoutez l'option ```--http-backend='curl'``` à la commande.
-
-#### ```UNKNOWN: Cannot load module 'Net::Curl::Easy'```
-
-Ce message d'erreur indique qu'une librairie Perl est maquante pour utiliser le backend *curl*.
-
-Pour corriger ce problème, installer la librairie Perl Net::Curl::Easy à l'aide de la commande suivante :
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
-yum install perl-Net-Curl
+/usr/lib/centreon/plugins/centreon_pexip_infinity_managementapi.pl \
+	--plugin=hardware::devices::pexip::infinity::managementapi::plugin \
+	--list-mode
+```
+
+Le plugin apporte les modes suivants :
+
+| Mode                                                                                                                                                  | Modèle de service associé                                 |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------|
+| alarms [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/pexip/infinity/managementapi/mode/alarms.pm)]           | HW-Device-Pexip-Infinity-Alarms-Managementapi-custom      |
+| conferences [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/pexip/infinity/managementapi/mode/conferences.pm)] | HW-Device-Pexip-Infinity-Conferences-Managementapi-custom |
+| licenses [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/hardware/devices/pexip/infinity/managementapi/mode/licenses.pm)]       | Not used in this Monitoring Connector                     |
+
+### Options disponibles
+
+#### Options génériques
+
+Les options génériques sont listées ci-dessous :
+
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     |   Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --dyn-mode                                 |   Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --list-mode                                |   List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --mode-version                             |   Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --version                                  |   Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --custommode                               |   When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --list-custommode                          |   List all available custom modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --multiple                                 |   Multiple custom mode objects. This may be required by some specific modes (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --pass-manager                             |   Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --verbose                                  |   Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --debug                                    |   Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata                          |   Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --filter-perfdata-adv                      |   Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --explode-perfdata-max                     |   Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --change-perfdata --extend-perfdata        |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata                          |   Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  =over 4  Convert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --extend-perfdata-group                    |   Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  =over 4  Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back   |
+| --change-short-output --change-long-output |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-short-output                      |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-long-output                       |   Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-exit                              |   Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --change-output-adv                        |   Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --range-perfdata                           |   Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --filter-uom                               |   Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --opt-exit                                 |   Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-ignore-perfdata                   |   Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --output-ignore-label                      |   Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-xml                               |   Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-json                              |   Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --output-openmetrics                       |   Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --output-file                              |   Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --disco-format                             |   Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --disco-show                               |   Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --float-precision                          |   Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --source-encoding                          |   Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  =head1 DESCRIPTION  B\<output\>.  =cut                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --filter-counters                          |   Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --memcached                                |   Memcached server to use (only one server).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --redis-server                             |   Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --redis-attribute                          |   Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --redis-db                                 |   Set Redis database index.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --failback-file                            |   Fall back on a local file if Redis connection fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --memexpiration                            |   Time to keep data in seconds (default: 86400).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-dir                            |   Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| --statefile-suffix                         |   Define a suffix to customize the statefile name (default: '').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --statefile-concat-cwd                     |   If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --statefile-format                         |   Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --statefile-key                            |   Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| --statefile-cipher                         |   Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --http-peer-addr                           |   Set the address you want to connect to. Useful if hostname is only a vhost, to avoid IP resolution.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --proxyurl                                 |   Proxy URL. Example: http://my.proxy:3128                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proxypac                                 |   Proxy pac file (can be a URL or a local file).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --insecure                                 |   Accept insecure SSL connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --http-backend                             |   Perl library to use for HTTP transactions. Possible values are: lwp (default) and curl.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --hostname                                 |   Pexip manager hostname.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --port                                     |   Port used (default: 443)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --proto                                    |   Specify https if needed (default: 'https')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --api-username                             |   API username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --api-password                             |   API password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --timeout                                  |   Set timeout in seconds (default: 10).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+
+#### Options des modes
+
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
+
+<Tabs groupId="sync">
+<TabItem value="Alarms" label="Alarms">
+
+| Option            | Description                                                                                                                                                                                     |
+|:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-name     |   Filter by alert name (can be a regexp).                                                                                                                                                       |
+| --warning-status  |   Define the conditions to match for the status to be WARNING (default: '%\{level\} =~ /warning\|minor/i') You can use the following variables: %\{level\}, %\{details\}, %\{name\}             |
+| --critical-status |   Define the conditions to match for the status to be CRITICAL (default: '%\{level\} =~ /critical\|major\|error/i'). You can use the following variables: %\{level\}, %\{details\}, %\{name\}   |
+| --memory          |   Only check new alarms.                                                                                                                                                                        |
+
+</TabItem>
+<TabItem value="Conferences" label="Conferences">
+
+| Option                   | Description                                                                                                                                                                                                                                   |
+|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-* --critical-* |   Thresholds. Can be: 'conferences-total', 'participants-total', 'participants-callquality-good', 'participants-callquality-ok', 'participants-callquality-bad', 'participants-callquality-terrible',  'participants-callquality-unknown'.    |
+
+</TabItem>
+</Tabs>
+
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
+
+```bash
+/usr/lib/centreon/plugins/centreon_pexip_infinity_managementapi.pl \
+	--plugin=hardware::devices::pexip::infinity::managementapi::plugin \
+	--mode=conferences \
+	--help
 ```

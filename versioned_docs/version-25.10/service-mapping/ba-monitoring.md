@@ -1,6 +1,7 @@
 ---
 id: ba-monitoring
 title: Monitor Business Activities
+description: "Monitor real-time Business Activity status and health in Centreon BAM"
 ---
 
 After adding, editing or deleting the BAs, KPIs and BVs, the objects
@@ -41,25 +42,13 @@ Click on the name of the BA to bring up a detailed live view.
 
 ### Detailed View
 
-The detailed view is divided into seven parts:
+The detailed view is divided into six parts:
 
 ![image](../assets/service-mapping/guide/mon_detailed.png)
 
-1.  List of KPIs that impact the BA level
-2.  Table containing the BA health level and alert thresholds
-3.  Tab containing the BA impact tree. You can open a sublevel, zoom in
-    and out and move the tree.
-4.  Tab containing the health level graph of the BA
-5.  Tab containing a list of all KPIs.
-6.  Dropdown list to change the BA
-7.  Link to the reporting page.
-
-The list of KPIs displays real-time information on their status and also their
-impact on the BA:
-
-![image](../assets/service-mapping/guide/mon_kpi_list.png)
-
-The **Trend** tab panel displays four graphs -- daily, weekly, monthly and
-annual, showing the BA level and status over time:
-
-![image](../assets/service-mapping/guide/mon_trend.png)
+- Business Activity dropdown list to change the BA.
+- Status information on the BA Current health level and alert thresholds.
+- Reporting view button to access the reporting page.
+- Area containing the BA Impact tree. You can open a sublevel, zoom in and out and move the tree.
+- Table containing the KPI list impacting the BA level.
+- The Status timeline bar displaying a timeline of statuses.

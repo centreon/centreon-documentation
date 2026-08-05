@@ -1,6 +1,7 @@
 ---
 id: ot-glpi
 title: GLPI
+description: "Ouvrir des tickets GLPI via l'ancien plugin webservice"
 ---
 
 ## How it works

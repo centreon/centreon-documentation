@@ -1,6 +1,7 @@
 ---
 id: ot-glpi-restapi
 title: GLPI RestAPI
+description: "Configure the GLPI open-tickets provider using the GLPI REST API, compatible with GLPI versions 9.1 to 11"
 ---
 
 ## How it works
@@ -13,15 +14,18 @@ puts them in cache. Loging out or waiting 10 hours will flush the cache.
 
 ## Compatibility
 
-This connector is (at least) compatible with the following Glpi versions:
+This connector is compatible with the following Glpi versions:
 
+  - 11
+  - 10
+  - 9.5
   - 9.4
   - 9.3
   - 9.2
   - 9.1 (Glpi REST API birth)
 
 You can’t use this provider with Glpi < 9.1. From the 8.5 to 9.0 version, you
-should use the old Glpi provider that uses the Glpi plugin called “webservice”
+should use the [old Glpi provider](ot-glpi.md) that uses the Glpi plugin called “webservice”.
 
 ## Feature information
 
@@ -31,9 +35,7 @@ should use the old Glpi provider that uses the Glpi plugin called “webservice�
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md)
-into your Centreon instance.
+You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
 
 Our provider requires the following parameters:
 

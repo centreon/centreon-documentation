@@ -1,6 +1,7 @@
 ---
 id: ticketing-use
 title: Using Open Tickets
+description: "How operators open and close ITSM tickets from dashboard or custom view widgets in Centreon Cloud"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -11,7 +12,7 @@ This page is intended for the operators who will create and close tickets in Cen
 
 Depending on what your admin has configured, you may be able to open and close tickets from:
 
-* the **Resource table** widget [in a dashboard](../alerts-notifications/dashboards.md)
+* the **Resource table** widget [in a dashboard](../alerts-notifications/dashboards.md).
 * the **Open tickets** widget in [a custom view](../alerts-notifications/custom-views.md) (legacy).
 
 Typically, your admin will have created 2 widgets, with relevant titles:
@@ -24,11 +25,15 @@ Typically, your admin will have created 2 widgets, with relevant titles:
 <Tabs groupId="sync">
 <TabItem value="In dashboards" label="In dashboards">
 
-1. To open a ticket, in the ticket-opening widget, click the **Open ticket for service** button for the service you want. Alternatively, you can open a ticket for the host, using the **Open ticket for host** button: all services for this host will be included in the ticket and displayed in the "open tickets" widget.
-2. A popup appears: fill in the characteristics of your ticket.
-3. Click **Open**.
-3. Once the ticket is created, the popup displays the ticket's ID (which is the one it will have in your ITSM tool).
-4. The service(s) disappear from the ticket-opening widget and appear in the widget that displays all open tickets. (You may need to refresh your page to see it.) The alert(s) are automatically acknowledged.
+> In the **Dashboards** feature, Open Ticket is available in the **Resource table** widget, in the list of events.
+
+1. Go to the **Home > Dashboards** menu, select your dashboard and add a **Resource table** widget.
+2. Fill in the properties.
+3. Set the parameters for your tickets in the **Ticket management** section.
+   - Define if you want to display **Resources with no tickets** or **Resources linked to a ticket**.
+4. Save your changes.
+
+Your dashboard now displays the **Resource table** widget containing resources with or without tickets.
 
 </TabItem>
 <TabItem value="In Custom Views (legacy)" label="In Custom Views (legacy)">
@@ -49,9 +54,7 @@ You can close tickets in Centreon: for some providers, the ticket will be automa
 <Tabs groupId="sync">
 <TabItem value="In dashboards" label="In dashboards">
 
-1. To close a ticket, in the open tickets widget, click the **Close ticket** button in the **Actions** column.
-2. The ticket is closed in Centreon, and, if your provider allows it, in your ITSM tool.
-3. The service disappears from the open tickets widget.
+You can close tickets directly from the **Resource table** widget.
 
 > Opening a ticket automatically acknowledges the service. If you close a ticket in Centreon while the alert is still ongoing in Centreon, the service will be disacknowledged.
 

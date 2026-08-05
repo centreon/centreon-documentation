@@ -1,38 +1,21 @@
 ---
 id: map-web-install
 title: Installing MAP
+description: "Install and configure the Centreon MAP engine and web client"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 This topic describes how to install Centreon MAP. We recommend that you install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
 
+> If you plan to use MAP in HTTPS, please note that securing the HTTPS protocol requires configuration on both the Centreon platform and the MAP server. It is therefore easier to plan for this before beginning the installation. See the [Secure MAP in HTTPS](#secure-map-in-https) page for the full procedure.
+
 ## License
 
 If you need an additional [license](../administration/licenses.md) for Centreon MAP, please contact the [Centreon support
 team](https://support.centreon.com/) to obtain and install your license key.
 
-## Architecture
-
-The diagram below summarizes the MAP architecture.
-
-- You can install Centreon MAP either on a dedicated server or on the central server.
-- Centreon MAP does not require any installation on your machine; this solution is fully available in the Centreon web interface.
-
-
-![image](../assets/graph-views/ng/map-web-schema.png)
-
-**Table of network flows**
-
-| Application    | Source     | Destination               | Port      | Protocol   | Purpose                                             |
-|----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
-| Map Server     | Map server | Centreon central broker   | 5758      | TCP        | Get real-time status updates                        |
-| Map Server     | Map server | Centreon MariaDB database | 3306      | TCP        | Retrieve configuration and other data from Centreon |
-| Web            | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
-| Web interface  | User       | Map server                | 8081/9443 | HTTP/HTTPS | Retrieve views & content                            |
-| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
-
-\* *With or without a proxy*
+For more information about the MAP architecture, see the [MAP architecture](map-architecture.md) topic.
 
 ## Prerequisites
 
@@ -50,7 +33,7 @@ See the [software requirements](../installation/prerequisites.md#characteristics
 
 #### Hardware
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 | Element                     | Value     |
@@ -148,7 +131,26 @@ This is how your MAP server should be partitioned:
 | vg_data |   | Free space (unallocated) | 2 GB                               |
 
 </TabItem>
-<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+<TabItem value="Up to 20,000 hosts" label="Up to 20,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 18 GB      |
+
+This is how your MAP server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 2 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 8 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 5 GB                               |
+| vg_data |   | Free space (unallocated) | 2 GB                               |
+
+</TabItem>
+<TabItem value="Over 20,000 hosts" label="Over 20,000 hosts">
 
 For very large amounts of data, contact your sales representative.
 
@@ -273,8 +275,6 @@ configuration file, you should not use a Centreon admin user account.
 - Log into Centreon and go to the **Configuration > Users > Contacts/Users** page. Then click the **Centreon Authentication** tab.
 - Set the **Reach API Realtime** parameter to **Yes**.
 
-![image](../assets/graph-views/reach-api.png)
-
 Exclude the user from the password expiration policy on the **Administration > Authentication** page: their password will never expire.
 
 ![image](../assets/graph-views/password-expiration-policy.png)
@@ -293,7 +293,7 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 ```
 
 The INSERT privilege will only be used during the installation process
-in order to create new Centreon Broker output. It will be revoked later.
+in order to create new Centreon Broker output. It will be revoked later ([at this step](#step-6-apply-centreon-broker-configuration-and-restart-map-engine-service)).
 
 ### Step 3: Install MAP Engine server
 
@@ -404,14 +404,14 @@ First you need to add the MariaDB repository:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=8 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
@@ -430,14 +430,14 @@ Then install MariaDB server:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-dnf install MariaDB-server
+dnf install mariadb-server
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install MariaDB-server
+dnf install mariadb-server
 ```
 
 </TabItem>
@@ -511,6 +511,47 @@ Select OK to validate the installation of **MySQL Tools & Connectors**. Then ent
 
 ```shell
 apt update
+```
+
+</TabItem>
+</Tabs>
+
+<Tabs groupId="os" queryString>
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
+dnf config-manager --enable mysql-8.4-lts-community
+dnf module disable mysql
+dnf install mysql-community-server
+systemctl start mysqld
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y mysql-server mysql
+dnf install -y centreon-mysql
+systemctl enable --now mysqld
+echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
+systemctl daemon-reload
+systemctl restart mysqld
+systemctl list-units --type=service | grep -i mysql
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo systemctl start mysqld
+sudo systemctl status mysqld
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+apt update
+apt install -y centreon-mysql
+# Select "Use Legacy Authentication Method"
+systemctl daemon-reload
+systemctl restart mysql
 ```
 
 </TabItem>
@@ -881,7 +922,9 @@ The output should look like this:
   Configuration completed, enjoy !
   ```
 
-This script generates the **map-config.properties** file.
+This script generates the **map-config.properties** file. It also automatically grants the required privileges on the **centreon_map** tables of the MAP database to the database user.
+
+> You only need to grant these privileges manually if your databases are administered separately (for example, by DBAs) and **configure.sh** cannot apply them automatically. In that case, the following privileges are required on the **centreon_map** tables: ALTER, CREATE, CREATE TEMPORARY TABLES, DELETE, DROP, INDEX, INSERT, LOCK TABLES, SELECT, SHOW DATABASES, UPDATE.
 
 #### Custom URI 
 
@@ -942,7 +985,7 @@ Run the following command to check that the **centreon-map-engine** service is p
   This is an example of results:
 
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)
@@ -1056,7 +1099,7 @@ By default, the MAP module is not enabled. Perform the following procedure to en
   This is an example of results:
 
   ```shell
-  ● centreon-map-engine.service - Centreon Studio map server
+  ● centreon-map-engine.service
    Loaded: loaded (/usr/lib/systemd/system/centreon-map-engine.service; disabled; vendor preset: disabled)
    Active: active (running) since Thu 2022-11-24 09:10:58 UTC; 6h ago
  Main PID: 39103 (centreon-map-en)

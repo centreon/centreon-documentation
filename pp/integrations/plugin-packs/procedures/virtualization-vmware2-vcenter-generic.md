@@ -1,6 +1,7 @@
 ---
 id: virtualization-vmware2-vcenter-generic
 title: VMware vCenter
+description: "Monitor VMware vCenter via its API: VM, ESX host, datastore, cluster, and datacenter status, CPU, memory, and alarms."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -35,45 +36,45 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias                 | Service Template                                  | Service Description                                                                                            | Discovery  |
-|:------------------------------|:--------------------------------------------------|:---------------------------------------------------------------------------------------------------------------|:----------:|
-| Cluster-Cpu                   | Virt-VMWare2-Cluster-Cpu-Generic-custom           | Check cluster cpu usage                                                                                        |            |
-| Cluster-Cpu-Global            | Virt-VMWare2-Cluster-Cpu-Global-custom            | Check cluster cpu usage                                                                                        |            |
-| Cluster-Status                | Virt-VMWare2-Cluster-Status-Generic-custom        | Check global status of a virtual machine                                                                       |            |
-| Cluster-Status-Global         | Virt-VMWare2-Cluster-Status-Global-custom         | Check global status of multiple virtual machines                                                               | X          |
-| Datacenter-Alarms             | Virt-VMWare2-Datacenter-Alarms-Generic-custom     | Check alarms of a datacenter                                                                                   |            |
-| Datacenter-Alarms-Global      | Virt-VMWare2-Datacenter-Alarms-Global-custom      | Check datacenters alarms                                                                                       | X          |
-| Datastore-Io-Global           | Virt-VMWare2-Datastore-Io-Global-custom           | Check datastore usages in Kbps                                                                                 | X          |
-| Datastore-Iops-Global         | Virt-VMWare2-Datastore-Iops-Global-custom         | Check average IOPs of multiple datastores                                                                      | X          |
-| Datastore-Snapshots-Global    | Virt-VMWare2-Datastore-Snapshots-Global-custom    | Check snapshots usage on multiple datastores                                                                   |            |
-| Datastore-Usage-Global        | Virt-VMWare2-Datastore-Usage-Global-custom        | Check multiple datastores usage                                                                                | X          |
-| Datastore-Vm-Count-Global     | Virt-VMWare2-Datastore-Vm-Count-Global-custom     | Check virtual machines running/off/suspended on multiple datastores                                            | X          |
-| ESX-Alarms-Global             | Virt-VMWare2-ESX-Alarms-Global-custom             | Check ESX hosts alarms                                                                                         |            |
-| Esx-Cpu-Global                | Virt-VMWare2-ESX-Cpu-Global-custom                | Check CPU usage of multiple ESX Servers                                                                        |            |
-| Esx-Datastores-Latency-Global | Virt-VMWare2-ESX-Datastores-Latency-Global-custom | Check Datastores latency of multiple ESX Servers                                                               |            |
-| Esx-Health-Global             | Virt-VMWare2-ESX-Health-Global-custom             | Check hardware and CPU sensors of multiple ESX Servers                                                         |            |
-| Esx-Memory-Global             | Virt-VMWare2-ESX-Memory-Global-custom             | Check Memory usage of multiple ESX Servers                                                                     |            |
-| Esx-Service-Global            | Virt-VMWare2-ESX-Service-Global-custom            | Check services of multiple ESX Servers                                                                         |            |
-| Esx-Status-Global             | Virt-VMWare2-ESX-Status-Global-custom             | Check global status of multiple ESX Servers                                                                    |            |
-| Esx-Storage-Global            | Virt-VMWare2-ESX-Storage-Global-custom            | Check ESX storage informations                                                                                 |            |
-| Esx-Swap-Global               | Virt-VMWare2-ESX-Swap-Global-custom               | Check if a virtual machine is swapping on ESX servers                                                          |            |
-| Esx-Time-Global               | Virt-VMWare2-ESX-Time-Global-custom               | Check time of multiple ESX Servers                                                                             |            |
-| Esx-Traffic-Global            | Virt-VMWare2-ESX-Traffic-Global-custom            | Check traffic usage of multiple physical network interfaces on multiple ESX servers. Thresholds are in percent |            |
-| Esx-Uptime-Global             | Virt-VMWare2-ESX-Uptime-Global-custom             | Get uptime in days of multiple ESX Servers                                                                     |            |
-| Esx-Vm-Count-Global           | Virt-VMWare2-ESX-Vm-Count-Global-custom           | Check virtual machines running/off/suspended on multiple ESX Servers                                           |            |
-| Esx-is-Maintenance-Global     | Virt-VMWare2-ESX-Maintenance-Global-custom        | Check maintenance mode of multiple ESX Servers                                                                 |            |
-| Licenses                      | Virt-VMWare2-Licenses-custom                      | Check licenses                                                                                                 |            |
-| Vm-Cpu-Global                 | Virt-VMWare2-Vm-Cpu-Global-custom                 | Check CPU usage of a virtual machine                                                                           |            |
-| Vm-Datastores-Iops-Global     | Virt-VMWare2-Vm-Datastores-Iops-Global-custom     | Check datastores IOPS linked to virtual machines.                                                              |            |
-| Vm-Device-Global              | Virt-VMWare2-Vm-Device-Global-custom              | Check CPU usage of a virtual machine                                                                           |            |
-| Vm-Limit-Global               | Virt-VMWare2-Vm-Limit-Global-custom               | Check limit definition                                                                                         |            |
-| Vm-Memory-Global              | Virt-VMWare2-Vm-Memory-Global-custom              | Check memory usage of virtual machines                                                                         |            |
-| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Check snapshot age of multiple virtual machines                                                                |            |
-| Vm-Status-Global              | Virt-VMWare2-Vm-Status-Global-custom              | Check global status of multiple virtual machines                                                               |            |
-| Vm-Swap-Global                | Virt-VMWare2-Vm-Swap-Global-custom                | Check if  virtual machines are swapping                                                                        |            |
-| Vm-Thinprovisioning-Global    | Virt-VMWare2-Vm-Thinprovisioning-Global-custom    | Check if a virtual machine has a disk in mode 'thinprovisioning' or not                                        |            |
-| Vsan-Cluster-Usage            | Virt-VMWare2-Vsan-Cluster-Usage-Generic-custom    | Check vsan cluster usage                                                                                       |            |
-| Vsan-Cluster-Usage-Global     | Virt-VMWare2-Vsan-Cluster-Usage-Global-custom     | Check vsan cluster usage                                                                                       |            |
+| Service Alias                 | Service Template                                  | Service Description                                                                                            | Discovery |
+|:------------------------------|:--------------------------------------------------|:---------------------------------------------------------------------------------------------------------------|:---------:|
+| Cluster-Cpu                   | Virt-VMWare2-Cluster-Cpu-Generic-custom           | Check cluster cpu usage                                                                                        |           |
+| Cluster-Cpu-Global            | Virt-VMWare2-Cluster-Cpu-Global-custom            | Check cluster cpu usage                                                                                        |           |
+| Cluster-Status                | Virt-VMWare2-Cluster-Status-Generic-custom        | Check global status of a virtual machine                                                                       |           |
+| Cluster-Status-Global         | Virt-VMWare2-Cluster-Status-Global-custom         | Check global status of multiple virtual machines                                                               |     X     |
+| Datacenter-Alarms             | Virt-VMWare2-Datacenter-Alarms-Generic-custom     | Check alarms of a datacenter                                                                                   |           |
+| Datacenter-Alarms-Global      | Virt-VMWare2-Datacenter-Alarms-Global-custom      | Check datacenters alarms                                                                                       |     X     |
+| Datastore-Io-Global           | Virt-VMWare2-Datastore-Io-Global-custom           | Check datastore usages in Kbps                                                                                 |     X     |
+| Datastore-Iops-Global         | Virt-VMWare2-Datastore-Iops-Global-custom         | Check average IOPs of multiple datastores                                                                      |     X     |
+| Datastore-Snapshots-Global    | Virt-VMWare2-Datastore-Snapshots-Global-custom    | Check snapshots usage on multiple datastores                                                                   |           |
+| Datastore-Usage-Global        | Virt-VMWare2-Datastore-Usage-Global-custom        | Check multiple datastores usage                                                                                |     X     |
+| Datastore-Vm-Count-Global     | Virt-VMWare2-Datastore-Vm-Count-Global-custom     | Check virtual machines running/off/suspended on multiple datastores                                            |     X     |
+| ESX-Alarms-Global             | Virt-VMWare2-ESX-Alarms-Global-custom             | Check ESX hosts alarms                                                                                         |           |
+| Esx-Cpu-Global                | Virt-VMWare2-ESX-Cpu-Global-custom                | Check CPU usage of multiple ESX Servers                                                                        |           |
+| Esx-Datastores-Latency-Global | Virt-VMWare2-ESX-Datastores-Latency-Global-custom | Check Datastores latency of multiple ESX Servers                                                               |           |
+| Esx-Health-Global             | Virt-VMWare2-ESX-Health-Global-custom             | Check hardware and CPU sensors of multiple ESX Servers                                                         |           |
+| Esx-Memory-Global             | Virt-VMWare2-ESX-Memory-Global-custom             | Check Memory usage of multiple ESX Servers                                                                     |           |
+| Esx-Service-Global            | Virt-VMWare2-ESX-Service-Global-custom            | Check services of multiple ESX Servers                                                                         |           |
+| Esx-Status-Global             | Virt-VMWare2-ESX-Status-Global-custom             | Check global status of multiple ESX Servers                                                                    |           |
+| Esx-Storage-Global            | Virt-VMWare2-ESX-Storage-Global-custom            | Check ESX storage informations                                                                                 |           |
+| Esx-Swap-Global               | Virt-VMWare2-ESX-Swap-Global-custom               | Check if a virtual machine is swapping on ESX servers                                                          |           |
+| Esx-Time-Global               | Virt-VMWare2-ESX-Time-Global-custom               | Check time of multiple ESX Servers                                                                             |           |
+| Esx-Traffic-Global            | Virt-VMWare2-ESX-Traffic-Global-custom            | Check traffic usage of multiple physical network interfaces on multiple ESX servers. Thresholds are in percent |           |
+| Esx-Uptime-Global             | Virt-VMWare2-ESX-Uptime-Global-custom             | Get uptime in days of multiple ESX Servers                                                                     |           |
+| Esx-Vm-Count-Global           | Virt-VMWare2-ESX-Vm-Count-Global-custom           | Check virtual machines running/off/suspended on multiple ESX Servers                                           |           |
+| Esx-is-Maintenance-Global     | Virt-VMWare2-ESX-Maintenance-Global-custom        | Check maintenance mode of multiple ESX Servers                                                                 |           |
+| Licenses                      | Virt-VMWare2-Licenses-custom                      | Check licenses                                                                                                 |           |
+| Vm-Cpu-Global                 | Virt-VMWare2-Vm-Cpu-Global-custom                 | Check CPU usage of a virtual machine                                                                           |           |
+| Vm-Datastores-Iops-Global     | Virt-VMWare2-Vm-Datastores-Iops-Global-custom     | Check datastores IOPS linked to virtual machines.                                                              |           |
+| Vm-Device-Global              | Virt-VMWare2-Vm-Device-Global-custom              | Check CPU usage of a virtual machine                                                                           |           |
+| Vm-Limit-Global               | Virt-VMWare2-Vm-Limit-Global-custom               | Check limit definition                                                                                         |           |
+| Vm-Memory-Global              | Virt-VMWare2-Vm-Memory-Global-custom              | Check memory usage of virtual machines                                                                         |           |
+| Vm-Snapshot-Global            | Virt-VMWare2-Vm-Snapshot-Global-custom            | Check snapshot age of multiple virtual machines                                                                |           |
+| Vm-Status-Global              | Virt-VMWare2-Vm-Status-Global-custom              | Check global status of multiple virtual machines                                                               |           |
+| Vm-Swap-Global                | Virt-VMWare2-Vm-Swap-Global-custom                | Check if  virtual machines are swapping                                                                        |           |
+| Vm-Thinprovisioning-Global    | Virt-VMWare2-Vm-Thinprovisioning-Global-custom    | Check if a virtual machine has a disk in mode 'thinprovisioning' or not                                        |           |
+| Vsan-Cluster-Usage            | Virt-VMWare2-Vsan-Cluster-Usage-Generic-custom    | Check vsan cluster usage                                                                                       |           |
+| Vsan-Cluster-Usage-Global     | Virt-VMWare2-Vsan-Cluster-Usage-Global-custom     | Check vsan cluster usage                                                                                       |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -86,14 +87,14 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                                     | Description |
-|:----------------------------------------------|:------------|
-| Virt-VMWare2-Datacenters-Alarm-Name           |             |
-| Virt-VMWare2-Vcenter-Clusters-Status-Name     |             |
-| Virt-VMWare2-Vcenter-Datastores-Io-Name       |             |
-| Virt-VMWare2-Vcenter-Datastores-Iops-Name     |             |
-| Virt-VMWare2-Vcenter-Datastores-Usage-Name    |             |
-| Virt-VMWare2-Vcenter-Datastores-Vm-Count-Name |             |
+| Rule name                                     | Description                                                            |
+|:----------------------------------------------|:-----------------------------------------------------------------------|
+| Virt-VMWare2-Datacenters-Alarm-Name           | Discover Datacenters and monitor their alarms                          |
+| Virt-VMWare2-Vcenter-Clusters-Status-Name     | Discover Clusters and monitor their status                             |
+| Virt-VMWare2-Vcenter-Datastores-Io-Name       | Discover Datastores and monitor their usage in Kbps                   |
+| Virt-VMWare2-Vcenter-Datastores-Iops-Name     | Discover Datastores and monitor their average IOPs                     |
+| Virt-VMWare2-Vcenter-Datastores-Usage-Name    | Discover Datastores and monitor their usage                            |
+| Virt-VMWare2-Vcenter-Datastores-Vm-Count-Name | Discover Datastores and monitor virtual machines running/off/suspended |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -105,7 +106,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Cluster-Cpu" label="Cluster-Cpu">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | *clusters*~cluster.cpu.utilization.percentage | %     |
 | *clusters*~cluster.cpu.utilization.mhz        | MHz   |
@@ -113,7 +114,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Cluster-Cpu-Global" label="Cluster-Cpu-Global">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | *clusters*~cluster.cpu.utilization.percentage | %     |
 | *clusters*~cluster.cpu.utilization.mhz        | MHz   |
@@ -121,7 +122,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Cluster-Status" label="Cluster-Status">
 
-| Metric name      | Unit  |
+| Name             | Unit  |
 |:-----------------|:------|
 | *cluster*#status | N/A   |
 
@@ -130,7 +131,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Cluster-Status-Global" label="Cluster-Status-Global">
 
-| Metric name      | Unit  |
+| Name             | Unit  |
 |:-----------------|:------|
 | *cluster*#status | N/A   |
 
@@ -139,7 +140,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datacenter-Alarms" label="Datacenter-Alarms">
 
-| Metric name                              | Unit  |
+| Name                                     | Unit  |
 |:-----------------------------------------|:------|
 | datacenter.alarms.warning.current.count  | count |
 | datacenter.alarms.critical.current.count | count |
@@ -152,7 +153,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datacenter-Alarms-Global" label="Datacenter-Alarms-Global">
 
-| Metric name                              | Unit  |
+| Name                                     | Unit  |
 |:-----------------------------------------|:------|
 | datacenter.alarms.warning.current.count  | count |
 | datacenter.alarms.critical.current.count | count |
@@ -165,7 +166,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datastore-Io-Global" label="Datastore-Io-Global">
 
-| Metric name                                      | Unit  |
+| Name                                             | Unit  |
 |:-------------------------------------------------|:------|
 | datastore.read.usage.bytespersecond              | B/s   |
 | datastore.write.usage.bytespersecond             | B/s   |
@@ -178,7 +179,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datastore-Iops-Global" label="Datastore-Iops-Global">
 
-| Metric name                                    | Unit  |
+| Name                                           | Unit  |
 |:-----------------------------------------------|:------|
 | datastores.read.usage.iops                     | iops  |
 | datastores.write.usage.iops                    | iops  |
@@ -193,7 +194,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datastore-Snapshots-Global" label="Datastore-Snapshots-Global">
 
-| Metric name                                        | Unit  |
+| Name                                               | Unit  |
 |:---------------------------------------------------|:------|
 | *datastore*~status                                 | N/A   |
 | *datastore*~datastore.snapshots.usage.bytes        | B     |
@@ -204,7 +205,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datastore-Usage-Global" label="Datastore-Usage-Global">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | *datastore*#status                            | N/A   |
 | *datastore*#datastore.space.usage.bytes       | B     |
@@ -217,7 +218,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datastore-Vm-Count-Global" label="Datastore-Vm-Count-Global">
 
-| Metric name                                       | Unit  |
+| Name                                              | Unit  |
 |:--------------------------------------------------|:------|
 | datastore.vm.poweredon.current.count              | count |
 | datastore.vm.poweredoff.current.count             | count |
@@ -232,7 +233,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="ESX-Alarms-Global" label="ESX-Alarms-Global">
 
-| Metric name                        | Unit  |
+| Name                               | Unit  |
 |:-----------------------------------|:------|
 | host.alarms.warning.current.count  | count |
 | host.alarms.critical.current.count | count |
@@ -245,7 +246,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Cpu-Global" label="Esx-Cpu-Global">
 
-| Metric name                                       | Unit  |
+| Name                                              | Unit  |
 |:--------------------------------------------------|:------|
 | *host*~status                                     | N/A   |
 | *host*~host.cpu.utilization.percentage            | %     |
@@ -257,7 +258,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Datastores-Latency-Global" label="Esx-Datastores-Latency-Global">
 
-| Metric name                                                  | Unit  |
+| Name                                                         | Unit  |
 |:-------------------------------------------------------------|:------|
 | *host*~status                                                | N/A   |
 | *host*~*datastore*#host.datastore.latency.read.milliseconds  | ms    |
@@ -268,7 +269,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Health-Global" label="Esx-Health-Global">
 
-| Metric name                                           | Unit  |
+| Name                                                  | Unit  |
 |:------------------------------------------------------|:------|
 | host.health.problems.current.count                    | count |
 | *host*~status                                         | N/A   |
@@ -285,7 +286,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Memory-Global" label="Esx-Memory-Global">
 
-| Metric name                       | Unit  |
+| Name                              | Unit  |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.memory.usage.bytes    | B     |
@@ -297,7 +298,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Service-Global" label="Esx-Service-Global">
 
-| Metric name                     | Unit  |
+| Name                            | Unit  |
 |:--------------------------------|:------|
 | *host*~status                   | N/A   |
 | *host*~*service*#service-status | N/A   |
@@ -307,17 +308,17 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Status-Global" label="Esx-Status-Global">
 
-| Metric name           | Unit  |
-|:----------------------|:------|
-| *host*#status         | N/A   |
-| *host*#overall-status | N/A   |
+| Name                   | Unit  |
+|:-----------------------|:------|
+| *host*#status          | N/A   |
+| *host*#overall-status  | N/A   |
 
 > To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
 
 </TabItem>
 <TabItem value="Esx-Storage-Global" label="Esx-Storage-Global">
 
-| Metric name                        | Unit  |
+| Name                               | Unit  |
 |:-----------------------------------|:------|
 | *host*~status                      | N/A   |
 | *host*~host.adapters.total.count   | count |
@@ -345,7 +346,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Swap-Global" label="Esx-Swap-Global">
 
-| Metric name                               | Unit  |
+| Name                                      | Unit  |
 |:------------------------------------------|:------|
 | *host*#status                             | N/A   |
 | *host*#host.swap.in.usage.bytespersecond  | B/s   |
@@ -356,7 +357,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Time-Global" label="Esx-Time-Global">
 
-| Metric name                     | Unit  |
+| Name                            | Unit  |
 |:--------------------------------|:------|
 | *host*#status                   | N/A   |
 | *host*#host.time.offset.seconds | s     |
@@ -366,7 +367,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Traffic-Global" label="Esx-Traffic-Global">
 
-| Metric name                                              | Unit  |
+| Name                                                     | Unit  |
 |:---------------------------------------------------------|:------|
 | *host*~status                                            | N/A   |
 | *host*~host.traffic.in.bitsperseconds                    | b/s   |
@@ -384,7 +385,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Uptime-Global" label="Esx-Uptime-Global">
 
-| Metric name                       | Unit  |
+| Name                              | Unit  |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.uptime.offset.seconds | s     |
@@ -394,7 +395,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Vm-Count-Global" label="Esx-Vm-Count-Global">
 
-| Metric name                             | Unit  |
+| Name                                    | Unit  |
 |:----------------------------------------|:------|
 | host.vm.poweredon.current.count         | count |
 | host.vm.poweredoff.current.count        | count |
@@ -409,7 +410,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-is-Maintenance-Global" label="Esx-is-Maintenance-Global">
 
-| Metric name               | Unit  |
+| Name                      | Unit  |
 |:--------------------------|:------|
 | *host*#status             | N/A   |
 | *host*#maintenance-status | N/A   |
@@ -419,7 +420,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Licenses" label="Licenses">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | licenses.total.count                | count |
 | *licenses*#license.usage.count      | count |
@@ -430,7 +431,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Cpu-Global" label="Vm-Cpu-Global">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | *vm*~status                                   | N/A   |
 | *vm*~vm.cpu.utilization.percentage            | %     |
@@ -443,7 +444,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Datastores-Iops-Global" label="Vm-Datastores-Iops-Global">
 
-| Metric name                                    | Unit  |
+| Name                                           | Unit  |
 |:-----------------------------------------------|:------|
 | *vm*~status                                    | N/A   |
 | *vm*~vm.datastore.latency.max.milliseconds     | ms    |
@@ -455,7 +456,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Device-Global" label="Vm-Device-Global">
 
-| Metric name                     | Unit  |
+| Name                            | Unit  |
 |:--------------------------------|:------|
 | vm.devices.connected.count      | count |
 | *vm*#status                     | N/A   |
@@ -466,7 +467,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Limit-Global" label="Vm-Limit-Global">
 
-| Metric name   | Unit  |
+| Name          | Unit  |
 |:--------------|:------|
 | cpu-status    | N/A   |
 | memory-status | N/A   |
@@ -477,7 +478,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Memory-Global" label="Vm-Memory-Global">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | *vm*~status                         | N/A   |
 | *vm*~vm.memory.consumed.usage.bytes | B     |
@@ -491,7 +492,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Snapshot-Global" label="Vm-Snapshot-Global">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | vm.snapshots.warning.current.count  | count |
 | vm.snapshots.critical.current.count | count |
@@ -499,7 +500,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Status-Global" label="Vm-Status-Global">
 
-| Metric name         | Unit  |
+| Name                | Unit  |
 |:--------------------|:------|
 | *vm*#status         | N/A   |
 | *vm*#overall-status | N/A   |
@@ -509,7 +510,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Swap-Global" label="Vm-Swap-Global">
 
-| Metric name                           | Unit  |
+| Name                                  | Unit  |
 |:--------------------------------------|:------|
 | *vm*#status                           | N/A   |
 | *vm*#vm.swap.in.usage.bytespersecond  | B/s   |
@@ -520,17 +521,17 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vm-Thinprovisioning-Global" label="Vm-Thinprovisioning-Global">
 
-| Metric name                         | Unit                                   |
-|-------------------------------------|----------------------------------------|
-| VM Connection State                 | N/A      							|
-| Thin Provisioning Status of VMs     | N/A            						|
-| VM Power State                      | N/A            						|
+| Name                            | Unit                  |
+|:--------------------------------|:----------------------|
+| VM Connection State             | N/A       							     |
+| Thin Provisioning Status of VMs | N/A            						 |
+| VM Power State                  | N/A            						 |
 
 
 </TabItem>
 <TabItem value="Vm-Tools-Global" label="Vm-Tools-Global">
 
-| Metric name                         | Unit  |
+| Name                                | Unit  |
 |:------------------------------------|:------|
 | vm.tools.notupdated.current.count   | count |
 | vm.tools.notrunning.current.count   | count |
@@ -539,7 +540,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage" label="Vsan-Cluster-Usage">
 
-| Metric name                                                    | Unit  |
+| Name                                                           | Unit  |
 |:---------------------------------------------------------------|:------|
 | *cluster*#cluster.vsan.backend.read.usage.iops                 | iops  |
 | *cluster*#cluster.vsan.backend.write.usage.iops                | iops  |
@@ -553,7 +554,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Vsan-Cluster-Usage-Global" label="Vsan-Cluster-Usage-Global">
 
-| Metric name                                                    | Unit  |
+| Name                                                           | Unit  |
 |:---------------------------------------------------------------|:------|
 | *cluster*#cluster.vsan.backend.read.usage.iops                 | iops  |
 | *cluster*#cluster.vsan.backend.write.usage.iops                | iops  |
@@ -597,7 +598,7 @@ apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -622,14 +623,14 @@ make pure_install
 - Install the package with necessary tools
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Install the SDK
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 
 perl Makefile.PL
@@ -642,14 +643,14 @@ make pure_install
 - Install the package with necessary tools
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Install the SDK
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -1702,7 +1703,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

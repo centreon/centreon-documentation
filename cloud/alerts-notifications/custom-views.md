@@ -1,7 +1,12 @@
 ---
 id: custom-views
 title: Custom views (legacy)
+description: "How to create, edit, share, and rotate legacy Custom Views dashboards built with widgets"
 ---
+
+> Please note that the **Custom views** page will no longer be available on new installations.
+
+> You can now benefit from the [**Dashboards**](./dashboards.md) feature to create and share intuitive dashboards for the real-time monitoring of your resources.
 
 Custom views are dashboards created with widgets. You can share views with other users. See also our [tutorial](../getting-started/create-custom-view.md) on custom views.
 

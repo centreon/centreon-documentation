@@ -1,6 +1,7 @@
 ---
 id: add-a-poller-to-configuration
 title: Attach a poller to a central or a remote server
+description: "Configure and connect a new poller to a central or remote server"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -10,42 +11,44 @@ import TabItem from '@theme/TabItem';
 
 Install the poller [using packages](../../installation/installation-of-a-poller/using-packages.md).
 
-## Step 1: Configure a new Poller
+## Step 1: Configure a new poller
 
 As of Centreon version 18.10, a new wizard has been added for adding a new
 poller to the Centreon platform.
 
 1. Go to the **Configuration > Pollers > Pollers** menu and click **Add** to configure a new poller.
 
-2. Select **Add a Centreon Poller** and click **Next**:
+2. Select **Add a Centreon poller** and click **Next**:
 
     ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-1.png)
 
 3. Select the option you want:
-    - **Create new Poller** if you haven't registered the poller yet on the central or remote server
-    - **Select a Poller** if you have already registered the poller on the central or remote server.
+    - **Create new poller** if you haven't registered the poller yet on the central or remote server
+    - **Select a poller** if you have already registered the poller on the central or remote server.
 
-4. Type in the name, the IP address of the new poller, and the IP address of the Central
+If the poller your are adding will be used in reverse flow, you must now export the configuration of your central server. In the top left of your screen, click on **Pollers**, then click on **Export configuration**.
+
+4. Type in the name, the address of the new poller (IP or FQDN), and the IP address of the central
 Server. Click **Next**:
 
-  ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
+![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
 
-  > The IP address of the Poller is the IP address or the FQDN used to access this
-  > poller from the Central server.
-  >
-  > The IP address of the Central server is the IP address or the FQDN used to
-  > access the Central server from the Poller.
+ > The address of the poller is the IP address or the FQDN used to access this
+ > poller from the central server.
+ >
+ > The IP address of the central server is the IP address or the FQDN used to
+ > access the central server from the poller.
 
 5. Link the poller to the central server or to a remote server:
 
-  - If you want to link the poller to the Central Server, click **Apply**:
+  - If you want to link the poller to the central Server, click **Apply**:
 
     ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
 
   - If you want to link the poller to an existing Remote Server, select one from the list, then click **Apply**.
 
-    > If you want to change the direction of the flow between the Central Server
-    > (or the Remote Server) and the Poller, check the **Advanced: reverse Centreon
+    > If you want to change the direction of the flow between the central Server
+    > (or the Remote Server) and the poller, check the **Advanced: reverse Centreon
     > Broker communication flow** checkbox. In this case, it will be necessary to
     > export the configuration of the poller as well as the server to which it
     > will be attached.
@@ -56,8 +59,8 @@ Server. Click **Next**:
 
 ## Step 2: Enable communication
 
-The communication between the Central server and a Poller is ensured by Gorgone and can
-be done using ZMQ (with a Gorgone running on the Poller, recommended) or using
+The communication between the central server and a poller is ensured by Gorgone and can
+be done using ZMQ (with a Gorgone running on the poller, recommended) or using
 SSH protocol.
 
 <Tabs groupId="sync">
@@ -65,7 +68,7 @@ SSH protocol.
 
 1. Select the communication type:
 
-    Edit the newly created Poller configuration, and select **ZMQ** as **Gorgone
+    Edit the newly created poller configuration, and select **ZMQ** as **Gorgone
     connection protocol**. Define the suitable **port** (port **5556** is
     recommended).
 
@@ -81,14 +84,14 @@ SSH protocol.
 2. Copy the Gorgone configuration:
 
     From the poller list, click the **Display Gorgone configuration** action
-    icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
+    icon on the line corresponding to your poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
 
-    A popin will show the configuration to copy into the **Poller terminal**.
+    A popin will show the configuration to copy into the **poller terminal**.
     Click **Copy to clipboard**.
 
     ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
 
-    Paste the content of the clipboard directly into the **Poller terminal** as it
+    Paste the content of the clipboard directly into the **poller terminal** as it
     contains the following content, and will fill the right file:
 
     ``` shell
@@ -124,7 +127,7 @@ SSH protocol.
 
 3. Restart the Gorgone daemon:
 
-    From the Poller, run the following command to restart the Gorgone service:
+    From the poller, run the following command to restart the Gorgone service:
 
     ``` shell
     systemctl restart gorgoned
@@ -152,8 +155,8 @@ SSH protocol.
     Mar 24 19:45:00 localhost.localdomain systemd[1]: Started Centreon Gorgone.
     ```
 
-4. **To force the Central's Gorgone daemon to connect to the Poller**, restart it with
-the following command from the **Central server**:
+4. **To force the central's Gorgone daemon to connect to the poller**, restart it with
+the following command from the **central server**:
 
   ```shell
   systemctl restart gorgoned
@@ -164,7 +167,7 @@ the following command from the **Central server**:
 
 1. Select the communication type:
 
-    Edit the newly created Poller configuration, and select **SSH** as **Gorgone
+    Edit the newly created poller configuration, and select **SSH** as **Gorgone
     connection protocol**. Define the suitable **port**.
 
     ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
@@ -178,7 +181,7 @@ the following command from the **Central server**:
 
 3. Exchange SSH keys:
 
-    If you do not have any private SSH keys on the **Central server** for the
+    If you do not have any private SSH keys on the **central server** for the
     **centreon-gorgone** user, create one with the following commands:
 
     ``` shell
@@ -190,21 +193,21 @@ the following command from the **Central server**:
     > location, or create one in a specified directory. **Leave the passphrase
     > blank**. You will receive a key fingerprint and a randomart image.
 
-    Generate a password for the **centreon** user on the **new Poller**:
+    Generate a password for the **centreon** user on the **new poller**:
 
     ``` shell
     passwd centreon
     ```
 
-    Then, copy this key on to the **new Poller** with the following commands:
+    Then, copy this key on to the **new poller** with the following commands:
 
     ``` shell
     su - centreon-gorgone
     ssh-copy-id -i .ssh/id_rsa.pub centreon@<IP_POLLER>
     ```
 
-4. **To force the Central's Gorgone daemon to connect to the Poller**, restart it with
-the following command from the **Central server**:
+4. **To force the central's Gorgone daemon to connect to the poller**, restart it with
+the following command from the **central server**:
 
   ```shell
   systemctl restart gorgoned

@@ -1,6 +1,7 @@
 ---
 id: upgrade-centreon-ha-from-21-04
 title: Montée de version de Centreon HA depuis Centreon 21.04
+description: "Mettre à niveau un cluster Centreon HA depuis la version 21.04 vers la 24.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,7 +9,7 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.04
 vers la version 24.10.
 
-Vous ne pouvez pas simplement monter de version une plateforme avec HA (ou Centreon Failover) depuis une version antérieure à Centreon 20.10 et vers une version 24.04, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../../migrate/introduction.md), puis installer Centreon HA sur la nouvelle platforme. Vous pouvez également contacter Centreon pour commander une prestation de migration.
+Vous ne pouvez pas simplement monter de version une plateforme avec HA (ou Centreon Failover) depuis une version antérieure à Centreon 20.10 et vers une version 24.04, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../../migrate/introduction.md), puis installer Centreon HA sur la nouvelle platforme. Contactez votre représentant commercial Centreon pour discuter de toute migration avec la HA.
 
 ## Prérequis
 
@@ -31,6 +32,22 @@ serveurs :
 ### Mise à jour de la clé de signature RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPM Centreon font l'objet d'une rotation régulière. La dernière modification a eu lieu le 14 octobre 2021. Lorsque vous effectuez une mise à niveau à partir d'une version antérieure, vous devez suivre la [procédure de rotation des clés] (../../security/key-rotation.md#existing-installation), pour supprimer l'ancienne clé et installer la nouvelle.
+
+### Modifier le script centreon_central_sync script (MBI uniquement)
+
+Cette étape n'est nécessaire que si vous utilisez [MBI](../../reporting/introduction.md). Modifiez le script `/usr/share/centreon-ha/bin/centreon_central_sync` aux lignes suivantes :
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua"],
+```
+
+Pour que les rapports soient toujours téléchargeables, remplacez ces lignes par :
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua", "/var/lib/centreon/centreon-bi-server/archives"],
+```
 
 ## Processus de mise à niveau
 

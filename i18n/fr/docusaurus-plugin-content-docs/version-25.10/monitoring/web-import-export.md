@@ -1,6 +1,7 @@
 ---
 id: web-import-export
 title: Import/Export
+description: "Exporter et importer des objets de configuration Centreon entre plateformes avec AWIE"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -11,6 +12,8 @@ Le module Centreon API Web Import/Export (AWIE) a été conçu pour aider les ut
 À partir d'un environnement source correctement configuré, vous pouvez utiliser le module AWIE pour exporter des objets choisis vers un environnement cible. Ces objets seront répliqués.
 
 Centreon AWIE est basé sur les commandes CLAPI mais sa valeur ajoutée est de permettre l'utilisation de l'interface Web Centreon au lieu des lignes de commande.
+
+Il est nécessaire d'avoir un compte administrateur pour pouvoir utiliser AWIE.
 
 ## Installation
 

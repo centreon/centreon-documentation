@@ -1,17 +1,25 @@
 ---
 id: applications-databases-oracle
 title: Oracle Database
+description: "Supervisez Oracle Database via des requêtes SQL : utilisation des tablespaces, sauvegardes RMAN, groupes de disques ASM, sessions et connexions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Oracle Database** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **Oracle Database** apporte un modèle d'hôte :
+Le connecteur de supervision **Oracle Database** apporte 2 modèles d'hôte :
 
 * **App-DB-Oracle-custom**
+* **App-DB-Rman-Catalog-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
@@ -28,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 | Process-Usage           | App-DB-Oracle-Process-Usage-custom           | Contrôle permettant de vérifier l'utilisation des 'process' Oracle                                      |            |
 | Rman-Backup-Problems    | App-DB-Oracle-Rman-Backup-Problems-custom    | Contrôle permettant de vérifier les erreurs de sauvegarde 'RMAN' du serveur durant les 3 derniers jours |            |
 | Session-Usage           | App-DB-Oracle-Session-Usage-custom           | Contrôle permettant de vérifier l'utilisation des sessions                                              |            |
-| Tablespace-Usage-Global | App-DB-Oracle-Tablespace-Usage-Global-custom | Contrôle permettant de vérifier l'utilisation des 'tablespaces' du serveur                              | X          |
+| Tablespace-Usage-Global | App-DB-Oracle-Tablespace-Usage-Global-custom | Contrôle permettant de vérifier l'utilisation des 'tablespaces' du serveur                              |     X      |
 | Tnsping                 | App-DB-Oracle-Tnsping-custom                 | Contrôle permettant de vérifier la connexion à un 'listener' distant                                    |            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-DB-Oracle-custom** est utilisé.
@@ -36,12 +44,24 @@ Le connecteur apporte les modèles de service suivants
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
+<TabItem value="App-DB-Rman-Catalog-custom" label="App-DB-Rman-Catalog-custom">
+
+| Alias                | Modèle de service                          | Description                                                                                                                 |
+|:---------------------|:-------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
+| Connection-Time      | App-DB-Rman-Catalog-Connection-Time-custom | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                            |
+| Rman-Backup-Age      | App-DB-Rman-Catalog-Backup-Age-custom      | Contrôle permettant de vérifier l'ancienneté des sauvegardes RMAN via un catalogue RMAN                              |
+| Rman-Backup-Problems | App-DB-Rman-Catalog-Backup-Problems-custom | Contrôle permettant de vérifier les erreurs de sauvegarde RMAN du serveur durant les 3 derniers jours via un catalogue RMAN |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-DB-Rman-Catalog-custom** est utilisé.
+
+</TabItem>
+
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
 | Alias                            | Modèle de service                                     | Description                                                                                                 | Découverte |
 |:---------------------------------|:------------------------------------------------------|:------------------------------------------------------------------------------------------------------------|:----------:|
 | ASM-Diskgroup-Usage-Generic-Name | App-DB-Oracle-ASM-Diskgroup-Usage-Generic-Name-custom | Contrôle permettant de vérifier l'utilisation et le statut des groupes de disques ASM sur un serveur Oracle |            |
-| ASM-Diskgroup-Usage-Global       | App-DB-Oracle-ASM-Diskgroup-Usage-Global-custom       | Contrôle permettant de vérifier l'utilisation et le statut des groupes de disques ASM sur un serveur Oracle | X          |
+| ASM-Diskgroup-Usage-Global       | App-DB-Oracle-ASM-Diskgroup-Usage-Global-custom       | Contrôle permettant de vérifier l'utilisation et le statut des groupes de disques ASM sur un serveur Oracle |     X      |
 | Data-Files-Status                | App-DB-Oracle-Data-Files-Status-custom                | Contrôle permettant de vérifier le statut des fichiers de données Oracle                                    |            |
 | Dictionary-Cache-Usage           | App-DB-Oracle-Dictionary-Cache-Usage-custom           | Contrôle permettant de vérifier le 'dictionary cache'                                                       |            |
 | Event-Waits-Usage                | App-DB-Oracle-Event-Waits-Usage-custom                | Contrôle permettant de vérifier l'utilisation des 'event waits'.                                            |            |
@@ -65,29 +85,29 @@ Le connecteur apporte les modèles de service suivants
 
 ### Règles de découverte
 
-#### Découverte de service
+#### Découverte de services
 
-| Nom de la règle                        | Description                                               |
-|:---------------------------------------|:----------------------------------------------------------|
-| App-DB-Oracle-ASM-Diskgroup-Usage-Name | Discover the disk partitions and monitor space occupation |
-| App-DB-Oracle-Tablespaces-Usage-Name   |                                                           |
+| Nom de la règle                        | Description                                                                                    |
+|:---------------------------------------|:-----------------------------------------------------------------------------------------------|
+| App-DB-Oracle-ASM-Diskgroup-Usage-Name | Découvre les disques ASM du serveur Oracle et supervise leur statut ainsi que leur utilisation |
+| App-DB-Oracle-Tablespaces-Usage-Name   | Découvre les 'tablespaces' du serveur Oracle et permet de les superviser                       |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
-Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="ASM-Diskgroup-Usage-*" label="ASM-Diskgroup-Usage-*">
 
-| Métrique           | Unité |
-|:-------------------|:------|
-| *dg*#status        | N/A   |
-| *dg*#offline-disks | N/A   |
-| *dg*#usage         | N/A   |
-| *dg*#usage-failure | N/A   |
+| Nom           | Unité |
+|:--------------|:------|
+| status        | N/A   |
+| offline-disks | N/A   |
+| usage         | N/A   |
+| usage-failure | N/A   |
 
 > Concerne les modèles de service suivants : ASM-Diskgroup-Usage-Generic-Name, ASM-Diskgroup-Usage-Global
 
@@ -96,53 +116,53 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Métrique        | Unité |
+| Nom             | Unité |
 |:----------------|:------|
-| connected_users | N/A   |
+| connected_users | count |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">
 
-| Métrique                     | Unité |
+| Nom                          | Unité |
 |:-----------------------------|:------|
 | connection.time.milliseconds | ms    |
 
 </TabItem>
 <TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
 
-| Métrique         | Unité |
+| Nom              | Unité |
 |:-----------------|:------|
-| corrupted_blocks | N/A   |
+| corrupted_blocks | count |
 
 </TabItem>
 <TabItem value="Data-Files-Status" label="Data-Files-Status">
 
-| Métrique                        | Unité |
+| Nom                             | Unité |
 |:--------------------------------|:------|
 | datafiles.traffic.io.usage.iops | iops  |
-| *df*#status                     | N/A   |
-| *df*#online-status              | N/A   |
+| status                          | N/A   |
+| online-status                   | N/A   |
 
 </TabItem>
 <TabItem value="Datacache-Hitratio" label="Datacache-Hitratio">
 
-| Métrique    | Unité |
-|:------------|:------|
-| usage       | %     |
+| Nom   | Unité |
+|:------|:------|
+| usage | %     |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Dictionary-Cache-Usage" label="Dictionary-Cache-Usage">
 
-| Métrique                                 | Unité |
+| Nom                                      | Unité |
 |:-----------------------------------------|:------|
 | dictionary.cache.get.hitratio.percentage | %     |
 
 </TabItem>
 <TabItem value="Event-Waits-Usage" label="Event-Waits-Usage">
 
-| Métrique                 | Unité |
+| Nom                      | Unité |
 |:-------------------------|:------|
 | event-count              | N/A   |
 | *event*#total-waits-sec  | /s    |
@@ -153,7 +173,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Fra-Usage" label="Fra-Usage">
 
-| Métrique                                         | Unité |
+| Nom                                              | Unité |
 |:-------------------------------------------------|:------|
 | recoveryarea.space.usage.percentage              | %     |
 | recoveryarea.space.reclaimable.percentage        | %     |
@@ -163,7 +183,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Invalid-Object" label="Invalid-Object">
 
-| Métrique            | Unité |
+| Nom                 | Unité |
 |:--------------------|:------|
 | objects             | N/A   |
 | indexes             | N/A   |
@@ -176,7 +196,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Library-Cache-Usage" label="Library-Cache-Usage">
 
-| Métrique                              | Unité |
+| Nom                                   | Unité |
 |:--------------------------------------|:------|
 | library.cache.get.hitratio.percentage | %     |
 | library.cache.pin.hitratio.percentage | %     |
@@ -186,23 +206,23 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
 
-| Métrique    | Unité |
-|:------------|:------|
-| status      | N/A   |
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Process-Usage" label="Process-Usage">
 
-| Métrique     | Unité |
+| Nom          | Unité |
 |:-------------|:------|
 | process_used | %     |
 
 </TabItem>
 <TabItem value="Redolog-Usage" label="Redolog-Usage">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | redolog.retry.ratio.percentage    | %     |
 | redolog.traffic.io.bytespersecond | B/s   |
@@ -210,17 +230,21 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques rat
 </TabItem>
 <TabItem value="Rman-Backup-Age" label="Rman-Backup-Age">
 
-Coming soon
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="Rman-Backup-Online-Age" label="Rman-Backup-Online-Age">
 
-Coming soon
+| Nom    | Unité |
+|:-------|:------|
+| status | N/A   |
 
 </TabItem>
 <TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
-| Métrique                                   | Unité |
+| Nom                                        | Unité |
 |:-------------------------------------------|:------|
 | rman.backups.completed.count               | count |
 | rman.backups.failed.count                  | count |
@@ -230,7 +254,7 @@ Coming soon
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">
 
-| Métrique          | Unité |
+| Nom               | Unité |
 |:------------------|:------|
 | extends           | /s    |
 | wraps             | /s    |
@@ -243,14 +267,14 @@ Coming soon
 </TabItem>
 <TabItem value="Session-Usage" label="Session-Usage">
 
-| Métrique     | Unité |
+| Nom          | Unité |
 |:-------------|:------|
 | session_used | %     |
 
 </TabItem>
 <TabItem value="Sql" label="Sql">
 
-| Métrique                          | Unité |
+| Nom                               | Unité |
 |:----------------------------------|:------|
 | value                             | N/A   |
 | sqlrequest.execution.time.seconds | s     |
@@ -258,28 +282,27 @@ Coming soon
 </TabItem>
 <TabItem value="Sql-String" label="Sql-String">
 
-| Métrique      | Unité |
-|:--------------|:------|
-| *rows*#string | N/A   |
+| Nom    | Unité |
+|:-------|:------|
+| string | N/A   |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Tablespace-Usage-Global" label="Tablespace-Usage-Global">
 
-| Métrique                | Unité |
+| Nom                     | Unité |
 |:------------------------|:------|
-| *tablespace*#tbs__usage | B     |
+| *tablespace*#tablespace | B     |
 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Tnsping" label="Tnsping">
 
-| Métrique    | Description                  | Unité |
-|:------------|:-----------------------------|:------|
-| status      | Check Oracle listener status |       |
-
+| Métrique | Description                  | Unité |
+|:---------|:-----------------------------|:------|
+| status   | Check Oracle listener status |       |
 </TabItem>
 </Tabs>
 
@@ -288,17 +311,10 @@ Coming soon
 ### Dépendances
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9 ">
 
 ```bash
 dnf install gcc wget
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install gcc wget
 ```
 
 </TabItem>
@@ -313,8 +329,41 @@ apt install wget gcc make unzip libaio1 libdbi-perl
 
 ###  Oracle instant client
 
+## Prérequis
+
+### Oracle Instant Client
+
+Le plugin nécessite qu'**Oracle Instant Client** soit installé sur le collecteur Centreon. 
+Certaines versions de l'Instant Client sont obligatoires pour que le plugin fonctionne correctement selon la version de votre base de données Oracle.
+
+Le tableau ci-dessous résume les combinaisons Client/Serveur supportées :
+
+| Client \ Serveur | 23ai | 21c      | 19c      | 18c | 12.2.0 | 12.1.0   | 11.2.0   |
+|------------------|------|----------|----------|-----|--------|----------|----------|
+| **23c** [^2]     | Yes  | Yes      | Yes      | No  | No     | No       | No       |
+| **21c**          | Yes  | Yes      | Yes      | Was | Was    | Yes [^3] | No       |
+| **19c**          | Yes  | Yes      | Yes      | Was | Was    | Yes [^3] | Yes [^1] |
+| **18c**          | No   | Was      | Was      | Was | Was    | Was      | Was      |
+| **12.2.0**       | No   | Was      | Was      | Was | Was    | Was      | Was      |
+| **12.1.0**       | No   | Yes [^3] | Yes [^3] | Was | Was    | Yes [^3] | Yes [^3] |
+| **11.2.0**       | No   | No       | Yes [^1] | Was | Was    | Yes [^3] | Yes [^1] |
+
+**Légende :**
+
+| Valeur  | Signification                                                                                                              |
+|---------|----------------------------------------------------------------------------------------------------------------------------|
+| **Yes** | Combinaison supportée                                                                                                      |
+| **Was** | Était supportée, mais l'une des versions n'est plus couverte par le support Oracle (les correctifs ne sont plus possibles) |
+| **No**  | Combinaison jamais supportée                                                                                               |
+
+[^1]: Version 11.2.0.3 ou 11.2.0.4 uniquement.
+[^2]: Le client 23c 32 bits n'est disponible sur aucune plateforme. Il est cependant possible d'utiliser d'anciens clients 32 bits (ex. 19c) avec un serveur DB 23c.
+[^3]: Version 12.1.0.2 uniquement. Pour l'interopérabilité avec 11.2, la version 11.2.0.4 est requise.
+
+> Pour plus d'informations, consultez la [FAQ officielle Oracle Instant Client](https://www.oracle.com/database/technologies/faq-instant-client.html).
+
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 Se connecter sur [Instant Client Downloads](https://www.oracle.com/database/technologies/instant-client/downloads.html).
 Choisir le groupe de paquets correspondant au système d'exploitation du collecteur et télécharger les paquets (RPM) suivants :
@@ -353,7 +402,7 @@ unzip 'instantclient-*.zip'
 ### Bibliothèque Perl pour Oracle
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 En tant que **root**, exécuter :
 
@@ -429,7 +478,7 @@ make install
 ```
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 8 & 9" label="Alma / RHEL / Oracle Linux 8 & 9">
 
 Puis créer le fichier : **/etc/ld.so.conf.d/oracle.conf**. Éditer et ajouter un lien vers la bibliothèque Perl d’Oracle :
 
@@ -540,13 +589,6 @@ apt install centreon-pack-applications-databases-oracle
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-databases-oracle
-```
-
-</TabItem>
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Oracle Database**
@@ -585,18 +627,14 @@ apt install centreon-plugin-applications-databases-oracle
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Databases-Oracle
-```
-
-</TabItem>
 </Tabs>
 
 ## Utiliser le connecteur de supervision
 
 ### Utiliser un modèle d'hôte issu du connecteur
+
+<Tabs groupId="sync">
+<TabItem value="App-DB-Oracle-custom" label="App-DB-Oracle-custom">
 
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
@@ -613,6 +651,27 @@ yum install centreon-plugin-Applications-Databases-Oracle
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
+</TabItem>
+<TabItem value="App-DB-Rman-Catalog-custom" label="App-DB-Rman-Catalog-custom">
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-DB-Rman-Catalog-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro             | Description           | Valeur par défaut | Obligatoire |
+|:------------------|:----------------------|:------------------|:-----------:|
+| RMAN_USERNAME     | User name used to connect to the RMAN catalog                 | USERNAME          |             |
+| RMAN_PASSWORD     | Password for the defined RMAN catalog                         | PASSWORD          |             |
+| RMAN_PORT         | RMAN used to connect to the RMAN catalog  | 1521              |             |
+| RMAN_SERVICE_NAME | Service Name of the RMAN catalog database  |                   |             |
+| RMAN_SID          | SID of the RMAN catalog database | SID               |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+</TabItem>
+</Tabs>
+
 ### Utiliser un modèle de service issu du connecteur
 
 1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
@@ -621,282 +680,282 @@ yum install centreon-plugin-Applications-Databases-Oracle
 <Tabs groupId="sync">
 <TabItem value="ASM-Diskgroup-Usage-Generic-Name" label="ASM-Diskgroup-Usage-Generic-Name">
 
-| Macro                | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER               | Filter by name (regexp can be used)                                                                 |                   |             |
-| WARNING              | Warning threshold                                                                                   | 80                |             |
-| CRITICAL             | Critical threshold                                                                                  | 90                |             |
-| WARNINGUSAGEFAILURE  | Warning threshold                                                                                   |                   |             |
-| CRITICALUSAGEFAILURE | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER               | Filter by name (regexp can be used)                                                                                                              |                   |             |
+| WARNING              | Warning threshold                                                                                                                                | 80                |             |
+| CRITICAL             | Critical threshold                                                                                                                               | 90                |             |
+| WARNINGUSAGEFAILURE  | Warning threshold                                                                                                                                |                   |             |
+| CRITICALUSAGEFAILURE | Critical threshold                                                                                                                               |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="ASM-Diskgroup-Usage-Global" label="ASM-Diskgroup-Usage-Global">
 
-| Macro                | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:---------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERNAME           | Filter by name (regexp can be used)                                                                 |                   |             |
-| WARNING              | Warning threshold                                                                                   | 80                |             |
-| CRITICAL             | Critical threshold                                                                                  | 90                |             |
-| WARNINGUSAGEFAILURE  | Warning threshold                                                                                   |                   |             |
-| CRITICALUSAGEFAILURE | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERNAME           | Filter by name (regexp can be used)                                                                                                              |                   |             |
+| WARNING              | Warning threshold                                                                                                                                | 80                |             |
+| CRITICAL             | Critical threshold                                                                                                                               | 90                |             |
+| WARNINGUSAGEFAILURE  | Warning threshold                                                                                                                                |                   |             |
+| CRITICALUSAGEFAILURE | Critical threshold                                                                                                                               |                   |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MODE         |                                                                                                     | connected-users   |             |
-| WARNING      | Warning threshold                                                                                   | 50                |             |
-| CRITICAL     | Critical threshold                                                                                  | 100               |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MODE         | Mode used in the plugin code                                                                                                             | connected-users   |             |
+| WARNING      | Warning threshold                                                                                                                        | 50                |             |
+| CRITICAL     | Critical threshold                                                                                                                       | 100               |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MODE         |                                                                                                     | connection-time   |             |
-| WARNING      | Warning threshold in milliseconds                                                                   | 1000              |             |
-| CRITICAL     | Critical threshold in milliseconds                                                                  | 5000              |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MODE         | Mode used in the plugin code                                                                                                             | connection-time   |             |
+| WARNING      | Warning threshold in milliseconds                                                                                                        | 1000              |             |
+| CRITICAL     | Critical threshold in milliseconds                                                                                                       | 5000              |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MODE         |                                                                                                     | corrupted-blocks  |             |
-| WARNING      | Warning threshold                                                                                   | 1                 |             |
-| CRITICAL     | Critical threshold                                                                                  | 10                |             |
+| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
+|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MODE         | Mode used in the plugin code                                                                                                             | corrupted-blocks  |             |
+| WARNING      | Warning threshold                                                                                                                        | 1                 |             |
+| CRITICAL     | Critical threshold                                                                                                                       | 10                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
 
 </TabItem>
 <TabItem value="Data-Files-Status" label="Data-Files-Status">
 
-| Macro                | Description                                                                                                                                                            | Valeur par défaut                        | Obligatoire |
-|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------|:-----------:|
-| WARNINGONLINESTATUS  | Set warning threshold for online status (Default: '%\{online_status\} =~ /sysoff/i'). You can use the following variables: %\{display\}, %\{online_status\}                | %\{online_status\} =~ /sysoff/i           |             |
-| CRITICALONLINESTATUS | Set critical threshold for online status (Default: '%\{online_status\} =~ /offline\|recover/i'). You can use the following variables: %\{display\}, %\{online_status\}     | %\{online_status\} =~ /offline\|recover/i |             |
-| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING (Default: none). You can use the following variables: %\{display\}, %\{status\}                                |                                          |             |
-| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /offline\|invalid/i'). You can use the following variables: %\{display\}, %\{status\} |                                          |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                    | --verbose                                |             |
+| Macro                | Description                                                                                                                                      | Valeur par défaut                          | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------|:-----------:|
+| WARNINGONLINESTATUS  | Set warning threshold for online status. You can use the following variables: %\{display\}, %\{online\_status\}                                  | %\{online\_status\} =~ /sysoff/i           |             |
+| CRITICALONLINESTATUS | Set critical threshold for online status. You can use the following variables: %\{display\}, %\{online\_status\}                                 | %\{online\_status\} =~ /offline\|recover/i |             |
+| WARNINGSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{display\}, %\{status\}                      | none                                       |             |
+| CRITICALSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}                     | %\{status\} =~ /offline\|invalid/i         |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                                  |             |
 
 </TabItem>
 <TabItem value="Datacache-Hitratio" label="Datacache-Hitratio">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                                                |                   |             |
+| CRITICAL     | Critical threshold                                                                                                                               |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Dictionary-Cache-Usage" label="Dictionary-Cache-Usage">
 
-| Macro           | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:----------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGGETHITS  | Thresholds                                                                                          |                   |             |
-| CRITICALGETHITS | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro           | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGGETHITS  | Threshold                                                                                                                                        |                   |             |
+| CRITICALGETHITS | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Event-Waits-Usage" label="Event-Waits-Usage">
 
-| Macro                  | Description                                                                                         | Valeur par défaut                      | Obligatoire |
-|:-----------------------|:----------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
-| FILTERNAME             | Filter by event name. Can be a regex                                                                |                                        |             |
-| WARNINGEVENTCOUNT      | Warning threshold                                                                                   |                                        |             |
-| CRITICALEVENTCOUNT     | Critical threshold                                                                                  |                                        |             |
-| WARNINGTOTALWAITSSEC   | Warning threshold                                                                                   |                                        |             |
-| CRITICALTOTALWAITSSEC  | Critical threshold                                                                                  |                                        |             |
-| WARNINGTOTALWAITSTIME  | Warning threshold                                                                                   |                                        |             |
-| CRITICALTOTALWAITSTIME | Critical threshold                                                                                  |                                        |             |
-| EXTRAOPTIONS           | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose --filter-perfdata=noperfdata |             |
+| Macro                  | Description                                                                                                                                      | Valeur par défaut                      | Obligatoire |
+|:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
+| FILTERNAME             | Filter by event name. Can be a regex                                                                                                             |                                        |             |
+| WARNINGEVENTCOUNT      | Threshold                                                                                                                                        |                                        |             |
+| CRITICALEVENTCOUNT     | Threshold                                                                                                                                        |                                        |             |
+| WARNINGTOTALWAITSSEC   | Threshold                                                                                                                                        |                                        |             |
+| CRITICALTOTALWAITSSEC  | Threshold                                                                                                                                        |                                        |             |
+| WARNINGTOTALWAITSTIME  | Threshold                                                                                                                                        |                                        |             |
+| CRITICALTOTALWAITSTIME | Threshold                                                                                                                                        |                                        |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --filter-perfdata=noperfdata |             |
 
 </TabItem>
 <TabItem value="Fra-Usage" label="Fra-Usage">
 
-| Macro                        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-----------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTERTYPE                   | Filter file type (can be a regexp)                                                                  |                   |             |
-| WARNINGFILESPACERECLAIMABLE  | Thresholds                                                                                          |                   |             |
-| CRITICALFILESPACERECLAIMABLE | Thresholds                                                                                          |                   |             |
-| WARNINGFILESPACEUSAGE        | Thresholds                                                                                          |                   |             |
-| CRITICALFILESPACEUSAGE       | Thresholds                                                                                          |                   |             |
-| WARNINGSPACERECLAIMABLE      | Thresholds                                                                                          |                   |             |
-| CRITICALSPACERECLAIMABLE     | Thresholds                                                                                          |                   |             |
-| WARNINGSPACEUSAGE            | Thresholds                                                                                          |                   |             |
-| CRITICALSPACEUSAGE           | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS                 | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| Macro                        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERTYPE                   | Filter file type (can be a regexp)                                                                                                               |                   |             |
+| WARNINGFILESPACERECLAIMABLE  | Threshold                                                                                                                                        |                   |             |
+| CRITICALFILESPACERECLAIMABLE | Threshold                                                                                                                                        |                   |             |
+| WARNINGFILESPACEUSAGE        | Threshold                                                                                                                                        |                   |             |
+| CRITICALFILESPACEUSAGE       | Threshold                                                                                                                                        |                   |             |
+| WARNINGSPACERECLAIMABLE      | Threshold                                                                                                                                        |                   |             |
+| CRITICALSPACERECLAIMABLE     | Threshold                                                                                                                                        |                   |             |
+| WARNINGSPACEUSAGE            | Threshold                                                                                                                                        |                   |             |
+| CRITICALSPACEUSAGE           | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS                 | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Invalid-Object" label="Invalid-Object">
 
-| Macro                      | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:---------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| RETENTIONOBJECTS           | Retention in days for invalid objects (default : 3)                                                 | 3                 |             |
-| FILTERMESSAGE              | Filter by message (can be a regexp)                                                                 |                   |             |
-| WARNINGINDEXES             | Warning threshold                                                                                   |                   |             |
-| CRITICALINDEXES            | Critical threshold                                                                                  |                   |             |
-| WARNINGINDPARTITIONS       | Warning threshold                                                                                   |                   |             |
-| CRITICALINDPARTITIONS      | Critical threshold                                                                                  |                   |             |
-| WARNINGINDSUBPARTITIONS    | Warning threshold                                                                                   |                   |             |
-| CRITICALINDSUBPARTITIONS   | Critical threshold                                                                                  |                   |             |
-| WARNINGOBJECTS             | Warning threshold                                                                                   |                   |             |
-| CRITICALOBJECTS            | Critical threshold                                                                                  |                   |             |
-| WARNINGREGISTRYCOMPONENTS  | Warning threshold                                                                                   |                   |             |
-| CRITICALREGISTRYCOMPONENTS | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS               | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro                      | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:---------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| RETENTIONOBJECTS           | Retention in days for invalid objects (default : 3)                                                                                              | 3                 |             |
+| FILTERMESSAGE              | Filter by message (can be a regexp)                                                                                                              |                   |             |
+| WARNINGINDEXES             | Threshold                                                                                                                                        |                   |             |
+| CRITICALINDEXES            | Threshold                                                                                                                                        |                   |             |
+| WARNINGINDPARTITIONS       | Threshold                                                                                                                                        |                   |             |
+| CRITICALINDPARTITIONS      | Threshold                                                                                                                                        |                   |             |
+| WARNINGINDSUBPARTITIONS    | Threshold                                                                                                                                        |                   |             |
+| CRITICALINDSUBPARTITIONS   | Threshold                                                                                                                                        |                   |             |
+| WARNINGOBJECTS             | Threshold                                                                                                                                        |                   |             |
+| CRITICALOBJECTS            | Threshold                                                                                                                                        |                   |             |
+| WARNINGREGISTRYCOMPONENTS  | Threshold                                                                                                                                        |                   |             |
+| CRITICALREGISTRYCOMPONENTS | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Library-Cache-Usage" label="Library-Cache-Usage">
 
-| Macro            | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-----------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGGETHITS   | Thresholds                                                                                          |                   |             |
-| CRITICALGETHITS  | Thresholds                                                                                          |                   |             |
-| WARNINGINVALIDS  |                                                                                                     |                   |             |
-| CRITICALINVALIDS |                                                                                                     |                   |             |
-| WARNINGPINHITS   | Thresholds                                                                                          |                   |             |
-| CRITICALPINHITS  | Thresholds                                                                                          |                   |             |
-| WARNINGRELOADS   | Thresholds                                                                                          |                   |             |
-| CRITICALRELOADS  | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGGETHITS   | Threshold                                                                                                                                        |                   |             |
+| CRITICALGETHITS  | Threshold                                                                                                                                        |                   |             |
+| WARNINGINVALIDS  | Threshold                                                                                                                                        |                   |             |
+| CRITICALINVALIDS | Threshold                                                                                                                                        |                   |             |
+| WARNINGPINHITS   | Threshold                                                                                                                                        |                   |             |
+| CRITICALPINHITS  | Threshold                                                                                                                                        |                   |             |
+| WARNINGRELOADS   | Threshold                                                                                                                                        |                   |             |
+| CRITICALRELOADS  | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
 
-| Macro          | Description                                                                                                                                                     | Valeur par défaut | Obligatoire |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (Default: '') You can use the following variables: %\{username\}, %\{sql_text\}, %\{since\}, %\{status\}   |                   |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{username\}, %\{sql_text\}, %\{since\}, %\{status\} |                   |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                             |                   |             |
+| Macro          | Description                                                                                                                                               | Valeur par défaut | Obligatoire |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING You can use the following variables: %\{username\}, %\{sql\_text\}, %\{since\}, %\{status\}   |                   |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{username\}, %\{sql\_text\}, %\{since\}, %\{status\} |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).          |                   |             |
 
 </TabItem>
 <TabItem value="Process-Usage" label="Process-Usage">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                                                |                   |             |
+| CRITICAL     | Critical threshold                                                                                                                               |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Redolog-Usage" label="Redolog-Usage">
 
-| Macro              | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGRETRYRATIO  | Thresholds                                                                                          |                   |             |
-| CRITICALRETRYRATIO | Thresholds                                                                                          |                   |             |
-| WARNINGTRAFFICIO   | Thresholds                                                                                          |                   |             |
-| CRITICALTRAFFICIO  | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGRETRYRATIO  | Threshold                                                                                                                                        |                   |             |
+| CRITICALRETRYRATIO | Threshold                                                                                                                                        |                   |             |
+| WARNINGTRAFFICIO   | Threshold                                                                                                                                        |                   |             |
+| CRITICALTRAFFICIO  | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Rman-Backup-Age" label="Rman-Backup-Age">
 
-| Macro               | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:--------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGARCHIVELOG   | Warning threshold in seconds                                                                        |                   |             |
-| CRITICALARCHIVELOG  | Critical threshold in seconds. * Skip error if never executed                                       |                   |             |
-| WARNINGCONTROLFILE  | Warning threshold in seconds                                                                        |                   |             |
-| CRITICALCONTROLFILE | Critical threshold in seconds. * Skip error if never executed                                       |                   |             |
-| WARNINGDBFULL       | Warning threshold in seconds                                                                        |                   |             |
-| CRITICALDBFULL      | Critical threshold in seconds. * Skip error if never executed                                       |                   |             |
-| WARNINGDBINCR       | Warning threshold in seconds                                                                        |                   |             |
-| CRITICALDBINCR      | Critical threshold in seconds. * Skip error if never executed                                       |                   |             |
-| EXTRAOPTIONS        | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| Macro               | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGARCHIVELOG   | Threshold                                                                                                                                        |                   |             |
+| CRITICALARCHIVELOG  | Threshold                                                                                                                                        |                   |             |
+| WARNINGCONTROLFILE  | Threshold                                                                                                                                        |                   |             |
+| CRITICALCONTROLFILE | Threshold                                                                                                                                        |                   |             |
+| WARNINGDBFULL       | Threshold                                                                                                                                        |                   |             |
+| CRITICALDBFULL      | Threshold                                                                                                                                        |                   |             |
+| WARNINGDBINCR       | Threshold                                                                                                                                        |                   |             |
+| CRITICALDBINCR      | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Rman-Backup-Online-Age" label="Rman-Backup-Online-Age">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold in seconds                                                                        |                   |             |
-| CRITICAL     | Critical threshold in seconds                                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose         |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold in seconds                                                                                                                     |                   |             |
+| CRITICAL     | Critical threshold in seconds                                                                                                                    |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
-| Macro                     | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:--------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| RETENTION                 | Retention in days (default: 3)                                                                      | 3                 |             |
-| WARNINGCOMPLETED          | Thresholds                                                                                          |                   |             |
-| CRITICALCOMPLETED         | Thresholds                                                                                          |                   |             |
-| WARNINGCOMPLETEDERRORS    | Thresholds                                                                                          |                   |             |
-| CRITICALCOMPLETEDERRORS   | Thresholds                                                                                          |                   |             |
-| WARNINGCOMPLETEDWARNINGS  | Thresholds                                                                                          |                   |             |
-| CRITICALCOMPLETEDWARNINGS | Thresholds                                                                                          |                   |             |
-| WARNINGFAILED             | Thresholds                                                                                          |                   |             |
-| CRITICALFAILED            | Thresholds                                                                                          |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro                     | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| RETENTION                 | Retention in days                                                                                                                                | 3                 |             |
+| WARNINGCOMPLETED          | Threshold                                                                                                                                        |                   |             |
+| CRITICALCOMPLETED         | Threshold                                                                                                                                        |                   |             |
+| WARNINGCOMPLETEDERRORS    | Threshold                                                                                                                                        |                   |             |
+| CRITICALCOMPLETEDERRORS   | Threshold                                                                                                                                        |                   |             |
+| WARNINGCOMPLETEDWARNINGS  | Threshold                                                                                                                                        |                   |             |
+| CRITICALCOMPLETEDWARNINGS | Threshold                                                                                                                                        |                   |             |
+| WARNINGFAILED             | Threshold                                                                                                                                        |                   |             |
+| CRITICALFAILED            | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">
 
-| Macro                    | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGBLOCKCONTENTION   | Warning threshold                                                                                   |                   |             |
-| CRITICALBLOCKCONTENTION  | Critical threshold                                                                                  |                   |             |
-| WARNINGEXTENDS           | Warning threshold                                                                                   |                   |             |
-| CRITICALEXTENDS          | Critical threshold                                                                                  |                   |             |
-| WARNINGHEADERCONTENTION  | Warning threshold                                                                                   |                   |             |
-| CRITICALHEADERCONTENTION | Critical threshold                                                                                  |                   |             |
-| WARNINGHITRATIO          | Warning threshold                                                                                   |                   |             |
-| CRITICALHITRATIO         | Critical threshold                                                                                  |                   |             |
-| WARNINGWRAPS             | Warning threshold                                                                                   |                   |             |
-| CRITICALWRAPS            | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS             | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro                    | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGBLOCKCONTENTION   | Threshold                                                                                                                                        |                   |             |
+| CRITICALBLOCKCONTENTION  | Threshold                                                                                                                                        |                   |             |
+| WARNINGEXTENDS           | Threshold                                                                                                                                        |                   |             |
+| CRITICALEXTENDS          | Threshold                                                                                                                                        |                   |             |
+| WARNINGHEADERCONTENTION  | Threshold                                                                                                                                        |                   |             |
+| CRITICALHEADERCONTENTION | Threshold                                                                                                                                        |                   |             |
+| WARNINGHITRATIO          | Threshold                                                                                                                                        |                   |             |
+| CRITICALHITRATIO         | Threshold                                                                                                                                        |                   |             |
+| WARNINGWRAPS             | Threshold                                                                                                                                        |                   |             |
+| CRITICALWRAPS            | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Session-Usage" label="Session-Usage">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      | Warning threshold                                                                                   |                   |             |
-| CRITICAL     | Critical threshold                                                                                  |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING      | Warning threshold                                                                                                                                |                   |             |
+| CRITICAL     | Critical threshold                                                                                                                               |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Sql" label="Sql">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SQLCOMMAND   | SQL statement that returns a number                                                                 |                   | X           |
-| WARNING      |                                                                                                     |                   |             |
-| CRITICAL     |                                                                                                     |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SQLCOMMAND   | SQL statement that returns a number                                                                                                              |                   |      X      |
+| WARNING      | Threshold                                                                                                                                        |                   |             |
+| CRITICAL     | Threshold                                                                                                                                        |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Sql-String" label="Sql-String">
 
-| Macro        | Description                                                                                                                                                                               | Valeur par défaut | Obligatoire |
-|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| SQLSTATEMENT | SQL statement that returns a string                                                                                                                                                       |                   | X           |
-| VALUE        | Value column (must be one of the selected field). MANDATORY                                                                                                                               |                   |             |
-| WARNING      | Define the conditions to match for the status to be WARNING. (Can be: %\{key_field\}, %\{value_field\}) e.g --warning-string '%\{key_field\} eq 'Central' && %\{value_field\} =~ /127.0.0.1/' |                   |             |
-| CRITICAL     | Define the conditions to match for the status to be CRITICAL (Can be: %\{key_field\} or %\{value_field\})                                                                                   |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles)                                                                                       |                   |             |
+| Macro        | Description                                                                                                                                                                                           | Valeur par défaut | Obligatoire |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| SQLSTATEMENT | SQL statement that returns a string                                                                                                                                                                   |                   | X           |
+| VALUE        | Value column (must be one of the selected field). MANDATORY                                                                                                                                           |                   |             |
+| WARNING      | Define the conditions to match for the status to be WARNING (can be %\{key\_field\}, %\{value\_field\}). Example: --warning-string '%\{key\_field\} eq 'Central' && %\{value\_field\} =~ /127.0.0.1/' |                   |             |
+| CRITICAL     | Define the conditions to match for the status to be CRITICAL (can be %\{key\_field\} or %\{value\_field\})                                                                                            |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                      |                   |             |
 
 </TabItem>
 <TabItem value="Tablespace-Usage-Global" label="Tablespace-Usage-Global">
 
-| Macro         | Description                                                                                         | Valeur par défaut     | Obligatoire |
-|:--------------|:----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| EXCLUDEREGEXP | Filter tablespace by name. Can be a regex                                                           | ^(?!(SYSTEM\|SYSAUX)) |             |
-| WARNING       | Warning threshold                                                                                   | 90                    |             |
-| CRITICAL      | Critical threshold                                                                                  | 98                    |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | --verbose --notemp    |             |
+| Macro         | Description                                                                                                                                      | Valeur par défaut     | Obligatoire |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
+| EXCLUDEREGEXP | Filter tablespaces by name. Can be a regex                                                                                                       | ^(?!(SYSTEM\|SYSAUX)) |             |
+| WARNING       | Warning threshold                                                                                                                                | 90                    |             |
+| CRITICAL      | Critical threshold                                                                                                                               | 98                    |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --notemp    |             |
 
 </TabItem>
 <TabItem value="Tnsping" label="Tnsping">
 
-| Macro        | Description                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------|:----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 </Tabs>
@@ -965,22 +1024,22 @@ Le plugin apporte les modes suivants :
 | Mode                                                                                                                                         | Modèle de service associé                                                                                  |
 |:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
 | asm-diskgroup-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/asmdiskgroupusage.pm)]        | App-DB-Oracle-ASM-Diskgroup-Usage-Generic-Name-custom<br />App-DB-Oracle-ASM-Diskgroup-Usage-Global-custom |
-| collection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/collection.pm)]          | Not used in this Monitoring Connector                                                                      |
-| connected-users [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/connectedusers.pm)]               | App-DB-Oracle-Connection-Number-custom                                                                     |
-| connection-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/connectiontime.pm)] | App-DB-Oracle-Connection-Time-custom                                                                       |
-| corrupted-blocks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/corruptedblocks.pm)]             | App-DB-Oracle-Corrupted-Blocks-custom                                                                      |
+| collection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/collection.pm)]          | Non utilisé dans ce connecteur de supervision                                                              |
+| connected-users [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/connectedusers.pm)]               |  App-DB-Oracle-Connection-Number-custom                                                                    |
+| connection-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/connectiontime.pm)] | App-DB-Oracle-Connection-Time-custom                                                              |
+| corrupted-blocks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/corruptedblocks.pm)]             | App-DB-Oracle-Corrupted-Blocks-custom                                                              |
 | data-files-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/datafilesstatus.pm)]            | App-DB-Oracle-Data-Files-Status-custom                                                                     |
 | datacache-hitratio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/datacachehitratio.pm)]         | App-DB-Oracle-Datacache-Hitratio-custom                                                                    |
-| dataguard [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/dataguard.pm)]                          | Not used in this Monitoring Connector                                                                      |
+| dataguard [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/dataguard.pm)]                          | Non utilisé dans ce connecteur de supervision                                                              |
 | dictionary-cache-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/dictionarycacheusage.pm)]  | App-DB-Oracle-Dictionary-Cache-Usage-custom                                                                |
 | event-waits-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/eventwaitsusage.pm)]            | App-DB-Oracle-Event-Waits-Usage-custom                                                                     |
 | fra-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/frausage.pm)]                           | App-DB-Oracle-Fra-Usage-custom                                                                             |
 | invalid-object [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/invalidobject.pm)]                 | App-DB-Oracle-Invalid-Object-custom                                                                        |
 | library-cache-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/librarycacheusage.pm)]        | App-DB-Oracle-Library-Cache-Usage-custom                                                                   |
-| list-asm-diskgroups [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/listasmdiskgroups.pm)]        | Used for service discovery                                                                                 |
-| list-tablespaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/listtablespaces.pm)]             | Used for service discovery                                                                                 |
+| list-asm-diskgroups [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/listasmdiskgroups.pm)]        | Utilisé pour la découverte de services                                                                     |
+| list-tablespaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/listtablespaces.pm)]             | Utilisé pour la découverte de services                                                                     |
 | long-queries [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/longqueries.pm)]                     | App-DB-Oracle-Long-Queries-custom                                                                          |
-| password-expiration [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/passwordexpiration.pm)]       | Not used in this Monitoring Connector                                                                      |
+| password-expiration [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/passwordexpiration.pm)]       | Non utilisé dans ce connecteur de supervision                                                              |
 | process-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/processusage.pm)]                   | App-DB-Oracle-Process-Usage-custom                                                                         |
 | redolog-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/redologusage.pm)]                   | App-DB-Oracle-Redolog-Usage-custom                                                                         |
 | rman-backup-age [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/rmanbackupage.pm)]                | App-DB-Oracle-Rman-Backup-Age-custom                                                                       |
@@ -999,52 +1058,50 @@ Le plugin apporte les modes suivants :
 
 Les options génériques sont listées ci-dessous :
 
-| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-|:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --hostname                                 | Hostname to query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --port                                     | Database Server Port.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --sid                                      | Database SID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --servicename                              | Database Service Name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --container                                | Change container (does an alter session set container command).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --mode                                     | Define the mode in which you want the plugin to be executed (see--list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| --sqlmode                                  | This plugin offers several ways to query the database (default: dbi). See --list-sqlmode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --list-sqlmode                             | List all available sql modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --multiple                                 | Enable connecting to multiple databases (required by some specific modes such as replication).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --filter-perfdata                          | Filter perfdata that match the regexp. Eg: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Eg: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
-| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Eg: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --change-exit                              | Replace an exit code with one of your choice. Eg: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Eg: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --output-file                              | Write output in file (can be combined with json, xml and openmetrics options). E.g.: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --datasource                               | Database server information, mandatory if the server's address and port are not defined in the corresponding options. The syntax depends on the database type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --username                                 | User name used to connect to the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --password                                 | Password for the defined user name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| --connect-options                          | Add connection options for the DBI connect method. Format: name=value,name2=value2,...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| --connect-query                            | Execute a query just after the connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| --sql-errors-exit                          | Expected status in case of DB error or timeout. Possible values are warning, critical and unknown (default).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --timeout                                  | Timeout in seconds for connection.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --exec-timeout                             | Timeout in seconds for query execution                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:-------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --mode                                     | Define the mode in which you want the plugin to be executed (see --list-mode).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --dyn-mode                                 | Specify a mode with the module's path (advanced).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --sqlmode                                  | This plugin offers several ways to query the database (default: dbi). See --list-sqlmode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --list-sqlmode                             | List all available sql modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --multiple                                 | Enable connecting to multiple databases (required by some specific modes such as replication).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --change-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --extend-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  um wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --change-output-adv                        | Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --opt-exit                                 | Replace the exit code in case of an execution error (i.e. wrong option provided, SSH connection refused, timeout, etc). Default: unknown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --output-ignore-perfdata                   | Remove all the metrics from the service. The service will still have a status and an output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --output-ignore-label                      | Remove the status label ("OK:", "WARNING:", "UNKNOWN:", CRITICAL:") from the beginning of the output. Example: 'OK: Ram Total:...' will become 'Ram Total:...'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --output-xml                               | Return the output in XML format (to send to an XML API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| --output-json                              | Return the output in JSON format (to send to a JSON API).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --output-openmetrics                       | Return the output in OpenMetrics format (to send to a tool expecting this format).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --output-file                              | Write output in file (can be combined with JSON, XML and OpenMetrics options). Example: --output-file=/tmp/output.txt will write the output in /tmp/output.txt.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| --disco-format                             | Applies only to modes beginning with 'list-'. Returns the list of available macros to configure a service discovery rule (formatted in XML).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| --disco-show                               | Applies only to modes beginning with 'list-'. Returns the list of discovered objects (formatted in XML) for service discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --float-precision                          | Define the float precision for thresholds (default: 8).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --source-encoding                          | Define the character encoding of the response sent by the monitored resource Default: 'UTF-8'.  \<output\>.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| --hostname                                 | Hostname to query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --port                                     | Database Server Port.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --sid                                      | Database SID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --servicename                              | Database Service Name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --component-type                           | Define the component to monitor. Can be `database` or `rman_catalog` (default: `database`). This enables the use of `rman-backup-problems` and `rman-backup-age` modes when an external RMAN catalog is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --container                                | Change container (does an alter session set container command).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 #### Options des modes
 
@@ -1053,20 +1110,21 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 <Tabs groupId="sync">
 <TabItem value="ASM-Diskgroup-Usage-*" label="ASM-Diskgroup-Usage-*">
 
-| Option                   | Description                                                                                                                                                                                                                            |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-usage          | Warning threshold.                                                                                                                                                                                                                     |
-| --critical-usage         | Critical threshold.                                                                                                                                                                                                                    |
-| --warning-usage-failure  | Warning threshold.                                                                                                                                                                                                                     |
-| --critical-usage-failure | Critical threshold.                                                                                                                                                                                                                    |
-| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                                                                                                |
-| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                                                                                                |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}                                                                                                               |
-| --warning-offline-disks  | Set warning threshold for offline disks (Default: '(%\{offline_disks\} \> 0 && %\{type\} eq "extern") \|\| (%\{offline_disks\} \> 1 && %\{type\} eq "high")'). You can use the following variables: %\{offline_disks\}, %\{type\}, %\{display\}   |
-| --critical-offline-disks | Set critical threshold for offline disks (Default: '%\{offline_disks\} \> 0 && %\{type\} =~ /^normal\|high$/'). You can use the following variables: %\{offline_disks\}, %\{type\}, %\{display\}                                               |
-| --units                  | Units of thresholds (Default: '%') ('%', 'B').                                                                                                                                                                                         |
-| --free                   | Thresholds are on free space left.                                                                                                                                                                                                     |
-| --filter-name            | Filter by name (regexp can be used).                                                                                                                                                                                                   |
+| Option                   | Description                                                                                                                                                                                                                                        |
+|:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                          |
+| --warning-usage          | Warning threshold.                                                                                                                                                                                                                                 |
+| --critical-usage         | Critical threshold.                                                                                                                                                                                                                                |
+| --warning-usage-failure  | Warning threshold.                                                                                                                                                                                                                                 |
+| --critical-usage-failure | Critical threshold.                                                                                                                                                                                                                                |
+| --unknown-status         | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{status\}, %\{display\}                                                                                                                        |
+| --warning-status         | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                                                                                                        |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}                                                                                                                       |
+| --warning-offline-disks  | Set warning threshold for offline disks (default: '(%\{offline\_disks\} \> 0 && %\{type\} eq "extern") \|\| (%\{offline\_disks\} \> 1 && %\{type\} eq "high")'). You can use the following variables: %\{offline\_disks\}, %\{type\}, %\{display\} |
+| --critical-offline-disks | Set critical threshold for offline disks (default: '%\{offline\_disks\} \> 0 && %\{type\} =~ /^normal\|high$/'). You can use the following variables: %\{offline\_disks\}, %\{type\}, %\{display\}                                                 |
+| --units                  | Units of thresholds (default: '%') ('%', 'B').                                                                                                                                                                                                     |
+| --free                   | Thresholds are on free space left.                                                                                                                                                                                                                 |
+| --filter-name            | Filter by name (regexp can be used).                                                                                                                                                                                                               |
 
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
@@ -1095,283 +1153,205 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Data-Files-Status" label="Data-Files-Status">
 
-| Option                   | Description                                                                                                                                                                                                                                   |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --filter-counters        | Only display some counters (regexp can be used).                                                                                                                                                                                              |
-| --filter-tablespace      | Filter tablespace name (can be a regexp).                                                                                                                                                                                                     |
-| --filter-data-file       | Filter data file name (can be a regexp).                                                                                                                                                                                                      |
-| --warning-status         | Define the conditions to match for the status to be WARNING (Default: none). You can use the following variables: %\{display\}, %\{status\}                                                                                                       |
-| --critical-status        | Define the conditions to match for the status to be CRITICAL (Default: '%\{status\} =~ /offline\|invalid/i'). You can use the following variables: %\{display\}, %\{status\}                                                                        |
-| --warning-online-status  | Set warning threshold for online status (Default: '%\{online_status\} =~ /sysoff/i'). You can use the following variables: %\{display\}, %\{online_status\}                                                                                       |
-| --critical-online-status | Set critical threshold for online status (Default: '%\{online_status\} =~ /offline\|recover/i'). You can use the following variables: %\{display\}, %\{online_status\}                                                                            |
-| --warning-* --critical-* | Thresholds. Can be: 'total-traffic'.                                                                                                                                                                                                          |
+| Option                   | Description                                                                                                                                                                  |
+|:-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used).                                                                                                                             |
+| --filter-tablespace      | Filter tablespace name (can be a regexp).                                                                                                                                    |
+| --filter-data-file       | Filter data file name (can be a regexp).                                                                                                                                     |
+| --warning-status         | Define the conditions to match for the status to be WARNING (default: none). You can use the following variables: %\{display\}, %\{status\}                                  |
+| --critical-status        | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /offline\|invalid/i'). You can use the following variables: %\{display\}, %\{status\} |
+| --warning-online-status  | Set warning threshold for online status (default: '%\{online\_status\} =~ /sysoff/i'). You can use the following variables: %\{display\}, %\{online\_status\}                |
+| --critical-online-status | Set critical threshold for online status (default: '%\{online\_status\} =~ /offline\|recover/i'). You can use the following variables: %\{display\}, %\{online\_status\}     |
+| --warning-* --critical-* | Thresholds. Can be: 'total-traffic'.                                                                                                                                         |
 
 </TabItem>
 <TabItem value="Datacache-Hitratio" label="Datacache-Hitratio">
 
-| Option                 | Description                                                                                                                                                                                                                                   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --warning-usage        | Warning threshold.                                                                                                                                                                                                                            |
-| --critical-usage       | Critical threshold.                                                                                                                                                                                                                           |
+| Option            | Description                                                                                                               |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --warning-usage   | Warning threshold.                                                                                                        |
+| --critical-usage  | Critical threshold.                                                                                                       |
 
 </TabItem>
 <TabItem value="Dictionary-Cache-Usage" label="Dictionary-Cache-Usage">
 
-| Option                   | Description                                                                                                                                                                                                                                   |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --warning-* --critical-* | Thresholds. Can be: 'get-hits'.                                                                                                                                                                                                               |
+| Option                   | Description                                                                                                               |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --warning-* --critical-* | Thresholds. Can be: 'get-hits'.                                                                                           |
 
 </TabItem>
 <TabItem value="Event-Waits-Usage" label="Event-Waits-Usage">
 
-| Option                 | Description                                                                                                                                                                                                                                   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --warning-*            | Warning threshold. Can be: 'total-waits-sec', 'total-waits-time', 'event-count'.                                                                                                                                                              |
-| --critical-*           | Critical threshold. Can be: 'total-waits-sec', 'total-waits-time', 'event-count'.                                                                                                                                                             |
-| --filter-name          | Filter by event name. Can be a regex.                                                                                                                                                                                                         |
-| --wait-time-min        | Time in ms above which we count an event as waiting                                                                                                                                                                                           |
-| --show-details         | Print details of waiting events (user, query, ...) in long output                                                                                                                                                                             |
+| Option            | Description                                                                                                               |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --warning-*       | Warning threshold. Can be: 'total-waits-sec', 'total-waits-time', 'event-count'.                                          |
+| --critical-*      | Critical threshold. Can be: 'total-waits-sec', 'total-waits-time', 'event-count'.                                         |
+| --filter-name     | Filter by event name. Can be a regex.                                                                                     |
+| --wait-time-min   | Time in ms above which we count an event as waiting                                                                       |
+| --show-details    | Print details of waiting events (user, query, ...) in long output                                                         |
 
 </TabItem>
 <TabItem value="Fra-Usage" label="Fra-Usage">
 
-| Option                   | Description                                                                                              |
-|:-------------------------|:---------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used).                                                         |
-| --filter-type            | Filter file type (can be a regexp).                                                                      |
-| --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-reclaimable', 'file-space-usage', 'file-space-reclaimable'.    |
+| Option                   | Description                                                                                           |
+|:-------------------------|:------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used).                                                      |
+| --filter-type            | Filter file type (can be a regexp).                                                                   |
+| --warning-* --critical-* | Thresholds. Can be: 'space-usage', 'space-reclaimable', 'file-space-usage', 'file-space-reclaimable'. |
 
 </TabItem>
 <TabItem value="Invalid-Object" label="Invalid-Object">
 
-| Option              | Description                                                                                                        |
-|:--------------------|:-------------------------------------------------------------------------------------------------------------------|
-| --filter-counters   | Only display some counters (regexp can be used). Example: --filter-counters='^indexes$'                            |
-| --retention-objects | Retention in days for invalid objects (default : 3).                                                               |
-| --filter-message    | Filter by message (can be a regexp).                                                                               |
-| --warning-*         | Warning threshold. Can be: 'objects', 'indexes', 'ind-partitions', 'ind-subpartitions', 'registry-components'.     |
-| --critical-*        | Critical threshold. Can be: 'objects', 'indexes', 'ind-partitions', 'ind-subpartitions', 'registry-components'.    |
+| Option              | Description                                                                                                     |
+|:--------------------|:----------------------------------------------------------------------------------------------------------------|
+| --filter-counters   | Only display some counters (regexp can be used). Example: --filter-counters='^indexes$'                         |
+| --retention-objects | Retention in days for invalid objects (default : 3).                                                            |
+| --filter-message    | Filter by message (can be a regexp).                                                                            |
+| --warning-*         | Warning threshold. Can be: 'objects', 'indexes', 'ind-partitions', 'ind-subpartitions', 'registry-components'.  |
+| --critical-*        | Critical threshold. Can be: 'objects', 'indexes', 'ind-partitions', 'ind-subpartitions', 'registry-components'. |
 
 </TabItem>
 <TabItem value="Library-Cache-Usage" label="Library-Cache-Usage">
 
-| Option                   | Description                                                                                                                                                                                                                                   |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --warning-* --critical-* | Thresholds. Can be: 'get-hits', 'pin-hits', 'reloads', 'invalid'.                                                                                                                                                                             |
+| Option                   | Description                                                                                                               |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --warning-* --critical-* | Thresholds. Can be: 'get-hits', 'pin-hits', 'reloads', 'invalid'.                                                         |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
 
-| Option                 | Description                                                                                                                                                                                                                                   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --warning-status       | Define the conditions to match for the status to be WARNING (Default: '') You can use the following variables: %\{username\}, %\{sql_text\}, %\{since\}, %\{status\}                                                                                 |
-| --critical-status      | Define the conditions to match for the status to be CRITICAL (Default: ''). You can use the following variables: %\{username\}, %\{sql_text\}, %\{since\}, %\{status\}                                                                               |
-| --timezone             | Timezone of oracle server (If not set, we use current server execution timezone).                                                                                                                                                             |
-| --memory               | Only check new queries.                                                                                                                                                                                                                       |
+| Option                 | Description                                                                                                                                                                                                                                 |
+|:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters      | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                   |
+| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                  |
+| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                             |
+| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                     |
+| --redis-db             | Set Redis database index.                                                                                                                                                                                                                   |
+| --failback-file        | Fall back on a local file if Redis connection fails.                                                                                                                                                                                        |
+| --memexpiration        | Time to keep data in seconds (default: 86400).                                                                                                                                                                                              |
+| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                      |
+| --statefile-suffix     | Define a suffix to customize the statefile name (default: '').                                                                                                                                                                              |
+| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux. |
+| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                       |
+| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                |
+| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (default: 'AES').                                                                                                                                                                          |
+| --warning-status       | Define the conditions to match for the status to be WARNING (default: '') You can use the following variables: %\{username\}, %\{sql\_text\}, %\{since\}, %\{status\}                                                                       |
+| --critical-status      | Define the conditions to match for the status to be CRITICAL (default: ''). You can use the following variables: %\{username\}, %\{sql\_text\}, %\{since\}, %\{status\}                                                                     |
+| --timezone             | Timezone of oracle server (if not set, we use current server execution timezone).                                                                                                                                                           |
+| --memory               | Only check new queries.                                                                                                                                                                                                                     |
 
 </TabItem>
 <TabItem value="Process-Usage" label="Process-Usage">
 
-| Option     | Description            |
-|:-----------|:-----------------------|
-| --warning  | Warning threshold.     |
-| --critical | Critical threshold.    |
+| Option     | Description         |
+|:-----------|:--------------------|
+| --warning  | Warning threshold.  |
+| --critical | Critical threshold. |
 
 </TabItem>
 <TabItem value="Redolog-Usage" label="Redolog-Usage">
 
-| Option                   | Description                                                                                                                                                                                                                                   |
-|:-------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached              | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server           | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute        | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db               | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file          | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration          | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir          | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix       | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd   | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format       | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key          | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher       | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --warning-* --critical-* | Thresholds. Can be: 'retry-ratio', 'traffic-io'.                                                                                                                                                                                              |
+| Option                   | Description                                                                                                               |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --warning-* --critical-* | Thresholds. Can be: 'retry-ratio', 'traffic-io'.                                                                          |
 
 </TabItem>
 <TabItem value="Rman-Backup-Age" label="Rman-Backup-Age">
 
-| Option              | Description                                                                                                                                                                                       |
-|:--------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-*         | Warning threshold in seconds. Can be: 'db-incr', 'db-full', 'archivelog', 'controlfile'.                                                                                                          |
-| --critical-*        | Critical threshold in seconds. Can be: 'db-incr', 'db-full', 'archivelog', 'controlfile'.       --no-* Skip error if never executed. Can be: 'db-incr', 'db-full', 'archivelog', 'controlfile'.   |
-| --filter-type       | Filter backup type. (type can be : 'DB INCR', 'DB FULL', 'ARCHIVELOG')                                                                                                                            |
-| --skip-no-backup    | Return ok if no backup found.                                                                                                                                                                     |
-| --timezone          | Timezone of oracle server (If not set, we use current server execution timezone).                                                                                                                 |
-| --incremental-level | Please use the following option if your using incremental level 0 for full backup.                                                                                                                |
+| Option              | Description                                                                               |
+|:--------------------|:------------------------------------------------------------------------------------------|
+| --warning-*         | Warning threshold in seconds. Can be: 'db-incr', 'db-full', 'archivelog', 'controlfile'.  |
+| --critical-*        | Critical threshold in seconds. Can be: 'db-incr', 'db-full', 'archivelog', 'controlfile'. |
+| --no-*              |                                                                                           |
+| --filter-type       | Filter backup type. (type can be : 'DB INCR', 'DB FULL', 'ARCHIVELOG')                    |
+| --skip-no-backup    | Return ok if no backup found.                                                             |
+| --timezone          | Timezone of oracle server (if not set, we use current server execution timezone).         |
+| --incremental-level | Please use the following option if your using incremental level 0 for full backup.        |
 
 </TabItem>
 <TabItem value="Rman-Backup-Online-Age" label="Rman-Backup-Online-Age">
 
-| Option     | Description                                                                         |
-|:-----------|:------------------------------------------------------------------------------------|
-| --warning  | Warning threshold in seconds.                                                       |
-| --critical | Critical threshold in seconds.                                                      |
-| --timezone | Timezone of oracle server (If not set, we use current server execution timezone)    |
+| Option     | Description                                                                      |
+|:-----------|:---------------------------------------------------------------------------------|
+| --warning  | Warning threshold in seconds.                                                    |
+| --critical | Critical threshold in seconds.                                                   |
+| --timezone | Timezone of oracle server (if not set, we use current server execution timezone) |
 
 </TabItem>
 <TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
-| Option                   | Description                                                                             |
-|:-------------------------|:----------------------------------------------------------------------------------------|
-| --retention              | Retention in days (default: 3).                                                         |
-| --warning-* --critical-* | Thresholds. Can be: 'completed', 'failed', 'completed-warnings', 'completed-errors'.    |
+| Option                   | Description                                                                                                               |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --retention              | Retention in days (default: 3).                                                                                           |
+| --warning-* --critical-* | Thresholds. Can be: 'completed', 'failed', 'completed-warnings', 'completed-errors'.                                      |
 
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">
 
-| Option                 | Description                                                                                                                                                                                                                                   |
-|:-----------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                    |
-| --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                               |
-| --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                       |
-| --redis-db             | Set Redis database index.                                                                                                                                                                                                                     |
-| --failback-file        | Failback on a local file if redis connection failed.                                                                                                                                                                                          |
-| --memexpiration        | Time to keep data in seconds (Default: 86400).                                                                                                                                                                                                |
-| --statefile-dir        | Define the cache directory (default: '/var/lib/centreon/centplugins').                                                                                                                                                                        |
-| --statefile-suffix     | Define a suffix to customize the statefile name (Default: '').                                                                                                                                                                                |
-| --statefile-concat-cwd | If used with the '--statefile-dir' option, the latter's value will be used as a sub-directory of the current working directory. Useful on Windows when the plugin is compiled, as the file system and permissions are different from Linux.   |
-| --statefile-format     | Define the format used to store the cache. Available formats: 'dumper', 'storable', 'json' (default).                                                                                                                                         |
-| --statefile-key        | Define the key to encrypt/decrypt the cache.                                                                                                                                                                                                  |
-| --statefile-cipher     | Define the cipher algorithm to encrypt the cache (Default: 'AES').                                                                                                                                                                            |
-| --warning-*            | Warning threshold. Can be: 'header-contention', 'block-contention', 'hit-ratio', 'extends', 'wraps'.                                                                                                                                          |
-| --critical-*           | Critical threshold. Can be: 'header-contention', 'block-contention', 'hit-ratio', 'extends', 'wraps'.                                                                                                                                         |
+| Option            | Description                                                                                                               |
+|:------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --warning-*       | Warning threshold. Can be: 'header-contention', 'block-contention', 'hit-ratio', 'extends', 'wraps'.                      |
+| --critical-*      | Critical threshold. Can be: 'header-contention', 'block-contention', 'hit-ratio', 'extends', 'wraps'.                     |
 
 </TabItem>
 <TabItem value="Session-Usage" label="Session-Usage">
 
-| Option     | Description            |
-|:-----------|:-----------------------|
-| --warning  | Warning threshold.     |
-| --critical | Critical threshold.    |
+| Option     | Description         |
+|:-----------|:--------------------|
+| --warning  | Warning threshold.  |
+| --critical | Critical threshold. |
 
 </TabItem>
 <TabItem value="Sql" label="Sql">
 
-| Option                   | Description                                              |
-|:-------------------------|:---------------------------------------------------------|
-| --sql-statement          | SQL statement that returns a number.                     |
-| --format                 | Output format (Default: 'SQL statement result : %i.').   |
-| --perfdata-unit          | Perfdata unit in perfdata output (Default: '')           |
-| --perfdata-name          | Perfdata name in perfdata output (Default: 'value')      |
-| --perfdata-min           | Minimum value to add in perfdata output (Default: '')    |
-| --perfdata-max           | Maximum value to add in perfdata output (Default: '')    |
-| --warning-* --critical-* | Thresholds. Can be: 'value', 'execution-time'.           |
+| Option                   | Description                                                                                                               |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --sql-statement          | SQL statement that returns a number.                                                                                      |
+| --format                 | Output format (default: 'SQL statement result : %i.').                                                                    |
+| --perfdata-unit          | Perfdata unit in perfdata output (default: '')                                                                            |
+| --perfdata-name          | Perfdata name in perfdata output (default: 'value')                                                                       |
+| --perfdata-min           | Minimum value to add in perfdata output (default: '')                                                                     |
+| --perfdata-max           | Maximum value to add in perfdata output (default: '')                                                                     |
+| --warning-* --critical-* | Thresholds. Can be: 'value', 'execution-time'.                                                                            |
 
 </TabItem>
 <TabItem value="Sql-String" label="Sql-String">
 
-| Option             | Description                                                                                                                                                                                 |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --sql-statement    | SQL statement that returns a string.                                                                                                                                                        |
-| --key-column       | Key column (must be one of the selected field). NOT mandatory if you select only one field                                                                                                  |
-| --value-column     | Value column (must be one of the selected field). MANDATORY                                                                                                                                 |
-| --printf-format    | Specify a custom output message relying on printf formatting. If this option is set --printf-value is mandatory.                                                                            |
-| --printf-value     | Specify scalar used to replace in printf. If this option is set --printf-format is mandatory. (Can be: %\{key_field\}, %\{value_field\})                                                      |
-| --warning-string   | Define the conditions to match for the status to be WARNING. (Can be: %\{key_field\}, %\{value_field\}) e.g --warning-string '%\{key_field\} eq 'Central' && %\{value_field\} =~ /127.0.0.1/'   |
-| --critical-string  | Define the conditions to match for the status to be CRITICAL (Can be: %\{key_field\} or %\{value_field\})                                                                                     |
-| --dual-table       | Set this option to ensure compatibility with dual table and Oracle.                                                                                                                         |
-| --empty-sql-string | Set this option to change the output message when the sql statement result is empty. (Default: 'No row returned or --key-column/--value-column do not correctly match selected field')      |
+| Option             | Description                                                                                                                                                                                           |
+|:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                             |
+| --sql-statement    | SQL statement that returns a string.                                                                                                                                                                  |
+| --key-column       | Key column (must be one of the selected field). NOT mandatory if you select only one field                                                                                                            |
+| --value-column     | Value column (must be one of the selected field). MANDATORY                                                                                                                                           |
+| --printf-format    | Specify a custom output message relying on printf formatting. If this option is set --printf-value is mandatory.                                                                                      |
+| --printf-value     | Specify variable used to replace in printf. If this option is set --printf-format is mandatory. Can be: %\{key\_field\} (default value) or %\{value\_field\}                                          |
+| --warning-string   | Define the conditions to match for the status to be WARNING (can be %\{key\_field\}, %\{value\_field\}). Example: --warning-string '%\{key\_field\} eq 'Central' && %\{value\_field\} =~ /127.0.0.1/' |
+| --critical-string  | Define the conditions to match for the status to be CRITICAL (can be %\{key\_field\} or %\{value\_field\})                                                                                            |
+| --dual-table       | Set this option to ensure compatibility with dual table and Oracle.                                                                                                                                   |
+| --empty-sql-string | Set this option to change the output message when the sql statement result is empty. (default: 'No row returned or --key-column/--value-column do not correctly match selected field')                |
 
 </TabItem>
 <TabItem value="Tablespace-Usage-Global" label="Tablespace-Usage-Global">
 
-| Option                | Description                                 |
-|:----------------------|:--------------------------------------------|
-| --warning-tablespace  | Warning threshold.                          |
-| --critical-tablespace | Critical threshold.                         |
-| --filter-tablespace   | Filter tablespace by name. Can be a regex   |
-| --units               | Default is '%', can be 'B'                  |
-| --free                | Perfdata show free space                    |
-| --notemp              | skip temporary or undo tablespaces.         |
-| --add-container       | Add tablespaces of container databases.     |
-| --skip                | Skip offline tablespaces.                   |
-
-</TabItem>
-<TabItem value="Tnsping" label="Tnsping">
-
-| Option | Description |
-|:-------|:------------|
+| Option                | Description                                                                                                               |
+|:----------------------|:--------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters     | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
+| --warning-tablespace  | Warning threshold.                                                                                                        |
+| --critical-tablespace | Critical threshold.                                                                                                       |
+| --filter-tablespace   | Filter tablespaces by name. Can be a regex                                                                                |
+| --units               | Default is '%', can be 'B'                                                                                                |
+| --free                | Perfdata show free space                                                                                                  |
+| --notemp              | skip temporary or undo tablespaces.                                                                                       |
+| --add-container       | Add tablespaces of container databases.                                                                                   |
+| --skip                | Skip offline tablespaces.                                                                                                 |
 
 </TabItem>
 </Tabs>

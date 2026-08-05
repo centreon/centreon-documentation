@@ -1,52 +1,81 @@
 ---
 id: applications-ericsson-enm-api
 title: Ericsson ENM API
+description: "Monitor Ericsson Network Manager via its REST API: node synchronization status, field replaceable units, and TDD cell status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Connector dependencies
 
-## Pack Assets
+The following monitoring connectors will be installed when you install the **Ericsson ENM API** connector through the
+**Configuration > Connectors > Monitoring Connectors** menu:
+* [Base Pack](./base-generic.md)
 
-### Monitored Objects
+## Pack assets
 
-The Pack Ericsson ENM collects metrics for:
-* Nodes
+### Templates
 
-### Discovery rules
+The Monitoring Connector **Ericsson ENM API** brings a host template:
+
+* **App-Ericsson-Enm-Api-custom**
+
+The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="Hosts" label="Hosts">
+<TabItem value="App-Ericsson-Enm-Api-custom" label="App-Ericsson-Enm-Api-custom">
 
-The Centreon Pack *Ericsson ENM API* includes a Host Discovery *provider* to automatically discover nodes 
-for a given Ericsson Network Manager.
+| Service Alias | Service Template                  | Service Description | Discovery  |
+|:--------------|:----------------------------------|:--------------------|:----------:|
+| Cache         | App-Ericsson-Enm-Cache-Api-custom | Create cache files  |            |
+| Nodes         | App-Ericsson-Enm-Nodes-Api-custom | Check nodes         | X          |
 
-More information about the Host Discovery module is available in the Centreon documentation:
-[Host Discovery](/docs/monitoring/discovery/hosts-discovery)
+> The services listed above are created automatically when the **App-Ericsson-Enm-Api-custom** host template is used.
 
-</TabItem>
-<TabItem value="Services" label="Services">
-
-| Rule name                            | Description                                         |
-| :----------------------------------- | :-------------------------------------------------- |
-| App-Ericsson-Enm-Api-Node-Celltdd-Id | Discover cells tdd and monitor status               |
-| App-Ericsson-Enm-Api-Node-Fru-Id     | Discover field replaceable units and monitor status |
-| App-Ericsson-Enm-Api-Node-Id         | Discover nodes and monitor components (frus, cells) |
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 </Tabs>
 
-### Collected Metrics
+### Discovery rules
+
+#### Host discovery
+
+| Rule name       | Description                                |
+|:----------------|:-------------------------------------------|
+| Ericsson ENM    | Discover nodes from Ericsson ENM inventory |
+
+More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+#### Service discovery
+
+| Rule name                            | Description |
+|:-------------------------------------|:------------|
+| App-Ericsson-Enm-Api-Node-Celltdd-Id | Discover cells tdd and monitor status            |
+| App-Ericsson-Enm-Api-Node-Fru-Id     | Discover field replaceable units and monitor status            |
+| App-Ericsson-Enm-Api-Node-Id         | Discover nodes and monitor components (frus, cells)            |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+
+### Collected metrics & status
+
+Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
 
 <Tabs groupId="sync">
+<TabItem value="Cache" label="Cache">
+
+No metrics.
+
+</TabItem>
 <TabItem value="Nodes" label="Nodes">
 
-| Metric name                 | Description                                  | Unit  |
-| :-------------------------- | :------------------------------------------- | :---- |
-| nodes.total.count           | Number of nodes                              |       |
-| node synchronization status | Current synchronization status of the node   |       |
-| fru status                  | Current status of the field replaceable unit |       |
-| cell tdd status             | Current status of the cell tdd               |       |
+| Name              | Unit  |
+|:------------------|:------|
+| nodes.total.count | count |
+| node-sync-status  | N/A   |
+| fru-status        | N/A   |
+| cell-tdd-status   | N/A   |
 
 </TabItem>
 </Tabs>
@@ -56,74 +85,187 @@ More information about the Host Discovery module is available in the Centreon do
 To control your Ericsson Network Manager, the Rest API must be configured.
 The pack supports only the authentication by username/password.
 
-## Setup
+## Installing the monitoring connector
+
+### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+
+1. If the platform uses an *online* license, you can skip the package installation
+instruction below as it is not required to have the connector displayed within the
+**Configuration > Connectors > Monitoring Connectors** menu.
+If the platform uses an *offline* license, install the package on the **central server**
+with the command corresponding to the operating system's package manager:
 
 <Tabs groupId="sync">
-<TabItem value="Online License" label="Online License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-yum install centreon-plugin-Applications-Ericsson-Enm-Api
+dnf install centreon-pack-applications-ericsson-enm-api
 ```
-
-2. On the Centreon Web interface in **Configuration > Connectors > Monitoring Connectors**, install the *Ericsson ENM API* Pack
 
 </TabItem>
-<TabItem value="Offline License" label="Offline License">
-
-1. Install the Centreon Plugin on every Poller:
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-yum install centreon-plugin-Applications-Ericsson-Enm-Api
+dnf install centreon-pack-applications-ericsson-enm-api
 ```
 
-2. On the Centreon Central server, install the Centreon Pack from the RPM:
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-pack-applications-ericsson-enm-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
 yum install centreon-pack-applications-ericsson-enm-api
 ```
 
-3. On the Centreon Web interface in **Configuration > Connectors > Monitoring Connectors**, install the *Ericsson ENM API* Pack
+</TabItem>
+</Tabs>
+
+2. Whatever the license type (*online* or *offline*), install the **Ericsson ENM API** connector through
+the **Configuration > Connectors > Monitoring Connectors** menu.
+
+### Plugin
+
+Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
+When this feature is enabled, you can skip the installation part below.
+
+You still have to manually install the plugin on the poller(s) when:
+- Automatic plugin installation is turned off
+- You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
+
+> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+
+Use the commands below according to your operating system's package manager:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install centreon-plugin-Applications-Ericsson-Enm-Api
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install centreon-plugin-Applications-Ericsson-Enm-Api
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install centreon-plugin-applications-ericsson-enm-api
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Ericsson-Enm-Api
+```
 
 </TabItem>
 </Tabs>
 
-## Host configuration
+## Using the monitoring connector
 
-* Add a new Host and apply the *App-Ericsson-Enm-Api-custom* Host Template
+### Using a host template provided by the connector
 
-> Once the template applied, some Macros have to be configured:
+1. Log into Centreon and add a new host through **Configuration > Hosts**.
+2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
+3. Apply the **App-Ericsson-Enm-Api-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+4. Fill in the macros you want. Some macros are mandatory.
 
-| Mandatory | Name                    | Description                                                                |
-| :-------- | :---------------------- | :------------------------------------------------------------------------- |
-| X         | ERICSSONENMAPIPORT      | Port used (Default: 443)                                                   |
-| X         | ERICSSONENMAPIPROTO     | Specify https if needed (Default: 'https')                                 |
-| X         | ERICSSONENMAPIUSERNAME  | Api username                                                               |
-| X         | ERICSSONENMAPIPASSWORD  | Api password                                                               |
-|           | ERICSSONENMEXTRAOPTIONS | Any extra option you may want to add to the command (eg. a --verbose flag) |
+| Macro                   | Description                                                                                          | Default value     | Mandatory   |
+|:------------------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| ERICSSONENMAPIUSERNAME  | API username                                                                                         |                   | X           |
+| ERICSSONENMAPIPASSWORD  | API password                                                                                         |                   | X           |
+| ERICSSONENMAPIPROTO     | Specify https if needed (default: 'https')                                                           | https             |             |
+| ERICSSONENMAPIPORT      | Port used (default: 443)                                                                             | 443               |             |
+| ERICSSONENMEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
-## How to test the Plugin and what are the main options for?
+5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
-Once the plugin installed, log into your Centreon Poller CLI using the *centreon-engine* user account
-and test the Plugin by running the following command (Parameters such as ```api-username``` or ```api-password```have to be adjusted):
+### Using a service template provided by the connector
+
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+
+<Tabs groupId="sync">
+<TabItem value="Cache" label="Cache">
+
+| Macro        | Description                                                                                        | Default value     | Mandatory   |
+|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+
+</TabItem>
+<TabItem value="Nodes" label="Nodes">
+
+| Macro                  | Description                                                                                                                                                                                                            | Default value                          | Mandatory   |
+|:-----------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------|:-----------:|
+| FILTERNODEID           | Filter nodes by ID (can be a regexp)                                                                                                                                                                                   |                                        |             |
+| EXCLUDENODEID          | Exclude nodes from the check if their ID matches the specified regular expression                                                                                                                                                                                                                       |                                        |             |
+| FILTERFRUID            | Filter field replaceable units by ID (can be a regexp)                                                                                                                                                                 |                                        |             |
+| EXCLUDEFRUID           | Exclude field replaceable units from the check if their ID matches the specified regular expression                                                                                                                                                                                                                       |                                        |             |
+| FILTERCELLTDDID        | Filter tdd cells by ID (can be a regexp)                                                                                                                                                                               |                                        |             |
+| EXCLUDECELLTDDID       | Exclude TDD cells from the check if their ID matches the specified regular expression                                                                                                                                                                                                                       |                                        |             |
+| WARNINGCELLTDDSTATUS   | Set warning threshold for cell tdd status. You can use the following variables: %\{node\_id\}, %\{cell\_tdd\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\}          |                                        |             |
+| CRITICALCELLTDDSTATUS  | Set critical threshold for cell tdd status. You can use the following variables: %\{node\_id\}, %\{cell\_tdd\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\}         |                                        |             |
+| WARNINGFRUSTATUS       | Set warning threshold for field replaceable unit status. You can use the following variables: %\{node\_id\}, %\{fru\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\}  |                                        |             |
+| CRITICALFRUSTATUS      | Set critical threshold for field replaceable unit status. You can use the following variables: %\{node\_id\}, %\{fru\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\} |                                        |             |
+| WARNINGNODESTOTAL      | Threshold                                                                                                                                                                                                              |                                        |             |
+| CRITICALNODESTOTAL     | Threshold                                                                                                                                                                                                              |                                        |             |
+| CRITICALNODESYNCSTATUS | Set critical threshold for synchronization status (default: '%\{sync\_status\} =~ /unsynchronized/i'). You can use the following variables: %\{node\_id\}, %\{sync\_status\}                                           | %\{sync\_status\} =~ /unsynchronized/i |             |
+| WARNINGNODESYNCSTATUS  | Set warning threshold for synchronization status. You can use the following variables: %\{node\_id\}, %\{sync\_status\}                                                                                                |                                        |             |
+| EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                     | --verbose --cache-use                  |             |
+
+</TabItem>
+</Tabs>
+
+3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+
+## How to check in the CLI that the configuration is OK and what are the main options for?
+
+Once the plugin is installed, log into your Centreon poller's CLI using the
+**centreon-engine** user account (`su - centreon-engine`). Test that the connector
+is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ericsson_enm_api.pl \
-    --plugin=apps::ericsson::enm::api::plugin \
-    --mode=nodes \
-    --hostname='10.30.2.79' \
-    --port='443' \
-    --proto='https' \
-    --http-backend='curl' \
-    --insecure \
-    --api-username='myapiusername' \
-    --api-password='myapipassword' \
-    --filter-node-id='ORA01200E_02' \
-    --verbose
+	--plugin=apps::ericsson::enm::api::plugin \
+	--mode=nodes \
+	--hostname='10.0.0.1' \
+	--port='443' \
+	--proto='https' \
+	--api-username='xxxxxxx' \
+	--api-password='xxxxxxx'  \
+	--filter-node-id='' \
+	--exclude-node-id='' \
+	--filter-fru-id='' \
+	--exclude-fru-id='' \
+	--filter-cell-tdd-id='' \
+	--exclude-cell-tdd-id='' \
+	--warning-node-sync-status='' \
+	--critical-node-sync-status='%\{sync\_status\} =~ /unsynchronized/i' \
+	--warning-nodes-total='' \
+	--critical-nodes-total='' \
+	--warning-cell-tdd-status='' \
+	--critical-cell-tdd-status='' \
+	--warning-fru-status='' \
+	--critical-fru-status='' \
+	--verbose \
+	--cache-use
 ```
 
-Expected command output is shown below:
+The expected command output is shown below:
 
 ```bash
 OK: Node 'ORA01200E_02' synchronization status: synchronized - All field replaceable units are ok - All tdd cells are ok | 'nodes.total.count'=1;;;0;
@@ -163,24 +305,76 @@ checking node 'ORA01200E_02'
     tdd cell 'ORA4054_11' [label: ORA-Metro-T2F80_0] operational state: enabled, admin state: unlocked
     tdd cell 'ORA4054_12' [label: ORA-Metro-T2F80-RDS_150] operational state: enabled, admin state: unlocked
     tdd cell 'ORA4056_11' [label: ORA-Metro-T2F68_270] operational state: enabled, admin state: unlocked
+
 ```
 
-The command above monitors nodes (```--mode=nodes```).
+### Troubleshooting
 
-It uses api-username (```--api-username='myapiusername'```), an api-password (```--api-password='myapipassword'```)
-and it connects to the host _10.30.2.79_ (```--hostname='10.30.2.79'```)
-on the port 215 (```--port='443'```) using https (```--proto='https'```).
+Please find the troubleshooting documentation for the API-based plugins in
+this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
 
-All the options as well as all the available thresholds can be displayed by adding the  ```--help```
-parameter to the command:
+### Available modes
+
+In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
+In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
+However, you will need to specify the correct mode for the template if you want to test the execution command for the
+connector in your terminal.
+
+All available modes can be displayed by adding the `--list-mode` parameter to
+the command:
 
 ```bash
 /usr/lib/centreon/plugins/centreon_ericsson_enm_api.pl \
-    --plugin=apps::ericsson::enm::api::plugin \
-    --mode=nodes \
-    --help
+	--plugin=apps::ericsson::enm::api::plugin \
+	--list-mode
 ```
 
-## Troubleshooting
+The plugin brings the following modes:
 
-[Troubleshooting plugins](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks)
+| Mode                                                                                                                                      | Linked service template           |
+|:------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------|
+| cache [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/ericsson/enm/api/mode/cache.pm)]                         | App-Ericsson-Enm-Cache-Api-custom |
+| discovery [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/ericsson/enm/api/mode/discovery.pm)]                 | Used for host discovery           |
+| list-nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/ericsson/enm/api/mode/listnodes.pm)]                | Used for service discovery        |
+| list-nodes-celltdd [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/ericsson/enm/api/mode/listnodescelltdd.pm)] | Used for service discovery        |
+| list-nodes-fru [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/ericsson/enm/api/mode/listnodesfru.pm)]         | Used for service discovery        |
+| nodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/ericsson/enm/api/mode/nodes.pm)]                         | App-Ericsson-Enm-Nodes-Api-custom |
+
+### Available options
+
+#### Modes options
+
+All available options for each service template are listed below:
+
+<Tabs groupId="sync">
+<TabItem value="Nodes" label="Nodes">
+
+| Option                      | Description                                                                                                                                                                                                                |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --filter-counters           |   Only display some counters (regexp can be used). Example: --filter-counters='total'                                                                                                                                      |
+| --filter-node-id            |   Filter nodes by ID (can be a regexp).                                                                                                                                                                                    |
+| --filter-fru-id             |   Filter field replaceable units by ID (can be a regexp).                                                                                                                                                                  |
+| --filter-cell-tdd-id        |   Filter tdd cells by ID (can be a regexp).                                                                                                                                                                                |
+| --unknown-node-sync-status  |   Set unknown threshold for synchronization status. You can use the following variables: %\{node\_id\}, %\{sync\_status\}                                                                                                  |
+| --warning-node-sync-status  |   Set warning threshold for synchronization status. You can use the following variables: %\{node\_id\}, %\{sync\_status\}                                                                                                  |
+| --critical-node-sync-status |   Set critical threshold for synchronization status (default: '%\{sync\_status\} =~ /unsynchronized/i'). You can use the following variables: %\{node\_id\}, %\{sync\_status\}                                             |
+| --unknown-fru-status        |   Set unknown threshold for field replaceable unit status. You can use the following variables: %\{node\_id\}, %\{fru\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\}    |
+| --warning-fru-status        |   Set warning threshold for field replaceable unit status. You can use the following variables: %\{node\_id\}, %\{fru\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\}    |
+| --critical-fru-status       |   Set critical threshold for field replaceable unit status. You can use the following variables: %\{node\_id\}, %\{fru\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\}   |
+| --unknown-cell-tdd-status   |   Set unknown threshold for cell tdd status. You can use the following variables: %\{node\_id\}, %\{cell\_tdd\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\}            |
+| --warning-cell-tdd-status   |   Set warning threshold for cell tdd status. You can use the following variables: %\{node\_id\}, %\{cell\_tdd\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\}            |
+| --critical-cell-tdd-status  |   Set critical threshold for cell tdd status. You can use the following variables: %\{node\_id\}, %\{cell\_tdd\_id\}, %\{label\}, %\{administrative\_state\}, %\{availability\_status\}, %\{operational\_state\}           |
+| --warning-* --critical-*    |   Thresholds. Can be: 'nodes-total'.                                                                                                                                                                                       |
+
+</TabItem>
+</Tabs>
+
+All available options for a given mode can be displayed by adding the
+`--help` parameter to the command:
+
+```bash
+/usr/lib/centreon/plugins/centreon_ericsson_enm_api.pl \
+	--plugin=apps::ericsson::enm::api::plugin \
+	--mode=nodes \
+	--help
+```

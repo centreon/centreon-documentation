@@ -1,6 +1,7 @@
 ---
 id: virtualization-vmware2-esx
 title: VMware ESX
+description: "Monitor VMware ESX hosts via the vCenter API: CPU, memory, health, storage, datastores, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -38,21 +39,21 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias          | Service Template                                   | Service Description                                                              | Discovery  |
-|:-----------------------|:---------------------------------------------------|:---------------------------------------------------------------------------------|:----------:|
-| Datastore-Io           | Virt-VMWare2-Datastore-Io-Generic-custom           | Check datastore usage in Kbps                                                    |            |
-| Datastore-Iops         | Virt-VMWare2-Datastore-Iops-Generic-custom         | Check average IOPs of a datastore                                                |            |
-| Datastore-Snapshots    | Virt-VMWare2-Datastore-Snapshots-Generic-custom    | Check snapshots usage on a datastore                                             |            |
-| Datastore-Usage        | Virt-VMWare2-Datastore-Usage-Generic-custom        | Check datastore usage                                                            |            |
-| Datastore-Vm-Count     | Virt-VMWare2-Datastore-Vm-Count-Generic-custom     | Check virtual machines running/off/suspended on a datastore                      |            |
-| ESX-Alarms             | Virt-VMWare2-ESX-Alarms-Generic-custom             | Check alarms of an ESX host                                                      |            |
-| Esx-Datastores-Latency | Virt-VMWare2-ESX-Datastores-Latency-Generic-custom | Check Datastores latency of an ESX Server                                        | X          |
-| Esx-Service            | Virt-VMWare2-ESX-Service-Generic-custom            | Check services of an ESX Server                                                  |            |
-| Esx-Storage            | Virt-VMWare2-ESX-Storage-Generic-custom            | Check ESX storage informations                                                   |            |
-| Esx-Time               | Virt-VMWare2-ESX-Time-Generic-custom               | Check time of an ESX Server                                                      |            |
-| Esx-Traffic            | Virt-VMWare2-ESX-Traffic-Generic-custom            | Check traffic usages of a physical network interfaces. Thresholds are in percent | X          |
-| Esx-Uptime             | Virt-VMWare2-ESX-Uptime-Generic-custom             | Get uptime in days of an ESX Server                                              |            |
-| Esx-is-Maintenance     | Virt-VMWare2-ESX-Maintenance-Generic-custom        | Check maintenance mode of an ESX Server                                          |            |
+| Service Alias          | Service Template                                   | Service Description                                                              | Discovery |
+|:-----------------------|:---------------------------------------------------|:---------------------------------------------------------------------------------|:---------:|
+| Datastore-Io           | Virt-VMWare2-Datastore-Io-Generic-custom           | Check datastore usage in Kbps                                                    |           |
+| Datastore-Iops         | Virt-VMWare2-Datastore-Iops-Generic-custom         | Check average IOPs of a datastore                                                |           |
+| Datastore-Snapshots    | Virt-VMWare2-Datastore-Snapshots-Generic-custom    | Check snapshots usage on a datastore                                             |           |
+| Datastore-Usage        | Virt-VMWare2-Datastore-Usage-Generic-custom        | Check datastore usage                                                            |           |
+| Datastore-Vm-Count     | Virt-VMWare2-Datastore-Vm-Count-Generic-custom     | Check virtual machines running/off/suspended on a datastore                      |           |
+| ESX-Alarms             | Virt-VMWare2-ESX-Alarms-Generic-custom             | Check alarms of an ESX host                                                      |           |
+| Esx-Datastores-Latency | Virt-VMWare2-ESX-Datastores-Latency-Generic-custom | Check Datastores latency of an ESX Server                                        |     X     |
+| Esx-Service            | Virt-VMWare2-ESX-Service-Generic-custom            | Check services of an ESX Server                                                  |           |
+| Esx-Storage            | Virt-VMWare2-ESX-Storage-Generic-custom            | Check ESX storage informations                                                   |           |
+| Esx-Time               | Virt-VMWare2-ESX-Time-Generic-custom               | Check time of an ESX Server                                                      |           |
+| Esx-Traffic            | Virt-VMWare2-ESX-Traffic-Generic-custom            | Check traffic usages of a physical network interfaces. Thresholds are in percent |     X     |
+| Esx-Uptime             | Virt-VMWare2-ESX-Uptime-Generic-custom             | Get uptime in days of an ESX Server                                              |           |
+| Esx-is-Maintenance     | Virt-VMWare2-ESX-Maintenance-Generic-custom        | Check maintenance mode of an ESX Server                                          |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -75,7 +76,7 @@ More information about discovering hosts automatically is available on the [dedi
 
 | Rule name                                | Description                                                   |
 |:-----------------------------------------|:--------------------------------------------------------------|
-| Virt-VMWare2-Esx-Datastores-Latency-Name |                                                               |
+| Virt-VMWare2-Esx-Datastores-Latency-Name | Discover Datastores and monitor latency of an ESX Server      |
 | Virt-VMWare2-Esx-Nics-Traffic-Name       | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
@@ -88,7 +89,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Datastore-Io" label="Datastore-Io">
 
-| Metric name                                      | Unit  |
+| Name                                             | Unit  |
 |:-------------------------------------------------|:------|
 | datastore.read.usage.bytespersecond              | B/s   |
 | datastore.write.usage.bytespersecond             | B/s   |
@@ -101,7 +102,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datastore-Iops" label="Datastore-Iops">
 
-| Metric name                                    | Unit  |
+| Name                                           | Unit  |
 |:-----------------------------------------------|:------|
 | datastores.read.usage.iops                     | iops  |
 | datastores.write.usage.iops                    | iops  |
@@ -116,7 +117,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datastore-Snapshots" label="Datastore-Snapshots">
 
-| Metric name                                        | Unit  |
+| Name                                               | Unit  |
 |:---------------------------------------------------|:------|
 | *datastore*~status                                 | N/A   |
 | *datastore*~datastore.snapshots.usage.bytes        | B     |
@@ -127,7 +128,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datastore-Usage" label="Datastore-Usage">
 
-| Metric name                                   | Unit  |
+| Name                                          | Unit  |
 |:----------------------------------------------|:------|
 | *datastore*#status                            | N/A   |
 | *datastore*#datastore.space.usage.bytes       | B     |
@@ -140,7 +141,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Datastore-Vm-Count" label="Datastore-Vm-Count">
 
-| Metric name                                       | Unit  |
+| Name                                              | Unit  |
 |:--------------------------------------------------|:------|
 | datastore.vm.poweredon.current.count              | count |
 | datastore.vm.poweredoff.current.count             | count |
@@ -155,7 +156,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="ESX-Alarms" label="ESX-Alarms">
 
-| Metric name                        | Unit  |
+| Name                               | Unit  |
 |:-----------------------------------|:------|
 | host.alarms.warning.current.count  | count |
 | host.alarms.critical.current.count | count |
@@ -168,7 +169,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Cpu" label="Esx-Cpu">
 
-| Metric name                                       | Unit  |
+| Name                                              | Unit  |
 |:--------------------------------------------------|:------|
 | *host*~status                                     | N/A   |
 | *host*~host.cpu.utilization.percentage            | %     |
@@ -180,7 +181,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Datastores-Latency" label="Esx-Datastores-Latency">
 
-| Metric name                                                  | Unit  |
+| Name                                                         | Unit  |
 |:-------------------------------------------------------------|:------|
 | *host*~status                                                | N/A   |
 | *host*~*datastore*#host.datastore.latency.read.milliseconds  | ms    |
@@ -191,7 +192,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Health" label="Esx-Health">
 
-| Metric name                                           | Unit  |
+| Name                                                  | Unit  |
 |:------------------------------------------------------|:------|
 | host.health.problems.current.count                    | count |
 | *host*~status                                         | N/A   |
@@ -208,7 +209,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Memory" label="Esx-Memory">
 
-| Metric name                       | Unit  |
+| Name                              | Unit  |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.memory.usage.bytes    | B     |
@@ -220,7 +221,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Service" label="Esx-Service">
 
-| Metric name                     | Unit  |
+| Name                            | Unit  |
 |:--------------------------------|:------|
 | *host*~status                   | N/A   |
 | *host*~*service*#service-status | N/A   |
@@ -230,7 +231,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Status" label="Esx-Status">
 
-| Metric name           | Unit  |
+| Name                  | Unit  |
 |:----------------------|:------|
 | *host*#status         | N/A   |
 | *host*#overall-status | N/A   |
@@ -240,7 +241,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Storage" label="Esx-Storage">
 
-| Metric name                        | Unit  |
+| Name                               | Unit  |
 |:-----------------------------------|:------|
 | *host*~status                      | N/A   |
 | *host*~host.adapters.total.count   | count |
@@ -268,7 +269,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Swap" label="Esx-Swap">
 
-| Metric name                               | Unit  |
+| Name                                      | Unit  |
 |:------------------------------------------|:------|
 | *host*#status                             | N/A   |
 | *host*#host.swap.in.usage.bytespersecond  | B/s   |
@@ -279,7 +280,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Time" label="Esx-Time">
 
-| Metric name                     | Unit  |
+| Name                            | Unit  |
 |:--------------------------------|:------|
 | *host*#status                   | N/A   |
 | *host*#host.time.offset.seconds | s     |
@@ -289,7 +290,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Traffic" label="Esx-Traffic">
 
-| Metric name                                              | Unit  |
+| Name                                                     | Unit  |
 |:---------------------------------------------------------|:------|
 | *host*~status                                            | N/A   |
 | *host*~host.traffic.in.bitsperseconds                    | b/s   |
@@ -307,7 +308,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Uptime" label="Esx-Uptime">
 
-| Metric name                       | Unit  |
+| Name                              | Unit  |
 |:----------------------------------|:------|
 | *host*#status                     | N/A   |
 | *host*#host.uptime.offset.seconds | s     |
@@ -317,7 +318,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-Vm-Count" label="Esx-Vm-Count">
 
-| Metric name                             | Unit  |
+| Name                                    | Unit  |
 |:----------------------------------------|:------|
 | host.vm.poweredon.current.count         | count |
 | host.vm.poweredoff.current.count        | count |
@@ -332,7 +333,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Esx-is-Maintenance" label="Esx-is-Maintenance">
 
-| Metric name               | Unit  |
+| Name                      | Unit  |
 |:--------------------------|:------|
 | *host*#status             | N/A   |
 | *host*#maintenance-status | N/A   |
@@ -373,7 +374,7 @@ apt -y install patch make unzip centreon-plugin-virtualization-vmware-daemon
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -398,14 +399,14 @@ make pure_install
 - Install the package with necessary tools
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Install the SDK
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 
 perl Makefile.PL
@@ -418,14 +419,14 @@ make pure_install
 - Install the package with necessary tools
 
 ```bash
-dnf install -y patch make unzip centreon-plugin-Virtualization-VMWare-daemon
+dnf install -y patch make unzip 'perl(ExtUtils::MakeMaker)' centreon-plugin-Virtualization-VMWare-daemon
 ```
 
 - Install the SDK
 
 ```bash
 cd /tmp
-tar zxf VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz
+tar zxf VMware-vSphere-Perl-SDK-*.tar.gz
 cd vmware-vsphere-cli-distrib
 patch --backup lib/VMware/share/VMware/VICommon.pm <<'EOF'
 --- lib/VMware/share/VMware/VICommon.pm	2025-04-24 17:18:24.938290503 +0200
@@ -642,13 +643,13 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 3. Apply the **Virt-VMWare2-ESX-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                      | Description                                                                                           | Default value     | Mandatory   |
-|:---------------------------|:------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| CENTREONVMWAREPORT         | Port of the daemon (default: 5700)                                                                        | 5700              |             |
-| CENTREONVMWARECONTAINER    | Container to use (it depends on the daemon's configuration)                                          | default           |              |
-| CENTREONVMWAREHOST         | Hostname of the server on which the daemon is installed (required)                                                                        | localhost         | X            |
-| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                   |                   |             |
-| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |                   |             |
+| Macro                      | Description                                                                                                                      | Default value | Mandatory |
+|:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| CENTREONVMWAREPORT         | Port of the daemon (default: 5700)                                                                                               | 5700          |           |
+| CENTREONVMWARECONTAINER    | Container to use (it depends on the daemon's configuration)                                                                      | default       |           |
+| CENTREONVMWAREHOST         | Hostname of the server on which the daemon is installed (required)                                                               | localhost     |     X     |
+| ESXNAME                    | Hostnames of the ESX to monitor. If not set, we check all ESX                                                                    | .*            |     X     |
+| CENTREONVMWAREEXTRAOPTIONS | Any extra option you may want to add to every command (e.g. a --verbose flag). All options are listed [here](#available-options) |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -1147,7 +1148,7 @@ All generic options are listed here:
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix). Eg: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --change-perfdata --extend-perfdata        | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[newuom\],\[min\],\[m ax\]\]  Common examples:      Convert storage free perfdata into used:     --change-perfdata=free,used,invert()      Convert storage free perfdata into used:     --change-perfdata=used,free,invert()      Scale traffic values automatically:     --change-perfdata=traffic,,scale(auto)      Scale traffic values in Mbps:     --change-perfdata=traffic\_in,,scale(Mbps),mbps      Change traffic values in percent:     --change-perfdata=traffic\_in,,percent()                                                                                                                                                                                                                                                                                                                                                                          |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,namesofnewmetrics,calculation\[,\[ne wuom\],\[min\],\[max\]\] regex: regular expression namesofnewmetrics: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated newuom (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:      Sum wrong packets from all interfaces (with interface need     --units-errors=absolute):     --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard     \|error)\_(in\|out))'      Sum traffic by interface:     --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traf     fic\_(in\|out)\_$1)'   |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --filter-uom                               | Mask the units when they don't match the given regular expression.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |

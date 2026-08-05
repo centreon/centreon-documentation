@@ -1,6 +1,7 @@
 ---
 id: application-virtualization-vmware8-esx-restapi
 title: VMware8 ESX REST API
+description: "Supervisez les serveurs physiques VMware ESX 8 via l'API REST vCenter : CPU, mémoire, E/S disque, réseau, alimentation et swap."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -65,6 +66,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | cpu.capacity.demand.hertz          | Hz    |
 | cpu.corecount.usage.count          | count |
 
+
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
@@ -73,6 +75,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | disk.throughput.usage.bytespersecond    | Bps   |
 | disk.throughput.contention.milliseconds | ms    |
 
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
@@ -80,6 +83,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:----------------------------|:------|
 | vms.memory.usage.percentage | %     |
 | vms.memory.usage.bytes      | B     |
+
 
 </TabItem>
 <TabItem value="Network-Throughput" label="Network-Throughput">
@@ -90,12 +94,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | network.throughput.usage.percent        | %     |
 | network.throughput.contention.count     | count |
 
+
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Nom                        | Unité |
-|:---------------------------|:------|
-| power.capacity.usage.watts | W     |
+| Nom                       | Unité |
+|:--------------------------|:------|
+| power.capacity.usage.watt | W     |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -116,6 +121,8 @@ Pour pouvoir utiliser ce connecteur, il faut disposer d'un compte utilisateur po
 de version au moins égale à 8 et disposant des privilèges suivants :
 - Collecter les données statistiques
 - Interroger les données statistiques
+
+Ces privilèges sont inclus dans le rôle super admin de VMware.
 
 NB: Ce connecteur n'a été testé qu'avec une authentification de type `Basic` (de la forme `user@vsphere.local`).
 
@@ -219,7 +226,6 @@ collecteur.
 openssl s_client -connect myvcenter.mydomain.tld:443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > /usr/local/share/ca-certificates/my_vcenter.crt
 update-ca-certificates
 ```
-
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
@@ -320,11 +326,11 @@ update-ca-trust
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Macro              | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGEWATTS  | Threshold in Watts                                                                                 |                   |             |
-| CRITICALUSAGEWATTS | Threshold in Watts                                                                                 |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
+|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGEWATT  | Threshold in Watts                                                                                 |                   |             |
+| CRITICALUSAGEWATT | Threshold in Watts                                                                                 |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
@@ -364,14 +370,14 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--esx-id='host-18' \
 	--username='USERNAME' \
 	--password='PASSWORD'  \
-	--warning-usage-watts='' \
-	--critical-usage-watts='' 
+	--warning-usage-watt='' \
+	--critical-usage-watt='' 
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Power usage is 219 Watts | 'power.capacity.usage.watts'=219W;;;;
+OK: Power usage is 219 Watts | 'power.capacity.usage.watt'=219W;;;;
 
 ```
 
@@ -435,9 +441,9 @@ Les options génériques sont listées ci-dessous :
 | --change-perfdata                          | Change or extend perfdata. Syntax: `--extend-perfdata=searchlabel,newlabel,target[,[<new-unit-of-mesure>],[min],[max]]`. Common examples: Convert storage free perfdata into used: `--change-perfdata='free,used,invert()'`. Convert storage free perfdata into used: `--change-perfdata='used,free,invert()'`. Scale traffic values automatically: `--change-perfdata='traffic,,scale(auto)'`. Scale traffic values in Mbps: `--change-perfdata='traffic_in,,scale(Mbps),mbps'`. Change traffic values in percent: `--change-perfdata='traffic_in,,percent()'`.                                                                                                                                                                                                                                                           |
 | --extend-perfdata                          | Change or extend perfdata. Syntax: `--extend-perfdata=searchlabel,newlabel,target[,[<new-unit-of-mesure>],[min],[max]]`. Common examples: Convert storage free perfdata into used: `--change-perfdata='free,used,invert()'`. Convert storage free perfdata into used: `--change-perfdata='used,free,invert()'`. Scale traffic values automatically: `--change-perfdata='traffic,,scale(auto)'`. Scale traffic values in Mbps: `--change-perfdata='traffic_in,,scale(Mbps),mbps'`. Change traffic values in percent: `--change-perfdata='traffic_in,,percent()'`.                                                                                                                                                                                                                                                           |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: `--extend-perfdata-group=regex,<names-of-new-metrics>,calculation[,[<new-unit-of-mesure>],[min],[max]]` regex: regular expression `<names-of-new-metrics>`: how the new metrics' names are composed (can use `$1`, `$2`... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated `<new-unit-of-mesure>` (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples: Sum wrong packets from all interfaces (with interface need  --units-errors=absolute): `--extend-perfdata-group=',packets_wrong,sum(packets_(discard |error)_(in|out))'`. Sum traffic by interface: `--extend-perfdata-group='traffic_in_(.*),traffic_$1,sum(traffic_(in |out)_$1)'` |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --change-output-adv                        | Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will  change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -543,10 +549,10 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Power" label="Power">
 
-| Option                 | Description              |
-|:-----------------------|:-------------------------|
-| --warning-usage-watts  |   Threshold in Watts.    |
-| --critical-usage-watts |   Threshold in Watts.    |
+| Option                | Description              |
+|:----------------------|:-------------------------|
+| --warning-usage-watt  |   Threshold in Watts.    |
+| --critical-usage-watt |   Threshold in Watts.    |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">

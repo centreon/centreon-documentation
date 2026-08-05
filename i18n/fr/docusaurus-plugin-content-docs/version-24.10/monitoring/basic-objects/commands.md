@@ -1,6 +1,7 @@
 ---
 id: commands
 title: Les commandes
+description: "Configurer les commandes, listes blanches et connecteurs utilisés pour les contrôles de supervision"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -71,6 +72,90 @@ $CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode
 
 > La bonne pratique veut que nous remplacions les arguments par des
 *[macros personnalisées](macros.md#les-macros-personnalisées)*.
+
+
+## Liste blanche de commandes
+
+Pour des raisons de sécurité, vous pouvez vouloir restreindre les commandes pouvant être exécutées par un Collecteur et/ou un Agent CMA. 
+Vous devez, pour cela, créer un fichier de liste blanche sur le Collecteur, et renseigner les commandes autorisées.
+En l'absence de ce fichier, toutes les commandes sont autorisées.
+
+### Ajouter une commande à la liste blanche
+
+1. Connectez-vous en **root** au collecteur qui exécutera la commande.
+2. Éditez (ou créez) le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de listes blanches que vous souhaitez dans ce répertoire.)
+3. Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
+
+   ```yaml
+   chown root:centreon-engine /etc/centreon-engine-whitelist/my-whitelist.yml
+   chmod 0640 /etc/centreon-engine-whitelist/my-whitelist.yml
+   chown root:centreon-engine /etc/centreon-engine-whitelist
+   chmod 750 /etc/centreon-engine-whitelist
+   ```
+   
+4. Utilisez une regex pour définir les commandes autorisées. Exemple : 
+
+  ```yaml /etc/centreon-engine-whitelist/my_whitelist.yml
+  ```
+  ```text
+  whitelist:
+      regex:
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+		 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+         - \/opt\/my_plugins\/my_custom_plugin\.py .*
+  cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  ```
+   
+Le bloc "whitelist" définit les commandes pouvant être exécutées par le Collecteur.
+
+> les deux premières lignes doivent toujours être présentes dans le bloc "whitelist", elles correspondent aux commandes Centreon.
+
+Le bloc "cma-whitelist" définit les commandes pouvant être exécutées par l'agent CMA.
+
+Dans le bloc "cma-whitelist", vous pouvez au besoin spécifier des liste blanches par hôte, la syntaxe sera : 
+
+
+```text
+whitelist:
+  regex:
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.*
+	 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
+	 - \/opt\/my_plugins\/my_custom_plugin\.py .*
+cma-whitelist:
+  default:
+    regex:
+      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
+      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
+      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
+      - ^\{\s*"check":".*\}$
+      - \/usr\/bin\/echo\s+Host\s+alive
+      - cmd\.exe\s+\/C\s+echo\s+.*
+  hosts:
+    - hostname:Host_1
+    regex:
+      - ...
+      
+    - hostname:Host_2
+    regex:
+      - ...
+```
+
+
+Utilisez `.*` afin d'inclure tous les arguments dans la regex.
+Le `.*` à la fin de la regex lui permet de gérer tout argument qu'elle contiendrait. Attention, le format doit être strictement identique à celui ci-dessus (cela inclut les indentations).
+
+
+> Si vous n'avez pas autorisé votre commande dans la liste blanche du collecteur, cela vous sera signalé dans la colonne **Informations** de la page **Statut des ressources**.
+
+
 
 ## Les connecteurs
 

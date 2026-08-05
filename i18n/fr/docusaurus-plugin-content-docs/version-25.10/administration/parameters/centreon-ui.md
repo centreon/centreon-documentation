@@ -1,6 +1,7 @@
 ---
 id: centreon-ui
 title: Centreon UI
+description: "Configurer les options générales de l'interface web et du proxy"
 ---
 
 ### Options générales
@@ -61,7 +62,7 @@ La configuraiton du proxy est nécessaire pour bénéficier de l'offre Centreon 
 
 Renseigner les différents champs:
 
-- **URL du proxy web**
+- **URL du proxy web** (l'URL doit inclure le protocole, http:// ou https://)
 - **Port d'accès au proxy internet**
 - **Proxy user**
 - **Proxy password**
