@@ -30,7 +30,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 
 #### Matériel
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="sizing" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
 | Élément                     | Valeur    |
@@ -128,7 +128,26 @@ Votre serveur MAP doit être partitionné de la manière suivante :
 | vg_data |   | Espace libre (non alloué) | 2 Go                              |
 
 </TabItem>
-<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
+<TabItem value="Jusqu'à 20 000 hôtes" label="Jusqu'à 20 000 hôtes">
+
+| Élément | Valeur |
+| ------- | ------ |
+| CPU     | 8 vCPU |
+| RAM     | 18 Go  |
+
+Voici comment votre serveur MAP doit être partitionné :
+
+| Groupe de volumes (LVM) | Partition | Description                         | Taille |
+| ----------------------- | ------------------- | ----------------------------------- | ------ |
+|                         | /boot               | images de boot                 | 2 Go   |
+| vg_root                 | /                   | racine du système                   | 20 Go  |
+| vg_root                 | swap                | swap             | 8 Go   |
+| vg_root                 | /var/log            | contient tous les fichiers de log | 10 Go  |
+| vg_data                 | /var/lib/mysql      | base de données                     | 5 Go   |
+| vg_data                 |                     | espace libre (non alloué)           | 2 Go   |
+
+</TabItem>
+<TabItem value="Plus de 20 000 hôtes" label="Plus de 20 000 hôtes">
 
 Pour de grosses volumétries de données, contactez votre commercial Centreon.
 
@@ -976,7 +995,7 @@ Vérifiez la configuration du serveur MAP Engine avec cette commande :
 /etc/centreon-map/diagnostic.sh
 ```
 
-> En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépannage de MAP](map-web-troubleshooting.md#exécuter-notre-outil-de-diagnostic).
+> En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépanner MAP](map-web-troubleshooting.md#exécuter-notre-outil-de-diagnostic).
 
 Si la configuration est correcte, le service **centreon-map-engine** peut être lancé à partir du serveur Centreon MAP (Legacy) :
 

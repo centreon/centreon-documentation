@@ -39,7 +39,7 @@ Les procédures suivantes permettent de gérer et d'utiliser Centreon MAP.
   - [Mettre à jour MAP](map-web-update.md) décrit la procédure de mise à jour de MAP.
   - [Gérer les droits d'accès dans MAP](map-web-manage.md) décrit les différents droits et permissions sur les cartes.
   - [Problèmes connus dans MAP](map-web-known-issues.md) est une liste d'incidents que vous pouvez rencontrer en utilisant MAP.
-  - [Dépannage de MAP](map-web-troubleshooting.md) vous aide à résoudre certains incidents survenant dans MAP.
+  - [Dépanner MAP](map-web-troubleshooting.md) vous aide à résoudre certains incidents survenant dans MAP.
 
 ### Utiliser MAP
   - [Gérer les cartes dans MAP](map-web-manage.md) vous donne des informations sur la manière de gérer des cartes à partir de l'interface Centreon MAP.
