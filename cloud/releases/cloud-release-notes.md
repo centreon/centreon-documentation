@@ -20,6 +20,51 @@ description: "Release notes for Centreon Cloud, detailing new features, improvem
 
 - The VMware additional configuration no longer restarts the `centreon_vmware` process on every configuration deployment. The process is now restarted only when its own configuration has actually changed, which removes collection interruptions previously triggered by unrelated configuration changes.
 
+<details>
+<summary>Bug fixes</summary>
+
+- [Resource Status] Fixed filtering with spaces around hyphens.
+- [Resource Status] Fixed an error when resources had a severity level above 100.
+- [Dashboards] Fixed an issue with the Single Metric widget that resulted in a 404 error when using metrics that contained slashes in their name.
+- [Graphs] Non-admin users can now export meta service performance graphs as CSV.
+- [Configuration] Fixed an issue where the '_' character no longer was a valid character in address definitions.
+- [Configuration] Fixed the incorrect Centreon Monitoring Agent install command for pollers that caused a 404 error.
+- [Configuration] The agent installation command no longer fails for pollers with empty certificate fields.
+- [Configuration] Restored the action allowing to copy the registration command of a poller from the Pollers page.
+- [Configuration] Fixed the empty service list when creating a Service Group, which prevented any service from being linked.
+- [Configuration] Global macros are now accessible to the Admin and Editor roles from the command creation page.
+- [API] Replaced an incorrect error message (The HTTP status code "10" is not valid) that was displayed when the database connection timed out.
+- [API] Fixed duplicate host templates being silently accepted by the service template API.
+- [Open Tickets] Fixed “Insufficient privileges” error when opening a ticket from a Custom View without notification rules access.
+- [Open Tickets] Fixed opened tickets being lost when a custom macro of the related service was modified and the configuration was deployed in reload mode.
+- [Open Tickets] Fixed the missing confirmation message when closing a ticket.
+
+</details>
+
+**Collect**
+
+The improvements below have been released on the collect components since the previous Centreon Cloud update. They do not come with this platform update: update your pollers and your Centreon Monitoring Agents to the latest available version to benefit from them.
+
+*Centreon Monitoring Agent (CMA)*
+
+- Check timeperiods are now honored on resources monitored by the Centreon Monitoring Agent. The **check period** configured on the host or the service is respected with the same semantics as checks scheduled by the Centreon Engine: no check is executed outside the valid window, no performance data is collected and no status update is produced, and the next check is rescheduled on the next valid window. Freshness calculation excludes the inactive window, forced checks still run regardless of the timeperiod, and the timezone used is the one of the host where the agent is installed. This behavior is available on both Linux and Windows agents.
+- The Linux installation script of the agent now prepares the plugin cache directory required by several native checks, so that modes such as CPU, disk I/O, processes, traffic or packet errors work as expected right after installation.
+
+<details>
+<summary>Bug fixes</summary>
+
+- [CMA] Fixed the collection of the used swap value on Windows Server 2025.
+- [CMA] Fixed agent failing to start with hostnames with less than 5 characters.
+- [Engine] Fixed an issue where time period was only active on time range exception day.
+- [Engine] Fixed the '$' character being removed from check command arguments and from macro values.
+- [Broker] Fixed an issue when moving a host or a service, it might be removed from cache.
+- [Broker] Fixed cbd storing old connections that no longer exists.
+- [Broker] Fixed handle of empty response from mariadb in specific cases.
+- [Broker] Fixed a coredump caused by a dangling pointer when the cache file grows and relocates in memory.
+- [Poller] Fixed a bug where invalid data could crash the Autodiscovery module.
+
+</details>
+
 ### Centreon Pro Edition
 
 **Service Mapping**
@@ -37,6 +82,19 @@ The Business Activity configuration experience has been thoroughly reworked arou
 - Hover pop-ups in the Viewer are now positioned reliably next to the cursor. They no longer appear far above it at the bottom of the view, no longer overlap the cursor or get clipped by the edges of the container, and they follow the map when it is panned or zoomed. Firefox behavior, in particular, has been fixed.
 - Metric Link widget: meta-services can now be used as a data source. By combining one meta-service aggregating inbound metrics with another one aggregating outbound metrics, you can represent the cumulative traffic of a bidirectional network link and anticipate its saturation.
 
+<details>
+<summary>Bug fixes</summary>
+
+- [MAP] Fixed an issue where the fill color of resources could not be edited in the map editor.
+- [MAP] Fixed an issue where the fill option for images was not saved.
+- [MAP] Fixed the z-order of grouped elements not being kept after saving in the editor.
+- [MAP] Custom icons for Hostgroup and Business views are now correctly displayed in maps.
+- [MAP] Map names now use the correct case when displayed in dashboards.
+- [MAP] Fixed an API error message that appeared when credentials were incorrect.
+- [MAP] Fixed the endpoint for updating the role of ACL groups.
+- [BAM] Fixed dark mode not being applied to the Business Activities listing.
+
+</details>
 
 ## June 22nd, 2026
 
