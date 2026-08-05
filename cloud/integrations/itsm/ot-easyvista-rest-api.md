@@ -53,41 +53,7 @@ This open ticket connector can retrieve the following information from your Easy
 Every information sent to EasyVista comes from Centreon, except of assets. To be able to retrieve them, you will need to use the following syntax in the **Filter field** of the **Lists definition**. It must be set as follows: **search=field1:value1,field2:value2**. For more information please refer to the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/).
 
 ![architecture](../../assets/alerts/ticketing/easy-vista-rest/filters.png)
-
-## Installing the EasyVistaRest provider
-
-1. [Download](https://share.centreon.com/s/qypnoTgYfxHejaS) the **EasyVistaRest** folder into **/usr/share/centreon/www/modules/centreon-open-tickets/providers** on the central server, or a remote server.
-
-2. Edit the **/usr/share/centreon/www/modules/centreon-open-tickets/providers/register.php** file by adding a line for EasyVistaRest at the end, as follows:
-
-  ```shell
-  $register_providers['RequestTracker2'] = 12;
-  $register_providers['Itop'] = 13;
-  $register_providers['EasyVistaRest'] = 14;
-  ```
   
-## Configuring your EasyVista server
-
-You may need to configure your EasyVista server so that it can receive data from Centreon. Please refer to EasyVista's documentation. Make sure EasyVista is able to receive data sent by Centreon: flows must not be blocked by EasyVista's configuration or by a security equipment.
-
-## Configuring the connector in Centreon
-
-1. In Centreon, go to **Configuration > Notification > Rules** to configure Centreon Open Tickets. This opens the **Rules** form.
-
-2. Click **Add** and enter a new **Rule name** for EasyVistaRest.
-
-3. Select **EasyVistaRest** in the **Provider** list.
-
-### Set mandatory parameters
-
-You must enter the following parameters in the **Easyvista Rest Api** section:
-
-- **Address**: IP address of the EasyVista server you want to open tickets on.
-- **API path**
-- **Account**: user account to access the API.
-- **Bearer token or account password**: the use of an API token (Bearer token) is recommended but you still can set a standard authentication. If you set a **Bearer token**, refer to the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/?language=en#HProcedures).
-- **Use token**: enter **0** if you set a standard authentication.
-
 ### Add EasyVista custom fields
 
 EasyVista allows you to create custom fields for your ticket's form. Since they are not standard, Open Ticket will only allow you to manually configure them. This requires a specific syntax and actions. This section will guide you through this configuration.

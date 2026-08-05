@@ -17,8 +17,8 @@ cache. Loging out or waiting 10 hours will flush the cache.
 
 This integration is (at least) compatible with the following Itop versions:
 
-  - 1.4
-  - 1.3
+- 1.4
+- 1.3
 
 ## Feature information
 

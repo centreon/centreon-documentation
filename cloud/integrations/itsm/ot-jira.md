@@ -6,7 +6,7 @@ description: "Configure the Jira open-tickets provider that connects to Jira Clo
 
 ## How it works
 
-The Jira provider connects to your Itop server and retrieve data through the
+The Jira provider connects to your Jira server and retrieve data through the
 Jira REST API.
 
 ![architecture](../../assets/integrations/open-tickets/ot-jira-architecture.png)

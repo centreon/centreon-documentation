@@ -16,7 +16,7 @@ out or waiting 10 hours will flush the cache.
 ## Compatibility
 
 This integration is (at least) compatible with the following ServiceNow
-versions:
+versions and latest version of ServiceNow:
 
   - Madrid
   - London

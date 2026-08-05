@@ -16,13 +16,13 @@ puts them in cache. Loging out or waiting 10 hours will flush the cache.
 
 This connector is compatible with the following Glpi versions:
 
-  - 11
-  - 10
-  - 9.5
-  - 9.4
-  - 9.3
-  - 9.2
-  - 9.1 (Glpi REST API birth)
+- 11
+- 10
+- 9.5
+- 9.4
+- 9.3
+- 9.2
+- 9.1 (Glpi REST API birth)
 
 You can’t use this provider with Glpi < 9.1. From the 8.5 to 9.0 version, you
 should use the [old Glpi provider](ot-glpi.md) that uses the Glpi plugin called “webservice”.
@@ -114,7 +114,6 @@ curl --location 'https://<glpi_address>/<glpi_api_path>/initSession' \
 
 ```bash
 curl --location 'https://<glpi_address>/<glpi_api_path>/getMyEntities?is_recursive=1' \
---header 'Authorization: Bearer <authentication_token>' \
 --header 'Content-Type: application/json' \
 --header 'App-Token: <app_token>'  \
 --header 'Session-Token: <session_token>'
@@ -124,7 +123,6 @@ curl --location 'https://<glpi_address>/<glpi_api_path>/getMyEntities?is_recursi
 
 ```bash
 curl --location 'https://<glpi_address>/<glpi_api_path>/User' \
---header 'Authorization: Bearer <authentication_token>' \
 --header 'Content-Type: application/json' \
 --header 'App-Token: <app_token>'  \
 --header 'Session-Token: <session_token>'
@@ -134,7 +132,6 @@ curl --location 'https://<glpi_address>/<glpi_api_path>/User' \
 
 ```bash
 curl --location 'https://<glpi_address>/<glpi_api_path>/Group' \
---header 'Authorization: Bearer <authentication_token>' \
 --header 'Content-Type: application/json' \
 --header 'App-Token: <app_token>'  \
 --header 'Session-Token: <session_token>'
@@ -144,7 +141,6 @@ curl --location 'https://<glpi_address>/<glpi_api_path>/Group' \
 
 ```bash
 curl --location 'https://<glpi_address>/<glpi_api_path>/Supplier' \
---header 'Authorization: Bearer <authentication_token>' \
 --header 'Content-Type: application/json' \
 --header 'App-Token: <app_token>'  \
 --header 'Session-Token: <session_token>'
@@ -154,7 +150,6 @@ curl --location 'https://<glpi_address>/<glpi_api_path>/Supplier' \
 
 ```bash
 curl --location 'https://<glpi_address>/<glpi_api_path>/itilCategory' \
---header 'Authorization: Bearer <authentication_token>' \
 --header 'Content-Type: application/json' \
 --header 'App-Token: <app_token>'  \
 --header 'Session-Token: <session_token>'
@@ -181,7 +176,6 @@ curl --location 'https://<glpi_address>/<glpi_api_path>/Ticket' \
 
 ```bash
 curl -X PUT --location 'https://<glpi_address>/<glpi_api_path>/Ticket/<ticket_id>' \
---header 'Authorization: Bearer <authentication_token>' \
 --header 'Content-Type: application/json' \
 --header 'App-Token: <app_token>'  \
 --header 'Session-Token: <session_token>' \
