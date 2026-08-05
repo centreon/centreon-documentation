@@ -90,7 +90,7 @@ import TabItem from '@theme/TabItem';
 
 Description of software and linked users:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 | Software          | Service          | User             | Comment         |

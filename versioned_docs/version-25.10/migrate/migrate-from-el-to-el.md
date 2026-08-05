@@ -40,7 +40,7 @@ complete the installation process by connecting to the Centreon web interface.
 
 3. Perform software and system updates:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -166,7 +166,7 @@ create them again:
 
 If you only use Centreon plugins, reinstall them on the new server:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

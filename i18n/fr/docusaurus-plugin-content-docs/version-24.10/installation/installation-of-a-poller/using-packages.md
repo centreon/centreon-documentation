@@ -20,7 +20,7 @@ L'ensemble de la procédure d'installation doit être faite en tant qu'utilisate
 Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -85,7 +85,7 @@ apt update && apt upgrade
 
 ### Désactiver SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
@@ -174,7 +174,7 @@ hostnamectl set-hostname poller1
 
 ### Installer les dépôts
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8" label="RHEL 8">
 
 #### Dépôt Redhat CodeReady Builder
@@ -281,7 +281,7 @@ préalable installer le fichier lié au dépôt.
 Exécutez la commande suivante à partir d’un utilisateur possédant les droits
 suffisants :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -325,7 +325,7 @@ apt update
 
 Pour installer le moteur de supervision, exécutez la commande :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

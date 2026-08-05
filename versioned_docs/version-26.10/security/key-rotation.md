@@ -10,7 +10,7 @@ For security reasons, the keys used to sign Centreon RPMs or the Debian reposito
 
 ## Fresh installation
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 If you performed a fresh installation after the new RPM key was published,
@@ -38,7 +38,7 @@ However, you can [check that you have the correct key](#checks).
 
 ## Existing installation
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 If you performed a fresh installation of a Centreon platform before the new RPM key was published, the existing key must be replaced with the new one.
@@ -89,7 +89,7 @@ If you performed a fresh installation of a Centreon platform before the new RPM 
 
 ## Checks
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 You can then check that the new key has been correctly imported. For the [new key published on December 2, 2025](#list-of-keys):

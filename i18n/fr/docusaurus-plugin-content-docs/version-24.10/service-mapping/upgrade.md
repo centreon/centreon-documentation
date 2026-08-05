@@ -33,7 +33,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 Afin de mettre à jour le module **Centreon BAM**, lancer la commande
 ci-dessous :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

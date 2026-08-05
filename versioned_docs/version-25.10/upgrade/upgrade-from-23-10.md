@@ -40,7 +40,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 Before upgrading your Centreon platform, make sure the following package repositories are enabled:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="EL" label="EL">
 
 * EPEL
@@ -76,7 +76,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 ### Install the new repositories
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Update your Centreon 23.10 to the latest minor version.
@@ -161,7 +161,7 @@ apt update
 
 2. If you have installed Business extensions, delete the configuration of the 23.10 repository: 
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -207,7 +207,7 @@ rm /var/lib/centreon-broker/* -f
 
 Centreon 25.10 uses PHP in version 8.2.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 You need to change the PHP stream from version 8.1 to 8.2 by executing the following commands and answering **y**
@@ -266,7 +266,7 @@ Then, finish upgrading the Centreon solution.
 
 1. Clean the cache:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
 ```shell
@@ -293,7 +293,7 @@ apt update
 
 2. Then upgrade all the components with the following command:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -323,7 +323,7 @@ apt install --only-upgrade centreon
 
 This section only applies if you customized your Apache configuration. 
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 When you upgrade your platform, the Apache configuration file is not upgraded automatically. The new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
@@ -518,7 +518,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
 following command:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -643,7 +643,7 @@ Finally, restart Broker, Engine and Gorgone on the central server by running thi
 
 Add the **apache** user to the **centreon-broker** group and vice versa.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -695,7 +695,7 @@ with the following:
 
 3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
 > Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
@@ -769,7 +769,7 @@ systemctl restart centengine
 
 Run the following command:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -803,7 +803,7 @@ apt update
 
 Clean the cache:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -830,7 +830,7 @@ apt update
 
 Then upgrade all the components with the following command:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

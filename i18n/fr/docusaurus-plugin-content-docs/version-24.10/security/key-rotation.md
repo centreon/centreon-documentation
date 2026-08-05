@@ -10,7 +10,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 ## Nouvelle installation
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 Si vous avez installé une nouvelle plateforme Centreon après la publication de la nouvelle clé, aucune action n'est à effectuer hormis
@@ -37,7 +37,7 @@ Vous pouvez cependant [vérifier que vous avez la bonne clé](#vérifications).
 
 ## Installation existante
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 Si vous avez installé une plateforme Centreon avant la publication de la nouvelle clé, la clé existante doit être remplacée par la nouvelle.
@@ -88,7 +88,7 @@ Ce script :
 
 ## Vérifications
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle clé publiée le 2 décembre 2025](#liste-des-clés) :

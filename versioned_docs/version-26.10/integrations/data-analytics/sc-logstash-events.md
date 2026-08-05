@@ -24,7 +24,7 @@ Perform the installation on the server that will send data to Logstash (central 
 
 2. Run the following command:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

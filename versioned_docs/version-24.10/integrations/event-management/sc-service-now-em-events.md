@@ -27,7 +27,7 @@ Perform the installation on the server that will send data to ServiceNow Event M
 
 2. Run the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

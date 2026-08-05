@@ -12,7 +12,7 @@ To install a central server quicker, you can use a script. This will carry out t
 
 1. Update your system:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell

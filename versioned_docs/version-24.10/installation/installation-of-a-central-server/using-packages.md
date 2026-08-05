@@ -24,7 +24,7 @@ You must run the installation procedure as a privileged user.
 After installing your server, update your operating system using the following
 command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -88,7 +88,7 @@ apt update && apt upgrade
 
 ### Disable SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
@@ -168,7 +168,7 @@ systemctl disable firewalld
 
 ### Install the repositories
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 
 <TabItem value="Alma 8" label="Alma 8">
 
@@ -343,7 +343,7 @@ To install Centreon software, you should first install the Centreon repository.
 
 Install the Centreon repository using this command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -420,7 +420,7 @@ You are required to set the PHP time zone.
 > Replace **Europe/Paris** with your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Run the following command as `root`:
@@ -473,7 +473,7 @@ systemctl restart php8.2-fpm
 To make services start automatically during system bootup, run these commands
 on the central server:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -537,7 +537,7 @@ mysql_secure_installation
 1. Start the Apache server with the
 following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

@@ -21,7 +21,7 @@ Il est nécessaire d'avoir un compte administrateur pour pouvoir utiliser AWIE.
 
 Exécutez les commandes suivantes en tant qu'utilisateur privilégié :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

@@ -47,7 +47,7 @@ web.
 
 2. Réalisez les mises à jour logicielle et système :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

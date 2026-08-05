@@ -55,7 +55,7 @@ To use Anomaly Detection, you will need:
 
 Run the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

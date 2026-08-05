@@ -94,7 +94,7 @@ Then select **Accept SNMP packets from these hosts** and add the IP address of t
 
 Connect to your poller using SSH and install the Windows SNMP plugin (see the [monitoring procedure for the **Windows SNMP** Monitoring Connector](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) for more information):
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

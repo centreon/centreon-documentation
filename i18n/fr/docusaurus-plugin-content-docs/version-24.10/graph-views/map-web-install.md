@@ -157,7 +157,7 @@ Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Cen
 
 ### Désactiver SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
@@ -276,7 +276,7 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 Si vous installez votre serveur Centreon MAP à partir d'une "installation fraîche", vous devez installer le dépôt Centreon :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Vous devez d'abord installer le dépôt EPEL :
@@ -376,7 +376,7 @@ Sélectionnez l'onglet correspondant au type de base de données à utiliser.
 
 Vous devez d'abord installer le dépôt MariaDB :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -402,7 +402,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 Ensuite installez le serveur MariaDB :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -465,7 +465,7 @@ mariadb-secure-installation
 
 Vous devez d'abord installer le dépôt MySQL :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Vous n'avez rien à faire, car MySQL 8.0 est déjà disponible dans le dépôt officiel.
@@ -554,7 +554,7 @@ mysql_secure_installation
 
 Installez les paquets de **centreon-map-engine** :
    
-   <Tabs groupId="sync">
+   <Tabs groupId="os">
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -603,7 +603,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 1. Faites une sauvegarde du fichier **map.cnf** :
 
-   <Tabs groupId="sync">
+   <Tabs groupId="os">
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -629,7 +629,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 2. Installez les paquets de **centreon-map-engine** :
    
-   <Tabs groupId="sync">
+   <Tabs groupId="os">
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -655,7 +655,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 3. Récupérez la sauvegarde du fichier de configuration :
   
-   <Tabs groupId="sync">
+   <Tabs groupId="os">
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -718,7 +718,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 1. Faites une sauvegarde du fichier **map.cnf** :
 
-   <Tabs groupId="sync">
+   <Tabs groupId="os">
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -744,7 +744,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 2. Installez les paquets de centreon-map-engine :
    
-   <Tabs groupId="sync">
+   <Tabs groupId="os">
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -770,7 +770,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 3. Récupérez la sauvegarde du fichier de configuration :
   
-   <Tabs groupId="sync">
+   <Tabs groupId="os">
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -1005,7 +1005,7 @@ Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [porta
 
 1. Depuis votre terminal, entrez la commande suivante sur le serveur central :
 
-  <Tabs groupId="sync">
+  <Tabs groupId="os">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
   ```shell

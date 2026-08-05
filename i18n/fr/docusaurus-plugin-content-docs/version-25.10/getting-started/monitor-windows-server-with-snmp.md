@@ -25,7 +25,7 @@ Retrouvez ci-dessous quelques étapes pour installer et configurer SNMP sur Wind
 
 Vous avez deux options : installer SNMP en mode graphique ou installer SNMP via PowerShell.
 
-<Tabs groupId="os" queryString>
+<Tabs groupId="sync" queryString>
 <TabItem value="En accédant aux Paramètres Windows" label="En accédant aux Paramètres Windows">
 
 1. Rendez-vous dans le menu **Paramètres > Applications et fonctionnalités > Fonctionnalités facultatives**.

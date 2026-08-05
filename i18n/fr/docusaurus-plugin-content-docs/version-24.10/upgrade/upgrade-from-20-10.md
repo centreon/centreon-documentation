@@ -52,7 +52,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="EL" label="EL">
 
 * EPEL
@@ -125,7 +125,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
 ### Installer le dépôt MariaDB
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
@@ -141,7 +141,7 @@ dnf module enable -y mariadb:10.11
 
 2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 20.10 :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -187,7 +187,7 @@ rm /var/lib/centreon-broker/* -f
 
 Centreon 24.10 utilise PHP en version 8.2.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell
@@ -233,7 +233,7 @@ Puis, terminez la montée de version de la solution Centreon.
 
 1. Videz le cache :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -260,7 +260,7 @@ apt update
 
 2. Mettez à jour l'ensemble des composants :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -272,7 +272,7 @@ dnf update centreon\* php-pecl-gnupg
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Exécutez les commandes suivantes :
@@ -289,7 +289,7 @@ systemctl restart php-fpm
 
 Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
@@ -385,7 +385,7 @@ Les composants MariaDB peuvent maintenant être mis à jour.
 
 Exécutez la commande suivante sur le serveur de base de données dédié :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -472,7 +472,7 @@ systemctl enable mariadb
 
 ### Finalisation de la mise à jour
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Avant de démarrer la montée de version via l'interface web, mettez à jour [Centreon BAM avec cette procédure](../service-mapping/upgrade.md) puis rechargez le serveur Apache avec la commande suivante :
@@ -561,7 +561,7 @@ Central.
 
 Exécutez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

@@ -110,7 +110,7 @@ The host machine must have the following characteristics:
 
 4. The first time you connect to the server, instructions are displayed to help you complete the configuration.
    
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma 8 and 9" label="Alma 8 and 9">
    
 Change the following settings:

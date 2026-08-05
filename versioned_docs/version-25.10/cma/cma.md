@@ -30,7 +30,7 @@ Use the CMA agent:
 
 The CMA can be installed on and monitor the following OSs:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 * RHEL/Oracle Linux/Alma Linux 8

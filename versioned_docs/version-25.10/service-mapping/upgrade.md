@@ -32,7 +32,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 In order to update the Centreon BAM module using an RPM package, execute the
 following command:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

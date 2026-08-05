@@ -123,7 +123,7 @@ cliquez sur **Download**.
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
 configuration.
  
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma Linux 9" label="Alma Linux 9">
   
 Définissez les paramètres suivants :

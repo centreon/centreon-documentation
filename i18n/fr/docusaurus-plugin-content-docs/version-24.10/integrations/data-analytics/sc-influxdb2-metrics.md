@@ -26,7 +26,7 @@ Faites l'installation sur le serveur qui enverra les données à InfluxDB 2 (ser
 
 2. Exécutez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

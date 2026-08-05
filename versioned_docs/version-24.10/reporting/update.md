@@ -17,7 +17,7 @@ Centreon MBI is updated in two steps:
 
 1. Update the package, run the following commands:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -64,7 +64,7 @@ systemctl stop gorgoned
 
 Then run the following commands:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -93,7 +93,7 @@ apt --only-upgrade install centreon-bi\*
 
 You also need to update Centreon Gorgone:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

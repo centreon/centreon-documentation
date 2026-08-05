@@ -29,7 +29,7 @@ Faites l'installation sur le serveur qui enverra les données à ServiceNow Even
 
 2. Exécutez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

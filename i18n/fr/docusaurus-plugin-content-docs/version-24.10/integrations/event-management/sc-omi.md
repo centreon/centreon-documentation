@@ -20,7 +20,7 @@ Se connecter en tant que `root` au serveur central Centreon avec votre client SS
 
 Lancer la commande adaptée à votre système :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

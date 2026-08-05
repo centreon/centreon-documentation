@@ -40,7 +40,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 Before upgrading your Centreon platform, make sure the following package repositories are enabled:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="EL" label="EL">
 
 * EPEL
@@ -108,7 +108,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 2. If you have installed Business extensions, delete the configuration of the 21.10 repository: 
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -154,7 +154,7 @@ rm /var/lib/centreon-broker/* -f
 
 Centreon 24.10 uses PHP in version 8.2.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8" label="RHEL 8">
 
 You need to change the PHP stream from version 8.0 to 8.2 by executing the following commands and answering **y**
@@ -196,7 +196,7 @@ Then, finish upgrading the Centreon solution.
 
 1. Clean the cache:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
 ```shell
@@ -223,7 +223,7 @@ apt update
 
 2. Then upgrade all the components with the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -239,7 +239,7 @@ dnf update centreon\* php-pecl-gnupg
 
 This section only applies if you customized your Apache configuration.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 When you upgrade your platform, the Apache configuration file is not upgraded automatically. The new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
@@ -319,7 +319,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 
 ### Finalizing the upgrade
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
@@ -404,7 +404,7 @@ This procedure is the same as for upgrading a Centreon Central server.
 
 Run the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

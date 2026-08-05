@@ -21,7 +21,7 @@ We recommend that you use a dedicated email account to send notifications.
 
 1. In your server's terminal, enter the following command:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma 8" label="Alma 8">
 
 ``` shell
@@ -181,7 +181,7 @@ apt install postfix bsd-mailx libsasl2-modules
 
 - If the user has not received the message, check the following log file (if it exists):
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
     ```shell

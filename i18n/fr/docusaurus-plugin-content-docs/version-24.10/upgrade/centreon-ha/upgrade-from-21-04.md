@@ -55,7 +55,7 @@ Pour effectuer la mise à niveau, veuillez [suivre la documentation officielle](
 
 Ensuite, exécutez les commandes suivantes uniquement sur les serveurs centraux :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```shell
@@ -288,7 +288,7 @@ A exécuter **seulement sur un noeud central** :
 > Vous pouvez trouver @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
 La variable @MARIADB_REPL_USER@ dans `/etc/centreon-ha/mysql-resources.sh`.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -314,7 +314,7 @@ pcs resource create "ms_mysql" \
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -329,7 +329,7 @@ pcs resource promotable ms_mysql \
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -396,7 +396,7 @@ bash centreon_pcs_command.sh
 
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -411,7 +411,7 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 
 Afin de coller le rôle de la base de données primaire avec l'IP virtuelle, définissez une contrainte mutuelle :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -424,7 +424,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 
 Recréez ensuite la contrainte qui empêche les processus Centreon de s'exécuter sur les nœuds de base de données et vice-versa :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash

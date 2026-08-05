@@ -32,7 +32,7 @@ La personnalisation de votre plateforme Centreon utilise l'extension **Centreon 
 
 Exécutez la commande suivante pour mettre à jour l'extension :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

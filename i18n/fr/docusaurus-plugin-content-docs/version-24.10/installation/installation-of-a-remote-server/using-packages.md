@@ -24,7 +24,7 @@ L'ensemble de la procédure d'installation doit être faite en tant qu'utilisate
 Après avoir installé votre serveur, réalisez la mise à jour de votre système
 d'exploitation via la commande :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -89,7 +89,7 @@ apt update && apt upgrade
 
 ### Désactiver SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
@@ -166,7 +166,7 @@ systemctl disable firewalld
 
 ### Installer les dépôts
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma 8" label="Alma 8">
 
 Exécutez les commandes suivantes :
@@ -334,7 +334,7 @@ préalable installer le fichier lié au dépôt.
 
 Exécutez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -412,7 +412,7 @@ hostnamectl set-hostname remote1
 Pour activer le lancement automatique des services au démarrage, exécutez la
 commande suivante sur le serveur Central :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -475,7 +475,7 @@ Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-
 
 Avant de démarrer l'installation web, démarrez le serveur Apache avec la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

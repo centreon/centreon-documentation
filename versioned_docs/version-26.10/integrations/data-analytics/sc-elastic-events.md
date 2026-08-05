@@ -16,7 +16,7 @@ An appropriate index template is created automatically by the stream connector s
 
 Perform the installation as `root` on the server that will send data to Elasticsearch (central server, remote server, poller).
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

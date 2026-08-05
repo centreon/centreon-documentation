@@ -27,7 +27,7 @@ pcs property set maintenance-mode=true
 
 Update your cluster by running the following command on each central node:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Clean the cache :
@@ -80,7 +80,7 @@ Once the package updates have been completed on both central servers, all that r
 
 On the **passive central node**, you must move the **"install" directory** and regenerate the Symfony cache to avoid displaying the update interface again following a failover.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
@@ -108,7 +108,7 @@ sudo -u www-data /usr/share/centreon/bin/console cache:clear
 
 The RPM upgrade restores the unnecessary cron jobs that were deleted during the installation procedure. Remove them on the two central nodes to avoid concurrent executions:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash

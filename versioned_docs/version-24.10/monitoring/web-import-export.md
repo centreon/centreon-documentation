@@ -26,7 +26,7 @@ To be able to use AWIE, you need to be an administrator.
 
 Run the following commands as a privileged user:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

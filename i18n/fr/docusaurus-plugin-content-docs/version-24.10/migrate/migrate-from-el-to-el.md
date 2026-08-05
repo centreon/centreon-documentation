@@ -37,7 +37,7 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 3. Réalisez les mises à jour logicielle et système :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -162,7 +162,7 @@ dnf update
 
 Si vous n'utilisez que des plugins Centreon, réinstallez-les sur le nouveau serveur:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

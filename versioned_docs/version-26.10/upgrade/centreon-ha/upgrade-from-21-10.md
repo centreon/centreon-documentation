@@ -114,7 +114,7 @@ It is necessary to destroy the cluster completely and then reconfigure it with t
 
 Perform a backup of the cluster using:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
@@ -145,7 +145,7 @@ cat centreon_pcs_command.sh
 
 The content should looks like this:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```text
@@ -295,7 +295,7 @@ To be run **only on one central node**:
 
 > You can find the @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@ @MARIADB_REPL_USER@ variables in `/etc/centreon-ha/mysql-resources.sh`
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
@@ -321,7 +321,7 @@ pcs resource create "ms_mysql" \
 
 <Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
@@ -337,7 +337,7 @@ pcs resource promotable ms_mysql \
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
@@ -404,7 +404,7 @@ bash centreon_pcs_command.sh
 
 <Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
@@ -419,7 +419,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 
 In order to bind the primary database role to the Virtual IP, define a mutual constraint:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash
@@ -432,7 +432,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 
 Then recreate the constraint that prevents Centreon processes from running on database nodes and vice-versa:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```bash

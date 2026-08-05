@@ -22,7 +22,7 @@ En cliquant le bouton Vérification forcée dans le Panneau de détail de la res
 
 ## Vérifications sur l'hôte
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 ### Vérifiez que le service est lancé

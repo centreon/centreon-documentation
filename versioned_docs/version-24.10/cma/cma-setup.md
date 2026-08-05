@@ -16,7 +16,7 @@ This step is performed via the central server's interface. (It is also possible 
 On your central server, install the monitoring connector which will provide the templates and commands you need to configure the hosts and services monitored in Centreon. 
 In the case of a Cloud platform, these connectors are already installed.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
@@ -64,7 +64,7 @@ In the case of a Cloud platform, these connectors are already installed.
 
 ### Create the host and services
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
@@ -222,14 +222,14 @@ This step is performed on the monitored host.
 
 ### Download and install the agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 #### Install the Centreon repository and the agent
 
 Install the Centreon repository and agent using the following commands:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -511,7 +511,7 @@ If you are using Centreon connectors and non-native controls on Linux:
 This repository will provide you our packaged plugins as well as **the dependencies that are not available in the
 standard distribution repositories**.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -774,7 +774,7 @@ chown centreon-monitoring-agent: /var/lib/centreon/centplugins
 
 ### Updating an existing configuration
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 Modify the **/etc/centreon-monitoring-agent/centagent.json** file and restart the agent.
@@ -794,12 +794,12 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 
 ### Updating the agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 Update the agent using your package manager.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

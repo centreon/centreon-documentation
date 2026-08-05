@@ -31,7 +31,7 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 
 Install the following plugin on the poller that will monitor your database:
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

@@ -41,7 +41,7 @@ You need to Install the Teams notification plugin with the package manager on ea
 
 - Enter the following command:
  
- <Tabs groupId="sync">
+ <Tabs groupId="os">
  <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
  
  ``` shell

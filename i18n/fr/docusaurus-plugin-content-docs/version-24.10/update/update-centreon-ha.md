@@ -43,7 +43,7 @@ rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon
 
 Lancer la mise à jour sur les deux serveurs centraux :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Videz le cache :
@@ -96,7 +96,7 @@ Une fois les mises à jour des paquets terminées sur les deux centraux, il rest
 
 En parallèle, sur le **central passif**, il faut déplacer le répertoire **"install"** et regénérer le cache Symfony pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule :
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
@@ -124,7 +124,7 @@ sudo -u www-data /usr/share/centreon/bin/console cache:clear
 
 Les crons sont remis en place lors de la mise à jour des RPMs. Supprimez-les sur les deux noeuds centraux afin d'éviter les exécutions concurrentes.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash

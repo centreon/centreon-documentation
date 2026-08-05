@@ -24,7 +24,7 @@ By clicking the Forced check button in the detail panel of the resource.
 
 ## Host checks
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 ### Check that the service is running
