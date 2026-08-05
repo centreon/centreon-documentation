@@ -4,6 +4,8 @@ title: GLPI
 description: "Configurez le fournisseur de tickets GLPI utilisant l'ancien plugin webservice, compatible avec GLPI 8.5 à 9.0"
 ---
 
+> GLPI web services are no longer maintained, so we recommend that you use the Rest API version to benefit from the latest enhancements and features.
+
 ## How it works
 
 The Glpi provider uses the webservice plugin of Glpi to retrieve data in order

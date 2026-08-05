@@ -1,19 +1,7 @@
 ---
-id: ot-jira
+id: jira
 title: Jira
-description: "Configurez le fournisseur de tickets Jira qui se connecte à Jira Cloud via l'API REST de Jira"
 ---
-
-## How it works
-
-The Jira provider connects to your Itop server and retrieve data through the
-Jira REST API.
-
-![architecture](../../assets/integrations/open-tickets/ot-jira-architecture.png)
-
-## Compatibility
-
-This integration is (at least) compatible with Jira cloud.
 
 ## Feature information
 
@@ -21,19 +9,7 @@ This integration is (at least) compatible with Jira cloud.
 | -- | -- | -- |
 | ✓ | ✘ | ✘ |
 
-## Requirements
-
-You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
-
-Our provider requires the following parameters:
-
-| Parameter         | Example of value    |
-| ----------------- | ------------------- |
-| Address           | xxxxx.atlassian.net |
-| Rest Api Resource | /rest/api/latest/   |
-| Username          | MyUser              |
-| Password          | MyPassword          |
-| Timeout           | 60                  |
+## Prerequisites
 
 ### Network flow
 

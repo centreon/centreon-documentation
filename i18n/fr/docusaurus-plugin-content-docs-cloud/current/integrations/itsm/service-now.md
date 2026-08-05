@@ -1,54 +1,21 @@
 ---
-id: ot-servicenow
+id: service-now
 title: ServiceNow
-description: "Configurez le fournisseur de tickets ServiceNow utilisant l'API REST de ServiceNow, compatible avec les versions Madrid, London et New York"
 ---
-
-## How it works
-
-ServiceNow open-tickets provider uses the ServiceNow REST API to get
-configuration data and open incidents about your monitoring alerts. Since it
-gathers a lot of configurations objects from ServiceNow, it puts them in cache. Loging
-out or waiting 10 hours will flush the cache.
-
-![architecture](../../assets/integrations/open-tickets/ot-service-now-architecture.png)
-
-## Compatibility
-
-This integration is (at least) compatible with the following ServiceNow
-versions:
-
-  - Madrid
-  - London
-  - New York
 
 ## Feature information
 
-| Open ticket | Close ticket (from Centreon to ServiceNow) | Handle custom fields |
+| Open ticket | Close ticket (from Centreon to Service Now) | Handle custom fields |
 | -- | -- | -- |
 | ✓ | ✘ | ✘ |
 
-## Requirements
-
-You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
-
-Our provider requires the following parameters:
-
-| Parameter           | Example of value |
-| ------------------- | ---------------- |
-| Instance Name       | MyCompany        |
-| OAuth Client ID     | xxxxxxxxx        |
-| OAuth Client Secret | yyyyyyyy         |
-| Username            | centreon         |
-| Password            | MyPassword       |
-| Protocol            | https            |
-| Timeout             | 60               |
+## Prerequisites
 
 ### Network flow
 
 | Source | Destination | Protocol/Port |
 | -- | -- | -- |
-| Centreon central server | ServiceNow instance | TCP/443 (https) or TCP/80 (http) |
+| Centreon central server | Service Now instance | TCP/443 (https) or TCP/80 (http) |
 
 ### Account
 
@@ -60,7 +27,7 @@ You need the following information:
 - Password
 - Instance name
 
-The aforementioned account must at least be able to open a ticket through the **ServiceNow Table REST API**. This is a POST action into the **incident table**.
+The aforementioned account must at least be able to open a ticket through the **Service Now Table REST API**. This is a POST action into the **incident table**.
 
 The connector will also try to access the following tables from the API depending on the configuration of your open ticket rule:
 
@@ -72,7 +39,7 @@ Some test commands that you can run from your Centreon central server are availa
 
 ## Retrieved data
 
-This open ticket connector can retrieve the following information from your ServiceNow instance:
+This open ticket connector can retrieve the following information from your Service Now instance:
 
 - Categories
 - Subcategories
@@ -100,7 +67,7 @@ curl --location 'https://<instance_name>.<server_address>/oauth_token.do' \
 --data-urlencode 'password=<password>'
 ```
 
-### Get ServiceNow severities
+### Get Service Now severities
 
 ```bash
 curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_choice?sysparm_fields=value%2Clabel%2Cinactive&sysparm_query=nameSTARTSWITHincident%5EelementSTARTSWITHseverity' \
@@ -108,7 +75,7 @@ curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_choi
 --header 'Content-Type: application/json'
 ```
 
-### Get ServiceNow urgencies
+### Get Service Now urgencies
 
 ```bash
 curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_choice?sysparm_fields=value,label,inactive&sysparm_query=nameSTARTSWITHincident%5EelementSTARTSWITHurgency' \
@@ -116,7 +83,7 @@ curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_choi
 --header 'Content-Type: application/json'
 ```
 
-### Get ServiceNow impact
+### Get Service Now impact
 
 ```bash
 curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_choice?sysparm_fields=value,label,inactive&sysparm_query=nameSTARTSWITHtask%5EelementSTARTSWITHimpact' \
@@ -124,7 +91,7 @@ curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_choi
 --header 'Content-Type: application/json'
 ```
 
-### Get ServiceNow categories
+### Get Service Now categories
 
 ```bash
 curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_choice?sysparm_fields=value,label,inactive&sysparm_query=nameSTARTSWITHincident%5EelementSTARTSWITHcategory' \
@@ -140,7 +107,7 @@ curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_choi
 --header 'Content-Type: application/json'
 ```
 
-### Get ServiceNow users
+### Get Service Now users
 
 ```bash
 curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_user?sysparm_fields=sys_id,active,name' \
@@ -148,7 +115,7 @@ curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_user
 --header 'Content-Type: application/json'
 ```
 
-### Get ServiceNow user groups
+### Get Service Now user groups
 
 ```bash
 curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_user_group?sysparm_fields=sys_id,active,name' \
@@ -158,7 +125,7 @@ curl --location 'https://<instance_name>.<server_address>/api/now/table/sys_user
 
 ### Open a ticket
 
-Keep in mind that the data in the command down below is just an example and your ServiceNow instance may ask you to add mandatory data
+Keep in mind that the data in the command down below is just an example and your Service Now instance may ask you to add mandatory data
 
 ```bash
 curl --location 'https://<instance_name>.<server_address>/api/now/table/incident' \
