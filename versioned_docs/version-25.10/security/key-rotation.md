@@ -26,7 +26,7 @@ Is this ok [y/N]:
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 If you performed a fresh installation after the new key was published,
 no additional actions are necessary.
@@ -69,7 +69,7 @@ If you performed a fresh installation of a Centreon platform before the new RPM 
     * ask you to check the signature of the RPM packages.
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Remove the old key:
 
@@ -292,7 +292,7 @@ You can then check that the new key has been correctly imported. For the [new ke
 </Tabs>
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 To get detailed info about the new key and check that it is correctly installed, run the following command:
 

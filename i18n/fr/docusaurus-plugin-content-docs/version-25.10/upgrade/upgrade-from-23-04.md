@@ -54,15 +54,6 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 * centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-* bullseye, bullseye-updates, bullseye-backports and bullseye security
-* BaseOS
-* AppStream
-* centreon
-* centreon-modules, if you are using Centreon Business Edition.
-
-</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 * bookworm, bookworm-updates, bookworm-backports and bookworm security
@@ -180,7 +171,7 @@ rm /etc/yum.repos.d/centreon-business-23.04.repo
 
 </TabItem>
 
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 rm /etc/apt/sources.list.d/centreon-business.list
@@ -283,7 +274,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean all

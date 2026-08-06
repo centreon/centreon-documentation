@@ -31,7 +31,7 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 
 Installez le plugin suivant sur le collecteur qui supervisera votre base de données :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

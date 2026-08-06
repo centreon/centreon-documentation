@@ -12,7 +12,7 @@ Pour installer un serveur central plus rapidement, vous pouvez utiliser un scrip
 
 1. Mettez votre système à jour :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell

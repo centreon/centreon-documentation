@@ -42,7 +42,7 @@ nominal après changement du disque.
 
 Pour acquitter une alerte, deux solutions sont possibles :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From real time monitoring" label="From real time monitoring">
 
 1.  Rendez-vous dans le menu **Monitoring > Status Details > Hosts** (or
@@ -124,7 +124,7 @@ Il y a trois possibilités différentes de définir un temps d'arrêt :
 -   Depuis l'interface de supervision temps réel
 -   Depuis le menu **Downtime**
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails d'un objet
@@ -261,7 +261,7 @@ service). Un commentaire possède les propriétés suivantes :
 
 Pour ajouter un commentaire, deux solutions sont possibles :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails de l'objet
@@ -304,7 +304,7 @@ d'un hôte ou d'un service.
 
 ### En pratique
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails de l'objet
@@ -375,7 +375,7 @@ d'un hôte ou d'un service.
 
 Il y a deux moyens de gérer les notifications :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails de l'objet
@@ -428,7 +428,7 @@ Il existe deux types de programmation :
 
 Il y a deux moyens de forcer la vérification d'un service :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détail de l’objet

@@ -27,7 +27,7 @@ Perform the installation on the server that will send data to ServiceNow Event M
 
 2. Run the following command:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -44,7 +44,7 @@ dnf install centreon-stream-connector-servicenow
 
 </TabItem>
 
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install centreon-stream-connector-servicenow

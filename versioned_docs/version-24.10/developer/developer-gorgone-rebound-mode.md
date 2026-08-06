@@ -69,7 +69,7 @@ Ensure you have installed a server with a [supported OS](../installation/compati
 
 Then install the Gorgone daemon using the following commands:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 

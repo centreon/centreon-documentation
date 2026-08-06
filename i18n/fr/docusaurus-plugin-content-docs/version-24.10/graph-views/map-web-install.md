@@ -176,7 +176,7 @@ Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Cen
 
 ### Désactiver SELinux
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
@@ -295,7 +295,7 @@ Le privilège INSERT ne sera utilisé que pendant le processus d'installation af
 
 Si vous installez votre serveur Centreon MAP à partir d'une "installation fraîche", vous devez installer le dépôt Centreon :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Vous devez d'abord installer le dépôt EPEL :
@@ -386,7 +386,7 @@ Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail d
 
 Sélectionnez l'onglet correspondant au type de base de données à utiliser.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 #### Prérequis MariaDB
@@ -395,7 +395,7 @@ Sélectionnez l'onglet correspondant au type de base de données à utiliser.
 
 Vous devez d'abord installer le dépôt MariaDB :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -421,7 +421,7 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 
 Ensuite installez le serveur MariaDB :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -484,7 +484,7 @@ mariadb-secure-installation
 
 Vous devez d'abord installer le dépôt MySQL :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Vous n'avez rien à faire, car MySQL 8.0 est déjà disponible dans le dépôt officiel.
@@ -573,7 +573,7 @@ mysql_secure_installation
 
 Installez les paquets de **centreon-map-engine** :
    
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -588,7 +588,7 @@ Installez les paquets de **centreon-map-engine** :
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -611,7 +611,7 @@ Installez les paquets de **centreon-map-engine** :
 
 ### Étape 3 - Option 2 : installation de MAP Engine sur un serveur MAP Legacy existant
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 > Si vous avez déjà MAP Legacy et que vous installez MAP Engine sur le même serveur, vous devez suivre la procédure suivante. Si non, passez à l'[étape 3 - Option 1 : installation du serveur MAP Engine sur un nouveau serveur](#étape-3---option-1--installation-de-map-engine-sur-un-nouveau-serveur).
@@ -622,7 +622,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 1. Faites une sauvegarde du fichier **map.cnf** :
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -648,7 +648,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 2. Installez les paquets de **centreon-map-engine** :
    
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -674,7 +674,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 3. Récupérez la sauvegarde du fichier de configuration :
   
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -737,7 +737,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 1. Faites une sauvegarde du fichier **map.cnf** :
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -763,7 +763,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 2. Installez les paquets de centreon-map-engine :
    
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -789,7 +789,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
 
 3. Récupérez la sauvegarde du fichier de configuration :
   
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
    ```shell
@@ -853,7 +853,7 @@ max_allowed_packet = 20M
 innodb_log_file_size = 200M
 ```
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 Ensuite, redémarrez MariaDB :
@@ -1024,7 +1024,7 @@ Installez le dépôt de Centreon Business : vous pouvez le trouver sur le [porta
 
 1. Depuis votre terminal, entrez la commande suivante sur le serveur central :
 
-  <Tabs groupId="os">
+  <Tabs groupId="os" queryString>
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
   ```shell

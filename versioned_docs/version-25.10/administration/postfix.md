@@ -50,7 +50,7 @@ dnf install s-nail cyrus-sasl-plain
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ``` shell
 apt install postfix bsd-mailx libsasl2-modules
@@ -194,7 +194,7 @@ apt install postfix bsd-mailx libsasl2-modules
     tail -f /var/log/maillog
     ```
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
     ```shell
     tail -f /var/log/mail.log

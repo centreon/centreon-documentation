@@ -51,7 +51,7 @@ If you had already migrated to MAP in an earlier version and weren't using MAP L
 
 Remove the **centreon-map-server** package from the server where MAP Legacy was installed:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

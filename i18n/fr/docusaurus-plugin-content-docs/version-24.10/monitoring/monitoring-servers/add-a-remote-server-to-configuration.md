@@ -86,7 +86,7 @@ La communication entre le serveur Central et un serveur distant est assurée par
 être faite en utilisant ZMQ (avec un Gorgone s'exécutant sur le serveur distant,
 recommandé) ou en utilisant le protocole SSH.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Avec ZMQ" label="Avec ZMQ">
 
 1. Sélectionner le type de communication :

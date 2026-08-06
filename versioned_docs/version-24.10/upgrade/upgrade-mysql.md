@@ -48,7 +48,7 @@ mysql Ver 8.0.x for Linux on x86_64
 
    2. If you are using MBI:
 
-      <Tabs groupId="os">
+      <Tabs groupId="os" queryString>
       <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
       In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.

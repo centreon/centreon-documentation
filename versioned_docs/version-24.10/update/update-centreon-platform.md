@@ -26,7 +26,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 Remove the debuginfo packages before the procedure unless you have a particular use for them.
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
   ```shell
@@ -54,7 +54,7 @@ Remove the debuginfo packages before the procedure unless you have a particular 
 
 Before upgrading your Centreon platform, make sure the following package repositories are enabled:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="EL" label="EL">
 
 * EPEL
@@ -79,7 +79,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 Make sure all users are logged out from the Centreon web interface before starting the update procedure.
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Clean the cache:
@@ -130,7 +130,7 @@ Then upgrade all the components with the following command:
 
 Now you need to finalize the update:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Using the wizard" label="Using the wizard">
 
 1. Log on to the Centreon web interface to continue the update process. Click **Next**:
@@ -235,7 +235,7 @@ This procedure is the same as to update a Centreon central server.
 
 ## Update the Pollers
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Clean the cache:
@@ -298,7 +298,7 @@ and choose the **Restart** method for the Engine process.
 
 5. Run the following command:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Nothing to do for this OS.

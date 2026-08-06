@@ -65,7 +65,7 @@ PRIMARY KEY (timestamp, host, service, metric_name, metric_id)
 
 Perform the installation on the server that will send data to Clickhouse (central server, remote server, poller).
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Login as `root` using your favorite SSH client.

@@ -28,7 +28,7 @@ d’un nouvel objet. Exemple : J’ai 10 serveurs web identiques à superviser :
 Grâce à cette méthode, il n’est plus nécessaire de créer unitairement chaque hôte.
 
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Méthode 1" label="Méthode 1">
 
 Par exemple, pour dupliquer une Business Activity:
@@ -68,7 +68,7 @@ modifier cette communauté sans devoir modifier chaque fiche de chaque hôte uni
 
 Pour effectuer un changement massif :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Méthode 1" label="Méthode 1">
 
 1. Sélectionnez les objets que vous souhaitez modifier.
@@ -95,7 +95,7 @@ configuration. Le principal intérêt est de pouvoir garder la configuration d�
 
 Pour activer/désactiver un objet :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Méthode 1" label="Méthode 1">
 
 1. Sélectionnez les objets que vous souhaitez modifier.
@@ -128,7 +128,7 @@ Vous pouvez également utiliser les boutons suivants en fin de ligne :
 
 Pour supprimer un objet :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Méthode 1" label="Méthode 1">
 
 1. Sélectionnez les objets que vous souhaitez supprimer.

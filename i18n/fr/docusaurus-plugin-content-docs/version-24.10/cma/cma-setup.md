@@ -16,7 +16,7 @@ Cette étape s'effectue via l'interface du serveur central. (Il est également p
 Sur votre serveur central, installez le connecteur de supervision qui fournira les modèles et les commandes qui vous permettront de configurer les hôtes et les services supervisés dans Centreon.
 Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
@@ -45,7 +45,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 #### Comportement des jetons d'authentification CMA : désactivation/expiration/révocation
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 * Le moteur de collecte vérifie la présence et la validité du jeton, et coupe la connexion en cas d'absence du jeton (car désactivé ou révoqué) ou d'expiration de celui-ci. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
@@ -64,7 +64,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 ### Créez l'hôte et les services
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 Sur le serveur central, [créez l'hôte](../monitoring/basic-objects/hosts.md) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
@@ -90,7 +90,7 @@ Créez les services associés au modèle d'hôte.
 3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
 4. Sélectionnez le mode de chiffrement
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 5. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
@@ -123,7 +123,7 @@ Cette étape s'effectue sur le collecteur.
 
 ### Configurez le firewall
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 > Ces commandes doivent être adaptées selon le système d'exploitation.
@@ -222,14 +222,14 @@ Cette étape s'effectue sur l'hôte supervisé.
 
 ### Téléchargez et installez l'agent
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 #### Installer le dépôt Centreon et l'agent
 
 Installez le dépôt Centreon puis l'agent à l'aide des commandes suivantes :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -311,7 +311,7 @@ apt install centreon-monitoring-agent
 
 1. Remplacez le contenu du fichier **/etc/centreon-monitoring-agent/centagent.json** par le contenu suivant :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 ```json
@@ -396,7 +396,7 @@ systemctl status centagent
 
 Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Mode interactif" label="Mode interactif">
 
 > L'installer doit être lancé avec l'option "Exécuter en tant qu'administrateur".
@@ -410,7 +410,7 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
    * Dans le champ **Host name in Centreon**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon.
   > Important : Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon. Il doit être strictement identique au nom d'hôte Centreon (sensible à la casse).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
    * Dans le champ **Poller endpoint**, saisissez l'adresse IP ou le nom DNS du collecteur, suivi du port d'écoute CMA (4317 par défaut), sous la forme \<adresse IP ou nom DNS\>:port, par exemple 192.168.45.32:4317.
@@ -511,7 +511,7 @@ Si vous utilisez des connecteurs Centreon et des contrôles non natifs sous Linu
 
 Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendances qui ne peuvent pas être satisfaites par les dépôts standard des distributions**.
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -712,7 +712,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 > ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
@@ -774,7 +774,7 @@ chown centreon-monitoring-agent: /var/lib/centreon/centplugins
 
 ### Mettre à jour une configuration existante
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 Modifier le fichier **/etc/centreon-monitoring-agent/centagent.json**.
@@ -795,12 +795,12 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 
 ### Mettre à jour l'agent
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 Mettez à jour l'agent à l'aide de votre gestionnaire de paquets.
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

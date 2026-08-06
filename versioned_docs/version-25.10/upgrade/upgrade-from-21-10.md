@@ -52,15 +52,6 @@ Before upgrading your Centreon platform, make sure the following package reposit
 * centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-* bullseye, bullseye-updates, bullseye-backports and bullseye security
-* BaseOS
-* AppStream
-* centreon
-* centreon-modules, if you are using Centreon Business Edition.
-
-</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 * bookworm, bookworm-updates, bookworm-backports and bookworm security

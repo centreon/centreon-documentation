@@ -21,7 +21,7 @@ Réalisez l'installation en `root` sur le serveur qui enverra les données vers 
 
 1. Installez les dépendances :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -49,7 +49,7 @@ apt install luarocks make gcc lua-curl lua-devel wget
 
 2. Installez les bibliothèques Centreon Lua pour les stream connectors :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -77,7 +77,7 @@ luarocks install centreon-stream-connectors-lib
 
 3. Installez le stream connector :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

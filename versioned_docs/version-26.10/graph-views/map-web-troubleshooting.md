@@ -84,7 +84,7 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
   ``` 
   
   </TabItem>
-  <TabItem value="Debian" label="Debian">
+  <TabItem value="Debian 12" label="Debian 12">
 
   ```shell
   apt info centreon-map-web-client
@@ -111,7 +111,7 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
   ```
   
   </TabItem>
-  <TabItem value="Debian" label="Debian">
+  <TabItem value="Debian 12" label="Debian 12">
   
   ```shell
   sudo apt install centreon-map-web-client

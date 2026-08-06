@@ -74,7 +74,7 @@ dnf update centreon\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 Clean the cache :
 
@@ -111,7 +111,7 @@ mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`da
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
@@ -144,7 +144,7 @@ rm -f /etc/cron.d/centreon-auto-disco
 systemctl restart crond
 ```
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 rm -f /etc/cron.d/centreon

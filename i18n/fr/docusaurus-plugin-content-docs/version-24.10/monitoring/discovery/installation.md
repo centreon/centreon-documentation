@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 1. Pour installer le paquet, exécutez la commande suivante sur le serveur Central :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

@@ -50,15 +50,6 @@ Before upgrading your Centreon platform, make sure the following package reposit
 * centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-* bullseye, bullseye-updates, bullseye-backports and bullseye security
-* BaseOS
-* AppStream
-* centreon
-* centreon-modules, if you are using Centreon Business Edition.
-
-</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 * bookworm, bookworm-updates, bookworm-backports and bookworm security
@@ -178,7 +169,7 @@ rm /etc/yum.repos.d/centreon-business-23.10.repo
 
 </TabItem>
 
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 rm /etc/apt/sources.list.d/centreon-business.list
@@ -281,7 +272,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
    
 ```shell
 apt clean all
@@ -714,7 +705,7 @@ with the following:
 > This new rule is enforced in `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via the `no_shell_interpretation: true` parameter. If you previously customized this file, your version will be saved in the same directory as `41-autodiscovery.yaml.rpmnew` and must be manually merged to include this parameter.
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
    
 > Starting with version 25.10, dynamic substitution of variables (also called string interpolation) is no longer allowed in auto-discovery commands related to connectors.
 > 

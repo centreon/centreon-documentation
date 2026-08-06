@@ -31,7 +31,7 @@ Le script nécessite le module Perl-Nagios-Object pour lire les fichiers CFG.
 Pour installer ce dernier, exécutez les commandes suivantes sur votre serveur
 Nagios(R) :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

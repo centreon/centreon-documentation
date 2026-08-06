@@ -728,7 +728,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 > ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl

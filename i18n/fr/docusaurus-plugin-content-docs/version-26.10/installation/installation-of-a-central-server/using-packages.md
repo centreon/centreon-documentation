@@ -442,7 +442,7 @@ systemctl restart php-fpm
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php/8.2/mods-available/centreon.ini

@@ -40,7 +40,7 @@ Dans ce cas, il n'est pas nécessaire de les renseigner dans la configuration fa
 
 ### Synthèse des configurations possibles
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 L'agent vérifie, lors de la connexion au collecteur, que l'IP/DNS renseignée dans le paramètre **Poller endpoint** de la configuration de l'agent correspond strictement aux informations du certificat (SAN ou CN).
@@ -105,7 +105,7 @@ La configuration est similaire à [celle indiquée pour TLS](#synthèse-des-conf
 
 La différence se situe dans l'usage du champ "Nom commun CA", côté client.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 Le champ **Certificate Common Name/ca_name** contiendra la valeur (DNS, IP ou CN) renseignée dans le certificat.
@@ -146,7 +146,7 @@ chmod 644 /etc/pki/agent.key
 ```
 > Attention, ne pas appliquer ces droits à l'ensemble du répertoire /etc/pki/ au risque de provoquer une panne globale du collecteur.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 **\{server_hostname\}** doit correspondre au DNS/IP utilisé dans **Poller endpoint"** (installer) / **endpoint** (json), dans la configuration d'agent, sur l'hôte.
@@ -171,7 +171,7 @@ L'agent sera configuré de la manière suivante sur l'hôte :
 - [pour Windows, en utilisant l'option correspondante dans le programme d'installation ou la CLI](cma-setup.md#étape-3--préparez-lhôte)
 - pour Linux, en utilisant le fichier **centagent.json** :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 

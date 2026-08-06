@@ -12,7 +12,7 @@ Pour installer un collecteur plus rapidement, vous pouvez utiliser un script. Le
 
 1. Mettez votre système à jour :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell

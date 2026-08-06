@@ -12,7 +12,7 @@ To install a remote server quicker, you can use a script. This will perform all 
 
 1. Update your system:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell

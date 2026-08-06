@@ -52,15 +52,6 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 * centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-* bullseye, bullseye-updates, bullseye-backports and bullseye security
-* BaseOS
-* AppStream
-* centreon
-* centreon-modules, if you are using Centreon Business Edition.
-
-</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 * bookworm, bookworm-updates, bookworm-backports and bookworm security
@@ -178,7 +169,7 @@ rm /etc/yum.repos.d/centreon-business-23.10.repo
 
 </TabItem>
 
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 rm /etc/apt/sources.list.d/centreon-business.list
@@ -281,7 +272,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean all
@@ -713,7 +704,7 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 > Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via le paramètre : `no_shell_interpretation: true`. Si vous aviez modifié ce fichier, votre version sera sauvegardée dans le même répertoire en tant que `41-autodiscovery.yaml.rpmnew` et devra être manuellement fusionnée pour intégrer ce paramètre.
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
    
 > À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
 > 

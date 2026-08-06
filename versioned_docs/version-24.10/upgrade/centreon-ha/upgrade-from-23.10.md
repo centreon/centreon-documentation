@@ -63,7 +63,7 @@ Now, to perform the upgrade:
 > For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-23-10.md) **until the "Update your customized Apache configuration" step included**. Then, skip to the "Upgrade MariaDB" step and follow its instructions. **Do not follow "Finalizing the upgrade" and "Post-upgrade actions"**.
 
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 Then on the **two central nodes**, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
@@ -110,7 +110,7 @@ rm -f /etc/cron.d/centreon-ha-mysql
 
 and restart the cron daemon:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 ```bash
@@ -197,9 +197,9 @@ rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 #### Recreating the constraint
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 First extract all contraint IDs:
@@ -298,7 +298,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 First extract all contraint IDs:
@@ -419,7 +419,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 
 Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 ```bash
@@ -458,7 +458,7 @@ pcs resource cleanup
 You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
 > **INFO:** The `-fr` option allows you to display all resources even if they are disable.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```text

@@ -49,7 +49,7 @@ Si vous aviez déjà migré vers MAP dans une version précédente de Centreon e
 
 Supprimez le paquet **centreon-map-server** du serveur sur lequel MAP Legacy était installé :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

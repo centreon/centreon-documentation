@@ -32,7 +32,7 @@ The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
 
 Connect to your poller using SSH and install the Cisco standard plugin (see the [monitoring procedure for the **Cisco standard** Monitoring Connector](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) for more information):
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

@@ -40,7 +40,7 @@ There are four calculation methods that you can use:
 
 Below are some examples and a configuration of each calculation method.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Best Status" label="Best Status">
 
 ![image](../assets/service-mapping/guide/business-activity-best-status-tree.png)

@@ -571,7 +571,7 @@ Then install the centreon-map-engine package:
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine

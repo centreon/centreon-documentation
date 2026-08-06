@@ -67,7 +67,7 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
 
 1. Run the following command:
 
-  <Tabs groupId="os">
+  <Tabs groupId="os" queryString>
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
   
   ```shell
@@ -84,7 +84,7 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
   ``` 
   
   </TabItem>
-  <TabItem value="Debian" label="Debian">
+  <TabItem value="Debian 12" label="Debian 12">
 
   ```shell
   apt info centreon-map-web-client
@@ -96,7 +96,7 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
 
 2. In the output, **Repository** should read **centreon-stable-noarch**. If this is not the case, you do not have the correct packages installed. Do the following :
 
-  <Tabs groupId="os">
+  <Tabs groupId="os" queryString>
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
   
   ```shell
@@ -111,7 +111,7 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
   ```
   
   </TabItem>
-  <TabItem value="Debian" label="Debian">
+  <TabItem value="Debian 12" label="Debian 12">
   
   ```shell
   sudo apt install centreon-map-web-client

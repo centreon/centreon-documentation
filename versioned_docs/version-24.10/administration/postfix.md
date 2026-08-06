@@ -21,7 +21,7 @@ We recommend that you use a dedicated email account to send notifications.
 
 1. In your server's terminal, enter the following command:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma 8" label="Alma 8">
 
 ``` shell
@@ -50,7 +50,7 @@ dnf install s-nail cyrus-sasl-plain
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ``` shell
 apt install postfix bsd-mailx libsasl2-modules
@@ -79,7 +79,7 @@ apt install postfix bsd-mailx libsasl2-modules
 
 5. Add the following information:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="With authentication/TLS" label="With authentication/TLS">
 
     ```shell
@@ -181,7 +181,7 @@ apt install postfix bsd-mailx libsasl2-modules
 
 - If the user has not received the message, check the following log file (if it exists):
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
     ```shell
@@ -194,7 +194,7 @@ apt install postfix bsd-mailx libsasl2-modules
     tail -f /var/log/maillog
     ```
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
     ```shell
     tail -f /var/log/mail.log

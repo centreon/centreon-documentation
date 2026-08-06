@@ -10,7 +10,7 @@ For security reasons, the keys used to sign Centreon RPMs or the Debian reposito
 
 ## Fresh installation
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 If you performed a fresh installation after the new RPM key was published,
@@ -26,7 +26,7 @@ Is this ok [y/N]:
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 If you performed a fresh installation after the new key was published,
 no additional actions are necessary.
@@ -38,7 +38,7 @@ However, you can [check that you have the correct key](#checks).
 
 ## Existing installation
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 If you performed a fresh installation of a Centreon platform before the new RPM key was published, the existing key must be replaced with the new one.
@@ -69,7 +69,7 @@ If you performed a fresh installation of a Centreon platform before the new RPM 
     * ask you to check the signature of the RPM packages.
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Remove the old key:
 
@@ -89,12 +89,12 @@ If you performed a fresh installation of a Centreon platform before the new RPM 
 
 ## Checks
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 You can then check that the new key has been correctly imported. For the [new key published on December 2, 2025](#list-of-keys):
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Fresh installation" label="Fresh installation">
 
 * After installation, check if the new key has been correctly imported into the RPM database:
@@ -292,7 +292,7 @@ You can then check that the new key has been correctly imported. For the [new ke
 </Tabs>
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 To get detailed info about the new key and check that it is correctly installed, run the following command:
 

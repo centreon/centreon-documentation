@@ -17,7 +17,7 @@ The acknowledgement of an incident means that the problem has been taken into
 account by a user of the monitoring service. When the user acknowledges the problem,
 Centreon Engine emits an **acknowledgement** event. This event is different in BBDO v2 and BBDO v3.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::Acknowledgement
@@ -88,7 +88,7 @@ message Acknowledgement {
 In several situations, the user must enter a comment in the Centreon
 interface. When they validate it, Centreon Engine emits a **comment** event. This event is different in BBDO v2 and BBDO v3.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::Comment
@@ -187,7 +187,7 @@ often comes from Centreon Engine macros. For Centreon to work correctly, these
 custom variables must be sent to Centreon Broker. Each one is sent thanks to
 a **custom variable** event. This event is different in BBDO v2 and BBDO v3.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::CustomVariable
@@ -260,7 +260,7 @@ message CustomVariable {
 **Custom variable status** events are generated when a custom variable needs
 to be updated.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::CustomVariableStatus
@@ -326,7 +326,7 @@ message CustomVariable {
 
 This event is emitted by Centreon Engine when a downtime is set on a resource.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::Downtime
@@ -417,7 +417,7 @@ run whenever a resource state change occurs. When such a command is configured,
 an **event handler** event is emitted by Centreon Engine. These BBDO events are
 usually sent when Centreon Engine is restarted or reloaded.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::EventHandler
@@ -466,7 +466,7 @@ The **tag** is a new configuration event currently used for categories and group
 At the moment, it is used in parallel with **group** events and other things, but
 in the near future it should be more global.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 There are no **tag** events in BBDO v2.
@@ -519,7 +519,7 @@ message Tag {
 
 This event is emitted every time a change is made to the configuration of a host and the configuration is deployed.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::Host
@@ -752,7 +752,7 @@ message Host {
 
 This type of event is emitted by Centreon Engine when a check is performed on a host.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::HostCheck
@@ -819,7 +819,7 @@ message Check {
 
 This event is emitted when a dependency between hosts is defined, and the configuration is deployed.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::HostDependency
@@ -852,7 +852,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 This event is emitted when a host group is created.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::HostGroup
@@ -884,7 +884,7 @@ This is a configuration event. It is sent just after a **hostgroup** event to
 detail members of the group to configure. Even in BBDO v3, we still use the
 BBDO v2 version of this event.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::HostGroupMember
@@ -916,7 +916,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 This is a configuration event sent when a host parent is defined. Even in BBDO v3,
 we still use the BBDO v2 version of this event.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::HostParent
@@ -945,7 +945,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 This is an event emitted by Centreon Engine when a host has real time modifications (status, output, metrics, etc.).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::HostStatus
@@ -1082,7 +1082,7 @@ message HostStatus {
 
 This event is emitted by Centreon Engine when Engine starts to send its configuration or when Engine stops.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::Instance
@@ -1147,7 +1147,7 @@ message Instance {
 This event is emitted by Centreon Engine regularly as a watchdog. This event tells Broker that the poller
 is still alive (with various other information).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::InstanceStatus
@@ -1228,7 +1228,7 @@ message InstanceStatus {
 Centreon Engine generates many logs. Some of them are sent to Centreon Broker
 to be stored in the database. These logs are sent using **log entry** events.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::LogEntry
@@ -1321,7 +1321,7 @@ in Engine are **external command** and **cbmod**, which are mandatory.
 
 That is why it will be removed in the near future.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::Module
@@ -1353,7 +1353,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 This is a configuration event. It is emitted by Centreon Engine when a change is made to the configuration of a service and the configuration is deployed.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::Service
@@ -1601,7 +1601,7 @@ message Service {
 
 This event is emitted by Centreon Engine when a check is performed on a service.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::ServiceCheck
@@ -1666,7 +1666,7 @@ message Check {
 
 This is a configuration event sent when a dependency between services is defined.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::ServiceDependency
@@ -1701,7 +1701,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 This is a configuration event that is emitted when a service group is created.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::ServiceGroup
@@ -1733,7 +1733,7 @@ This is a configuration event. It is sent just after a **servicegroup** event to
 detail members of the group to configure. Even in BBDO v3, we still use the
 BBDO v2 version of this event.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::ServiceGroupMember
@@ -1765,7 +1765,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 This is an event emitted by Centreon Engine when a service has real time modifications.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::ServiceStatus
@@ -1911,7 +1911,7 @@ message ServiceStatus {
 Here is a configuration event announcing all the configuration events that are
 going to be sent by a poller.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::InstanceConfiguration
@@ -1939,7 +1939,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 
 This event is emitted by cbd. It tells if a poller is responsive or not.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### NEB::ResponsiveInstance
@@ -1992,7 +1992,7 @@ message ResponsiveInstance {
 This event was introduced with BBDO v3. It is emitted when a service has its configuration
 updated on the fly (for example with an external command)
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 No **Adaptive service** available in BBDO v2.
@@ -2046,7 +2046,7 @@ message AdaptiveService {
 This event was introduced with BBDO v3. It is emitted when a host has its configuration
 updated on the fly (for example with an external command).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 No **Adaptive host** available in BBDO v2.
@@ -2099,7 +2099,7 @@ message AdaptiveHost {
 This is a configuration event. It defines a severity. This event was introduced
 with BBDO v3.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 No BBDO v2 version of this event exists.
@@ -2147,7 +2147,7 @@ message Severity {
 This is a real time event. It contains a small part of a service status. It was
 introduced with BBDO v3.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 No BBDO v2 version of this event exists.
@@ -2186,7 +2186,7 @@ message AdaptiveServiceStatus {
 This is a real time event. It contains a small part of a host status. It was
 introduced with BBDO v3.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 No BBDO v2 version of this event exists.
@@ -2224,7 +2224,7 @@ message AdaptiveHostStatus {
 This event is generated by a Storage endpoint to notify that an RRD metric
 graph should be updated.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::Metric
@@ -2299,7 +2299,7 @@ This message and its principle are only available in BBDO v2.
 With BBDO v3, we take advantage of the power of Protobuf. To rebuild graphs,
 we use the event [Storage::PbRebuildMessage](#storagepbrebuildmessage).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::Rebuild
@@ -2335,7 +2335,7 @@ This message and its principle are only available in BBDO v2.
 With BBDO v3, we take advantage of the power of Protobuf. To remove graphs,
 we use the event [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::RemoveGraph
@@ -2367,7 +2367,7 @@ for a replacement.
 This event is emitted by cbd when a **Service Status** or a **Host Status** event is received.
 It essentially contains a resource with its status.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::Status
@@ -2422,7 +2422,7 @@ This event is emitted by Centreon Broker when a new service configuration is
 received. It associates an index ID (the one created for a service - see
 [Index mapping](#index-mapping)) to a metric ID.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::MetricMapping
@@ -2470,7 +2470,7 @@ This event is emitted by Centreon Broker when a new service configuration is
 received. It associates an ID to the pair **(host ID/service ID)**. This new
 ID is useful for the service metrics declaration.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::IndexMapping
@@ -2520,7 +2520,7 @@ This event comes with BBDO 3, when some graphs have to be rebuilt. Messages
 handling these rebuilds are of that type. They replace the old BBDO v2 rebuild
 message.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 Not available with BBDO v2.
@@ -2587,7 +2587,7 @@ There are two possibilities concerning this event. We can remove graphs
 matching some index data or graphs matching some metric data. It is also
 possible to mix the two kinds.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 Not available with BBDO v2.
@@ -2623,7 +2623,7 @@ This is the negotiation message used until BBDO v3.0.0. Each time a BBDO
 connection is established, this message is sent by the connector and by the
 acceptor to negotiate options.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BBDO::VersionResponse
@@ -2656,7 +2656,7 @@ But the sender keeps events until the receiver tells it they have been handled.
 To do that, the receiver emits an **Ack** message with the number of events
 already handled.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BBDO::Ack
@@ -2703,7 +2703,7 @@ When one side of a BBDO connection is going to exit, it emits a **Stop** event
 so that if the other side has events already handled it can send an **Ack**
 event.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BBDO::Stop
@@ -2744,7 +2744,7 @@ message Stop {}
 
 This event is sent when a BA's status changes.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::BaStatus
@@ -2810,7 +2810,7 @@ message BaStatus {
 
 This event is sent when a KPI's status changes.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::KpiStatus
@@ -2889,7 +2889,7 @@ This event was designed to send meta service's status changes.
 At the moment meta services are not managed by Centreon Broker, so this
 event is not used.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::MetaServiceStatus
@@ -2918,7 +2918,7 @@ There is no Protobuf event.
 
 This event is sent when a new BA event is opened, or an old one is closed.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::BaEvent
@@ -2980,7 +2980,7 @@ message BaEvent {
 
 This event is sent when a new KPI event is opened, or an old one is closed.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::KpiEvent
@@ -3047,7 +3047,7 @@ message KpiEvent {
 
 This event is sent when a new BA duration event is computed by the BAM broker.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::BaDurationEvent
@@ -3105,7 +3105,7 @@ message BaDurationEvent {
 This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::DimensionBaEvent
@@ -3162,7 +3162,7 @@ message DimensionBaEvent {
 This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::DimensionKpiEvent
@@ -3238,7 +3238,7 @@ message DimensionKpiEvent {
 This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::DimensionBaBvRelationEvent
@@ -3285,7 +3285,7 @@ message DimensionBaBvRelationEvent {
 This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::DimensionBvEvent
@@ -3338,7 +3338,7 @@ startup and after each BAM configuration reload.
 This signal is sent before the dump of all the dimensions, and again at
 the end of the dump.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::DimensionTruncateTableSignal
@@ -3384,7 +3384,7 @@ message DimensionTruncateTableSignal {
 This event is sent when a rebuild of event durations and availabilities
 is received by the BAM broker endpoint.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::Rebuild
@@ -3412,7 +3412,7 @@ The event is the same as in BBDO v2. There is no Protobuf event.
 This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::DimensionTimeperiod
@@ -3474,7 +3474,7 @@ message DimensionTimeperiod {
 This event is part of the dimension (i.e configuration) dump occurring at
 startup and after each BAM configuration reload.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::DimensionBaTimeperiodRelation
@@ -3520,7 +3520,7 @@ message DimensionBaTimeperiodRelation {
 
 ### Inherited downtime
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::InheritedDowntime

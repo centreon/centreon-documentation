@@ -7,7 +7,7 @@ import DatabaseConfiguration from './_database-configuration.mdx';
 
 Exécutez la commande suivante sur le serveur central :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -34,10 +34,10 @@ apt install -y centreon-central
 
 Exécutez ensuite les commandes suivantes sur le serveur dédié à votre base de données :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -71,7 +71,7 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

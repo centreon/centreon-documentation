@@ -38,7 +38,7 @@ Lorsque vous passez d'une version majeure de Centreon à une autre, vous devez :
 
 Pour connaître la version de MariaDB installée sur une machine, tapez la commande suivante :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -108,7 +108,7 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
 
 2. Désinstallez la version actuelle :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
@@ -170,7 +170,7 @@ dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-co
 
 3. Installez la version 10.11 :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
@@ -292,7 +292,7 @@ Suivez ces étapes pour changer de version mineure de MariaDB (par exemple, pour
 
 1. Mettez à jour MariaDB :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

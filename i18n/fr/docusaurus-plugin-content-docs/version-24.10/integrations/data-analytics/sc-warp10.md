@@ -21,7 +21,7 @@ Connectez vous en tant que `root` sur le serveur Centreon central en utilisant v
 
 Lancer la commande adaptée à votre système :
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

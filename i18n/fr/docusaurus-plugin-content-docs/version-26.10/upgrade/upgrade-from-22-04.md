@@ -55,15 +55,6 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 * centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-* bullseye, bullseye-updates, bullseye-backports and bullseye security
-* BaseOS
-* AppStream
-* centreon
-* centreon-modules, if you are using Centreon Business Edition.
-
-</TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 * bookworm, bookworm-updates, bookworm-backports and bookworm security
@@ -112,7 +103,7 @@ Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian
    ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
 2. Exécutez les commandes suivantes :
@@ -160,7 +151,7 @@ rm /etc/yum.repos.d/centreon-business-22.04.repo
 
 </TabItem>
 
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 rm /etc/apt/sources.list.d/centreon-business.list
@@ -242,7 +233,7 @@ systemctl restart php-fpm
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 systemctl stop php8.0-fpm
@@ -272,7 +263,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean all
@@ -292,7 +283,7 @@ dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install --only-upgrade centreon
@@ -371,7 +362,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 Utilisez la sauvegarde que vous avez effectuée à l'étape précédente pour reporter vos personnalisations dans le fichier **/etc/apache2/sites-available/centreon.conf**.
 
@@ -452,7 +443,7 @@ systemctl reload php-fpm httpd
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt autoremove
@@ -570,7 +561,7 @@ usermod -a -G apache centreon-broker
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 usermod -a -G centreon-broker www-data
@@ -664,7 +655,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 rm -f /etc/apt/sources.list.d/centreon*
@@ -687,7 +678,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean
@@ -708,7 +699,7 @@ dnf update centreon\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install --only-upgrade centreon-poller

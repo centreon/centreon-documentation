@@ -28,7 +28,7 @@ Add the Centreon Business repository; you can find it on the
 
 And install the package using the following command:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

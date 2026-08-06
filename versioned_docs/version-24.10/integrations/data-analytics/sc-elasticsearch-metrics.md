@@ -21,7 +21,7 @@ Perform the installation as `root` on the server that will send data to Elastics
 
 1. Install dependencies:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -49,7 +49,7 @@ apt install luarocks make gcc lua-curl lua-devel wget
 
 2. Install the Centreon Lua libraries for stream connectors:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -77,7 +77,7 @@ luarocks install centreon-stream-connectors-lib
 
 3. Install the stream connector:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

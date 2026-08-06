@@ -55,7 +55,7 @@ To perform the upgrade, please [follow the official documentation](../../upgrade
 
 Then perform the following commands only on the Central Servers:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```shell
@@ -161,7 +161,7 @@ This file will be necessary to recreate all the resources of your cluster.
 
 These commands should run only on the active central node:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```bash
@@ -288,7 +288,7 @@ To be run **only on one central node**:
 > You can find @CENTRAL_MASTER_NAME@ @CENTRAL_SLAVE_NAME@ @MARIADB_REPL_USER@
 @MARIADB_REPL_USER@ variable in `/etc/centreon-ha/mysql-resources.sh`.
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -312,9 +312,9 @@ pcs resource create "ms_mysql" \
 
 > **WARNING:** the syntax of the following command depends on the Linux Distribution you are using.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -329,7 +329,7 @@ pcs resource promotable ms_mysql \
 </Tabs>
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -394,9 +394,9 @@ bash centreon_pcs_command.sh
 
 #### Recreating the constraint
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -411,7 +411,7 @@ pcs constraint order stop centreon then demote ms_mysql-clone
 
 In order to bind the primary database role to the Virtual IP, define a mutual constraint:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -424,7 +424,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 
 Then recreate the constraint that prevents Centreon processes from running on database nodes and vice-versa:
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
 
 ```bash
@@ -453,7 +453,7 @@ pcs resource cleanup
 You can monitor the cluster's resources in real time using the `crm_mon -fr` command:
 > **INFO:** The `-fr` option allows you to display all resources even if they are disabled.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```text
