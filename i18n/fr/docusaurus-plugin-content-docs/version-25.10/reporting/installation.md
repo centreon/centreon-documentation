@@ -530,7 +530,7 @@ replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 ```
 Ensuite, créez les vues manuellement sur le serveur esclave :
 
-1. Téléchargez [le fichier suivant](../assets/reporting/installation/view_creation.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
+1. Téléchargez [le fichier suivant](https://docs.centreon.com/fr/assets/files/view_creation-eb5f170ad3d8a0853fe926d3a034f8a2.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
 
 2. Exécutez la commande suivante (changez le nom de votre répertoire temporaire si besoin) :
 
