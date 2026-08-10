@@ -21,11 +21,9 @@ description: "Release notes for Centreon Cloud, detailing new features, improvem
 - The VMware additional configuration no longer restarts the `centreon_vmware` process on every configuration deployment. The process is now restarted only when its own configuration has actually changed, which removes collection interruptions previously triggered by unrelated configuration changes.
 
 
-**Collect**
+**Centreon Collect**
 
-The improvements below have been released on the collect components since the previous Centreon Cloud update. They do not come with this platform update: update your pollers and your Centreon Monitoring Agents to the latest available version to benefit from them.
-
-*Centreon Monitoring Agent (CMA)*
+The improvements below have been released on the collect components since the previous Centreon Cloud update. They do not come with this platform update: update your pollers and your **Centreon Monitoring Agents** to the latest available version to benefit from them.
 
 - Check timeperiods are now honored on resources monitored by the Centreon Monitoring Agent. The **check period** configured on the host or the service is respected with the same semantics as checks scheduled by the Centreon Engine: no check is executed outside the valid window, no performance data is collected and no status update is produced, and the next check is rescheduled on the next valid window. Freshness calculation excludes the inactive window, forced checks still run regardless of the timeperiod, and the timezone used is the one of the host where the agent is installed. This behavior is available on both Linux and Windows agents.
 - The Linux installation script of the agent now prepares the plugin cache directory required by several native checks, so that modes such as CPU, disk I/O, processes, traffic or packet errors work as expected right after installation.
