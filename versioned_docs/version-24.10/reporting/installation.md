@@ -1,4 +1,4 @@
----reporting/i
+---
 id: installation
 title: Installing MBI
 description: "Install and configure the Centreon MBI reporting server and interface"
