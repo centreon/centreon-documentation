@@ -664,7 +664,7 @@ dnf update
 Installez les paquets prérequis :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-24.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-24.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -962,7 +962,7 @@ systemctl restart mariadb
 Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-24.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-24.10-stable.list
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimer les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à nouveau MariaDB :
