@@ -167,3 +167,6 @@ rules system is designed to do it:
 After opening a ticket, you can also configure some commands to be executed.
 
 ![image](../assets/alerts/open_ticket_advanced_cmd_01.png)
+
+Creating automatic tickets
+
