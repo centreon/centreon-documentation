@@ -15,14 +15,14 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Optimized the stream connector to avoid DOS.
-- New OpenTelemetry otelhttp community stream connecteur for metrics, provided by a community contribution [PR 290](https://github.com/centreon/centreon-stream-connector-scripts/pull/290).
-- Enhanced logging by reducing log when queue is empty and broker don't send new messages.
+- New OpenTelemetry otelhttp community stream connector for metrics, provided by a community contribution [PR 290](https://github.com/centreon/centreon-stream-connector-scripts/pull/290).
+- Reduced unnecessary logging when Broker has no new messages to process.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed cases where the stream connector may not work with self signed certificates, based on a community contribution [PR 311](https://github.com/centreon/centreon-stream-connector-scripts/pull/311).
-- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed crashs on host acknowledgement events.
+- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed crashes on host acknowledgement events.
 
 </TabItem>
 </Tabs>
