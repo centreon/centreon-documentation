@@ -4,6 +4,14 @@ description: Journal des évolutions fonctionnelles et techniques d'Experience M
 title: Centreon Experience Monitoring - notes de release
 ---
 
+## September 1st, 2026
+
+**Internal Probes — General Availability**
+
+**Secure Token Management**
+
+**Authentication / Users and Roles Delegated to Centreon Hub**
+
 ## June 22nd, 2026
 
 **Facilitated diagnostics: probe log download**

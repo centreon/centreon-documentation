@@ -4,6 +4,14 @@ title: Centreon Experience Monitoring release notes
 description: Changelog of Experience Monitoring feature and platform updates
 ---
 
+## September 1st, 2026
+
+**Internal Probes — General Availability**
+
+**Secure Token Management**
+
+**Authentication / Users and Roles Delegated to Centreon Hub**
+
 ## June 22nd, 2026
 
 **Facilitated diagnostics: probe log download**
