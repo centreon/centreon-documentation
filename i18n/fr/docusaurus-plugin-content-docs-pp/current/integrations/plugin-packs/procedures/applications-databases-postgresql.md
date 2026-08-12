@@ -674,6 +674,8 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical         | Critical threshold. (example: "total=250,waiting=5,exclusive=20") 'total', 'waiting', or the name of a lock type used by Postgres.   |
 | --include-database | Filter databases using a regular expression.                                                                                         |
 | --exclude-database | Exclude databases using a regular expression.                                                                                        |
+| --include-locktype | Filter lock type by `pg\_locks.locktype` column. (default: 'relation').                                                              |
+| --exclude-locktype | Filter lock type by `pg\_locks.locktype` column.                                                                                     |
 
 </TabItem>
 <TabItem value="Query-Time" label="Query-Time">
