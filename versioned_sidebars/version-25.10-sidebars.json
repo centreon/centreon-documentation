@@ -1453,6 +1453,10 @@
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/ot-ivanti"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-jira"
             },
             {
