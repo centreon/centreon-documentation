@@ -1542,7 +1542,6 @@ message Timeserie {
   repeated Point pts = 1;
   int32 data_source_type = 2;
   uint32 check_interval = 3;
-  uint32 rrd_retention = 4;
 }
 
 message RebuildMessage {
