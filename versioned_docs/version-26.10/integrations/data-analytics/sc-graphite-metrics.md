@@ -178,15 +178,56 @@ If you want to test that events are sent to Graphite correctly:
 1. Log in to the server that you configured to send events to Graphite (your central server, a remote server or a poller).
 2. Run the following command:
 
-   ```shell
+```shell
    echo -n 'pl.min,host=new-host-in-cache;poller=Central;hostgroups=;type=metric_min 0.0 1786629792
 pl.max;host=new-host-in-cache;poller=Central;hostgroups=;type=metric_max 100.0 1786629792
 pl.warning_threshold;host=new-host-in-cache;poller=Central;hostgroups=;type=metric_warning_threshold 80.0 1786629792
 pl.critical_threshold;host=new-host-in-cache;poller=Central;hostgroups=;type=metric_critical_threshold 100.0 1786629792
 pl.state;host=new-host-in-cache;poller=Central;hostgroups=;type=metric_state 0 1786629792
 pl;host=new-host-in-cache;poller=Central;hostgroups=;type=metric_value 0.0 1786629792' | nc -z -v <graphite_address> <graphite_port>
-   ```
+```
 
-   > Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, *\<graphite_address\>* may become *graphite.test.local*.
+> Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, *\<graphite_address\>* may become *graphite.test.local*.
 
-1. Check that the event has been received by Graphite.
+3. Check that the event has been received by Graphite.
+
+## Additional information
+
+Graphite is often paired with Grafana, so here is a Grafana query example that you can use.
+
+Here are the Centreon metrics sent to Graphite for this example (one for the metric value, one for the warning threshold).
+
+```txt
+animals.count;host=central;poller=Central;metric_instance=ducks;metric_subinstances=mallard;service=passive;hostgroups=hg_1_1,hg_1;type=metric_value 62.0 1786627949
+animals.count.warning_threshold;host=central;poller=Central;metric_instance=ducks;metric_subinstances=mallard;service=passive;hostgroups=hg_1_1,hg_1;type=metric_warning_threshold 80.0 1786627949
+```
+
+You can use the following Grafana queries:
+
+```txt
+aliasByTags(seriesByTag('metric_instance=ducks', 'type=metric_value', 'metric_subinstances=mallard'), 'name', 'metric_instance', 'metric_subinstances', 'type')
+aliasByTags(seriesByTag('metric_instance=ducks', 'type=metric_warning_threshold', 'metric_subinstances=mallard'), 'name', 'metric_instance', 'metric_subinstances', 'type')
+```
+
+Where:
+
+- seriesByTag() function and parameters are used to filter the metric we want.
+- aliasByTags() function and parameters are used to avoid displaying an unnecessarily long metric name (by default it displays all tags).
+- The first query is used to display the metric value evolution overtime.
+- The second query is used to display the warning threshold curve on the graph.
+
+The table below lists every usable tags:
+
+| Tag name | Optional | Description |
+| -- | -- | -- |
+| poller | no | the name of the poller monitoring the host |
+| host | no | the name of the host |
+| service | yes | only for services events, the name of the service |
+| type | yes | can be `metric_[value|state|min|max|warning_threshold|critical_threshold]` |
+| hostgroups | yes | only if the parameter "add_hostgroups" is set to "1" and there is at least one hostgroup linked to the host |
+| metric_instance | yes | only if the Centreon metric modern format contains one |
+| metric_subinstances | yes | only if the Centreon metric modern format contains at least one |
+| metric_min | yes | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a min value available |
+| metric_max | yes | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a max value available |
+| metric_warning_threshold | yes | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a warning threshold value available |
+| metric_critical_threshold | yes | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a critical threshold value available |
