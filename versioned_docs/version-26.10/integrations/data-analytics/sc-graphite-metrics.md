@@ -119,13 +119,16 @@ Each optional parameter has a default value, that is indicated in the correspond
 
 * The Graphite Metrics stream connector also provides a set of dedicated parameters to tune which data you send and how it is sent
 
-> Beware, the below options are all disabled by default. Keep in mind that enabling them will increase the data volume sent to Graphite because it will either:
+> Beware, options listed in the below table that add data to a metric are all disabled by default. Keep in mind that enabling them will increase the data volume sent to Graphite because it will either: 
 > - Add new tags to a metric
 > - Generate up to 5 additional metric events per metric plus tags (hostgroups being sent only through tags)
 > The Test commands in the [Test commands section](#test-commands-testing-the-stream-connector) are examples with every option set to 1 or "as_metric".
 
 | Type   | Name                | Default value | Description                                                                                                                                                                                                                                                                                                                                                                    |
 | ------ | ------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| number | port                | 2003          |                                                                                                                                                                                                                                                                                                                                                                                |
+| string | username            | ""            |                                                                                                                                                                                                                                                                                                                                                                                |
+| string | password            | ""            |                                                                                                                                                                                                                                                                                                                                                                                |
 | string | add_min_max_mode    | ""            | You can either set it to "as_tag" or "as_metric". The first case will set the min and max values as tags in the metric. The second option will generate a dedicated metric called <metric_name>.min with a "type" tag set to "metric_min". Default value is empty, meaning that the min/max values are not sent at all                                                         |
 | string | add_thresholds_mode | ""            | You can either set it to "as_tag" or "as_metric". The first case will set the warning and critical threshold values as tags in the metric. The second option will generate a dedicated metric called <metric_name>.warning_threshold with a "type" tag set to "metric_warning_threshold". Default value is empty, meaning that the warning/critical values are not sent at all |
 | number | add_hostgroups      | 0             | Setting the value to 1 will add the list of hostgroups as tags in the metric event                                                                                                                                                                                                                                                                                             |
@@ -218,16 +221,16 @@ Where:
 
 The table below lists every usable tags:
 
-| Tag name | Optional | Description |
-| -- | -- | -- |
-| poller | no | the name of the poller monitoring the host |
-| host | no | the name of the host |
-| service | yes | only for services events, the name of the service |
-| type | yes | can be `metric_[value|state|min|max|warning_threshold|critical_threshold]` |
-| hostgroups | yes | only if the parameter "add_hostgroups" is set to "1" and there is at least one hostgroup linked to the host |
-| metric_instance | yes | only if the Centreon metric modern format contains one |
-| metric_subinstances | yes | only if the Centreon metric modern format contains at least one |
-| metric_min | yes | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a min value available |
-| metric_max | yes | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a max value available |
-| metric_warning_threshold | yes | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a warning threshold value available |
-| metric_critical_threshold | yes | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a critical threshold value available |
+| Tag name                  | Optional | Description                                                                                                      |
+| ------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| poller                    | no       | the name of the poller monitoring the host                                                                       |
+| host                      | no       | the name of the host                                                                                             |
+| service                   | yes      | only for services events, the name of the service                                                                |
+| type                      | yes      | can be `metric_[value                                                                                            | state | min | max | warning_threshold | critical_threshold]` |
+| hostgroups                | yes      | only if the parameter "add_hostgroups" is set to "1" and there is at least one hostgroup linked to the host      |
+| metric_instance           | yes      | only if the Centreon metric modern format contains one                                                           |
+| metric_subinstances       | yes      | only if the Centreon metric modern format contains at least one                                                  |
+| metric_min                | yes      | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a min value available                   |
+| metric_max                | yes      | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a max value available                   |
+| metric_warning_threshold  | yes      | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a warning threshold value available  |
+| metric_critical_threshold | yes      | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a critical threshold value available |
