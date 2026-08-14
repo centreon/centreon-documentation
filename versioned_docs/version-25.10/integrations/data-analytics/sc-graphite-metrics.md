@@ -221,16 +221,16 @@ Where:
 
 The table below lists every usable tags:
 
-| Tag name | Optional | Description |
-| -- | -- | -- |
-| poller | no | the name of the poller monitoring the host |
-| host | no | the name of the host |
-| service | yes | only for services events, the name of the service |
-| type | yes | can be `metric_[value|state|min|max|warning_threshold|critical_threshold]` |
-| hostgroups | yes | only if the parameter "add_hostgroups" is set to "1" and there is at least one hostgroup linked to the host |
-| metric_instance | yes | only if the Centreon metric modern format contains one |
-| metric_subinstances | yes | only if the Centreon metric modern format contains at least one |
-| metric_min | yes | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a min value available |
-| metric_max | yes | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a max value available |
-| metric_warning_threshold | yes | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a warning threshold value available |
-| metric_critical_threshold | yes | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a critical threshold value available |
+| Tag name                  | Optional | Description                                                                                                      |
+| ------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
+| poller                    | no       | the name of the poller monitoring the host                                                                       |
+| host                      | no       | the name of the host                                                                                             |
+| service                   | yes      | only for services events, the name of the service                                                                |
+| type                      | yes      | can be `metric_[value\|state\| min\|max\|warning_threshold\|critical_threshold]`                                 |
+| hostgroups                | yes      | only if the parameter "add_hostgroups" is set to "1" and there is at least one hostgroup linked to the host      |
+| metric_instance           | yes      | only if the Centreon metric modern format contains one                                                           |
+| metric_subinstances       | yes      | only if the Centreon metric modern format contains at least one                                                  |
+| metric_min                | yes      | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a min value available                   |
+| metric_max                | yes      | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a max value available                   |
+| metric_warning_threshold  | yes      | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a warning threshold value available  |
+| metric_critical_threshold | yes      | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a critical threshold value available |
