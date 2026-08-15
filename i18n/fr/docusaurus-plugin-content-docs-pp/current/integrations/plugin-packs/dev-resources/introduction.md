@@ -7,16 +7,17 @@ description: "Découvrez comment utiliser le framework centreon-plugins pour dé
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This section aims to give an overview of the centreon-plugins philosophy and how
-you can leverage the centreon-plugins perl framework (or not) and create Packs on top
-of it.
+Cette section a pour but de donner un aperçu de la philosophie de centreon-plugins et de la façon dont
+vous pouvez tirer parti du cadre perl de centreon-plugins (ou non) et créer des packs par-dessus
+.
 
-The recommended path is the following:
+Le chemin recommandé est le suivant :
 
-- [Plugins guidelines](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/plugins-guidelines) - Understand the major
-concepts and features you need to know before developing any plugins.
-- [Plugins quickstart guide](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/plugins-guidelines/develop-with-centreon-plugins) - Get the
-big picture and understand patterns that will enable you to code with our framework.
+- [Lignes directrices sur les plugins](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/plugins-guidelines) - Comprendre les principaux concepts et fonctionnalités de
+que vous devez connaître avant de développer des plugins.
+- [Guide de démarrage rapide des plugins](https://docs.centreon.com/pp/integrations/plugin-packs/dev-resources/plugins-guidelines/develop-with-centreon-plugins) - Obtenir une vue d'ensemble de
+et comprendre les modèles qui vous permettront de coder avec notre framework.
 
-Need some help? Unanswered questions? Smoggy concepts? Just reach out to us on our community platform
-[The Watch](https://thewatch.centreon.com). Feel free to submit an idea if you would like to see a specific topic covered within this section.
+Besoin d'aide ? Des questions sans réponse ? Des concepts flous ? N'hésitez pas à nous contacter sur notre plateforme communautaire
+[The Watch](https://thewatch.centreon.com). N'hésitez pas à nous soumettre une idée si vous souhaitez qu'un sujet spécifique soit abordé dans cette section.
+
