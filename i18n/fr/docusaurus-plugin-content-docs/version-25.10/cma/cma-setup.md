@@ -16,7 +16,7 @@ Cette étape s'effectue via l'interface du serveur central. (Il est également p
 Sur votre serveur central, installez le connecteur de supervision qui fournira les modèles et les commandes qui vous permettront de configurer les hôtes et les services supervisés dans Centreon.
 Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
@@ -45,7 +45,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 
 #### Comportement des jetons d'authentification CMA : désactivation/expiration/révocation
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 * Le moteur de collecte vérifie la présence et la validité du jeton, et coupe la connexion en cas d'absence du jeton (car désactivé ou révoqué) ou d'expiration de celui-ci. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
@@ -71,7 +71,7 @@ Dans le cas d'une plateforme Cloud, ces connecteurs sont déjà installés.
 3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
 4. Sélectionnez le mode de chiffrement
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 5. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
@@ -104,7 +104,7 @@ Cette section s'applique :
 * si le collecteur établit la connexion avec l'agent
 * si l'agent établit la connexion avec le collecteur, mais que l'option **Créer les hôtes automatiquement** n'est pas sélectionnée.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 Sur le serveur central, [créez l'hôte](../monitoring/basic-objects/hosts.md) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
@@ -131,7 +131,7 @@ Cette étape s'effectue sur le collecteur.
 
 ### Configurez le firewall
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 > Ces commandes doivent être adaptées selon le système d'exploitation.
@@ -232,14 +232,14 @@ Cette étape s'effectue sur l'hôte supervisé.
 
 ### Téléchargez et installez l'agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 #### Installer le dépôt Centreon et l'agent
 
 Installez le dépôt Centreon puis l'agent à l'aide des commandes suivantes :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -321,7 +321,7 @@ apt install centreon-monitoring-agent
 
 1. Remplacez le contenu du fichier **/etc/centreon-monitoring-agent/centagent.json** par le contenu suivant :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 ```json
@@ -406,7 +406,7 @@ systemctl status centagent
 
 Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Mode interactif" label="Mode interactif">
 
 > L'installer doit être lancé avec l'option "Exécuter en tant qu'administrateur".
@@ -420,7 +420,7 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
    * Dans le champ **Host name in Centreon**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon.
   > Important : Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon. Il doit être strictement identique au nom d'hôte Centreon (sensible à la casse).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 
@@ -531,7 +531,7 @@ Si vous utilisez des connecteurs Centreon et des contrôles non natifs sous Linu
 
 Ce dépôt permettra d'installer les plugins Centreon ainsi que **les dépendances qui ne peuvent pas être satisfaites par les dépôts standard des distributions**.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -731,7 +731,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 > ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
@@ -807,7 +807,7 @@ Chaque instance possède sa propre configuration, et l'exécute de manière ind�
 
 #### Configuration
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 La configuration de chaque instance est présente dans un fichier json dédié, sur l'hôte.
@@ -833,7 +833,7 @@ Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
 
 > Faire fonctionner plusieurs instances configurées avec le même couple \<endpoint ; host\> causera des doublons de métriques dans la base de données, pour cet hôte. Il est obligatoire de modifier les valeurs de endpoint et/ou host lors du déploiement d'une nouvelle instance.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. Faites une copie du fichier de configuration créé au premier déploiement de CMA.
@@ -887,7 +887,7 @@ systemctl restart centagent1
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Mode interactif" label="Mode interactif">
 
 À l’exécution de l’installeur, le champ **Agent instance** propose un nom d’instance par défaut (unique) qui peut être modifié.
@@ -910,7 +910,7 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COM
 
 #### Modifier une instance nommée
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. Réalisez les modifications souhaitées dans le fichier json correspondant à l'instance.
@@ -923,7 +923,7 @@ systemctl restart centagent1
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Mode interactif" label="Mode interactif">
 
 Exécutez **centreon-monitoring-agent-modify.exe** situé dans le répertoire d'installation de CMA.
@@ -952,7 +952,7 @@ Voir [**Désinstaller l'agent**](#désinstaller-lagent).
 
 ### Mettre à jour une configuration existante
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. Modifiez le fichier **/etc/centreon-monitoring-agent/centagent.json**.
@@ -978,12 +978,12 @@ centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
 
 ### Mettre à jour l'agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 Mettez à jour l'agent à l'aide de votre gestionnaire de paquets.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -1032,7 +1032,7 @@ systemctl restart centagent
 
 [Téléchargez le nouvel installer de l'agent](https://download.centreon.com) (onglet **Custom Platform**, puis onglet **Monitoring Agent**).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Mode interactif" label="Mode interactif">
 
 > L'installer doit être lancé avec l'option "Exécuter en tant qu'administrateur".
@@ -1061,7 +1061,7 @@ Cette commande met à jour les binaires et la configuration de l'instance spéci
 
 ### Désinstaller l'agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 * Pour désinstaller une instance, exécutez les commandes suivantes en adaptant le nom du service et du fichier de configuration : 
@@ -1092,7 +1092,7 @@ delgroup centreon-monitoring-agent
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Mode interactif" label="Mode interactif">
 
 Exécutez **unins000.exe** situé dans le répertoire d'installation de CMA.

@@ -41,7 +41,7 @@ Vous devez installer le plugin de notification Teams avec le gestionnaire de paq
 
 - Entrez la commande suivante :
  
- <Tabs groupId="sync">
+ <Tabs groupId="os" queryString>
  <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
  
  ``` shell

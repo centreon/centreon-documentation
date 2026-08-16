@@ -67,7 +67,7 @@ You can configure the page that will be displayed by default when you connect to
 
 Follow this procedure to set a default page:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="For a user" label="For a user">
 
   1. Go to the **Configuration > Users > Contacts/Users** page.
@@ -117,7 +117,7 @@ Follow this procedure to set a default page:
   
 3. Then follow this procedure to set a default page. Execute these commands with your customized credentials:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="For a user" label="For a user">
 
 - By editing an existing user (where `200` is the number associated with the Resource Status page):

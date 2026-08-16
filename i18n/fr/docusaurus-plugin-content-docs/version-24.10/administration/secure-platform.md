@@ -91,10 +91,10 @@ shutdown -r now
 
 Suivant le type de serveur, installer les paquets avec la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
 
    ```shell
@@ -137,7 +137,7 @@ Suivant le type de serveur, installer les paquets avec la commande suivante :
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
 
    ```shell
@@ -254,7 +254,7 @@ chmod 660 /etc/centreon/centreon.conf.php
 
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données. Si vous ne l'avez pas déjà fait, exécutez la commande suivante et suivez les instructions :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell
@@ -273,7 +273,7 @@ mysql_secure_installation
 
 ## Activer firewalld
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Installez firewalld:
@@ -316,7 +316,7 @@ Ajoutez des règles pour firewalld :
 > La liste des flux réseau nécessaires pour chaque type de serveur est définie
 > [ici](../installation/technical.md#tableaux-des-flux-réseau).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Central / Remote Server" label="Central / Remote Server">
 
 Exécutez les commandes suivantes (changez les numéros de port si vous avez personnalisé ceux-ci) :
@@ -388,7 +388,7 @@ Fail2ban est un framework de prévention contre les intrusions, écrit en Python
 
 Installez le module inotify:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -414,7 +414,7 @@ apt install python3-inotify
 
 Installez fail2ban :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -540,7 +540,7 @@ Soit un serveur Centreon avec le FQDN suivant : **centreon7.localdomain**.
   
   En raison d'un changement de politique chez Google, les certificats auto-signés peuvent être rejetés par le navigateur Google Chrome (sans qu'il soit possible d'ajouter une exception). Pour continuer à utiliser ce navigateur, vous devez modifier la configuration OpenSSL.
   
-  <Tabs groupId="sync">
+  <Tabs groupId="os" queryString>
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
   
   Ouvrez le fichier **/etc/pki/tls/openssl.cnf**. L'objectif est de modifier ce fichier pour renseigner les différents IPs et FQDNs relatifs au serveur.
@@ -622,7 +622,7 @@ Ce certificat étant créé, vous pourrez l'utiliser pour signer le certificat d
 
 Créez votre certificat pour le serveur en utilisant le certificat x509 (**ca_demo.crt**) pour le signer.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```text
@@ -661,7 +661,7 @@ Maintenant que vous avez votre certificat auto-signé, vous pouvez suivre la pro
 
 1. Installez le module SSL pour Apache :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -721,7 +721,7 @@ cp ca_demo.crt /etc/ssl/certs/
 
 3. Sauvegardez la configuration actuelle du serveur Apache pour Centreon :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -750,7 +750,7 @@ cp /etc/apache2/sites-available/centreon.conf{,.origin}
 > Centreon propose un fichier de configuration d'exemple HTTPS disponible dans le répertoire :
 > **/usr/share/centreon/examples/centreon.apache.https.conf**
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant la section **\<VirtualHost *:443\>**.
@@ -782,7 +782,7 @@ ServerTokens Prod
 
 Voici un exemple de ce à quoi le fichier peut ressembler :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```apacheconf
@@ -1024,7 +1024,7 @@ ServerTokens Prod
 
 5. Activez les flags HttpOnly / Secure et cacher la signature du serveur Apache :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
@@ -1104,7 +1104,7 @@ curl.cainfo=/etc/ssl/certs/ca_demo.crt
 
 6. Cachez le répertoire par défaut **/icons** :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Éditez le fichier **/etc/httpd/conf.d/autoindex.conf** en commentant la ligne suivante :
@@ -1134,7 +1134,7 @@ curl.cainfo=/etc/ssl/certs/ca_demo.crt
 
 7. Vous pouvez effectuer ce test vérifiant qu'Apache est bien configuré, en exécutant la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```apacheconf
@@ -1178,7 +1178,7 @@ Syntax OK
 
 8. Redémarrez le serveur web Apache et PHP pour prendre la configuration en compte :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -1372,7 +1372,7 @@ Pour personnaliser l'URI de Centreon :
 
 1. Éditez le fichier de configuration Apache pour Centreon :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -1404,7 +1404,7 @@ Define base_uri "/centreon"
 
 3. Redémarrez Apache :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -1434,7 +1434,7 @@ Il est possible d'activer le protocole http2 pour améliorer les performances r�
 
 Pour utiliser http2, vous devez suivre les étapes suivantes:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. [Configurer le https pour Centreon](#sécuriser-le-serveur-web-en-https).
@@ -1564,7 +1564,7 @@ systemctl restart apache2
 
 1. Installez **mod_security** :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -1590,7 +1590,7 @@ apt install libapache2-mod-security2
 
 2. Éditez le fichier suivant et adaptez les paramètres selon votre choix :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -1633,7 +1633,7 @@ Nous recommandons la configuration suivante :
 
 3. Redémarrez Apache :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

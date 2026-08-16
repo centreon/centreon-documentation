@@ -24,7 +24,7 @@ You must run the installation procedure as a privileged user.
 After installing your server, update your operating system using the following
 command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -88,7 +88,7 @@ apt update && apt upgrade
 
 ### Disable SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
@@ -168,7 +168,7 @@ systemctl disable firewalld
 
 ### Install the repositories
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma 8" label="Alma 8">
 
 Run the following commands:
@@ -340,7 +340,7 @@ To install Centreon software, you should first install the Centreon repository.
 
 Install the Centreon repository using this command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -387,7 +387,7 @@ This section describes how to install a Centreon Remote Server.
 You can install this server with a local database on the server or
 a remote database on a dedicated server.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
   <TabItem value="With a local database" label="With a local database">
     <DatabaseLocalInstall />
 
@@ -418,7 +418,7 @@ hostnamectl set-hostname remote1
 To make services start automatically during system bootup, run these commands
 on the central server:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -454,7 +454,7 @@ Then execute the following command (on the remote server if you are using a loca
 
 If you have installed the Centreon server with a local database, it is mandatory to secure the database's root access before installing Centreon. Run the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell
@@ -481,7 +481,7 @@ mysql_secure_installation
 1. Start the Apache server with the
 following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

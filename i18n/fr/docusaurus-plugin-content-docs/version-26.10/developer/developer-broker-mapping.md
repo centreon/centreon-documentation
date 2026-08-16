@@ -1298,7 +1298,7 @@ Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
 Avec BBDO v3, on profite de la puissance de Protobuf. Pour reconstruire les
 graphiques, on utilise l'événement [Storage::PbRebuildMessage](#storagepbrebuildmessage).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::Rebuild
@@ -1333,7 +1333,7 @@ Ce message et son fonctionnement sont uniquement disponibles en BBDO v2.
 Avec BBDO v3, on profite de la puissance de Protobuf. Pour supprimer les
 graphiques, on utilise l'événement [Storage::PbRemoveGraphMessage](#storagepbremovegraphmessage).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### Storage::RemoveGraph
@@ -1671,7 +1671,7 @@ Cet évènement a été créé pour envoyer les changements d'état d'un méta-s
 Actuellement, les méta-services n'étant pas gérés par Centreon Broker, cet
 évènement n'est pas utilisé.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="BBDO v2" label="BBDO v2">
 
 #### BAM::MetaServiceStatus

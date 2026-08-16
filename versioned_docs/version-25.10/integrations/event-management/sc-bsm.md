@@ -36,7 +36,7 @@ Login as `root` on the Centreon central server using your favorite SSH client.
 Run the command according on your system:
 
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

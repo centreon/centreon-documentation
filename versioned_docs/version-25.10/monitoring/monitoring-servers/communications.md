@@ -25,7 +25,7 @@ Communication modes are listed below:
 
 ### Without Remote Server
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Modern (recommended)" label="Modern (recommended)">
 
 | Communications                         | Allowed actions                                                           |
@@ -47,7 +47,7 @@ acknowledgements, etc., and configuration export.
 
 ### With Remote Server
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Modern (recommended)" label="Modern (recommended)">
 
 | Communications                                                    | Allowed actions                                                           |
@@ -86,7 +86,7 @@ acknowledgements, etc., and configuration export.
 
 ## Change communication from SSH to ZMQ
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="For a Poller" label="For a Poller">
 
 #### Select communication type

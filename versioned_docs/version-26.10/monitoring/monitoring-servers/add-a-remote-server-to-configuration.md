@@ -84,7 +84,7 @@ The communication between the Central server and a Remote Server is ensured by G
 and can be done using ZMQ (with a Gorgone running on the Remote Server,
 recommended) or using SSH protocol.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Using ZMQ" label="Using ZMQ">
 
 1. Select the communication type:

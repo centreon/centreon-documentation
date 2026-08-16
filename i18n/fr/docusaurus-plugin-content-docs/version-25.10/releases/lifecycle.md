@@ -11,7 +11,7 @@ de Centreon sur une cadence régulière depuis Centreon 18.10, permettant à la 
 entreprises et aux développeurs de planifier leurs feuilles de route avec la
 certitude d’avoir de la visibilité en amont sur les nouvelles capacités offertes par l'open source.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="À partir de la version 24.10" label="À partir de la version 24.10">
 
 ## Numéros de version

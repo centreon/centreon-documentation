@@ -65,7 +65,7 @@ particular endpoint:
 
 ### Step 5: Manage user creation
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Users automatic management" label="Automatic management">
 
 If you turn on **Enable auto import**, users who log in to Centreon for the first time will be created in the Centreon
@@ -92,7 +92,7 @@ who will log on to Centreon using SAML.
 
 ### Step 6: Manage Authorizations
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Role automatic management" label="Automatic management">
 
 If you turn on **Enable automatic management**, users who log in to Centreon will be automatically
@@ -118,7 +118,7 @@ manually by linking them to [access groups](../administration/access-control-lis
 
 ### Step 7: Manage Contact groups
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Groups automatic management" label="Automatic management">
 
 If you turn on **Enable automatic management**, users who log in to Centreon will be attached to the

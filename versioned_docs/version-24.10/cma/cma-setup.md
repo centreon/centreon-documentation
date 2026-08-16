@@ -16,7 +16,7 @@ This step is performed via the central server's interface. (It is also possible 
 On your central server, install the monitoring connector which will provide the templates and commands you need to configure the hosts and services monitored in Centreon. 
 In the case of a Cloud platform, these connectors are already installed.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
@@ -45,7 +45,7 @@ In the case of a Cloud platform, these connectors are already installed.
 
 #### CMA authentication token behavior: deactivation/expiration/revocation
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
 * The monitoring engine checks the presence and validity of the token, and disconnects if the token is missing (because it has been disabled or revoked) or has expired. The message **Token expired** appears in the [poller and agent logs](cma-troubleshooting.md#location-of-poller-and-agent-logs).
@@ -64,7 +64,7 @@ In the case of a Cloud platform, these connectors are already installed.
 
 ### Create the host and services
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
@@ -90,7 +90,7 @@ Create the services associated with the host template.
 3. Select the connection direction (default: the agent connects to the poller).
 4. Select encryption mode
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 5. In the **Settings** section, select the poller(s) that will receive data from the agent.
@@ -123,7 +123,7 @@ This step is performed on the poller.
 
 ### Configure the firewall
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 > These commands need to be adapted depending on the OS.
@@ -222,14 +222,14 @@ This step is performed on the monitored host.
 
 ### Download and install the agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 #### Install the Centreon repository and the agent
 
 Install the Centreon repository and agent using the following commands:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -311,7 +311,7 @@ apt install centreon-monitoring-agent
 
 Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** file with the following parameters :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
 ```json
@@ -396,7 +396,7 @@ systemctl status centagent
 
 The CMA installer can be executed in 2 modes:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Interactive mode" label="Interactive mode">
 
 > The installer must be launched with the “Run as administrator” option.
@@ -410,7 +410,7 @@ The CMA installer can be executed in 2 modes:
    * **Host name in Centreon**. This must be the name of the host as you have defined it in the Centreon interface.
      > Warning : This name will be the unique key for mapping data to the right Centreon host. It must be strictly identical to the Centreon host name (case sensitive).
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
    * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
@@ -511,7 +511,7 @@ If you are using Centreon connectors and non-native controls on Linux:
 This repository will provide you our packaged plugins as well as **the dependencies that are not available in the
 standard distribution repositories**.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
@@ -712,7 +712,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 > ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
@@ -774,7 +774,7 @@ chown centreon-monitoring-agent: /var/lib/centreon/centplugins
 
 ### Updating an existing configuration
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 Modify the **/etc/centreon-monitoring-agent/centagent.json** file and restart the agent.
@@ -794,12 +794,12 @@ centreon-monitoring-agent-modify.exe /VERYSILENT
 
 ### Updating the agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 Update the agent using your package manager.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

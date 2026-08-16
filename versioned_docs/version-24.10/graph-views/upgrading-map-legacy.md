@@ -68,7 +68,7 @@ Run the following commands to upgrade your Centreon MAP (Legacy) server:
 
 1. Update Centreon and Centreon MAP (Legacy) repositories:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -143,7 +143,7 @@ echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) m
 
 ## Step 2: Centreon MAP (Legacy) web interface
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

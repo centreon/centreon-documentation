@@ -35,19 +35,10 @@ des sauvegardes de l’ensemble des serveurs centraux de votre plate-forme :
 
 Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="EL" label="EL">
 
 * EPEL
-* BaseOS
-* AppStream
-* centreon
-* centreon-modules, if you are using Centreon Business Edition.
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-* bullseye, bullseye-updates, bullseye-backports and bullseye security
 * BaseOS
 * AppStream
 * centreon
@@ -71,7 +62,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
 ### Installation du nouveau dépôt Centreon
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Mettez à jour votre Centreon 24.10 jusqu'à la dernière version mineure.
@@ -154,7 +145,7 @@ apt update
 
 2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 24.10 :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -171,7 +162,7 @@ rm /etc/yum.repos.d/centreon-business-24.10.repo
 
 </TabItem>
 
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 rm /etc/apt/sources.list.d/centreon-business.list
@@ -200,7 +191,7 @@ Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centre
 
 7. Videz le cache :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -215,7 +206,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean all
@@ -227,7 +218,7 @@ apt update
 
 8. Mettez à jour l'ensemble des composants :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -257,7 +248,7 @@ apt install --only-upgrade centreon
 
 Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
@@ -451,7 +442,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 
 Avant de démarrer la montée de version via l'interface web, mettez à jour [Centreon BAM avec cette procédure](../service-mapping/upgrade.md) puis rechargez le serveur Apache avec les commandes suivantes :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -481,7 +472,7 @@ systemctl restart apache2
 
 Vous devez ensuite finaliser le processus de mise à jour :
 
-  <Tabs groupId="sync">
+  <Tabs groupId="sync" queryString>
   <TabItem value="Avec l'assistant d'interface" label="Avec l'assistant d'interface">
 
 1. Connectez-vous à l'interface web Centreon, l'assistant d'interface s'affiche. Cliquez sur **Next** :
@@ -573,7 +564,7 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
 
 Mettez à jour les permissions sur les fichiers de configurations de centreon-broker.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -628,7 +619,7 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 
 3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
 > À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
@@ -647,7 +638,7 @@ Référez-vous à la documentation de mise à jour pour [Centreon MBI](../report
 > Cette nouvelle règle est appliquée dans `/etc/centreon-gorgone/config.d/41-autodiscovery.yaml.rpm` via le paramètre : `no_shell_interpretation: true`. Si vous aviez modifié ce fichier, votre version sera sauvegardée dans le même répertoire en tant que `41-autodiscovery.yaml.rpmnew` et devra être manuellement fusionnée pour intégrer ce paramètre.
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
    
 > À partir de la version 25.10, la substitution dynamique de variables (ou interpolation) n'est plus autorisée dans les commandes d'auto-découverte de services associées aux connecteurs. 
 > 
@@ -698,7 +689,7 @@ systemctl restart centengine
 
 Exécutez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -732,7 +723,7 @@ apt update
 
 Videz le cache :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -759,7 +750,7 @@ apt update
 
 Mettez à jour l'ensemble des composants :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 

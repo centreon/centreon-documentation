@@ -22,7 +22,7 @@ En cliquant le bouton Vérification forcée dans le Panneau de détail de la res
 
 ## Vérifications sur l'hôte
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 ### Vérifiez que le service est lancé
@@ -51,7 +51,7 @@ Aucune ligne ne doit être retournée.
 
 ### Vérifiez que la connexion avec le collecteur est établie
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 1. Exécutez la commande suivante :
@@ -114,7 +114,7 @@ Selon la configuration faite, utilisez l'observateur d'événements ou consultez
 
 ### Vérifiez que la connexion avec le collecteur est établie
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 1. Exécutez la commande suivante dans PowerShell :
@@ -163,7 +163,7 @@ Vous devez effectuer ces vérifications sur chaque collecteur qui reçoit des do
 
 ### Vérifiez que le serveur est en écoute et que des paquets sont échangés
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 1. Le port 4317 doit être ouvert en entrée sur le collecteur.

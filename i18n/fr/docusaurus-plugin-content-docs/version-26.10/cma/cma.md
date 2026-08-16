@@ -30,7 +30,7 @@ Utilisez l'agent CMA :
 
 L'agent peut être installé sur et superviser les OS suivants :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 * RHEL/Oracle Linux/Alma Linux 8
@@ -108,7 +108,7 @@ La connexion entre le collecteur et l'agent doit être sécurisée en production
 
 ### Schéma de fonctionnement
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 ![image](../assets/cma/initiated-by-agent.png)
 </TabItem>

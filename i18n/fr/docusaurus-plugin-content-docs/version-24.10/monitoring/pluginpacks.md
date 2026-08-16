@@ -35,7 +35,7 @@ recommandé de rester à jour sur ce composant.
 
 Pour mettre à jour le module, lancez la commande :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -93,7 +93,7 @@ Un connecteur de supervision s'installe en 4 étapes :
   - installez ou mettez à jour le catalogue des connecteurs de supervision
 depuis votre serveur central :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -171,7 +171,7 @@ La procédure de supervision comprend une section **Installation** qui vous indi
 
 La commande d'installation suit le modèle suivant :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -197,7 +197,7 @@ apt install centreon-plugin-$PLUGIN-PACK$
 
 dans laquelle ``$PLUGIN-PACK$`` correspond au nom du pack. Exemple :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -274,7 +274,7 @@ Si **Installation automatique des plugins** est à **OFF**, utilisez la commande
 
 1. Exécutez la commande suivante sur **tous les collecteurs**:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

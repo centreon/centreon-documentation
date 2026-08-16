@@ -20,7 +20,7 @@ You must run the installation procedure as a privileged user.
 After installing your server, update your operating system using the following
 command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -84,7 +84,7 @@ apt update && apt upgrade
 
 ### Disable SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
@@ -177,7 +177,7 @@ hostnamectl set-hostname poller1
 
 ### Install the repositories
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma 8" label="Alma 8">
 
 #### Redhat PowerTools repository
@@ -294,7 +294,7 @@ To install Centreon software, you should first install the Centreon repository.
 
 Install the Centreon repository using this command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -338,7 +338,7 @@ apt update
 
 To install the monitoring engine, run the command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

@@ -34,7 +34,7 @@ La machine hôte doit avoir les caractéristiques suivantes :
 
 2. Selon le type de licence que vous souhaitez utiliser, allez à l'une des pages suivantes :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de téléchargement (tous types de licence)" label="Page de téléchargement (tous types de licence)">
 
 1. Allez sur la [page de téléchargement](https://download.centreon.com) de Centreon. Dans la section 1, **Appliances** est sélectionné par défaut.
@@ -66,7 +66,7 @@ cliquez sur **Download**.
 
 ## Étape 2 : Installer la machine virtuelle
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="VMware" label="VMware">
 
 1. Importez le fichier **centreon-central.ova** dans VMWare. Un terminal s’ouvre : attendez que le serveur démarre. Lorsque celui-ci est prêt, le terminal affiche le message suivant :
@@ -123,7 +123,7 @@ cliquez sur **Download**.
 4. À votre première connexion au serveur, des instructions s’affichent pour vous aider à terminer la
 configuration.
  
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma 8 et 9" label="Alma 8 et 9">
   
 Définissez les paramètres suivants :

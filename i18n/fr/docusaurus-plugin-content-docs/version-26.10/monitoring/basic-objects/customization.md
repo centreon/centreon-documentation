@@ -66,7 +66,7 @@ Vous pouvez configurer la page qui sera affichée par défaut lorsque vous vous 
 
 Suivez cette procédure pour définir une page par défaut :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Pour un utilisateur" label="Pour un utilisateur">
 
   1. Allez à la page **Configuration > Utilisateurs > Contacts/Utilisateurs**.
@@ -116,7 +116,7 @@ Suivez cette procédure pour définir une page par défaut :
   
 3. Suivez ensuite cette procédure pour définir une page par défaut. Exécutez ces commandes avec vos identifiants personnalisés :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Pour un utilisateur" label="Pour un utilisateur">
 
 - En modifiant un utilisateur existant (où `200` est le numéro associé à la page Statut des ressources) :

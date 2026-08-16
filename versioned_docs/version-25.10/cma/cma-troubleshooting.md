@@ -24,7 +24,7 @@ By clicking the Forced check button in the detail panel of the resource.
 
 ## Host checks
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 ### Check that the service is running
@@ -53,7 +53,7 @@ No lines should be returned.
 
 ### Check that the connection with the poller is working
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 1. Execute the following command in PowerShell:
@@ -114,7 +114,7 @@ Depending on the configuration, use the event viewer or look at the specified fi
 
 ### Check that the connection with the poller is working
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 1. Execute the following command in PowerShell:
@@ -162,7 +162,7 @@ You need to run these checks on every poller that receives data from CMA agents.
 
 ### Check that the server is listening and that packets are arriving
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 1. Port number 4317 must be open (inbound) on the poller.

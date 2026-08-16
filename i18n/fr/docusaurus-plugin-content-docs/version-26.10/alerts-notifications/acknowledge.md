@@ -47,7 +47,7 @@ Les acquittements s'appliquent aux activités métier (BA) comme suit :
 
 Pour acquitter une alerte, plusieurs solutions sont possibles :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page Statut des ressources" label="Page Statut des ressources">
 
 1. Allez à la page **Supervision > Statut des ressources**.
@@ -138,7 +138,7 @@ La fenêtre suivante s'affiche :
 
 Pour supprimer l'acquittement d'un incident sur un objet :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="À partir de la page Statut des ressources" label="À partir de la page Statut des ressources">
 
 1. Allez à la page **Supervision > Statut des ressources**.

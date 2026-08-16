@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
 
 ### July
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Clickhouse Metrics**](data-analytics/sc-clickhouse.md) - Added a way for stream connectors to store data. For more technical information, see [PR 205](https://github.com/centreon/centreon-stream-connector-scripts/pull/205).
@@ -49,7 +49,7 @@ import TabItem from '@theme/TabItem';
 
 ### February
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtimes.
@@ -63,7 +63,7 @@ import TabItem from '@theme/TabItem';
 
 ### September
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Fixed return code when payload is empty.
@@ -73,7 +73,7 @@ import TabItem from '@theme/TabItem';
 
 ### August
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed an issue with **max_buffer_size** parameter in Splunk stream connector.
@@ -92,7 +92,7 @@ import TabItem from '@theme/TabItem';
 
 ### May
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Enhanced a lot of functionalities to catch up with the new version of Canopsis (24.04).
@@ -105,7 +105,7 @@ import TabItem from '@theme/TabItem';
 
 ### April
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**All stream connectors**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/docs/README.md) - Added additional debug information when an issue occurs while sending data.
@@ -116,7 +116,7 @@ import TabItem from '@theme/TabItem';
 
 ### February
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="New Stream connector" label="New Stream connector">
 
 - [**Clickhouse Metrics**](data-analytics/sc-clickhouse.md) - Initial release of Clickhouse Metrics.
@@ -126,7 +126,7 @@ import TabItem from '@theme/TabItem';
 
 ### January
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Elastic Metrics**](data-analytics/sc-elasticsearch-metrics.md) - Made elastic username and password optional.
@@ -140,7 +140,7 @@ import TabItem from '@theme/TabItem';
 
 ### November
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Breaking-change" label="Breaking-change">
 
 - [**Centreon library: sc_common**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_common.lua) - Adapted some event types (downtime, acknowledgement and ba_status) to the new bbdo3 protocol (introduced with the Centreon 23.10 release).
@@ -155,7 +155,7 @@ import TabItem from '@theme/TabItem';
 
 ### October
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a way to handle deprecated parameters like **max_buffer_age**.
@@ -165,7 +165,7 @@ import TabItem from '@theme/TabItem';
 
 ### September
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="New Stream connector" label="New Stream connector">
 
 - **InfluxDB2 Metrics** - Initial release of InfluxDB2 Metrics.
@@ -175,7 +175,7 @@ import TabItem from '@theme/TabItem';
 
 ### July
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a new **accepted_metrics** parameter to filter metrics that will be sent to metric-oriented stream connectors.
@@ -192,7 +192,7 @@ import TabItem from '@theme/TabItem';
 
 ### February
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Fixed an issue occuring when checking if an event was monitored by an accepted poller.
@@ -202,7 +202,7 @@ import TabItem from '@theme/TabItem';
 
 ### January
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Centreon library: sc_logger**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_logger.lua) - Allowed the possibility to log curl commands with a new method called **log_curl_command**.

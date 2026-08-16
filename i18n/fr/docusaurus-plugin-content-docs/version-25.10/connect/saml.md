@@ -68,7 +68,7 @@ fonction des données reçues par un endpoint particulier:
 
 ### Étape 5 : Gérer la création d'utilisateurs
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Users automatic management" label="Gestion automatique">
 
 Si vous activez **Activer l'importation automatique**, les utilisateurs qui se connectent pour la première fois à Centreon
@@ -94,7 +94,7 @@ qui se connecteront à Centreon avec SAML.
 
 ### Étape 6 : Gérer les autorisations
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Role automatic management" label="Gestion automatique">
 
 Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon se verront
@@ -122,7 +122,7 @@ Si vous désactivez l'option **Activer la gestion automatique**, vous devrez [at
 
 ### Étape 7 : Gérer les groupes de contacts
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Groups automatic management" label="Gestion automatique">
 
 Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon seront rattachés

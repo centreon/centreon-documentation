@@ -45,19 +45,10 @@ Si vous utilisez un fournisseur Open Ticket avec des configurations personnalis�
 
 Avant de réaliser la montée de version de votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="EL" label="EL">
 
 * EPEL
-* BaseOS
-* AppStream
-* centreon
-* centreon-modules, if you are using Centreon Business Edition.
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-* bullseye, bullseye-updates, bullseye-backports and bullseye security
 * BaseOS
 * AppStream
 * centreon
@@ -83,7 +74,7 @@ Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian
 
 ### Installer les nouveaux dépôts
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
@@ -112,7 +103,7 @@ Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian
    ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Mettez à jour votre Centreon 22.04 jusqu'à la dernière version mineure.
 2. Exécutez les commandes suivantes :
@@ -143,7 +134,7 @@ apt update
 
 2. Si vous avez des extensions Business installées, supprimez la configuration du dépôt 22.04 :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -160,7 +151,7 @@ rm /etc/yum.repos.d/centreon-business-22.04.repo
 
 </TabItem>
 
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 rm /etc/apt/sources.list.d/centreon-business.list
@@ -189,7 +180,7 @@ rm /var/lib/centreon-broker/* -f
 
 Centreon 25.10 utilise PHP en version 8.2.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les commandes suivantes et en répondant **y**
@@ -242,7 +233,7 @@ systemctl restart php-fpm
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 systemctl stop php8.0-fpm
@@ -257,7 +248,7 @@ Puis, finissez, la montée de version de la solution Centreon.
 
 1. Videz le cache :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -272,7 +263,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean all
@@ -284,7 +275,7 @@ apt update
 
 2. Mettez à jour l'ensemble des composants :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -292,7 +283,7 @@ dnf update centreon\* php-pecl-gnupg
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install --only-upgrade centreon
@@ -307,7 +298,7 @@ apt install --only-upgrade centreon
 
 Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Lors de la montée de version, le fichier de configuration Apache n'est pas mis à jour automatiquement : le nouveau fichier de configuration amené par le rpm ne remplace pas l'ancien. Vous devez reporter les changements manuellement dans votre fichier de configuration personnalisée.
@@ -371,7 +362,7 @@ Si tout est correct, vous devriez avoir quelque chose comme :
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 Utilisez la sauvegarde que vous avez effectuée à l'étape précédente pour reporter vos personnalisations dans le fichier **/etc/apache2/sites-available/centreon.conf**.
 
@@ -444,7 +435,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 
 Avant de démarrer la montée de version via l'interface web, mettez à jour [Centreon BAM avec cette procédure](../service-mapping/upgrade.md) puis rechargez le serveur Apache avec les commandes suivantes :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -452,7 +443,7 @@ systemctl reload php-fpm httpd
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt autoremove
@@ -468,7 +459,7 @@ systemctl restart apache2
 
 Vous devez ensuite finaliser le processus de mise à jour :
 
-  <Tabs groupId="sync">
+  <Tabs groupId="sync" queryString>
   <TabItem value="Avec l'assistant d'interface" label="Avec l'assistant d'interface">
 
 1. Connectez-vous à l'interface web Centreon, l'assistant d'interface s'affiche. Cliquez sur **Next** :
@@ -561,7 +552,7 @@ Enfin, redémarrez Broker, Engine et Gorgone sur le serveur Central en exécutan
 
 Ajoutez l'utilisateur **apache** au groupe **centreon-broker** et vice versa.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -570,7 +561,7 @@ usermod -a -G apache centreon-broker
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 usermod -a -G centreon-broker www-data
@@ -654,7 +645,7 @@ systemctl restart centengine
 
 Exécutez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -664,7 +655,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/e
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 rm -f /etc/apt/sources.list.d/centreon*
@@ -679,7 +670,7 @@ apt update
 
 Videz le cache :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -687,7 +678,7 @@ dnf clean all --enablerepo=*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt clean
@@ -699,7 +690,7 @@ apt update
 
 Mettez à jour l'ensemble des composants :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
@@ -708,7 +699,7 @@ dnf update centreon\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install --only-upgrade centreon-poller

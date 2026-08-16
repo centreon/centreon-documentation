@@ -25,7 +25,7 @@ of the following privileges:
 
 ### Authenticate
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```
@@ -67,7 +67,7 @@ Headers {
 
 ### Create a map
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```
@@ -101,7 +101,7 @@ Body {
 
 ### Open the map
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```
@@ -123,7 +123,7 @@ GET https://serverURL:9443/centreon-map/api/latest/maps/_mapId_/views/_viewId_
 
 In this scenario, the "shape" element is a rectangle.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```

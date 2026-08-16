@@ -59,7 +59,7 @@ In this case, it is not necessary to enter them in the configuration made on the
 
 ### Summary of possible configurations
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 When connecting to the poller, the agent verifies that the IP/DNS entered in the **Poller endpoint** parameter of the agent configuration strictly matches the information in the certificate (SAN or CN).
@@ -124,7 +124,7 @@ The configuration is similar to [the one specified for TLS](#summary-of-possible
 
 The difference lies in the use of the “Common Name CA” field on the client side.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 The **Certificate Common Name/ca_name** field will contain the value (DNS, IP, or CN) specified in the certificate.
@@ -165,7 +165,7 @@ chmod 644 /etc/pki/agent.key
 ```
 > Caution: do not apply these permissions to the entire /etc/pki/ directory, as this may cause a global failure of the poller.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 **\{server_hostname\}** must match the DNS/IP used in **Poller endpoint** (Installer) / **endpoint* (json), in the agent configuration, on the host.
@@ -190,7 +190,7 @@ The agent will be configured the following way on the host:
 - [for Windows, using the corresponding option in the installer or the CLI](cma-setup.md#step-3-prepare-the-host)
 - for Linux, using the **centagent.json** file:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 

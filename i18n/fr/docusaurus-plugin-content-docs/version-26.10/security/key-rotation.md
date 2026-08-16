@@ -10,7 +10,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
 
 ## Nouvelle installation
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 Si vous avez installé une nouvelle plateforme Centreon après la publication de la nouvelle clé, aucune action n'est à effectuer hormis
@@ -26,7 +26,7 @@ Est-ce correct [o/N] : y
 ```
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 Si vous avez installé une nouvelle plateforme Centreon après la publication de la nouvelle clé, aucune action n'est à effectuer.
 
@@ -37,7 +37,7 @@ Vous pouvez cependant [vérifier que vous avez la bonne clé](#vérifications).
 
 ## Installation existante
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 Si vous avez installé une plateforme Centreon avant la publication de la nouvelle clé, la clé existante doit être remplacée par la nouvelle.
@@ -68,7 +68,7 @@ Ce script :
 * vous fait vérifier la signature des paquets RPM.
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 1. Supprimez l'ancienne clé :
 
@@ -88,12 +88,12 @@ Ce script :
 
 ## Vérifications
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma/RHEL/Oracle Linux" label="Alma/RHEL/Oracle Linux">
 
 Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle clé publiée le 2 décembre 2025](#liste-des-clés) :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Nouvelle installation" label="Nouvelle installation">
 
 * Après l'installation, vérifiez si la nouvelle clé a été correctement importée dans la base de données RPM :
@@ -291,7 +291,7 @@ Vérifiez que la nouvelle clé a été correctement importée. Pour la [nouvelle
 </Tabs>
 
 </TabItem>
-<TabItem value="Debian" label="Debian">
+<TabItem value="Debian 12" label="Debian 12">
 
 Pour afficher des informations détaillées sur la nouvelle clé et vérifier que celle-ci est correctement installée, exécutez la commande suivante :
 

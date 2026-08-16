@@ -16,7 +16,7 @@ Use the following procedure to update your MAP version:
 
 2. Update the packages by running this command on the machine(s) hosting the central service and the Centreon MAP service:
  
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
  - On the central server:

@@ -24,7 +24,7 @@ You must run the installation procedure as a privileged user.
 After installing your server, update your operating system using the following
 command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -88,7 +88,7 @@ apt update && apt upgrade
 
 ### Disable SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
@@ -168,7 +168,7 @@ systemctl disable firewalld
 
 ### Install the repositories
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 
 <TabItem value="Alma 8" label="Alma 8">
 
@@ -342,7 +342,7 @@ To install Centreon software, you should first install the Centreon repository.
 
 Install the Centreon repository using this command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -387,7 +387,7 @@ This section describes how to install a Centreon central server.
 You can install this server with a local database on the server or
 a remote database on a dedicated server.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
   <TabItem value="With a local database" label="With a local database">
     <DatabaseLocalInstall />
   </TabItem>
@@ -419,7 +419,7 @@ You are required to set the PHP time zone.
 > Replace **Europe/Paris** with your time zone. You can find the list of
 > supported time zones [here](http://php.net/manual/en/timezones.php).
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Run the following command as `root`:
@@ -450,7 +450,7 @@ systemctl restart php-fpm
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 echo "date.timezone = Europe/Paris" >> /etc/php/8.2/mods-available/centreon.ini
@@ -472,7 +472,7 @@ systemctl restart php8.2-fpm
 To make services start automatically during system bootup, run these commands
 on the central server:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -509,7 +509,7 @@ Then execute the following command (on the central server if you are using a loc
 It is mandatory to secure the database's root access before installing Centreon.
 If you are using a local database, run the following command on the central server:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell
@@ -544,7 +544,7 @@ mysql_secure_installation
 1. Start the Apache server with the
 following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

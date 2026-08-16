@@ -56,7 +56,7 @@ Vous pouvez configurer Open Ticket pour qu'il soit intégré dans un widget :
 - en utilisant la fonctionnalité **Tableaux de bord** avec le widget **Tableau des ressources**,
 - ou en utilisant la fonctionnalité **Vues personnalisées (legacy)**.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Tableaux de bord" label="Tableaux de bord">
 
 > Dans la fonctionnalité **Tableaux de bord**, Open Ticket est disponible via le widget **Tableau des ressources**, dans la liste des événements.

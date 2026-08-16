@@ -11,7 +11,7 @@ Centreon solution at regular intervals since version 18.10, enabling the communi
 developers to plan their roadmaps with the guarantee of upstream visibility on the
 latest open source capabilities.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From version 24.10" label="From version 24.10">
 
 ## Version numbers

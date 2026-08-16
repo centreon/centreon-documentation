@@ -14,7 +14,7 @@ scheduler so that it is taken into account.
 
 ### Practice
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From the Resources status page" label="From the Resources status page">
 
 1. Go to **Monitoring > Resources Status**.

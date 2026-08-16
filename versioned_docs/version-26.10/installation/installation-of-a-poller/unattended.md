@@ -12,7 +12,7 @@ To install a poller quicker, you can use a script. This will perform all install
 
 1. Update your system:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell
