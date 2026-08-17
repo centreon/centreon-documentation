@@ -99,10 +99,7 @@ cliquez sur le bouton **Add Centreon Cloud Token**.
 
 2. Saisissez votre jeton et cliquez sur **Save**.
 
-  > Si votre serveur Centreon Central a besoin d'une configuration proxy pour
-  > accéder à Internet, cochez la case **Use proxy**.
-
-  Votre plateforme Centreon est maintenant prête à utiliser la détection
+Votre plateforme Centreon est maintenant prête à utiliser la détection
 d'anomalies Centreon.
 
 ## Configuration
