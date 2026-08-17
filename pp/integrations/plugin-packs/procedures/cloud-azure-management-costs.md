@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-costs
 title: Azure Management Costs
+description: "Monitor Azure costs via API or azcli: budgets, cost explorer, hybrid benefits compliance, orphan resources, and tag compliance."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

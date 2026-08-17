@@ -1,6 +1,7 @@
 ---
 id: update
 title: Update the extension
+description: "Update the Centreon MBI extension interface and reporting server"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

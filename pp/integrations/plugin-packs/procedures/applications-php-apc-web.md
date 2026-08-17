@@ -1,6 +1,7 @@
 ---
 id: applications-php-apc-web
 title: PHP APC
+description: "Monitor PHP APC via its web status page over HTTP, tracking file cache hit/miss rates and memory usage and fragmentation."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-trafficmanager
 title: Azure Traffic Manager
+description: "Monitor Azure Traffic Manager via its REST API: endpoint status, profile health, and per-second query counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

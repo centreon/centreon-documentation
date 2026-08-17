@@ -1,6 +1,7 @@
 ---
 id: install-system-agents
 title: Install the agent on a static server
+description: Install the monitoring agent on a static Linux server
 ---
 
 import Tabs from '@theme/Tabs';

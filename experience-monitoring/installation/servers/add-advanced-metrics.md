@@ -1,6 +1,7 @@
 ---
 id: add-advanced-metrics
 title: Install application agents
+description: Install application agents for Apache, MySQL, Redis, and more
 ---
 
 import Tabs from '@theme/Tabs';

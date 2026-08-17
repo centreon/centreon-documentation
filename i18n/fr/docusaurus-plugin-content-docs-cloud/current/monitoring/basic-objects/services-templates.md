@@ -1,6 +1,7 @@
 ---
 id: services-templates
 title: Utiliser des modèles de services
+description: "Fonctionnement des modèles de services, leurs règles d'héritage, et bonnes pratiques pour les lier aux modèles d'hôtes"
 ---
 
 ## Définition

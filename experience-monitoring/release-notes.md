@@ -1,6 +1,7 @@
 ---
 id: release-notes
 title: Centreon Experience Monitoring release notes
+description: Changelog of Experience Monitoring feature and platform updates
 ---
 
 ## June 22nd, 2026

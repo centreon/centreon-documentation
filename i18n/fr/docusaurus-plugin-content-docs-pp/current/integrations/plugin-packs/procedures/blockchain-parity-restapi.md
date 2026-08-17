@@ -1,6 +1,7 @@
 ---
 id: blockchain-parity-restapi
 title: Parity API
+description: "Supervisez les nœuds Ethereum Parity via API REST : métriques de blocs Eth, usage du gas, statut de synchronisation, infos et pairs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-linux-snmp
 title: Linux SNMP
+description: "Supervisez vos serveurs Linux via SNMP : CPU, mémoire, swap, espace disque, trafic réseau, processus et synchronisation NTP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -425,9 +426,6 @@ yum install centreon-plugin-Operatingsystems-Linux-Snmp
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **OS-Linux-SNMP-custom**.
-
-> Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
-> Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
 | Macro                   | Description                                                                                                                                                            | Valeur par défaut | Obligatoire |
 |:------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|

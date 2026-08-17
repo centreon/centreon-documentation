@@ -1,6 +1,7 @@
 ---
 id: debug-snmp-traps-management
 title: Déboguer la gestion des traps SNMP
+description: "Dépanner la chaîne de traitement des traps SNMP, de l'émetteur à l'interface Centreon"
 ---
 
 ## Déboguer les interruptions SNMP

@@ -1,5 +1,6 @@
 ---
 id: rum-intro
+description: Comment le RUM capture 100 % du trafic réel sans échantillonnage
 title: Qu'est-ce que le Real User Monitoring?
 ---
 

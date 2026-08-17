@@ -154,5 +154,9 @@
   "sidebar.cloud.category.Manual setup (advanced)": {
     "message": "Installation manuelle",
     "description": "The label for category Manual setup in sidebar cloud"
+  },
+  "sidebar.cloud.category.Troubleshooting Centreon Cloud": {
+    "message": "Dépanner Centreon Cloud",
+    "description": "The label for category Troubleshooting Centreon Cloud in sidebar cloud"
   }
 }

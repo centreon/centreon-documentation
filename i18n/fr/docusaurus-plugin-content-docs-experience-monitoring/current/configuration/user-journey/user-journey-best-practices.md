@@ -1,7 +1,8 @@
 ﻿---
 id: user-journey-best-practices
 title: Bonnes pratiques des Parcours Utilisateurs
---- 
+description: Bonnes pratiques pour choisir des sélecteurs CSS, y compris avec des iframes
+---
 
 ## Gestion des iframes
 

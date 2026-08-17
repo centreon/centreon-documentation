@@ -1,6 +1,7 @@
 ---
 id: timeperiods
 title: Time periods
+description: "Define time periods for scheduling checks and notifications"
 ---
 
 ## Definition
@@ -74,3 +75,23 @@ The table below shows some possible examples:
 | june 12           | 00:00-08:00,18:00-24:00 | Monitor every June 12th, except between 08h00 and 18h00 |
 
 > Exceptions are not taken into account in [BAM](../../service-mapping/introduction.md), and in reports concerning BAM in [MBI](../../reporting/introduction.md).
+
+## Check period and CMA
+
+When a host is monitored by the [Centreon Monitoring Agent (CMA)](../../cma/cma.md), the **Check Period** configured on the host is propagated by Centreon Engine to the agent. The agent uses this time period to decide whether a scheduled check should be executed at any given moment.
+
+This feature affects two aspects:
+
+* **Check scheduling**: the agent only triggers a check if the current time on the monitored host falls within a valid window of the configured time period.
+* **Freshness calculation**: Centreon Engine calculates freshness on the poller side, also using the configured `check_period`. The timezone of the monitored host and the poller (Centreon Engine) must therefore be aligned: a timezone mismatch will produce incorrect behavior without generating any error message on the engine side.
+
+A **forced check** (triggered manually) always bypasses the check period and is executed regardless of the configured time window.
+
+> **Timezone alignment constraint**: the timezone of the monitored host machine must be identical to that of the poller (Centreon Engine). If they are not aligned, the freshness calculation and the check window will be inconsistent between the agent and the engine.
+
+| # | Monitored host timezone | Poller (engine) timezone | Timezone in Centreon .cfg | Result |
+| --- | --- | --- | --- | --- |
+| **Case 1** | Reference | Same as host | Same as host | ✅ Checks and freshness calculation respect the configured timezone |
+| **Case 2** | Reference | Same as host | _(not set)_ | ✅ Checks and freshness calculation respect the host machine's timezone |
+| **Case 3** | Reference | Different from host | _(not set)_ | ❌ Incorrect behavior — no error message in logs |
+| **Case 4** | Reference | Same as host | Different from host | ❌ Error in CMA logs — no error in Centreon Engine logs |

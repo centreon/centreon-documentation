@@ -1,6 +1,7 @@
 ---
 id: upgrade-centreon-ha-from-21-10
 title: Montée de version de Centreon HA depuis Centreon 21.10
+description: "Mettre à niveau un cluster Centreon HA depuis la version 21.10 vers la 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

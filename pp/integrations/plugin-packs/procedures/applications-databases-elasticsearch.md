@@ -1,6 +1,7 @@
 ---
 id: applications-databases-elasticsearch
 title: Elasticsearch
+description: "Monitor Elasticsearch clusters via REST API: cluster health, node and index statistics, license status, and custom queries."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

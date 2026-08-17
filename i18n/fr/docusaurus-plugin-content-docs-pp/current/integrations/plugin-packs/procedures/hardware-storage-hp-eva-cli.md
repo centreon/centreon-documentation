@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-eva-cli
 title: HP EVA Cli
+description: "Supervisez les baies de stockage HP EVA via CLI : matériel, batterie, disques, ventilateurs et utilisation du stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

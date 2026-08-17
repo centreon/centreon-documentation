@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-s3
 title: Amazon S3
+description: "Supervisez les buckets Amazon S3 via l'API AWS CloudWatch : taille des buckets, nombre d'objets et requêtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

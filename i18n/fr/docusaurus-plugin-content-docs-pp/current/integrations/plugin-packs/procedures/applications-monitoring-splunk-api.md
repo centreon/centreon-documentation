@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-splunk-api
 title: Splunk
+description: "Supervisez Splunk via son API REST : heure de mise à jour des index, santé de splunkd et résultats de requêtes de recherche personnalisées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

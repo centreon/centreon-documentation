@@ -1,6 +1,7 @@
 ---
 id: network-riverbed-interceptor-snmp
 title: Riverbed Interceptor SNMP
+description: "Monitor Riverbed Interceptor appliances via SNMP, tracking CPU, memory, load, disk space, traffic, and status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-device-safenet-keysecure-snmp
 title: Safenet Keysecure SNMP
+description: "Supervisez les appliances Safenet Keysecure via SNMP : connexions, CPU, disque, mémoire, requêtes et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

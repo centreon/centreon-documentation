@@ -1,6 +1,7 @@
 ---
 id: network-cisco-firepower-fmc-restapi
 title: Cisco Firepower Management Console Rest API
+description: "Supervisez Cisco Firepower Management Center via l'API REST : suivez l'état et le nombre des équipements."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

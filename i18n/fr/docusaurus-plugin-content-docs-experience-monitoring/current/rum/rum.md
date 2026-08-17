@@ -1,5 +1,6 @@
 ---
 id: rum
+description: Aperçu de la section Real User Monitoring
 title: Real User Monitoring (RUM)
 ---
 

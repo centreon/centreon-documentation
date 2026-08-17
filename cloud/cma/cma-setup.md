@@ -1,6 +1,7 @@
 ---
 id: cma-setup
 title: Setting up the agent's environment
+description: "Step-by-step guide to configure, install, and deploy the Centreon Monitoring Agent on Linux and Windows hosts"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

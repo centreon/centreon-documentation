@@ -1,6 +1,7 @@
 ﻿---
 id: synthetic-monitoring
 title: User Journeys
+description: Introduction to the User Journeys synthetic monitoring module
 ---
 
 **User Journeys** is the synthetic monitoring module of Experience Monitoring.

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hitachi-eseries-cma
 title: Hitachi E Series CMA
+description: "Supervisez les baies de stockage Hitachi E Series via CCI (CMA) : efficacité, statut des paires, des chemins, des pools et du quorum."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -139,45 +140,7 @@ depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de
 
 ### Plugin
 
-À partir de Centreon 22.04, il est possible de demander le déploiement automatique
-du plugin lors de l'utilisation d'un connecteur. Si cette fonctionnalité est activée, et
-que vous ne souhaitez pas découvrir des éléments pour la première fois, alors cette
-étape n'est pas requise.
-
-> Plus d'informations dans la section [Installer le plugin](/docs/monitoring/pluginpacks/#installer-le-plugin).
-
-Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```bash
-dnf install 
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install 
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```bash
-apt install 
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install 
-```
-
-</TabItem>
-</Tabs>
+Ce connecteur de supervision s'appuie sur une intégration prise en charge par Centreon Engine et ne requiert pas de plugin.
 
 ## Utiliser le connecteur de supervision
 

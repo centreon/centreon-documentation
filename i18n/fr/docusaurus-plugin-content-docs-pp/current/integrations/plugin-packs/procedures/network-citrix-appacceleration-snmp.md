@@ -1,6 +1,7 @@
 ---
 id: network-citrix-appacceleration-snmp
 title: Citrix Acceleration SNMP
+description: "Supervisez les appliances Citrix Acceleration via SNMP en suivant l'utilisation du CPU et des classes de service."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

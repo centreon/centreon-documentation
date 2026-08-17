@@ -1,7 +1,8 @@
 ﻿---
 id: business-view
 title: Données Business
---- 
+description: Introduction au module Données Business pour analyser l'impact sur le revenu
+---
 
 Le module **Données Business** facilite l'analyse des métriques commerciales du site.
 Pour utiliser ce module, vous devez lier votre compte Google Analytics 4 ou Matomo.

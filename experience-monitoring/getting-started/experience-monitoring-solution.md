@@ -1,6 +1,7 @@
 ---
 id: experience-monitoring-solution
 title: What can I do with Experience Monitoring?
+description: Overview of what Experience Monitoring measures and monitors
 ---
 
 Centreon Experience Monitoring (formerly Quanta) is a platform designed to monitor both web performance and digital sustainability.

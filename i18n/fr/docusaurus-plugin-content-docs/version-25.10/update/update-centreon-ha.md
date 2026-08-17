@@ -1,6 +1,7 @@
 ---
 id: update-centreon-ha
 title: Mise à jour d'une plateforme Centreon HA
+description: "Effectuer une mise à jour mineure d'une plateforme Centreon HA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -85,7 +86,7 @@ apt update
 Mettez à jour l'ensemble des composants :
 
 ```shell
-apt install --only-upgrade centreon\*
+apt install --only-upgrade "centreon*"
 ```
 
 </TabItem>

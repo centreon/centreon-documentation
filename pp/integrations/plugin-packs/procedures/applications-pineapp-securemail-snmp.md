@@ -1,6 +1,7 @@
 ---
 id: applications-pineapp-securemail-snmp
 title: PineApp Mail Secure
+description: "Monitor PineApp Mail Secure via SNMP: system load, message queues (inbound, outbound, priority), storage status, and service status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

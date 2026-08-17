@@ -1,7 +1,8 @@
 ﻿---
 id: system-view
 title: Les Données Système
---- 
+description: Introduction au module Données Système pour la santé de l'infrastructure
+---
 
 Le module **Données Système** vous permet de surveiller la santé de l'infrastructure physique hébergeant votre application web.
 

@@ -1,6 +1,7 @@
 ---
 id: system-view
 title: System Data
+description: Introduction to the System Data module for infrastructure health
 ---
 
 The **System Data** module allows you to monitor the health of the physical infrastructure hosting your web application.

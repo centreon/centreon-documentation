@@ -1,6 +1,7 @@
 ---
 id: blockchain-parity-ethpoller-restapi
 title: Parity Ethpoller API
+description: "Supervisez les nœuds Parity Ethereum via l'API REST Ethpoller : espace disque, statistiques blockchain et suivi des soldes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

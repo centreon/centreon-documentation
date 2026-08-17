@@ -1,6 +1,7 @@
 ---
 id: digital-sobriety-score
 title: Digital Sobriety Score calculations
+description: How the Digital Sobriety Score is calculated from RUM or journey data
 ---
 
 ## Digital Sobriety Score

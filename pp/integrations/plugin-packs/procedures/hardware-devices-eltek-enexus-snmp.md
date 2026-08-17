@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-eltek-enexus-snmp
 title: Eltek eNexus SNMP
+description: "Monitor Eltek eNexus power systems via SNMP: alarms, battery status, load, and output states."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

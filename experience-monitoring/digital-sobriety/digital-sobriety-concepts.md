@@ -1,6 +1,7 @@
 ---
 id: digital-sobriety-concepts
 title: Digital Sobriety concepts
+description: How the Digital Sobriety Score measures environmental impact
 ---
 
 Although websites are immaterial, they rely on physical infrastructure: servers, networks, and end-user devices that all consume energy. 
@@ -24,7 +25,7 @@ To fill in these details, go to **Configuration > Site**.
 Based on this information, Experience Monitoring will estimate the CO2 emitted per page.
 
 Experience Monitoring scores each user journey on your site individually, as well as producing a combined score across all journeys. 
-Scores can also be calculated using [RUM data](https://docs.centreon.com/experience-monitoring/experience-monitoring/rum/rum-intro/).
+Scores can also be calculated using [RUM data](https://docs.centreon.com/experience-monitoring/rum/rum-intro/).
 You can view these at any time from the Global View.
-For a full breakdown of how the score is calculated, see [Digital Sobriety Score calculations](https://docs.centreon.com/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/#how-is-it-calculate). 
+For a full breakdown of how the score is calculated, see [Digital Sobriety Score calculations](https://docs.centreon.com/experience-monitoring/digital-sobriety/digital-sobriety-score/#how-is-it-calculate). 
 To learn how to act on your score and track improvements over time, see [Improving your Digital Sobriety Score](improve-dss.md).

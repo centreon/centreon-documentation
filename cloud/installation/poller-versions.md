@@ -1,6 +1,7 @@
 ---
 id: poller-versions
 title: Poller versions
+description: "How to check your poller's version, which version to use, and how often Centreon publishes poller updates"
 ---
 
 ## How do I know my poller's version?

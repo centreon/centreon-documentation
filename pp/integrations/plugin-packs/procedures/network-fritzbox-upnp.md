@@ -1,6 +1,7 @@
 ---
 id: network-fritzbox-upnp
 title: Fritz!Box UPnP
+description: "Monitor Fritz!Box routers via UPnP: connection status, system uptime, and WAN traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

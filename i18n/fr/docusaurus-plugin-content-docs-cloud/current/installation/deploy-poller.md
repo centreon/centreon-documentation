@@ -1,6 +1,7 @@
 ---
 id: deploy-poller
 title: Déployer un collecteur
+description: "Procédure étape par étape pour installer un collecteur dans votre infrastructure et exporter la configuration pour l'activer"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
 id: cloud-cloudfoundry-api
 title: Cloud Foundry API
+description: "Monitor Cloud Foundry via its REST API: application state, running/stopped/crashed instances, and organization/space filtering."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

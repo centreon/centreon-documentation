@@ -1,6 +1,7 @@
 ---
 id: cma
 title: Introduction à l'agent CMA
+description: "Présentation de l'agent de supervision Centreon (CMA), ses cas d'usage, les OS et applications supportés, et les modes de connexion"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -70,6 +71,14 @@ L'agent peut être installé sur et superviser les OS suivants :
    * [**Windows**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent).
 
 * Vous pouvez également [développer vos propres plugins](cma-custom.md).
+
+## Période de contrôle
+
+Les hôtes supervisés par CMA peuvent optionnellement se voir attribuer une [période de contrôle](../monitoring/basic-objects/timeperiods.md). Lorsqu'elle est configurée, cette période est propagée par Centreon Engine à l'agent, qui l'utilise pour décider si un contrôle planifié doit être exécuté ou non à un instant donné.
+
+> **Contrainte d'alignement de fuseau horaire** : le fuseau horaire de la machine hôte supervisée doit être identique à celui du collecteur (Centreon Engine). Un désalignement entraînera un comportement incorrect dans l'ordonnancement des contrôles et dans le calcul de freshness, sans message d'erreur côté engine.
+
+Pour les détails complets et le tableau des comportements, consultez [Période de contrôle et CMA](../monitoring/basic-objects/timeperiods.md#période-de-contrôle-et-cma).
 
 ## Comment interagissent le collecteur et l'hôte?
 

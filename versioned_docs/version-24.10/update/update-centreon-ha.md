@@ -1,6 +1,7 @@
 ---
 id: update-centreon-ha
 title: Updating a Centreon HA platform
+description: "Perform minor updates on a Centreon HA platform"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -69,7 +70,7 @@ apt update
 Update all components:
 
 ```shell
-apt install --only-upgrade centreon\*
+apt install --only-upgrade "centreon*"
 ```
 
 </TabItem>

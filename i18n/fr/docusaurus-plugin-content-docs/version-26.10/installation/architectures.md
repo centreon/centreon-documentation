@@ -1,6 +1,7 @@
 ---
 id: architectures
 title: Architectures
+description: "Choisir l'architecture de supervision adaptée à la taille de votre plateforme"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -20,7 +21,7 @@ Si vous ne supervisez que peu d'hôtes, vous n'aurez besoin que d'un serveur cen
 Une architecture distribuée consiste en :
 
 * Un serveur central qui permet de configurer la supervision, d'afficher les données collectées et d'agir dessus.
-* Un ou plusieurs collecteurs qui permettent d'afficher les données collectées et d'agir dessus.
+* Un ou plusieurs serveurs distants qui permettent d'afficher les données collectées et d'agir dessus.
 
 et/ou
 

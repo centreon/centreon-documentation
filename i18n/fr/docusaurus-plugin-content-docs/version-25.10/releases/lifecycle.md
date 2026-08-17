@@ -1,6 +1,7 @@
 ---
 id: lifecycle
 title: Politique de cycle de vie des solutions
+description: "Numérotation des versions, cadence de publication et politique de support Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -46,7 +47,7 @@ La première phase du cycle de vie commence le jour de la sortie de la version.
 
 La deuxième phase d'une version commence lorsque la prochaine version majeure est disponible. Par exemple, la publication de Centreon 25.10 lance la deuxième phase de Centreon 24.10.
 
-La troisième phase d'une version commence lorsque la deuxième version majeure suivante est disponible. Par exemple, la sortie de Centreon 26.10 lance la troisième phase de Centreon 24.10 et la deuxième phase de Centreon 25.10.
+La troisième phase d'une version commence lorsque la deuxième version majeure suivante est disponible. Par exemple, la sortie de Centreon 26.10 lance la troisième phase de Centreon 24.10 et de Centreon 25.10.
 
 ### Schéma
 

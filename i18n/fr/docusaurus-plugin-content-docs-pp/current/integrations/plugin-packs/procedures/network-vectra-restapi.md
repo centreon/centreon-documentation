@@ -1,6 +1,7 @@
 ---
 id: network-vectra-restapi
 title: Vectra Rest API
+description: "Supervisez les appliances Vectra via l'API REST : CPU, disque, mémoire, temps de fonctionnement, interfaces et sondes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

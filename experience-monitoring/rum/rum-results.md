@@ -1,6 +1,7 @@
 ---
 id: rum-results
 title: Understanding RUM results
+description: Read RUM tabs for live, page, and geographic data
 ---
 
 Once RUM is [configured](../installation/real-user-monitoring-installation.md), click **Real User Monitoring** in the navigation bar at the top of the screen. Click the tabs under the navigation bar to view the data you want.

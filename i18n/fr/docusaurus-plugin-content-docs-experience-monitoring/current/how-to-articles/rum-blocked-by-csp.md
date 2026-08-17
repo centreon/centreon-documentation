@@ -1,6 +1,7 @@
 ---
 id: rum-blocked-by-csp
 title: Dépanner RUM
+description: Corriger une politique de sécurité de contenu qui bloque la collecte RUM
 ---
 
 ## Les données du RUM sont bloquées car le site utilise une politique CSP stricte

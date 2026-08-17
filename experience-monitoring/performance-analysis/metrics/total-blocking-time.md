@@ -1,7 +1,8 @@
 ---
 id: total-blocking-time
 title: TBT - Total Blocking Time (Web Vitals)
---- 
+description: TBT Web Vitals metric for main thread blocking time
+---
 
 > TBT is documented on [Google's Web Dev](https://web.dev/tbt/) site. This page summarizes that documentation.
 

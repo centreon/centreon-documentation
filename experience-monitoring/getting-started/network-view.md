@@ -1,6 +1,7 @@
 ---
 id: network-data
 title: Network Data
+description: Introduction to the Network Data module's ping-based checks
 ---
 
 The **Network Data** module allows for an overview of the site's responsiveness over time using a network probe that regularly pings the site.
