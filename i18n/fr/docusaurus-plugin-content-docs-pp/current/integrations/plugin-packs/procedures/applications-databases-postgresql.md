@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Dépendances du connecteur de supervision
 
-Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **PostgreSQL** 
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **PostgreSQL DB** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
