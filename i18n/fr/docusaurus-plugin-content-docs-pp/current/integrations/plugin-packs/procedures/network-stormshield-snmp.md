@@ -28,16 +28,16 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias           | Modèle de service                           | Description                                                                                                                                                                        |
 |:----------------|:--------------------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Auto-Update     | Net-Stormshield-Auto-Update-SNMP-custom     | Contrôle l'état des mises à jours automatiques et web services. Vérifie si les mises à jours sont en état failed, broken, ou partially failed et remonte leurs statut              |
+| Auto-Update     | Net-Stormshield-Auto-Update-SNMP-custom     | Contrôle l'état des mises à jour automatiques et web services. Vérifie si les mises à jour sont en état failed, broken ou partially failed, et remonte leurs statuts             |
 | Cpu-Detailed    | Net-Stormshield-Cpu-Detailed-SNMP-custom    | Contrôle du taux d'utilisation détaillé CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
-| Ha-cluster      | Net-Stormshield-Ha-Cluster-SNMP-custom      | Contrôle le status global du cluster haute disponibilité                                                                                                                           |
+| Ha-cluster      | Net-Stormshield-Ha-Cluster-SNMP-custom      | Contrôle le statut global du cluster haute disponibilité                                                                                                                           |
 | Hardware        | Net-Stormshield-Hardware-SNMP-custom        | Contrôle le matériel                                                                                                                                                               |
-| Licenses        | Net-Stormshield-Licenses-SNMP-custom        | Contrôle la licence Stormshield et sa date d'expiration. supporte les clusters hautement disponible en détectant les noeuds présent dans le cluster                                |
+| Licenses        | Net-Stormshield-Licenses-SNMP-custom        | Contrôle la licence Stormshield et sa date d'expiration. Supporte les clusters hautement disponibles en détectant les nœuds présents dans le cluster                                |
 | Load            | Net-Stormshield-Load-SNMP-custom            | Contrôle de la charge serveur                                                                                                                                                      |
 | Memory          | Net-Stormshield-Memory-SNMP-custom          | Contrôle du taux d'utilisation de la mémoire vive (RAM)                                                                                                                            |
 | Memory-Detailed | Net-Stormshield-Memory-Detailed-SNMP-custom | Contrôle du taux d'utilisation détaillé de la mémoire                                                                                                                              |
 | Swap            | Net-Stormshield-Swap-SNMP-custom            | Contrôle du taux d'utilisation de la mémoire virtuelle (SWAP)                                                                                                                      |
-| Uptime          | Net-Stormshield-Uptime-SNMP-custom          | Contrôle le temps depuis le dernier redémarrage et affiche des informations général sur le matériel (nom système, modèle, version, serial number, date)                            |
+| Uptime          | Net-Stormshield-Uptime-SNMP-custom          | Contrôle le temps depuis le dernier redémarrage et affiche des informations générales sur le matériel (nom système, modèle, version, serial number, date)                            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Net-Stormshield-SNMP-custom** est utilisé.
 
