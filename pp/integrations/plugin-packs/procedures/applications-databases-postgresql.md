@@ -1,6 +1,7 @@
 ---
 id: applications-databases-postgresql
-title: PostgreSQL
+title: PostgreSQL DB
+description: "Monitor PostgreSQL databases: connections, cache hit ratio, locks, query time, vacuum, bloat, and tablespace size."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -15,7 +16,7 @@ The following monitoring connectors will be installed when you install the **Pos
 
 ### Templates
 
-The Monitoring Connector **PostgreSQL** brings a host template:
+The Monitoring Connector **PostgreSQL DB** brings a host template:
 
 * **App-DB-Postgres-custom**
 
@@ -41,7 +42,7 @@ The connector brings the following service templates (sorted by the host templat
 |:----------------|:---------------------------------------|:---------------------------------------------------------------------|:---------:|
 | Bloat           | App-DB-Postgres-Bloat-custom           | Check tables and btrees bloat                                        |           |
 | Database-Size   | App-DB-Postgres-Database-Size-custom   | Check the databases size                                             | X         |
-| Sql-Statement   | App-DB-Postgres-Sql-Statement-custom   | Check allowing to execute a custom SQL request with a digital answer |           |
+| Sql-Statement   | App-DB-Postgres-Sql-Statement-custom   | Check allowing to execute a custom SQL request with a numerical result |           |
 | Statistics      | App-DB-Postgres-Statistics-custom      | Check database statistics                                            |           |
 | Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Check time between poller and the Postgres server                    |           |
 | Time-Sync       | App-DB-Postgres-Time-Sync-custom       | Check time between poller and the Postgres server                    |           |
@@ -60,7 +61,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                      | Description |
 |:-------------------------------|:------------|
-| App-DB-Postgres-Databases-Size |             |
+| App-DB-Postgres-Databases-Size | Discover databases to monitor their sizes |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -91,7 +92,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Connection" label="Connection">
 
-| Metric name                  | Unit |
+| Name                | Unit |
 |:-----------------------------|:-----|
 | connection.time.milliseconds | ms   |
 </TabItem>
@@ -240,7 +241,7 @@ yum install centreon-pack-applications-databases-postgresql
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **PostgreSQL** connector through
+2. Whatever the license type (*online* or *offline*), install the **PostgreSQL DB** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -299,7 +300,8 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 | Macro                | Description                                                                                                                                        | Default value | Mandatory |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | POSTGRESUSERNAME     |                                                                                                                                                    |               |           |
-| POSTGRESPASSWORD     |                                                                                                                                                    |               |           |
+| POSTGRESUSERNAME     | User name used to connect to the database                                                             |                   |      X      |
+| POSTGRESPASSWORD     | Password for the defined user name                                                                    |                   |      X      |
 | POSTGRESPORT         | Database Server Port                                                                                                                               | 5432          |           |
 | POSTGRESDATABASE     | Database Name.                                                                                                                                     | postgres      |           |
 | POSTGRESEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
@@ -447,8 +449,8 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 
 | Macro        | Description                                                                                                                                      | Default value | Mandatory |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNING      |                                                                                                                                                  | -1.0:1.0      |           |
-| CRITICAL     |                                                                                                                                                  | -3.0:3.0      |           |
+| WARNING      | Warning threshold in seconds. (use a range. it can be -0.3s or +0.3s.)                              | -1.0:1.0          |             |
+| CRITICAL     | Critical threshold in seconds. (use a range. it can be -0.3s or +0.3s.)                             | -3.0:3.0          |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
@@ -458,7 +460,8 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | POSTGRESDATABASE | Database Name.                                                                                                                                   | postgres      |           |
 | WARNING          |                                                                                                                                                  |               |           |
-| CRITICAL         |                                                                                                                                                  |               |           |
+| WARNING          | Warning threshold in seconds, maximum time interval since last vacuum                               |                   |             |
+| CRITICAL         | Critical threshold in seconds, maximum time interval since last vacuum                              |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>

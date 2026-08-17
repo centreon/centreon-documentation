@@ -1,6 +1,7 @@
 ---
 id: applications-databases-postgresql
-title: PostgreSQL
+title: PostgreSQL DB
+description: "Supervisez vos bases PostgreSQL : connexions, cache hitratio, locks, temps de requête, vacuum, bloat et taille des tablespaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -15,7 +16,7 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **PostgreSQL** apporte un modèle d'hôte :
+Le connecteur de supervision **PostgreSQL DB** apporte un modèle d'hôte :
 
 * **App-DB-Postgres-custom**
 
@@ -241,7 +242,7 @@ yum install centreon-pack-applications-databases-postgresql
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **PostgreSQL**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **PostgreSQL DB**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -416,8 +417,8 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SQLSTATEMENT | SQL statement that returns a number                                                                                                              |                   | X           |
-| WARNING      |                                                                                                                                                  |                   |             |
-| CRITICAL     |                                                                                                                                                  |                   |             |
+| WARNING      | Thresholds                                                                                                                                                 |                   |             |
+| CRITICAL     | Thresholds                                                                                                                                                 |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -446,8 +447,8 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING      |                                                                                                                                                  | -1.0:1.0          |             |
-| CRITICAL     |                                                                                                                                                  | -3.0:3.0          |             |
+| WARNING      | Warning threshold in seconds. (use a range. it can be -0.3s or +0.3s.)                              | -1.0:1.0          |             |
+| CRITICAL     | Critical threshold in seconds. (use a range. it can be -0.3s or +0.3s.)                             | -3.0:3.0          |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -457,7 +458,8 @@ yum install centreon-plugin-Applications-Databases-Postgresql
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | POSTGRESDATABASE | Database Name.                                                                                                                                   | postgres          |             |
 | WARNING          |                                                                                                                                                  |                   |             |
-| CRITICAL         |                                                                                                                                                  |                   |             |
+| WARNING          | Warning threshold in seconds, maximum time interval since last vacuum                               |                   |             |
+| CRITICAL         | Critical threshold in seconds, maximum time interval since last vacuum                              |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
