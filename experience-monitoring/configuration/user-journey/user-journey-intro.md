@@ -4,7 +4,7 @@ title: User Journeys
 description: Key capabilities and dependencies of the User Journeys feature
 ---
 
-User journeys allow you to configure a probe to regularly navigate your site following a pre-established path, measuring various web performance indicators.
+User journeys allow you to configure a probe to regularly navigate your site following a pre-established scenario, measuring various web performance indicators.
 The probe then sends the data to Experience Monitoring for you to review.
 
 User journeys, along with [Real User Monitoring](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring/), are one of the key features of Experience Monitoring as other features like the [Digital Sobriety Score](../../digital-sobriety/digital-sobriety-concepts.md) or [Load Tests](https://docs.centreon.com/experience-monitoring/experience-monitoring/getting-started/load-tests/) depend on the path set by User Journeys to function.

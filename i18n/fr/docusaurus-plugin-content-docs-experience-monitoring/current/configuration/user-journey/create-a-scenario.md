@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 Seuls les utilisateurs ayant le rôle **Owner** ou **Administrator** peuvent créer ou modifier des parcours utilisateur.
 
-Les parcours utilisateur vous permettent de configurer une sonde pour naviguer régulièrement sur votre site en suivant un chemin prédéfini. Cette page explique comment configurer à la fois le parcours dans son ensemble et ses étapes individuelles.
+Les parcours utilisateur vous permettent de configurer une sonde pour naviguer régulièrement sur votre site en suivant un scénario. Cette page explique comment configurer à la fois le parcours dans son ensemble et ses étapes individuelles.
 
 Pour que ce module fonctionne correctement, vous devrez peut-être autoriser les adresses IP suivantes utilisées par Experience Monitoring :
 
@@ -172,7 +172,7 @@ Les domaines suivants sont bloqués par défaut :
 
 ## Configuration d'une étape ou d'une action
 
-Les parcours utilisateur sont composés d'étapes et d'actions.
+Les scénarios des parcours utilisateur sont composés d'étapes et d'actions.
 Les étapes représentent une page, tandis que les actions sont tout ce qu'un utilisateur peut faire dans la même page (cliquer sur quelque chose, ouvrir la barre de recherche, etc.).
 Une étape peut contenir plusieurs actions.
 

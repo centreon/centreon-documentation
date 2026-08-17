@@ -71,7 +71,7 @@ Le Time To First Byte (TTFB) est la métrique de l'intervalle entre la requête 
 
 ## Parcours utilisateur
 
-Le [parcours utilisateur](./getting-started/synthetic-monitoring.md) est un module d'Experience Monitoring.
+Le [parcours utilisateur](./getting-started/synthetic-monitoring.md) est le module de monitoring synthétique (ou "STM") d'Experience Monitoring.
 Une sonde est configurée pour suivre un chemin de navigation prédéfini sur votre site et mesurer les temps de chargement des pages.
 
 ## Webhook
