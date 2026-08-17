@@ -1300,8 +1300,21 @@
                   "id": "cma/cma-setup"
                 },
                 {
-                  "type": "doc",
-                  "id": "cma/cma-certificates"
+                  "type": "category",
+                  "label": "Manual setup (advanced)",
+                  "link": {
+                    "type": "generated-index"
+                  },
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "cma/cma-setup-manual"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "cma/cma-certificates"
+                    }
+                  ]
                 },
                 {
                   "type": "doc",

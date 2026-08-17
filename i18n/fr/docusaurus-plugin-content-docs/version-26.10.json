@@ -342,5 +342,9 @@
   "sidebar.docs.category.Using MBI": {
     "message": "Utiliser MBI",
     "description": "The label for category Using MBI in sidebar docs"
-  }      
+  },
+  "sidebar.docs.category.Manual setup (advanced)": {
+    "message": "Installation manuelle",
+    "description": "The label for category Manual setup (advanced) in sidebar docs"
+  }
 }
