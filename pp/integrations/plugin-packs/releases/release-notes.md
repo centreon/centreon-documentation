@@ -41,7 +41,9 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Fixed hardcoded `centreon_storage` database name.
 - [**Cisco DNA Center Rest API**](../procedures/applications-cisco-dnac-restapi.md) - Fixed percentage metrics in **network-devices** mode.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Fixed typo in **api** custom.
 - [**Dynamics365 CMA**](../procedures/applications-dynamics-365-cma.md) - Fixed missing command for **New Orders** service.
 - [**HP OneView Rest API**](../procedures/hardware-servers-hp-oneview-restapi.md) - Added API pagination.
 - [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed AS400 daemon CVEs related to Log4j and Undertow.
@@ -51,8 +53,6 @@ import TabItem from '@theme/TabItem';
 - [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Fixed `job-type` and `session` values in **job-status** mode.
 - [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Fixed `job-type` and `session` values in **job-status** mode.
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Fixed `job-type` and `session` values in **job-status** mode.
-- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Fixed hardcoded `centreon_storage` database name.
-- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Fixed typo in **api** custom.
 
 </TabItem>
 </Tabs>
