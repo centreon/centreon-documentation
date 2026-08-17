@@ -8,7 +8,7 @@ import CMAprerequisites from './_cma-prerequisites.mdx';
 
 Le connecteur permet de superviser :
 * Windows Server OS à partir de la version 2003 SP2
-* Windows (postes de travail) à partir de la version XP
+* Windows (postes de travail) à partir de la version XP.
 
 ## Contenu du pack
 
@@ -108,7 +108,7 @@ yum install centreon-pack-applications-dynamics-cma
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Windows NSClient API**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Dynamics AX CMA**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -142,7 +142,7 @@ Ce connecteur de supervision s'appuie sur une intégration prise en charge par C
 
 Analyse les fichiers d'une arborescence de répertoires, applique des filtres et évalue les métadonnées des fichiers (taille, horodatage, version, nombre de lignes, etc.) à des fins de surveillance et d'alerte.
 
-| Macro          | Description                                                                              | Obligatoire | Valeurs autorisées                                                                                                                                                                     | DValeur par défaut                                             | Exemples                             |
+| Macro          | Description                                                                              | Obligatoire | Valeurs autorisées                                                                                                                                                                     | Valeur par défaut                                             | Exemples                             |
 |:---------------|:-----------------------------------------------------------------------------------------|:-----------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|--------------------------------------|
 | PATHS          | Root directory to search files in.                                                       |      X      |                                                                                                                                                                                        | C:/RIS/Import/RIS General Ledger/Input                         | path/to/file                         |
 | PATTERN        | Shell-style wildcards pattern to match filenames.<br/>* can be used as a wildcard        |             |                                                                                                                                                                                        | *.xlsx                                                         |                                      |
@@ -211,7 +211,7 @@ File age can be checked using 3 metadata labels, which can be mixed using logica
 - access         (file age in seconds since last access, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
 - written        (file age in seconds since last modification, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
 
-_“I want to trigger a CRITICAL alert if at least one file of my test directory has not be updated since 1 day or more, and WARNING alert if more than 12 hours and less than 1 day”_
+_"I want to trigger a CRITICAL alert if at least one file of my test directory has not be updated since 1 day or more, and WARNING alert if more than 12 hours and less than 1 day"_
 
 ```
 PATH= C:/Users/User/Documents/test
@@ -226,7 +226,7 @@ CRITICAL= 0
 
 #### File size check
 
-_“I want to trigger CRITICAL alert if at least 1 DLLs in System32 (including subdirs without recursivity) size is >100M, and trigger WARNING alert if at least 2 DLLs size is >10M”_
+_"I want to trigger a CRITICAL alert if at least 1 DLL in System32 (including subdirs without recursivity) size is >100M, and trigger a WARNING alert if at least 2 DLLs size is >10M"_
 
 The extension filter can be done using PATTERN or FILTER.
 
@@ -252,7 +252,7 @@ Note:
 
 #### File presence check
 
-_“I want to trigger a CRITICAL alert if file is not present“_
+_"I want to trigger a CRITICAL alert if file is not present"_
 
 ```
 PATH= C:/Users/User/Documents/test
@@ -265,7 +265,7 @@ WARNING=
 CRITICAL= 0
 ```
 
-_“I want to trigger a CRITICAL alert if at least one file is present“_
+_"I want to trigger a CRITICAL alert if at least one file is present"_
 
 ```
 PATH= C:/Users/User/Documents/test
@@ -367,7 +367,7 @@ CRITICAL= 0
 
 #### File size check
 
-_“I want to trigger CRITICAL alert if at least 1 DLLs in System32 (including subdirs without recursivity) size is >100M, and trigger WARNING alert if at least 2 DLLs size is >10M”_
+_"I want to trigger CRITICAL alert if at least 1 DLLs in System32 (including subdirs without recursivity) size is >100M, and trigger WARNING alert if at least 2 DLLs size is >10M"_
 
 The extension filter can be done using PATTERN or FILTER.
 
@@ -393,7 +393,7 @@ Note:
 
 #### File presence check
 
-_“I want to trigger a CRITICAL alert if file is not present“_
+_"I want to trigger a CRITICAL alert if file is not present"_
 
 ```
 PATH= C:/Users/User/Documents/test
@@ -406,7 +406,7 @@ WARNING=
 CRITICAL= 0
 ```
 
-_“I want to trigger a CRITICAL alert if at least one file is present“_
+_"I want to trigger a CRITICAL alert if at least one file is present"_
 
 ```
 PATH= C:/Users/User/Documents/test
@@ -446,8 +446,3 @@ CRITICAL= 0
 </Tabs>
 
 3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
-
-### Diagnostic des erreurs communes
-
-Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
-des plugins basés sur HTTP/API si votre erreur ne correspond pas à l'un des cas suivants.

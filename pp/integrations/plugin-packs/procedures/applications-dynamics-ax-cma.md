@@ -8,7 +8,7 @@ import CMAprerequisites from './_cma-prerequisites.mdx';
 
 The connector allows you to monitor:
 * Windows Server OS from 2003 SP2 version
-* Windows workstations from the XP version
+* Windows workstations from the XP version.
 
 ## Pack assets
 
@@ -25,7 +25,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias               | Service Template                                       | Service Description                                       |
 |:----------------------------|:-------------------------------------------------------|:----------------------------------------------------------|
-| RIS-Import-Input            | App-Dynamics-AX-RIS-Import-Input-CMA-custom            | Check import files presence                               | 
+| RIS-Import-Input            | App-Dynamics-AX-RIS-Import-Input-CMA-custom            | Check whether files must be imported                               | 
 | RIS-Import-ProcessingErrors | App-Dynamics-AX-RIS-Import-ProcessingErrors-CMA-custom | Check files importation failure                           |
 | Service-RIS                 | App-Dynamics-AX-Service-RIS-CMA-custom                 | Check state of the RecurringIntegrationsScheduler service |
 
@@ -107,7 +107,7 @@ yum install centreon-pack-applications-dynamics-ax-cma
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Windows NSClient API** connector through
+2. Whatever the license type (*online* or *offline*), install the **Dynamics AX CMA** connector through
 the **Configuration > Monitoring Connectors Manager** menu.
 
 ### Plugin
@@ -224,7 +224,7 @@ CRITICAL= 0
 
 #### File size check
 
-_“I want to trigger CRITICAL alert if at least 1 DLLs in System32 (including subdirs without recursivity) size is >100M, and trigger WARNING alert if at least 2 DLLs size is >10M”_
+_"I want to trigger CRITICAL alert if at least 1 DLL in System32 (including subdirs without recursivity) size is >100M, and trigger WARNING alert if at least 2 DLLs size is >10M"_
 
 The extension filter can be done using PATTERN or FILTER.
 
@@ -250,7 +250,7 @@ Note:
 
 #### File presence check
 
-_“I want to trigger a CRITICAL alert if file is not present“_
+_"I want to trigger a CRITICAL alert if a specific file is not present"_
 
 ```
 PATH= C:/Users/User/Documents/test
@@ -263,7 +263,7 @@ WARNING=
 CRITICAL= 0
 ```
 
-_“I want to trigger a CRITICAL alert if at least one file is present“_
+_"I want to trigger a CRITICAL alert if at least one file is present"_
 
 ```
 PATH= C:/Users/User/Documents/test
@@ -350,7 +350,7 @@ File age can be checked using 3 metadata labels, which can be mixed using logica
 - access         (file age in seconds since last access, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
 - written        (file age in seconds since last modification, supports units : w, d, h, m, s) no unit = s. Unit can’t be composed (ie : 1d3h)
 
-_“I want to trigger a CRITICAL alert if at least one file of my test directory has not be updated since 1 day or more, and WARNING alert if more than 12 hours and less than 1 day”_
+_"I want to trigger a CRITICAL alert if at least one file of my test directory has not be updated since 1 day or more, and WARNING alert if more than 12 hours and less than 1 day"_
 
 ```
 PATH= C:/Users/User/Documents/test
@@ -365,7 +365,7 @@ CRITICAL= 0
 
 #### File size check
 
-_“I want to trigger CRITICAL alert if at least 1 DLLs in System32 (including subdirs without recursivity) size is >100M, and trigger WARNING alert if at least 2 DLLs size is >10M”_
+_"I want to trigger a CRITICAL alert if at least 1 DLL in System32 (including subdirs without recursivity) size is >100M, and trigger a WARNING alert if at least 2 DLLs' size is >10M”_
 
 The extension filter can be done using PATTERN or FILTER.
 
@@ -404,7 +404,7 @@ WARNING=
 CRITICAL= 0
 ```
 
-_“I want to trigger a CRITICAL alert if at least one file is present“_
+_"I want to trigger a CRITICAL alert if at least one file is present"_
 
 ```
 PATH= C:/Users/User/Documents/test
