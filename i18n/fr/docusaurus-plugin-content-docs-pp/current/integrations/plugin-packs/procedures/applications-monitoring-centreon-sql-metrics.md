@@ -58,7 +58,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="DSMQueue-Count" label="DSMQueue-Count">
 
-| Métrique                                                   | Unité |
+| Name                                                       | Unité |
 |:-----------------------------------------------------------|:------|
 | centreon.dsm.queue.cache.count                             | count |
 | centreon.dsm.queue.lock.count                              | count |
@@ -75,7 +75,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 <TabItem value="Notifications-Count" label="Notifications-Count">
 
-| Métrique                               | Unité |
+| Name                                   | Unité |
 |:---------------------------------------|:------|
 | notifications.sent.count               | count |
 | *poller_name*#notifications.sent.count | count |
@@ -325,13 +325,13 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 
 | Macro        | Description                                                                                                                                      | Valeur par défaut                       | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:-----------:|
-| TABLENAME1   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.data\_bin             |             |
-| TABLENAME2   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.logs                  |             |
-| TABLENAME3   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_host    |             |
-| TABLENAME4   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_service |             |
-| WARNING      | Warning threshold (number of retention forward days)                                                                                             | 10:                                     |             |
-| CRITICAL     | Critical threshold (number of retention forward days)                                                                                            | 5:                                      |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                               |             |
+| TABLENAME1   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.data\_bin             | X           |
+| TABLENAME2   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.logs                  | X           |
+| TABLENAME3   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_host    | X           |
+| TABLENAME4   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_service | X           |
+| WARNING      | Warning threshold (number of retention forward days)                                                                                             | 10:                                     | X           |
+| CRITICAL     | Critical threshold (number of retention forward days)                                                                                            | 5:                                      | X           |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose                               | X           |
 
 </TabItem>
 <TabItem value="Virtual-Service" label="Virtual-Service">
@@ -383,7 +383,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: total: 50 up: 6 down: 51 unreachable: 7 pending: 10 total: 9 ok: 22 warning: 52 critical: 94 unknown: 98 pending: 68 | '*pollers*~centreon.hosts.count'=50;;;0;'*pollers*~centreon.hosts.up.count'=6;;;0;'*pollers*~centreon.hosts.down.count'=51;;;0;'*pollers*~centreon.hosts.unreachable.count'=7;;;0;'*pollers*~centreon.hosts.pending.count'=10;;;0;'*pollers*~centreon.services.count'=9;;;0;'*pollers*~centreon.services.ok.count'=22;;;0;'*pollers*~centreon.services.warning.count'=52;;;0;'*pollers*~centreon.services.critical.count'=94;;;0;'*pollers*~centreon.services.unknown.count'=98;;;0;'*pollers*~centreon.services.pending.count'=68;;;0;
+OK: total: 29538 up: 54279 down: 12707 unreachable: 76744 pending: 19575 total: 38906 ok: 21467 warning: 59693 critical: 81947 unknown: 13839 pending: 89422 | 'pollers~centreon.hosts.count'=29538;;;0; 'pollers~centreon.hosts.up.count'=54279;;;0; 'pollers~centreon.hosts.down.count'=12707;;;0; 'pollers~centreon.hosts.unreachable.count'=76744;;;0; 'pollers~centreon.hosts.pending.count'=19575;;;0; 'pollers~centreon.services.count'=38906;;;0; 'pollers~centreon.services.ok.count'=21467;;;0; 'pollers~centreon.services.warning.count'=59693;;;0; 'pollers~centreon.services.critical.count'=81947;;;0; 'pollers~centreon.services.unknown.count'=13839;;;0; 'pollers~centreon.services.pending.count'=89422;;;0; 
 ```
 
 ### Diagnostic des erreurs communes

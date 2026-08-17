@@ -5,6 +5,8 @@ title: Centreon SQL Metrics
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+This Pack ships metrics collected from the Centreon SQL real-time database. Get a [complete overview of its virtual curves capabilities here](https://thewatch.centreon.com/product-how-to-21/get-to-know-app-centreon-sql-metric-pack-and-start-building-some-virtual-curves-296).
+
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Centreon SQL Metrics** connector through the
@@ -323,13 +325,13 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-SQL-Metrics
 
 | Macro        | Description                                                                                                                                      | Default value                           | Mandatory |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|:---------:|
-| TABLENAME1   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.data\_bin             |           |
-| TABLENAME2   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.logs                  |           |
-| TABLENAME3   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_host    |           |
-| TABLENAME4   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_service |           |
-| WARNING      | Warning threshold (number of retention forward days)                                                                                             | 10:                                     |           |
-| CRITICAL     | Critical threshold (number of retention forward days)                                                                                            | 5:                                      |           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose                               |           |
+| TABLENAME1   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.data\_bin             | X         |
+| TABLENAME2   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.logs                  | X         |
+| TABLENAME3   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_host    | X         |
+| TABLENAME4   | This option is mandatory (can be multiple). Example: centreon\_storage.data\_bin                                                                 | centreon\_storage.log\_archive\_service | X         |
+| WARNING      | Warning threshold (number of retention forward days)                                                                                             | 10:                                     | X         |
+| CRITICAL     | Critical threshold (number of retention forward days)                                                                                            | 5:                                      | X         |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           | --verbose                               | X         |
 
 </TabItem>
 <TabItem value="Virtual-Service" label="Virtual-Service">
