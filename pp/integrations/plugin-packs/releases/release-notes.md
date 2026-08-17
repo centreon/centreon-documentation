@@ -19,7 +19,6 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Aded new **uptime**, **licenses**, **ha-cluster** and **auto-update** modes; and enhance **connections** mode; , based on a community contribution [PR 6113](https://github.com/centreon/centreon-plugins/pull/6113), [PR 6179](https://github.com/centreon/centreon-plugins/pull/6179) and [PR 6258](https://github.com/centreon/centreon-plugins/pull/6258).
 - [**AIX SNMP**](../procedures/operatingsystems-aix-snmp.md) - Added native SNMP v3 host macro.
 - [**Cisco Call Manager SNMP**](../procedures/network-cisco-callmanager-snmp.md) - Added native SNMP v3 host macro.
 - [**Cisco Firepower SNMP**](../procedures/network-cisco-firepower-snmp.md) - Added native SNMP v3 host macro.
@@ -37,6 +36,8 @@ import TabItem from '@theme/TabItem';
 - [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Added native SNMP v3 host macro.
 - [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Added new mode **sensors**, from a community contribution ([PR 6293](https://github.com/centreon/centreon-plugins/pull/6293)).
 - [**Solaris SNMP**](../procedures/operatingsystems-solaris-snmp.md) - Added native SNMP v3 host macro.
+- 
+- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Aded new **uptime**, **licenses**, **ha-cluster** and **auto-update** modes; and enhance **connections** mode; , based on a community contribution [PR 6113](https://github.com/centreon/centreon-plugins/pull/6113), [PR 6179](https://github.com/centreon/centreon-plugins/pull/6179) and [PR 6258](https://github.com/centreon/centreon-plugins/pull/6258).
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
