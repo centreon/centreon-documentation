@@ -53,10 +53,6 @@ import TabItem from '@theme/TabItem';
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Fixed `job-type` and `session` values in **job-status** mode.
 - [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Fixed hardcoded `centreon_storage` database name.
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Fixed typo in **api** custom.
-- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
-- [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
-- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
-- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
 
 </TabItem>
 </Tabs>
