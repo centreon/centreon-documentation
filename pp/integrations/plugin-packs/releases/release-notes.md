@@ -29,7 +29,7 @@ import TabItem from '@theme/TabItem';
 - [**Cisco Voice Gateway SNMP**](../procedures/network-cisco-voice-gateway-snmp.md) - Added native SNMP v3 host macro.
 - [**Cisco Waas SNMP**](../procedures/network-cisco-waas-snmp.md) - Added native SNMP v3 host macro.
 - [**Cisco Wap SNMP**](../procedures/network-cisco-wap-snmp.md) - Added native SNMP v3 host macro.
-- [**Docker**](../procedures/applications-docker-restapi.md) - Enhanced services monitoring & added discovery for Docker Swarm.
+- [**Docker rest API**](../procedures/applications-docker-restapi.md) - Enhanced services monitoring & added discovery for Docker Swarm.
 - [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added native SNMP v3 host macro.
 - [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - Added native SNMP v3 host macro.
 - [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - Added native SNMP v3 host macro.
