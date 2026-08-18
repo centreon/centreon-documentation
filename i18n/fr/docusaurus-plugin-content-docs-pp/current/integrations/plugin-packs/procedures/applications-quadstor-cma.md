@@ -1,78 +1,79 @@
 ---
-id: applications-quadstor-nrpe
-title: Quadstor NSClient++ NRPE
-description: "Monitor Quadstor VTL backup appliances via NRPE: disk usage, backup job status, and tape usage."
+id: applications-quadstor-cma
+title: Quadstor CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
-## Connector dependencies
+## Dépendances du connecteur de supervision
 
-The following monitoring connectors will be installed when you install the **Quadstor NSClient++ NRPE** connector through the
-**Configuration > Connectors > Monitoring Connectors** menu:
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Quadstor CMA**
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
 
-## Pack assets
+## Contenu du pack
 
-### Templates
+### Modèles
 
-The Monitoring Connector **Quadstor NSClient++ NRPE** brings a host template:
+Le connecteur de supervision **Quadstor CMA** apporte un modèle d'hôte :
 
-* **App-Quadstor-Vtl-NRPE-custom**
+* **App-Quadstor-Vtl-CMA-custom**
 
-The connector brings the following service templates (sorted by the host template they are attached to):
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="App-Quadstor-Vtl-NRPE-custom" label="App-Quadstor-Vtl-NRPE-custom">
+<TabItem value="App-Quadstor-Vtl-CMA-custom" label="App-Quadstor-Vtl-CMA-custom">
 
-| Service Alias  | Service Template                        | Service Description |
-|:---------------|:----------------------------------------|:--------------------|
-| Vtl-Disk-Usage | App-Quadstor-Vtl-Disk-Usage-NRPE-custom | Check disk usage    |
-| Vtl-Job-Status | App-Quadstor-Vtl-Job-Status-NRPE-custom | Check job status    |
+| Alias          | Modèle de service                      | Description                                                   |
+|:---------------|:---------------------------------------|:--------------------------------------------------------------|
+| Vtl-Disk-Usage | App-Quadstor-Vtl-Disk-Usage-CMA-custom | Contrôle permettant de vérifier l'utilisation des disques     |
+| Vtl-Job-Status | App-Quadstor-Vtl-Job-Status-CMA-custom | Contrôle permettant de vérifier l'état des jobs de sauvegarde |
 
-> The services listed above are created automatically when the **App-Quadstor-Vtl-NRPE-custom** host template is used.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Quadstor-Vtl-CMA-custom** est utilisé.
 
 </TabItem>
-<TabItem value="Not attached to a host template" label="Not attached to a host template">
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Service Alias  | Service Template                        | Service Description |
-|:---------------|:----------------------------------------|:--------------------|
-| Vtl-Tape-Usage | App-Quadstor-Vtl-Tape-Usage-NRPE-custom | Check tape usage    |
+| Alias          | Modèle de service                      | Description                                              |
+|:---------------|:---------------------------------------|:---------------------------------------------------------|
+| Vtl-Tape-Usage | App-Quadstor-Vtl-Tape-Usage-CMA-custom | Contrôle permettant de vérifier l'utilisation des bandes |
 
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
 </TabItem>
 </Tabs>
 
-### Collected metrics & status
+### Métriques & statuts collectés
 
-Here is the list of services for this connector, detailing all metrics and statuses linked to each service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Vtl-Disk-Usage" label="Vtl-Disk-Usage">
 
-| Name             | Unit  |
+| Nom              | Unité |
 |:-----------------|:------|
 | status           | N/A   |
 | *disk_name*#used | B     |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Vtl-Job-Status" label="Vtl-Job-Status">
 
-| Name   | Unit  |
+| Nom    | Unité |
 |:-------|:------|
 | status | N/A   |
 | long   | N/A   |
 | frozen | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Vtl-Tape-Usage" label="Vtl-Tape-Usage">
 
-| Name         | Unit  |
+| Nom          | Unité |
 |:-------------|:------|
 | count        | tapes |
 | status       | N/A   |
@@ -80,176 +81,143 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *tape1*#used | B     |
 | *tape2*#used | B     |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
-### Centreon NSClient++
+<CMAprerequisites />
 
-To monitor *Quadstor* resources through NRPE, install the
-Centreon packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
-and make sure that the **NRPE Server** configuration is correct.
-
-## Installing the monitoring connector
+## Installer le connecteur de supervision
 
 ### Pack
 
-The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
+La procédure d'installation des connecteurs de supervision diffère légèrement [suivant que votre licence est offline ou online](../getting-started/how-to-guides/connectors-licenses.md).
 
-1. If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the connector displayed within the
-**Configuration > Connectors > Monitoring Connectors** menu.
-If the platform uses an *offline* license, install the package on the **central server**
-with the command corresponding to the operating system's package manager:
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Connecteurs > Connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-quadstor-nrpe
+dnf install centreon-pack-applications-quadstor-cma
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-quadstor-nrpe
+dnf install centreon-pack-applications-quadstor-cma
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-quadstor-nrpe
+apt install centreon-pack-applications-quadstor-cma
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-quadstor-nrpe
+yum install centreon-pack-applications-quadstor-cma
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Quadstor NSClient++ NRPE** connector through
-the **Configuration > Connectors > Monitoring Connectors** menu.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Quadstor CMA**
+depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
 
-Use the commands below according to your operating system's package manager:
+Ce connecteur de supervision s'appuie sur une intégration prise en charge par Centreon Engine et ne requiert pas de plugin.
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+## Utiliser le connecteur de supervision
 
-```bash
-dnf install nagios-plugins-nrpe
-```
+### Utiliser un modèle d'hôte issu du connecteur
 
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-Quadstor-Vtl-CMA-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-```bash
-dnf install nagios-plugins-nrpe
-```
+| Macro                | Description                                              | Valeur par défaut                   | Obligatoire |
+|:---------------------|:---------------------------------------------------------|:------------------------------------|:-----------:|
+| SYSTEMLANGUAGE       | Language installed on the Dynamics365 system.            | en                                  |             |
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found. | `C:/Program Files/Centreon/Plugins` |      X      |
 
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-```bash
-apt install nagios-plugins-nrpe
-```
+### Utiliser un modèle de service issu du connecteur
 
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install nagios-plugins-nrpe
-```
-
-</TabItem>
-</Tabs>
-
-## Using the monitoring connector
-
-### Using a host template provided by the connector
-
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **App-Quadstor-Vtl-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory.
-
-| Macro            | Description                                                                                                                              | Default value         | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT         | Port used to reach the NRPE server                                                                                                       | 5666                  |             |
-| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                    | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                    | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
-
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
-
-### Using a service template provided by the connector
-
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
-2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
 <TabItem value="Vtl-Disk-Usage" label="Vtl-Disk-Usage">
 
-| Macro          | Description                                                                                                                            | Default value                | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| UNITS          | Units of thresholds ('%', 'absolute')                                                                                                  | %                            |             |
-| FILTERNAME     | Filter tape name                                                                                                                       |                              |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}           | not %\{status\} =~ /active/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}            |                              |             |
-| WARNINGUSAGE   | Threshold                                                                                                                              |                              |             |
-| CRITICALUSAGE  | Threshold                                                                                                                              |                              |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                              |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut            | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| UNITS          | Units of thresholds  ('%', 'absolute')                                                                                                           | %                            |             |
+| FILTERNAME     | Filter tape name                                                                                                                                 |                              |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}                     | not %\{status\} =~ /active/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                      |                              |             |
+| WARNINGUSAGE   | Threshold                                                                                                                                        |                              |             |
+| CRITICALUSAGE  | Threshold                                                                                                                                        |                              |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                              |             |
 
 </TabItem>
 <TabItem value="Vtl-Job-Status" label="Vtl-Job-Status">
 
-| Macro          | Description                                                                                                                                   | Default value           | Mandatory   |
-|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| WARNINGFROZEN  | Set warning threshold for frozen jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{kb\}   |                         |             |
-| CRITICALFROZEN | Set critical threshold for frozen jobs (default: none). You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{kb\} |                         |             |
-| WARNINGLONG    | Set warning threshold for long jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}              |                         |             |
-| CRITICALLONG   | Set critical threshold for long jobs (default: none). You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}            |                         |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}                  | %\{status\} =~ /error/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: none) You can use the following variables: %\{display\}, %\{status\}    |                         |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).        | --verbose               |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut       | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| WARNINGFROZEN  | Set warning threshold for frozen jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{kb\}      |                         |             |
+| CRITICALFROZEN | Set critical threshold for frozen jobs (default: none). You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{kb\}    |                         |             |
+| WARNINGLONG    | Set warning threshold for long jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}                 |                         |             |
+| CRITICALLONG   | Set critical threshold for long jobs (default: none). You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}               |                         |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}                     | %\{status\} =~ /error/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: none) You can use the following variables: %\{display\}, %\{status\}       |                         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose               |             |
 
 </TabItem>
 <TabItem value="Vtl-Tape-Usage" label="Vtl-Tape-Usage">
 
-| Macro          | Description                                                                                                                            | Default value                         | Mandatory   |
-|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| UNITS          | Units of thresholds ('%', 'absolute')                                                                                                  | %                                     |             |
-| VTLNAME        | Set VTL name (required)                                                                                                                |                                       |             |
-| FILTERNAME     | Filter tape name                                                                                                                       |                                       |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}           | not %\{status\} =~ /active\|vaulted/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}            |                                       |             |
-| WARNINGUSAGE   | Threshold                                                                                                                              |                                       |             |
-| CRITICALUSAGE  | Threshold                                                                                                                              |                                       |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                       |             |
+| Macro          | Description                                                                                                                                      | Valeur par défaut                     | Obligatoire |
+|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
+| UNITS          | Units of thresholds ('%', 'absolute')                                                                                                            | %                                     |             |
+| VTLNAME        | Set VTL name (required)                                                                                                                          |                                       |             |
+| FILTERNAME     | Filter tape name                                                                                                                                 |                                       |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}                     | not %\{status\} =~ /active\|vaulted/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                      |                                       |             |
+| WARNINGUSAGE   | Threshold                                                                                                                                        |                                       |             |
+| CRITICALUSAGE  | Threshold                                                                                                                                        |                                       |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                       |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector
-is able to monitor a resource using a command like this one (replace the sample values by yours):
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::backup::quadstor::local::plugin' 'vtl-tape-usage'  '  \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
+    --plugin=apps::backup::quadstor::local::plugin \
+    --mode=vtl-tape-usage \
 	--vtl-name="" \
 	--filter-name="" \
 	--warning-status="" \
@@ -259,47 +227,47 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--units="%" '
 ```
 
-The expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: Number of tapes : 47812 All tapes are ok | 'count'=47812tapes;;;0; 'tape1#used'=70836B;;;; 'tape2#used'=10821B;;;;
 ```
 
-### Troubleshooting
+### Diagnostic des erreurs communes
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
-### Available modes
+### Modes disponibles
 
-In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
-In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the
-connector in your terminal.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::backup::quadstor::local::plugin' 'vtl-tape-usage'  '  \
-	--vtl-name="" \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
+    --plugin=apps::backup::quadstor::local::plugin \
 	--list-mode
 ```
 
-The plugin brings the following modes:
+Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                   | Linked service template                 |
+| Mode                                                                                                                                   | Modèle de service associé               |
 |:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
 | list-vtl [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/listvtl.pm)]            | Not used in this Monitoring Connector   |
-| vtl-disk-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtldiskusage.pm)] | App-Quadstor-Vtl-Disk-Usage-NRPE-custom |
-| vtl-job-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtljobstatus.pm)] | App-Quadstor-Vtl-Job-Status-NRPE-custom |
-| vtl-tape-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtltapeusage.pm)] | App-Quadstor-Vtl-Tape-Usage-NRPE-custom |
+| vtl-disk-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtldiskusage.pm)] | App-Quadstor-Vtl-Disk-Usage-CMA-custom |
+| vtl-job-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtljobstatus.pm)] | App-Quadstor-Vtl-Job-Status-CMA-custom |
+| vtl-tape-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtltapeusage.pm)] | App-Quadstor-Vtl-Tape-Usage-CMA-custom |
 
-### Available options
+### Options disponibles
 
-#### Generic options
+#### Options génériques
 
-All generic options are listed here:
+Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |:-------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -352,9 +320,9 @@ All generic options are listed here:
 | --command-options                          |   Command options.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | --sudo                                     |   sudo command.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
-#### Modes options
+#### Options des modes
 
-All available options for each service template are listed below:
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="Vtl-Disk-Usage" label="Vtl-Disk-Usage">
@@ -397,12 +365,12 @@ All available options for each service template are listed below:
 </TabItem>
 </Tabs>
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::backup::quadstor::local::plugin' 'vtl-tape-usage'  '  \
-	--vtl-name="" \
-	--filter-name="" \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
+    --plugin=apps::backup::quadstor::local::plugin \
+    --mode=vtl-tape-usage \
 	--help
 ```

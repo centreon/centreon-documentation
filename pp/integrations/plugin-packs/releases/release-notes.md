@@ -9,6 +9,55 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+### August
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Dynamics AX CMA**](../procedures/applications-dynamics-ax-cma.md) - Initial release.
+- [**Quadstor CMA**](../procedures/applications-quadstor-cma.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**AIX SNMP**](../procedures/operatingsystems-aix-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Call Manager SNMP**](../procedures/network-cisco-callmanager-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Firepower SNMP**](../procedures/network-cisco-firepower-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco IronPort SNMP**](../procedures/network-cisco-ironport-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Telepresence System SNMP**](../procedures/hardware-devices-cisco-cts-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco UCS SNMP**](../procedures/hardware-servers-cisco-ucs-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Umbrella SNMP**](../procedures/network-cisco-umbrella-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Voice Gateway SNMP**](../procedures/network-cisco-voice-gateway-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Waas SNMP**](../procedures/network-cisco-waas-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Wap SNMP**](../procedures/network-cisco-wap-snmp.md) - Added native SNMP v3 host macro.
+- [**Docker rest API**](../procedures/applications-docker-restapi.md) - Enhanced services monitoring & added discovery for Docker Swarm.
+- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added native SNMP v3 host macro.
+- [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - Added native SNMP v3 host macro.
+- [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - Added native SNMP v3 host macro.
+- [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Added native SNMP v3 host macro.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Added new **sensors** mode, from a community contribution ([PR 6293](https://github.com/centreon/centreon-plugins/pull/6293)).
+- [**Solaris SNMP**](../procedures/operatingsystems-solaris-snmp.md) - Added native SNMP v3 host macro.
+- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Added new **uptime**, **licenses**, **ha-cluster** and **auto-update** modes. Enhanced **connections** mode , based on community contributions: [PR 6113](https://github.com/centreon/centreon-plugins/pull/6113), [PR 6179](https://github.com/centreon/centreon-plugins/pull/6179) and [PR 6258](https://github.com/centreon/centreon-plugins/pull/6258).
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Fixed hardcoded `centreon_storage` database name.
+- [**Cisco DNA Center Rest API**](../procedures/applications-cisco-dnac-restapi.md) - Fixed percentage metrics in **network-devices** mode.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Fixed typo in **api** custom mode.
+- [**Dynamics365 CMA**](../procedures/applications-dynamics-365-cma.md) - Fixed missing command for **New Orders** service.
+- [**HP OneView Rest API**](../procedures/hardware-servers-hp-oneview-restapi.md) - Added API pagination.
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed AS400 daemon CVEs related to Log4j and Undertow.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed empty output for mssql **database-size** mode.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed an issue where internal PostgreSQL lock types (virtualxid, transactionid) incorrectly counted as exclusive locks.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Fixed `job-type` and `session` values in **job-status** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Fixed `job-type` and `session` values in **job-status** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Fixed `job-type` and `session` values in **job-status** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Fixed `job-type` and `session` values in **job-status** mode.
+
+</TabItem>
+</Tabs>
+
 ### July
 
 <Tabs groupId="sync">
