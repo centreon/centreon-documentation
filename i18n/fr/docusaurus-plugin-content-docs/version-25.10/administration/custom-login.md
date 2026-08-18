@@ -1,6 +1,7 @@
 ---
 id: customize-centreon
 title: Personnaliser Centreon
+description: "Personnaliser la page de connexion et le nom de la plateforme Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: upgrade-mysql
 title: Upgrading MySQL
+description: "Upgrade MySQL to a version supported by Centreon 24.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-dlink-dgs3100-snmp
 title: D-Link DGS 3100 SNMP
+description: "Monitor D-Link DGS 3100 switches via SNMP: CPU utilization, hardware status (PSU, fan), and network interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

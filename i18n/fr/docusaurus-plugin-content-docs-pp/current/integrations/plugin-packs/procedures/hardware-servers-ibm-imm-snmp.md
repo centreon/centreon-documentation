@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-ibm-imm-snmp
 title: IBM IMM SNMP
+description: "Supervisez les cartes de gestion IBM IMM via SNMP : ventilateurs, température, voltage, statut global et journal d'événements."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

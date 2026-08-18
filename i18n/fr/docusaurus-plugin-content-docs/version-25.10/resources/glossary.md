@@ -1,6 +1,7 @@
 ---
 id: glossary
 title: Glossaire des concepts Centreon
+description: "Définitions des principaux concepts de supervision Centreon"
 ---
 
 ## ACL
@@ -87,6 +88,12 @@ Certains connecteurs ont également une option de “découverte” qui leur per
 
 - [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
 - [Introduction aux connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
+
+## Contrôle
+
+Un contrôle est une opération qui détermine le [statut](#statut) d'une ressource, et peut produire des [métriques](#statut) (données de performance). Le résultat d’un contrôle met à jour la ligne correspondant à la ressource dans la page **Statut des ressources**.
+
+Un contrôle peut être effectué soit par le moteur de supervision ([contrôle actif](../monitoring/active-passive-checks.md#contrôles-actifs)), soit par l’équipement lui-même ([contrôle passif](../monitoring/active-passive-checks.md#contrôles-passifs)).
 
 ## Donnée de performance
 

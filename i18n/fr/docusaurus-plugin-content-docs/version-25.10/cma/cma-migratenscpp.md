@@ -1,6 +1,7 @@
 ---
 id: cma-migratenscpp
 title: Migrer vers CMA depuis NSClient++
+description: "Migrer les hôtes supervisés de NSClient++ ou NRPE vers CMA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

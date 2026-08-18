@@ -1,6 +1,7 @@
 ---
 id: chart-virtual-metrics
 title: Virtual metrics
+description: "How to create virtual metrics using RPN notation to aggregate data from several curves in Centreon graphs"
 ---
 
 ## Definition

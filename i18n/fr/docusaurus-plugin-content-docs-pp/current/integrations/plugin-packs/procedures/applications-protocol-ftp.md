@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-ftp
 title: FTP Server
+description: "Supervisez des serveurs FTP en testant la connexion, en exécutant des commandes distantes et en surveillant les dates et le nombre de fichiers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

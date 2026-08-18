@@ -1,5 +1,6 @@
 ---
 id: user-journey-screen
+description: Parcourir l'écran de synthèse des parcours et ses actions
 title: L’écran Parcours Utilisateurs
 --- 
 

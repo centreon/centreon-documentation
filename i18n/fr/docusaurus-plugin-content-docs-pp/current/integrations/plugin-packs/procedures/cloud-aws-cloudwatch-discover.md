@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-cloudwatch-discover
 title: AWS Discover
+description: "Découvrez automatiquement vos ressources AWS (EC2, RDS, S3, Lambda, etc.) via l'API AWS grâce au connecteur AWS Discover."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

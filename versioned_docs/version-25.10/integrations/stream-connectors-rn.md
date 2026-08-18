@@ -1,17 +1,57 @@
 ---
 id: stream-connectors-rn
 title: Stream connectors release notes
+description: "Release notes and changelog for Centreon stream connectors"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## 2026
+
+### August
+
+<Tabs groupId="sync">
+<TabItem value="Enhancement" label="Enhancement">
+
+- [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Optimized the stream connector to avoid DOS.
+- New OpenTelemetry otelhttp community stream connector for metrics, provided by a community contribution [PR 290](https://github.com/centreon/centreon-stream-connector-scripts/pull/290).
+- Reduced unnecessary logging when Broker has no new messages to process.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed cases where the stream connector may not work with self signed certificates, based on a community contribution [PR 311](https://github.com/centreon/centreon-stream-connector-scripts/pull/311).
+- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed crashes on host acknowledgement events.
+
+</TabItem>
+</Tabs>
+
+### July
+
+<Tabs groupId="sync">
+<TabItem value="Enhancement" label="Enhancement">
+
+- [**Clickhouse Metrics**](data-analytics/sc-clickhouse.md) - Added a way for stream connectors to store data. For more technical information, see [PR 205](https://github.com/centreon/centreon-stream-connector-scripts/pull/205).
+- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Added bulk events. For more technical information, see [PR 274](https://github.com/centreon/centreon-stream-connector-scripts/pull/274).
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Fixed `scheduled_downtime_depth` value that could be above 1. Fixed an issue where events were never sent when a status change occurred during a downtime.
+- [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Properly escape host names in tags.
+- [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Fixed incorrect usage of broker v2 API.
+- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtime names/IDs that weren't unique. Fixed a library that wasn't properly detecting the status of a host/service in a downtime event.
+
+</TabItem>
+</Tabs>
 
 ## 2025
 
 ### February
 
 <Tabs groupId="sync">
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtimes.
 - [**ServiceNow Incident**](event-management/sc-service-now-em-events.md) - Fixed oauth refresh token parameters.
@@ -25,7 +65,7 @@ import TabItem from '@theme/TabItem';
 ### September
 
 <Tabs groupId="sync">
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Fixed return code when payload is empty.
 
@@ -35,7 +75,7 @@ import TabItem from '@theme/TabItem';
 ### August
 
 <Tabs groupId="sync">
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed an issue with **max_buffer_size** parameter in Splunk stream connector.
 - [**Clickhouse**](data-analytics/sc-clickhouse.md) - Added a protection on metric names containing spaces.
@@ -154,7 +194,7 @@ import TabItem from '@theme/TabItem';
 ### February
 
 <Tabs groupId="sync">
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Fixed an issue occuring when checking if an event was monitored by an accepted poller.
 
@@ -173,7 +213,7 @@ import TabItem from '@theme/TabItem';
 - [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Added a new **add_queue_metadata** method to properly add metadata to a queue.
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - The long output of the stream connector was incorrectly using the standard output, leading to loss of data.
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Used the correct cache entry when checking the state of a service in a downtime event.

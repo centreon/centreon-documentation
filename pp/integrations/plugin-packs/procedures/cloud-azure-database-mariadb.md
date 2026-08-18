@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-mariadb
 title: Azure Database for MariaDB
+description: "Monitor Azure Database for MariaDB via the Azure Monitor API: connections, CPU, memory, storage, replication lag, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

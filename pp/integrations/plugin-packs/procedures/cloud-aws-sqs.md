@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-sqs
 title: Amazon SQS
+description: "Monitor Amazon SQS queues via the AWS CloudWatch API: track message counts, age, and delivery status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

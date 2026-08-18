@@ -1,6 +1,7 @@
 ---
 id: secure-your-map-platform
-title: Sécurisez votre plateforme MAP
+title: Sécuriser votre plateforme MAP
+description: "Sécuriser Centreon MAP avec HTTPS/TLS et des connexions chiffrées à la base de données"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -118,7 +119,7 @@ centreon.url=https://<server-address>
 
 Le serveur MAP est maintenant configuré pour répondre aux demandes provenant de HTTPS sur le port 9443.
 
-Pour modifier le port par défaut, reportez-vous à la [procédure dédiée](map-web-advanced-configuration.md#changer-le-port-du-serveur-centreon-map).
+Pour modifier le port par défaut, reportez-vous à la [procédure dédiée](./map-web-change-port.md).
 
 > N'oubliez pas de modifier l'URL côté Centreon dans le champ **Adresse du serveur Centreon MAP** du menu **Administration > Extensions > Map > Options**.
 

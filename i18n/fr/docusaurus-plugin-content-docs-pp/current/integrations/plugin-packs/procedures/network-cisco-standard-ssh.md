@@ -1,6 +1,7 @@
 ---
 id: network-cisco-standard-ssh
 title: Cisco Standard SSH
+description: "Supervisez des équipements Cisco en SSH : suivez l'utilisation du CPU et le statut des voice dial peers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,12 +1,25 @@
 ---
 id: known-issues
 title: Known issues
+description: "Known issues and workarounds for the Centreon platform"
 ---
 
 Below is a list of known issues and/or bugs you may encounter.
 We try to provide workarounds. We apply fixes when
 necessary and are forever improving our software in order to solve any
 issues for future releases.
+
+## Centreon Dashboards
+
+### Too many widgets cause a "413 error Request Entity Too Large" issue
+
+After a certain number of widgets in a single dashboard, any new widgets will produce a `413 error on Save (POST | Request Entity Too Large)`.
+The maximum size for the request body has been reached and you can fix it by modifying the PHP/Apache configuration.
+
+#### Workaround
+
+1. Edit the `/etc/httpd/conf.d/mod_security.conf` file and increase the `SecRequestBodyNoFilesLimit` value. By default the value is **131072 (128M)**, you can increase it to **524288 (512M)**.
+2. Then restart the Apache service.
 
 ## Anomaly Detection
 

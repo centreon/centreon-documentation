@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-24-04
 title: Montée de version depuis Centreon 24.04
+description: "Passer une plateforme Centreon de la version 24.04 à la 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -845,6 +846,8 @@ dnf update centreon\*
 ```shell
 dnf update centreon\*
 ```
+
+> Si vous avez installé MariaDB depuis leurs dépôts officiels, il se peut que vous rencontriez des problèmes de conflits. Suivez notre [procédure sur le sujet](../resources/known-issues.md#vous-avez-un-conflit-entre-les-paquets-mysql-common-et-mariadb-common) pour une solution de contournement.
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">

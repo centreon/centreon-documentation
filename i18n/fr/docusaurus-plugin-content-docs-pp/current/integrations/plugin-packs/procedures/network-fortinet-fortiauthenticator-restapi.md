@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiauthenticator-restapi
 title: Fortinet FortiAuthenticator RestAPI
+description: "Supervisez Fortinet FortiAuthenticator via l'API REST : suivez le nombre de FortiTokens assignés, en attente et disponibles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

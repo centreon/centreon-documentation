@@ -230,6 +230,10 @@ module.exports = {
             {
               "type": "doc",
               "id": "monitoring/monitoring-servers/deploying-a-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/active-passive-checks"
             }
           ]
         },
@@ -642,9 +646,22 @@ module.exports = {
                   "id": "cma/cma-setup"
                 },
                 {
+                 "type": "category",
+                 "label": "Manual setup (advanced)",
+                 "link": {
+                 "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup-manual"
+                },
+                {
                   "type": "doc",
                   "id": "cma/cma-certificates"
                 },
+              ]
+              },
                 {
                   "type": "doc",
                   "id": "cma/cma-custom"
@@ -785,6 +802,27 @@ module.exports = {
         }
       ]
     },
+        {
+      "type": "category",
+      "label": "Troubleshooting Centreon Cloud",
+      "link": {
+        "type": "generated-index",
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "resources/troubleshooting"
+        },
+        {
+          "type": "doc",
+          "id": "resources/known-issues"
+        },
+        {
+          "type": "doc",
+          "id": "resources/licenses-faq"
+        },
+      ]
+    },
     {
       "type": "category",
       "label": "Resources",
@@ -792,10 +830,6 @@ module.exports = {
         "type": "generated-index",
       },
       "items": [
-        {
-          "type": "doc",
-          "id": "resources/known-issues"
-        },
         {
           "type": "doc",
           "id": "resources/glossary"

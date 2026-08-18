@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-experience-monitoring-restapi
 title: Centreon Experience Monitoring (formerly Quanta) Rest API
+description: "Supervisez Centreon Experience Monitoring (anciennement Quanta) via l'API REST : sessions RUM, performance du site et parcours utilisateur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -115,9 +116,9 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
-Afin de superviser Centreon Experience Monitoring, vous devez disposer [d'un jeton d'API valide](/experience-monitoring/installation/monitor-production-events#authentification-et-génération-de-token), et [avoir des parcours utilisateur configurés dans Centreon DEM](/experience-monitoring/configuration/user-journey/create-a-scenario).
+Afin de superviser Centreon Experience Monitoring, vous devez disposer [d'un jeton d'API valide](https://docs.centreon.com/experience-monitoring/installation/monitor-production-events/#authentification-et-génération-de-token), et [avoir des parcours utilisateur configurés dans Centreon DEM](/experience-monitoring/configuration/user-journey/create-a-scenario).
 
-Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du tag RUM de Centreon Experience Monitoring](/experience-monitoring/installation/real-user-monitoring-installation#trouver-le-tag-à-insérer-dans-mon-site).
+Les données issues du Real User Monitoring ne seront accessibles que si vous avez réalisé [l'intégration du tag RUM de Centreon Experience Monitoring](/experience-monitoring/installation/real-user-monitoring-installation).
 
 ## Installer le connecteur de supervision
 

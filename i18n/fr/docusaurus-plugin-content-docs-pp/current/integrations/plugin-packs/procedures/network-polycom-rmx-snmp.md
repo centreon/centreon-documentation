@@ -1,6 +1,7 @@
 ---
 id: network-polycom-rmx-snmp
 title: Polycom RMX SNMP
+description: "Supervisez les unités de visioconférence Polycom RMX via SNMP : CPU, matériel, charge, mémoire et utilisation de la visioconférence."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

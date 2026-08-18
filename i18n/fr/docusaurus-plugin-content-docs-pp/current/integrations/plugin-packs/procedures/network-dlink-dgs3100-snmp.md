@@ -1,6 +1,7 @@
 ---
 id: network-dlink-dgs3100-snmp
 title: D-Link DGS 3100 SNMP
+description: "Supervisez les switches D-Link DGS 3100 via SNMP : utilisation CPU, état du matériel (alimentation, ventilateur) et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

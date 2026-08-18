@@ -1,6 +1,7 @@
 ---
 id: applications-wsus-cma
 title: Microsoft WSUS CMA
+description: "Monitor Microsoft WSUS servers via CMA: computer update status, server statistics, synchronization status, and update status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

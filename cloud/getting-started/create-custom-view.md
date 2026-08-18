@@ -1,6 +1,7 @@
 ---
 id: create-custom-view
 title: Creating your first custom view
+description: "Step-by-step tutorial to create your first custom view and add widgets such as Top 10 CPU and Global Health"
 ---
 
 Go to the **Home > Custom Views** menu and click the pencil icon located on the far right of the interface to enable

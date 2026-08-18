@@ -1,6 +1,7 @@
 ---
 id: applications-databases-influxdb
 title: InfluxDB
+description: "Monitor InfluxDB time series databases via REST API: connection time, database statistics, HTTP server stats, writes, and custom queries."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: architectures
 title: Architectures
+description: "Choose the right monitoring architecture for your platform size and needs"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

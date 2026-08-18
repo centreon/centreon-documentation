@@ -417,5 +417,9 @@
   "Monitoring Connectors": {
     "message": "Monitoring Connectors",
     "description": "The label for the monitoring connectors"
+  },
+  "theme.SearchPage.searchContext.everywhere": {
+    "message": "All sections",
+    "description": "The label for search page to search everywhere"
   }
 }

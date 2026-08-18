@@ -1,6 +1,7 @@
 ---
 id: network-aruba-orchestrator-restapi
 title: Aruba Orchestrator Rest API
+description: "Supervisez Aruba Orchestrator via l'API REST : alarmes par gravité, état des appareils, synchronisation et détection."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

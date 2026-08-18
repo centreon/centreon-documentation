@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-sql-metrics
 title: Centreon SQL Metrics
+description: "Monitor Centreon's own SQL real-time database: poller delay, notification and problem counts, resource counts, and storage partitioning."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

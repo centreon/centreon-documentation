@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-cadvisor-api
 title: cAdvisor w/ Prometheus API
+description: "Supervisez les conteneurs Docker via cAdvisor et l'API Prometheus : CPU, charge, mémoire, stockage et état des tâches."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-avid-isis-snmp
 title: Avid Isis SNMP
+description: "Supervisez les systèmes de stockage partagé Avid ISIS via SNMP : matériel, performances, statut et utilisation du stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

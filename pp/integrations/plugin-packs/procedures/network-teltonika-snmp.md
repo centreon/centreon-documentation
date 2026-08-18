@@ -1,6 +1,7 @@
 ---
 id: network-teltonika-snmp
 title: Teltonika SNMP
+description: "Monitor Teltonika routers via SNMP: interface status and traffic, plus modem signal strength, temperature, and connection status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

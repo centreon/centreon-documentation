@@ -1,6 +1,7 @@
 ---
 id: anomaly-detection
 title: Anomaly Detection
+description: "Détecter les comportements anormaux des services grâce à des seuils dynamiques"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

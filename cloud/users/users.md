@@ -1,6 +1,7 @@
 ---
 id: users
 title: Users in Centreon Cloud
+description: "Overview of user roles, rights, and how to create or remove users in a Centreon Cloud organization"
 ---
 
 In Centreon Cloud, users/contacts can:

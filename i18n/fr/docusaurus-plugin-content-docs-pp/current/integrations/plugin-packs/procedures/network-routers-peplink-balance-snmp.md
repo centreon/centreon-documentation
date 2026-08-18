@@ -1,6 +1,7 @@
 ---
 id: network-routers-peplink-balance-snmp
 title: Peplink Balance SNMP
+description: "Supervisez les routeurs Peplink Balance via SNMP : CPU, mémoire, trafic des interfaces et erreurs de paquets."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

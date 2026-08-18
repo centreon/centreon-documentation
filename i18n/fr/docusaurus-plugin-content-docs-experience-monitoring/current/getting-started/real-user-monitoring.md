@@ -1,28 +1,17 @@
 ﻿---
 id: real-user-monitoring
 title: Le Real User Monitoring (ou RUM)
---- 
+description: Introduction à la mesure de la performance réelle des visiteurs avec le RUM
+---
 
-Appelé “RUM” pour les intimes, le “Real User Monitoring” consiste à observer et analyser **l'expérience perçue par les internautes réels**, et ce directement depuis leurs navigateurs quels qu’ils soient.
+Le module **Real User Monitoring** (ou RUM) vous permet de mesurer les performances d'un site web directement depuis les navigateurs de vrais utilisateurs.
+Une balise HTML est insérée dans le code de la page pour surveiller les temps de chargement tels qu'ils sont vécus par les utilisateurs.
+La balise est conçue pour être très légère afin de ne pas ralentir la navigation de l'utilisateur. Elle est également chargée séparément, de sorte que ses propres temps de chargement ne sont pas pris en compte dans les métriques collectées.
 
-![image](../assets/getting-started/rum-1.png)
+Consultez notre [article dédié](../rum/rum-intro.md) pour en savoir plus sur ce module.
 
-Il est important de noter que :
+![image](../assets/getting-started/rum-overview.png)
 
-- cette fonctionnalité implique l’ajout d’un **tag externe** dans la page, qui est conçu pour être chargé de façon **asynchrone** et être **extrêmement léger dans son fonctionnement** afin de ne pas ralentir la navigation de l’internaute sur le site.
-- le type de données remontées par le navigateur grâce au tag Experience Monitoring ainsi que la manière dont Experience Monitoring enregistre ces éléments dans sa base de donnée garantissent **l’exclusion du tag Experience Monitoring du périmètre de la GDPR**. En effet, les chiffres remontés via le tag sont purement techniques et **non nominatifs**. Le tableau de bord Experience Monitoring permet d’observer le comportement du site pour différents type de navigateurs (Chrome, Safari Mobile, EDGE, ...) mais sans possibilité d'identifier un internaute unique.
+La différence essentielle avec les [parcours utilisateurs](synthetic-monitoring.md) est que, tandis que ces derniers vérifient les performances d'une navigation prédéfinie sur le site, le RUM mesure l'expérience de vrais utilisateurs.
 
-Une fois ce tag mis en place, Experience Monitoring est capable d’enregistrer l’expérience perçue par l’ensemble des internautes **avec ou sans échantillonnage** ce qui permet d’obtenir une vue très précise des métriques clés de performance (ex: TTFB, Speed Index, temps de chargement complet de la page, etc.)
-
-Les **bénéfices clés** apportés par le RUM sont :
-
-- une vue **objective** de la performance car mesurée **par les internautes eux-mêmes**. Exemple : si le site est majoritairement consulté par des internautes utilisant Safari et que le code du site fonctionne particulièrement mal sur celui-ci, il sera immédiatement visible qu’un problème **sur ce navigateur en particulier** impacte une majorité du trafic du site.
-    
-![image](../assets/getting-started/rum-2.png)
-    
-- une vue **exhaustive** de la performance pour **toutes les pages** consultées par les internautes. C’est une différence majeure par rapport au [Monitoring Synthétique](./synthetic-monitoring.md) qui mesure certaines pages ou parcours de référence. A l’inverse, le collecteur de donnée RUM va enregistrer les métriques de performance (TTFB, Speed Index, etc.) **à chaque fois qu’un clic est réalisé** sur le site. Le résultat est la construction d’une vue croisée et actualisée en temps réel des pages les + consultées avec leurs notations respectives quant à la performance :
-    
-![image](../assets/getting-started/rum-3.png)
-    
-
-> A suivre : comment [Installer le Real User Monitoring](../installation/real-user-monitoring-installation.md).
+> Le RUM enregistre et stocke uniquement des données purement techniques, impossibles à identifier, conformément au périmètre du [RGPD](https://gdpr.eu/) de l'Union européenne.

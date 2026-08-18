@@ -1,6 +1,7 @@
 ---
 id: query-syntax
 title: Query syntax
+description: Syntax reference for querying log attributes and filtering data
 ---
 
 Use queries in the [**Log Explorer** page](explore-analyze.md), in [alert rules](alerts.md) or in [dashboards](dashboards.md) to filter your data and query OpenTelemetry attributes. The attributes you will be able to query will be the ones [retrieved by your OpenTelemetry Collector, as you configured it](./collector/collector.md). See [What does a log entry in OpenTelemetry format look like?](./getting-started/concepts.md#what-does-a-log-entry-in-opentelemetry-format-look-like) for an overview of the main attributes.

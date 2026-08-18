@@ -1,6 +1,7 @@
 ---
 id: map-legacy-eol
 title: MAP Legacy end of life
+description: "Steps to upgrade from and fully uninstall MAP Legacy after switching to MAP"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

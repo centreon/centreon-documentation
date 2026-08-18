@@ -1,6 +1,7 @@
 ---
 id: network-routers-juniper-mseries-snmp
 title: Juniper M-Series SNMP
+description: "Supervisez les routeurs Juniper M-Series via SNMP : CPU, mémoire, matériel, sessions BGP/LDP/RSVP/LSP, espace disque et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

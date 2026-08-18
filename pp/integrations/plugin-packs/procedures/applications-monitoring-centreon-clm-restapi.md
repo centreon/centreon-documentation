@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-clm-restapi
 title: Centreon Log Management Rest API
+description: "Monitor Centreon Log Management via REST API: track alert event counts by status and log ingestion counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-cadvisor-api
 title: cAdvisor API
+description: "Monitor Docker containers via the cAdvisor REST API: CPU, memory, disk I/O, network traffic, and node status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

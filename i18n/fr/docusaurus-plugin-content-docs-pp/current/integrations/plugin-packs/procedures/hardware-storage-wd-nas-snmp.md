@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-wd-nas-snmp
 title: WD NAS SNMP
+description: "Supervisez les NAS Western Digital via SNMP : température matérielle, état des ventilateurs et espace disque des volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: map-web-create-standard-map
 title: Créer une carte standard
+description: "Créer et personnaliser des cartes standard à l'aide de l'éditeur Centreon MAP, des formes, des widgets et des éléments de ressources"
 ---
 
 Cette page décrit comment créer des cartes standards et comment les personnaliser avec l'éditeur de MAP. 
@@ -13,6 +14,7 @@ L'affichage du bouton **Ajouter une carte** signifie que vous êtes autorisé à
 
 2. Définissez les propriétés de la nouvelle carte :
    - Nom : nommez la carte.
+   - Coordonnées géographiques : renseignez les champs au format `Latitude, Longitude`. Cela permet d'ajouter la carte à une [vue géographique](./map-web-create-geoview.md).
    - Image : sélectionnez une image si vous souhaitez personnaliser l'affichage de la carte dans la liste des cartes.
 
 3. Cliquez sur **Ajouter** pour confirmer la création de la carte.

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-compute-vmscalesets
 title: Azure Virtual Machine Scale Sets
+description: "Monitor Azure Virtual Machine Scale Sets via the Azure API: CPU, disk I/O, health status, memory, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-database
 title: Centreon Database
+description: "Supervisez la base de données de supervision Centreon (MySQL) via des requêtes SQL, avec le contrôle de la création des partitions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

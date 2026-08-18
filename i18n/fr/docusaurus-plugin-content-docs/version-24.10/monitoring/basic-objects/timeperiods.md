@@ -1,6 +1,7 @@
 ---
 id: timeperiods
 title: Les périodes temporelles
+description: "Définir des périodes temporelles pour planifier les contrôles et les notifications"
 ---
 
 ## Définition

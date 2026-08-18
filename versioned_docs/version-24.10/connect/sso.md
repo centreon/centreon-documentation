@@ -1,6 +1,7 @@
 ---
 id: sso
 title: Configuring a Web SSO connection
+description: "Configure Web SSO authentication through the Apache web server"
 ---
 
 Web SSO authentication relies on the Apache web server. According to its configuration, Apache is

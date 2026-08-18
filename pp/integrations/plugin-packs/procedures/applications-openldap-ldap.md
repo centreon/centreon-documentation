@@ -1,6 +1,7 @@
 ---
 id: applications-openldap-ldap
 title: OpenLDAP
+description: "Monitor OpenLDAP servers via the LDAP protocol: connections, thread usage, traffic, and search, bind, add, and delete operations."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
