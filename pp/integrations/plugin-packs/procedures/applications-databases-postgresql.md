@@ -44,7 +44,7 @@ The connector brings the following service templates (sorted by the host templat
 | Database-Size   | App-DB-Postgres-Database-Size-custom   | Check the databases size                                             | X         |
 | Sql-Statement   | App-DB-Postgres-Sql-Statement-custom   | Check allowing to execute a custom SQL request with a numerical result |           |
 | Statistics      | App-DB-Postgres-Statistics-custom      | Check database statistics                                            |           |
-| Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Check time between poller and the Postgres server                    |           |
+| Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Check tablespace space usage                    |           |
 | Time-Sync       | App-DB-Postgres-Time-Sync-custom       | Check time between poller and the Postgres server                    |           |
 | Vacuum          | App-DB-Postgres-Vacuum-custom          | Check the execution of Vacuum on a DB for a given amount of days     |           |
 
