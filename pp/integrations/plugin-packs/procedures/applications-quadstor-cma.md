@@ -1,13 +1,14 @@
 ---
-id: applications-quadstor-nrpe
-title: Quadstor NSClient++ NRPE
+id: applications-quadstor-cma
+title: Quadstor CMA
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CMAprerequisites from './_cma-prerequisites.mdx';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Quadstor NSClient++ NRPE** connector through the
+The following monitoring connectors will be installed when you install the **Quadstor CMA** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,28 +16,28 @@ The following monitoring connectors will be installed when you install the **Qua
 
 ### Templates
 
-The Monitoring Connector **Quadstor NSClient++ NRPE** brings a host template:
+The Monitoring Connector **Quadstor CMA** brings a host template:
 
-* **App-Quadstor-Vtl-NRPE-custom**
+* **App-Quadstor-Vtl-CMA-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="App-Quadstor-Vtl-NRPE-custom" label="App-Quadstor-Vtl-NRPE-custom">
+<TabItem value="App-Quadstor-Vtl-CMA-custom" label="App-Quadstor-Vtl-CMA-custom">
 
-| Service Alias  | Service Template                        | Service Description |
-|:---------------|:----------------------------------------|:--------------------|
-| Vtl-Disk-Usage | App-Quadstor-Vtl-Disk-Usage-NRPE-custom | Check disk usage    |
-| Vtl-Job-Status | App-Quadstor-Vtl-Job-Status-NRPE-custom | Check job status    |
+| Service Alias  | Service Template                       | Service Description |
+|:---------------|:---------------------------------------|:--------------------|
+| Vtl-Disk-Usage | App-Quadstor-Vtl-Disk-Usage-CMA-custom | Check disk usage    |
+| Vtl-Job-Status | App-Quadstor-Vtl-Job-Status-CMA-custom | Check job status    |
 
-> The services listed above are created automatically when the **App-Quadstor-Vtl-NRPE-custom** host template is used.
+> The services listed above are created automatically when the **App-Quadstor-Vtl-CMA-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias  | Service Template                        | Service Description |
-|:---------------|:----------------------------------------|:--------------------|
-| Vtl-Tape-Usage | App-Quadstor-Vtl-Tape-Usage-NRPE-custom | Check tape usage    |
+| Service Alias  | Service Template                       | Service Description |
+|:---------------|:---------------------------------------|:--------------------|
+| Vtl-Tape-Usage | App-Quadstor-Vtl-Tape-Usage-CMA-custom | Check tape usage    |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -86,11 +87,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-### Centreon NSClient++
-
-To monitor *Quadstor* resources through NRPE, install the
-Centreon packaged version of the NSClient++ agent. Please follow our [official documentation](../getting-started/how-to-guides/centreon-nsclient-tutorial.md)
-and make sure that the **NRPE Server** configuration is correct.
+<CMAprerequisites />
 
 ## Installing the monitoring connector
 
@@ -108,70 +105,39 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-applications-quadstor-nrpe
+dnf install centreon-pack-applications-quadstor-cma
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-applications-quadstor-nrpe
+dnf install centreon-pack-applications-quadstor-cma
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-applications-quadstor-nrpe
+apt install centreon-pack-applications-quadstor-cma
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-applications-quadstor-nrpe
+yum install centreon-pack-applications-quadstor-cma
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Quadstor NSClient++ NRPE** connector through
+2. Whatever the license type (*online* or *offline*), install the **Quadstor CMA** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
 
-Use the commands below according to your operating system's package manager:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```bash
-dnf install nagios-plugins-nrpe
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```bash
-dnf install nagios-plugins-nrpe
-```
-
-</TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
-
-```bash
-apt install nagios-plugins-nrpe
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install nagios-plugins-nrpe
-```
-
-</TabItem>
-</Tabs>
+This connector relies on an integration supported by Centreon Engine and does not need a plugin.
 
 ## Using the monitoring connector
 
@@ -179,15 +145,13 @@ yum install nagios-plugins-nrpe
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **App-Quadstor-Vtl-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **App-Quadstor-Vtl-CMA-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                                                              | Default value         | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT         | Port used to reach the NRPE server                                                                                                       | 5666                  |             |
-| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                    | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                    | 55                    |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
+| Macro                | Description                                             | Default value                     | Mandatory |
+|:---------------------|:--------------------------------------------------------|:----------------------------------|:---------:|
+| CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |      X    |
+| VEEAM_VERSION        | Set the Veeam version to monitor                        | 12                                |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -201,7 +165,7 @@ yum install nagios-plugins-nrpe
 
 | Macro          | Description                                                                                                                            | Default value                | Mandatory   |
 |:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| UNITS          | Units of thresholds ('%', 'absolute')                                                                                                  | %                            |             |
+| UNITS          | Units of thresholds (default: '%') ('%', 'absolute')                                                                                   | %                            |             |
 | FILTERNAME     | Filter tape name                                                                                                                       |                              |             |
 | CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}           | not %\{status\} =~ /active/i |             |
 | WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}            |                              |             |
@@ -248,7 +212,9 @@ Once the plugin is installed, log into your Centreon poller's CLI using the
 is able to monitor a resource using a command like this one (replace the sample values by yours):
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::backup::quadstor::local::plugin' 'vtl-tape-usage'  '  \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
+    --plugin=apps::backup::quadstor::local::plugin \
+    --mode=vtl-tape-usage  \
 	--vtl-name="" \
 	--filter-name="" \
 	--warning-status="" \
@@ -280,8 +246,8 @@ All available modes can be displayed by adding the `--list-mode` parameter to
 the command:
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::backup::quadstor::local::plugin' 'vtl-tape-usage'  '  \
-	--vtl-name="" \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
+    --plugin=apps::backup::quadstor::local::plugin \
 	--list-mode
 ```
 
@@ -290,9 +256,9 @@ The plugin brings the following modes:
 | Mode                                                                                                                                   | Linked service template                 |
 |:---------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
 | list-vtl [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/listvtl.pm)]            | Not used in this Monitoring Connector   |
-| vtl-disk-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtldiskusage.pm)] | App-Quadstor-Vtl-Disk-Usage-NRPE-custom |
-| vtl-job-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtljobstatus.pm)] | App-Quadstor-Vtl-Job-Status-NRPE-custom |
-| vtl-tape-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtltapeusage.pm)] | App-Quadstor-Vtl-Tape-Usage-NRPE-custom |
+| vtl-disk-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtldiskusage.pm)] | App-Quadstor-Vtl-Disk-Usage-CMA-custom |
+| vtl-job-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtljobstatus.pm)] | App-Quadstor-Vtl-Job-Status-CMA-custom |
+| vtl-tape-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/backup/quadstor/local/mode/vtltapeusage.pm)] | App-Quadstor-Vtl-Tape-Usage-CMA-custom |
 
 ### Available options
 
@@ -400,8 +366,8 @@ All available options for a given mode can be displayed by adding the
 `--help` parameter to the command:
 
 ```bash
-/usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::backup::quadstor::local::plugin' 'vtl-tape-usage'  '  \
-	--vtl-name="" \
-	--filter-name="" \
+"C:\Program Files\Centreon\Plugins\centreon_plugins.exe" \
+    --plugin=apps::backup::quadstor::local::plugin \
+    --mode=vtl-tape-usage  \
 	--help
 ```
