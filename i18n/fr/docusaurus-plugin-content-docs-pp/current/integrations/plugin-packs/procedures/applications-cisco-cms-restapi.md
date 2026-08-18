@@ -1,6 +1,7 @@
 ---
 id: applications-cisco-cms-restapi
 title: Cisco CMS
+description: "Supervisez Cisco Meeting Server (CMS) via API REST : alarmes, appels, état des bases de données, licences et statut système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

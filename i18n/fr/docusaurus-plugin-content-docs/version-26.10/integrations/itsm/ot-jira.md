@@ -1,6 +1,7 @@
 ---
 id: ot-jira
 title: Jira
+description: "Créer des tickets Jira Cloud à partir des alertes Centreon via l'API Rest"
 ---
 
 ## How it works

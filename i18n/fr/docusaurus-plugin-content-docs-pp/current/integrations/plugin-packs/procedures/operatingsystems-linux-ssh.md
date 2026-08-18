@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-linux-ssh
 title: Linux SSH
+description: "Supervisez les serveurs Linux via SSH : CPU, mémoire, disque, charge, processus, uptime et autres métriques système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

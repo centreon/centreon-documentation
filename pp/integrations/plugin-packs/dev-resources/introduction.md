@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Getting started - Plugin development
+description: "Learn how to use the centreon-plugins framework to develop your own plugins and why not post them as contributions on Centreon's GitHub."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
 id: cloud-openshift-api
 title: OpenShift API
+description: "Supervisez les clusters OpenShift via l'API REST : opérateurs, version du cluster, projets et routes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

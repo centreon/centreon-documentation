@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-kadiska-restapi
 title: Kadiska Rest API
+description: "Supervisez Kadiska via l'API REST : suivez les alertes, les statistiques des runners et les performances réseau des watchers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

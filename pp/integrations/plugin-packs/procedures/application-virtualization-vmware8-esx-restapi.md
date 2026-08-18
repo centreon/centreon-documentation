@@ -1,6 +1,7 @@
 ---
 id: application-virtualization-vmware8-esx-restapi
 title: VMware8 ESX REST API
+description: "Monitor VMware ESX 8 physical servers via the vCenter REST API: CPU, memory, disk I/O, network throughput, power, and swap."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

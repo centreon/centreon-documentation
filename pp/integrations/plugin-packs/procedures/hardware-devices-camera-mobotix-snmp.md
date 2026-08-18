@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-camera-mobotix-snmp
 title: Mobotix Camera SNMP
+description: "Monitor Mobotix cameras via SNMP: interface traffic, errors, SD card usage, temperature, illumination, and video framerate."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -112,6 +113,8 @@ The target resource must be reachable from the Centreon poller on the UDP/161 SN
 ## Installing the monitoring connector
 
 ### Pack
+
+The installation procedures for monitoring connectors are slightly different depending on [whether your license is offline or online](../getting-started/how-to-guides/connectors-licenses.md).
 
 1. If the platform uses an *online* license, you can skip the package installation
 instruction below as it is not required to have the connector displayed within the
@@ -248,6 +251,21 @@ yum install centreon-plugin-Hardware-Devices-Camera-Mobotix-Snmp
 
 | Macro        | Description                                                                                                                            | Default value | Mandatory |
 |:-------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| UNAVAILABLE_SDCARD_STATUS     | Status to report when the SD card is unavailable. With 'ignore', no status change is applied. Can be: 'ignore', 'warning', 'critical', 'unknown' | ignore            |             |
+| WARNING_ILLUMINATION_LEFT     | Threshold in lx                                                                                                                                  |                   |             |
+| CRITICAL_ILLUMINATION_LEFT    | Threshold in lx                                                                                                                                  |                   |             |
+| WARNING_ILLUMINATION_RIGHT    | Threshold in lx                                                                                                                                  |                   |             |
+| CRITICAL_ILLUMINATION_RIGHT   | Threshold in lx                                                                                                                                  |                   |             |
+| WARNING_SDCARD_USAGE          | Threshold in percentage                                                                                                                          |                   |             |
+| CRITICAL_SDCARD_USAGE         | Threshold in percentage                                                                                                                          |                   |             |
+| WARNING_TEMPERATURE_EXTERNAL  | Threshold in C                                                                                                                                   |                   |             |
+| CRITICAL_TEMPERATURE_EXTERNAL | Threshold in C                                                                                                                                   |                   |             |
+| WARNING_TEMPERATURE_GPS       | Threshold in C                                                                                                                                   |                   |             |
+| CRITICAL_TEMPERATURE_GPS      | Threshold in C                                                                                                                                   |                   |             |
+| WARNING_TEMPERATURE_INTERNAL  | Threshold in C                                                                                                                                   |                   |             |
+| CRITICAL_TEMPERATURE_INTERNAL | Threshold in C                                                                                                                                   |                   |             |
+| WARNING_VIDEO_FRAMERATE       | Threshold in fps                                                                                                                                 |                   |             |
+| CRITICAL_VIDEO_FRAMERATE      | Threshold in fps                                                                                                                                 |                   |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 </TabItem>
@@ -267,7 +285,22 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--mode=system \
 	--hostname=10.0.0.1 \
 	--snmp-version='2c' \
-	--snmp-community='my-snmp-community'    
+	--snmp-community='my-snmp-community' \
+	--unavailable-sdcard-status='ignore' \
+	--warning-sdcard-usage='' \
+	--critical-sdcard-usage='' \
+	--warning-temperature-internal='' \
+	--critical-temperature-internal='' \
+	--warning-temperature-external='' \
+	--critical-temperature-external='' \
+	--warning-temperature-gps='' \
+	--critical-temperature-gps='' \
+	--warning-illumination-right='' \
+	--critical-illumination-right='' \
+	--warning-illumination-left='' \
+	--critical-illumination-left='' \
+	--warning-video-framerate='' \
+	--critical-video-framerate='' 
 ```
 
 The expected command output is shown below:
@@ -431,7 +464,21 @@ All available options for each service template are listed below:
 
 | Option                   | Description                                                                                                                                                               |
 |:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning-* --critical-* |   Thresholds. Can be: 'sdcard-usage', 'temperature-internal', 'temperature-external', 'temperature-gps', 'illumination-right', 'illumination-left', 'video-framerate'.    |
+| --unavailable-sdcard-status     | Status to report when the SD card is unavailable. With 'ignore', no status change is applied (default: 'ignore'). Can be: 'ignore', 'warning', 'critical', 'unknown'. |
+| --warning-illumination-left     | Threshold in lx.                                                                                                                                                      |
+| --critical-illumination-left    | Threshold in lx.                                                                                                                                                      |
+| --warning-illumination-right    | Threshold in lx.                                                                                                                                                      |
+| --critical-illumination-right   | Threshold in lx.                                                                                                                                                      |
+| --warning-sdcard-usage          | Threshold in percentage.                                                                                                                                              |
+| --critical-sdcard-usage         | Threshold in percentage.                                                                                                                                              |
+| --warning-temperature-external  | Threshold in C.                                                                                                                                                       |
+| --critical-temperature-external | Threshold in C.                                                                                                                                                       |
+| --warning-temperature-gps       | Threshold in C.                                                                                                                                                       |
+| --critical-temperature-gps      | Threshold in C.                                                                                                                                                       |
+| --warning-temperature-internal  | Threshold in C.                                                                                                                                                       |
+| --critical-temperature-internal | Threshold in C.                                                                                                                                                       |
+| --warning-video-framerate       | Threshold in fps.                                                                                                                                                     |
+| --critical-video-framerate      | Threshold in fps.                                                                                                                                                     |
 
 </TabItem>
 </Tabs>

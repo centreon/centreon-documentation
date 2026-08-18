@@ -1,51 +1,83 @@
 ---
 id: secure-your-map-platform
-title: Sécurisez votre plateforme MAP
+title: Sécuriser votre plateforme MAP
+description: "Sécuriser Centreon MAP avec HTTPS/TLS et des connexions chiffrées à la base de données"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit les procédures avancées permettant de sécuriser votre plateforme MAP.
+Ce chapitre décrit les procédures avancées permettant de sécuriser votre plateforme Centreon MAP.
 
-> Si vous souhaitez utiliser MAP en HTTPS, vous devez sécuriser à la fois votre plateforme Centreon et MAP. Suivez cette [procédure](../administration/secure-platform.md) pour sécuriser votre plateforme Centreon.
+> Si vous souhaitez utiliser MAP en HTTPS, vous devez sécuriser à la fois votre plateforme Centreon et MAP. Suivez cette [procédure](../administration/secure-platform.md#sécuriser-le-serveur-web-en-https) si vous devez sécuriser votre plateforme Centreon.
 
 > Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
 
+Tous les paramètres TLS décrits dans ce chapitre sont configurés via des propriétés dans **/etc/centreon-map/map-config.properties**. Deux formats de certificats sont pris en charge :
+
+- **PEM** (recommandé) : utilisez directement vos fichiers de certificat `.crt` et de clé privée `.key`. Il s'agit du format par défaut, qui ne nécessite aucune conversion.
+- **JKS** : utilisez un keystore Java, si vous en possédez déjà un.
+
+> Si vous effectuez une mise à niveau depuis une version qui utilisait les profils Spring `tls` / `tls_broker` dans **/etc/centreon-map/centreon-map.conf**, vous n'avez rien à modifier manuellement : le script post-installation migre automatiquement votre configuration existante vers le format basé sur les propriétés décrit ci-dessous.
+
 ## Configurer HTTPS/TLS sur le serveur MAP
+
+Cette section décrit comment sécuriser le serveur web MAP lui-même (l'interface accessible depuis votre navigateur et depuis Centreon Central).
 
 ### Configurer HTTPS/TLS avec une clé reconnue
 
-> Cette section décrit comment ajouter une **clé reconnue** au serveur MAP.
+> Cette section décrit comment utiliser une **clé reconnue** avec le serveur Centreon MAP.
 >
-> Si vous souhaitez créer une clé auto-signée et l'ajouter à votre serveur, veuillez vous référer à la [section suivante](#configuration-httpstls-avec-une-clé-auto-signée).
+> Si vous souhaitez plutôt utiliser un certificat auto-signé, veuillez vous référer à la [section suivante](#configuration-httpstls-avec-une-clé-auto-signée).
 
 Vous aurez besoin de :
 
-- Un fichier de clé, appelé **key.key**.
-- Un fichier de certificat, appelé **certificate.crt**.
+- Un fichier de clé privée, appelé *map-server.key*.
+- Un fichier de certificat, appelé *map-server.crt*.
 
-Accédez au serveur Centreon MAP par SSH.
+<Tabs groupId="tls-format" queryString>
+<TabItem value="pem" label="PEM (recommandé)">
 
-Créez un fichier PKCS12 avec la ligne de commande suivante :
+1. Copiez les fichiers de clé et de certificat sur le serveur MAP, par exemple dans **/etc/centreon-map/**.
 
-```shell
-openssl pkcs12 -inkey key.key -in certificate.crt -export -out keys.pkcs12
-```
+2. Définissez les paramètres suivants dans **/etc/centreon-map/map-config.properties** :
 
-Ensuite, importez ce fichier dans un nouveau keystore (un dépôt Java de certificats de sécurité) :
+    ```properties
+    centreon-map.tls.enabled=true
+    centreon-map.tls.pem.keystore.certificate=/etc/centreon-map/map-server.crt
+    centreon-map.tls.pem.keystore.private-key=/etc/centreon-map/map-server.key
+    centreon-map.tls.pem.keystore.private-key-pass=xxx
+    ```
 
-```shell
-keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore map.jks
-```
+    > Ne définissez `private-key-pass` que si votre clé privée est chiffrée. Adaptez les chemins si vous avez stocké les fichiers ailleurs.
 
-Placez le fichier keystore ci-dessus (map.jks) dans le dossier **/etc/centreon-map/**, et définissez les paramètres ci-dessous dans **/etc/centreon-map/map-config.properties** :
+</TabItem>
+<TabItem value="jks" label="JKS">
 
-```text
-centreon-map.keystore=/etc/centreon-map/map.jks
-centreon-map.keystore-pass=xxx
-```
+1. Accédez au serveur Centreon MAP par SSH et créez un fichier PKCS12 avec la ligne de commande suivante :
 
-> Remplacez la valeur "xxx" de keystore-pass par le mot de passe que vous avez utilisé pour le keystore et adaptez le chemin vers le keystore (s'il a été modifié).
+    ```shell
+    openssl pkcs12 -inkey map-server.key -in map-server.crt -export -out keys.pkcs12
+    ```
+
+2. Importez ce fichier dans un nouveau keystore (un dépôt Java de certificats de sécurité) :
+
+    ```shell
+    keytool -importkeystore -srckeystore keys.pkcs12 -srcstoretype pkcs12 -destkeystore /etc/centreon-map/map.jks
+    ```
+
+3. Définissez les paramètres suivants dans **/etc/centreon-map/map-config.properties** :
+
+    ```properties
+    centreon-map.tls.enabled=true
+    centreon-map.tls.type=map-jks-tls
+    centreon-map.tls.jks.keystore=/etc/centreon-map/map.jks
+    centreon-map.tls.jks.keystore-pass=xxx
+    ```
+
+    > Remplacez la valeur "xxx" de keystore-pass par le mot de passe que vous avez utilisé pour le keystore, et adaptez le chemin s'il a été modifié.
+
+</TabItem>
+</Tabs>
 
 ### Configuration HTTPS/TLS avec une clé auto-signée
 
@@ -54,71 +86,88 @@ centreon-map.keystore-pass=xxx
 > Ne l'activez que si votre Centreon utilise également ce protocole.
 >
 > Les utilisateurs devront ouvrir l'URL :
-> 
+>
 > ```shell
 > https://<MAP_IP>:9443/centreon-map/api/beta/actuator/health
 > ```
 >
-> **La solution que nous recommandons est d'utiliser une méthode de clé reconnue, comme expliqué ci-dessus.**
+> **La solution que nous recommandons est d'utiliser une clé reconnue, comme expliqué ci-dessus.**
 
-Sur le serveur Centreon MAP, créez un keystore.
+<Tabs groupId="tls-format" queryString>
+<TabItem value="pem" label="PEM (recommandé)">
 
-Allez dans le dossier où Java est installé :
-
-```shell
-cd $JAVA_HOME/bin
-```
-
-Ensuite, générez un fichier keystore avec la commande suivante :
-
-```shell
-keytool -genkey -alias map -keyalg RSA -keystore /etc/centreon-map/map.jks
-```
-
-La valeur de l'alias "map" et le chemin du fichier keystore **/etc/centreon-map/map.jks** peuvent être modifiés, mais à moins d'une raison spécifique, nous conseillons de conserver les valeurs par défaut.
-
-Fournissez les informations nécessaires lors de la création du keystore.
-
-À la fin du formulaire, lorsque le "mot de passe de la clé" est demandé, utilisez le même mot de passe que celui utilisé pour le keystore lui-même en appuyant sur la touche **Entrée**.
-
-Placez le fichier keystore ci-dessus (**map.jks**) dans le dossier **/etc/centreon-map/**, et définissez les paramètres ci-dessous dans **/etc/centreon-map/map-config.properties** :
-
-```text
-centreon-map.keystore=/etc/centreon-map/map.jks
-centreon-map.keystore-pass=xxx
-```
-
-> Remplacez la valeur keystore-pass "xxx" par le mot de passe que vous avez utilisé pour le keystore et adaptez le chemin (s'il a été modifié dans le keystore).
-
-### Activer le profil TLS du service Centreon MAP
-
-1. Arrêtez le service Centreon MAP :
+1. Générez un certificat auto-signé et une clé privée :
 
     ```shell
-    systemctl stop centreon-map-engine
+    openssl req -x509 -newkey rsa:2048 -nodes -keyout /etc/centreon-map/map-server.key -out /etc/centreon-map/map-server.crt -days 365
     ```
 
-2. Modifiez le fichier `/etc/centreon-map/centreon-map.conf`, en ajoutant `,tls` après le profil `prod` :
+2. Définissez les paramètres suivants dans **/etc/centreon-map/map-config.properties** :
 
-    ```text
-    RUN_ARGS="--spring.profiles.active=prod,tls"
+    ```properties
+    centreon-map.tls.enabled=true
+    centreon-map.tls.pem.keystore.certificate=/etc/centreon-map/map-server.crt
+    centreon-map.tls.pem.keystore.private-key=/etc/centreon-map/map-server.key
     ```
 
-3. Définissez le paramètre `centreon.url` dans **/etc/centreon-map/map-config.properties** pour activer le protocole de communication HTTPS avec le serveur Centreon :
+</TabItem>
+<TabItem value="jks" label="JKS">
 
-```shell
-centreon.url=https://<server-address>
-```
-
-4. Redémarrez le service Centreon MAP :
+1. Allez dans le dossier où Java est installé :
 
     ```shell
-    systemctl start centreon-map-engine
+    cd $JAVA_HOME/bin
     ```
 
-Le serveur MAP est maintenant configuré pour répondre aux demandes provenant de HTTPS sur le port 9443.
+2. Générez un fichier keystore avec la commande suivante :
 
-Pour modifier le port par défaut, reportez-vous à la [procédure dédiée](map-web-advanced-configuration.md#changer-le-port-du-serveur-centreon-map).
+    ```shell
+    keytool -genkey -alias map -keyalg RSA -keystore /etc/centreon-map/map.jks
+    ```
+
+    La valeur de l'alias "map" et le chemin du fichier keystore
+    **/etc/centreon-map/map.jks** peuvent être modifiés, mais à moins d'une
+    raison spécifique, nous conseillons de conserver les valeurs par défaut.
+
+    Fournissez les informations nécessaires lors de la création du keystore.
+
+    À la fin du formulaire, lorsque le "mot de passe de la clé" est demandé,
+    utilisez le même mot de passe que celui utilisé pour le keystore
+    lui-même en appuyant sur la touche ENTRÉE.
+
+3. Définissez les paramètres suivants dans **/etc/centreon-map/map-config.properties** :
+
+    ```properties
+    centreon-map.tls.enabled=true
+    centreon-map.tls.type=map-jks-tls
+    centreon-map.tls.jks.keystore=/etc/centreon-map/map.jks
+    centreon-map.tls.jks.keystore-pass=xxx
+    ```
+
+    > Remplacez la valeur keystore-pass "xxx" par le mot de passe que vous
+    > avez utilisé pour le keystore.
+
+</TabItem>
+</Tabs>
+
+### Appliquer la configuration
+
+Redémarrez le service Centreon MAP pour appliquer la modification :
+
+```shell
+systemctl restart centreon-map-engine
+```
+
+Le serveur MAP est maintenant configuré pour répondre aux demandes provenant de HTTPS. Le port d'écoute par défaut passe automatiquement à **9443** (ou un port précédemment configuré) au lieu de 8081.
+
+Pour utiliser un autre port, définissez le paramètre suivant dans
+**/etc/centreon-map/map-config.properties** :
+
+```properties
+centreon-map.port=9443
+```
+
+Pour modifier le port par défaut, reportez-vous à la [procédure dédiée](./map-web-change-port.md).
 
 > N'oubliez pas de modifier l'URL côté Centreon dans le champ **Adresse du serveur Centreon MAP** du menu **Administration > Extensions > Map > Options**.
 
@@ -138,557 +187,126 @@ Vous pouvez activer la sortie TLS et configurer la clé privée et le certificat
 
 ![image](../assets/graph-views/output_broker_tls.png)
 
-1. Pour créer un certificat auto-signé, vous pouvez utiliser les commandes suivantes :
+1. Créez un certificat auto-signé avec les commandes suivantes :
 
-```text
-openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr
-openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
-```
+    ```text
+    openssl req -new -newkey rsa:2048 -nodes -keyout broker_private.key -out broker.csr
+    openssl x509 -req -in broker.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out broker_public.crt -days 365 -sha256
+    ```
 
-2. Et ensuite, copiez la clé privée et le certificat dans le répertoire **/etc/centreon/broker_cert/** :
+2. Copiez la clé privée et le certificat dans le répertoire **/etc/centreon/broker_cert/** :
 
-```text
-mv broker_private.key /etc/centreon/broker_cert/
-mv broker_public.crt /etc/centreon/broker_cert/
-```
+    ```text
+    mv broker_private.key /etc/centreon/broker_cert/
+    mv broker_public.crt /etc/centreon/broker_cert/
+    ```
 
-> Le champ "Trusted CA's certificate" est facultatif. Si vous activez l'authentification client de Broker en définissant ce "ca\_certificate.crt", vous devez alors configurer un [keystore pour le serveur MAP](#configurer-httpstls-sur-le-serveur-map)
+> Le champ "Trusted CA's certificate" est facultatif. Si vous activez l'authentification client de Broker en définissant ce "ca\_certificate.crt", vous devez également configurer le [TLS propre au serveur MAP](#configurer-httpstls-sur-le-serveur-map).
 >
 > Vous devez pousser la nouvelle configuration du broker et redémarrer le broker après la configuration.
 
-### Configuration du serveur MAP
+### Configuration du moteur MAP
 
-Tout d'abord, vous devez [activer HTTPS/TLS sur le serveur web](../administration/secure-platform.md#activer-le-mode-https-sur-le-serveur-web)
+Définissez les paramètres suivants dans **/etc/centreon-map/map-config.properties** pour activer la connexion par socket TLS avec Broker :
 
-Ensuite, définissez les paramètres suivants dans la configuration du serveur MAP dans :
+<Tabs groupId="tls-format" queryString>
+<TabItem value="pem" label="PEM (recommandé)">
 
-**/etc/centreon-map/centreon-map.conf**
+```properties
+broker.tls.enabled=true
+broker.tls.pem.keystore.certificate=/etc/centreon-map/map-broker.crt
+```
 
-Définissez le protocole de communication avec le serveur Centreon comme étant HTTPS :
+Pointez directement vers le certificat public de Broker (ou son certificat CA) au format PEM — aucune création de truststore n'est nécessaire.
+
+</TabItem>
+<TabItem value="jks" label="JKS">
+
+Si le certificat public de Broker est auto-signé, vous devez créer un truststore contenant le certificat (ou son certificat CA) avec la ligne de commande suivante :
 
 ```shell
+keytool -import -alias centreon-broker -file broker_public.crt -keystore /etc/centreon-map/map-broker.jks
+```
+
+- "broker\_public.crt" est le certificat public de Broker ou son certificat CA au format PEM,
+- "map-broker.jks" est le truststore généré au format JKS,
+- un mot de passe de store est requis lors de la génération.
+
+Ajoutez les paramètres du truststore dans **/etc/centreon-map/map-config.properties** :
+
+```properties
+broker.tls.enabled=true
+broker.tls.type=broker-jks-tls
+broker.tls.jks.truststore=/etc/centreon-map/map-broker.jks
+broker.tls.jks.truststore-pass=xxxx
+```
+
+> `broker.tls.jks.truststore-pass` est facultatif — définissez-le uniquement si le truststore a été créé avec un mot de passe.
+
+Si le certificat de Broker est signé par une autorité de certification reconnue, le truststore par défaut de la JVM (**cacerts**, **/etc/pki/java/cacerts**) est utilisé automatiquement — il n'y a rien à configurer.
+
+</TabItem>
+</Tabs>
+
+Redémarrez le service Centreon MAP pour appliquer la modification :
+
+```shell
+systemctl restart centreon-map-engine
+```
+
+Une fois que vous avez configuré un certificat de confiance, Centreon MAP l'utilisera pour valider le certificat de Broker. Cela signifie que si vous utilisez un certificat auto-signé pour Broker, vous devez l'ajouter comme indiqué ci-dessus. Si vous ne le faites pas, la page **Supervision > Map** sera vide, et les journaux (**/var/log/centreon-map/centreon-map.log**) afficheront l'erreur suivante :
+`unable to find valid certification path to requested target`.
+
+## Configurer TLS pour la connexion à Centreon Central
+
+> Vous devez [sécuriser votre plateforme Centreon avec HTTPS](../administration/secure-platform.md#sécuriser-le-serveur-web-en-https).
+
+Définissez le paramètre **centreon.url** dans **/etc/centreon-map/map-config.properties**
+pour utiliser HTTPS au lieu de HTTP :
+
+```properties
 centreon.url=https://<server-address>
 ```
 
-Pour activer la connexion par socket TLS avec le Broker :
+Si Centreon Central utilise un certificat auto-signé ou un certificat signé par
+une CA personnalisée/interne, vous devez donner à Centreon MAP un moyen de lui faire confiance :
 
-```text
-broker.tls=true
+<Tabs groupId="tls-format" queryString>
+<TabItem value="pem" label="PEM (recommandé)">
+
+```properties
+centreon.tls.pem.keystore.certificate=/etc/centreon-map/central-ca.crt
 ```
 
-#### Configuration avec un certificat auto-signé
+Pointez directement vers le certificat public de Central ou son certificat CA, au format PEM.
 
-Si le certificat public de Broker est auto-signé, vous devez créer un trust store contenant le certificat donné ou son certificat CA avec la ligne de commande suivante :
-
-```shell
-keytool -import -alias centreon-broker -file broker_public.crt -keystore truststore.jks
-```
-
-- "broker_public.crt" est le certificat public de Broker ou son certificat CA au format PEM,
-- "truststore.jks" est le trust store généré au format JKS,
-- un mot de passe du trust store est requis pendant la génération.
-
-Ensuite, mettez le fichier de sortie généré **truststore.jks** dans **/etc/centreon-studio** de l'hôte du serveur MAP.
-
-1. Ajoutez les paramètres de trust store dans **/etc/centreon-map/map-config.properties** :
-
-```text
-centreon-map.truststore=/etc/centreon-map/truststore.jks
-centreon-map.truststore-pass=XXXX
-```
-
-> Remplacez la valeur "xxx" de trustStorePassword par le mot de passe que vous avez utilisé pour générer le trust store.
-
-En attendant, vous devez activer le profil "tls_broker" du service Centreon MAP.
-
-2. Editez le fichier **/etc/centreon-studio/centreon-map.conf**, et remplacez ",tls" par ",tls_broker" après le profil "prod" :
-
-```text
-RUN_ARGS="--spring.profiles.active=prod,tls_broker"
-```
-
-> Le profil "tls_broker" implique le profil "tls". Ainsi, le service Centreon MAP sert nécessairement HTTPS.
-
-Une fois que vous avez ajouté un truststore, Centreon MAP l'utilisera pour valider les certificats auto-signés.
-Cela signifie que si vous utilisez un certificat auto-signé pour le serveur central, vous devez l'ajouter au truststore.
-Si vous ne le faites pas, la page **Supervision > Map** sera vide, et les journaux (**/var/log/centreon-map/centreon-map.log**) afficheront l'erreur suivante : `unable to find valid certification path to requested target`.
+</TabItem>
+<TabItem value="jks" label="JKS">
 
 1. Copiez le certificat **.crt** du serveur central sur le serveur MAP.
 
-2. Ajoutez le certificat au truststore :
+2. Créez un truststore contenant le certificat (ou son certificat CA) :
 
     ```shell
-    keytool -import -alias centreon-broker -file central_public.crt -keystore truststore.jks
+    keytool -import -alias centreon-central -file central_public.crt -keystore /etc/centreon-map/central-truststore.jks
     ```
 
-#### Configuration avec un certificat CA reconnu
+3. Définissez les paramètres suivants :
 
-Si le certificat public de Broker est signé par une autorité de certification reconnue, le truststore par défaut de la JVM "cacerts **/etc/pki/java/cacerts**" sera utilisé. Il n'y a rien à configurer pour le service Centreon MAP.
-
-## Configurer TLS sur une base de données MySQL ou MariaDB
-
-Cette section décrit comment activer SSL sur un serveur MySQL/MariaDB et configurer une application Spring Boot pour se connecter de manière sécurisée en utilisant la vérification de l'autorité de certification (mode VERIFY_CA).
-
-> **Note :** Cette procédure couvre uniquement le mode VERIFY_CA. Dans ce mode, le certificat du serveur est validé par une autorité de certification de confiance, mais le nom d’hôte/adresse IP n’est pas vérifié. Pour d’autres modes de vérification SSL, consultez la [référence des modes SSL](#référence-des-modes-ssl).
-
-- Sélectionnez l’onglet correspondant à la base de données que vous souhaitez utiliser.
-
-### Étape 1 - Générer les clés et certificats
-
-<Tabs groupId="db" queryString>
-<TabItem value="MySQL" label="MySQL">
-
-**1. Créez un répertoire** (`/etc/mysql/newcerts` dans cet exemple) pour stocker vos fichiers de certificats :
-
-    ```shell
-    mkdir -p /etc/mysql/newcerts
-    cd /etc/mysql/newcerts
+    ```properties
+    centreon.tls.jks.truststore=/etc/centreon-map/central-truststore.jks
+    centreon.tls.jks.truststore-pass=xxxx
     ```
 
-**2. Générez l’autorité de certification (CA).** La CA est utilisée pour signer les certificats serveur et client, établissant une chaîne de confiance.
-
-    ```shell
-    # Generate the CA private key
-    openssl genrsa 2048 > ca-key.pem
-    # Generate the CA self-signed certificate
-    openssl req -new -x509 -nodes -days 365000 -key ca-key.pem -out ca-cert.pem
-    ```
-
-**3. Générez le certificat serveur.** Le certificat serveur est présenté par MySQL aux clients lors de la négociation SSL.
-
-    ```shell
-    # Generate the server private key and CSR (Certificate Signing Request)
-    openssl req -newkey rsa:2048 -days 365000 -nodes -keyout server-key.pem -out server-req.pem
-    
-    # Convert the server key to RSA format (required by MySQL)
-    openssl rsa -in server-key.pem -out server-key.pem
-    
-    # Sign the server certificate with the CA
-    openssl x509 -req -in server-req.pem -days 365000 -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -out server-cert.pem
-    ```
-
-**4. Générez le certificat client.** Le certificat client est utilisé par l’application pour s’authentifier auprès de MySQL (TLS mutuel).
-
-    ```shell
-    # Generate the client private key and CSR
-    openssl req -newkey rsa:2048 -days 365000 -nodes -keyout client-key.pem -out client-req.pem
-    # Convert the client key to RSA format
-    openssl rsa -in client-key.pem -out client-key.pem
-    # Sign the client certificate with the CA
-    openssl x509 -req -in client-req.pem -days 365000 -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 -out client-cert.pem
-    ```
-
-**5. Vérifiez les certificats.** Assurez-vous que les certificats sont correctement signés par la CA avant de continuer.
-
-    ```shell
-    openssl verify -CAfile ca-cert.pem server-cert.pem client-cert.pem
-    # Expected output:
-    # server-cert.pem: OK
-    # client-cert.pem: OK
-    ```
-
-</TabItem>
-<TabItem value="MariaDB" label="MariaDB">
-
-**1. Créez un répertoire** (`/etc/mariadb/newcerts` dans cet exemple) pour stocker vos fichiers de certificats :
-
-    ```shell
-    mkdir -p /etc/mariadb/newcerts
-    cd /etc/mariadb/newcerts
-    ```
-
-**2. Générez l’autorité de certification (CA).** La CA est utilisée pour signer les certificats serveur et client, établissant une chaîne de confiance.
-
-    ```shell
-    # Generate the CA private key
-    openssl genrsa 2048 > ca-key.pem
-    
-    # Generate the CA self-signed certificate
-    openssl req -new -x509 -nodes -days 365000 -key ca-key.pem -out ca-cert.pem
-    ```
-
-**3. Générez le certificat serveur.** Le certificat serveur est présenté par MariaDB aux clients lors de la négociation SSL.
-
-    ```shell
-    # Generate the server private key and CSR (Certificate Signing Request)
-    openssl req -newkey rsa:2048 -days 365000 -nodes -keyout server-key.pem -out server-req.pem
-    
-    # Convert the server key to RSA format (required by MariaDB)
-    openssl rsa -in server-key.pem -out server-key.pem
-    
-    # Sign the server certificate with the CA
-    openssl x509 -req -in server-req.pem -days 365000 \
-    -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
-    -out server-cert.pem
-    ```
-
-**4. Générez le certificat client.** Le certificat client est utilisé par l’application pour s’authentifier auprès de MariaDB (TLS mutuel). Ignorez cette section si vous n’avez besoin que de `REQUIRE SSL`.
-
-    ```shell
-    # Générer la clé privée client et la CSR
-    openssl req -newkey rsa:2048 -days 365000 -nodes -keyout client-key.pem -out client-req.pem
-
-    # Convertir la clé client au format RSA
-    openssl rsa -in client-key.pem -out client-key.pem
-
-    # Signer le certificat client avec la CA
-    openssl x509 -req -in client-req.pem -days 365000 \
-    -CA ca-cert.pem -CAkey ca-key.pem -set_serial 01 \
-    -out client-cert.pem
-    ```
-
-**5. Vérifiez les certificats.** Assurez-vous que les certificats sont correctement signés par la CA avant de continuer.
-
-    ```shell
-    openssl verify -CAfile ca-cert.pem server-cert.pem client-cert.pem
-    # Résultat attendu :
-    # server-cert.pem: OK
-    # client-cert.pem: OK
-    ```
-
-**6. Définissez la propriété des fichiers.** MariaDB exige la propriété de tous les fichiers de certificats.
+    > `centreon.tls.jks.truststore-pass` est facultatif — définissez-le uniquement si le truststore a été créé avec un mot de passe.
 
 </TabItem>
 </Tabs>
 
-### Étape 2 - Configurer le serveur MySQL/MariaDB
-
-<Tabs groupId="db" queryString>
-<TabItem value="MySQL" label="MySQL">
-
-**1. Définissez la propriété des fichiers.** MySQL exige la propriété de tous les fichiers de certificats.
-
-    > Assurez-vous d’utiliser le répertoire créé précédemment (`/etc/mysql/newcerts` dans cet exemple).
-
-    ```shell
-    chown -Rv mysql:root /etc/mysql/newcerts/*
-    ```
-
-**2. Modifiez la configuration du serveur MySQL.** Ajoutez le bloc suivant à votre fichier de configuration MySQL (généralement /etc/mysql/mysql.conf.d/mysqld.cnf) :
-
-    ```shell
-    [mysqld]
-    ssl-ca   = /etc/mysql/newcerts/ca-cert.pem
-    ssl-cert = /etc/mysql/newcerts/server-cert.pem
-    ssl-key  = /etc/mysql/newcerts/server-key.pem
-    # Restreindre aux versions TLS sécurisées uniquement
-    tls_version = TLSv1.2,TLSv1.3
-    ```
-
-**3. Optionnel - Modifiez la configuration du client MySQL.** Cela permet à l’outil CLI mysql de se connecter en utilisant SSL.
-
-    
-
-**4. Redémarrez MySQL.**
-
-    ```shell
-    systemctl restart mysqld
-    ```
-
-**5. Vérifiez que SSL est actif.**
-
-    
-
-</TabItem>
-<TabItem value="MariaDB" label="MariaDB">
-
-> Assurez-vous d’utiliser le répertoire créé précédemment (`/etc/mariadb/newcerts` dans cet exemple).
-
-**1. Ajoutez le bloc suivant à votre fichier de configuration MariaDB** (généralement `/etc/mariadb/mariadb.conf.d/50-server.cnf`) :
-
-    ```shell
-    [mariadb]
-    ssl-ca   = /etc/mariadb/newcerts/ca-cert.pem
-    ssl-cert = /etc/mariadb/newcerts/server-cert.pem
-    ssl-key  = /etc/mariadb/newcerts/server-key.pem
-
-    # Restreindre aux versions TLS sécurisées uniquement
-    tls_version = TLSv1.2,TLSv1.3
-    ```
-
-**2. Optionnel - Modifiez la configuration du client MariaDB.** Cela permet à l’outil CLI mariadb de se connecter en utilisant SSL (/etc/mariadb/mariadb.conf.d/client.cnf) :
-
-    ```shell
-    [client-mariadb]
-    ssl-ca   = /etc/mariadb/newcerts/ca-cert.pem
-    ssl-cert = /etc/mariadb/newcerts/client-cert.pem
-    ssl-key  = /etc/mariadb/newcerts/client-key.pem
-    ```
-
-**4. Redémarrez MariaDB.**
-
-    ```shell
-    systemctl restart mariadb
-    ```
-
-**5. Vérifiez que SSL est actif.**
-
-    ```shell
-    SHOW VARIABLES LIKE '%ssl%';
-    -- have_ssl doit être YES
-    -- ssl_ca, ssl_cert, ssl_key doivent pointer vers vos fichiers de certificats
-    ```
-
-</TabItem>
-</Tabs>
-
-### Étape 3 - Configurer l’utilisateur MySQL/MariaDB
-
-<Tabs groupId="db" queryString>
-<TabItem value="MySQL" label="MySQL">
-
-**1. Exigez SSL pour l’utilisateur.**
-
-    ```shell
-    ALTER USER 'centreon_map'@'<ip_or_hostname>' REQUIRE SSL;
-    -- Verify: ssl_type should now show ANY
-    SELECT user, host, ssl_type FROM mysql.user WHERE user='centreon_map';
-    ```
-
-**2. Accordez les privilèges.**
-
-    ```shell
-    GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
-          CREATE TEMPORARY TABLES, LOCK TABLES
-      ON `centreon_map`.*
-      TO `centreon_map`@`<ip_or_hostname>`;
-    -- Verify grants
-    SHOW GRANTS FOR 'centreon_map'@'<ip_or_hostname>';
-    ```
-
-</TabItem>
-<TabItem value="MariaDB" label="MariaDB">
-
-**1. Exigez SSL pour l’utilisateur.**
-
-    ```shell
-    - SSL uniquement (aucun certificat client requis)
-    ALTER USER 'centreon_map'@'<ip_or_hostname>' REQUIRE SSL;
-
-    -- Ou TLS mutuel (certificat client requis)
-    -- ALTER USER 'centreon_map'@'<ip_or_hostname>' REQUIRE X509;
-
-    -- Vérification : ssl_type doit maintenant afficher ANY (pour SSL) ou X509 (pour mTLS)
-    SELECT user, host, ssl_type FROM mysql.user WHERE user='centreon_map';
-    ```
-
-**2. Accordez les privilèges.**
-
-    ```shell
-    GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER,
-        CREATE TEMPORARY TABLES, LOCK TABLES
-    ON `centreon_map`.* 
-    TO `centreon_map`@`<ip_or_hostname>`;
-    -- Vérifiez les droits
-    SHOW GRANTS FOR 'centreon_map'@'<ip_or_hostname>';
-    ```
-</TabItem>
-</Tabs>
-
-### Étape 4 - Configurer JDBC (Spring Boot)
-
-<Tabs groupId="db" queryString>
-<TabItem value="MySQL" label="MySQL">
-
-MySQL Connector/J ne prend pas en charge le chargement des fichiers PEM directement depuis l’URL JDBC. Java exige que les certificats soient stockés dans un JKS (Java KeyStore) ou un keystore PKCS12. Cela élimine les problèmes de format PEM (ex : PKCS#1 vs PKCS#8) et assure une configuration SSL fiable.
-
-Au minimum, un fichier keystore est requis. Un second est nécessaire uniquement si le TLS mutuel (mTLS) est activé :
-
-| Fichier           | Contenu         | Utilité                                      | Requis                |
-|-------------------|-----------------|----------------------------------------------|-----------------------|
-| truststore.jks    | Certificat CA   | Permet à Java de vérifier l’identité du serveur MySQL | Oui - Toujours        |
-| keystore.jks      | Certificat client + clé privée | Permet à MySQL de vérifier l’identité de l’application | Uniquement si REQUIRE X509 |
-
-> **Remarque : mTLS est optionnel.** Il n’est requis que si l’utilisateur MySQL a été créé avec REQUIRE X509 (authentification mutuelle). Si l’utilisateur a été créé avec REQUIRE SSL, seul le TrustStore est nécessaire et les étapes 2 et 2a/2b peuvent être ignorées.
-
-**1. Créez le TrustStore.** Le TrustStore contient le certificat CA. Java l’utilise pour valider que le certificat du serveur MySQL a été signé par une autorité de confiance.
-
-    ```shell
-    keytool -importcert -alias mysqlServerCACert \
-    -file /etc/mysql/newcerts/ca-cert.pem \
-    -keystore /etc/mysql/newcerts/truststore.jks \
-    -storepass changeit \
-    -noprompt
-    ```
-
-**2. Optionnel : mTLS uniquement - Créez le KeyStore** (certificat client).
-
-    > **Remarque :** Ignorez cette étape si l’utilisateur MySQL a été créé avec REQUIRE SSL. Elle n’est requise que pour REQUIRE X509 (TLS mutuel). `keytool` ne peut pas importer une clé privée PEM directement, il faut donc d’abord convertir en PKCS12, puis en JKS.
-
-    2.1. Regroupez le certificat client et la clé dans un fichier PKCS12 :
-
-        ```shell
-        openssl pkcs12 -export \
-        -in /etc/mysql/newcerts/client-cert.pem \
-        -inkey /etc/mysql/newcerts/client-key.pem \
-        -out /etc/mysql/newcerts/client.p12 \
-        -name mysqlClient \
-        -passout pass:changeit
-        ```
-
-    2.2 Convertissez PKCS12 en JKS :
-
-        ```shell
-        keytool -importkeystore \
-        -srckeystore  /etc/mysql/newcerts/client.p12  -srcstoretype  PKCS12 -srcstorepass  changeit \
-        -destkeystore /etc/mysql/newcerts/keystore.jks -deststoretype JKS   -deststorepass changeit
-        ```
-
-**3. Définissez les permissions des fichiers.** Assurez-vous que seul l’utilisateur exécutant l’application Java peut lire les fichiers keystore.
-
-    ```shell
-    chown your_java_user: /etc/mysql/newcerts/*.jks
-    chmod 640 /etc/mysql/newcerts/*.jks
-    ```
-
-**4. Définissez l’URL JDBC.** Ajoutez ce qui suit à votre fichier de configuration (/etc/centreon-map/*-database.properties) :
-
-    ```shell
-    *.connection.url=jdbc:mysql://<ip_or_hostname>:3306/centreon_map?sslMode=VERIFY_CA&trustCertificateKeyStoreUrl=file:/etc/mysql/newcerts/truststore.jks&trustCertificateKeyStorePassword=changeit&rewriteBatchedStatements=true
-    ```
-
-**5. Optionnel — uniquement si mTLS est activé (REQUIRE X509).** Ajoutez les options clientCertificateKeyStoreUrl et clientCertificateKeyStorePassword :
-
-        ```shell
-        *.connection.url=jdbc:mysql://<ip_or_hostname>:3306/centreon_map?sslMode=VERIFY_CA&trustCertificateKeyStoreUrl=file:/etc/mysql/newcerts/truststore.jks&trustCertificateKeyStorePassword=changeit&clientCertificateKeyStoreUrl=file:/etc/mysql/newcerts/keystore.jks&clientCertificateKeyStorePassword=changeit&rewriteBatchedStatements=true
-        ```
-
-</TabItem>
-<TabItem value="MariaDB" label="MariaDB">
-
-Contrairement à MySQL Connector/J, **MariaDB Connector/J 3.x prend en charge les fichiers PEM nativement** via le paramètre `serverSslCert` directement dans l’URL JDBC. Aucune conversion keystore Java n’est nécessaire pour le mode SSL simple.
-
-Un fichier keystore n’est requis que pour mTLS (authentification par certificat client) :
-
-| Fichier           | Contenu         | Utilité                                      | Requis                |
-|-------------------|-----------------|----------------------------------------------|-----------------------|
-| ca-cert.pem       | Certificat CA   | Permet au driver de vérifier l’identité du serveur MariaDB | Oui - Toujours        |
-| keystore.p12      | Certificat client + clé privée | Permet à MariaDB de vérifier l’identité de l’application | Uniquement si REQUIRE X509 |
-
-> **Remarque : mTLS est optionnel.** Il n’est requis que si l’utilisateur MariaDB a été créé avec REQUIRE X509. Si l’utilisateur a été créé avec REQUIRE SSL, seul serverSslCert pointant vers la CA est nécessaire et les étapes keystore ci-dessous peuvent être ignorées.
-
-**1. Optionnel - Créez le KeyStore pour mTLS.**
-
-    Ignorez cette étape si l’utilisateur MariaDB a été créé avec REQUIRE SSL. Elle n’est requise que pour REQUIRE X509 (TLS mutuel).
-
-    `keytool` ne peut pas importer une clé privée PEM directement, il faut donc regrouper via PKCS12.
-
-        1.1. Regroupez le certificat client et la clé dans un fichier PKCS12 :
-
-        ```shell
-        openssl pkcs12 -export \
-        -in /etc/mariadb/newcerts/client-cert.pem \
-        -inkey /etc/mariadb/newcerts/client-key.pem \
-        -out /etc/mariadb/newcerts/keystore.p12 \
-        -name mariadbClient \
-        -passout pass:changeit
-        ```
-
-**2. Définissez les permissions des fichiers.** Assurez-vous que seul l’utilisateur exécutant l’application Java peut lire les fichiers keystore.
-
-        ```shell
-        chown your_java_user: /etc/mariadb/newcerts/keystore.p12
-        chmod 640 /etc/mariadb/newcerts/keystore.p12
-        ```
-
-**3. Définissez les permissions des fichiers.** Assurez-vous que seul l’utilisateur exécutant l’application Java peut lire les fichiers keystore.
-
-    ```shell
-    chown your_java_user: /etc/mariadb/newcerts/*.jks
-    chmod 640 /etc/mariadb/newcerts/*.jks
-    ```
-
-**4. Définissez l’URL JDBC.** Ajoutez ce qui suit à votre fichier de configuration (/etc/centreon-map/*-database.properties) :
-
-    ```shell
-    *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mariadb/newcerts/ca-cert.pem&rewriteBatchedStatements=true
-    ```
-
-**5. Optionnel — uniquement si mTLS est activé (REQUIRE X509).** Ajoutez les options keyStore, keyStorePassword et keyStoreType :
-
-        ```shell
-        *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mariadb/newcerts/ca-cert.pem&keyStore=/etc/mariadb/newcerts/keystore.p12&keyStorePassword=changeit&keyStoreType=PKCS12&rewriteBatchedStatements=true
-        ```
-
-</TabItem>
-</Tabs>
-
-### Étape 5 - Vérifier l’expiration des certificats
-
-<Tabs groupId="db" queryString>
-<TabItem value="MySQL" label="MySQL">
-
-Les certificats générés avec `-days 365000` sont valides pour environ 1000 ans, mais cela doit tout de même être surveillé dans des environnements à durée de vie plus courte.
-
-**1. Vérifiez le TrustStore** (certificat CA) :
-
-    ```shell
-    keytool -list -v -keystore /etc/mysql/newcerts/truststore.jks -storepass changeit
-    # Recherchez : Valid from ... until ...
-    ```
-
-**2. Vérifiez le KeyStore** (certificat client) :
-
-    ```shell
-    keytool -list -v -keystore /etc/mysql/newcerts/keystore.jks -storepass changeit
-    # Recherchez : Valid from ... until ...
-    ```
-
-</TabItem>
-<TabItem value="MariaDB" label="MariaDB">
-
-**1. Vérifiez le certificat CA**.
-
-    ```shell
-    openssl x509 -in /etc/mariadb/newcerts/ca-cert.pem -noout -dates
-    # notBefore=...
-    # notAfter=...
-    ```
-
-**2. Vérifiez le certificat serveur.**
-
-    ```shell
-    openssl x509 -in /etc/mariadb/newcerts/server-cert.pem -noout -dates
-    ```
-
-**3. Vérifiez le KeyStore (mTLS uniquement).**
-
-    ```shell
-    keytool -list -v -keystore /etc/mariadb/newcerts/keystore.p12 -storepass changeit
-    # Recherchez : Valid from ... until ...
-    ```
-
-</TabItem>
-</Tabs>
-
-### Référence des modes SSL
-
-<Tabs groupId="db" queryString>
-<TabItem value="MySQL" label="MySQL">
-
-Le mode `VERIFY_CA` est le minimum recommandé en production. Ce tableau liste les autres modes disponibles selon vos exigences de sécurité :
-
-| Mode         | Certificat serveur vérifié | Nom d’hôte/IP vérifié | Cas d’utilisation                  |
-|--------------|---------------------------|----------------------|------------------------------------|
-| `DISABLED`   | Non                       | Non                  | Développement uniquement — pas de chiffrement |
-| `PREFERRED`  | Non                       | Non                  | Utilise SSL si disponible, sinon connexion non sécurisée |
-| `REQUIRED`   | Non                       | Non                  | Implique SSL, mais ne valide pas le certificat serveur |
-| `VERIFY_CA`  | Oui                       | Non                  | Utilisé dans cette procédure — valide la chaîne CA |
-| `VERIFY_IDENTITY` | Oui                   | Oui                  | Le plus strict — vérifie aussi le nom d’hôte/IP dans le SAN du certificat |
-
-</TabItem>
-<TabItem value="MariaDB" label="MariaDB">
-
-Le mode `VERIFY_CA` est le minimum recommandé en production. Ce tableau liste les autres modes disponibles selon vos exigences de sécurité :
-
-| Mode         | Certificat serveur vérifié | Nom d’hôte/IP vérifié | Cas d’utilisation                  |
-|--------------|---------------------------|----------------------|------------------------------------|
-| `DISABLED`   | Non                       | Non                  | Développement uniquement — pas de chiffrement |
-| `trust`      | Non                       | Non                  | Chiffre le trafic mais ne valide pas le certificat serveur |
-| `VERIFY_CA`  | Oui                       | Non                  | Utilisé dans cette procédure — valide la chaîne CA |
-| `verify-full`| Oui                       | Oui                  | Le plus strict — vérifie aussi le nom d’hôte/IP dans le SAN du certificat |
-
-> **Remarque :** Si vous souhaitez utiliser le mode `verify-full`, le certificat serveur doit inclure un champ Subject Alternative Name (SAN) correspondant exactement à l’IP ou au nom d’hôte utilisé dans l’URL JDBC. Le champ CN seul n’est pas suffisant pour les connexions basées sur l’IP.
-
-</TabItem>
-</Tabs>
+> Centreon MAP utilise par défaut le format PEM pour ce paramètre ; si le
+> fichier de certificat PEM n'existe pas, il utilise alors le format JKS.
+> Il n'y a pas de propriété `centreon.tls.type` à définir pour cette connexion.
+
+Si le certificat est signé par une autorité de certification reconnue, rien n'a
+besoin d'être configuré : le truststore par défaut de la JVM (**cacerts**,
+**/etc/pki/java/cacerts**) est utilisé automatiquement.

@@ -1,6 +1,7 @@
 ---
 id: troubleshooting-hosts-discovery
 title: Dépanner les incidents sur la découverte des hôtes
+description: "Résoudre les erreurs courantes rencontrées lors de la découverte des hôtes"
 ---
 
 ## Les tâches de découverte ne s'affichent plus

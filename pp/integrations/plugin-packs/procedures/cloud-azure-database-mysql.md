@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-mysql
 title: Azure Database for MySQL
+description: "Monitor Azure Database for MySQL via the Azure API: connections, CPU, memory, storage, replication, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

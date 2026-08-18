@@ -1,6 +1,7 @@
 ﻿---
 id: concepts
 title: Bases de Centreon Log Management
+description: Concepts clés et terminologie de Centreon Log Management
 ---
 
 ## Que sont les logs ?
@@ -9,7 +10,7 @@ Centreon Log Management gère des logs. Les logs contiennent des informations d�
 
 ## À quoi ressemble une entrée de log dans Log Management ?
 
-Tous les logs reçus par Log Management sont listés à la page **Log explorer**, où vous pouvez les filtrer. Dans Log Management, chaque entrée de log a une [sévérité (c'est-à-dire un niveau de log)](../resources/glossary.md#sévérité), indiqué par une ligne colorée.
+Tous les logs reçus par Log Management sont listés à la page **Log explorer**, où vous pouvez les filtrer. Dans Log Management, chaque entrée de log a une [sévérité (c'est-à-dire un niveau de log)](../resources/glossary.md#sévérité), qui apparaît sur un fond coloré.
 
 ![image](../assets/log_explorer.png)
 

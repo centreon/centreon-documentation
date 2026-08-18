@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortimail-snmp
 title: Fortinet FortiMail SNMP
+description: "Supervisez les appliances Fortinet FortiMail via SNMP : CPU, mémoire, disques, charge, interfaces, queues de mails, haute disponibilité et uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

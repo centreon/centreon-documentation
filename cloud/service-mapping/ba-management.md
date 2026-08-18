@@ -1,6 +1,7 @@
 ---
 id: ba-management
 title: Manage Business Activities
+description: "Configure Business Activities, indicators (KPIs), boolean rules, and Business Views to model IT services in Centreon BAM"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -135,7 +136,7 @@ You can choose an icon for the BA and add a description, these two elements are 
 
 4. You must also link the BA to a BV ([Business view](#business-view)) or the BA will not be visible.
 
-> After clicking **Create**, a side panel opens where you will need to configure multiple sections to have an aggregated indicator.
+> After clicking **Save**, you will be redirected to the main screen presenting the BA tree. Interact directly from the tree to configure each element.
 
 #### Indicators
 

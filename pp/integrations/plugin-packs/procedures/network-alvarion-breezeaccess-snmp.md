@@ -1,6 +1,7 @@
 ---
 id: network-alvarion-breezeaccess-snmp
 title: Alvarion BreezeACCESS SNMP
+description: "Monitor Alvarion BreezeACCESS wireless links via SNMP: radio signal strength, noise ratio, interfaces, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

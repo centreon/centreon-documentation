@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-analytics-eventhubs
 title: Azure Event Hubs
+description: "Supervisez Azure Event Hubs via l'API REST ou Azure CLI : backlog, connexions, erreurs, santé, messages, requêtes et débit."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

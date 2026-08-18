@@ -1,6 +1,7 @@
 ---
 id: sc-datadog-events
 title: Datadog Events
+description: "How the stream connector sends host and service events to Datadog"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

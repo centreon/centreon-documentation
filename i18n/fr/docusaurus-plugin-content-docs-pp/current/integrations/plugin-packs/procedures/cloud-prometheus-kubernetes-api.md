@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-kubernetes-api
 title: Kubernetes w/ Prometheus API
+description: "Supervisez des clusters Kubernetes via l'API Prometheus, en suivant le statut des conteneurs, daemonsets, déploiements, namespaces et nœuds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

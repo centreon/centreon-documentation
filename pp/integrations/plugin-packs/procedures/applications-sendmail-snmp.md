@@ -1,6 +1,7 @@
 ---
 id: applications-sendmail-snmp
 title: Sendmail
+description: "Monitor Sendmail MTA usage via SNMP, tracking received, stored, transmitted, and rejected message counts and volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

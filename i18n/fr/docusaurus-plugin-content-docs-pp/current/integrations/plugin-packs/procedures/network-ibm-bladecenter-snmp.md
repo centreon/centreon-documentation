@@ -1,6 +1,7 @@
 ---
 id: network-ibm-bladecenter-snmp
 title: IBM Bladecenter Switch SNMP
+description: "Supervisez les modules de commutation IBM BladeCenter via SNMP : CPU, mémoire, stockage, trafic réseau, température et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

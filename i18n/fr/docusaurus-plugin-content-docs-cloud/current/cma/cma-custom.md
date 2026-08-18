@@ -1,6 +1,7 @@
 ---
 id: cma-custom
 title: Utiliser des plugins personnalisés avec CMA
+description: "Configurer l'agent de supervision Centreon pour exécuter des plugins personnalisés compatibles Nagios non couverts par les contrôles natifs"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-node-exporter-windows
 title: Node Exporter Windows Metrics
+description: "Supervisez des hôtes Windows via l'exporteur Prometheus Node Exporter : CPU, mémoire, stockage, services et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

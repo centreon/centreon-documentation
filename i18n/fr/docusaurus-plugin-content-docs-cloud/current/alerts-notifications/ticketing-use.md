@@ -1,6 +1,7 @@
 ---
 id: ticketing-use
 title: Utiliser Open Tickets
+description: "Comment les opérateurs ouvrent et ferment des tickets ITSM depuis les widgets des tableaux de bord ou des vues personnalisées"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

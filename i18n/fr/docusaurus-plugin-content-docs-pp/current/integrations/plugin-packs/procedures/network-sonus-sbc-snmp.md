@@ -1,6 +1,7 @@
 ---
 id: network-sonus-sbc-snmp
 title: Sonus SBC SNMP
+description: "Supervisez les SBC Sonus via SNMP : statistiques d'appels, channels, CPU, mémoire, disques et interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

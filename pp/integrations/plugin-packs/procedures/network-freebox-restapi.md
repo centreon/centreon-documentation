@@ -1,6 +1,7 @@
 ---
 id: network-freebox-restapi
 title: Freebox RestAPI
+description: "Monitor Freebox routers via REST API: DSL usage, network usage, and system status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

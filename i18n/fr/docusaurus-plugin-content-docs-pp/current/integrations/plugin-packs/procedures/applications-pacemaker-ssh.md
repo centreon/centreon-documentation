@@ -1,6 +1,7 @@
 ---
 id: applications-pacemaker-ssh
 title: Pacemaker
+description: "Supervisez les clusters Pacemaker via SSH : statut des nœuds et ressources, quorum, connexion et actions en échec."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

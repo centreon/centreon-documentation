@@ -1,6 +1,7 @@
 ---
 id: applications-rabbitmq-restapi
 title: RabbitMQ RestAPI
+description: "Supervisez RabbitMQ via l'API REST : utilisation des noeuds, files, vhosts et du système, nombre de messages et statuts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-forcepoint-sdwan-snmp
 title: Forcepoint Sdwan SNMP
+description: "Monitor Forcepoint SD-WAN appliances via SNMP: CPU, memory, disk, traffic, connections, cluster state, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

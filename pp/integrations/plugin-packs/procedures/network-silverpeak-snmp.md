@@ -1,6 +1,7 @@
 ---
 id: network-silverpeak-snmp
 title: Silverpeak SNMP
+description: "Monitor Silverpeak SD-WAN appliances via SNMP: alarms, operational status, uptime, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

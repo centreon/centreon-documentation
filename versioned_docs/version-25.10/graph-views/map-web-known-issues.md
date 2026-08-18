@@ -1,6 +1,7 @@
 ---
 id: map-web-known-issues
 title: MAP known issues
+description: "Known issues currently being addressed by the MAP team"
 ---
 
 This topic lists known issues the MAP team is currently working on:

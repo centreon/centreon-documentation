@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-camera-avigilon-snmp
 title: Avigilon camera SNMP
+description: "Monitor Avigilon SNMP cameras: memory, storage state, temperature, uptime, and network interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

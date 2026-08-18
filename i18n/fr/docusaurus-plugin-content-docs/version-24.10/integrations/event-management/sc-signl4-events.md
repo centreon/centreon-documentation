@@ -1,6 +1,7 @@
 ---
 id: sc-signl4-events
 title: Signl4 Events
+description: "Envoyer les événements d'hôtes et de services de Centreon vers Signl4"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

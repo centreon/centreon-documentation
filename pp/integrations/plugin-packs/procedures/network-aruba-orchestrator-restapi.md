@@ -1,6 +1,7 @@
 ---
 id: network-aruba-orchestrator-restapi
 title: Aruba Orchestrator Rest API
+description: "Monitor Aruba Orchestrator via REST API: track alarms by severity and appliance status, sync, and detection counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

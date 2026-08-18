@@ -1,6 +1,7 @@
 ---
 id: hosts-discovery
 title: Découvrir des hôtes automatiquement
+description: "Créer et gérer des tâches de découverte d'hôtes à l'aide d'assistants et de mappers"
 ---
 
 Voir aussi [notre tutoriel sur la détection d'instances AWS EC2](../../getting-started/autodisco-aws.md).

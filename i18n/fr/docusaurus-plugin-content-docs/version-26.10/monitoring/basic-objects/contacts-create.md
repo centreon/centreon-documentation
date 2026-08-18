@@ -1,6 +1,7 @@
 ---
 id: contacts-create
 title: Créer des utilisateurs/contacts manuellement
+description: "Créer un utilisateur manuellement et configurer ses paramètres de notification et d'authentification"
 ---
 
 Pour ajouter un contact, allez à la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, puis cliquez sur **Add**.

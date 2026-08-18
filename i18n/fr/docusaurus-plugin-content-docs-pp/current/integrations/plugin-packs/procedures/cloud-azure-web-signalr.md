@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-web-signalr
 title: Azure SignalR
+description: "Supervisez les ressources Azure SignalR via l'API REST : suivez les erreurs, le trafic entrant/sortant et l'utilisation (connexions, messages)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

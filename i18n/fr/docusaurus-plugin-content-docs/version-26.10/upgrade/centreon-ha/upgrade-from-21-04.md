@@ -1,6 +1,7 @@
 ---
 id: upgrade-centreon-ha-from-21-04
 title: Montée de version de Centreon HA depuis Centreon 21.04
+description: "Mettre à niveau un cluster Centreon HA depuis la version 21.04 vers la 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -31,6 +32,22 @@ serveurs :
 ### Mise à jour de la clé de signature RPM
 
 Pour des raisons de sécurité, les clés utilisées pour signer les RPM Centreon font l'objet d'une rotation régulière. La dernière modification a eu lieu le 14 octobre 2021. Lorsque vous effectuez une mise à niveau à partir d'une version antérieure, vous devez suivre la [procédure de rotation des clés] (../../security/key-rotation.md#existing-installation), pour supprimer l'ancienne clé et installer la nouvelle.
+
+### Modifier le script centreon_central_sync script (MBI uniquement)
+
+Cette étape n'est nécessaire que si vous utilisez [MBI](../../reporting/introduction.md). Modifiez le script `/usr/share/centreon-ha/bin/centreon_central_sync` aux lignes suivantes :
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua"],
+```
+
+Pour que les rapports soient toujours téléchargeables, remplacez ces lignes par :
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua", "/var/lib/centreon/centreon-bi-server/archives"],
+```
 
 ## Processus de mise à niveau
 

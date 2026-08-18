@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-cisco-cts-snmp
 title: Cisco Telepresence System SNMP
+description: "Supervisez les équipements Cisco Telepresence System (CTS) via SNMP en suivant les appels actifs, les flux média et le statut des périphériques."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

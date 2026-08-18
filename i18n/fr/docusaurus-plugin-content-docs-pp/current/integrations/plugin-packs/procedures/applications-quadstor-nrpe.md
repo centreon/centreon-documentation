@@ -1,6 +1,7 @@
 ---
 id: applications-quadstor-nrpe
 title: Quadstor NSClient++ NRPE
+description: "Supervisez les bibliothèques de sauvegarde VTL Quadstor via NRPE : utilisation des disques, état des jobs et utilisation des bandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

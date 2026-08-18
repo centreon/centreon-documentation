@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-p2000-xmlapi
 title: HP P2000 XML API
+description: "Supervisez les baies de stockage HP P2000 via l'API XML : état du matériel, disques virtuels et statistiques d'E/S des volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

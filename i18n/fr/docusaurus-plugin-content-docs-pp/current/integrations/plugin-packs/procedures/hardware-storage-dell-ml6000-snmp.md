@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-ml6000-snmp
 title: Dell ML6000 SNMP
+description: "Supervisez les bibliothèques de bandes Dell ML6000 via SNMP : statut matériel global, lecteurs physiques, sous-systèmes, température et ventilateurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

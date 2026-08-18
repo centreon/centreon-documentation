@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-solaris-snmp
 title: Solaris SNMP
+description: "Superviser des serveurs Solaris en SNMP : charge CPU, espace disque, trafic réseau, paquets en erreur, processus et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

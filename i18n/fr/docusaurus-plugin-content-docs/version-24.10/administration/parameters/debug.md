@@ -1,14 +1,13 @@
 ---
 id: debug
 title: Débogage
+description: "Activer la journalisation de débogage des processus Centreon"
 ---
 
 Cette partie permet d'activer le niveau *debug* de la journalisation
 des processus Centreon.
 
 Rendez-vous dans le menu **Administration > Paramètres > Débogage**.
-
-![image](../../assets/administration/parameters-debug.png)
 
 - Le champ **Répertoire d'enregistrement des journaux** définir le chemin où
 seront enregistrés les journaux d'évènements

@@ -1,6 +1,7 @@
 ---
 id: network-juniper-isg-snmp
 title: Juniper ISG SNMP
+description: "Monitor Juniper ISG firewalls via SNMP: track CPU, memory, hardware health, session usage, and network interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

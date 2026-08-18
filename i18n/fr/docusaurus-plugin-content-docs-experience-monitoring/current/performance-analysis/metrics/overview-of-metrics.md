@@ -1,5 +1,6 @@
 ﻿---
 id: overview-of-metrics
+description: Répertoire de toutes les métriques de performance Experience Monitoring
 title: Vue d'ensemble des métriques
 --- 
 
@@ -7,9 +8,9 @@ Centreon Experience Monitoring présente plusieurs métriques de performance, ce
 
 ## [Hero Time](./hero-time.md)
 
-Le Hero Time est une mesure propre à Experience Monitoring. Elle n’existe nul part ailleurs. Il s’agit du temps que la sonde Experience Monitoring va mettre entre le début de l’interaction et le moment ou la vérification de succès survient (exemples: la page est chargée, la pop-up pour les cookies s’est affichée, etc)
+Le Hero Time est une mesure propre à Experience Monitoring. Elle n’existe nulle part ailleurs. Il s’agit du temps que la sonde Experience Monitoring va mettre entre le début de l’interaction et le moment ou la vérification de succès survient (exemples: la page est chargée, la pop-up pour les cookies s’est affichée, etc)
 
-L’amélioration de cette métrique signifie que l’interactivité est meilleure: les clics produisent plus vite des résultats sur la page.
+L’amélioration de cette métrique signifie que l’interactivité est meilleure: les résultats d'intéractions sont visibles plus rapidement.
 
 ## [TTFB (Time To First Byte ou temps de premier octet)](./time-to-first-byte.md)
 
@@ -21,7 +22,7 @@ Pendant ce temps, la page est blanche. Améliorer le TTFB signifie que la page s
 
 Le Speed Index est un score évaluant la vitesse de remplissage de la page web. Une page web qui s’affiche en 5s en restant toute blanche pendant 4s aura un Speed Index moins bon qu’une page web qui s’affiche aussi en 5s mais qui commence à afficher des éléments dès la première seconde.
 
-Le Speed Index est un indicateur complexe. Il est exprimé en secondes mais il s’agit plutôt d’un score que d’une mesure de temps. L’améliorer signifie que l’impression de vitesse d’affichage est meilleur pour l’utilisateur.
+Le Speed Index est un indicateur complexe. Il est exprimé en secondes mais il s’agit plutôt d’un score que d’une mesure de temps. L’améliorer signifie que l’impression de vitesse d’affichage est meilleure pour l’utilisateur.
 
 ## [Onload](./on-load.md)
 

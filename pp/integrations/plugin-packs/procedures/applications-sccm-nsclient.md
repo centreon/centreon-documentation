@@ -1,6 +1,7 @@
 ---
 id: applications-sccm-nsclient
 title: Microsoft SCCM
+description: "Monitor Microsoft SCCM via NRPE or REST API (centreon-nsclient agent): track database replication and site status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

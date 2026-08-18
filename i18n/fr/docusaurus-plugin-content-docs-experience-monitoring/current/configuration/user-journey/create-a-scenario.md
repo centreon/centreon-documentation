@@ -1,351 +1,335 @@
-﻿---
+---
 id: create-a-scenario
-title: Création d’un scénario (”Parcours Utilisateur”)
---- 
+title: Créer un parcours utilisateur
+description: Configurer une sonde de parcours utilisateur et ses différentes étapes
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
+> Notez que si le site que vous souhaitez superviser est interne à votre organisation, vous devrez créer une [zone STM](stm-zones.md) en plus du parcours utilisateur.
 
-Vous pouvez vérifier qu’il vous reste suffisamment d’étapes dans la page Organisation
+> Cette page mentionne fréquemment les [sélecteurs CSS](../../experience-monitoring-glossary.md). Nous vous recommandons de vous documenter sur ce sujet avant de continuer.
 
-![image](../../assets/configuration/user-journey/create-scenario-1.png)
+Seuls les utilisateurs ayant le rôle **Owner** ou **Administrator** peuvent créer ou modifier des parcours utilisateur.
 
+Les parcours utilisateur vous permettent de configurer une sonde pour naviguer régulièrement sur votre site en suivant un chemin prédéfini. Cette page explique comment configurer à la fois le parcours dans son ensemble et ses étapes individuelles.
 
+Pour que ce module fonctionne correctement, vous devrez peut-être autoriser les adresses IP suivantes utilisées par Experience Monitoring :
 
+<details>
+  <summary>Adresses IP</summary>
 
-Vous devez disposer des droits Propriétaire ou Administrateur pour modifier vos scénarios. Vous pouvez vérifier dans votre page Profil
+- 18.200.8.204
+- 34.241.126.134
+- 34.242.201.38
+- 34.243.127.23
+- 34.248.113.181
+- 34.250.75.1
+- 34.252.162.102
+- 34.255.79.251
+- 52.17.157.120
+- 52.18.157.52
+- 52.19.60.226
+- 52.30.194.126
+- 52.31.137.223
+- 52.48.148.3
+- 52.48.151.164
+- 52.50.31.122
+- 52.51.174.216
+- 52.208.14.10
+- 52.209.27.6
+- 52.210.233.251
+- 52.212.161.58
+- 52.214.41.253
+- 54.78.224.201
+- 54.154.70.169
+- 54.170.78.117
+- 54.170.157.253
+- 63.34.122.21
+- 63.34.67.195
+- 99.81.201.50
+- 176.34.232.22
+- 185.48.122.159
 
-![image](../../assets/configuration/user-journey/create-scenario-2.png)
+</details>
 
-Pour les modifier, consultez:
+Pour créer un parcours utilisateur, accédez à la page **Configuration** et cliquez sur l'onglet **Parcours Utilisateur**. Ensuite, cliquez sur **Créer un parcours utilisateur**. Un parcours est ajouté avec une première étape nommée « Home » pour accéder automatiquement à la page d'accueil de votre site.
 
-[Gérez vos utilisateurs et leurs droits](../manage-users-and-rights.md)
+## Configuration du parcours utilisateur
 
+Pour accéder aux paramètres avancés, ouvrez votre parcours en mode édition, cliquez sur le menu à trois points à sa droite et sélectionnez **Avancé**.
 
+N'oubliez pas de cliquer sur **Sauvegarder** après toute modification dans cette fenêtre.
 
-## Entrer en mode création/édition de parcours
+<Tabs groupId="sync">
+<TabItem value="General" label="General">
 
-Le mode édition de parcours vous permet de modifier vos parcours ou d’en créer de nouveau. Dans la barre du menu à gauche, cliquez sur ***Parcours Utilisateurs***. A ce stade, il y a 2 possibilités:
+Donnez à votre parcours un nom clair et unique. Ce nom apparaît dans les rapports et dans toute l'interface Experience Monitoring.
 
-### Vous n’avez pas encore de parcours
+À droite du nom, vous pouvez choisir de :
 
-Si le site n’a pas de Parcours Utilisateur configuré, alors ce message s’affiche :
+- Activer ou désactiver ce parcours utilisateur afin qu'il ne soit pas exécuté, mais reste sauvegardé pour une utilisation ultérieure.
+- Activer ou désactiver le profilage PHP pour ce parcours si vous avez l'agent système Experience Monitoring et le module PHP installés sur vos serveurs. Vous n'êtes pas sûr que cela vous concerne ? Consultez la [liste de vérification d'installation Experience Monitoring](../../installation/installation-checklist.md).
+- Activer ou désactiver la vérification SSL. La sonde fera échouer le parcours si votre site présente un certificat SSL invalide ou expiré. Désactivez cette option uniquement si vous exécutez intentionnellement le parcours dans un environnement non sécurisé.
 
-![image](../../assets/configuration/user-journey/create-scenario-3.png)
+#### Zones de Synthetic Monitoring
 
-Vous pouvez cliquer sur *“Configurez votre parcours utilisateur maintenant !”* pour entrer en mode édition.
+Si vous avez préalablement configuré des [zones STM](stm-zones.md), vous aurez la possibilité de sélectionner une zone privée ici. Votre site public est sélectionné par défaut.
 
-### Vous avez déjà au moins un parcours
+#### Audits de recommandations quotidiens
 
-Si un parcours existe**,** vous verrez un écran semblable à celui-ci:
+En plus de la sonde de parcours utilisateur, une sonde de recommandations est exécutée une fois par jour pour vous donner des conseils personnalisés sur l'optimisation de votre site.
+Les options du **Mode de fonctionnement** vous permettent de désactiver cette sonde, de lui faire vérifier uniquement votre première étape ou toutes les étapes.
+Vous pouvez également modifier la langue des recommandations.
 
-![image](../../assets/configuration/user-journey/create-scenario-4.png)
+</TabItem>
+<TabItem value="Requêtes HTTP" label="Requêtes HTTP">
 
-Cliquez sur les 3 points et sur *Configurer* pour entrer en mode édition/création.
+#### Authentification HTTP Basique
 
-## Créer un parcours
+Si votre site (ou un environnement de staging) est protégé par une authentification HTTP Basic (parfois appelée protection `.htaccess`), saisissez les identifiants ici. Laissez les champs vides si aucune protection de ce type n'est utilisée.
 
-> Si le site que vous souhaitez superviser est interne à votre organisation, vous devrez créer une [zone STM](stm-zones.md) en plus du parcours utilisateur.
+#### Cookies
 
-En bas de la page d’édition, vous trouverez un bouton pour créer un nouveau parcours:
+Ajoutez des cookies personnalisés pour stocker des données ou des sessions au démarrage du parcours.
 
-![image](../../assets/configuration/user-journey/create-scenario-5.png)
+#### En-têtes HTTP
 
-Bouton d’action en mode édition
+Vous pouvez ajouter des en-têtes HTTP personnalisés.
 
-Experience Monitoring génère un nouveau parcours avec une seule étape: la navigation vers la racine de votre nom de domaine.
+</TabItem>
+<TabItem value="Simulation" label="Simulation">
 
-## Activer le parcours
+#### Activer le cache du navigateur
 
-Pour activer votre parcours, vous devez le sauvegarder. Pour cela, cliquer sur l’icône *Sauvegarder* ou sur le bouton au pied de votre parcours:
+Lorsque cette option est activée, la sonde stocke certains éléments du site qui sont réutilisés au fil des différentes pages pour réduire les temps de chargement.
+Par exemple, la sonde peut stocker le logo de votre site car il est souvent présent sur toutes les pages.
+Cela simule un utilisateur qui revient sur le site. Désactivez cette option pour simuler un premier visiteur qui télécharge tout.
 
-![image](../../assets/configuration/user-journey/create-scenario-6.png)
+#### Version du navigateur
 
-Options pour sauvegarder un parcours utilisateur
+Détermine sur quelle version de Chromium la sonde sera exécutée.
 
-Vous verrez un symbole de chargement dans le coin supérieur droit qui indique que votre parcours fonctionne mais que la sonde n’est pas encore passée depuis les dernières modifications
+#### Agent utilisateur
 
-![image](../../assets/configuration/user-journey/create-scenario-7.png)
+L'agent utilisateur est une chaîne d'en-tête HTTP que chaque navigateur envoie à la page qu'il consulte. Il informe la page sur le navigateur et le type d'appareil utilisés pour y accéder.
+Vous pouvez saisir une chaîne personnalisée pour simuler un navigateur spécifique.
 
-Indicateur de changements sauvegardés mais pas encore exécuté par la sonde
+#### Options d'appareil
 
-Lorsque que la sonde passe, le contenu est mis à jour automatiquement. Vous verrez alors les captures d’écran.
+Ici, vous pouvez déterminer la taille d'écran que la sonde simulera ainsi que son orientation si vous avez sélectionné la taille d'écran d'un téléphone ou d'une tablette.
 
-## Configurer des étapes
+Vous pouvez également déterminer la puissance de l'appareil utilisé par l'utilisateur.
 
+</TabItem>
+<TabItem value="Timings" label="Timings">
 
->**Une étape contient au moins une action** et s’arrête nécessairement en cas de navigation. **Vous pouvez configurer plusieurs actions dans une étape**, mais une étape ne peut pas contenir plusieurs navigations.
->Par exemple, vous pouvez remplir un formulaire, ajouter au panier un produit puis cliquer pour naviguer vers le panier en une étape.
+Déterminez l'intervalle entre chaque exécution de la sonde. Vous pouvez également configurer le temps que la sonde attend pour une étape avant de la considérer comme un délai d'attente dépassé.
 
+Notez que le temps d'exécution de l'ensemble du parcours par la sonde doit être inférieur au temps entre chaque exécution.
+Par exemple, ne définissez pas un intervalle de 5 minutes entre les exécutions pour un parcours utilisateur dont l'exécution moyenne dure 7 minutes.
 
+Pour cette raison, il est recommandé de définir un intervalle élevé au début, puis de le réduire au fur et à mesure que vous déterminez la durée d'exécution de la sonde.
 
-### Configurer une action
+#### Attendre le chargement complet
 
-Il existe 6 actions possibles:
+La sonde attend que tous les éléments de la page soient entièrement chargés avant de passer à l'action suivante. Cela imite mieux le comportement d'un utilisateur réel.
 
-#### Naviguer
+</TabItem>
+<TabItem value="Variables" label="Variables">
 
-Choisissez une URL vers laquelle naviguer. Cette action est équivalente à entrer une URL dans la barre d’adresse et y aller.
+Les variables vous permettent de transmettre des valeurs dynamiques telles que des identifiants de connexion dans un parcours au moment de l'exécution, sans les coder en dur dans l'étape.
 
-L’URL doit faire partie du domaine autorisé pour votre licence Experience Monitoring.
+Exemple : définissez une variable `login` et `password`, puis référencez les variables dans l'étape où la sonde remplit un formulaire de connexion.
 
-#### Cliquer
+Les variables sont particulièrement utiles lorsque vous avez besoin de valeurs différentes dans des contextes différents :
+- Surveillance régulière vs. exécutions d'audit : utilisez un ensemble d'identifiants pour les vérifications quotidiennes, un autre pour les audits de recommandations.
+- Tests de charge : attribuez des connexions différentes à différentes instances de navigateur pour simuler plusieurs utilisateurs distincts.
 
-Pour choisir sur quoi cliquer vous avez 2 choix:
+> Les variables sont fixes par configuration de parcours. Pour utiliser des valeurs différentes, vous devrez définir des variables séparées par contexte (surveillance vs. test de charge).
 
-- Chercher un texte
-- Chercher un élément par son sélecteur CSS
+</TabItem>
+<TabItem value="URLs bloquées" label="URLs bloquées">
 
-Si vous cherchez un texte, celui-ci doit faire partie d’une seule balise HTML. Un texte peut sembler visuellement cohérent mais être séparé par une balise.
+Vous pouvez indiquer à la sonde d'ignorer les requêtes vers des domaines ou des URL spécifiques. Ceci est utile pour :
 
-```html
-<p>Cliquez <span class="emphasis">vite</span> pour découvrir la suite</p>
-```
+- Exclure le trafic de la sonde de vos analyses, ce qui évite à la sonde de gonfler le nombre de visites dans des outils comme Google Analytics.
+- Éviter les coûts par requête. Certains services (comme Google Maps) facturent par requête. Si une page de votre parcours charge une carte, chaque exécution de sonde génère une requête facturable. Bloquer ce domaine élimine le coût.
 
-```html
-<p>Cliquez vite pour découvrir la suite</p>
-```
+Vous pouvez utiliser un astérisque `*` comme caractère générique pour exclure toutes les versions d'un domaine. Par exemple, bloquer `https://my-analytics-tool.fr/api/v*/` exclura toutes les versions de cette API (v1, v2, v3, etc.).
 
-Par défaut, Experience Monitoring cliquera sur la première occurence détectée. Vous pouvez choisir de:
-
-- cliquer sur la première occurence (par défaut)
-- cliquer sur la deuxième, la troisième, etc
-- cliquer au hasard parmi toutes les occurrences
-
-#### Survoler
-
-Survoler utilise exactement les mêmes conditions que Cliquer mais se limite à passer la souris sur le texte ou l’élément CSS choisi.
-
-Cette action est utile si des éléments ne se chargent pas tant que la souris n’a pas survolé une zone de l’écran.
-
-#### Remplir un formulaire
-
-La complétion d’un formulaire est possible dans Experience Monitoring. La sonde s’appuie sur les standards HTML.
-
-**Sélecteur CSS du formulaire**
-
-Si une page contient plusieurs formulaires, cette option permettra de bien limiter la sonde au formulaire choisie.
-
-**Remplir les champs**
-
-Les champs peuvent être sélectionnés par leurs noms (attribut *name*), leurs placeholders, le texte de leurs labels, ou par des sélecteurs CSS.
-
-**Soumettre le formulaire**
-
-Par défaut, Experience Monitoring envoie le formulaire une fois rempli. Mais vous pouvez modifier ce comportement. Vos options sont:
-
-- Soumettre automatiquement (par défaut): équivalent à taper la touche Entrée dans un formulaire
-- Désactivé: ne rien faire une fois le formulaire rempli
-- Cliquer sur un texte: utile si l’envoi du formulaire se fait ailleurs dans la page
-- Cliquer sur un élément CSS: idem
-
-#### Attendre
-
-Parfois, vous n’avez pas de solution plus simple que d’attendre qu’une action se passe. Par exemple, si les éléments s’affichent en fondu après 1s, alors attendre 1s vous permet d’avoir des captures d’écrans avec ces éléments affichés.
-
-C’est une solution de dernier recours qui ne devrait être que rarement utilisé.
-
-#### Exécuter un script
-
-Si toutes les autres actions échouent, vous pouvez utiliser cette option pour exécuter du JavaScript dans le navigateur afin de déclencher une action. Évitez d'utiliser un script simplement pour remplacer une autre action si ce n'est pas nécessaire. 
-
-Notez que le script garantit l'exécution d'une action mais pas son résultat. Ajoutez une vérification après chaque script :
-- DOM: (élément visible, classe changée)
-- Network: requête attendue (URL, statut HTTP...)
-
-Faites des scripts courts, simples et avec des spécifications précises.
-
-### Configurer une vérification
-
-Lorsqu’une action est effectuée, vous pouvez ajouter des vérifications de succès.
-
-**La dernière action doit avoir au moins une vérification.**
-
-#### Confirmer qu’une navigation a été effectuée
-
-
->Cette vérification ne peut pas être retirée pour une action Naviguer.
-
-
-
-La sonde va vérifier qu’un nouveau document HTML a été chargé correctement, c’est-à-dire:
-
-- Le document HTML a été chargé complètement
-- Le code de retour est 200
-
-Aucune vérification du contenu n’est faite.
-
-#### Trouver le texte
-
-
->Nous vous recommandons d’utiliser des sélecteurs CSS car moins sensible aux changements du site.
->Si vous ne savez pas comment créer vos sélecteurs CSS, contactez votre agence ou le support Experience Monitoring (support@quanta.io ou le point d’interrogation en bas à droite dans Experience Monitoring) pour que nous vous configurions votre parcours.
-
-
-
-Cette vérification utilise la même logique que les actions Cliquer et Survoler. Si le texte que vous cherchez existe sur la page après l’action, alors la vérification est acceptée
-
-#### Trouver l’élément CSS
-
-Cette vérification cherche un élément par son sélecteur CSS. **S’il s’agit d’une image, la sonde vérifie également que l’image charge correctement.**
-
-#### Faire une requête
-
-Cette vérification valide qu’une requête vers une adresse a été fait à un moment après l’action. La requête doit être un succès également, les redirections sont possibles.
-
-Vous pouvez utiliser le joker * pour chercher les requêtes. Par exemple, si vous devez appeler une URL pour ajouter un élément au panier qui aurait la forme *https://mon-site.com/add-to-cart?id=id-de-mon-produit* alors vous pouvez remplacer par *https://mon-site.com/add-to-cart** pour éviter que la vérification échoue si l’ID du produit change ou si un autre paramètre vient s’ajouter avant ou après l’ID.
-
-## Configuration avancée de l’étape
-
-Les étapes ont également des paramètres propres, qui influenceront les actions à l’intérieur. Pour accéder à cette configuration avancée, cliquer sur les trois petits points au bout de la ligne de l’étape souhaitée et cliquer sur *Avancé*.
-
-### Activée/Désactivée: supprimer l’étape du parcours sans perdre la configuration
-
-Vous pouvez décider de retirer une étape sans la supprimer. La sonde ignorera cette étape et ne la jouera pas
-
-### Mesurée/Non mesurée: jouer l’étape mais ne pas vérifier les résultats
-
-Retirer cette option permet d’exécuter cette étape sans la mesurer ou la montrer ailleurs dans l’interface. Un exemple de l’utilité de cette option serait de fermer un formulaire de demande d’avis qui se produit aléatoirement sur une partie de votre trafic. Parfois la sonde va le rencontrer et le fermera, les autres fois la sonde ignorera l’erreur provoquée par le fait de ne pas avoir rencontré le formulaire.
-
-#### Timeout d’étape
-
-Vous pouvez définir que cette étape à un timeout différent, soit plus court, soit plus long que la configuration générale du parcours.
-
-## Configuration générale d’un parcours
-
-Chaque étape a des actions, et l’ensemble de parcours a des options de configuration à définir. Pour accéder à ces configurations, en mode édition, cliquer sur les 3 petits points de votre parcours, puis *Avancé* pour accéder au menu.
-
-### Nom
-
-Choisissez un nom pour désigner ce parcours dans les rapports et dans les différents écrans d'Experience Monitoring.
-
-Nous vous recommandons d’utiliser des noms bien distincts, et d’utiliser un système de numérotation. Par exemple:
-
-- 1- Commande invitée
-- 2- Connexion compte perso
-
-### Profilage PHP
-
-
->Par défaut, Experience Monitoring l’active s’il reçoit des données PHP.
-
-
-
-Permet d’activer / désactiver le profilage PHP sur ce parcours si vous avez l’agent système Experience Monitoring et le module PHP installé sur vos serveurs.
-
-Vous pouvez retrouver la procédure d’installation des agents sur cette page: 
-
-[Checklist d’installation d'Experience Monitoring](../../installation/installation-checklist.md)
-
-### Vérifier le certificat SSL
-
->Activé par défaut.
-
-Permet d’activer / désactiver la vérification de conformité du certificat TLS/SSL.
-
-Lorsque qu’un site n’est pas sécurisé, les clients peuvent voir un écran équivalent à celui-ci.
-
-![image](../../assets/configuration/user-journey/create-scenario-8.png)
-
-Exemple de page d’échec SSL
-
-Par défaut, Experience Monitoring considère que le parcours est en échec en cas de problème de sécurité de ce type. Désactivez l’option pour ignorer ces erreurs.
-
-### Authentification HTTP Basic (.htaccess)
-
-Certains sites, notamment les environnements de préproduction, utilisent des authentifications HTTP Basic (ou .htaccess) pour protéger le site des accès externes, en plus de l’authentification des utilisateurs.
-
-Renseignez un nom d’utilisateur et un mot de passe pour activer cette option d’authentification. Si les champs sont vides, la sonde n’enverra pas de requête utilisant l’authentification HTTP Basic.
-
-### Paramètres du navigateur utilisé (réseau fibre/4G, ordinateur ou téléphone, etc)
-
-**Activer le cache navigateur**
-
->Par défaut, activé
-
-Les navigateurs “cachent” le contenu. Par exemple, le logo de votre site n’est pas chargé à chaque fois que l’utilisateur ouvre une nouvelle page de votre site. Le navigateur reconnait qu’il s’agit de la même image et l’affiche depuis la mémoire plutôt que de la télécharger.
-
-Désactivez pour que la sonde télécharge tous les contenus à chaque interaction.
-
-**User Agent**
-
->Par défaut, la sonde s’identifie comme un navigateur Google Chrome
-
-Le User Agent est une information donnée par le navigateur à votre site pour indiquer quel navigateur il utilise afin de pouvoir adapter les contenus si besoin.
-
-Il peut être utile de le changer pour identifier la sonde différemment du trafic classique.
-
-**Limite de bande passante**
-
-Choisissez une bande passante représentative de votre trafic. Choisissez 3G ou 4G quand vous utilisez un format téléphone, et ADSL ou Fibre quand vous utilisez un format ordinateur
-
-**Simuler un appareil**
-
-Choisissez un type d’appareil comme un ordinateur, une tablette, ou un téléphone parmi la liste.
-
->Modifier le type d’appareil ne modifie pas le navigateur ou le matériel utilisé mais simule la taille d’écran de l’appareil choisi
-
-**Orientation**
-
-Choisissez si le téléphone ou la tablette est utilisé en mode portrait ou paysage.
-
-**Cookies**
-
-Ajoutez des cookies personnalisés pour stocker des données ou des sessions au lancement du parcours
-
-**En-têtes HTTP**
-
-Vous pouvez ajouter des headers HTTP personnalisés
-
-### Paramètres de la sonde (intervalle de mesure, timeout)
-
-**Attendre le chargement complet**
-
->Par défaut, activé
-
-Par défaut, la sonde attend l’évènement OnLoad avant de passer à l’étape suivante, même si les vérifications sont réussies. Vous pouvez désactiver ce comportement et forcer la sonde à avancer dès que les vérifications sont finies, même si la page n’est pas chargée.
-
-**Intervalle de mesure**
-
->Si le parcours dure plus longtemps que l’intervalle de mesure, la sonde ne finira pas le parcours et reprendra au début.
->Un intervalle de mesure plus grand, c’est moins de données qui transitent sur le réseau et moins de travail pour vos serveurs.
-
-
-
-Choisissez tous les combien de temps la sonde doit passer sur le parcours
-
-**Timeout d’étape**
-
-Si la sonde passe ce temps sur une étape, la considérer en échec. Un temps trop court pose le risque d’avoir des faux positifs. Un temps trop grand pose le risque de ne pas avoir d’erreur et d’alertes pour des chargements lents.
-
-### URLs en liste noire (exclure Experience Monitoring des statistiques de mesure de trafic)
-
-
-Par défaut, nous excluons les fournisseurs suivants:
+Les domaines suivants sont bloqués par défaut :
 
 - DoubleClick
 - Hotjar
 - Google Analytics
-- Notre propre RUM
+- Centreon RUM
 - Google Ads
 - Google Maps
 
+</TabItem>
+</Tabs>
 
-Pour éviter que la sonde ne compte dans certains de vos outils, vous pouvez lui demander de ne pas envoyer de requête vers des domaines personnalisés.
+## Configuration d'une étape ou d'une action
 
-Cela a 2 intérêts:
+Les parcours utilisateur sont composés d'étapes et d'actions.
+Les étapes représentent une page, tandis que les actions sont tout ce qu'un utilisateur peut faire dans la même page (cliquer sur quelque chose, ouvrir la barre de recherche, etc.).
+Une étape peut contenir plusieurs actions.
 
-- Ne pas compter la sonde dans les statistiques de trafic
-- Empêcher la sonde de charger des éléments avec un prix à l’affichage
-    - Par exemple, Google Maps vous facture un prix basé sur le nombre de requête. Si la sonde accède à une page contenant une carte, vous serez facturé pour cela. Désactiver ce domaine permet de faire des économies.
+> Chaque licence dispose d'un nombre limité d'étapes disponibles à utiliser entre tous les parcours utilisateur. Ces étapes sont partagées entre tous les sites de votre organisation.
+> Pour voir combien d'étapes vous avez de disponibles, accédez à l'onglet **Licences & Sites** dans la page **Organisation**.
 
-Vous pouvez utiliser le joker * pour définir facilement une expression régulière. Par exemple, si vous excluez *https://mon-analyseur-de-trafic.fr/api/v*/**  alors les requêtes, qu’elles soient faites sur la v1, la v2, la v3, etc de cette API, et quelqu’en soit le contenu, seront bloquées par la sonde.
+Étant donné que les actions de navigation sont toujours la seule ou la dernière action d'une étape, et qu'une étape pour accéder à la page d'accueil de votre site est déjà configurée, vous devez maintenant créer une nouvelle étape.
+Pour ce faire, cliquez sur l'icône + sous la première étape.
 
-### Liste des variables
+![image](../../assets/configuration/user-journey/user-journey-add-step.png)
 
-Les variables permettent de donner des informations à la sonde comme des mots de passe, ou des textes à envoyer lors du passage.
+Donnez un nom à cette nouvelle étape et cliquez sur l'icône + à l'intérieur de l'étape pour choisir une action à effectuer.
 
-Par exemple, vous pouvez définir des variables *login* et *password* à insérer sur la page de connexion pour accéder à un espace.
 
-Vous ne pouvez pas faire varier ces variables dans la partie “Parcours Utilisateur”, les variables sont utiles dans 2 cas:
+### Actions possibles dans un parcours utilisateur
 
-- Vous avez besoin de valeurs différentes entre les mesures régulières et les audits de recommandations journaliers
-- Vous avez besoin de valeurs différentes entres les différents navigateurs pendant un test de montée en charge (simuler plusieurs utilisateurs avec des logins différents)
+Il existe 6 actions possibles que la sonde peut effectuer lors d'un parcours utilisateur :
+
+<Tabs groupId="sync">
+<TabItem value="Naviguer" label="Naviguer">
+
+Choisissez une URL vers laquelle naviguer. Cette action est identique à la saisie d'une URL dans la barre d'adresse et à l'accès à cette URL. Un parcours utilisateur commence toujours par une action de navigation.
+Les actions de navigation sont également toujours la seule ou la dernière action d'une étape.
+
+L'URL doit appartenir au domaine autorisé pour votre licence Experience Monitoring.
+
+</TabItem>
+<TabItem value="Cliquer" label="Cliquer">
+
+Cliquez sur un objet de la page sur laquelle vous vous trouvez actuellement. Pour choisir sur quoi cliquer, vous avez deux options :
+
+- Rechercher un élément par son sélecteur CSS.
+- Rechercher du texte
+
+Si vous recherchez par texte, le texte doit appartenir à une seule balise HTML. Notez que du texte qui apparaît visuellement comme une seule phrase peut être réparti sur plusieurs balises. Dans certains cas, ce qui ressemble à du texte peut en réalité être une image de texte ; dans ce cas, vous devez sélectionner l'image comme élément, car la sonde ne reconnaît pas le contenu d'une image.
+
+```html
+<p>Click <span class="emphasis">quickly</span> to see what comes next</p>
+```
+
+```html
+<p>Click quickly to see what comes next</p>
+```
+
+Par défaut, Experience Monitoring recherche la première occurrence du texte ou de l'élément sélectionné. Vous pouvez cliquer sur l'icône crayon sous le champ de texte pour choisir de :
+
+- cliquer sur la première occurrence (par défaut)
+- cliquer sur la deuxième, troisième, etc.
+- cliquer aléatoirement parmi toutes les occurrences.
+
+</TabItem>
+<TabItem value="Survoler" label="Survoler">
+
+Hover utilise les mêmes conditions que Click, mais déplace uniquement la souris sur le texte ou l'élément CSS choisi sans cliquer dessus.
+
+Cette action est utile si des éléments se chargent après que la souris a survolé une partie de l'écran sans avoir besoin d'être cliqués.
+
+Si vous recherchez par texte, le texte doit appartenir à une seule balise HTML. Notez que du texte qui apparaît visuellement comme une seule phrase peut être réparti sur plusieurs balises. Dans certains cas, ce qui ressemble à du texte peut en réalité être une image de texte ; dans ce cas, vous devez sélectionner l'image comme élément, car la sonde ne reconnaît pas le contenu d'une image.
+
+```html
+<p>Click <span class="emphasis">quickly</span> to see what comes next</p>
+```
+
+```html
+<p>Click quickly to see what comes next</p>
+```
+
+Par défaut, Experience Monitoring recherche la première occurrence du texte ou de l'élément sélectionné. Vous pouvez cliquer sur l'icône crayon sous le champ de texte pour choisir de :
+
+- cliquer sur la première occurrence (par défaut)
+- cliquer sur la deuxième, troisième, etc.
+- cliquer aléatoirement parmi toutes les occurrences.
+
+</TabItem>
+<TabItem value="Remplir un formulaire" label="Remplir un formulaire">
+
+Remplissez des champs de texte avec un contenu spécifique. La sonde s'appuie sur les standards HTML pour ce faire.
+
+**Sélecteur CSS du formulaire**
+
+Nécessaire si la page contient plusieurs formulaires, cette option limitera la sonde au formulaire choisi.
+
+**Remplir le champ nommé** : les champs peuvent être sélectionnés par leur nom, leur texte de substitution, leur texte d'étiquette ou par des sélecteurs CSS.
+**avec** : le texte que la sonde saisira dans le champ.
+
+Cliquez sur **Ajouter un champ** pour chaque champ que la sonde doit remplir.
+
+Par défaut, Experience Monitoring soumet le formulaire une fois rempli. Vous pouvez cliquer sur l'icône crayon sous **Ajouter un champ** pour choisir de :
+
+- Soumettre automatiquement (par défaut) : équivalent à appuyer sur Entrée dans un formulaire
+- Désactivé : ne rien faire une fois le formulaire rempli
+- Cliquer sur un texte : utile si le formulaire est soumis ailleurs sur la page
+- Cliquer sur un élément CSS : même idée.
+
+</TabItem>
+<TabItem value="Attendre" label="Attendre">
+
+Parfois, il n'y a pas de meilleure solution qu'attendre qu'une action se produise. Par exemple, si des éléments apparaissent en fondu après 1 seconde, essayer d'ajouter une étape sans action d'attente entraînera l'échec du parcours utilisateur, car la sonde recherche immédiatement des éléments qui ne sont pas encore visibles.
+
+Cette option doit être utilisée en dernier recours et de façon rare, car elle ralentit les statistiques de votre parcours utilisateur.
+
+</TabItem>
+<TabItem value="Exécuter un script" label="Exécuter un script">
+
+Si toutes les autres actions échouent, vous pouvez utiliser cette option pour exécuter du JavaScript dans le navigateur afin de forcer une action. Évitez d'utiliser des scripts pour remplacer d'autres actions, sauf si nécessaire. Notez que le script garantit que l'action est exécutée, mais pas qu'elle réussit ; vous devez donc ajouter une [étape de vérification](#ajouter-une-vérification) après chaque script :
+- DOM : (élément visible, classe modifiée)
+- Réseau : requête attendue (URL, statut HTTP...)
+
+Gardez vos scripts courts, simples et avec des spécifications précises.
+
+</TabItem>
+</Tabs>
+
+## Ajouter une vérification
+
+Il existe une septième action (parfois) facultative que la sonde peut effectuer après chaque autre action.
+Cette action n'apparaît pas parmi les autres actions à sélectionner, mais s'affiche en bas de la fenêtre d'action une fois que l'action a été configurée.
+
+**Ajouter une vérification** permet à la sonde de vérifier que l'action a été correctement exécutée. Vous pouvez ajouter une vérification après chaque action.
+
+Par exemple, imaginez que votre parcours utilisateur simule un utilisateur effectuant des achats sur votre site et passant à la caisse.
+Ajouter une vérification à l'étape « ajouter un article au panier » (c'est-à-dire rechercher du texte confirmant que l'article a été ajouté) vous permet de confirmer que la sonde ajoute bien des articles au panier et ne procède pas à la caisse avec un panier vide.
+
+> Une action de vérification est automatiquement ajoutée pour chaque action **Naviguer** afin de confirmer que la sonde a atteint avec succès l'URL cible. Cette vérification ne peut pas être supprimée.
+> De plus, la dernière action du parcours utilisateur doit comporter au moins une vérification.
+
+#### Confirmer que la navigation a eu lieu
+
+> Cette vérification est ajoutée automatiquement pour une action **Naviguer** et ne peut pas être supprimée.
+
+La sonde vérifie qu'un nouveau document HTML a été correctement chargé, ce qui signifie :
+
+- Le document HTML s'est entièrement chargé
+- Le code de statut de la réponse est 200
+
+Aucune vérification du contenu n'est effectuée.
+
+#### Trouver du texte
+
+> Nous recommandons d'utiliser des sélecteurs CSS car ils sont moins sensibles aux changements de site.
+Si vous ne savez pas comment créer des sélecteurs CSS, vous pouvez rejoindre notre [plateforme communautaire](https://thewatch.centreon.com/) pour demander de l'aide pour configurer votre parcours utilisateur.
+
+Cette vérification utilise la même logique que les actions Click et Hover. Si le texte que vous recherchez existe sur la page après l'action, la vérification réussit.
+
+#### Trouver l'élément CSS
+
+Cette vérification trouve un élément en utilisant son sélecteur CSS. S'il s'agit d'une image, la sonde vérifie également que l'image se charge correctement.
+
+#### Effectuer une requête
+
+Cette vérification valide qu'une requête vers une adresse a été effectuée à un moment donné après l'action. La requête doit réussir ; les redirections sont autorisées.
+
+## Étape ou action échouée
+
+![image](../../assets/configuration/user-journey/failed-step.png)
+
+Lorsque la sonde ne parvient pas à exécuter une étape ou une action, l'étape correspondante est colorée en rouge.
+L'icône « ! » indique où l'échec s'est produit.
+Cliquez sur l'icône pour afficher les détails de ce qui a causé cet échec, avec une capture d'écran de la page où la sonde a échoué.
+Vous pouvez trouver des informations sur ce qui a causé l'échec de cette étape ou action ; pour plus d'informations à ce sujet, lisez notre [guide de dépannage des parcours utilisateur](../../performance-analysis/errors-and-unavailability-front-end.md).

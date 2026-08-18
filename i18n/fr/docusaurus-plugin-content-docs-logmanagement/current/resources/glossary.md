@@ -1,6 +1,7 @@
 ﻿---
 id: glossary
 title: Glossaire des termes Centreon Log Management
+description: Définitions des principaux termes de Centreon Log Management
 ---
 
 ## Évènement d'alerte

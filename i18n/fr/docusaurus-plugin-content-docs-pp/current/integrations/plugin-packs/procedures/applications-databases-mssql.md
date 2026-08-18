@@ -1,6 +1,7 @@
 ---
 id: applications-databases-mssql
 title: Microsoft SQL Server
+description: "Supervisez Microsoft SQL Server avec le plugin Perl Centreon : processus bloqués, deadlocks, sauvegardes, taille des bases et jobs en échec."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
