@@ -45,7 +45,7 @@ The connector brings the following service templates (sorted by the host templat
 | Sql-Statement   | App-DB-Postgres-Sql-Statement-custom   | Check allowing to execute a custom SQL request with a numerical result |           |
 | Statistics      | App-DB-Postgres-Statistics-custom      | Check database statistics                                            |           |
 | Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Check tablespace space usage                    |           |
-| Time-Sync       | App-DB-Postgres-Time-Sync-custom       | Check time between poller and the Postgres server                    |           |
+| Time-Sync       | App-DB-Postgres-Time-Sync-custom       | Check time offset between poller and Postgres server                    |           |
 | Vacuum          | App-DB-Postgres-Vacuum-custom          | Check the execution of Vacuum on a DB for a given amount of days     |           |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
