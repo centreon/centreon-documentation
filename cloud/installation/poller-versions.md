@@ -11,7 +11,7 @@ To know your poller's version, go to **Configuration > Pollers > Pollers**. The 
 ## Which version should my poller have?
 
 * Your poller should be in the latest available version: currently, 25.10.x.
-* Versions 24.04 and 24.10 are compatible with Centreon Cloud, but it is recommended to [upgrade](../installation/poller-update-upgrade.md) it to 25.10.x.
+* Versions 24.04 and 24.10 are compatible with Centreon Cloud, but it is recommended to [upgrade](../installation/poller-update-upgrade.md) to 25.10.x.
 * All older versions are no longer supported and should be [upgraded](../installation/poller-update-upgrade.md).
 
 ## What happens if I do not update?
