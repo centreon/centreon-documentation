@@ -45,7 +45,7 @@ Le connecteur apporte les modèles de service suivants
 | Database-Size   | App-DB-Postgres-Database-Size-custom   | Contrôle la taille des bases de données                                                       | X          |
 | Sql-Statement   | App-DB-Postgres-Sql-Statement-custom   | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique   |            |
 | Statistics      | App-DB-Postgres-Statistics-custom      | Contrôle permettant de vérifier les types de requêtes                                         |            |
-| Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Contrôle permettant de vérifier la différence de temps entre le poller et le serveur Postgres |            |
+| Tablespace-Size | App-DB-Postgres-Tablespace-Size-custom | Contrôle permettant de vérifier l'espace utilisé par des tablespaces |            |
 | Time-Sync       | App-DB-Postgres-Time-Sync-custom       | Contrôle permettant de vérifier la différence de temps entre le poller et le serveur Postgres |            |
 | Vacuum          | App-DB-Postgres-Vacuum-custom          | Contrôle l'exécution du Vacuum sur une BD depuis un nombre de jours donné                     |            |
 
