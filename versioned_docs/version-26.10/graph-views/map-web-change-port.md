@@ -1,6 +1,7 @@
 ---
 id: map-web-change-port
 title: Changing the MAP server's port
+description: "Change the default port used by the Centreon MAP server"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: commands
 title: Les commandes
+description: "Configurer les commandes, listes blanches et connecteurs utilisés pour les contrôles de supervision"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: meta-services
 title: Creating Meta Services
+description: "Aggregate metrics from multiple services into a virtual meta-service"
 ---
 
 ## Definition

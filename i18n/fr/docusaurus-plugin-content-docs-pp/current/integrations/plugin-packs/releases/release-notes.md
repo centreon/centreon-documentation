@@ -1,6 +1,7 @@
 ---
 id: release-notes
 title: Release Notes
+description: "Consultez les notes de version mensuelles des connecteurs de supervision Centreon : nouveaux connecteurs, améliorations, changements majeurs et corrections de bugs."
 ---
 
 import Tabs from '@theme/Tabs';

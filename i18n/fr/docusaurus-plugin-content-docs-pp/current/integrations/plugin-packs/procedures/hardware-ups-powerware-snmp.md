@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-powerware-snmp
 title: Powerware UPS SNMP
+description: "Supervisez les onduleurs Powerware UPS via SNMP : état de la batterie, lignes d'entrée/sortie, environnement et alarmes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

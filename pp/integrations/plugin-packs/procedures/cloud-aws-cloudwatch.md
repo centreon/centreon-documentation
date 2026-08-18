@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-cloudwatch
 title: Amazon CloudWatch
+description: "Monitor Amazon CloudWatch via the AWS API (awscli or paws): track alarm states and custom CloudWatch metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

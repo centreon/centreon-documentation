@@ -1,6 +1,7 @@
 ---
 id: applications-quadstor-nrpe
 title: Quadstor NSClient++ NRPE
+description: "Monitor Quadstor VTL backup appliances via NRPE: disk usage, backup job status, and tape usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

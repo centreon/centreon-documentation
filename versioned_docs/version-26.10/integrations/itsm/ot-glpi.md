@@ -1,6 +1,7 @@
 ---
 id: ot-glpi
 title: GLPI
+description: "Open GLPI tickets using the legacy webservice plugin connector"
 ---
 
 ## How it works

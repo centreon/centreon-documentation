@@ -1,6 +1,7 @@
 ---
 id: secure-platform
 title: Secure your platform
+description: "Harden Centreon with SELinux, firewalls, HTTPS, and other measures"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

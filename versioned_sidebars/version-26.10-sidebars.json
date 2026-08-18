@@ -740,72 +740,129 @@
           },
           "items": [
             {
-              "type": "doc",
-              "id": "graph-views/introduction-map"
+              "type": "category",
+              "label": "Overview",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/introduction-map"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-architecture"
+                }
+              ]
             },
             {
-              "type": "doc",
-              "id": "graph-views/map-web-install"
+              "type": "category",
+              "label": "Setting up MAP",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-install"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-install-remote"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/secure-your-map-platform"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-change-port"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-access"
+                }
+              ]
             },
             {
-              "type": "doc",
-              "id": "graph-views/map-web-install-remote"
+              "type": "category",
+              "label": "Using MAP",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-manage"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-create-standard-map"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-create-geoview"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-understanding-access"
+                },
+                {
+                  "type": "doc",
+                  "id": "api/map-api"
+                }
+              ]
             },
             {
-              "type": "doc",
-              "id": "graph-views/map-web-update"
+              "type": "category",
+              "label": "Administrating MAP",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-update"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-upgrade"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-migrate"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-backup-restore"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-monitoring"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-advanced"
+                }
+              ]
             },
             {
-              "type": "doc",
-              "id": "graph-views/map-web-upgrade"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-access"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-manage"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-create-standard-map"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-create-geoview"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-migrate"
-            },
-           {
-              "type": "doc",
-              "id": "graph-views/map-web-monitoring"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-change-port"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-advanced"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-backup-restore"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-known-issues"
-            },
-            {
-              "type": "doc",
-              "id": "graph-views/map-web-troubleshooting"
-            },
-            {
-              "type": "doc",
-              "id": "api/map-api"
+              "type": "category",
+              "label": "Fixing MAP issues",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-known-issues"
+                },
+                {
+                  "type": "doc",
+                  "id": "graph-views/map-web-troubleshooting"
+                }
+              ]
             }
           ]
         },
@@ -1243,8 +1300,21 @@
                   "id": "cma/cma-setup"
                 },
                 {
-                  "type": "doc",
-                  "id": "cma/cma-certificates"
+                  "type": "category",
+                  "label": "Manual setup (advanced)",
+                  "link": {
+                    "type": "generated-index"
+                  },
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "cma/cma-setup-manual"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "cma/cma-certificates"
+                    }
+                  ]
                 },
                 {
                   "type": "doc",

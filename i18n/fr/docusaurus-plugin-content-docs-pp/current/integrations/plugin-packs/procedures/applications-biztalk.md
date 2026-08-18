@@ -1,6 +1,7 @@
 ---
 id: applications-biztalk
 title: MS Biztalk
+description: "Supervisez Microsoft BizTalk Server via des requêtes SQL sur la base BizTalkMgmtDb pour détecter les receive locations désactivées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

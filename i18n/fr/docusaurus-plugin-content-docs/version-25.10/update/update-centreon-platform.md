@@ -1,6 +1,7 @@
 ---
 id: update-centreon-platform
 title: Mise à jour d'une plateforme Centreon 25.10
+description: "Étapes pour mettre à jour une version mineure de Centreon 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

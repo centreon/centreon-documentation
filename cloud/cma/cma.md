@@ -1,6 +1,7 @@
 ---
 id: cma
 title: Introduction to CMA
+description: "Overview of the Centreon Monitoring Agent (CMA), its use cases, supported OSs and applications, and connection modes"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -71,6 +72,14 @@ The CMA can be installed on and monitor the following OSs:
 
 * You can also [develop your own plugins](cma-custom.md).
 
+## Check period
+
+Hosts monitored by CMA can optionally be assigned a [check period](../monitoring/basic-objects/timeperiods.md). When configured, this period is propagated by Centreon Engine to the agent, which uses it to decide whether a scheduled check should run at any given moment.
+
+> **Timezone alignment constraint**: the timezone of the monitored host machine must be identical to that of the poller (Centreon Engine). A timezone mismatch will cause incorrect behavior in both check scheduling and freshness calculation, without any error message on the engine side.
+
+For full details and the behavior matrix, see [Check period and CMA](../monitoring/basic-objects/timeperiods.md#check-period-and-cma).
+
 ## How do the host and the poller interact?
 
 ### Connection direction
@@ -88,8 +97,8 @@ The two connection directions can be combined within the same poller, depending 
 
 The connection between the poller and the agent must be secure in production. You must use:
 
-- [a TLS connection with certificates](cma-certificates.md)
-- [an authentication token](cma-setup.md#authentication-token).
+- [a TLS connection with certificates](cma-certificates.md). Certificates will be generated automatically if you use the [automatic installation procedure](cma-setup.md).
+- [an authentication token](cma-setup-manual.md#authentication-token).
 
 ### Operating diagram
 

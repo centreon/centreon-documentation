@@ -1,6 +1,7 @@
 ---
 id: network-dell-sseries-snmp
 title: Dell S-series SNMP
+description: "Monitor Dell S-series network switches via SNMP: CPU, memory, hardware health, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

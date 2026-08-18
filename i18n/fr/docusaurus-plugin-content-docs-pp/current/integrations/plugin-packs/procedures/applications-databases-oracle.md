@@ -1,6 +1,7 @@
 ---
 id: applications-databases-oracle
 title: Oracle Database
+description: "Supervisez Oracle Database via des requêtes SQL : utilisation des tablespaces, sauvegardes RMAN, groupes de disques ASM, sessions et connexions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

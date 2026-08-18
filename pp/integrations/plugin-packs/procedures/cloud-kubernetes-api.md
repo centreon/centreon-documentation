@@ -1,6 +1,7 @@
 ---
 id: cloud-kubernetes-api
 title: Kubernetes API
+description: "Monitor Kubernetes clusters via the REST API or kubectl: node health, pod status, deployments, and cluster events."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

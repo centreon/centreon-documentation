@@ -1,6 +1,7 @@
 ---
 id: cloud-openstack-restapi
 title: OpenStack RESTAPI
+description: "Supervisez OpenStack via REST API : hyperviseurs, instances, réseaux, volumes, load balancers et services clés comme Nova, Neutron et Keystone."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

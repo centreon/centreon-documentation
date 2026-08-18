@@ -1,6 +1,7 @@
 ---
 id: centreon-os
 title: Centreon Open Source
+description: "Changelogs for each Centreon Open Source release"
 ---
 
 import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
@@ -13,14 +14,97 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 | Component | Releases |
 |------------|------------|
-| Centreon Web | [24.10.28 (June 24, 2026)](#centreon-web-241028)<br/>[24.10.27 (June 9, 2026)](#centreon-web-241027)<br/>[24.10.26 (June 3, 2026)](#centreon-web-241026)<br/>[24.10.25 (May 26, 2026)](#centreon-web-241025)<br/>[24.10.24 (May 4, 2026)](#centreon-web-241024)<br/>[24.10.23 (March 24, 2026)](#centreon-web-241023)<br/>[24.10.22 (March 16, 2026)](#centreon-web-241022)<br/>[24.10.21 (February 25, 2026)](#centreon-web-241021)<br/>[24.10.20 (February 23, 2026)](#centreon-web-241020)<br/>[24.10.19 (February 10, 2026)](#centreon-web-241019)<br/>[24.10.18 (January 27, 2026)](#centreon-web-241018)<br/>[24.10.17 (January 15, 2026)](#centreon-web-241017)<br/>[24.10.16 (December 31, 2025)](#centreon-web-241016)<br/>[24.10.15 (December 18, 2025)](#centreon-web-241015)<br/>[24.10.14 (November 4, 2025)](#centreon-web-241014)<br/>[24.10.13 (October 7, 2025)](#centreon-web-241013)<br/>[24.10.12 (August 28, 2025)](#centreon-web-241012)<br/>[24.10.11 (August 21, 2025)](#centreon-web-241011)<br/>[24.10.10 (August 11, 2025)](#centreon-web-241010)<br/>[24.10.9 (August 6, 2025)](#centreon-web-24109)<br/>[24.10.8 (June 20, 2025)](#centreon-web-24108)<br/>[24.10.7 (April 22, 2025)](#centreon-web-24107)<br/>[24.10.6 (March 31, 2025)](#centreon-web-24106)<br/>[24.10.5 (March 10, 2025)](#centreon-web-24105)<br/>[24.10.4 (February 12, 2025)](#centreon-web-24104)<br/>[24.10.3 (December 19, 2024)](#centreon-web-24103)<br/>[24.10.2 (November 27, 2024)](#centreon-web-24102)<br/>[24.10.1 (November 8, 2024)](#centreon-web-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-web-24100) |
-| Centreon Collect | [24.10.22 (July 10, 2026)](#centreon-collect-241022)<br/>[24.10.21 (June 24, 2026)](#centreon-collect-241021)<br/>[24.10.20 (May 26, 2026)](#centreon-collect-241020)<br/>[24.10.19 (May 5, 2026)](#centreon-collect-241019)<br/>[24.10.18 (April 22, 2026)](#centreon-collect-241018)<br/>[24.10.17 (March 16, 2026)](#centreon-collect-241017)<br/>[24.10.16 (February 25, 2026)](#centreon-collect-241016)<br/>[24.10.15 (January 27, 2025)](#centreon-collect-241015)<br/>[24.10.14 (December 18, 2025)](#centreon-collect-241014)<br/>[24.10.13 (October 8, 2025)](#centreon-collect-241013)<br/>[24.10.12 (September 9, 2025)](#centreon-collect-241012)<br/>[24.10.11 (August 28, 2025)](#centreon-collect-241011)<br/>[24.10.10 (August 6, 2025)](#centreon-collect-241010)<br/>[24.10.9 (August 6, 2025)](#centreon-collect-24109)<br/>[24.10.8 (July 25, 2025)](#centreon-collect-24108)<br/>[24.10.7 (June 20, 2025)](#centreon-collect-24107)<br/>[24.10.6 (April 10, 2025)](#centreon-collect-24106)<br/>[24.10.5 (March 12, 2025)](#centreon-collect-24105)<br/>[24.10.4 (January 11, 2025)](#centreon-collect-24104)<br/>[24.10.3 (December 18, 2024)](#centreon-collect-24103)<br/>[24.10.2 (November 27, 2024)](#centreon-collect-24102)<br/>[24.10.1 (November 7, 2024)](#centreon-collect-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-collect-24100) |
-| Centreon Monitoring Agent |  [24.10.17 (June 24, 2026)](#centreon-monitoring-agent-241017)<br/>[24.10.16 (May 26, 2026)](#centreon-monitoring-agent-241016)<br/>[24.10.15 (May 5, 2026)](#centreon-monitoring-agent-241015)<br/>[24.10.14 (February 25, 2026)](#centreon-monitoring-agent-241014)<br/>[24.10.13 (January 27, 2026)](#centreon-monitoring-agent-241013)<br/>[24.10.12 (December 18, 2025)](#centreon-monitoring-agent-241012)<br/>[24.10.11 (October 8, 2025)](#centreon-monitoring-agent-241011)<br/>[24.10.10 (September 9, 2025)](#centreon-monitoring-agent-241010)<br/>[24.10.9 (August 28, 2025)](#centreon-monitoring-agent-24109)<br/>[24.10.8 (August 6, 2025)](#centreon-monitoring-agent-24108)<br/>[24.10.7 (August 6, 2025)](#centreon-monitoring-agent-24107)<br/>[24.10.6 (July 25, 2025)](#centreon-monitoring-agent-24106)<br/>[24.10.5 (June 20, 2025)](#centreon-monitoring-agent-24105)<br/>[24.10.0 (October 18, 2024)](#centreon-monitoring-agent-24100) |
+| Centreon Web | [24.10.29 (July 22, 2026)](#centreon-web-241029)<br/>[24.10.28 (June 24, 2026)](#centreon-web-241028)<br/>[24.10.27 (June 9, 2026)](#centreon-web-241027)<br/>[24.10.26 (June 3, 2026)](#centreon-web-241026)<br/>[24.10.25 (May 26, 2026)](#centreon-web-241025)<br/>[24.10.24 (May 4, 2026)](#centreon-web-241024)<br/>[24.10.23 (March 24, 2026)](#centreon-web-241023)<br/>[24.10.22 (March 16, 2026)](#centreon-web-241022)<br/>[24.10.21 (February 25, 2026)](#centreon-web-241021)<br/>[24.10.20 (February 23, 2026)](#centreon-web-241020)<br/>[24.10.19 (February 10, 2026)](#centreon-web-241019)<br/>[24.10.18 (January 27, 2026)](#centreon-web-241018)<br/>[24.10.17 (January 15, 2026)](#centreon-web-241017)<br/>[24.10.16 (December 31, 2025)](#centreon-web-241016)<br/>[24.10.15 (December 18, 2025)](#centreon-web-241015)<br/>[24.10.14 (November 4, 2025)](#centreon-web-241014)<br/>[24.10.13 (October 7, 2025)](#centreon-web-241013)<br/>[24.10.12 (August 28, 2025)](#centreon-web-241012)<br/>[24.10.11 (August 21, 2025)](#centreon-web-241011)<br/>[24.10.10 (August 11, 2025)](#centreon-web-241010)<br/>[24.10.9 (August 6, 2025)](#centreon-web-24109)<br/>[24.10.8 (June 20, 2025)](#centreon-web-24108)<br/>[24.10.7 (April 22, 2025)](#centreon-web-24107)<br/>[24.10.6 (March 31, 2025)](#centreon-web-24106)<br/>[24.10.5 (March 10, 2025)](#centreon-web-24105)<br/>[24.10.4 (February 12, 2025)](#centreon-web-24104)<br/>[24.10.3 (December 19, 2024)](#centreon-web-24103)<br/>[24.10.2 (November 27, 2024)](#centreon-web-24102)<br/>[24.10.1 (November 8, 2024)](#centreon-web-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-web-24100) |
+| Centreon Collect | [24.10.23 (July 22, 2026)](#centreon-collect-241023)<br/>[24.10.22 (July 10, 2026)](#centreon-collect-241022)<br/>[24.10.21 (June 24, 2026)](#centreon-collect-241021)<br/>[24.10.20 (May 26, 2026)](#centreon-collect-241020)<br/>[24.10.19 (May 5, 2026)](#centreon-collect-241019)<br/>[24.10.18 (April 22, 2026)](#centreon-collect-241018)<br/>[24.10.17 (March 16, 2026)](#centreon-collect-241017)<br/>[24.10.16 (February 25, 2026)](#centreon-collect-241016)<br/>[24.10.15 (January 27, 2025)](#centreon-collect-241015)<br/>[24.10.14 (December 18, 2025)](#centreon-collect-241014)<br/>[24.10.13 (October 8, 2025)](#centreon-collect-241013)<br/>[24.10.12 (September 9, 2025)](#centreon-collect-241012)<br/>[24.10.11 (August 28, 2025)](#centreon-collect-241011)<br/>[24.10.10 (August 6, 2025)](#centreon-collect-241010)<br/>[24.10.9 (August 6, 2025)](#centreon-collect-24109)<br/>[24.10.8 (July 25, 2025)](#centreon-collect-24108)<br/>[24.10.7 (June 20, 2025)](#centreon-collect-24107)<br/>[24.10.6 (April 10, 2025)](#centreon-collect-24106)<br/>[24.10.5 (March 12, 2025)](#centreon-collect-24105)<br/>[24.10.4 (January 11, 2025)](#centreon-collect-24104)<br/>[24.10.3 (December 18, 2024)](#centreon-collect-24103)<br/>[24.10.2 (November 27, 2024)](#centreon-collect-24102)<br/>[24.10.1 (November 7, 2024)](#centreon-collect-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-collect-24100) |
+| Centreon Monitoring Agent |  [24.10.18 (July 22, 2026)](#centreon-monitoring-agent-241018)<br/>[24.10.17 (June 24, 2026)](#centreon-monitoring-agent-241017)<br/>[24.10.16 (May 26, 2026)](#centreon-monitoring-agent-241016)<br/>[24.10.15 (May 5, 2026)](#centreon-monitoring-agent-241015)<br/>[24.10.14 (February 25, 2026)](#centreon-monitoring-agent-241014)<br/>[24.10.13 (January 27, 2026)](#centreon-monitoring-agent-241013)<br/>[24.10.12 (December 18, 2025)](#centreon-monitoring-agent-241012)<br/>[24.10.11 (October 8, 2025)](#centreon-monitoring-agent-241011)<br/>[24.10.10 (September 9, 2025)](#centreon-monitoring-agent-241010)<br/>[24.10.9 (August 28, 2025)](#centreon-monitoring-agent-24109)<br/>[24.10.8 (August 6, 2025)](#centreon-monitoring-agent-24108)<br/>[24.10.7 (August 6, 2025)](#centreon-monitoring-agent-24107)<br/>[24.10.6 (July 25, 2025)](#centreon-monitoring-agent-24106)<br/>[24.10.5 (June 20, 2025)](#centreon-monitoring-agent-24105)<br/>[24.10.0 (October 18, 2024)](#centreon-monitoring-agent-24100) |
 | Centreon Gorgone | [24.10.15 (June 24, 2026)](#centreon-gorgone-241015)<br/>[24.10.14 (May 26, 2026)](#centreon-gorgone-241014)<br/>[24.10.13 (April 22, 2026)](#centreon-gorgone-241013)<br/>[24.10.12 (March 16, 2026)](#centreon-gorgone-241012)<br/>[24.10.11 (February 25, 2026)](#centreon-gorgone-241011)<br/>[24.10.10 (January 27, 2025)](#centreon-gorgone-241010)<br/>[24.10.9 (December 18, 2025)](#centreon-gorgone-24109)<br/>[24.10.8 (October 8, 2025)](#centreon-gorgone-24108)<br/>[24.10.7 (August 11, 2025)](#centreon-gorgone-24107)<br/>[24.10.6 (August 6, 2025)](#centreon-gorgone-24106)<br/>[24.10.5 (June 20, 2025)](#centreon-gorgone-24105)<br/>[24.10.4 (March 12, 2025)](#centreon-gorgone-24104)<br/>[24.10.3 (January 11, 2024)](#centreon-gorgone-24103)<br/>[24.10.2 (December 18, 2024)](#centreon-gorgone-24102)<br/>[24.10.1 (November 27, 2024)](#centreon-gorgone-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-gorgone-24100) |
 | Centreon DSM | [24.10.7 (June 24, 2026)](#centreon-dsm-24107)<br/>[24.10.6 (May 4, 2026](#centreon-dsm-24106)<br/>[24.10.5 (February 25, 2026)](#centreon-dsm-24105)<br/>[24.10.4 (December 18, 2025)](#centreon-dsm-24104)<br/>[24.10.3 (October 7, 2025)](#centreon-dsm-24103)<br/>[24.10.2 (August 6, 2025)](#centreon-dsm-24102)<br/>[24.10.1 (March 10, 2025)](#centreon-dsm-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-dsm-24100) |
-| Centreon Open Tickets | [24.10.13 (June 24, 2026)](#centreon-open-tickets-241013)<br/>[24.10.12 (May 26, 2026)](#centreon-open-tickets-241012)<br/>[24.10.11 (May 4, 2026)](#centreon-open-tickets-241011)<br/>[24.10.10 (March 16, 2026)](#centreon-open-tickets-241010)<br/>[24.10.9 (February 25, 2026)](#centreon-open-tickets-24109)<br/>[24.10.8 (February 23, 2026)](#centreon-open-tickets-24108)<br/>[24.10.7 (January 27, 2026)](#centreon-open-tickets-24107)<br/>[24.10.6 (January 15, 2026)](#centreon-open-tickets-24106)<br/>[24.10.5 (December 18, 2025)](#centreon-open-tickets-24105)<br/>[24.10.4 (October 29, 2025)](#centreon-open-tickets-24104)<br/>[24.10.3 (June 20, 2025)](#centreon-open-tickets-24103)<br/>[24.10.2 (March 10, 2025)](#centreon-open-tickets-24102)<br/>[24.10.1 (December 5, 2024)](#centreon-open-tickets-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-open-tickets-24100) |
+| Centreon Open Tickets | [24.10.15 (July 22, 2026)](#centreon-open-tickets-241015)<br/>[24.10.14 (July 3, 2026)](#centreon-open-tickets-241014)<br/>[24.10.13 (June 24, 2026)](#centreon-open-tickets-241013)<br/>[24.10.12 (May 26, 2026)](#centreon-open-tickets-241012)<br/>[24.10.11 (May 4, 2026)](#centreon-open-tickets-241011)<br/>[24.10.10 (March 16, 2026)](#centreon-open-tickets-241010)<br/>[24.10.9 (February 25, 2026)](#centreon-open-tickets-24109)<br/>[24.10.8 (February 23, 2026)](#centreon-open-tickets-24108)<br/>[24.10.7 (January 27, 2026)](#centreon-open-tickets-24107)<br/>[24.10.6 (January 15, 2026)](#centreon-open-tickets-24106)<br/>[24.10.5 (December 18, 2025)](#centreon-open-tickets-24105)<br/>[24.10.4 (October 29, 2025)](#centreon-open-tickets-24104)<br/>[24.10.3 (June 20, 2025)](#centreon-open-tickets-24103)<br/>[24.10.2 (March 10, 2025)](#centreon-open-tickets-24102)<br/>[24.10.1 (December 5, 2024)](#centreon-open-tickets-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-open-tickets-24100) |
 | Centreon AWIE | [24.10.7 (June 24, 2026)](#centreon-awie-24107)<br/>[24.10.6 (May 4, 2026](#centreon-awie-24106)<br/>[24.10.5 (February 25, 2026)](#centreon-awie-24105)<br/>[24.10.4 (January 26, 2026)](#centreon-awie-24104)<br/>[24.10.3 (December 31, 2025)](#centreon-awie-24103)<br/>[24.10.2 (December 18, 2025)](#centreon-awie-24102)<br/>[24.10.1 (March 10, 2025)](#centreon-awie-24101) |
-| Centreon High Availability | [24.10.2 (December 18, 2025)](#centreon-high-availability-24102)<br/>[24.10.1 (August 6, 2025)](#centreon-high-availability-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-high-availability-24100) |
+| Centreon High Availability | [24.10.4 (August 6, 2026)](#centreon-high-availability-24104)<br/>[24.10.3 (July 22, 2026)](#centreon-high-availability-24103)<br/>[24.10.2 (December 18, 2025)](#centreon-high-availability-24102)<br/>[24.10.1 (August 6, 2025)](#centreon-high-availability-24101)<br/>[24.10.0 (October 31, 2024)](#centreon-high-availability-24100) |
+
+</details>
+
+## August 6, 2026
+
+### Centreon High Availability 24.10.4
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue with the GPG signing of the centreon-ha-common and centreon-ha-web RPM packages.
+
+</details>
+
+## July 22, 2026
+
+### Centreon Web 24.10.29
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Resource status] Performance has been drastically improved for many search use cases.
+- [Upgrade] A dedicated upgrade.log file now fully traces upgrades, making them easier to troubleshoot.
+- [Web] A new logging system has been implemented for centreon-web.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Configuration] Fixed an issue where the '_' character was no longer valid in address definitions.
+- [Configuration] Fixed stream connector (lua) parameters disappearing after deleting one of them in a Broker configuration.
+- [Dashboards] It is now possible for users to share a dashboard with:
+   * contact groups part of a common acl access group.
+   * individual contacts listed in the contact groups they belong to.
+- [Graphs] Non-admin users can now export metaservice performance graphs as CSV.
+- [Host discovery] Importing discovered hosts now reliably completes and reports a genuine status instead of a false success.
+- [Web] Fixed an issue in the extension manager where typing in the search bar or using type/status filters had no effect.
+
+</details>
+
+### Centreon Open Tickets 24.10.15
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Open tickets] Fixed “insufficient privileges” error occurring when opening a ticket from a custom view without notification rules access.
+
+</details>
+
+### Centreon Collect 24.10.23
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Broker] Fixed an issue where cbd was storing old connections that no longer existed.
+- [Broker] Fixed an issue where centreon-broker could lose monitoring data during database purge operations caused by a MariaDB 10.11.11 regression (empty error packets).
+
+</details>
+
+### Centreon Monitoring Agent 24.10.18
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [CMA] The File native check now supports alert triggering on empty result sets, allowing you to detect missing files or empty directories using warning-status and critical-status conditions.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [CMA] Fixed an issue where the agent failed to start with hostnames less than 5 characters long.
+
+</details>
+
+### Centreon High Availability 24.10.3
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Packaging] Added a dependency to the **bc** package.
+- [Packaging] The **centreon** user can now reload **cbd-sql** and **cbd** together.
 
 </details>
 
@@ -32,6 +116,17 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
   <summary>Bug fixes</summary>
 
 - [Broker] Fixed a crash caused by a dangling pointer that occurred when the cache file grew and was moved to a new location in memory.
+  
+ </details>
+
+## July 3, 2026
+
+### Centreon Open Tickets 24.10.14
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. More details on [our community platform The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
 
 </details>
 

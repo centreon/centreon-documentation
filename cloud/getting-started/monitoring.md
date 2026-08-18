@@ -1,6 +1,7 @@
 ---
 id: monitoring
 title: How do I monitor my first host?
+description: "How to configure and monitor your first host in Centreon Cloud by linking it to a poller and a Monitoring Connector template"
 ---
 
 Make sure you have read [Centreon basics](concepts.md) before monitoring your first host.

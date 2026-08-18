@@ -1,6 +1,7 @@
 ---
 id: network-switchs-cisco-smallbusiness-standard-snmp
 title: Cisco Small Business SNMP
+description: "Supervisez les switchs Cisco Small Business en SNMP : CPU, environnement, erreurs de paquets, Spanning Tree, stack et trafic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

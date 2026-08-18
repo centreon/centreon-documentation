@@ -1,6 +1,7 @@
 ---
 id: network-switchs-aruba-standard-snmp
 title: Aruba Standard SNMP
+description: "Monitor Aruba wireless controllers and access points via SNMP, tracking CPU, memory, hardware, license status, and traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

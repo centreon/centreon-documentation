@@ -1,6 +1,7 @@
 ---
 id: applications-gorgone-restapi
 title: Gorgone Restapi
+description: "Monitor the Centreon Gorgone daemon via its REST API: track event counts and node status and connectivity."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

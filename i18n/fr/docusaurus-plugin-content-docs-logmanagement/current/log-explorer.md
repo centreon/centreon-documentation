@@ -1,12 +1,12 @@
 ﻿---
 id: log-explorer
-title: Utiliser log explorer
-description: Rechercher et filtrer les logs dans log explorer pour analyser les causes profondes
+title: Utiliser Log explorer
+description: Rechercher et filtrer les logs dans Log explorer pour analyser les causes profondes
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-La page **Log explorer** page vous permet de rechercher et de filtrer les logs afin que vous puissiez investiguer les problèmes et effectuer une analyse de leurs causes profondes.
+La page **Log explorer** vous permet de rechercher et de filtrer les logs pour analyser les problèmes et identifier leurs causes profondes.
 
 ## Période de temps
 
@@ -25,15 +25,15 @@ Le panneau **Filters** liste tous les attributs OpenTelemetry présents dans vos
 
 ### Barre de recherche
 
-Utilisez la barre de recherche pour filtrer vos logs. La barre de recherche propose deux modes (utilisez le bouton à droite pour sélectionner celui de votre choix) :
+Utilisez la barre de recherche pour filtrer vos logs. Celle-ci propose deux modes (utilisez le bouton à droite pour sélectionner celui de votre choix) :
 
 * En mode **Query builder**, des blocs vous permettent de construire votre recherche étape par étape : ajoutez un bloc, sélectionnez des noms d'attributs et des valeurs, puis des éléments de syntaxe tels que AND, OR et NOT. Cliquez sur le signe **+** dans la barre de recherche pour ajouter un bloc vide.
 
    ![image](./assets/log_explorer_full.png)
 
-* En mode éditeur de requête:
+* En mode éditeur de requêtes :
 
-   * Saisissez directement votre recherche en utilisant la [syntaxe de requête](query-syntax.md). L'autocomplete et la détection d'erreurs vous aident à rédiger vos requêtes plus rapidement et à éviter les erreurs. Survolez une erreur signalée pour afficher des explications et des suggestions. Les erreurs (en rouge) indiquent que la requête ne fonctionnera pas. Les avertissements (en orange) indiquent que la requête peut fonctionner, mais que les résultats risquent de ne pas correspondre à ce que vous attendiez. Par exemple, si vous tapez **and** au lieu de **AND**, la requête recherchera la chaîne **and** dans le corps du message au lieu de l'utiliser comme opérateur booléen.
+   * Saisissez directement votre recherche en utilisant la [syntaxe de requête](query-syntax.md). L'autocomplétion et la détection d'erreurs vous aident à rédiger vos requêtes plus rapidement et à éviter les erreurs. Survolez une erreur signalée pour afficher des explications et des suggestions. Les erreurs (en rouge) indiquent que la requête ne fonctionnera pas. Les avertissements (en orange) indiquent que la requête peut fonctionner, mais que les résultats risquent de ne pas correspondre à ce que vous attendiez. Par exemple, si vous tapez **and** au lieu de **AND**, la requête recherchera la chaîne **and** dans le corps du message au lieu de l'utiliser comme opérateur booléen.
    * Cliquez sur le bouton **Ask AI** à droite dans la barre de recherche. Dans le champ qui s'affiche, saisissez votre requête avec vos propres mots et dans la langue de votre choix, puis cliquez sur **Apply and search**. Cela générera une requête avec la syntaxe correcte dans l'éditeur de requêtes : vous pouvez la modifier pour l'enrichir si vous le souhaitez. C'est un bon moyen d'apprendre la [syntaxe des requêtes](query-syntax.md).
 
       > Les réponses de l'IA peuvent être inexactes ou incomplètes. Vérifiez toujours les résultats.
@@ -50,7 +50,34 @@ Cliquez sur un log pour afficher toutes les informations associées dans le pann
 
 * Vous pouvez ouvrir plusieurs logs dans le panneau.
 * Copiez ou téléchargez l'intégralité du log au format JSON depuis la section **Raw OTel log**.
-* La barre de recherche regarde dans les noms et les valeurs des attributs.
+* La recherche porte sur les noms et les valeurs des attributs.
+
+## Enregistrer ou charger une vue
+
+Les vues enregistrées (Bookmarked views) vous permettent de sauvegarder une configuration complète de Log Explorer — requête, plage temporelle et disposition des colonnes — sous un seul nom. Plutôt que de reconstruire la même requête à chaque session, vous pouvez recharger un contexte d'investigation sauvegardé en un clic.
+
+Vous pouvez choisir comment la période est enregistrée : relative (par exemple « dernière 1h », qui se réexécute en direct au chargement) ou fixe (horodatages exacts).
+
+### Enregistrer une vue
+
+1. Définissez votre requête, votre plage temporelle et vos colonnes dans Log Explorer comme d'habitude, puis cliquez sur le bouton de la barre d'outils **Bookmark or load a view**.
+2. Cliquez sur **Bookmark this view**.
+3. Nommez votre vue, puis sélectionnez un mode temporel. Si votre vue a une période relative (« dernières `n` minutes/heures »), choisissez comment vous souhaitez que la période soit enregistrée :
+
+   * **Relative** : idéale pour les opérations quotidiennes et la surveillance : la vue affiche toujours les données les plus récentes, en réexécutant la même fenêtre relative (par exemple « dernière 1h ») à chaque chargement.
+   * **Absolute** : la période fixe est idéale pour l'analyse post-incident : des horodatages exacts vous donnent une vue reproductible de ce qui s'est passé.
+
+5. Cliquez sur **Bookmark**. La vue enregistrée est sauvegardée.
+
+### Charger une vue enregistrée
+
+1. Cliquez sur le bouton de la barre d'outils **Bookmark or load a view**.
+2. Dans la liste des vues enregistrées, cliquez sur la vue souhaitée : la requête, les colonnes et la plage temporelle sont toutes appliquées automatiquement. Log Explorer se remplit immédiatement avec les résultats.
+
+### Partager une vue enregistrée
+
+1. Cliquez sur le bouton de la barre d'outils **Bookmark or load a view**.
+2. Dans la liste des vues enregistrées, cliquez sur les 3 points à droite d'une vue, puis cliquez sur **Copy link** pour générer une URL partageable — utile pour la coller dans votre outil de messagerie instantanée ou un ticket d'incident.
 
 ## Résumé automatique (Log summary)
 
@@ -69,6 +96,6 @@ Cliquez sur le bouton **Log summary** situé à côté du sélecteur de plage ho
 * Utilisez le bouton **Search and add column** en haut à droite des résultats pour choisir les colonnes/attributs que vous souhaitez afficher.
 * Dans cette fenêtre, vous pouvez rétablir l'affichage par défaut de trois colonnes.
 * La colonne **Time** s'affiche toujours en premier et ne peut pas être désépinglée. Vous pouvez épingler une seule autre colonne en deuxième position.
-* *Vous pouvez faire glisser les colonnes vers une autre position dans le tableau.
+* Vous pouvez faire glisser les colonnes vers une autre position dans le tableau.
 
    ![image](assets/column-management.png)

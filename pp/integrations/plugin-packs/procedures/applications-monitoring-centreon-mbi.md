@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-mbi
 title: Centreon MBI
+description: "Monitor Centreon MBI via NRPE and SNMP: reporting server datawarehouse status, failed jobs, NTP sync, and key process checks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

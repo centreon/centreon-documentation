@@ -1,6 +1,7 @@
 ---
 id: notif-configuration
 title: Configuring notifications
+description: "Configure and troubleshoot host, service, and contact notifications"
 ---
 
 ## Prerequisites

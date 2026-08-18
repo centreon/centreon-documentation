@@ -1,6 +1,7 @@
 ---
 id: applications-solr-jmx
 title: Solr
+description: "Supervisez Apache Solr via JMX (agent Jolokia) : utilisation du cache et performance des request handlers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

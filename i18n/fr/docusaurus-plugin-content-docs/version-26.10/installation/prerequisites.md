@@ -1,6 +1,7 @@
 ---
 id: prerequisites
 title: Prérequis
+description: "Recommandations de dimensionnement pour votre plateforme Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

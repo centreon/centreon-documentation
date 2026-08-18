@@ -1,6 +1,7 @@
 ---
 id: ot-request-tracker-restapi
 title: Request Tracker RestAPI
+description: "Récupérer les files Request Tracker et ouvrir des tickets via l'API Rest"
 ---
 
 ## How it works

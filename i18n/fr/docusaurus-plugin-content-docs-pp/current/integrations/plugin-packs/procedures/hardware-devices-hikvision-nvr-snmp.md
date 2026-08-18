@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-hikvision-nvr-snmp
 title: Hikvision NVR SNMP
+description: "Supervisez les enregistreurs NVR Hikvision via SNMP : espace disque, utilisation mémoire et disponibilité du système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-hp-moonshot-snmp
 title: HP Moonshot SNMP
+description: "Monitor HP Moonshot chassis via SNMP: CPU, memory, and network interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

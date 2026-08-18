@@ -1,6 +1,7 @@
 ---
 id: network-kairos-snmp
 title: Kairos SNMP
+description: "Supervisez les équipements Kairos via SNMP : CPU, mémoire, charge, matériel, uptime, alarmes et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

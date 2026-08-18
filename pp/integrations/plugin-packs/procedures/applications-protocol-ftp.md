@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-ftp
 title: FTP Server
+description: "Monitor FTP servers via login checks, remote command execution, file date tracking, and file counting in directories."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

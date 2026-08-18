@@ -1,6 +1,7 @@
 ---
 id: network-athonet-epc-snmp
 title: Athonet ePC SNMP
+description: "Supervisez l'EPC Athonet (Evolved Packet Core) via SNMP : interfaces, points d'accès (APN), sessions LTE, licence et trafic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

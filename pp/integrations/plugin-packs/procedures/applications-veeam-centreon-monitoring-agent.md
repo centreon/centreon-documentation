@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-centreon-monitoring-agent
 title: Veeam CMA
+description: "Monitor Veeam backup jobs, licenses, repositories, and tape jobs via the Centreon Monitoring Agent (CMA)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: preparing-data
 title: Preparing data for report generation
+description: "Prepare hosts, categories, and time periods before generating MBI reports"
 ---
 
 ## Making your resources available to MBI

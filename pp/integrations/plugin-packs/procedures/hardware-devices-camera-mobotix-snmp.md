@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-camera-mobotix-snmp
 title: Mobotix Camera SNMP
+description: "Monitor Mobotix cameras via SNMP: interface traffic, errors, SD card usage, temperature, illumination, and video framerate."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

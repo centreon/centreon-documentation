@@ -1,6 +1,7 @@
 ---
 id: network-cisco-wlc-snmp
 title: Cisco WLC SNMP
+description: "Monitor Cisco WLC wireless controllers and access points via SNMP: CPU, memory, hardware, AP status, users, and traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

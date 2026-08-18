@@ -1,6 +1,7 @@
 ---
 id: network-cisco-wap-snmp
 title: Cisco Wap SNMP
+description: "Supervisez les points d'accès Wi-Fi Cisco via SNMP : clients connectés, CPU, mémoire, uptime, interfaces et points d'accès virtuels."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

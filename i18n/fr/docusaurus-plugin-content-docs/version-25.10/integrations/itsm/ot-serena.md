@@ -1,6 +1,7 @@
 ---
 id: ot-serena
 title: Serena
+description: "Ouvrir des incidents Serena à partir des alertes de supervision via l'API SOAP"
 ---
 
 ## How it works

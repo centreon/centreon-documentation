@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-f5os-snmp
 title: F5OS SNMP
+description: "Monitor F5OS systems via SNMP: track CPU usage, hardware temperature and fan speed, and memory utilization."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

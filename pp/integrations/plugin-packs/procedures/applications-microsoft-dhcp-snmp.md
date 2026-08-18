@@ -1,6 +1,7 @@
 ---
 id: applications-microsoft-dhcp-snmp
 title: Microsoft DHCP SNMP
+description: "Monitor Microsoft DHCP servers via SNMP, tracking subnet address usage, free addresses, and pending offers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

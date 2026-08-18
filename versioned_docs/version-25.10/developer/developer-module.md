@@ -1,6 +1,7 @@
 ---
 id: developer-module
 title: How to write a module
+description: "Develop and package a custom Centreon module"
 ---
 
 Do you want to create a new module for Centreon or adapt an existing one? You're in the right place!

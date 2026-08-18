@@ -1,6 +1,7 @@
 ---
 id: unattended-install-poller
 title: Unattended installation of a poller
+description: "Install a poller quickly using an unattended script"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

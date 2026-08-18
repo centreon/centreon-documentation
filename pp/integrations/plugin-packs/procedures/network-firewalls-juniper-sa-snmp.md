@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-juniper-sa-snmp
 title: Juniper SA SNMP
+description: "Monitor Juniper SA appliances via SNMP: CPU, memory, swap, disk, log file usage, interface traffic, and connected users."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

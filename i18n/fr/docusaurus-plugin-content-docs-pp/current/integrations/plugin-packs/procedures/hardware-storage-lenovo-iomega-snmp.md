@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-lenovo-iomega-snmp
 title: Lenovo Iomega SNMP
+description: "Supervisez les équipements de stockage Lenovo Iomega via SNMP : CPU, mémoire, matériel, disques et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

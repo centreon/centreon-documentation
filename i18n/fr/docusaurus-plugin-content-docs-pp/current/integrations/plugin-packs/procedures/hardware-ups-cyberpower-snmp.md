@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-cyberpower-snmp
 title: CyberPower Systems UPS SNMP
+description: "Supervisez les onduleurs CyberPower via SNMP : état de la batterie, tension, courant et charge des lignes d'entrée/sortie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
