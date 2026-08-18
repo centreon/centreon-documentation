@@ -24,7 +24,7 @@ Le bouton situé à gauche de la description de chaque période temporelle perme
 
 3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure ou exclure d'une période temporelle des jours spécifiques.
 
-4. Une fois la période de temporelle définie, vous pouvez l'utiliser :
+4. Une fois la période temporelle définie, vous pouvez l'utiliser :
 
     - Dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
     - Dans le champ **Période de notification** d'un hôte, d'un modèle d'hôte, d'un service, d'un groupe de services ou d'un contact, ou bien dans le champ **Période d'escalade** d'une escalade de notifications.
@@ -87,7 +87,7 @@ Le tableau ci-dessous présente quelques exemples possibles :
 | day 1 - 20        | 00:00-24:00             | Toute la journée du premier au 20 de chaque mois             |
 | saturday -1       | 08:00-12:00,14:00-18:45 | Tous les derniers samedi du mois les heures ouvrées          |
 | monday -2         | 00:00-24:00             | Tous les avant derniers lundi du mois toute la journée       |
-| june 6 - june 21  | laisser le champ vide   | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
+| june 6 - june 21  | 00:00-00:00 ou laisser le champ vide   | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
 | june 12           | 00:00-08:00,18:00-24:00 | Superviser chaque 12 juin, sauf entre 8h et 18h              |
 
 > Les périodes d'exception ne sont pas prises en compte dans [BAM](../../service-mapping/introduction.md), et dans les rapports concernant BAM dans [MBI](../../reporting/introduction.md).

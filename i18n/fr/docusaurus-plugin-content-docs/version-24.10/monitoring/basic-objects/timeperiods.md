@@ -24,7 +24,7 @@ Le bouton situé à gauche de la description de chaque période temporelle perme
 
 3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure ou exclure d'une période temporelle des jours spécifiques.
 
-4. Une fois la période de temporelle définie, vous pouvez l'utiliser :
+4. Une fois la période temporelle définie, vous pouvez l'utiliser :
 
     - Dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
     - Dans le champ **Période de notification** d'un hôte, d'un modèle d'hôte, d'un service, d'un groupe de services ou d'un contact, ou bien dans le champ **Période d'escalade** d'une escalade de notifications.
@@ -58,9 +58,12 @@ Le champ **Modèles de période temporelle** vous permet de réutiliser des pér
 
 ### Onglet Période d'exception
 
-L'onglet **Période d'exception** permet d’inclure ou d'exclure des jours exceptionnels. Les plages définies ici surchargent la définition du fonctionnement régulier de la journée.
+L'onglet **Période d'exception** permet d’inclure ou d'exclure des jours exceptionnels.
+Les plages définies ici écrasent la définition du fonctionnement régulier des jours établi dans l'onglet **Informations générales** pour faire l'opposé.
+Par exemple, si votre période temporelle inclut les lundis, ajouter un lundi dans l'onglet d'exception aura pour effet d'exclure ce lundi.
+Cependant, si votre période temporelle n'inclut pas les lundis, ajouter un lundi dans l'onglet d'exception aura pour effet d'inclure ce lundi.
 
-Exemple : Un administrateur souhaite définir une période temporelle qui regroupe les heures de fermeture du bureau, c’est à dire :
+Cas d'usage : Un administrateur souhaite définir une période temporelle qui regroupe les heures de fermeture du bureau, c’est à dire :
 
 * De 18h00 à 07h59 les jours de semaine
 * 24 heures sur 24 les weekends
@@ -84,7 +87,7 @@ Le tableau ci-dessous présente quelques exemples possibles :
 | day 1 - 20        | 00:00-24:00             | Toute la journée du premier au 20 de chaque mois             |
 | saturday -1       | 08:00-12:00,14:00-18:45 | Tous les derniers samedi du mois les heures ouvrées          |
 | monday -2         | 00:00-24:00             | Tous les avant derniers lundi du mois toute la journée       |
-| june 6 - june 21  | laisser le champ vide   | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
+| june 6 - june 21  | 00:00-00:00 ou laisser le champ vide   | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
 | june 12           | 00:00-08:00,18:00-24:00 | Superviser chaque 12 juin, sauf entre 8h et 18h              |
 
 > Les périodes d'exception ne sont pas prises en compte dans [BAM](../../service-mapping/introduction.md), et dans les rapports concernant BAM dans [MBI](../../reporting/introduction.md).
