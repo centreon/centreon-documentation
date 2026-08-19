@@ -119,7 +119,7 @@ docker build \
 
 > `WITH_SDK=true` requires the VMware vSphere Perl SDK and vSAN SDK archives,
 > which you must download yourself from the Broadcom developer portal. See the
-> [prerequisites of the VMware ESX plugin pack](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prerequisites)
+> [prerequisites of the VMware ESX plugin pack](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prerequisites)
 > for instructions on obtaining these files. Building with `WITH_SDK=false`
 > produces a working image, but it cannot decrypt encrypted vCenter
 > credentials.
