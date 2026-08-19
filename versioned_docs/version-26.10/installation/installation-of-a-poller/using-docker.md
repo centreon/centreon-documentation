@@ -104,9 +104,11 @@ generated `docker-compose.yaml` references it as
 `connector-vmware:${VMWARE_TAG:-local}` with `pull_policy: never`, so you must
 build it locally, on the Docker host, before using `--with-vmware`.
 
-From a checkout of the `centreon-plugins` repository:
+Clone the `centreon-plugins` repository and build the image from it:
 
 ```shell
+git clone https://github.com/centreon/centreon-plugins.git
+cd centreon-plugins
 docker build \
   --build-arg PACKAGE_SOURCE=repo \
   --build-arg WITH_SDK=true \
@@ -116,10 +118,11 @@ docker build \
 ```
 
 > `WITH_SDK=true` requires the VMware vSphere Perl SDK and vSAN SDK archives,
-> which you must download yourself from the Broadcom developer portal and
-> place in the `sdks-vmware/` directory (see that directory's `README.md` for
-> details). Building with `WITH_SDK=false` produces a working image, but it
-> cannot decrypt encrypted vCenter credentials.
+> which you must download yourself from the Broadcom developer portal. See the
+> [prerequisites of the VMware ESX plugin pack](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prerequisites)
+> for instructions on obtaining these files. Building with `WITH_SDK=false`
+> produces a working image, but it cannot decrypt encrypted vCenter
+> credentials.
 
 ## Generated files reference
 
