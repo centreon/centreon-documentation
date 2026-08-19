@@ -44,7 +44,7 @@ and runs an installer script on the target Docker host. The script generates the
    <!-- TODO screenshot: docker-generated-command — generated curl command ready to copy -->
 
    ```shell
-   curl -fsSL https://<CENTRAL_URL>/poller/install.sh | bash -s -- \
+   curl -fsSL <CENTRAL_URL>/poller/install.sh | bash -s -- \
      --type docker \
      --poller_token <TOKEN_NAME>:<TOKEN_SECRET> \
      --uid <POLLER_UID> \
@@ -54,7 +54,9 @@ and runs an installer script on the target Docker host. The script generates the
      --salt <SALT>
    ```
 
-   > On an on-prem platform, add `--cloud false` to the command.
+   > Replace **\<CENTRAL_URL\>** with the full URL of your Centreon central
+   > server, including its web application base path (for example,
+   > `https://centreon.example.com/centreon`).
 
 ## Step 2: Run the install command on the Docker host
 
