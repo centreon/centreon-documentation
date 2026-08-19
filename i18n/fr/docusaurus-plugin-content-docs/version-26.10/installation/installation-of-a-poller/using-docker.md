@@ -35,16 +35,16 @@ démarre la stack.
 1. Dans l'interface Centreon, ouvrez le menu **Poller** en haut de l'écran et
    cliquez sur **Create new poller**.
 
-   <!-- TODO screenshot: docker-create-new-poller-button — "Create new poller" button in the header Poller widget -->
+   <!-- TODO screenshot: docker-create-new-poller-button : "Create new poller" button in the header Poller widget -->
 
 2. Sélectionnez l'environnement **Docker Compose**, donnez un nom au
    collecteur, puis générez un token.
 
-   <!-- TODO screenshot: docker-install-command-modal — environment selection (VM/Physical vs Docker Compose), poller name and token fields -->
+   <!-- TODO screenshot: docker-install-command-modal : environment selection (VM/Physical vs Docker Compose), poller name and token fields -->
 
 3. Copiez la commande d'installation générée. Elle ressemble à ceci :
 
-   <!-- TODO screenshot: docker-generated-command — generated curl command ready to copy -->
+   <!-- TODO screenshot: docker-generated-command : generated curl command ready to copy -->
 
    ```shell
    curl -fsSL <CENTRAL_URL>/poller/install.sh | bash -s -- \
@@ -75,8 +75,8 @@ sur l'hôte cible. Le script :
 
 Par défaut, la stack générée comprend toujours deux services :
 
-* **centengine** — Centreon Engine, le moteur de supervision.
-* **gorgone** — Gorgone, chargé de récupérer la configuration du collecteur et
+* **centengine** : Centreon Engine, le moteur de supervision.
+* **gorgone** : Gorgone, chargé de récupérer la configuration du collecteur et
   de communiquer avec le serveur central.
 
 ## Étape 3 : Ajouter des services optionnels
@@ -104,7 +104,7 @@ fichiers `docker-compose.yaml` et `.env` générés, puis relancer
 La supervision d'une infrastructure VMware nécessite le SDK Perl VMware
 propriétaire, qui ne peut pas être redistribué pour des raisons de licence.
 C'est pourquoi l'image du container `centreon-vmware` **n'est pas publiée sur
-un registre** — le `docker-compose.yaml` généré la référence sous la forme
+un registre**. Le `docker-compose.yaml` généré la référence sous la forme
 `connector-vmware:${VMWARE_TAG:-local}` avec `pull_policy: never` : vous devez
 donc la construire localement, sur l'hôte Docker, avant d'utiliser
 `--with-vmware`.
@@ -236,7 +236,7 @@ indique donc `healthy` une fois qu'un service est pleinement opérationnel.
 Une fois la stack démarrée, le collecteur doit apparaître comme connecté dans
 l'interface Centreon.
 
-<!-- TODO screenshot: docker-poller-connected-status — poller shown as connected in the central server UI -->
+<!-- TODO screenshot: docker-poller-connected-status : poller shown as connected in the central server UI -->
 
 Si le collecteur n'apparaît pas comme connecté après quelques minutes,
 vérifiez d'abord les logs du container `gorgone`

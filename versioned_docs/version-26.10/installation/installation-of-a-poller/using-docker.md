@@ -32,16 +32,16 @@ and runs an installer script on the target Docker host. The script generates the
 1. In the Centreon UI, open the **Poller** menu at the top of the screen and
    click **Create new poller**.
 
-   <!-- TODO screenshot: docker-create-new-poller-button — "Create new poller" button in the header Poller widget -->
+   <!-- TODO screenshot: docker-create-new-poller-button : "Create new poller" button in the header Poller widget -->
 
 2. Select the **Docker Compose** environment, give the poller a name, and
    generate a token.
 
-   <!-- TODO screenshot: docker-install-command-modal — environment selection (VM/Physical vs Docker Compose), poller name and token fields -->
+   <!-- TODO screenshot: docker-install-command-modal : environment selection (VM/Physical vs Docker Compose), poller name and token fields -->
 
 3. Copy the generated installation command. It looks like this:
 
-   <!-- TODO screenshot: docker-generated-command — generated curl command ready to copy -->
+   <!-- TODO screenshot: docker-generated-command : generated curl command ready to copy -->
 
    ```shell
    curl -fsSL <CENTRAL_URL>/poller/install.sh | bash -s -- \
@@ -72,8 +72,8 @@ host. The script:
 
 By default, the generated stack always includes two services:
 
-* **centengine** — Centreon Engine, the monitoring engine.
-* **gorgone** — Gorgone, in charge of retrieving the poller's configuration and
+* **centengine**: Centreon Engine, the monitoring engine.
+* **gorgone**: Gorgone, in charge of retrieving the poller's configuration and
   communicating with the central server.
 
 ## Step 3: Add optional services
@@ -99,7 +99,7 @@ and `.env` files, then run `docker compose up -d` again.
 
 Monitoring VMware infrastructure requires the proprietary VMware Perl SDK,
 which cannot be redistributed for licensing reasons. Because of this, the
-`centreon-vmware` container image is **not published on a registry** — the
+`centreon-vmware` container image is **not published on a registry**. The
 generated `docker-compose.yaml` references it as
 `connector-vmware:${VMWARE_TAG:-local}` with `pull_policy: never`, so you must
 build it locally, on the Docker host, before using `--with-vmware`.
@@ -221,7 +221,7 @@ Each service also has a Docker healthcheck, so `docker compose ps` reports
 
 Once the stack is up, the poller should appear connected in the Centreon UI.
 
-<!-- TODO screenshot: docker-poller-connected-status — poller shown as connected in the central server UI -->
+<!-- TODO screenshot: docker-poller-connected-status : poller shown as connected in the central server UI -->
 
 If the poller does not appear connected after a few minutes, check the logs of
 the `gorgone` container first (`docker compose logs gorgone`), then see
