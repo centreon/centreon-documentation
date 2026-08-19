@@ -127,7 +127,7 @@ docker build \
 
 ### Custom checks and plugin dependencies
 
-The `centengine` container can install custom check scripts and extra
+The `centengine` container can install custom check scripts and extra APT
 dependencies without rebuilding the image. Add the corresponding volumes to
 the `centengine` service in the generated `docker-compose.yaml`:
 
@@ -137,8 +137,6 @@ the `centengine` service in the generated `docker-compose.yaml`:
       - ./custom-plugins:/usr/lib/nagios/plugins/custom:ro
       # Extra APT packages, installed at startup
       - ./custom-deps.json:/etc/centreon-engine/custom-deps.json:ro
-      # Centreon monitoring plugins, installed automatically
-      - ./plugins.json:/etc/centreon-engine/plugins.json:ro
 ```
 
 * **Custom plugin scripts** placed in `./custom-plugins` become available
@@ -151,23 +149,18 @@ the `centengine` service in the generated `docker-compose.yaml`:
   }
   ```
 
-* **`plugins.json`** lists Centreon monitoring plugins to install, pinned to a
-  version, for example:
+  This file is read when the container starts, and watched for changes
+  afterward: editing it on the host triggers an automatic install of the
+  listed packages, with no need to restart the container. Package
+  installation runs in the background, so `centengine` is not blocked while
+  it happens.
 
-  ```json
-  {
-    "centreon-plugin-Applications-Monitoring-Centreon-Poller": "1.2.3"
-  }
-  ```
-
-  The container automatically installs the listed Centreon monitoring
-  plugins, updating them if a different version is already installed.
-
-Both files are read when the container starts, and watched for changes
-afterward: editing either file on the host triggers an automatic install of
-the missing or outdated packages, with no need to restart the container.
-Package installation runs in the background, so `centengine` is not blocked
-while it happens.
+> Centreon monitoring plugins (from Monitoring Connectors) don't need to be
+> configured here: Gorgone installs them automatically, in the same shared
+> configuration volume, whenever **Automatic installation of plugins** is
+> enabled on the **Configuration > Connectors > Monitoring Connectors** page
+> and the poller's configuration is deployed from the central server. See
+> [Monitoring Connectors](../../monitoring/pluginpacks.md) for details.
 
 #### Baking dependencies into a custom image
 
@@ -178,7 +171,6 @@ own image on top of the official one and install everything at build time:
 FROM docker.centreon.com/centreon/centreon-engine-trixie:26.10
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-      centreon-plugin-applications-monitoring-centreon-poller \
       snmp \
       jq \
     && rm -rf /var/lib/apt/lists/*
@@ -187,8 +179,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 Build it, then reference it as `ENGINE_TAG` (or override the `image:` value
 directly) in your `docker-compose.yaml`. The main advantage of this approach
 is startup time: when a poller needs many dependencies, installing them once
-at build time is faster than installing them every time the container starts,
-via `custom-deps.json` and `plugins.json`.
+at build time is faster than installing them every time the container starts
+via `custom-deps.json`.
 
 ### Optional: Centreon Monitoring Agent (CMA) support
 

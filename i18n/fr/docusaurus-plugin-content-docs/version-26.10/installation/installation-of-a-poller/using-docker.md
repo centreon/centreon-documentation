@@ -145,8 +145,6 @@ généré :
       - ./custom-plugins:/usr/lib/nagios/plugins/custom:ro
       # Paquets APT supplémentaires, installés au démarrage
       - ./custom-deps.json:/etc/centreon-engine/custom-deps.json:ro
-      # Plugins de supervision Centreon, installés automatiquement
-      - ./plugins.json:/etc/centreon-engine/plugins.json:ro
 ```
 
 * Les **scripts de plugins personnalisés** placés dans `./custom-plugins`
@@ -161,23 +159,20 @@ généré :
   }
   ```
 
-* **`plugins.json`** liste des plugins de supervision Centreon à installer,
-  épinglés à une version, par exemple :
+  Ce fichier est lu au démarrage du container, puis surveillé en continu :
+  le modifier sur l'hôte déclenche automatiquement l'installation des
+  paquets listés, sans avoir besoin de redémarrer le container.
+  L'installation des paquets s'exécute en arrière-plan, ce qui n'interrompt
+  pas `centengine` pendant ce temps.
 
-  ```json
-  {
-    "centreon-plugin-Applications-Monitoring-Centreon-Poller": "1.2.3"
-  }
-  ```
-
-  Le container installe automatiquement les plugins de supervision Centreon
-  listés, en les mettant à jour si une autre version est déjà installée.
-
-Ces deux fichiers sont lus au démarrage du container, puis surveillés en
-continu : modifier l'un de ces fichiers sur l'hôte déclenche automatiquement
-l'installation des paquets manquants ou obsolètes, sans avoir besoin de
-redémarrer le container. L'installation des paquets s'exécute en arrière-plan,
-ce qui n'interrompt pas `centengine` pendant ce temps.
+> Les plugins de supervision Centreon (issus des Connecteurs de supervision)
+> n'ont pas besoin d'être configurés ici : Gorgone les installe
+> automatiquement, dans le même volume de configuration partagé, dès lors que
+> **Installation automatique des plugins** est activée à la page
+> **Configuration > Connecteurs > Connecteurs de supervision** et que la
+> configuration du collecteur est déployée depuis le serveur central.
+> Consultez [Connecteurs de supervision](../../monitoring/pluginpacks.md)
+> pour plus de détails.
 
 #### Intégrer les dépendances dans une image personnalisée
 
@@ -189,7 +184,6 @@ installer au moment du build :
 FROM docker.centreon.com/centreon/centreon-engine-trixie:26.10
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-      centreon-plugin-applications-monitoring-centreon-poller \
       snmp \
       jq \
     && rm -rf /var/lib/apt/lists/*
@@ -200,7 +194,7 @@ directement la valeur `image:`) dans votre `docker-compose.yaml`. L'intérêt
 principal de cette approche est le temps de démarrage : lorsqu'un collecteur
 nécessite de nombreuses dépendances, les installer une seule fois au moment
 du build est plus rapide que de les réinstaller à chaque démarrage du
-container via `custom-deps.json` et `plugins.json`.
+container via `custom-deps.json`.
 
 ### Optionnel : prise en charge du Centreon Monitoring Agent (CMA)
 
