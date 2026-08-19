@@ -161,8 +161,8 @@ généré :
   }
   ```
 
-* **`plugins.json`** liste des paquets de plugins de supervision Centreon à
-  installer, épinglés à un préfixe de version, par exemple :
+* **`plugins.json`** liste des plugins de supervision Centreon à installer,
+  épinglés à une version, par exemple :
 
   ```json
   {
@@ -170,11 +170,37 @@ généré :
   }
   ```
 
+  Le container installe automatiquement les plugins de supervision Centreon
+  listés, en les mettant à jour si une autre version est déjà installée.
+
 Ces deux fichiers sont lus au démarrage du container, puis surveillés en
 continu : modifier l'un de ces fichiers sur l'hôte déclenche automatiquement
 l'installation des paquets manquants ou obsolètes, sans avoir besoin de
 redémarrer le container. L'installation des paquets s'exécute en arrière-plan,
 ce qui n'interrompt pas `centengine` pendant ce temps.
+
+#### Intégrer les dépendances dans une image personnalisée
+
+Plutôt que d'installer les dépendances au démarrage du container, vous pouvez
+construire votre propre image à partir de l'image officielle et tout
+installer au moment du build :
+
+```dockerfile
+FROM docker.centreon.com/centreon/centreon-engine-trixie:26.10
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      centreon-plugin-applications-monitoring-centreon-poller \
+      snmp \
+      jq \
+    && rm -rf /var/lib/apt/lists/*
+```
+
+Construisez-la, puis référencez-la via `ENGINE_TAG` (ou en surchargeant
+directement la valeur `image:`) dans votre `docker-compose.yaml`. L'intérêt
+principal de cette approche est le temps de démarrage : lorsqu'un collecteur
+nécessite de nombreuses dépendances, les installer une seule fois au moment
+du build est plus rapide que de les réinstaller à chaque démarrage du
+container via `custom-deps.json` et `plugins.json`.
 
 ### Optionnel : prise en charge du Centreon Monitoring Agent (CMA)
 

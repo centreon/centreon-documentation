@@ -151,8 +151,8 @@ the `centengine` service in the generated `docker-compose.yaml`:
   }
   ```
 
-* **`plugins.json`** lists Centreon monitoring plugin packages to install,
-  pinned to a version prefix, for example:
+* **`plugins.json`** lists Centreon monitoring plugins to install, pinned to a
+  version, for example:
 
   ```json
   {
@@ -160,11 +160,35 @@ the `centengine` service in the generated `docker-compose.yaml`:
   }
   ```
 
+  The container automatically installs the listed Centreon monitoring
+  plugins, upgrading them if a different version is already installed.
+
 Both files are read when the container starts, and watched for changes
 afterward: editing either file on the host triggers an automatic install of
 the missing or outdated packages, with no need to restart the container.
 Package installation runs in the background, so `centengine` is not blocked
 while it happens.
+
+#### Baking dependencies into a custom image
+
+Instead of installing dependencies at container startup, you can build your
+own image on top of the official one and install everything at build time:
+
+```dockerfile
+FROM docker.centreon.com/centreon/centreon-engine-trixie:26.10
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      centreon-plugin-applications-monitoring-centreon-poller \
+      snmp \
+      jq \
+    && rm -rf /var/lib/apt/lists/*
+```
+
+Build it, then reference it as `ENGINE_TAG` (or override the `image:` value
+directly) in your `docker-compose.yaml`. The main advantage of this approach
+is startup time: when a poller needs many dependencies, installing them once
+at build time is faster than installing them every time the container starts,
+via `custom-deps.json` and `plugins.json`.
 
 ### Optional: Centreon Monitoring Agent (CMA) support
 
