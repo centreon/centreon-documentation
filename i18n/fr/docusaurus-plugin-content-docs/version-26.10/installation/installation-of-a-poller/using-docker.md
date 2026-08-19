@@ -145,7 +145,7 @@ généré :
       - ./custom-plugins:/usr/lib/nagios/plugins/custom:ro
       # Paquets APT supplémentaires, installés au démarrage
       - ./custom-deps.json:/etc/centreon-engine/custom-deps.json:ro
-      # Paquets de plugins de supervision Centreon, installés/mis à jour vers une version cible
+      # Plugins de supervision Centreon, installés automatiquement
       - ./plugins.json:/etc/centreon-engine/plugins.json:ro
 ```
 
@@ -247,7 +247,7 @@ l'interface Centreon.
 Si le collecteur n'apparaît pas comme connecté après quelques minutes,
 vérifiez d'abord les logs du container `gorgone`
 (`docker compose logs gorgone`), puis consultez
-[Attacher un collecteur à un serveur central ou distant](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md)
+[Rattacher un collecteur à un serveur central ou distant](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md)
 et
 [Communications entre les serveurs](../../monitoring/monitoring-servers/communications.md)
 pour plus de détails sur la manière dont les collecteurs s'enregistrent et

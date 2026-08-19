@@ -137,7 +137,7 @@ the `centengine` service in the generated `docker-compose.yaml`:
       - ./custom-plugins:/usr/lib/nagios/plugins/custom:ro
       # Extra APT packages, installed at startup
       - ./custom-deps.json:/etc/centreon-engine/custom-deps.json:ro
-      # Centreon monitoring plugin packages, installed/upgraded to a pinned version
+      # Centreon monitoring plugins, installed automatically
       - ./plugins.json:/etc/centreon-engine/plugins.json:ro
 ```
 
@@ -161,7 +161,7 @@ the `centengine` service in the generated `docker-compose.yaml`:
   ```
 
   The container automatically installs the listed Centreon monitoring
-  plugins, upgrading them if a different version is already installed.
+  plugins, updating them if a different version is already installed.
 
 Both files are read when the container starts, and watched for changes
 afterward: editing either file on the host triggers an automatic install of
