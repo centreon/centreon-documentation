@@ -125,7 +125,7 @@ docker build \
 > `WITH_SDK=true` nécessite les archives du SDK Perl VMware vSphere et du SDK
 > vSAN, que vous devez télécharger vous-même depuis le portail développeur de
 > Broadcom. Consultez les
-> [prérequis du plugin pack VMware ESX](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prerequisites)
+> [prérequis du plugin pack VMware ESX](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prérequis)
 > pour savoir comment obtenir ces fichiers. Déposez les archives téléchargées
 > dans le répertoire `./centreon-plugins/sdks-vmware` avant d'exécuter la
 > commande `docker build` ci-dessus. Construire l'image avec `WITH_SDK=false`
