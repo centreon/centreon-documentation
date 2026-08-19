@@ -132,6 +132,68 @@ docker build \
 > produit une image fonctionnelle, mais celle-ci ne peut pas déchiffrer les
 > identifiants vCenter chiffrés.
 
+### Checks personnalisés et dépendances des plugins
+
+Le container `centengine` peut installer des scripts de check personnalisés
+et des dépendances supplémentaires sans reconstruire l'image. Ajoutez les
+volumes correspondants au service `centengine` dans le `docker-compose.yaml`
+généré :
+
+```yaml
+    volumes:
+      # Scripts de plugins personnalisés (doivent être exécutables)
+      - ./custom-plugins:/usr/lib/nagios/plugins/custom:ro
+      # Paquets APT supplémentaires, installés au démarrage
+      - ./custom-deps.json:/etc/centreon-engine/custom-deps.json:ro
+      # Paquets de plugins de supervision Centreon, installés/mis à jour vers une version cible
+      - ./plugins.json:/etc/centreon-engine/plugins.json:ro
+```
+
+* Les **scripts de plugins personnalisés** placés dans `./custom-plugins`
+  deviennent disponibles sous `/usr/lib/nagios/plugins/custom` à l'intérieur
+  du container.
+* **`custom-deps.json`** liste des paquets APT arbitraires à installer, par
+  exemple :
+
+  ```json
+  {
+    "apt": ["snmp", "jq"]
+  }
+  ```
+
+* **`plugins.json`** liste des paquets de plugins de supervision Centreon à
+  installer, épinglés à un préfixe de version, par exemple :
+
+  ```json
+  {
+    "centreon-plugin-Applications-Monitoring-Centreon-Poller": "1.2.3"
+  }
+  ```
+
+Ces deux fichiers sont lus au démarrage du container, puis surveillés en
+continu : modifier l'un de ces fichiers sur l'hôte déclenche automatiquement
+l'installation des paquets manquants ou obsolètes, sans avoir besoin de
+redémarrer le container. L'installation des paquets s'exécute en arrière-plan,
+ce qui n'interrompt pas `centengine` pendant ce temps.
+
+### Optionnel : prise en charge du Centreon Monitoring Agent (CMA)
+
+Ajoutez `--with-cma` à la commande d'installation pour que `centengine`
+puisse accepter les connexions du Centreon Monitoring Agent via OpenTelemetry
+gRPC. Cela ajoute les éléments suivants au service `centengine` :
+
+```yaml
+    volumes:
+      - ./certs/poller.crt:/etc/pki/poller.crt:ro
+      - ./certs/poller.key:/etc/pki/poller.key:ro
+    ports:
+      - "4317:4317"
+```
+
+Générez les certificats TLS et configurez l'agent en suivant
+[Configurer les certificats](../../cma/cma-certificates.md) et
+[Configurer l’environnement de l’agent](../../cma/cma-setup.md).
+
 ## Référence des fichiers générés
 
 Le `docker-compose.yaml` généré par le script d'installation relie les
