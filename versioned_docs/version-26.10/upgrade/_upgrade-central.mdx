@@ -70,15 +70,11 @@ Centreon 26.10 uses PHP in version 8.4.
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-You need to change the PHP stream from version {props.oldPhpVersion} to 8.4 by executing the following commands and answering **y**
-to confirm:
+You need to install the Remi repo and the switch the PHP stream from version {props.oldPhpVersion} to 8.4 by executing the following commands:
 
 ```shell
-dnf module reset php
-```
-
-```shell
-dnf module enable php:8.4
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf module switch-to php:remi-8.4/common -y
 ```
 
 </TabItem>

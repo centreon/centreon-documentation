@@ -1,33 +1,45 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs groupId="database-sync">
+<Tabs groupId="db">
 <TabItem value="MariaDB" label="MariaDB">
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-mariadb centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install -y centreon-mariadb centreon
+```
+
+```shell
+à déplacer
 systemctl daemon-reload
 systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-mariadb centreon
+```
+
+```shell
+à déplacer
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
 apt install -y centreon-mariadb centreon
+```
+
+```shell
+à déplacer
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -38,8 +50,8 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install -y mysql-server mysql
@@ -52,16 +64,10 @@ systemctl restart mysqld
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-dnf install -y mysql-server mysql
 dnf install -y centreon-mysql centreon
-systemctl enable --now mysqld
-echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
-sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
-systemctl daemon-reload
-systemctl restart mysqld
 ```
 
 </TabItem>
