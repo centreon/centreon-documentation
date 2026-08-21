@@ -67,16 +67,10 @@ To configure a logical dependency, go into the
 
 In this case, we have two types of host that come into play: one or more
 hosts (called master hosts) of which the status controls the execution
-and notification of other hosts (called dependent hosts). If you use the
-Centreon Broker, it is also possible to control the execution and
-notification of services (called dependent services) from master hosts.
+and notification of other hosts (called dependent hosts).
 
 -   The **Name** and **Description** fields indicate the name and the
     description of the dependencies
--   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the dependency links of
-    the master host become unavailable, the dependencies in the process
-    of creation are not taken into account.
 -   The **Execution Failure Criteria** field indicates the statuses of
     the master host(s) preventing the check of the hosts or the
     dependent services
@@ -98,15 +92,10 @@ To configure a logical dependency, go into the
 
 In this case, we have two entities that come into play: the (“master”)
 services, which control the execution, and the notification of other
-(“dependent”) services. If you use Centreon Broker, it is also possible
-to control the execution and the notification of other hosts.
+(“dependent”) services.
 
 -   The **Name** and **Description** fields indicate the name and
     description of the dependencies
--   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the links of dependencies
-    of the master service become unavailable, the dependencies in the
-    process of creation are no longer taken into account.
 -   The **Execution Failure Criteria** field indicates the statuses of
     the master service(s) preventing the check of the hosts or the
     dependent services
@@ -131,10 +120,6 @@ the execution and the notification of other (“dependent”) host groups.
 
 -   The **Name** and **Description** fields indicate the name and the
     description of the dependencies
--   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the links of dependencies
-    of the master host group become unavailable, the dependencies in the
-    process of creation are no longer taken into account.
 -   The **Execution Failure Criteria** field indicates the statuses of
     the master host group(s) preventing the check of the dependent host
     groups
@@ -160,10 +145,6 @@ service groups.
 
 -   The **Name** and **Description** fields indicate the name and the
     description of the dependencies
--   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the links of dependencies
-    of the master service group become unavailable, the dependencies in
-    the creation process are no longer taken into account.
 -   The **Execution Failure Criteria** field indicates the statuses of
     the master service group(s) preventing the check of the dependent
     service groups
@@ -190,10 +171,6 @@ meta-services.
 
 -   The **Name** and **Description** fields indicate the name and
     description of the dependencies
--   The **Parent relationship** field should be ignored if you use the
-    Centreon Engine. If it is enabled, and if the links of dependencies
-    of the master meta-service become unavailable, the dependencies in
-    the creation process are no longer taken into account.
 -   The **Execution Failure Criteria** field Indicates the
     statuses of the meta-master service(s) that will prevent the check
     of the meta-dependent services
