@@ -1,6 +1,7 @@
 ---
 id: network-cisco-meraki-snmp
 title: Cisco Meraki SNMP
+description: "Monitor Cisco Meraki cloud controllers via SNMP, tracking access point device usage with automatic host and service discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

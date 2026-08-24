@@ -1,6 +1,7 @@
 ---
 id: applications-solr-jmx
 title: Solr
+description: "Monitor Apache Solr via JMX (Jolokia agent): cache usage and request handler performance metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

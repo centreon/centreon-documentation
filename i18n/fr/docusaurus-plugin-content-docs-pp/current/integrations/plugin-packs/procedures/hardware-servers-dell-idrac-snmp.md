@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-dell-idrac-snmp
 title: Dell iDRAC SNMP
+description: "Supervisez les serveurs Dell iDRAC via SNMP : statut global et état des composants matériels (ventilateurs, alimentations, température, stockage)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

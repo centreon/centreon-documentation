@@ -1,6 +1,7 @@
 ---
 id: ot-glpi-restapi
 title: GLPI RestAPI
+description: "Ouvrir des tickets GLPI via l'API Rest pour les versions 9.1 et ultérieures"
 ---
 
 ## How it works

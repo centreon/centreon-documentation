@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-ssh
 title: Protocol SSH
+description: "Monitor SSH connectivity to remote servers: track login status and connection response time with Centreon's Protocol SSH connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

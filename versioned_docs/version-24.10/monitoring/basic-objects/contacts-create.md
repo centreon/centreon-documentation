@@ -1,6 +1,7 @@
 ---
 id: contacts-create
 title: Creating contacts/users manually
+description: "Create a user manually and configure notification and authentication settings"
 ---
 
 To create a user, go to **Configuration > Users > Contacts/Users**, then click **Add**.
@@ -15,7 +16,7 @@ To display the matrix of notifications for a user, click **View contact notifica
 * The **Full Name** field contains the last name and first name of the user.
 * The **Email** and **Pager** fields contain the e-mail address and the telephone number of the user, respectively (in
   case of a notification by SMS or call, for instance).
-* The **Contact template used** field allows us to link the contact to a contact template.
+* The **Contact template used** field allows us to link the contact to a contact template. The contact will inherit the template's characteristics. If the contact and the contact template have different values for the same field, the value defined at the contact level takes precedence over the one defined at contact template level.
 * The **Linked to Contact Groups** list associates the contact with one or more groups of contacts.
 * The **Enable Notifications** field allows us to enable the sending of notifications to the user.
 * The **Host / Service Notification Options** field is used to define the statuses to which notifications are sent.

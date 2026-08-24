@@ -1,7 +1,9 @@
 ---
 id: secure-your-mbi-platform
 title: Secure your MBI platform
+description: "Secure the connection between Centreon MBI and your database with TLS"
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

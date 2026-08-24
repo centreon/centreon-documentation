@@ -1,6 +1,7 @@
 ---
 id: network-loadbalancers-netscaler-snmp
 title: Citrix Netscaler SNMP
+description: "Monitor Citrix NetScaler load balancers via SNMP: CPU, memory, storage, health, HA status, VServer status, and traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

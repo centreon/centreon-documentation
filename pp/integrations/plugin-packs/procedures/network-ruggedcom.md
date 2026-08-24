@@ -1,6 +1,7 @@
 ---
 id: network-ruggedcom
 title: Ruggedcom Network SNMP
+description: "Monitor Ruggedcom network switches via SNMP: hardware status, memory, temperature, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

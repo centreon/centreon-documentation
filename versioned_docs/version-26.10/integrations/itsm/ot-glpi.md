@@ -1,6 +1,7 @@
 ---
 id: ot-glpi
 title: GLPI
+description: "Open GLPI tickets using the legacy webservice plugin connector"
 ---
 
 ## How it works
@@ -14,7 +15,7 @@ to open a ticket.
 
 This connector is (at least) compatible with the following Glpi versions:
 
-  - between 8.5 and 9.0
+  - between 8.5 and 9.0, version 10
 
 ## Requirements
 

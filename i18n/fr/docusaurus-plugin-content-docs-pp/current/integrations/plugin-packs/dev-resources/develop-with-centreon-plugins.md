@@ -1,6 +1,7 @@
 ---
 id: develop-with-centreon-plugins
 title: Develop with centreon-plugins
+description: "Configurez le framework centreon-plugins et suivez un tutoriel pas à pas pour développer votre propre plugin et mode personnalisé."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

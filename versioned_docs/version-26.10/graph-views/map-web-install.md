@@ -1,6 +1,7 @@
 ---
 id: map-web-install
 title: Installing MAP
+description: "Install and configure the Centreon MAP engine and web client"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -14,27 +15,7 @@ This topic describes how to install Centreon MAP. We recommend that you install 
 If you need an additional [license](../administration/licenses.md) for Centreon MAP, please contact the [Centreon support
 team](https://support.centreon.com/) to obtain and install your license key.
 
-## Architecture
-
-The diagram below summarizes the MAP architecture.
-
-- You can install Centreon MAP either on a dedicated server or on the central server.
-- Centreon MAP does not require any installation on your machine; this solution is fully available in the Centreon web interface.
-
-
-![image](../assets/graph-views/ng/map-web-schema.png)
-
-**Table of network flows**
-
-| Application    | Source     | Destination               | Port      | Protocol   | Purpose                                             |
-|----------------|------------|---------------------------|-----------|------------|-----------------------------------------------------|
-| Map Server     | Map server | Centreon central broker   | 5758      | TCP        | Get real-time status updates                        |
-| Map Server     | Map server | Centreon MariaDB database | 3306      | TCP        | Retrieve configuration and other data from Centreon |
-| Web            | Map server | Centreon central          | 80/443    | HTTP/HTTPS | Authentication & data retrieval                     |
-| Web interface  | User       | Map server                | 8081/9443 | HTTP/HTTPS | Retrieve views & content                            |
-| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Retrieve Mapbox data                                |
-
-\* *With or without a proxy*
+For more information about the MAP architecture, see the [MAP architecture](map-architecture.md) topic.
 
 ## Prerequisites
 

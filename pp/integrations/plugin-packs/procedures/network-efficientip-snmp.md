@@ -1,6 +1,7 @@
 ---
 id: network-efficientip-snmp
 title: Efficient IP SNMP
+description: "Monitor EfficientIP SOLID servers via SNMP, covering DHCP usage, DNS traffic and DNSSEC validation, and server status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

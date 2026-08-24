@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-loganalytics
 title: Azure Log Analytics
+description: "Supervisez Azure Log Analytics via l'API de gestion en exécutant des requêtes Kusto (KQL) et en suivant le nombre de résultats."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

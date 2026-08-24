@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-tl2000-snmp
 title: Dell TL2000 SNMP
+description: "Monitor Dell TL2000 tape libraries via SNMP by tracking the device's global status with Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

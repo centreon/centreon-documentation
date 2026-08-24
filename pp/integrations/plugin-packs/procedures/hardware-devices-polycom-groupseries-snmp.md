@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-polycom-groupseries-snmp
 title: Polycom GroupSeries SNMP
+description: "Monitor Polycom GroupSeries video conferencing systems via SNMP: hardware status and active conference count."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

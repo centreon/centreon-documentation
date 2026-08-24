@@ -1,6 +1,7 @@
 ---
 id: network-cisco-meraki-snmp
 title: Cisco Meraki SNMP
+description: "Supervisez les contrôleurs cloud Cisco Meraki via SNMP en suivant l'utilisation des points d'accès, avec découverte automatique des hôtes et services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

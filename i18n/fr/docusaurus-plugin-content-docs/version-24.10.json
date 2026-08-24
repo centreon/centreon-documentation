@@ -259,6 +259,26 @@
     "message": "Centreon MAP (Legacy)",
     "description": "The label for category Centreon MAP (Legacy) in sidebar docs"
   },
+  "sidebar.docs.category.Overview": {
+    "message": "Introduction",
+    "description": "The label for category Overview in sidebar docs"
+  },
+  "sidebar.docs.category.Setting up MAP": {
+    "message": "Mettre en place MAP",
+    "description": "The label for category Setting up MAP in sidebar docs"
+  },
+  "sidebar.docs.category.Using MAP": {
+    "message": "Utiliser MAP",
+    "description": "The label for category Using MAP in sidebar docs"
+  },
+  "sidebar.docs.category.Administrating MAP": {
+    "message": "Administrer MAP",
+    "description": "The label for category Administrating MAP in sidebar docs"
+  },
+  "sidebar.docs.category.Fixing MAP issues": {
+    "message": "Résoudre les problèmes MAP",
+    "description": "The label for category Fixing MAP issues in sidebar docs"
+  },
     "sidebar.docs.category.Installing Centreon HA": {
     "message": "Installer Centreon HA",
     "description": "The label for category Installing Centreon HA in sidebar docs"

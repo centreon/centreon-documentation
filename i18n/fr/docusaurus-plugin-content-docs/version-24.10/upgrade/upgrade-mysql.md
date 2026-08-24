@@ -1,6 +1,7 @@
 ---
 id: upgrade-mysql
 title: Mettre à jour MySQL
+description: "Mettre à jour MySQL vers une version compatible avec Centreon 24.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

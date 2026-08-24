@@ -1,6 +1,7 @@
 ---
 id: cloud-gcp-compute-computeengine
 title: Google Compute Engine
+description: "Monitor Google Compute Engine instances via the GCP API: CPU utilization, disk I/O, and network traffic metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

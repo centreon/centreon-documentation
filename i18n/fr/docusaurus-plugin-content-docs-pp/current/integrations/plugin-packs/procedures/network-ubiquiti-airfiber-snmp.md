@@ -1,6 +1,7 @@
 ---
 id: network-ubiquiti-airfiber-snmp
 title: Ubiquiti AirFiber SNMP
+description: "Supervisez vos équipements Ubiquiti AirFiber via SNMP : trafic des interfaces, charge, mémoire et signal radio."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

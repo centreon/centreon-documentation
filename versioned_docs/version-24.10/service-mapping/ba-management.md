@@ -1,6 +1,7 @@
 ---
 id: ba-management
 title: Manage Business Activities
+description: "Configure Business Activities, KPIs, calculation methods, and Business Views"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

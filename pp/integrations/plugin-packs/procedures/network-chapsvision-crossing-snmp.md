@@ -1,6 +1,7 @@
 ---
 id: network-chapsvision-crossing-snmp
 title: ChapsVision CrossinG SNMP
+description: "Monitor ChapsVision CrossinG devices via SNMP: antivirus status and network interface traffic, errors, and status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

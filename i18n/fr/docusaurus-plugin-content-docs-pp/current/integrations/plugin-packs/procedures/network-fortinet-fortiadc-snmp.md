@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiadc-snmp
 title: Fortinet FortiADC SNMP
+description: "Supervisez les appliances Fortinet FortiADC via SNMP : CPU, mémoire, matériel, interfaces, disponibilité, serveurs virtuels et sécurité DDoS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

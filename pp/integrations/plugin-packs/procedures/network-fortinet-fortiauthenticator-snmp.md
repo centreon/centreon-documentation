@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiauthenticator-snmp
 title: Fortinet FortiAuthenticator SNMP
+description: "Monitor Fortinet FortiAuthenticator via SNMP: authentication stats, CPU, memory, disk usage, HA status, and interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: virtualization-proxmox-ve-restapi
 title: Proxmox VE Rest API
+description: "Supervisez Proxmox VE via l'API REST : utilisation des nœuds, du stockage et des VMs avec le connecteur Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

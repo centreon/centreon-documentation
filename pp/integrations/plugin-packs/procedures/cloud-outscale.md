@@ -1,6 +1,7 @@
 ---
 id: cloud-outscale
 title: Outscale API
+description: "Monitor Outscale cloud resources via the OSC CLI API: virtual machines, volumes, VPN connections, load balancers, and more."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

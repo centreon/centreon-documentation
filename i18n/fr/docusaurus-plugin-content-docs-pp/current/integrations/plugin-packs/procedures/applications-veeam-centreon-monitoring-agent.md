@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-centreon-monitoring-agent
 title: Veeam CMA
+description: "Supervisez les jobs de sauvegarde Veeam, les licences, les dépôts et les jobs sur bande via l'agent de supervision Centreon (CMA)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

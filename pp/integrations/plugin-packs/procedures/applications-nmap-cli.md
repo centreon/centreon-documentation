@@ -1,6 +1,7 @@
 ---
 id: applications-nmap-cli
 title: Nmap CLI Discovery
+description: "Install and configure the Nmap CLI Discovery connector to automatically discover devices, servers, and services on your network."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

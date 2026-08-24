@@ -133,7 +133,7 @@ Vous pouvez choisir une icône pour la BA et ajouter une description, ces deux �
 
 5. Vous devez également assigner la BA à une [Vue Métier](#vue-métier) (BV) ou la BA ne sera pas visible.
 
-> Lorsque vous cliquerez sur **Créer**, un nouveau panneau s'ouvrira sur le côté où vous devrez configurer plusieurs sections pour avoir un indicateur aggrégé.
+> Après avoir cliqué sur **Enregistrer**, vous serez redirigé vers l'écran principal présentant l'arbre des BA. Vous pouvez interagir directement à partir de cette arbre pour configurer chaque élément.
 
 #### Indicateurs
 

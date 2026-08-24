@@ -1,6 +1,7 @@
 ---
 id: applications-databases-informix
 title: Informix DB
+description: "Supervisez les bases de données IBM Informix via des requêtes SQL : checkpoints, utilisation des dbspaces, sessions et locks de tables."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

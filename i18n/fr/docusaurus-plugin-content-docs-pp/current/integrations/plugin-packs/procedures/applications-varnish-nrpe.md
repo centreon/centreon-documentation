@@ -1,6 +1,7 @@
 ---
 id: applications-varnish-nrpe
 title: Varnish NRPE
+description: "Supervisez les serveurs de cache Varnish via NRPE en suivant les hits de cache, les connexions backend, les sessions et les threads."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

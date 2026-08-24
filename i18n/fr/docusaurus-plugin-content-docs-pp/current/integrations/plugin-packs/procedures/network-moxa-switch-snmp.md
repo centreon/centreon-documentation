@@ -1,6 +1,7 @@
 ---
 id: network-moxa-switch-snmp
 title: Moxa Switch SNMP
+description: "Supervisez les commutateurs Moxa via SNMP : utilisation CPU et mémoire, trafic et statut des interfaces, et disponibilité (uptime)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

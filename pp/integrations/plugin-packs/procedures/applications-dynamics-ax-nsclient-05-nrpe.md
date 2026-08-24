@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-ax-nsclient-05-nrpe
 title: Dynamics AX NSClient 0.5 NRPE
+description: "Monitor Dynamics AX via NSClient++ and NRPE, tracking RIS import file processing and the RecurringIntegrationsScheduler service."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

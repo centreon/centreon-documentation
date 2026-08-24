@@ -1,6 +1,7 @@
 ---
 id: installation
 title: Installer MBI
+description: "Installer et configurer le serveur de reporting et l'interface de Centreon MBI"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -53,14 +54,6 @@ entre le serveur BI dédié, le serveur Centreon et les bases de données :
 | CBIS            | Serveur de reporting     | Serveur Centreon                     | 80       | HTTP*        |
 | CBIS            | Centreon                 | Serveur de reporting                 | 1234     | TCP          |
 | Widgets         | Serveur central Centreon | Serveur de reporting                 | 3306     | TCP          |
-=======
-| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocole**      | **Objet**                                                  |
-|-----------------|--------------------------|--------------------------------------|--------------|--------------------|------------------------------------------------------------|
-| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Récupérer la configuration et d'autres données de Centreon |
-| SSH             | Reporting server         | Centreon Server                      | 22           | TCP                | Envoyer les rapports générés au serveur central            |
-| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentification et récupération des données               |
-| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Utilisé pour contacter CBIS afin de créer des jobs         |
-| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Récupération des données agrégées pour les widgets        |
 
 \**Uniquement requis pour les rapports Host-Graph-v2 et Hostgroup-Graph-v2 qui utilisent l'API Centreon pour générer des graphiques.*
 
@@ -152,7 +145,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 
 #### Couche Matériel
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
 | Élément                     | Valeur     |
@@ -253,7 +246,27 @@ Votre serveur MBI doit être partitionné de la manière suivante :
 | vg_data |   | Espace libre (non alloué) | 5 Go                               |
 
 </TabItem>
-<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
+<TabItem value="Jusqu'à 20 000 hôtes" label="Jusqu'à 20 000 hôtes">
+
+| Élément | Valeur  |
+| ------- | ------- |
+| CPU     | 16 vCPU |
+| RAM     | 64 Go   |
+
+Voici comment votre serveur MBI doit être partitionné :
+
+| Groupe de volumes (LVM) | Partition | Description                         | Taille   |
+| ----------------------- | ------------------- | ----------------------------------- | -------- |
+|                         | /boot               | images de boot                 | 2 Go     |
+| vg_root                 | /                   | racine du système                   | 20 Go    |
+| vg_root                 | swap                | swap             | 8 Go     |
+| vg_root                 | /var/log            | contient tous les fichiers de log | 10 Go    |
+| vg_data                 | /var/lib/mysql      | base de données                     | 8 462 Go |
+| vg_data                 | /var/backup         | répertoire de sauvegarde            | 10 Go    |
+| vg_data                 |                     | espace libre (non alloué)           | 5 Go     |
+
+</TabItem>
+<TabItem value="Plus de 20 000 hôtes" label="Plus de 20 000 hôtes">
 
 Pour de grosses volumétries de données, contactez votre commercial Centreon.
 

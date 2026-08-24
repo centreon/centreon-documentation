@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-schleifenbauer-gateway-snmp
 title: Schleifenbauer Gateway SNMP
+description: "Supervisez les PDU Schleifenbauer Gateway via SNMP : température, humidité et état des sondes de contact."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
