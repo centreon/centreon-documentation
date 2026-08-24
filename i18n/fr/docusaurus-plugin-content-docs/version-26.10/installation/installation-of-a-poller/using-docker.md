@@ -44,9 +44,10 @@ démarre la stack.
 
    ![image](../../assets/installation/create-poller-ui.png)
 
-3. Copiez la commande d'installation générée. Elle ressemble à ceci :
+3. Copiez la commande d'installation générée, et laissez cette fenêtre
+   ouverte. Elle ressemble à ceci :
 
-   <!-- TODO screenshot: docker-generated-command : generated curl command ready to copy -->
+   ![image](../../assets/installation/create-poller-ui-with-command.png)
 
    ```shell
    curl -fsSL <CENTRAL_URL>/poller/install.sh | bash -s -- \
@@ -233,16 +234,22 @@ besoin de configurer cela vous-même :
 Chaque service dispose également d'un healthcheck Docker : `docker compose ps`
 indique donc `healthy` une fois qu'un service est pleinement opérationnel.
 
-## Étape 4 : Vérifier le collecteur
+## Étape 4 : Confirmer la connexion et exporter la configuration
 
-Une fois la stack démarrée, le collecteur doit apparaître comme connecté dans
-l'interface Centreon.
+L'interface Centreon n'affiche pas de statut "connecté" pour le collecteur.
+Vérifiez plutôt l'état de santé du container `gorgone` sur l'hôte Docker :
 
-<!-- TODO screenshot: docker-poller-connected-status : poller shown as connected in the central server UI -->
+```shell
+docker compose ps
+```
 
-Si le collecteur n'apparaît pas comme connecté après quelques minutes,
-vérifiez d'abord les logs du container `gorgone`
-(`docker compose logs gorgone`), puis consultez
+Une fois que `gorgone` indique `healthy`, la connexion avec le serveur
+central est établie. Retournez sur la fenêtre de création du collecteur et
+cliquez sur **Export configuration** pour envoyer la configuration de
+supervision au collecteur.
+
+Si `gorgone` ne passe pas à l'état `healthy` après quelques minutes,
+vérifiez d'abord ses logs (`docker compose logs gorgone`), puis consultez
 [Rattacher un collecteur à un serveur central ou distant](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md)
 et
 [Communications entre les serveurs](../../monitoring/monitoring-servers/communications.md)

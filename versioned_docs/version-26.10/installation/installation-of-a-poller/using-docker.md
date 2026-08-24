@@ -40,9 +40,10 @@ and runs an installer script on the target Docker host. The script generates the
 
    ![image](../../assets/installation/create-poller-ui.png)
 
-3. Copy the generated installation command. It looks like this:
+3. Copy the generated installation command, and keep this window open. It
+   looks like this:
 
-   <!-- TODO screenshot: docker-generated-command : generated curl command ready to copy -->
+   ![image](../../assets/installation/create-poller-ui-with-command.png)
 
    ```shell
    curl -fsSL <CENTRAL_URL>/poller/install.sh | bash -s -- \
@@ -218,14 +219,21 @@ yourself:
 Each service also has a Docker healthcheck, so `docker compose ps` reports
 `healthy` once a service is fully up.
 
-## Step 4: Verify the poller
+## Step 4: Confirm the connection and export the configuration
 
-Once the stack is up, the poller should appear connected in the Centreon UI.
+The Centreon UI does not display a "connected" status for the poller. Instead,
+check the health status of the `gorgone` container on the Docker host:
 
-<!-- TODO screenshot: docker-poller-connected-status : poller shown as connected in the central server UI -->
+```shell
+docker compose ps
+```
 
-If the poller does not appear connected after a few minutes, check the logs of
-the `gorgone` container first (`docker compose logs gorgone`), then see
+Once `gorgone` reports `healthy`, the connection to the central server is
+established. Go back to the poller creation window and click
+**Export configuration** to push the monitoring configuration to the poller.
+
+If `gorgone` does not become healthy after a few minutes, check its logs
+(`docker compose logs gorgone`), then see
 [Attach a poller to a central or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md)
 and [Communications between servers](../../monitoring/monitoring-servers/communications.md)
 for more details on how pollers register and communicate with the central
