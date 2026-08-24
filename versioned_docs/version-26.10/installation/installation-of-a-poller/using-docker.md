@@ -34,11 +34,23 @@ and runs an installer script on the target Docker host. The script generates the
 
    ![image](../../assets/installation/create-poller-banner.png)
 
-2. Fill in the poller's name and address, and the Centreon Central address as
-   seen by this poller. Select the **Container** environment and an existing
-   token, then click the button to generate the installation command.
+2. Fill in the poller's information, select its environment and token, then
+   generate the installation command:
 
    ![image](../../assets/installation/create-poller-ui.png)
+
+   1. **Poller name**: a unique name for this poller.
+   2. **Poller address**: the poller's own address (see note below).
+   3. **Centreon Central address, as seen by this poller**: the URL this
+      poller uses to reach the central server.
+   4. **Container**: the environment to generate the command for (as opposed
+      to **VM or physical**).
+   5. **Select token**: an existing Gorgone poller token.
+   6. The button that generates the installation command.
+
+   > The **Poller address** does not affect connectivity: Gorgone uses
+   > PullWSS, so the poller always initiates the connection to the central
+   > server, not the other way around.
 
 3. Copy the generated installation command, and keep this window open. It
    looks like this:

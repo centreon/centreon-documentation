@@ -37,12 +37,24 @@ démarre la stack.
 
    ![image](../../assets/installation/create-poller-banner.png)
 
-2. Renseignez le nom et l'adresse du collecteur, ainsi que l'adresse du
-   Centreon Central telle que vue par ce collecteur. Sélectionnez
-   l'environnement **Container** et un token existant, puis cliquez sur le
-   bouton pour générer la commande d'installation.
+2. Renseignez les informations du collecteur, sélectionnez son environnement
+   et son token, puis générez la commande d'installation :
 
    ![image](../../assets/installation/create-poller-ui.png)
+
+   1. **Poller name** : un nom unique pour ce collecteur.
+   2. **Poller address** : l'adresse propre du collecteur (voir la remarque
+      ci-dessous).
+   3. **Centreon Central adress, as seen by this poller** : l'URL utilisée
+      par ce collecteur pour joindre le serveur central.
+   4. **Container** : l'environnement pour lequel générer la commande (par
+      opposition à **VM or physical**).
+   5. **Select token** : un token de collecteur Gorgone existant.
+   6. Le bouton qui génère la commande d'installation.
+
+   > Le champ **Poller address** n'a pas d'impact sur la connectivité :
+   > Gorgone utilise PullWSS, le collecteur initie donc toujours la
+   > connexion vers le serveur central, jamais l'inverse.
 
 3. Copiez la commande d'installation générée, et laissez cette fenêtre
    ouverte. Elle ressemble à ceci :
