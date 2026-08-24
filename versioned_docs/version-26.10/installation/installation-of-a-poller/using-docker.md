@@ -221,8 +221,9 @@ Each service also has a Docker healthcheck, so `docker compose ps` reports
 
 ## Step 4: Confirm the connection and export the configuration
 
-The Centreon UI does not display a "connected" status for the poller. Instead,
-check the health status of the `gorgone` container on the Docker host:
+The poller creation window does not show a "connected" status by itself.
+Instead, check the health status of the `gorgone` container on the Docker
+host:
 
 ```shell
 docker compose ps
@@ -231,6 +232,10 @@ docker compose ps
 Once `gorgone` reports `healthy`, the connection to the central server is
 established. Go back to the poller creation window and click
 **Export configuration** to push the monitoring configuration to the poller.
+
+The poller then shows up as running on the **Configuration > Pollers** page:
+
+![image](../../assets/installation/connected-poller.png)
 
 If `gorgone` does not become healthy after a few minutes, check its logs
 (`docker compose logs gorgone`), then see

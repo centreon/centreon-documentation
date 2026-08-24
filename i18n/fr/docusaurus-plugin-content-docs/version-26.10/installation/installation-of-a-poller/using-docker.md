@@ -236,8 +236,9 @@ indique donc `healthy` une fois qu'un service est pleinement opérationnel.
 
 ## Étape 4 : Confirmer la connexion et exporter la configuration
 
-L'interface Centreon n'affiche pas de statut "connecté" pour le collecteur.
-Vérifiez plutôt l'état de santé du container `gorgone` sur l'hôte Docker :
+La fenêtre de création du collecteur n'affiche pas de statut "connecté" par
+elle-même. Vérifiez plutôt l'état de santé du container `gorgone` sur l'hôte
+Docker :
 
 ```shell
 docker compose ps
@@ -247,6 +248,11 @@ Une fois que `gorgone` indique `healthy`, la connexion avec le serveur
 central est établie. Retournez sur la fenêtre de création du collecteur et
 cliquez sur **Export configuration** pour envoyer la configuration de
 supervision au collecteur.
+
+Le collecteur apparaît alors comme actif sur la page
+**Configuration > Pollers** :
+
+![image](../../assets/installation/connected-poller.png)
 
 Si `gorgone` ne passe pas à l'état `healthy` après quelques minutes,
 vérifiez d'abord ses logs (`docker compose logs gorgone`), puis consultez
