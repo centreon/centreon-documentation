@@ -29,15 +29,16 @@ and runs an installer script on the target Docker host. The script generates the
 
 ## Step 1: Generate the install command
 
-1. In the Centreon UI, open the **Poller** menu at the top of the screen and
-   click **Create new poller**.
+1. In the Centreon UI, open the **Pollers** menu at the top of the screen and
+   click **Create new poller** (currently in BETA).
 
-   <!-- TODO screenshot: docker-create-new-poller-button : "Create new poller" button in the header Poller widget -->
+   ![image](../../assets/installation/create-poller-banner.png)
 
-2. Select the **Docker Compose** environment, give the poller a name, and
-   generate a token.
+2. Fill in the poller's name and address, and the Centreon Central address as
+   seen by this poller. Select the **Container** environment and an existing
+   token, then click the button to generate the installation command.
 
-   <!-- TODO screenshot: docker-install-command-modal : environment selection (VM/Physical vs Docker Compose), poller name and token fields -->
+   ![image](../../assets/installation/create-poller-ui.png)
 
 3. Copy the generated installation command. It looks like this:
 

@@ -32,15 +32,17 @@ démarre la stack.
 
 ## Étape 1 : Générer la commande d'installation
 
-1. Dans l'interface Centreon, ouvrez le menu **Poller** en haut de l'écran et
-   cliquez sur **Create new poller**.
+1. Dans l'interface Centreon, ouvrez le menu **Pollers** en haut de l'écran et
+   cliquez sur **Create new poller** (actuellement en BETA).
 
-   <!-- TODO screenshot: docker-create-new-poller-button : "Create new poller" button in the header Poller widget -->
+   ![image](../../assets/installation/create-poller-banner.png)
 
-2. Sélectionnez l'environnement **Docker Compose**, donnez un nom au
-   collecteur, puis générez un token.
+2. Renseignez le nom et l'adresse du collecteur, ainsi que l'adresse du
+   Centreon Central telle que vue par ce collecteur. Sélectionnez
+   l'environnement **Container** et un token existant, puis cliquez sur le
+   bouton pour générer la commande d'installation.
 
-   <!-- TODO screenshot: docker-install-command-modal : environment selection (VM/Physical vs Docker Compose), poller name and token fields -->
+   ![image](../../assets/installation/create-poller-ui.png)
 
 3. Copiez la commande d'installation générée. Elle ressemble à ceci :
 
