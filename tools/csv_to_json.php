@@ -5,7 +5,7 @@ if (php_sapi_name() !== 'cli') {
 
 // Ensure arguments were provided: topology type + CSV file
 if ($argc < 2) {
-    die("Usage: php " . $argv[0] . "<csv_file>\n");
+    die("Usage: php " . $argv[0] . " <csv_file>\n");
 }
 
 $csvFile = $argv[1];
@@ -20,7 +20,7 @@ if (!$handle) {
 }
 
 // Read the header row from the CSV file
-$headers = fgetcsv($handle);
+$headers = fgetcsv($handle, 1000, ",", '"', "\\");
 if ($headers === false) {
     die("Error: CSV file is empty or improperly formatted.\n");
 }
@@ -48,7 +48,7 @@ $desiredColumns = [
 $result = [];
 
 // Process rows
-while (($row = fgetcsv($handle)) !== false) {
+while (($row = fgetcsv($handle, 1000, ",", '"', "\\")) !== false) {
     if (isset($colMap["To generate"]) && isset($row[$colMap["To generate"]]) &&
         trim($row[$colMap["To generate"]]) === "1") {
 
