@@ -12,9 +12,7 @@ Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser
 ## Prérequis
 
 - Une machine située dans votre infrastructure devra héberger une sonde. Elle devra pouvoir accéder à l'application à superviser.
-- Les identifiants Docker fournis par Centreon. Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
 - Un parcours utilisateur configuré sur l'application interne à superviser.
-- L'installation du [profileur](../../installation/servers/install-php-magento-orocommerce-profiler.md).
 
 ## Étape 1 : Créer une nouvelle zone STM
 
@@ -28,26 +26,25 @@ Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser
 
 Votre nouvelle zone apparaît désormais dans la liste.
 
-## Étape 2 : Associer une sonde à la zone STM
+## Étape 2 : Obtenir un jeton de sonde
 
-1. Cliquez sur **Associer une sonde** à droite de votre zone.
+Toujours à l'intérieur de la page d'organisation, ouvrez l'onglet **Jetons**. Cliquez sur **Créer un jeton** et suivez les étapes pour créer un jeton de sonde.
 
-Une fenêtre s'ouvre avec 2 commandes Docker :
+Gardez votre jeton, vous en aurez besoin pour créer la sonde lors de la prochaine étape.
 
-2. Utilisez la première commande pour vous identifier au registry Docker Centreon avec [les identifiants fournis par Centreon](#prérequis) :
+## Étape 3 : Associer une sonde à la zone STM
 
-```shell
-docker login docker.centreon.com/centreon-dem-beta
-```
+1. Cliquez sur **Associer une sonde** à droite de votre zone. Une fenêtre s'ouvre.
+Exécutez la commande docker pour vous connecter au registre.
 
-## Étape 3 : Créer et démarrer la sonde
+## Étape 4 : Créer et démarrer la sonde
 
 <Tabs groupId="sync">
 <TabItem value="Sonde STM">
 
 Lorsque vous créez une sonde, les sondes STM sont le type par défaut. Celles-ci servent à collecter les métriques de performance habituelles utilisées par Experience Monitoring.
 
-1. Pour créer et démarrer une sonde STM, exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-la-zone-stm). 
+1. Pour créer et démarrer une sonde STM, exécutez la deuxième commande obtenue à [l'étape 3](#étape-3--associer-une-sonde-à-la-zone-stm). 
 
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
 
@@ -65,7 +62,7 @@ Notez qu'il faut attendre jusqu'à 24 heures pour que la sonde ait assez de donn
 </TabItem>
 </Tabs>
 
-## Étape 4 : Associer la zone à un parcours utilisateur
+## Étape 5 : Associer la zone à un parcours utilisateur
 
 1. Allez dans **Configuration** et sélectionnez le **Parcours Utilisateur** de votre site. 
 
