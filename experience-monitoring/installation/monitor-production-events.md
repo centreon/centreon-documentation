@@ -26,7 +26,7 @@ Our API is triggered with a simple HTTP call to the URL `https://app.quanta.io/a
 
 ## Authentication and token generation
 
-You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in Experience Monitoring. You can also add a custom icon.
+You must also provide an [API token](tokens.md) to authenticate the request. You can also add a custom icon.
 
 This token should be provided:
 

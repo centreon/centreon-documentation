@@ -20,7 +20,7 @@ Pour envoyer des informations système à Experience Monitoring, vous devez inst
 
 ## Prérequis
 
-* Pour installer l’agent Experience Monitoring, vous aurez besoin d’un **jeton d’enregistrement automatique**. Chaque site dispose de son propre jeton. Pour récupérer un jeton, rendez-vous dans le site de votre choix, puis accédez à **Paramètres > Système**. Le jeton s’affiche dans une case verte.
+* Pour installer l’agent Experience Monitoring, vous aurez besoin d’un **[token d'accès](../tokens.md)**.
 
 * Les agents système doivent pouvoir communiquer avec notre infrastructure. Vous devrez peut-être ajouter nos [adresses IP](#adresses-des-endpoints-pour-les-agents-serveur) à la liste blanche.
 
