@@ -126,11 +126,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "installation/installation-of-a-central-server/using-packages"
+              "id": "installation/installation-of-a-central-server/unattended-install-central"
             },
             {
               "type": "doc",
-              "id": "installation/installation-of-a-central-server/unattended-install-central"
+              "id": "installation/installation-of-a-central-server/using-packages"
             },
             {
               "type": "doc",
@@ -151,11 +151,15 @@
           "items": [
             {
               "type": "doc",
+              "id": "installation/installation-of-a-poller/unattended-install-poller"
+            },
+            {
+              "type": "doc",
               "id": "installation/installation-of-a-poller/using-packages"
             },
             {
               "type": "doc",
-              "id": "installation/installation-of-a-poller/unattended-install-poller"
+              "id": "installation/installation-of-a-poller/using-containers"
             }
           ]
         },
@@ -168,11 +172,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "installation/installation-of-a-remote-server/using-packages"
-            },
+              "id": "installation/installation-of-a-remote-server/unattended-install-remote"
+            },            
             {
               "type": "doc",
-              "id": "installation/installation-of-a-remote-server/unattended-install-remote"
+              "id": "installation/installation-of-a-remote-server/using-packages"
             }
           ]
         },
@@ -1189,6 +1193,14 @@
             {
               "type": "doc",
               "id": "upgrade/introduction"
+            },            
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-matrix"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-from-25-10"
             },
             {
               "type": "doc",
@@ -1205,26 +1217,6 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-21-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-21-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-20-10"
             },
             {
               "type": "doc",
@@ -1714,6 +1706,10 @@
           "items": [
             {
               "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-25-10"
+            },
+            {
+              "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
             },
             {
@@ -1727,22 +1723,6 @@
             {
               "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
             }
           ]
         }

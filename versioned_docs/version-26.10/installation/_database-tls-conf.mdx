@@ -1,0 +1,620 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="db">
+
+<TabItem value="MariaDB" label="MariaDB">
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+1. ...
+ ssl_ca set + require_secure_transport=OFF (same convention as the MySQL runbooks; OFF keeps
+plaintext allowed until every component speaks TLS — flip to ON once the stack is TLS-only).
+
+```shell
+cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
+[mariadb]
+ssl_ca   = /etc/pki/centreon-tls/rootCA.pem
+ssl_cert = /etc/pki/centreon-tls/server.pem
+ssl_key  = /etc/pki/centreon-tls/server-key.pem
+require_secure_transport = OFF
+tls_version = TLSv1.2,TLSv1.3
+EOF
+```
+
+2. Give the following permissions on the key so that it is readable by the **mysql** user only:
+
+```shell
+chown root:mysql /etc/pki/centreon-tls/server-key.pem
+chmod 0640      /etc/pki/centreon-tls/server-key.pem
+```
+
+3. Configure MariaDB CLI to use TLS (you will need it later).
+
+```shell
+cat > /etc/my.cnf.d/centreon-tls-client.cnf <<'EOF'
+[client]
+ssl-ca=/etc/pki/centreon-tls/rootCA.pem
+ssl-verify-server-cert
+EOF
+```
+
+4. Start MariaDB:
+
+```shell
+systemctl daemon-reload
+systemctl enable --now mariadb
+systemctl restart mariadb
+```
+
+5. Secure the installation:
+
+```shell
+mariadb-secure-installation
+```
+
+6. Check that the server is using the certificates you defined (not the certificates it generates automatically when it starts).
+
+```shell
+mariadb -e "SHOW GLOBAL VARIABLES WHERE Variable_name IN ('have_ssl','ssl_ca','ssl_cert','ssl_key');"
+```
+
+The expected result is:
+
+```shell
+have_ssl YES  and  ssl_ca /etc/pki/centreon-tls/rootCA.pem
+```
+
+7. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
+
+```shell
+for f in /etc/centreon/.env /usr/share/centreon/.env; do
+  mkdir -p "$(dirname "$f")"
+  cat >> "$f" <<'EOF'
+DATABASE_SSL_ENABLED=1
+DATABASE_VERIFY_SERVER_CERT=1
+DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
+EOF
+done
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+1. ...
+ ssl_ca set + require_secure_transport=OFF (same convention as the MySQL runbooks; OFF keeps
+plaintext allowed until every component speaks TLS — flip to ON once the stack is TLS-only).
+
+```shell
+cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
+[mariadb]
+ssl_ca   = /etc/pki/centreon-tls/rootCA.pem
+ssl_cert = /etc/pki/centreon-tls/server.pem
+ssl_key  = /etc/pki/centreon-tls/server-key.pem
+require_secure_transport = OFF
+tls_version = TLSv1.2,TLSv1.3
+EOF
+```
+
+2. Give the following permissions on the key so that it is readable by the **mysql** user only:
+
+```shell
+chown root:mysql /etc/pki/centreon-tls/server-key.pem
+chmod 0640      /etc/pki/centreon-tls/server-key.pem
+```
+
+3. Configure MariaDB CLI to use TLS (you will need it later).
+
+```shell
+cat > /etc/my.cnf.d/centreon-tls-client.cnf <<'EOF'
+[client]
+ssl-ca=/etc/pki/centreon-tls/rootCA.pem
+ssl-verify-server-cert
+EOF
+```
+
+4. Start MariaDB:
+
+```shell
+systemctl daemon-reload
+systemctl enable --now mariadb
+systemctl restart mariadb
+```
+
+5. Secure the installation:
+
+```shell
+mariadb-secure-installation
+```
+
+6. Check that the server is using the certificates you defined (not the certificates it generates automatically when it starts).
+
+```shell
+mariadb -e "SHOW GLOBAL VARIABLES WHERE Variable_name IN ('have_ssl','ssl_ca','ssl_cert','ssl_key');"
+```
+
+The expected result is:
+
+```shell
+have_ssl YES and ssl_ca /etc/pki/centreon-tls/rootCA.pem
+```
+
+7. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
+
+```shell
+for f in /etc/centreon/.env /usr/share/centreon/.env; do
+  mkdir -p "$(dirname "$f")"
+  cat >> "$f" <<'EOF'
+DATABASE_SSL_ENABLED=1
+DATABASE_VERIFY_SERVER_CERT=1
+DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
+EOF
+done
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+1. Store the certificates in a location the database service can read. (By default, MariaDB on Debian only reads certificates under **/etc/mysql/**).
+
+```shell
+install -d -o root -g mysql -m 0750 /etc/mysql/centreon-tls
+cp /etc/pki/centreon-tls/rootCA.pem     /etc/mysql/centreon-tls/rootCA.pem
+cp /etc/pki/centreon-tls/server.pem     /etc/mysql/centreon-tls/server.pem
+cp /etc/pki/centreon-tls/server-key.pem /etc/mysql/centreon-tls/server-key.pem
+chown root:mysql /etc/mysql/centreon-tls/*.pem
+chmod 0644 /etc/mysql/centreon-tls/rootCA.pem /etc/mysql/centreon-tls/server.pem
+chmod 0640 /etc/mysql/centreon-tls/server-key.pem
+```
+
+2. Configure the database service to start in TLS mode and specify the certificate locations.
+
+```shell
+mapfile -t inc < <(grep -oP '^\s*!includedir\s+\K\S+' /etc/mysql/my.cnf)
+[ "${#inc[@]}" -eq 0 ] && echo "WARNING: no !includedir in /etc/mysql/my.cnf" >&2
+for d in "${inc[@]}"; do
+  mkdir -p "$d"
+  cat > "$d/99-centreon-tls.cnf" <<'EOF'
+[mysqld]
+ssl_ca   = /etc/mysql/centreon-tls/rootCA.pem
+ssl_cert = /etc/mysql/centreon-tls/server.pem
+ssl_key  = /etc/mysql/centreon-tls/server-key.pem
+require_secure_transport = OFF
+tls_version = TLSv1.2,TLSv1.3
+EOF
+  chmod 0644 "$d/99-centreon-tls.cnf"
+done
+```
+
+3. Configure MariaDB CLI to use TLS (you will need it later).
+
+```shell
+cat > /etc/mysql/conf.d/centreon-tls-client.cnf <<'EOF'
+[client]
+ssl-ca=/etc/mysql/centreon-tls/rootCA.pem
+ssl-verify-server-cert
+```
+
+4. Start MySQL.
+
+```shell
+systemctl daemon-reload
+systemctl enable --now mariadb
+systemctl restart mariadb
+```
+
+5. Check that the server is using the certificates you defined (not the certificates it generates automatically when it starts).
+
+```shell
+mariadb -e "SHOW GLOBAL VARIABLES WHERE Variable_name IN ('have_ssl','ssl_ca','ssl_cert','ssl_key');"
+```
+
+The results should be as follows:
+
+```shell
+have_ssl YES  and  ssl_ca /etc/mysql/centreon-tls/rootCA.pem
+```
+
+6. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
+
+```shell
+for f in /etc/centreon/.env /usr/share/centreon/.env; do
+  mkdir -p "$(dirname "$f")"
+  cat >> "$f" <<'EOF'
+DATABASE_SSL_ENABLED=1
+DATABASE_VERIFY_SERVER_CERT=1
+DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
+EOF
+done
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+
+<TabItem value="MySQL" label="MySQL">
+
+<Tabs groupId="os">
+
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+1. ...
+
+```shell
+cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
+[mysqld]
+ssl_ca   = /etc/pki/centreon-tls/rootCA.pem
+ssl_cert = /etc/pki/centreon-tls/server.pem
+ssl_key  = /etc/pki/centreon-tls/server-key.pem
+require_secure_transport = OFF
+tls_version = TLSv1.2,TLSv1.3
+EOF
+```
+
+2. Give the following permissions on the key so that it is readable by the **mysql** user only:
+
+```shell
+chown root:mysql /etc/pki/centreon-tls/server-key.pem
+chmod 0640      /etc/pki/centreon-tls/server-key.pem
+```
+
+3. Configure MySQL CLI to use TLS (you will need it later).
+
+```shell
+cat > /etc/my.cnf.d/centreon-tls-client.cnf <<'EOF'
+[client]
+ssl-ca=/etc/pki/centreon-tls/rootCA.pem
+ssl-mode=VERIFY_CA
+EOF
+```
+
+4. Start MySQL:
+
+```shell
+systemctl daemon-reload
+systemctl enable --now mysqld
+systemctl restart mysqld
+```
+
+5. Check that the server is using the certificates you defined (not the certificates it generates automatically when it starts).
+
+```shell
+my_print_defaults mysqld | grep -iE 'ssl|tls'
+mysql --ssl-mode=DISABLED -u root -e \
+  "SHOW GLOBAL STATUS WHERE Variable_name IN ('Current_tls_ca','Current_tls_cert','Current_tls_key');"
+```
+
+The results should be as follows:
+
+```shell
+Current_tls_ca  /etc/pki/centreon-tls/rootCA.pem
+```
+
+6. Secure the installation (replace **my_password** by your own in the following command). Define the password you want:
+
+```shell
+db_root_password='ChangeMeStrong#2026'
+mysql_root_auth=(--ssl-mode=DISABLED -u root)
+if ! mysql --ssl-mode=DISABLED -u root -e "SELECT 1" >/dev/null 2>&1; then
+  mysql_temp_pw=$(grep 'temporary password is generated for root@localhost' /var/log/mysqld.log \
+    2>/dev/null | tail -1 | sed -E 's/.*root@localhost: //')
+  if [ -z "$mysql_temp_pw" ]; then
+    echo "Could not authenticate to MySQL as root" >&2
+    exit 1
+  fi
+  mysql_root_auth=(--ssl-mode=DISABLED --connect-expired-password -u root -p"${mysql_temp_pw}")
+fi
+```
+
+Then replace the default autogenerated password with yours.
+
+```shell
+mysql "${mysql_root_auth[@]}" --verbose <<EOF
+ALTER USER 'root'@'localhost' IDENTIFIED WITH 'caching_sha2_password' BY '${db_root_password}';
+DELETE FROM mysql.user WHERE User='';
+DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+DROP DATABASE IF EXISTS test;
+DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+FLUSH PRIVILEGES;
+EOF
+```
+
+Restart MySQL:
+
+```shell
+systemctl restart mysql
+```
+
+7. Raise the open-file limit and restart:
+
+```shell
+sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
+systemctl daemon-reload
+systemctl restart mysqld
+```
+
+8. Check that the end-to-end TLS handshake chains to YOUR CA (optional):
+
+```shell
+mysql --ssl-mode=VERIFY_CA --ssl-ca=/etc/pki/centreon-tls/rootCA.pem -u root -p -e "STATUS" | grep -i ssl
+```
+
+The expected output is as follows:
+
+```shell
+SSL: Cipher in use is TLS_AES_128_GCM_SHA256
+```
+
+
+8. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
+
+```shell
+for f in /etc/centreon/.env /usr/share/centreon/.env; do
+  mkdir -p "$(dirname "$f")"
+  cat >> "$f" <<'EOF'
+DATABASE_SSL_ENABLED=1
+DATABASE_VERIFY_SERVER_CERT=1
+DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
+EOF
+done
+```
+
+</TabItem>
+
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+1. ...
+
+```shell
+cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
+[mysqld]
+ssl_ca   = /etc/pki/centreon-tls/rootCA.pem
+ssl_cert = /etc/pki/centreon-tls/server.pem
+ssl_key  = /etc/pki/centreon-tls/server-key.pem
+require_secure_transport = OFF
+tls_version = TLSv1.2,TLSv1.3
+EOF
+```
+
+2. Give the following permissions on the key so that it is readable by the **mysql** user only:
+
+```shell
+chown root:mysql /etc/pki/centreon-tls/server-key.pem
+chmod 0640      /etc/pki/centreon-tls/server-key.pem
+```
+
+3. Configure MySQL CLI to use TLS (you will need it later).
+
+```shell
+cat > /etc/my.cnf.d/centreon-tls-client.cnf <<'EOF'
+[client]
+ssl-ca=/etc/pki/centreon-tls/rootCA.pem
+ssl-mode=VERIFY_CA
+EOF
+```
+
+4. Start MySQL:
+
+```shell
+systemctl daemon-reload
+systemctl enable --now mysqld
+systemctl restart mysqld
+```
+
+5. Check that the server is using the certificates you defined (not the certificates it generates automatically when it starts).
+
+```shell
+my_print_defaults mysqld | grep -iE 'ssl|tls'
+mysql --ssl-mode=DISABLED -u root -e \
+  "SHOW GLOBAL STATUS WHERE Variable_name IN ('Current_tls_ca','Current_tls_cert','Current_tls_key');"
+```
+
+The results should be as follows:
+
+```shell
+Current_tls_ca  /etc/pki/centreon-tls/rootCA.pem
+```
+
+6. Secure the installation (replace **my_password** by your own in the following command). Define the password you want:
+
+```shell
+db_root_password='my_password'
+mysql_root_auth=(--ssl-mode=DISABLED -u root)
+if ! mysql --ssl-mode=DISABLED -u root -e "SELECT 1" >/dev/null 2>&1; then
+  mysql_temp_pw=$(grep 'temporary password is generated for root@localhost' /var/log/mysqld.log \
+    2>/dev/null | tail -1 | sed -E 's/.*root@localhost: //')
+  if [ -z "$mysql_temp_pw" ]; then
+    echo "Could not authenticate to MySQL as root" >&2
+    exit 1
+  fi
+  mysql_root_auth=(--ssl-mode=DISABLED --connect-expired-password -u root -p"${mysql_temp_pw}")
+fi
+```
+
+Then replace the default autogenerated password with yours.
+
+```shell
+mysql "${mysql_root_auth[@]}" --verbose <<EOF
+ALTER USER 'root'@'localhost' IDENTIFIED WITH 'caching_sha2_password' BY '${db_root_password}';
+DELETE FROM mysql.user WHERE User='';
+DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+DROP DATABASE IF EXISTS test;
+DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+FLUSH PRIVILEGES;
+EOF
+```
+
+Restart MySQL:
+
+```shell
+systemctl restart mysql
+```
+
+7. Raise the open-file limit and restart:
+
+```shell
+sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
+systemctl daemon-reload
+systemctl restart mysqld
+```
+
+8. Check that the end-to-end TLS handshake chains to YOUR CA (optional):
+
+```shell
+mysql --ssl-mode=VERIFY_CA --ssl-ca=/etc/pki/centreon-tls/rootCA.pem -u root -p -e "STATUS" | grep -i ssl
+```
+
+The expected output is as follows:
+
+```shell
+SSL: Cipher in use is TLS_AES_128_GCM_SHA256
+```
+
+
+8. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
+
+```shell
+for f in /etc/centreon/.env /usr/share/centreon/.env; do
+  mkdir -p "$(dirname "$f")"
+  cat >> "$f" <<'EOF'
+DATABASE_SSL_ENABLED=1
+DATABASE_VERIFY_SERVER_CERT=1
+DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
+EOF
+done
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
+
+1. Store the certificates in a location the database service can read. (By default, MySQL on Debian only reads certs under **/etc/mysql/**).
+
+```shell
+install -d -o root -g mysql -m 0750 /etc/mysql/centreon-tls
+cp /etc/pki/centreon-tls/rootCA.pem     /etc/mysql/centreon-tls/rootCA.pem
+cp /etc/pki/centreon-tls/server.pem     /etc/mysql/centreon-tls/server.pem
+cp /etc/pki/centreon-tls/server-key.pem /etc/mysql/centreon-tls/server-key.pem
+chown root:mysql /etc/mysql/centreon-tls/*.pem
+chmod 0644 /etc/mysql/centreon-tls/rootCA.pem /etc/mysql/centreon-tls/server.pem
+chmod 0640 /etc/mysql/centreon-tls/server-key.pem
+```
+
+2. Configure the database service to start in TLS mode and specify the certificate locations.
+
+```shell
+mapfile -t inc < <(grep -oP '^\s*!includedir\s+\K\S+' /etc/mysql/my.cnf)
+[ "${#inc[@]}" -eq 0 ] && echo "WARNING: no !includedir in /etc/mysql/my.cnf" >&2
+for d in "${inc[@]}"; do
+  mkdir -p "$d"
+  cat > "$d/99-centreon-tls.cnf" <<'EOF'
+[mysqld]
+ssl_ca   = /etc/mysql/centreon-tls/rootCA.pem
+ssl_cert = /etc/mysql/centreon-tls/server.pem
+ssl_key  = /etc/mysql/centreon-tls/server-key.pem
+require_secure_transport = OFF
+tls_version = TLSv1.2,TLSv1.3
+EOF
+  chmod 0644 "$d/99-centreon-tls.cnf"
+done
+```
+
+3. Configure MySQL CLI to use TLS (you will need it later).
+
+```shell
+cat > /etc/mysql/conf.d/centreon-tls-client.cnf <<'EOF'
+[client]
+ssl-ca=/etc/mysql/centreon-tls/rootCA.pem
+ssl-mode=VERIFY_CA
+EOF
+```
+
+4.  Start MySQL.
+
+```shell
+systemctl daemon-reload
+systemctl enable --now mysql
+systemctl restart mysql
+```
+
+5. Check that the server is using the certificates you defined (not the certificates it generates automatically when it starts).
+
+```shell
+my_print_defaults mysqld | grep -iE 'ssl|tls'
+mysql --ssl-mode=DISABLED -u root -N -e \
+  "SHOW GLOBAL STATUS WHERE Variable_name IN ('Current_tls_ca','Current_tls_cert','Current_tls_key');"
+```
+
+The results should be as follows:
+
+```shell
+Current_tls_ca  /etc/mysql/centreon-tls/rootCA.pem
+```
+
+6. Secure the installation (replace **my_password** by your own in the following command). Define the password you want:
+
+```shell
+db_root_password='my_password'
+mysql_root_auth=(--ssl-mode=DISABLED -u root)
+if ! mysql --ssl-mode=DISABLED -u root -e "SELECT 1" >/dev/null 2>&1; then
+  mysql_temp_pw=$(grep 'temporary password is generated for root@localhost' /var/log/mysql/error.log \
+    2>/dev/null | tail -1 | sed -E 's/.*root@localhost: //')
+  if [ -z "$mysql_temp_pw" ]; then
+    echo "Could not authenticate to MySQL as root" >&2
+    exit 1
+  fi
+  mysql_root_auth=(--ssl-mode=DISABLED --connect-expired-password -u root -p"${mysql_temp_pw}")
+fi
+```
+
+Then replace the default autogenerated password with yours.
+
+```shell
+mysql "${mysql_root_auth[@]}" --verbose <<EOF
+ALTER USER 'root'@'localhost' IDENTIFIED WITH 'caching_sha2_password' BY '${db_root_password}';
+DELETE FROM mysql.user WHERE User='';
+DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+DROP DATABASE IF EXISTS test;
+DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+FLUSH PRIVILEGES;
+EOF
+```
+
+Restart MySQL:
+
+```shell
+systemctl restart mysql
+```
+
+7. Check that the end-to-end TLS handshake chains to YOUR CA (optional):
+
+```shell
+mysql --ssl-mode=VERIFY_CA --ssl-ca=/etc/mysql/centreon-tls/rootCA.pem -u root -p -e "STATUS" | grep -i ssl
+```
+
+The expected output is as follows:
+
+```shell
+SSL: Cipher in use is TLS_AES_128_GCM_SHA256
+```
+
+8. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
+
+```shell
+for f in /etc/centreon/.env /usr/share/centreon/.env; do
+  mkdir -p "$(dirname "$f")"
+  cat >> "$f" <<'EOF'
+DATABASE_SSL_ENABLED=1
+DATABASE_VERIFY_SERVER_CERT=1
+DATABASE_CA_PATH=/etc/pki/centreon-tls/rootCA.pem
+EOF
+done
+```
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>

@@ -17,7 +17,7 @@ To be able to install Centreon on servers with no internet access, create a loca
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -33,7 +33,7 @@ rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```

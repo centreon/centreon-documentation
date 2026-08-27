@@ -6,72 +6,79 @@ description: "Install a poller quickly using an unattended script"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-To install a poller quicker, you can use a script. This will perform all installation steps. You must then register the poller and attach it to the central server or the remote server.
+To install a poller quickly, you can use a script.
 
-## Installation procedure
+This is useful when you need to install several pollers with identical settings, when you install from a deployment tool or CI pipeline, or when you have no interactive access to the target machine.
+
+The script will perform all installation steps. You must then [register the poller](./using-packages.md#step-3-register-the-server), then [attach the poller to the central server or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
+
+## Prerequisites
 
 1. Update your system:
 
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
+   <Tabs groupId="os">
+   <TabItem value="RHEL 9" label="RHEL 9">
 
-```shell
-dnf update
-subscription-manager register --username my_username --password my_password --auto-attach --force
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
+   ```shell
+   dnf update
+   subscription-manager register --username my_username --password my_password --auto-attach --force
+   subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+   ```
 
-> Replace **my_username** and **my_password** with the credentials of your RedHat account.
+   Replace **my_username** and **my_password** with your Red Hat account credentials.
 
-</TabItem>
+   </TabItem>
+   <TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+   ```shell
+   dnf update
+   ```
 
-```shell
-dnf update
-```
+   </TabItem>
+   <TabItem value="RHEL 10" label="RHEL 10">
 
-</TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
+   ```shell
+   dnf update
+   subscription-manager register --username my_username --password my_password --auto-attach --force
+   subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
+   ```
 
-```shell
-dnf update
-subscription-manager register --username my_username --password my_password --auto-attach --force
-subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
-```
+    Replace **my_username** and **my_password** with your Red Hat account credentials.
 
-</TabItem>
-<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
+   </TabItem>
+   <TabItem value="Alma / Oracle Linux 10" label="Alma / Oracle Linux 10">
 
-```shell
-dnf update
-```
+   ```shell
+   dnf update
+   ```
 
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
 
-```shell
-apt update && apt upgrade
-```
+   ```shell
+   apt update && apt upgrade
+   ```
 
-</TabItem>
-</Tabs>
+   </TabItem>
+   </Tabs>
 
-2. Download the script using the following command:
+2. Download the script:
 
-```shell
-curl -L https://download.centreon.com/25.10/unattended.sh --output /tmp/unattended.sh
-```
+   ```shell
+   curl -L https://download.centreon.com/26.10/unattended.sh --output /tmp/unattended.sh
+   ```
 
-3. Run the following command as **root**:
+## Installation procedure
 
-```shell
-bash /tmp/unattended.sh install -t poller -v 25.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
-```
+1. Run the following command as **root**:
 
-  You will get a full log file with all errors in your **tmp** folder, named **unattended(date).log**.
+   ```shell
+   bash /tmp/unattended.sh install -t poller -v 26.10 -r stable -l DEBUG  2>&1
+   ```
 
-4. Once the script has run, carry out [steps 3 to 5 of the standard installation procedure for a poller](./using-packages.md#step-3-register-the-server).
+   The script writes a full log, including any errors, to `/var/log/centreon-unattended-<date>.log`.
+
+2. Once the script has run, [register the poller](./using-packages.md#step-3-register-the-server), then [attach the poller to the central or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 
 ## Help
 
