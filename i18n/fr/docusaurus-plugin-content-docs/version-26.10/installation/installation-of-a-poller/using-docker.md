@@ -4,6 +4,13 @@ title: À partir de containers Docker
 description: "Installer et exécuter un collecteur à l'aide de containers Docker dédiés"
 ---
 
+:::info Fonctionnalité en bêta
+
+Cette méthode de déploiement de collecteur via Docker est actuellement en
+**BETA**.
+
+:::
+
 Centreon propose également un déploiement de collecteur basé sur Docker. Au lieu
 d'un unique container monolithique, chaque composant du collecteur s'exécute
 dans son propre container dédié (Centreon Engine, Gorgone, et en option la

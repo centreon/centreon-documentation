@@ -4,6 +4,12 @@ title: Using Docker containers
 description: "Install and run a poller using dedicated Docker containers"
 ---
 
+:::info Beta feature
+
+This Docker-based poller deployment method is currently in **BETA**.
+
+:::
+
 Centreon also provides a Docker-based deployment for pollers. Instead of a single
 monolithic container, each poller component runs in its own dedicated container
 (Centreon Engine, Gorgone, and optionally SNMP trap handling and VMware
