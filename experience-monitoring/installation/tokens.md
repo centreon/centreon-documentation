@@ -11,14 +11,12 @@ Some Experience Monitoring features require access tokens to work.
 * Exporting data (using [personal or organization](#organization-tokens-and-personal-tokens) API tokens).
 * [STM probes](../configuration/user-journey/stm-zones.md). The STM zone must have been created before creating the token.
 
-Only users with an **[Administrator](../configuration/manage-users-and-rights.md#roles)** role can create organization tokens.
-
 > Access tokens have moved to the **Tokens** tab of each organization's page. Existing tokens have been migrated automatically and will continue to work without rotation.
 
 ## Organization tokens and personal tokens
 
-* Organization tokens are used when the action needs to keep running without a specific user.<!--  They allow you to interact with the public API, and probes and agents. -->
-* Personal tokens are linked to individual user rights.
+* Organization tokens are used when the action needs to keep running without a specific user.<!--  They allow you to interact with the public API, and probes and agents. --> Only users with an [**Administrator** role](../configuration/manage-users-and-rights.md#roles) can create organization tokens.
+* Personal tokens are linked to individual user rights. Users with a [**Member** role](../configuration/manage-users-and-rights.md#roles) can only create **Read-only** personal tokens.
 
 ## Token permissions
 

@@ -11,14 +11,12 @@ Certaines fonctionnalités d'Experience Monitoring nécessitent des jetons d'acc
 * L'export de données (à l'aide de jetons d'API [personnels ou d'organisation](#jetons-dorganisation-et-jetons-personnels)).
 * Les [sondes STM](../configuration/user-journey/stm-zones.md). La zone STM doit avoir été créée avant de créer le jeton.
 
-Seuls les utilisateurs disposant du rôle **[Administrateur](../configuration/manage-users-and-rights.md#rôles)** peuvent créer des jetons d'organisation.
-
 > Les jetons d'accès ont été déplacés vers l'onglet **Tokens** de la page de chaque organisation. Les jetons existants ont été migrés automatiquement et continueront de fonctionner sans avoir besoin d'effectuer une rotation.
 
 ## Jetons d'organisation et jetons personnels
 
-* Les jetons d'organisation sont utilisés lorsque l'action doit continuer à s'exécuter sans utilisateur spécifique.<!-- Ils vous permettent d'interagir avec l'API publique, ainsi qu'avec les sondes et les agents. -->
-* Les jetons personnels sont liés aux droits de chaque utilisateur.
+* Les jetons d'organisation sont utilisés lorsque l'action doit continuer à s'exécuter sans utilisateur spécifique.<!-- Ils vous permettent d'interagir avec l'API publique, ainsi qu'avec les sondes et les agents. --> Seuls les utilisateurs ayant un rôle [**Administrateur**](../configuration/manage-users-and-rights.md#rôles) peuvent créer des jetons d'organisation.
+* Les jetons personnels sont liés aux droits de chaque utilisateur. Les utilisateurs ayant un rôle [**Member**](../configuration/manage-users-and-rights.md#rôles) peuvent uniquement créer des jetons personnels de type lecture seule.
 
 ## Autorisations des jetons
 
