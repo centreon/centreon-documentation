@@ -33,7 +33,7 @@ Les autres types de jetons se voient automatiquement attribuer un rôle appelé 
    * **jetons d'organisation** : accédez à la page de l'organisation, puis sélectionnez l'onglet **Tokens**.
    * **jetons personnels** : cliquez sur votre icône utilisateur en haut à droite, puis cliquez sur **My Account**.
 2. Cliquez sur le bouton **Create token**.
-3. Dans la fenêtre de configuration, saisissez une description qui explique à quoi servira le jeton (ou son type), ainsi qu'une période de validité. Le nom du jeton affichera les 4 premiers caractères du jeton, suivis d'astérisques.
+3. Dans la fenêtre de configuration, saisissez une description qui explique à quoi servira le jeton, ainsi qu'une période de validité. Le nom du jeton affichera les 4 premiers caractères du jeton, suivis d'astérisques.
 4. Saisissez ou sélectionnez toutes les autres informations pertinentes :
 
    | Type de jeton | Champ |

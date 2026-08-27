@@ -33,7 +33,7 @@ Other types of tokens are automatically given a role called **Push**: writing is
    * **organization tokens**: navigate to the organization's page, then select the **Tokens** tab.
    * **personal tokens**: click your user icon in the top-right corner, then click **My Account**.
 2. Click the **Create token** button.
-3. In the configuration window, enter a description that explains what the token will be used for (or its type), and a validity period. The token name shows the first 4 characters of the token, followed by asterisks.
+3. In the configuration window, enter a description that explains what the token will be used for, and a validity period. The token name shows the first 4 characters of the token, followed by asterisks.
 4. Enter or select all other relevant information:
 
    | Type of token | Field |
