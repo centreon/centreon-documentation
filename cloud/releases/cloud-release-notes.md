@@ -8,7 +8,94 @@ description: "Release notes for Centreon Cloud, detailing new features, improvem
 
 ### Centreon IT Edition
 
-
+**Configuration**
+ 
+- Freshness control (check freshness and threshold) can now be configured directly on host, service, host template, and service template forms.
+- Host forms now include relationship fields to define dependencies between resources.
+ 
+**Resource Status**
+ 
+- The CSV export from **Resource Status** now includes host and service IDs, making it easier to correlate exported data with the API and other external tools.
+ 
+**Centreon Dashboards**
+ 
+- The Resource table widget now supports **Notes** and **Action** columns, surfacing operational context directly inside dashboards.
+ 
+**Interface**
+ 
+- Resources across the interface now use new, consistent icons for easier identification.
+- The user menu in the top counter now shows a circular avatar with the user's initials.
+ 
+<details>
+<summary>Bug fixes</summary>
+ 
+- [Pollers] Fixed the Pollers menu "Database updates are not active" indicator staying red after an upgrade to 26.07, which was caused by stale legacy poller rows left in the real-time database.
+- [My Account] Users whose password never expires or is exempt from the expiration policy can again open their profile page.
+- [API] Internal API calls now follow the configured base URL scheme, fixing failures when Centreon runs behind a TLS-terminating proxy.
+- [Configuration] Editing a host or host template no longer triggers a 404 error when loading the check command default values.
+- [Configuration] Fixed an issue where saving the configuration would fail if the database name contained a hyphen or dollar sign.
+- [Open Tickets] Fixed an "Insufficient privileges" error that occurred when a user without access to notification rules tried to open a ticket from a Custom View.
+- [Monitoring] Clicking a resource in Custom Views or legacy pages now opens its details panel instead of showing an error.
+- [Dashboard] Fixed an issue where host and service severity levels appeared as duplicates in dashboard Resource table widgets.
+- [Configuration] The severity "Level" field now enforces the valid 1–127 range instead of showing a blank page.
+- [Administration] Fixed the OpenID Connect trusted client addresses filter, which was reversed and blocked allowlisted IPs while letting others through.
+- [Open Tickets] ACL-restricted accounts can now view logs again, which previously failed with an SQL error.
+- [CMA] Filtering agent configurations by name or poller now returns the matching results instead of a blank page or wrong entries.
+- [Resource Access Management] Fixed an issue in Centreon Cloud where filtering by host name while creating an ACL resource access rule returned a 500 error.
+- [Configuration] Fixed an issue where a failed Broker configuration save could erase the existing configuration.
+- [Resource Status] Selected resources are now deselected after a check action.
+- [Performance Graphs] Curve thickness set in the curve settings now applies to the on-screen graph, matching the PNG export.
+- [Dashboards] Interacting with a widget (pagination, page size, display view, map navigation) no longer switches the dashboard to edit mode.
+- [Configuration] Fixed an issue where mass change allowed moving a service to a host that already had a service with the same name.
+- [Poller] Fixed newly added pollers not starting or supervising any resource, caused by a failed plugin installation step during configuration export.
+- [Poller] Fixed poller configuration generation failing with an "Unknown database centreon_storage" error on platforms where the database is not named `centreon`/`centreon_storage` — always the case on Centreon Cloud — a regression introduced in 26.07.
+- [Autodiscovery] Fixed an error preventing service discovery rules from being enabled or disabled from the list.
+- [Autodiscovery] Fixed discovery jobs failing after activating Vault when existing job credentials had not yet been migrated.
+ 
+</details>
+ 
+### Centreon Pro Edition
+ 
+**BAM**
+ 
+The Business Activity configuration experience keeps expanding this cycle, with a new simulation mode and finer control over how Business Activities are organized and displayed.
+ 
+- Business Activities can now be configured with a new **simulation mode**, letting you preview the impact of changes before saving them.
+- Custom icons can now be defined for Business Activities, making nodes and indicators easier to identify in the Business Activity tree.
+- The Business Activity configuration listing now includes a "Show only top level" filter.
+- The impact-weight selector now shows each word's percentage (e.g. Major (50%)) directly in the dropdown.
+ 
+**MAP**
+ 
+- Resources on maps now support a flapping state icon, aligning them with flapping indicators shown elsewhere in the interface.
+ 
+**Custom Views**
+ 
+- Widgets containing Business Activities in Custom Views now redirect to the new BA monitoring page.
+ 
+<details>
+<summary>Bug fixes</summary>
+ 
+- [BAM] Fixed incorrect impact percentages displayed for word-type indicators in the BAM real-time monitoring view.
+- [MAP] Improved the performance of map-engine during startup on platforms with a large number of host groups, service groups, or BA groups.
+- [MAP] Fixed a foreign key constraint error that prevented saving a map after replicating and deleting multiple containers.
+- [BAM] Fixed an issue with KPIs under downtime being counted for a Business Activity's status after editing the BA's KPI list.
+- [MAP] Fixed two MAP server errors (HTTP 500) affecting the import and save of standard-map views.
+- [MAP] Fixed an issue in the MAP viewer where clicking on a container's pop-up title redirected to an incorrect URL, resulting in errors.
+- [MAP] Fixed an issue where the Map widget in dashboards and custom views could intermittently display the MAP homepage instead of the selected map, caused by a rare condition in the view loading order.
+- [MAP] Removed the line height option that caused the label to break and exposed raw HTML tags in the resource name.
+- [Configuration] Fixed missing access-rights checks on Business Activity API actions.
+- [MAP] Map server JWTs are now invalidated when the originating Centreon Web session ends, preventing stale or cross-user authorization on map-engine after logout.
+- [MAP] Fixed an issue in the MAP editor where custom border or text colors applied to an object were incorrectly carried over as defaults to newly created objects, instead of each new object starting with default color values.
+- [MAP] Fixed an issue in MAP where changing a resource (e.g., host) in the editor did not update the icon data, causing the editor and viewer to retain the previously selected resource's information instead of reflecting the new selection.
+- [MAP] Fixed a pie chart widget's inner radius being ignored when set to 0%, and capped the maximum value at 95% to prevent the chart from becoming invisible.
+- [BAM] Obsolete "Notifications" section has been removed from Business Activity configuration.
+- [MAP] Fixed map-engine failing to start when a poller identifier (UID) exceeds the 32-bit integer range.
+- [MAP] Restored map-engine listening on port 9443 by default when TLS is enabled.
+- [MAP] Improved outline visibility for resources and shapes in the map editor, complementing the earlier fix for link outlines.
+- [MAP] Fixed a memory leak causing browser slowdowns when dashboard playlists containing MAP widgets rotate over an extended period.
+ 
+</details>
 
 ## August 11th, 2026
 
