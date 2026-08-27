@@ -126,11 +126,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "installation/installation-of-a-central-server/using-packages"
+              "id": "installation/installation-of-a-central-server/unattended-install-central"
             },
             {
               "type": "doc",
-              "id": "installation/installation-of-a-central-server/unattended-install-central"
+              "id": "installation/installation-of-a-central-server/using-packages"
             },
             {
               "type": "doc",
@@ -151,15 +151,15 @@
           "items": [
             {
               "type": "doc",
+              "id": "installation/installation-of-a-poller/unattended-install-poller"
+            },
+            {
+              "type": "doc",
               "id": "installation/installation-of-a-poller/using-packages"
             },
             {
               "type": "doc",
               "id": "installation/installation-of-a-poller/using-containers"
-            },
-            {
-              "type": "doc",
-              "id": "installation/installation-of-a-poller/unattended-install-poller"
             }
           ]
         },
@@ -172,11 +172,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "installation/installation-of-a-remote-server/using-packages"
-            },
+              "id": "installation/installation-of-a-remote-server/unattended-install-remote"
+            },            
             {
               "type": "doc",
-              "id": "installation/installation-of-a-remote-server/unattended-install-remote"
+              "id": "installation/installation-of-a-remote-server/using-packages"
             }
           ]
         },
