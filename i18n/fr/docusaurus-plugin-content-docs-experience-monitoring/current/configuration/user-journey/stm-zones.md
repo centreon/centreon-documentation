@@ -42,7 +42,7 @@ Exécutez la commande docker pour vous connecter au registre.
 <Tabs groupId="sync">
 <TabItem value="Sonde STM">
 
-Lorsque vous créez une sonde, les sondes STM sont le type par défaut. Celles-ci servent à collecter les métriques de performance habituelles utilisées par Experience Monitoring.
+Les sondes STM collectent les métriques de performance habituelles utilisées par Experience Monitoring.
 
 1. Pour créer et démarrer une sonde STM, exécutez la deuxième commande obtenue à [l'étape 3](#étape-3--associer-une-sonde-à-la-zone-stm). 
 
@@ -51,7 +51,7 @@ Lorsque vous créez une sonde, les sondes STM sont le type par défaut. Celles-c
 </TabItem>
 <TabItem value="Sonde recommandation">
 
-Vous pouvez également créer des sondes de recommandations. Ces dernières tournent une fois par jour pour vous faire des recommandations personnalisées sur comment optimiser votre site.
+Les sondes de recommandations tournent une fois par jour pour vous faire des recommandations personnalisées sur comment optimiser votre site.
 
 1. Pour créer et démarrer une sonde de recommandations, cliquez sur l'onglet **recommandations** dans la section **Démarrer la sonde** et exécutez la commande affichée.
 
