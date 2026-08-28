@@ -7,7 +7,7 @@ description: Set up a private zone to monitor internal, non-public journeys
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A private Synthetic Monitoring Zone (STM Zone) allows you to monitor your user journeys on internal domains or networks specific to your organization using a probe deployed inside your infrastructure. You can also use a probe to obtain personalized recommendations to optimize your website.
+A private Synthetic Monitoring Zone (STM zone) allows you to monitor your user journeys on internal domains or networks specific to your organization. To do this, a probe deployed inside your infrastructure. You can also use a probe to obtain personalized recommendations to optimize your website.
 
 ## Prerequisites
 
@@ -30,12 +30,12 @@ Your new zone now appears in the list.
 
 While remaining inside the organization page, open the **Tokens** tab. Click **Create a token** and follow the steps to create a probe token.
 
-Save your token, you will need it to create the probe on the next step.
+Save your token. You will need it to create the probe on the next step.
 
 ## Step 3: Associate a probe to the STM zone
 
-1. Click **Associate a probe** to the right of your zone. A window opens.
-Execute the Docker command to authenticate into the registry.
+Click **Associate a probe** to the right of your zone. A window with multiple commands opens.
+Execute the Docker command to log in to the registry.
 
 ## Step 4: Create and launch the probe
 
@@ -70,4 +70,4 @@ Note that it takes up to 24 hours for the probe to gather enough data to start s
 
 3. In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under **Private Zones**. Select it and click **Save**.
 
-After a short while, the probe will have executed its first check and your internal journey monitoring will be operational. You can analyze it just like a regular [user journey](../../how-to-articles/user-journey-screen.md).
+After a short while, the probe will run its first check and your internal journey monitoring will be operational. You can analyze it just like a regular [user journey](../../how-to-articles/user-journey-screen.md).
