@@ -35,7 +35,7 @@ Save your token, you will need it to create the probe on the next step.
 ## Step 3: Associate a probe to the STM zone
 
 1. Click **Associate a probe** to the right of your zone. A window opens.
-Execute the docker command to authenticate into the registry.
+Execute the Docker command to authenticate into the registry.
 
 ## Step 4: Create and launch the probe
 
@@ -55,7 +55,7 @@ Recommendations probes run once a day to make personalized suggestions on how to
 
 1. To create and launch the recommendations probe, click the **Recommendations** tab in the **Start the probe** section and execute the displayed command.
 
-2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list. Recommendation probes have a binoculars icon to distinguish them from STM probes.
+2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list. Recommendations probes have a binoculars icon to distinguish them from STM probes.
 
 Note that it takes up to 24 hours for the probe to gather enough data to start sending recommendations. 
 
