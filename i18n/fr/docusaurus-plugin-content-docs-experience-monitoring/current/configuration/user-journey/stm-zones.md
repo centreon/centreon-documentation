@@ -26,11 +26,11 @@ Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser
 
 Votre nouvelle zone apparaît désormais dans la liste.
 
-## Étape 2 : Obtenir un jeton de sonde
+## Étape 2 : Obtenir un token de sonde
 
-Toujours à l'intérieur de la page d'organisation, ouvrez l'onglet **Jetons**. Cliquez sur **Créer un jeton** et suivez les étapes pour créer un jeton de sonde.
+Toujours à l'intérieur de la page d'organisation, ouvrez l'onglet **Tokens**. Cliquez sur **Créer un token** et suivez les étapes pour créer un token de sonde.
 
-Gardez votre jeton, vous en aurez besoin pour créer la sonde lors de la prochaine étape.
+Gardez votre token, vous en aurez besoin pour créer la sonde lors de la prochaine étape.
 
 ## Étape 3 : Associer une sonde à la zone STM
 
