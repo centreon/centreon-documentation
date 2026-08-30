@@ -1,19 +1,7 @@
 ---
-id: ot-jira
+id: jira
 title: Jira
-description: "Configure the Jira open-tickets provider that connects to Jira Cloud through the Jira REST API"
 ---
-
-## How it works
-
-The Jira provider connects to your Jira server and retrieve data through the
-Jira REST API.
-
-![architecture](../../assets/integrations/open-tickets/ot-jira-architecture.png)
-
-## Compatibility
-
-This integration is (at least) compatible with Jira cloud.
 
 ## Feature information
 
@@ -21,21 +9,7 @@ This integration is (at least) compatible with Jira cloud.
 | -- | -- | -- |
 | ✓ | ✘ | ✘ |
 
-## Requirements
-
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md)
-into your Centreon instance.
-
-Our provider requires the following parameters:
-
-| Parameter         | Example of value    |
-| ----------------- | ------------------- |
-| Address           | xxxxx.atlassian.net |
-| Rest Api Resource | /rest/api/latest/   |
-| Username          | MyUser              |
-| Password          | MyPassword          |
-| Timeout           | 60                  |
+## Prerequisites
 
 ### Network flow
 

@@ -1,10 +1,7 @@
 ---
-id: ot-easyvista-rest-api
-title: EasyVista RestAPI
-description: "Set up the EasyVista open-tickets provider using the EasyVista REST API, including custom fields and connector testing"
+id: easyvista-rest
+title: Easyvista Rest
 ---
-
-The EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents about your monitoring alerts.
 
 ## Feature information
 
@@ -12,9 +9,7 @@ The EasyVista Open Tickets provider uses the EasyVista Rest API to open incident
 | -- | -- | -- |
 | ✓ | ✓ | ✓ |
 
-## Requirements
-
-You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
+## Prerequisites
 
 ### Network flow
 
@@ -53,12 +48,12 @@ This open ticket connector can retrieve the following information from your Easy
 Every information sent to EasyVista comes from Centreon, except of assets. To be able to retrieve them, you will need to use the following syntax in the **Filter field** of the **Lists definition**. It must be set as follows: **search=field1:value1,field2:value2**. For more information please refer to the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/).
 
 ![architecture](../../assets/alerts/ticketing/easy-vista-rest/filters.png)
-  
-### Add EasyVista custom fields
+
+## EasyVista custom fields
 
 EasyVista allows you to create custom fields for your ticket's form. Since they are not standard, Open Ticket will only allow you to manually configure them. This requires a specific syntax and actions. This section will guide you through this configuration.
 
-#### Add a custom field in the provider configuration
+### Add a custom field in the provider configuration
 
 - Add a new **Mapping ticket arguments** with the **+ Add a new entry** button.
   - In the **Argument** field, select **Custom Field**.
@@ -116,7 +111,7 @@ curl -X PUT 'https://<easy_vista_address>/api/v1/requests/<ticket_id>' -H
 
 ### Get EasyVista assets
 
-Without filters:
+without filters:
 
 ```bash
 curl -X GET 'https://<easy_vista_address>/api/v1/assets/?fields=asset_tag,HREF' -H

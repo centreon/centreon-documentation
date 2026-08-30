@@ -1,24 +1,7 @@
 ---
-id: ot-itop
-title: iTop
-description: "Configurez le fournisseur de tickets iTop qui se connecte à votre serveur iTop via son API REST"
+id: itop
+title: Itop
 ---
-
-## How it works
-
-The Itop provider connects to your Itop server and retrieve data through the
-itop REST API. The data is refreshed dynamically depending on your choices.
-Since it gathers a lot of configurations objects from Itop, it puts them in
-cache. Loging out or waiting 10 hours will flush the cache.
-
-![architecture](../../assets/integrations/open-tickets/ot-itop-architecture.png)
-
-## Compatibility
-
-This integration is (at least) compatible with the following Itop versions:
-
-  - 1.4
-  - 1.3
 
 ## Feature information
 
@@ -26,22 +9,9 @@ This integration is (at least) compatible with the following Itop versions:
 | -- | -- | -- |
 | ✓ | ✓ | ✘ |
 
-## Requirements
+## Prerequisites
 
-You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
-
-Our provider requires the following parameters:
-
-| Parameter   | Example of value    |
-| ----------- | ------------------- |
-| Address     | 10.30.2.22/itop/web |
-| API version | 1.4                 |
-| Username    | admin               |
-| Password    | itop                |
-| Protocol    | https               |
-| Timeout     | 60                  |
-
-### Network flow
+### Network Flow
 
 | Source | Destination | Protocol/Port |
 | -- | -- | -- |
@@ -79,7 +49,7 @@ This open ticket connector can retrieve the following information from your iTop
 
 If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket global documentation.
 
-## Additional data
+## Additionnal data
 
 This open ticket connector can also send the following information when opening a ticket:
 
@@ -87,7 +57,7 @@ This open ticket connector can also send the following information when opening 
 - Impact
 - Origin
 
-Those information are not retrieved from iTop. They are configured in your open ticket rule as [custom lists](../../alerts-notifications/ticketing/mapping.md#custom-list-definition).
+Those information are not retrieved from iTop. They are configured in your open ticket rule as [custom lists](../../alerts-notifications/ticketing/mapping.md#custom-list-definition)
 
 ## Test commands
 
