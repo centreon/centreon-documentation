@@ -69,17 +69,10 @@ Pour configurer une dépendance logique, rendez-vous dans le menu
 
 Dans ce cas, nous avons deux types d'hôtes qui entrent en jeu : un ou des
 hôtes (appelé hôtes maîtres) dont le statut contrôle l'exécution et les
-notifications d'autres hôtes (appelés hôtes dépendants). Si vous
-utilisez Centreon Broker, il est également possible à partir des hôtes
-maîtres de contrôler l'exécution et les notifications de services
-(appelés services dépendants).
+notifications d'autres hôtes (appelés hôtes dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    de l'hôte maître deviennent indisponibles, la dépendance en cours de
-    création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du ou des hôtes maîtres qui empêcheront la vérification des
     hôtes ou des services dépendants
@@ -101,16 +94,10 @@ cliquez sur **Add**.
 
 Dans ce cas, nous avons deux entités qui entrent en jeu : les services
 (dits maîtres) qui contrôlent l'exécution et les notifications d'autres
-services (dits dépendants). Si vous utilisez Centreon Broker, il est
-également possible de contrôler l'exécution et les notifications
-d'autres hôtes.
+services (dits dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du service maître deviennent indisponibles la dépendance en cours de
-    création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du (ou des) service(s) maître(s) qui empêchera(ront) la
     vérification des hôtes ou des services dépendants
@@ -136,10 +123,6 @@ dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du groupe d'hôte maître deviennent indisponibles la dépendance en
-    cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du ou des groupes d'hôtes maîtres qui empêcheront la
     vérification des groupes d'hôtes dépendants
@@ -166,10 +149,6 @@ services (dit dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du groupe de service maître deviennent indisponibles la dépendance
-    en cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du ou des groupes de services maîtres qui empêcheront la
     vérification des groupes de services dépendants
@@ -196,10 +175,6 @@ dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
--   Le champ **Parent relationship** est à ignorer si vous utilisez
-    Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du méta-service maître deviennent indisponibles la dépendance en
-    cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
     statuts du ou des méta-services maîtres qui empêcheront la
     vérification des méta-services dépendants
