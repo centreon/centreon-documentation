@@ -6,11 +6,13 @@ title: Centreon Experience Monitoring - notes de release
 
 ## September 1st, 2026
 
-**Internal Probes — General Availability**
+**Sondes internes - **
 
-**Secure Token Management**
+La fonctionnalité des zones STM est désormais disponible pour tous les utilisateurs. Servez-vous en pour superviser votre structure interne à laquelle une sonde normale n'aurait pas accès.
 
-**Authentication / Users and Roles Delegated to Centreon Hub**
+**Gestion sécurisée des jetons**
+
+L'outil de gestion des jetons a été déplacé à la page de l'organisation pour plus de sécurité.
 
 ## June 22nd, 2026
 
