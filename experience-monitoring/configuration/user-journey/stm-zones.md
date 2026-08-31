@@ -39,7 +39,7 @@ Execute the Docker command to log in to the registry.
 
 ## Step 4: Create and launch the probe
 
-<Tabs groupId="sync">
+<Tabs groupId="stmProbes" queryString>
 <TabItem value="STM probe">
 
 STM probes collect the standard performance metrics that Experience Monitoring uses.
