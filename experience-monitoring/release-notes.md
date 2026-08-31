@@ -6,11 +6,13 @@ description: Changelog of Experience Monitoring feature and platform updates
 
 ## September 1st, 2026
 
-**Internal Probes — General Availability**
+**Internal Probes - General Availability**
+
+The STM zones feature is now available to all users. Use it to monitor internal infrastructure that normal probes can not access.
 
 **Secure Token Management**
 
-**Authentication / Users and Roles Delegated to Centreon Hub**
+The token management tool has been moved to the organization page for improved security.
 
 ## June 22nd, 2026
 
