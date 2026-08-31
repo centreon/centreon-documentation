@@ -7,7 +7,7 @@ description: Mettre en place une zone privée pour superviser des parcours inter
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation. Pour ce faire, une sonde est déployée dans votre infrastructure. Vous pouvez également utiliser une sonde pour obtenir des recommandations personnalisées afin d'optimiser votre site.
+Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser des parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation. Pour ce faire, une sonde est déployée dans votre infrastructure. Vous pouvez également utiliser une sonde pour obtenir des recommandations personnalisées afin d'optimiser votre site.
 
 ## Prérequis
 
@@ -28,7 +28,7 @@ Votre nouvelle zone apparaît désormais dans la liste.
 
 ## Étape 2 : Obtenir un jeton de sonde
 
-Toujours dans la page d'organisation, ouvrez l'onglet **Jetons**. Cliquez sur **Créer un jeton** et suivez les étapes pour créer un jeton de sonde.
+Toujours dans la page de l'organisation, ouvrez l'onglet **Jetons**. Cliquez sur **Créer un jeton** et suivez les étapes pour créer un jeton de sonde.
 
 Gardez votre jeton. Vous en aurez besoin pour créer la sonde lors de la prochaine étape.
 
@@ -49,7 +49,7 @@ Les sondes STM collectent les métriques de performance habituelles utilisées p
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
 
 </TabItem>
-<TabItem value="Sonde recommandation">
+<TabItem value="Sonde de recommandations">
 
 Les sondes de recommandations tournent une fois par jour pour vous faire des recommandations personnalisées sur la façon d'optimiser votre site.
 

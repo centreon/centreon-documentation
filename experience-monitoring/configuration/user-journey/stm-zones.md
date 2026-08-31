@@ -7,7 +7,7 @@ description: Set up a private zone to monitor internal, non-public journeys
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-A private Synthetic Monitoring Zone (STM zone) allows you to monitor your user journeys on internal domains or networks specific to your organization. To do this, a probe deployed inside your infrastructure. You can also use a probe to obtain personalized recommendations to optimize your website.
+A private Synthetic Monitoring Zone (STM zone) allows you to monitor your user journeys on internal domains or networks specific to your organization. To do this, a probe must be deployed inside your infrastructure. You can also use a probe to obtain personalized recommendations to optimize your website.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ Your new zone now appears in the list.
 
 While remaining inside the organization page, open the **Tokens** tab. Click **Create a token** and follow the steps to create a probe token.
 
-Save your token. You will need it to create the probe on the next step.
+Save your token. You will need it to create the probe in the next step.
 
 ## Step 3: Associate a probe to the STM zone
 
@@ -42,20 +42,20 @@ Execute the Docker command to log in to the registry.
 <Tabs groupId="sync">
 <TabItem value="STM probe">
 
-STM probes collect the usual performance metrics used by Experience Monitoring.
+STM probes collect the standard performance metrics that Experience Monitoring uses.
 
 1. To create and launch the STM probe, execute the second command you obtained at [step 3](#step-3-associate-a-probe-to-the-stm-zone) with the probe token.
 
 2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list.
 
 </TabItem>
-<TabItem value="Recommendations probe">
+<TabItem value="Recommendation probe">
 
-Recommendations probes run once a day to make personalized suggestions on how to optimize your website.
+Recommendation probes run once a day to make personalized suggestions on how to optimize your website.
 
 1. To create and launch the recommendations probe, click the **Recommendations** tab in the **Start the probe** section and execute the displayed command.
 
-2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list. Recommendations probes have a binoculars icon to distinguish them from STM probes.
+2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list. Recommendation probes have a binoculars icon to distinguish them from STM probes.
 
 Note that it takes up to 24 hours for the probe to gather enough data to start sending recommendations. 
 
