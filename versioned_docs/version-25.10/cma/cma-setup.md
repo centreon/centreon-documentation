@@ -45,13 +45,13 @@ In the case of a Cloud platform, these connectors are already installed.
 
 #### CMA authentication token behavior: deactivation/expiration/revocation
 
-<Tabs groupId="sync" queryString>
-<TabItem value="Agent connects to poller" label="Agent connects to poller">
+<Tabs groupId="cmaConnect" queryString>
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 * The monitoring engine checks the presence and validity of the token, and disconnects if the token is missing (because it has been disabled or revoked) or has expired. The message **Token expired** appears in the [poller and agent logs](cma-troubleshooting.md#location-of-poller-and-agent-logs).
 
 </TabItem>
-<TabItem value="Poller connects to agent" label="Poller connects to agent">
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
 * The agent checks the presence and validity of the token and disconnects if the token is missing (because it has been disabled or revoked) or has expired. The message **Token expired** appears in the [poller and agent logs](cma-troubleshooting.md#location-of-poller-and-agent-logs).
 
@@ -69,7 +69,7 @@ In the case of a Cloud platform, these connectors are already installed.
 3. Select the connection direction (default: the agent connects to the poller).
 4. Select an encryption mode.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="cmaConnect" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 5. In the **Parameters** section, select the poller(s) that will receive data from the agent.
@@ -129,7 +129,7 @@ This step is performed on the poller.
 
 ### Configure the firewall
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="cmaConnect" queryString>
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 > These commands need to be adapted depending on the OS.
@@ -317,8 +317,8 @@ apt install centreon-monitoring-agent
 
 Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** file with the following parameters :
 
-<Tabs groupId="sync" queryString>
-<TabItem value="Agent connects to poller" label="Agent connects to poller">
+<Tabs groupId="cmaConnect" queryString>
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 ```json
 {
@@ -335,7 +335,7 @@ Replace the contents of the **/etc/centreon-monitoring-agent/centagent.json** fi
 ```
 
 </TabItem>
-<TabItem value="Poller connects to agent" label="Poller connects to agent">
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
 ```json
 {
@@ -416,13 +416,13 @@ The CMA installer can be executed in 2 modes:
    * **Host name in Centreon**. This must be the name of the host as you have defined it in the Centreon interface.
      > Warning : This name will be the unique key for mapping data to the right Centreon host. It must be strictly identical to the Centreon host name (case sensitive).
 
-<Tabs groupId="sync" queryString>
-<TabItem value="Agent connects to poller" label="Agent connects to poller">
+<Tabs groupId="cmaConnect" queryString>
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
    * In **Poller endpoint**, enter the poller's IP/DNS, followed by CMA listening port, usually 4317. For example, 192.168.45.32:4317.
 
 </TabItem>
-<TabItem value="Poller connects to agent" label="Poller connects to agent">
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
    * **Listening interface** can keep the default value (0.0.0.0:4317) and will be the interface through which the agent accepts incoming connections from the poller. (0.0.0.0) means 'all interfaces'. You can restrict this value for security reasons.
 

@@ -31,12 +31,12 @@ Sending system information to Experience Monitoring requires installing the Expe
 
 ## Installation procedure
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Debian" label="Debian">
 
 1. Add the following line to the **/etc/apt/sources.list.d/quanta.list** file.
 
-   <Tabs groupId="debian">
+   <Tabs groupId="debian" queryString>
    <TabItem value="Buster (versions 10.*)" label="Buster (versions 10.*)">
 
     ```bash
@@ -89,7 +89,7 @@ To install the Experience Monitoring agent:
 
 1. Add the following line to the **/etc/apt/sources.list.d/quanta.list** file.
 
-   <Tabs groupId="ubuntu">
+   <Tabs groupId="ubuntu" queryString>
    <TabItem value="Jammy" label="Jammy">
 
    ```bash

@@ -61,7 +61,7 @@ Pour accéder aux paramètres avancés, ouvrez votre parcours en mode édition, 
 
 N'oubliez pas de cliquer sur **Sauvegarder** après toute modification dans cette fenêtre.
 
-<Tabs groupId="sync">
+<Tabs groupId="journeyConfig" queryString>
 <TabItem value="General" label="General">
 
 Donnez à votre parcours un nom clair et unique. Ce nom apparaît dans les rapports et dans toute l'interface Experience Monitoring.
@@ -191,7 +191,7 @@ Donnez un nom à cette nouvelle étape et cliquez sur l'icône + à l'intérieur
 
 Il existe 6 actions possibles que la sonde peut effectuer lors d'un parcours utilisateur :
 
-<Tabs groupId="sync">
+<Tabs groupId="actions" queryString>
 <TabItem value="Naviguer" label="Naviguer">
 
 Choisissez une URL vers laquelle naviguer. Cette action est identique à la saisie d'une URL dans la barre d'adresse et à l'accès à cette URL. Un parcours utilisateur commence toujours par une action de navigation.

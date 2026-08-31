@@ -15,7 +15,7 @@ scheduler so that it is taken into account.
 ### Practice
 
 <Tabs groupId="sync" queryString>
-<TabItem value="From the Resources status page" label="From the Resources status page">
+<TabItem value="From the Resources Status page" label="From the Resources Status page">
 
 1. Go to **Monitoring > Resources Status**.
 
@@ -32,7 +32,7 @@ scheduler so that it is taken into account.
     - The **Performance data** field can be used to define performance data for the generation of graphs.
 
 </TabItem>
-<TabItem value="From real-time monitoring" label="From real-time monitoring">
+<TabItem value="From real time monitoring" label="From real time monitoring">
 
 To submit a result, access the details page of the object. In the category
 **Service Commands**, click **Submit result for this service**

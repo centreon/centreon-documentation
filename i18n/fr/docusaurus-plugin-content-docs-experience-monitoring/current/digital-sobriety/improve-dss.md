@@ -19,7 +19,7 @@ Cliquez sur le bouton **Plus de détails**.
 Le graphique en haut affiche des informations sur votre SSN global. Celui-ci est calculé à partir des données combinées de tous vos **Parcours Utilisateurs** ou de vos données **RUM**.
 L'amélioration de votre SSN passe par l'amélioration des étapes individuelles des parcours utilisateurs ou de certaines pages si vous utilisez le RUM. Pour découvrir les améliorations possibles :
 
-<Tabs groupId="sync">
+<Tabs groupId="improveDss" queryString>
 <TabItem value="For User Journeys" label="For User Journeys">
 
 1. Depuis la page **Parcours Utilisateurs**, cliquez sur le bouton **Vue d'ensemble de ce parcours** pour le parcours que vous souhaitez améliorer.

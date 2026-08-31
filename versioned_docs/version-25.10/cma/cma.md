@@ -94,13 +94,13 @@ The connection between the poller and the agent must be secure in production. Yo
 
 ### Operating diagram
 
-<Tabs groupId="sync" queryString>
-<TabItem value="Agent connects to poller" label="Agent connects to poller">
+<Tabs groupId="cmaConnect" queryString>
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 ![image](../assets/cma/initiated-by-agent.png)
 
 </TabItem>
-<TabItem value="Poller connects to agent" label="Poller connects to agent">
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
 ![image](../assets/cma/initiated-by-poller.png)
 

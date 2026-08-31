@@ -42,7 +42,7 @@ docker login docker.centreon.com/centreon-dem-beta
 
 ## Étape 3 : Créer et démarrer la sonde
 
-<Tabs groupId="sync">
+<Tabs groupId="cxmProbe" queryString>
 <TabItem value="Sonde STM">
 
 Lorsque vous créez une sonde, les sondes STM sont le type par défaut. Celles-ci servent à collecter les métriques de performance habituelles utilisées par Experience Monitoring.

@@ -173,7 +173,7 @@ rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 
 #### Recréer les contraintes
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="haNodes" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="os" queryString>
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
@@ -318,7 +318,7 @@ pcs resource cleanup
 Vous pouvez surveiller les ressources du cluster en temps réel en utilisant la commande `crm_mon -fr` :
 > **INFO:** L'option `-fr` vous permet d'afficher toutes les resources même si elles sont disable.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="haNodes" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```text

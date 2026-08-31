@@ -32,7 +32,7 @@ Le profileur PHP vous permet de collecter des informations détaillées sur le t
 
 ### Étape 1 : installation du paquet
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Debian/Ubuntu" label="Debian/Ubuntu">
 
 Vous devez avoir ajouté les dépôts Experience Monitoring, ce que vous devriez déjà avoir fait lors de l’installation de l’agent système.

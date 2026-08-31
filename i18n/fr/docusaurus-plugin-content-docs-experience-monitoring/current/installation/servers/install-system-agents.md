@@ -28,12 +28,12 @@ Pour envoyer des informations système à Experience Monitoring, vous devez inst
 
 ## Procédure d'installation
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Debian" label="Debian">
 
 1. Ajoutez la ligne suivante au fichier **/etc/apt/sources.list.d/quanta.list**.
 
-   <Tabs groupId="debian">
+   <Tabs groupId="debian" queryString>
    <TabItem value="Buster (versions 10.*)" label="Buster (versions 10.*)">
 
     ```bash
@@ -86,7 +86,7 @@ Pour installer l’agent Experience Monitoring :
 
 1. Ajoutez la ligne suivante au fichier **/etc/apt/sources.list.d/quanta.list**.
 
-   <Tabs groupId="ubuntu">
+   <Tabs groupId="ubuntu" queryString>
    <TabItem value="Jammy" label="Jammy">
 
    ```bash

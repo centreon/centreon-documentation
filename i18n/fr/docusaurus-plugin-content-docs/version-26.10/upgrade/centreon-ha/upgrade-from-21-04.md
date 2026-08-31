@@ -161,7 +161,7 @@ Ce fichier sera nécessaire pour recréer toutes les ressources de votre cluster
 
 Ces commandes ne doivent être exécutées que sur le nœud central actif :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="haNodes" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```bash
@@ -312,7 +312,7 @@ pcs resource create "ms_mysql" \
 
 > **Attention:** la syntaxe de la commande suivante dépend de la distribution Linux que vous utilisez.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="haNodes" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="os" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -394,7 +394,7 @@ bash centreon_pcs_command.sh
 
 #### Recréer les contraintes
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="haNodes" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="os" queryString>
 <TabItem value="RHEL 8 / Oracle Linux 8" label="RHEL 8 / Oracle Linux 8">
@@ -453,7 +453,7 @@ pcs resource cleanup
 Vous pouvez surveiller les ressources du cluster en temps réel à l'aide de la commande `crm_mon -fr` :
 > **INFO:** L'option `-fr` vous permet d'afficher toutes les ressources même si elles sont désactivées.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="haNodes" queryString>
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 
 ```text

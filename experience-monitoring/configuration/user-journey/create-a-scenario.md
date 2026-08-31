@@ -61,7 +61,7 @@ To access the advanced settings, open your journey in edit mode, click the three
 
 Remember to click **Save** after any changes in this window.
 
-<Tabs groupId="sync">
+<Tabs groupId="journeyConfig" queryString>
 <TabItem value="General" label="General">
 
 Give your journey a clear, unique name. This name appears in reports and throughout the Experience Monitoring interface.
@@ -191,7 +191,7 @@ Give a name to this new step and click the + icon inside the step to choose an a
 
 There are 6 possible actions that the probe can perform when following a User Journey:
 
-<Tabs groupId="sync">
+<Tabs groupId="actions" queryString>
 <TabItem value="Navigate" label="Navigate">
 
 Choose a URL to navigate to. This action is the same as entering a URL in the address bar and going there. A User Journey always starts with a navigation action. 

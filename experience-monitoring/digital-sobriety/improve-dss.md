@@ -19,7 +19,7 @@ Click the **More details** button.
 The graph at the top shows information of your overall DSS. This is calculated using the combined data from all your **User Journeys** or your **RUM** data.
 Improving your DSS is done by improving the individual steps of user journeys or certain pages if you are using RUM. To learn about possible improvements:
 
-<Tabs groupId="sync">
+<Tabs groupId="improveDss" queryString>
 <TabItem value="For User Journeys" label="For User Journeys">
 
 1. From the **User Journeys** page, click the **Overview of this journey** button for the journey you want to improve.

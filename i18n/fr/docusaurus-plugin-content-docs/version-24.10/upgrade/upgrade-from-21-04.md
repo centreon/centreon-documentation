@@ -162,18 +162,11 @@ Ensuite, vous devez changer le flux PHP de la version 7.3 à 8.2 en exécutant l
 pour confirmer :
 
 ```shell
-dnf config-manager --disable remi-modular remi-safe
-dnf module disable composer:2
-dnf module disable php:remi-8.1
-rm -rf /etc/yum.repos.d/remi*
 dnf module reset php
 ```
 
 ```shell
 dnf module install php:8.2
-dnf distro-sync php\* --allowerasing
-su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
-systemctl restart php-fpm
 ```
 
 </TabItem>
@@ -193,62 +186,6 @@ dnf module reset php
 
 ```shell
 dnf module install php:8.2
-```
-
-</TabItem>
-</Tabs>
-
-Puis, finissez la montée de version de la solution Centreon.
-
-1. Videz le cache :
-
-<Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt clean all
-apt update
-```
-
-</TabItem>
-</Tabs>
-
-2. Mettez à jour l'ensemble des composants :
-
-<Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
-</Tabs>
-
-> Acceptez les nouvelles clés GPG des dépôts si nécessaire.
-
-<Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Exécutez les commandes suivantes :
-
-```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
 ```
 
 </TabItem>

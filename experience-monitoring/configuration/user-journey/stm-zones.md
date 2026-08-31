@@ -40,7 +40,7 @@ docker login docker.centreon.com/centreon-dem-beta
 
 ## Step 3: Create and launch the probe
 
-<Tabs groupId="sync">
+<Tabs groupId="cxmProbe" queryString>
 <TabItem value="STM probe">
 
 When creating a probe, STM probes are the type selected by default. STM probes collect the usual performance metrics used by Experience Monitoring.

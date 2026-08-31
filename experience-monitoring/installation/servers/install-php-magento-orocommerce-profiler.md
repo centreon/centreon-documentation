@@ -32,7 +32,7 @@ The PHP profiler allows you to collect detailed information about the execution 
 
 ### Step 1: install the package
 
-<Tabs groupId="os">
+<Tabs groupId="os" queryString>
 <TabItem value="Debian/Ubuntu" label="Debian/Ubuntu">
 
 You must have added the Experience Monitoring repositories, which you should already have done during the system agent installation.
