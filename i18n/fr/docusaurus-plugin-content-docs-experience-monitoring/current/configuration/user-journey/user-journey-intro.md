@@ -13,6 +13,8 @@ Vous pouvez configurer plusieurs parcours utilisateur pour simuler différents t
 En plus des pages visitées, vous pouvez préciser si la sonde doit se comporter comme si elle naviguait depuis un ordinateur ou un téléphone, quel navigateur utiliser, et d'autres spécificités.
 Vous pourrez ainsi mieux identifier quel type d'utilisateur pourrait rencontrer des problèmes.
 
+Les sondes peuvent stocker leurs données en cache pour couvrir d'éventuelles coupures de réseau temporaires.
+
 De plus, les parcours utilisateur vous permettent de :
 
 - Surveiller le bon fonctionnement d'un parcours type et calculer son taux de disponibilité (par exemple, « il était possible de naviguer et d'acheter sur le site e-commerce 99,5 % du temps ce mois-ci »).

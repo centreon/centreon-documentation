@@ -13,6 +13,8 @@ You can configure multiple User Journeys to imitate a variety of different users
 In addition to the pages visited, you can further detail if the probe should act as if navigating from a computer or a phone, what browser to use and other specificities.
 This way you can better identify which type of user may be facing issues.
 
+The probes are able to cache their results to cover for eventual temporary network outage.
+
 Additionally, User Journeys allow you to:
 
 - Monitor the proper functioning of a typical journey and calculate its availability rate (e.g., "it was possible to browse and purchase on the ecommerce site 99.5% of the time this month").

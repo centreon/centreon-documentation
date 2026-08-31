@@ -7,7 +7,9 @@ description: Mettre en place une zone privée pour superviser des parcours inter
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser des parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation. Pour ce faire, une sonde est déployée dans votre infrastructure. Vous pouvez également utiliser une sonde pour obtenir des recommandations personnalisées afin d'optimiser votre site.
+Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser des parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation.
+Pour ce faire, une sonde est déployée dans votre infrastructure. Vous pouvez également utiliser une sonde pour obtenir des recommandations personnalisées afin d'optimiser votre site.
+Les sondes peuvent stocker leurs données en cache pour couvrir d'éventuelles coupures de réseau temporaires.
 
 ## Prérequis
 
@@ -44,7 +46,7 @@ Exécutez la commande Docker pour vous connecter au registre.
 
 Les sondes STM collectent les métriques de performance habituelles utilisées par Experience Monitoring.
 
-1. Pour créer et démarrer une sonde STM, exécutez la deuxième commande obtenue à [l'étape 3](#étape-3--associer-une-sonde-à-la-zone-stm). 
+1. Pour créer et démarrer une sonde STM, exécutez la commande de sonde STM obtenue à [l'étape 3](#étape-3--associer-une-sonde-à-la-zone-stm) avec le jeton de sonde.
 
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
 
@@ -53,7 +55,7 @@ Les sondes STM collectent les métriques de performance habituelles utilisées p
 
 Les sondes de recommandations tournent une fois par jour pour vous faire des recommandations personnalisées sur la façon d'optimiser votre site.
 
-1. Pour créer et démarrer une sonde de recommandations, cliquez sur l'onglet **recommandations** dans la section **Démarrer la sonde** et exécutez la commande affichée.
+1. Pour créer et démarrer une sonde de recommandations, exécutez la commande de sonde de recommandations obtenue à [l'étape 3](#étape-3--associer-une-sonde-à-la-zone-stm) avec le jeton de sonde.
 
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**. Les sondes de recommandations se différencient des sondes STM grâce à leur icône de jumelles.
 
