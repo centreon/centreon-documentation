@@ -29,6 +29,14 @@ dédiés vous permettent de [ne pas envoyer certains évènements](#filtrer-ou-a
 
 Ce stream connector est conçu pour être compatible avec l'API v.4 de Canopsis.
 
+## Optimisation des performances des Downtime vers Canopsis
+
+Afin d'améliorer les performances de l'envoi des périodes d'indisponibilité (downtime) vers Canopsis, un nouvel endpoint a été introduit : `/api/v4/bulk/connector-pbehaviors`. Il permet d'envoyer en masse les données de type pbehavior, réduisant ainsi considérablement le nombre d'appels API et améliorant le débit global.
+
+:::warning
+Cet endpoint est uniquement disponible dans les versions de Canopsis 24.04.8, 24.10.x, et 25.04.x.
+:::
+
 ## Installation
 
 Faites l'installation sur le serveur qui enverra les données à Canopsis (serveur central, 
