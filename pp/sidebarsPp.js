@@ -193,11 +193,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-mssql'
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-cma'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-cma'
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-mssql'
         },
         {
           type: 'doc',
@@ -205,11 +205,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-nsclient-05-nrpe'
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-cma'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-cma'
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-nsclient-05-nrpe'
         },
         {
           type: 'doc',
@@ -2381,6 +2381,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp-rs'
         },
         {
           type: 'doc',
