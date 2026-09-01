@@ -41,7 +41,7 @@ Execute the Docker command to log in to the registry.
 
 ## Step 4: Create and launch the probe
 
-<Tabs groupId="stmProbes" queryString>
+<Tabs groupId="cxmProbes" queryString>
 <TabItem value="STM probe">
 
 STM probes collect the standard performance metrics that Experience Monitoring uses.
@@ -51,7 +51,7 @@ STM probes collect the standard performance metrics that Experience Monitoring u
 2. Refresh the page: once launched, the probe is automatically saved and appears to the right of the associated zone in the **Synthetic Monitoring Zones** list.
 
 </TabItem>
-<TabItem value="Recommendation probe">
+<TabItem value="Recommendations probe">
 
 Recommendation probes run once a day to make personalized suggestions on how to optimize your website.
 

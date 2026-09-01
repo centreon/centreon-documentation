@@ -41,7 +41,7 @@ Exécutez la commande Docker pour vous connecter au registre.
 
 ## Étape 4 : Créer et démarrer la sonde
 
-<Tabs groupId="stmProbes" queryString>
+<Tabs groupId="cxmProbes" queryString>
 <TabItem value="Sonde STM">
 
 Les sondes STM collectent les métriques de performance habituelles utilisées par Experience Monitoring.
