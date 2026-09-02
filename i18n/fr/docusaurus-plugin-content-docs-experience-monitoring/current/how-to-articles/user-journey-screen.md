@@ -6,7 +6,7 @@ description: Parcourir l'écran de synthèse des parcours et ses actions
 
 En cliquant sur **Les parcours utilisateurs**, vous accédez à une page contenant tous les scénarios créés pour votre site.
 
-Cette page vous offre un résumé de la performance de chaque scénario.
+Cette page présente un aperçu de la performance de chaque scénario.
 
 ![image](../assets/configuration/user-journey/journey-widget.png)
 
