@@ -250,6 +250,9 @@ lignes
 > La suppression d'une activité métier la supprime définitivement avec
 > l'ensemble des données et indicateurs qui lui sont rattachés.
 
+La liste des BA propose un filtre pour se concentrer uniquement sur le premier niveau de l'arbre.
+- Basculez entre les boutons de la fonctionnalité **Afficher la vue** pour afficher soit "Toutes les Activités Métiers" ou "Uniquement les Activités Métiers de premier niveau".
+
 ## Indicateurs (KPI)
 
 > Lorsque vous créez/modifiez un indicateur, il faut générer et

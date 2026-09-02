@@ -261,6 +261,9 @@ enable/disable the BA and massively change thresholds.
 > Deleting a business activity is permanent; only past data will be
 > available through reports/widgets
 
+The BA listing includes a filter that allows you to focus only on the first level of the tree.
+- Switch between the buttons within the **Display view** feature to display either “All Business Activities” or “Only top-level Business Activities”.
+
 ## Indicators (KPI)
 
 > To update the indicator configuration, you need to push and reload the
