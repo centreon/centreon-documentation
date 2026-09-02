@@ -1,23 +1,27 @@
 ---
 id: user-journey-screen
-description: Parcourir l'écran de synthèse des parcours et ses actions
 title: L’écran Parcours Utilisateurs
+description: Parcourir l'écran de synthèse des parcours et ses actions
 --- 
 
-Sur la page "Parcours utilisateurs" vous retrouvez tous les scénarios qui ont été créés pour votre site.
+En cliquant sur **Les parcours utilisateurs**, vous accédez à une page contenant tous les scénarios créés pour votre site.
 
-Cette première page est une vue d'ensemble de tous vos scénarios. Elle vous permet d'analyser de manière rapide et efficace la performance de votre site.
+Cette page vous offre un résumé de la performance de chaque scénario.
 
-![Image](../assets/how-to-articles/user-journey-screen-1.png)
+![image](../assets/configuration/user-journey/journey-widget.png)
 
-Vous y trouverez d'abord, la **disponibilité** (uptime, downtime) ainsi que le nombre incidents par scénario sur la période que vous avez sélectionnée.
+Sur chacun de ces Parcours Utilisateurs vous pouvez :
 
-Puis on y voit apparaître la **moyenne** et la **variation** pour les 4 métriques de performance suivantes :
+- Ajouter un parcours à vos tableaux de bord en cliquant sur l'icône étoile.
+- Enregistrer le résumé de chaque parcours comme un png en cliquant l'icône caméra.
+- Accéder à la configuration des Rapports et des Alertes pour chaque parcours ou à sa configuration en cliquant sur les trois points.
+- Voir et exporter la liste d'incidents d'un parcours en cliquant sur la loupe à côté du nombre d'incidents
+- Voir et exporter le HAR complet de chaque incident individuel en le cliquant dans la liste d'incidents. Vous pouvez également télécharger les logs de la sonde qui a rencontré l'incident depuis cet modale.
+- Obtenir un graphique plus détaillé pour chacune de metriques en cliquant sur la loupe à côté du graphique de chaque métrique. 
 
-[Hero Time](../performance-analysis/metrics/hero-time.md)
+## Vue d'ensemble d'un parcours
 
-[TTFB (”Time To First Byte”)](../performance-analysis/metrics/time-to-first-byte.md)
+Le bouton **Vue d'ensemble de ce parcours** vous emmène à une vue plus détaillée de chaque aspect de ce parcours.
+Vous pouvez cliquer sur chacune des métriques dans la **Vue d'ensemble** pour obtenir une évaluation par étape selon chaque métrique.
 
-[Speed Index](../performance-analysis/metrics/speed-index.md)
-
-[OnLoad](../performance-analysis/metrics/on-load.md)
+Les onglets en haut de la page vous permettent également de mieux évaluer la performance de chaque étape.
