@@ -6,6 +6,8 @@ description: "Develop custom report designs for Centreon MBI using BIRT"
 
 Compatibility: BIRT 4.20.0+
 
+> This procedure uses BIRT. However, many of our customers who create custom reports prefer to use more modern tools such as Grafana or Power BI. Consider using those if you are struggling with BIRT.
+
 > Upgrading to BIRT 4.20.0 may result in changes that affect your custom templates. We recommend that you check them after upgrading from an earlier BIRT version.
 
 This quick start guide presents the best practices for developing
