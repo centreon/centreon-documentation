@@ -33,7 +33,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
   <summary>Enhancements</summary>
 
 - [Administration] PHP log verbosity is now controlled solely by the APP_DEBUG setting.
-- [Dashboards] Added Notes and Action columns to the Resource table widget.
+- [Dashboards] Added a Notes column and an Action column to the Resource table widget.
 - [Resource Status] The CSV export now includes host and service IDs for easier correlation with the API and external tools.
 
 </details>
@@ -41,22 +41,22 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed section header in SNMP traps configuration form.
+- [SNMP Traps] Fixed a duplicated section header in SNMP traps configuration form.
 - [API] Internal API calls now follow the configured base URL scheme, fixing failures when Centreon runs behind a TLS-terminating proxy.
 - [Administration] Fixed the OpenID Connect trusted client addresses filter, which was reversed and blocked allowlisted IPs while letting others through.
 - [CLAPI] Enforces a mandatory email on user creation, fixing errors that broke the user list in Authentication settings.
 - [Configuration] Editing a host or host template no longer triggers a 404 error when loading the check command default values.
 - [Configuration] Fixed an issue where a failed Broker configuration save could erase the existing configuration.
 - [Configuration] Fixed an issue where mass change allowed moving a service to a host that already had a service with the same name.
-- [Configuration] Fixes saving configuration when the database name contains a hyphen or dollar sign.
+- [Configuration] Fixes an issue when saving configuration while the database name contained a hyphen or dollar sign.
 - [Configuration] The severity "Level" field now enforces the valid 1–127 range instead of showing a blank page.
-- [Dashboard] Fixed a crash in the Business Activity Availability widget when selecting a business activity.
+- [Dashboard] Fixed a crash in the Business Activity Availability widget when selecting a Business Activity.
 - [Dashboard] Fixed a crash in the Business Activity Diagram widget when selecting a Business Activity.
 - [Dashboard] Fixed duplicate host and service severity levels appearing in dashboard resource table widgets.
 - [Dashboards] Interacting with a widget (pagination, page size, display view, map navigation) no longer switches the dashboard to edit mode.
-- [Export] Fixed encrypted passwords in exported configuration files, which could prevent Broker from starting.
+- [Export] Fixed an issue with passwords being encrypted in the exported configuration files, which could prevent Broker from starting.
 - [Monitoring] Clicking a resource in Custom Views or legacy pages now opens its details panel instead of showing an error.
-- [My Account] Users whose password never expires or is exempt from the expiration policy can again open their profile page.
+- [My Account] Users whose password never expires or is exempt from the expiration policy can access their profile page again.
 - [Resource Status] Selected resources are now deselected after a check action.
 - [Web] Deprecation logs are now disabled by default, preventing the log file from growing uncontrollably and filling the disk.
 
