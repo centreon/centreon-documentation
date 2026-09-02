@@ -38,6 +38,11 @@ Pour créer un service, allez à la page **Configuration > Services > Services p
   le statut du service est OK.
 * Le champ **Intervalle non-régulier de contrôle** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK du service.
 
+### Traitement des données
+
+* Contrôler la fraicheur du résultat : effectue un contrôle actif lorsque la quantité de temps définie dans Seuil de fraicheur du résultat s'est écoulée depuis le dernier contrôle passif de l'objet.
+* Seuil de fraicheur du résultat : exprimé en secondes. Si durant cette période aucune commande passive de l'hôte n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
+
 ### Classification
 
 * La liste **Groupes de services** permet de lier le service à un ou plusieurs groupes de services.
