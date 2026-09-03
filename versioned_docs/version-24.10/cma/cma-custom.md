@@ -7,7 +7,7 @@ import TabItem from '@theme/TabItem';
 
 **Centreon Monitoring Agent** can execute custom plugins. Use this feature if your monitoring needs are specific and not covered by native Centreon controls and plugins. Supported languages are: PowerShell, Perl, Python, Bash.
 
-To get started, create your plugin: for example, you can use [our developer guide](../../develop-plugin.md).
+To get started, create your plugin: for example, you can use [our developer guide](/pp/integrations/plugin-packs/getting-started/develop-plugin).
 
 ## Actions on the host
 
