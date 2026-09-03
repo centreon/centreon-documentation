@@ -24,6 +24,9 @@ and runs an installer script on the target Docker host. The script generates the
 
 ## Prerequisites
 
+* On the central server: Gorgone's **pullwss** module must be configured to
+  accept connections, since a Docker poller always connects out to the
+  central server. This is a one-time setup, shared by all Docker pollers.
 * A Linux host with **Docker Engine** and the **Docker Compose v2** plugin
   installed (`docker compose version` must succeed).
 * Outbound network access from this host to your Centreon central server.

@@ -28,6 +28,10 @@ démarre la stack.
 
 ## Prérequis
 
+* Sur le serveur central : le module **pullwss** de Gorgone doit être
+  configuré pour accepter les connexions, car un collecteur Docker se
+  connecte toujours vers le serveur central. C'est une configuration à
+  faire une seule fois, commune à tous les collecteurs Docker.
 * Un hôte Linux disposant de **Docker Engine** et du plugin **Docker Compose
   v2** (la commande `docker compose version` doit s'exécuter sans erreur).
 * Un accès réseau sortant depuis cet hôte vers votre serveur central Centreon.
