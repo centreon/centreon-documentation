@@ -15,6 +15,10 @@ Selon le sens de connexion, l'agent/le collecteur vérifie que l'IP/DNS utilisé
 Si ce n'est pas le cas, la connexion est refusée.
 La vérification est faite sur les blocs **subject** et **alt_names** du certificat, qui peuvent contenir plusieurs DNS, IP ou CN.
 
+> **Important** : en mode TLS, le nom d'hôte ou l'IP que vous déclarez comme endpoint (le paramètre **Poller endpoint**/**endpoint** côté agent, ou l'adresse de l'hôte côté collecteur) ne sert pas uniquement à établir la connexion réseau : c'est aussi la valeur vérifiée par rapport aux SAN (SubjectAltNames) ou au CN du certificat lors de la négociation TLS. Un test de connectivité telnet/TCP réussi sur un nom d'hôte donné ne garantit **pas** que la négociation TLS aboutira avec ce même nom d'hôte : si la valeur ne correspond à aucune entrée SAN/CN du certificat, la connexion sera refusée au niveau TLS, même si le chemin réseau est ouvert.
+>
+> Nous recommandons de déclarer l'endpoint avec une valeur (FQDN ou IP) réellement présente dans la liste des SAN du certificat. Consultez [comment générer un certificat autosigné](#comment-générer-un-certificat-autosigné-facultatif) pour savoir comment les noms alternatifs DNS et IP sont déclarés et pris en compte.
+
 ### Fichiers de certificat
 
 Les formats supportés sont :
