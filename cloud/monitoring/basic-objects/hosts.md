@@ -57,6 +57,11 @@ defined in the host templates below.
 * The **Normal Check Interval** is expressed in minutes. It defines the interval between checks when the host status is OK.
 * The **Retry Check Interval** is expressed in minutes. It defines the check interval of the Not-OK status of the host.
 
+### Data processing
+
+* Check Freshness: active check performed by the engine when the amount of time determined in the Freshness Threshold has elapsed since the last passive command of the object.
+* Freshness Threshold: expressed in seconds. If, during this period, no passive command is received from the host, the active check command is executed. A threshold will be determined automatically if the field is left blank and the check is enabled.
+
 ### Classification
 
 * The **Host Groups** list defines the host groups to which the host belongs. You must link at least one hostgroup (mandatory field for ACL management purpose).

@@ -56,6 +56,11 @@ identiques définies dans modèles d’hôtes en dessous.
   le statut de l’hôte est OK.
 * Le champ **Intervalle non-régulier de contrôle** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK de l’hôte.
 
+### Traitement des données
+
+* Contrôler la fraicheur du résultat : effectue un contrôle actif lorsque la quantité de temps définie dans Seuil de fraicheur du résultat s'est écoulée depuis le dernier contrôle passif de l'objet.
+* Seuil de fraicheur du résultat : exprimé en secondes. Si durant cette période aucune commande passive de l'hôte n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
+
 ### Classification
 
 * Le champ **Groupes d'hôtes** définit les groupes d’hôtes auxquels l’hôte appartient. Vous devez associer au moins un groupe d'hôtes (champ obligatoire pour des raisons de gestion des ACLs).
