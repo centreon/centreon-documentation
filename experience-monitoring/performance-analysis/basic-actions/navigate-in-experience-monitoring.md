@@ -1,4 +1,4 @@
-﻿---
+---
 id: navigate-in-experience-monitoring
 title: Navigating in Experience Monitoring
 description: Switch between sites, modules, and time periods in the UI
@@ -17,7 +17,7 @@ In the Centreon Experience Monitoring interface, you can:
 
 The platform lets you organize and monitor multiple websites from a single account.
 
-* Organizations are top-level groupings that contain one or more sites — for example, separate organizations for different business units or clients. [User rights](../../configuration/manage-users-and-rights.md) are defined at organization level.
+* Organizations are top-level groupings that contain one or more sites — for example, separate organizations for different business units or clients. [User rights](../../configuration/manage-users-and-rights.md) are defined at organization level. 
 * Sites are individual websites within an organization. A common setup is separate sites for different environments, such as production and pre-production.
 
 ### Switching between sites

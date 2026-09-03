@@ -28,7 +28,7 @@ To [install the system agent, you must follow the basic procedure](./install-sys
 
 When instances (VMs or containers) are deployed automatically or semi-automatically, some configuration fields must be modified or replicated for each newly created instance:
 
-- **Token**: The identification token must be the same for all Experience Monitoring agents that belong to the same license and site. It is stored in the `/etc/quanta/agent.yml` configuration file. The token tells the agent which site the monitored data belongs to.
+- **[Access token](../tokens.md)**: The identification token must be the same for all Experience Monitoring agents that belong to the same license and site. It is stored in the `/etc/quanta/agent.yml` configuration file. The token tells the agent which site the monitored data belongs to.
 - **Hostid**: Also located in `/etc/quanta/agent.yml`. The hostid is a unique identifier used by Experience Monitoring to uniquely identify an instance:
     - For static servers, the hostid must be different for each new instance, so your new instance `front-nginx-3` won't overwrite the data sent by `front-nginx-2`.
     - In auto-scaling scenarios, you may need to preserve a stable identifier when an instance is removed and later recreated. For example, if you add a fourth front each evening at 19:00 to handle peak traffic and remove it at 21:00, you probably want to avoid seeing a new chart created every day in Experience Monitoring (and a rapidly growing list of charts). In that case you should reuse a hostid in a pool of unique identifiers each time you remove and recreate that front so its data always appears in the same chart.
