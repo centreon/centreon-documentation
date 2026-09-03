@@ -1,20 +1,20 @@
 ---
 id: stm-zones
-title: Superviser des parcours utilisateur non-publics (beta fermée)
+title: Superviser des parcours utilisateur non publics
 description: Mettre en place une zone privée pour superviser des parcours internes non publics
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser vos parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation, via une sonde déployée dans votre infrastructure. Vous pouvez également utiliser une sonde pour obtenir des recommandations personnalisées pour optimiser votre site.
+Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser des parcours utilisateur sur des domaines internes ou des réseaux propres à votre organisation.
+Pour ce faire, une sonde est déployée dans votre infrastructure. Vous pouvez également utiliser une sonde pour obtenir des recommandations personnalisées afin d'optimiser votre site.
+Les sondes peuvent stocker leurs données en cache pour couvrir d'éventuelles coupures de réseau temporaires.
 
 ## Prérequis
 
 - Une machine située dans votre infrastructure devra héberger une sonde. Elle devra pouvoir accéder à l'application à superviser.
-- Les identifiants Docker fournis par Centreon. Les identifiants vous sont transmis par Centreon via un lien sécurisé Keeper. Sauvegardez les identifiants dans votre propre coffre-fort.
-- Un parcours utilisateur configuré sur l'application interne à superviser.
-- L'installation du [profileur](../../installation/servers/install-php-magento-orocommerce-profiler.md).
+- Un parcours utilisateur doit être configuré sur l'application interne à superviser.
 
 ## Étape 1 : Créer une nouvelle zone STM
 
@@ -28,35 +28,34 @@ Une Zone de Monitoring Synthétique (zone STM) privée vous permet de superviser
 
 Votre nouvelle zone apparaît désormais dans la liste.
 
-## Étape 2 : Associer une sonde à la zone STM
+## Étape 2 : Obtenir un jeton de sonde
 
-1. Cliquez sur **Associer une sonde** à droite de votre zone.
+Toujours dans la page de l'organisation, ouvrez l'onglet **Jetons**. Cliquez sur **Créer un jeton** et suivez les étapes pour créer un jeton de sonde.
 
-Une fenêtre s'ouvre avec 2 commandes Docker :
+Gardez votre jeton. Vous en aurez besoin pour créer la sonde lors de la prochaine étape.
 
-2. Utilisez la première commande pour vous identifier au registry Docker Centreon avec [les identifiants fournis par Centreon](#prérequis) :
+## Étape 3 : Associer une sonde à la zone STM
 
-```shell
-docker login docker.centreon.com/centreon-dem-beta
-```
+Cliquez sur **Associer une sonde** à droite de votre zone. Une fenêtre contenant plusieurs commandes s'ouvre.
+Exécutez la commande Docker pour vous connecter au registre.
 
-## Étape 3 : Créer et démarrer la sonde
+## Étape 4 : Créer et démarrer la sonde
 
-<Tabs groupId="sync">
+<Tabs groupId="cxmProbes" queryString>
 <TabItem value="Sonde STM">
 
-Lorsque vous créez une sonde, les sondes STM sont le type par défaut. Celles-ci servent à collecter les métriques de performance habituelles utilisées par Experience Monitoring.
+Les sondes STM collectent les métriques de performance habituelles utilisées par Experience Monitoring.
 
-1. Pour créer et démarrer une sonde STM, exécutez la deuxième commande obtenue à [l'étape 2](#étape-2--associer-une-sonde-à-la-zone-stm). 
+1. Pour créer et démarrer une sonde STM, exécutez la commande de sonde STM obtenue à [l'étape 3](#étape-3--associer-une-sonde-à-la-zone-stm) avec le jeton de sonde.
 
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
 
 </TabItem>
-<TabItem value="Sonde recommandation">
+<TabItem value="Sonde de recommandations">
 
-Vous pouvez également créer des sondes de recommandations. Ces dernières tournent une fois par jour pour vous faire des recommandations personnalisées sur comment optimiser votre site.
+Les sondes de recommandations tournent une fois par jour pour vous faire des recommandations personnalisées sur la façon d'optimiser votre site.
 
-1. Pour créer et démarrer une sonde de recommandations, cliquez sur l'onglet **recommandations** dans la section **Démarrer la sonde** et exécutez la commande affichée.
+1. Pour créer et démarrer une sonde de recommandations, exécutez la commande de sonde de recommandations obtenue à [l'étape 3](#étape-3--associer-une-sonde-à-la-zone-stm) avec le jeton de sonde.
 
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**. Les sondes de recommandations se différencient des sondes STM grâce à leur icône de jumelles.
 
@@ -65,7 +64,7 @@ Notez qu'il faut attendre jusqu'à 24 heures pour que la sonde ait assez de donn
 </TabItem>
 </Tabs>
 
-## Étape 4 : Associer la zone à un parcours utilisateur
+## Étape 5 : Associer la zone à un parcours utilisateur
 
 1. Allez dans **Configuration** et sélectionnez le **Parcours Utilisateur** de votre site. 
 
@@ -73,4 +72,4 @@ Notez qu'il faut attendre jusqu'à 24 heures pour que la sonde ait assez de donn
 
 3. Dans la fenêtre **Configuration avancée**, faites défiler jusqu'à la section **Zones de Monitoring Synthétique**. Votre zone privée apparaît sous **Zones Privées**. Sélectionnez-la et cliquez sur **Sauvegarder**.
 
-Après un bref délai, la sonde aura réalisé son premier contrôle et votre supervision de parcours interne sera alors opérationnelle. Vous pouvez l'étudier de la même manière qu'un [parcours utilisateur](../../how-to-articles/user-journey-screen.md) normal.
+Après un bref délai, la sonde aura réalisé son premier contrôle et votre supervision de parcours interne sera alors opérationnelle. Vous pouvez étudier ce parcours de la même manière qu'un [parcours utilisateur](../../how-to-articles/user-journey-screen.md) normal.

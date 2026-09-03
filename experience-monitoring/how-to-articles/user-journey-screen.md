@@ -16,6 +16,7 @@ On each of these User Journeys you can:
 - Save each journey's summary as a screenshot by clicking the camera icon.
 - Access the Digest and Notification settings for each journey or its configuration by clicking the three dots.
 - See and export the list of incidents on a journey by clicking the magnifying glass next to the number of incidents.
+- See and export the full HAR of each individual incident by clicking on it in the list of incidents. You can also download the logs of the probe that ran into the incident from here.
 - See a more detailed graph for each of the metrics by clicking the magnifying glass next to each metric's graph.
 
 ## Overview of a journey
