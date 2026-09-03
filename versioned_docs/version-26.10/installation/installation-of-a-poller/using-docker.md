@@ -120,33 +120,35 @@ and `.env` files, then run `docker compose up -d` again.
 
 ### Optional: centreon-vmware container
 
-Monitoring VMware infrastructure requires the proprietary VMware Perl SDK,
-which cannot be redistributed for licensing reasons. Because of this, the
+Monitoring VMware infrastructure requires the proprietary VMware Perl SDK:
+the daemon cannot start at all without it, even with plain-text credentials.
+Because the SDK cannot be redistributed for licensing reasons, the
 `centreon-vmware` container image is **not published on a registry**. The
 generated `docker-compose.yaml` references it as
 `connector-vmware:${VMWARE_TAG:-local}` with `pull_policy: never`, so you must
 build it locally, on the Docker host, before using `--with-vmware`.
 
-Clone the `centreon-plugins` repository and build the image from it:
+Download the SDK archives from the Broadcom developer portal (see the
+[prerequisites of the VMware ESX plugin pack](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prerequisites)
+for instructions), then clone `centreon-plugins`, place the archives in its
+`sdks-vmware` directory, and build the image:
 
 ```shell
 git clone https://github.com/centreon/centreon-plugins.git
 cd centreon-plugins
+# Place the downloaded SDK archives in sdks-vmware/ before building
 docker build \
-  --build-arg PACKAGE_SOURCE=repo \
-  --build-arg WITH_SDK=true \
   --file .github/docker/connector/Dockerfile.connector-vmware \
   --tag connector-vmware:local \
   .
 ```
 
-> `WITH_SDK=true` requires the VMware vSphere Perl SDK and vSAN SDK archives,
-> which you must download yourself from the Broadcom developer portal. See the
-> [prerequisites of the VMware ESX plugin pack](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prerequisites)
-> for instructions on obtaining these files. Place the downloaded archives in
-> the `./centreon-plugins/sdks-vmware` directory before running the `docker
-> build` command above. Building with `WITH_SDK=false` produces a working
-> image, but it cannot decrypt encrypted vCenter credentials.
+> This downloads the latest package from Centreon's stable APT repository and
+> includes the SDK by default. Add `--build-arg VERSION=<version>` to pin a
+> specific release, or `--build-arg PACKAGE_SOURCE=mount` to build from a
+> `.deb` package placed in a `packages-centreon` directory instead. Building
+> with `--build-arg WITH_SDK=false` only validates that the image builds: the
+> resulting daemon cannot start, since the SDK is required in all cases.
 
 ### Custom checks and plugin dependencies
 

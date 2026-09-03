@@ -128,35 +128,38 @@ fichiers `docker-compose.yaml` et `.env` générés, puis relancer
 ### Optionnel : container centreon-vmware
 
 La supervision d'une infrastructure VMware nécessite le SDK Perl VMware
-propriétaire, qui ne peut pas être redistribué pour des raisons de licence.
-C'est pourquoi l'image du container `centreon-vmware` **n'est pas publiée sur
-un registre**. Le `docker-compose.yaml` généré la référence sous la forme
-`connector-vmware:${VMWARE_TAG:-local}` avec `pull_policy: never` : vous devez
-donc la construire localement, sur l'hôte Docker, avant d'utiliser
+propriétaire : le démon ne peut pas démarrer sans lui, même avec des
+identifiants en clair. Comme ce SDK ne peut pas être redistribué pour des
+raisons de licence, l'image du container `centreon-vmware` **n'est pas
+publiée sur un registre**. Le `docker-compose.yaml` généré la référence sous
+la forme `connector-vmware:${VMWARE_TAG:-local}` avec `pull_policy: never` :
+vous devez donc la construire localement, sur l'hôte Docker, avant d'utiliser
 `--with-vmware`.
 
-Clonez le dépôt `centreon-plugins` et construisez l'image à partir de celui-ci :
+Téléchargez les archives du SDK depuis le portail développeur de Broadcom
+(voir les
+[prérequis du plugin pack VMware ESX](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prérequis)
+pour la marche à suivre), puis clonez `centreon-plugins`, déposez les
+archives dans son répertoire `sdks-vmware`, et construisez l'image :
 
 ```shell
 git clone https://github.com/centreon/centreon-plugins.git
 cd centreon-plugins
+# Déposez les archives SDK téléchargées dans sdks-vmware/ avant de construire
 docker build \
-  --build-arg PACKAGE_SOURCE=repo \
-  --build-arg WITH_SDK=true \
   --file .github/docker/connector/Dockerfile.connector-vmware \
   --tag connector-vmware:local \
   .
 ```
 
-> `WITH_SDK=true` nécessite les archives du SDK Perl VMware vSphere et du SDK
-> vSAN, que vous devez télécharger vous-même depuis le portail développeur de
-> Broadcom. Consultez les
-> [prérequis du plugin pack VMware ESX](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prérequis)
-> pour savoir comment obtenir ces fichiers. Déposez les archives téléchargées
-> dans le répertoire `./centreon-plugins/sdks-vmware` avant d'exécuter la
-> commande `docker build` ci-dessus. Construire l'image avec `WITH_SDK=false`
-> produit une image fonctionnelle, mais celle-ci ne peut pas déchiffrer les
-> identifiants vCenter chiffrés.
+> Cette commande télécharge la dernière version du paquet depuis le dépôt
+> APT stable de Centreon et inclut le SDK par défaut. Ajoutez
+> `--build-arg VERSION=<version>` pour épingler une version précise, ou
+> `--build-arg PACKAGE_SOURCE=mount` pour construire à partir d'un paquet
+> `.deb` déposé dans un répertoire `packages-centreon`. Construire avec
+> `--build-arg WITH_SDK=false` ne fait que valider que l'image se construit :
+> le démon résultant ne peut pas démarrer, le SDK étant requis dans tous les
+> cas.
 
 ### Checks personnalisés et dépendances des plugins
 
