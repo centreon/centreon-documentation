@@ -10,7 +10,7 @@ Use the simulation mode to validate the behavior of a Business Activity (BA) dep
 
 - The **Simulation mode** button is located at the top right of the BA configuration page.
 
-- The button is only enabled whenthe parent Business Activity has at least one indicator attached. If no indicator is configured, the button is disabled and a tooltip explains that simulation is not possible without at least one indicator.
+- The button is only enabled when the parent Business Activity has at least one indicator attached. If no indicator is configured, the button is disabled and a tooltip explains that simulation is not possible without at least one indicator.
 
 ## Use the simulation mode
 
@@ -18,12 +18,12 @@ Use the simulation mode to validate the behavior of a Business Activity (BA) dep
 
 ### Simulate a node
 
-Click a Business Activity node in the tree to open its configuration/simulation panel. This panel is only available from BA nodes — not from standalone indicators such as services, meta services, anomaly detections, or boolean rules directly. The panel has two sections:
+Click a Business Activity node in the tree to open its configuration/simulation panel. This panel has two sections:
 
 - BA configuration
 
   - Change the calculation method applied to the node.
-  - Change how planned downtime on indicators affects the status calculation of the node. See downtime inheritance modes below.
+  - Change how planned downtime on indicators affects the status calculation of the node.
 
 - BA indicators
   
@@ -31,8 +31,8 @@ Click a Business Activity node in the tree to open its configuration/simulation 
 
 ## Exit the simulation mode
 
-- Click Exit simulation at any time to leave simulation mode. You are then offered three choices:
+- Click **Exit simulation** at any time to leave simulation mode. You are then offered three choices:
 
-  - Return to simulation: The changes you made are kept in the tree.
-  - Return to configuration without applying changes: None of the changes you made to nodes or indicators during simulation are kept.
-  - Return to configuration and apply changes: The changes you made to nodes and indicators are carried over to the configuration, ready to be saved the next time you save the full tree.
+  - **Back to simulation:** The changes you made are kept in the tree.
+  - **Exit without applying:** None of the changes you made to nodes or indicators during simulation are kept.
+  - **Apply changes:** The changes you made to nodes and indicators are carried over to the configuration, ready to be saved the next time you save the full tree.
