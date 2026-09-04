@@ -30,24 +30,24 @@ description: "Release notes for Centreon Cloud, detailing new features, improvem
 <details>
 <summary>**Bug fixes**</summary>
  
-- [Pollers] Fixed the Pollers menu "Database updates are not active" indicator staying red after an upgrade to 26.07, which was caused by stale legacy poller rows left in the real-time database.
 - [API] Internal API calls now follow the configured base URL scheme, fixing failures when Centreon runs behind a TLS-terminating proxy.
-- [Configuration] Editing a host or host template no longer triggers a 404 error when loading the check command default values.
-- [Open Tickets] Fixed an "Insufficient privileges" error that occurred when a user without access to notification rules tried to open a ticket from a Custom View.
-- [Monitoring] Clicking a resource in Custom Views or legacy pages now opens its details panel instead of showing an error.
-- [Dashboard] Fixed an issue where host and service severity levels appeared as duplicates in dashboard Resource table widgets.
-- [Configuration] The severity "Level" field now enforces the valid 1–127 range instead of showing a blank page.
-- [Open Tickets] ACL-restricted accounts can now view logs again, which previously failed with an SQL error.
-- [CMA] Filtering agent configurations by name or poller now returns the matching results instead of a blank page or wrong entries.
-- [Resource Access Management] Fixed an issue in Centreon Cloud where filtering by host name while creating an ACL resource access rule returned a 500 error.
-- [Resource Status] Selected resources are now deselected after a check action.
-- [Performance Graphs] Curve thickness set in the curve settings now applies to the on-screen graph, matching the PNG export.
-- [Dashboards] Interacting with a widget (pagination, page size, display view, map navigation) no longer switches the dashboard to edit mode.
-- [Configuration] Fixed an issue where mass change allowed moving a service to a host that already had a service with the same name.
-- [Poller] Fixed newly added pollers not starting or supervising any resource, caused by a failed plugin installation step during configuration export.
-- [Poller] Fixed poller configuration generation failing with an "Unknown database centreon_storage" error on platforms where the database is not named `centreon`/`centreon_storage` — always the case on Centreon Cloud — a regression introduced in 26.07.
 - [Autodiscovery] Fixed an error preventing service discovery rules from being enabled or disabled from the list.
 - [Autodiscovery] Fixed discovery jobs failing after activating Vault when existing job credentials had not yet been migrated.
+- [CMA] Filtering agent configurations by name or poller now returns the matching results instead of a blank page or wrong entries.
+- [Configuration] Editing a host or host template no longer triggers a 404 error when loading the check command default values.
+- [Configuration] The severity "Level" field now enforces the valid 1–127 range instead of showing a blank page.
+- [Configuration] Fixed an issue where mass change allowed moving a service to a host that already had a service with the same name.
+- [Dashboard] Fixed an issue where host and service severity levels appeared as duplicates in dashboard Resource table widgets.
+- [Dashboards] Interacting with a widget (pagination, page size, display view, map navigation) no longer switches the dashboard to edit mode.
+- [Monitoring] Clicking a resource in Custom Views or legacy pages now opens its details panel instead of showing an error.
+- [Open Tickets] Fixed an "Insufficient privileges" error that occurred when a user without access to notification rules tried to open a ticket from a Custom View.
+- [Open Tickets] ACL-restricted accounts can now view logs again, which previously failed with an SQL error.
+- [Performance Graphs] Curve thickness set in the curve settings now applies to the on-screen graph, matching the PNG export.
+- [Poller] Fixed newly added pollers not starting or supervising any resource, caused by a failed plugin installation step during configuration export.
+- [Poller] Fixed poller configuration generation failing with an "Unknown database centreon_storage" error on platforms where the database is not named `centreon`/`centreon_storage` — always the case on Centreon Cloud — a regression introduced in 26.07.
+- [Pollers] Fixed the Pollers menu "Database updates are not active" indicator staying red after an upgrade to 26.07, which was caused by stale legacy poller rows left in the real-time database.
+- [Resource Access Management] Fixed an issue in Centreon Cloud where filtering by host name while creating an ACL resource access rule returned a 500 error.
+- [Resource Status] Selected resources are now deselected after a check action.
  
 </details>
  
@@ -78,9 +78,9 @@ The Business Activity configuration experience keeps expanding this cycle, with 
 - [BAM] Fixed an issue with KPIs under downtime being counted for a Business Activity's status after editing the BA's KPI list.
 - [MAP] Fixed two MAP server errors (HTTP 500) affecting the import and save of standard-map views.
 - [MAP] Fixed an issue in the MAP viewer where clicking on a container's pop-up title redirected to an incorrect URL, resulting in errors.
-- [MAP] Fixed an issue where the Map widget in dashboards and custom views could intermittently display the MAP homepage instead of the selected map, caused by a rare condition in the view loading order.
+- [MAP] Fixed an issue where the MAP widget in dashboards and custom views could intermittently display the MAP homepage instead of the selected map, caused by a rare condition in the view loading order.
 - [MAP] Removed the line height option that caused the label to break and exposed raw HTML tags in the resource name.
-- [MAP] Map server JWTs are now invalidated when the originating Centreon Web session ends, preventing stale or cross-user authorization on map-engine after logout.
+- [MAP] MAP server JWTs are now invalidated when the originating Centreon Web session ends, preventing stale or cross-user authorization on map-engine after logout.
 - [MAP] Fixed an issue in the MAP editor where custom border or text colors applied to an object were incorrectly carried over as defaults to newly created objects, instead of each new object starting with default color values.
 - [MAP] Fixed an issue in MAP where changing a resource (e.g., host) in the editor did not update the icon data, causing the editor and viewer to retain the previously selected resource's information instead of reflecting the new selection.
 - [MAP] Fixed a pie chart widget's inner radius being ignored when set to 0%, and capped the maximum value at 95% to prevent the chart from becoming invisible.
