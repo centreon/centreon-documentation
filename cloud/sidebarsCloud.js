@@ -504,6 +504,10 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "service-mapping/ba-simulation"
+            },
+            {
+              "type": "doc",
               "id": "service-mapping/ba-monitoring"
             },
             {
