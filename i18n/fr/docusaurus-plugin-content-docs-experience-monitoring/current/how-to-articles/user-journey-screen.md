@@ -16,7 +16,7 @@ Sur chacun de ces Parcours Utilisateurs vous pouvez :
 - Enregistrer le résumé de chaque parcours comme un png en cliquant l'icône caméra.
 - Accéder à la configuration des Rapports et des Alertes pour chaque parcours ou à sa configuration en cliquant sur les trois points.
 - Voir et exporter la liste d'incidents d'un parcours en cliquant sur la loupe à côté du nombre d'incidents
-- Voir et exporter le HAR complet de chaque incident individuel en le cliquant dans la liste d'incidents. Vous pouvez également télécharger les logs de la sonde qui a rencontré l'incident depuis cet modale.
+- Voir et exporter le HAR complet de chaque incident individuel en cliquant dessus dans la liste d'incidents. Vous pouvez également télécharger les logs de la sonde qui a rencontré l'incident depuis cette fenêtre.
 - Obtenir un graphique plus détaillé pour chacune de metriques en cliquant sur la loupe à côté du graphique de chaque métrique. 
 
 ## Vue d'ensemble d'un parcours
