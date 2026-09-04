@@ -8,7 +8,7 @@ title: Centreon Experience Monitoring - notes de release
 
 **Redesigned token management**
 
-Access tokens can now be created, tracked, and revoked from a single, centralized interface, providing greater visibility and control over API access while strengthening overall security.
+Access tokens can now be created, tracked, and revoked from a single, centralized interface, providing a greater visibility while strengthening overall security.
 
 **Internal probes (STM zones) now available for all users**
 
