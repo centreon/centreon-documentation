@@ -6,11 +6,13 @@ description: "Install a central server using a ready-to-use virtual machine"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-On its [download page](https://download.centreon.com), Centreon provides ready-to-use virtual machines. These virtual machines are available for VMware environments and for Oracle VirtualBox. They are based on the [supported operating systems](../compatibility.md#operating-systems) and include a Centreon installation that allows you to easily start your first monitoring.
+On its [download page](https://download.centreon.com), Centreon provides ready-to-use virtual machines. These virtual machines are available for VMware environments and for Oracle VirtualBox. They are based on Alma 9, Alma 10 and Debian 13, and include a Centreon installation that allows you to easily start your first monitoring.
 
 > Virtual machines are only suitable to use Centreon IT-100 or to test the solution.
 
 The VMs use the **Thin Provision** option to save as much free space as possible on the disk (this is best practice).
+
+The VMs are installed in TLS mode: the connections to the web interface and to the database are encrypted.
 
 ## Prerequisites
 
@@ -111,7 +113,7 @@ The host machine must have the following characteristics:
 4. The first time you connect to the server, instructions are displayed to help you complete the configuration.
    
 <Tabs groupId="sync">
-<TabItem value="Alma 8 and 9" label="Alma 8 and 9">
+<TabItem value="Alma 9 and 10" label="Alma 9 and 10">
    
 Change the following settings:
 
@@ -164,7 +166,7 @@ Change the following settings:
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 Change the following settings:
 
@@ -193,7 +195,7 @@ Change the following settings:
         1. Open the following file:
 
         ```shell
-        /etc/php/8.2/mods-available/centreon.ini
+        /etc/php/8.4/mods-available/centreon.ini
         ```
 
    2. In `date.timezone`, define the time zone you want.
@@ -201,7 +203,7 @@ Change the following settings:
    3. Restart the PHP server:
 
       ```shell
-      systemctl restart php8.2-fpm.service
+      systemctl restart php8.4-fpm.service
       ```
 
 - The hostname of your server (this is optional). The default name is `centreon-central`. To change it, use the following command:
@@ -255,7 +257,7 @@ Change the following settings:
         >
         >`/etc/profile.d/centreon.sh`
 
-6. To log in to the web interface, go to `http://ip_address/centreon` or `http://FQDN/centreon`. (For example, a valid URL would be `http://192.168.1.44/centreon`.)
+6. To log in to the web interface, go to `https://ip_address/centreon` or `https://FQDN/centreon`. (For example, a valid URL would be `https://192.168.1.44/centreon`.) The connection is encrypted using a self-signed certificate, so your browser will display a security warning.
 
 7. Log in using the following credentials: Login: `admin`, password: `Centreon!123`. By default, your server has a predefined configuration to monitor the Centreon server itself.
 
