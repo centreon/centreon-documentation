@@ -1,0 +1,40 @@
+name: lint-markdown
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches:
+      - staging
+    paths:
+      - "**/*.md"
+      - "**/*.mdx"
+      - ".markdownlint.jsonc"
+      - ".github/workflows/lint-markdown.yml"
+
+jobs:
+  lint-markdown:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+
+      - name: List changed Markdown files
+        id: changed
+        run: |
+          git fetch --no-tags origin "${{ github.base_ref }}"
+          files=$(git diff --name-only --diff-filter=d \
+            "origin/${{ github.base_ref }}...HEAD" -- '*.md' '*.mdx' | tr '\n' ' ')
+          echo "files=${files}" >> "$GITHUB_OUTPUT"
+          echo "Changed Markdown files: ${files:-<none>}"
+        shell: bash
+
+      - name: Lint changed Markdown files
+        if: steps.changed.outputs.files != ''
+        uses: DavidAnson/markdownlint-cli2-action@21c1be1b93ad9ed58fa840aacc3f279cde2a72ff # v24.2.0
+        with:
+          globs: ${{ steps.changed.outputs.files }}
