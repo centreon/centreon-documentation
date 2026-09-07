@@ -60,7 +60,7 @@ identiques définies dans modèles d’hôtes en dessous.
 
 * Le champ **Groupes d'hôtes** définit les groupes d’hôtes auxquels l’hôte appartient. Vous devez associer au moins un groupe d'hôtes (champ obligatoire pour des raisons de gestion des ACLs).
 * Le champ **Catégories d'hôte** définit les catégories auxquelles l’hôte appartient.
-* Le champ **Hôtes parents** établit une relation de parenté entre cet hôte et un autre. Cette option permet de réduire l'effet redondant des alertes car le moteur de supervision n'enverra une notification que pour le parent et non pour ses enfants. On considère qu'un hôte n'a pas de parent s'il se trouve sur le même segment du réseau que l'hôte qui le supervise sans aucun intermédiaire. Laissez ce champs libre dans ce cas-là.
+* Le champ **Hôtes parents** établit une relation de parenté entre cet hôte et un autre. Cette option permet de réduire nombre d'alertes redondantes, car le moteur de supervision n'enverra une notification que pour le parent et non pour ses enfants. On considère qu'un hôte n'a pas de parent s'il se trouve sur le même segment du réseau que l'hôte qui le supervise sans aucun intermédiaire. Laissez ce champ libre dans ce cas-là.
 * Le champ **Hôtes enfants** permet de choisir d'autres hôtes dont l'hôte actuel sera le parent.
 * Le champ **Criticité d'hôte** indique le niveau de criticité de l’hôte.
 
