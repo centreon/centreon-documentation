@@ -61,6 +61,8 @@ defined in the host templates below.
 
 * The **Host Groups** list defines the host groups to which the host belongs. You must link at least one hostgroup (mandatory field for ACL management purpose).
 * The **Host Categories** list defines the categories to which the host belongs.
+* The **Parent Hosts** defines another host as a parent for this host. This can reduce the number of redundant notifications since the monitoring engine will send notifications for the parent host and not for the child host. A host is considered to have no parent host if it is on the same network segment as the host doing the monitoring without any intermediates. Leave this field blank if that is the case.
+* The **Child Hosts** select other hosts for which this host will be the parent.
 * The **Host severity** field indicates the severity level of the host.
 
 ### Additional information
