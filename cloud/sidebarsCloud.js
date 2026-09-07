@@ -646,9 +646,22 @@ module.exports = {
                   "id": "cma/cma-setup"
                 },
                 {
+                 "type": "category",
+                 "label": "Manual setup (advanced)",
+                 "link": {
+                 "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "cma/cma-setup-manual"
+                },
+                {
                   "type": "doc",
                   "id": "cma/cma-certificates"
                 },
+              ]
+              },
                 {
                   "type": "doc",
                   "id": "cma/cma-custom"

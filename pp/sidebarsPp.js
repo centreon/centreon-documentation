@@ -197,6 +197,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe'
         },
         {
@@ -554,6 +558,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-pvx-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-quadstor-cma'
         },
         {
           type: 'doc',

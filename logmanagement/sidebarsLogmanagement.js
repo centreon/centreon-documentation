@@ -54,7 +54,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'collector/collector-simple'
+          id: 'collector/collector-generator'
         },
         {
           type: 'doc',

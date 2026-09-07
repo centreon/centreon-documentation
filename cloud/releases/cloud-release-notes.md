@@ -4,6 +4,48 @@ title: Centreon Cloud release notes
 description: "Release notes for Centreon Cloud, detailing new features, improvements, and fixes for each release"
 ---
 
+## August 11th, 2026
+
+### Centreon IT Edition
+
+**Resource Status**
+
+- Performance has been drastically improved on many search use cases. The default **Unhandled alerts** filter, free-text search, searching on several tags at once, and sorting or filtering by severity level are all significantly faster, for administrators as well as for users restricted by access groups.
+
+**Centreon Dashboards**
+
+- Status Grid widget: a new filter based on the state of the resources (unhandled, acknowledged, in downtime, flapping) is now available for the condensed view, allowing a more precise selection of what is displayed — for example excluding problems that have already been acknowledged by a user. This filter was already available for the standard view.
+
+**Configuration**
+
+- The VMware additional configuration no longer restarts the `centreon_vmware` process on every configuration deployment. The process is now restarted only when its own configuration has actually changed, which removes collection interruptions previously triggered by unrelated configuration changes.
+
+
+**Centreon Collect**
+
+The improvements below have been released on the collect components since the previous Centreon Cloud update. They do not come with this platform update: update your pollers and your **Centreon Monitoring Agents** to the latest available version to benefit from them.
+
+- Check timeperiods are now honored on resources monitored by the Centreon Monitoring Agent. The **check period** configured on the host or the service is respected with the same semantics as checks scheduled by the Centreon Engine: no check is executed outside the valid window, no performance data is collected and no status update is produced, and the next check is rescheduled on the next valid window. Freshness calculation excludes the inactive window, forced checks still run regardless of the timeperiod, and the timezone used is the one of the host where the agent is installed. This behavior is available on both Linux and Windows agents.
+- The Linux installation script of the agent now prepares the plugin cache directory required by several native checks, so that modes such as CPU, disk I/O, processes, traffic or packet errors work as expected right after installation.
+
+### Centreon Pro Edition
+
+**Service Mapping**
+
+The Business Activity configuration experience has been thoroughly reworked around an interactive tree, and refined based on the first feedback collected:
+
+- Business Activities can now be configured directly through an interactive dependency tree. The whole hierarchy — the top-level activity, its child activities and all their KPIs — is displayed and edited on a single page, and saved in one single action, with a clear distinction between blocking errors and warnings.
+- Two new actions allow you to expand or collapse the entire tree at once, making it much faster to grasp the overall structure or to reach a specific node.
+- The tree is now rendered with straight, orthogonal links instead of curves. The layout is far more compact and requires much less zooming and panning to navigate large activities.
+- The configuration workflow has been smoothed out: the side panel is now closed by default when opening a Business Activity, so that the tree structure is immediately visible, and a Business Activity created from the tree is attached to its parent right away, without having to open and save its panel.
+- The tooltips describing the **Impact** and **Ratio** threshold calculation methods have been corrected and clarified.
+
+**MAP**
+
+- Hover pop-ups in the Viewer are now positioned reliably next to the cursor. They no longer appear far above it at the bottom of the view, no longer overlap the cursor or get clipped by the edges of the container, and they follow the map when it is panned or zoomed. Firefox behavior, in particular, has been fixed.
+- Metric Link widget: meta-services can now be used as a data source. By combining one meta-service aggregating inbound metrics with another one aggregating outbound metrics, you can represent the cumulative traffic of a bidirectional network link and anticipate its saturation.
+
+
 ## June 22nd, 2026
 
 ### Centreon IT Edition
