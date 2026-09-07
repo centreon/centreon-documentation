@@ -5,6 +5,7 @@ description: "Install a remote server quickly using an unattended script"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
 
 To install a remote server quicker, you can use a script. This will perform all installation steps. You must then register the remote server and attach it to the central server.
 
