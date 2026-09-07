@@ -198,10 +198,10 @@ gorgone:
   tpapi:
     - name: centreonv2
       base_url: "http://127.0.0.1/centreon/api/latest/"
-      username: api
+      username: centreon-gorgone
       password: bpltc4aY
     - name: clapi
-      username: cli
+      username: centreon-gorgone
       password: PYNM5kcc
 ```
 
