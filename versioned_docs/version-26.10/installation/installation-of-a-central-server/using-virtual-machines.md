@@ -6,7 +6,7 @@ description: "Install a central server using a ready-to-use virtual machine"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-On its [download page](https://download.centreon.com), Centreon provides ready-to-use virtual machines. These virtual machines are available for VMware environments and for Oracle VirtualBox. They are based on the **Alma Linux 8 and 9** and **Debian 12** operating systems and include a Centreon installation that allows you to easily start your first monitoring.
+On its [download page](https://download.centreon.com), Centreon provides ready-to-use virtual machines. These virtual machines are available for VMware environments and for Oracle VirtualBox. They are based on the [supported operating systems](../compatibility.md#operating-systems) and include a Centreon installation that allows you to easily start your first monitoring.
 
 > Virtual machines are only suitable to use Centreon IT-100 or to test the solution.
 

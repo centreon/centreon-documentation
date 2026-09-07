@@ -84,7 +84,7 @@ This is useful when you need to install several central servers with identical s
    | Option | Description |
    |--------|-------------|
    | `-d <database>` | Database to install. By default, the script installs MariaDB: use `-d mysql` to install MySQL instead. |
-   | `--tls enabled` | Installs the central server in TLS mode: the connections to the web interface and to the database are encrypted. Without this option, the central server is installed without TLS. |
+   | `--tls enabled` | Installs the central server in TLS mode: the connections to the web interface and to the database are encrypted. Without this option, the central server is installed without TLS. Note that on some OSs, cryptographic policies may prevent the script from running correctly. |
    | `-p <password>` | Password of the default **admin** database account. If you omit this option, the script generates a password and tells you where it is stored. |
    | `-s` | Silent installation: the script does not prompt you for anything. |
    | `-l <level>` | Level of detail of the log file: `DEBUG`, `INFO`, `WARN` or `ERROR`. |

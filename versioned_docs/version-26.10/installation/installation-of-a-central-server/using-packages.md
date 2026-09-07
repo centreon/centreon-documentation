@@ -15,6 +15,8 @@ You must run the installation procedure as a privileged user.
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
+We recommend encrypting the communications of both the web server and the database, even though these steps are not required for Centreon to work. The procedure below sets up this encryption. In some cases (e.g. when running quick tests), you may want a non-secure setup: just skip [step 3: Set up the TLS configuration](#step-3-set-up-the-tls-configuration).
+
 ## Prerequisites
 
 After installing your server, update your operating system using the following
@@ -333,7 +335,23 @@ apt update
 </TabItem>
 </Tabs>
 
-## Step 2: Generate the certificates
+## Step 2: Install the central server and the database
+
+You can install the central server with a local database on the server or
+a remote database on a dedicated server.
+
+<Tabs groupId="sync">
+  <TabItem value="With a local database" label="With a local database">
+    <DatabaseLocalInstall />
+  </TabItem>
+  <TabItem value="With a remote database" label="With a remote database">
+    <DatabaseRemoteInstall />
+  </TabItem>
+</Tabs>
+
+## Step 3: Set up the TLS configuration
+
+### Generate the certificates
 
 Generate the certificates the platform will need to connect to the web interface and to the database.
 
@@ -411,27 +429,13 @@ Generate the certificates the platform will need to connect to the web interface
 
 5. If you are using a remote database, also execute this procedure on the machine that will host the remote database, then copy the root CA certificate of the database machine to the central server's trust store.
 
-## Step 3: Install the central server and the database
-
-You can install the central server with a local database on the server or
-a remote database on a dedicated server.
-
-<Tabs groupId="sync">
-  <TabItem value="With a local database" label="With a local database">
-    <DatabaseLocalInstall />
-  </TabItem>
-  <TabItem value="With a remote database" label="With a remote database">
-    <DatabaseRemoteInstall />
-  </TabItem>
-</Tabs>
-
-## Step 4: Set up the TLS configuration
-
 ### For the database
 
 <DatabaseTlsConf />
 
 ### For the web interface
+
+This section describes how to set up a TLS connection between the central server and the web interface.
 
 <Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -457,24 +461,6 @@ sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
 ```shell
 systemctl daemon-reload
 ```
-
-<Tabs groupId="db">
-
-<TabItem value="MariaDB" label="MariaDB">
-
-```shell
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="MySQL" label="MySQL">
-
-```shell
-systemctl restart mysqld
-```
-
-</TabItem>
-</Tabs>
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
@@ -547,7 +533,7 @@ a2ensite 00-centreon-tls
 </TabItem>
 </Tabs>
 
-## Step 5: Configuration
+## Step 4: Configuration
 
 ### Change the server name (optional)
 
@@ -656,42 +642,7 @@ Then execute the following command (on the central server if you are using a loc
 
 <DatabaseEnableRestart />
 
-### Secure the database
-
-It is mandatory to secure the database's root access before installing Centreon.
-If you are using a local database, run the following command on the central server:
-
-<Tabs groupId="db">
-<TabItem value="MariaDB" label="MariaDB"> 
-
-```shell
-mariadb-secure-installation
-```
-
-</TabItem>
-<TabItem value="MySQL" label="MySQL"> 
-
-Retrieve the temporary password created by MySQL:
-
-```shell
-grep 'temporary password' /var/log/mysqld.log
-```
-
-Then change it when prompted by the following command:
-
-```shell
-mysql_secure_installation
-```
-
-</TabItem>
-</Tabs>
-
-* Answer **yes** to all the questions except "Disallow root login remotely?".
-* It is mandatory to set a password for the **root** user of the database. You will need this password during the [web installation](../web-and-post-installation.md).
-
-> For more information, please see the [official MariaDB documentation](https://mariadb.com/kb/en/mysql_secure_installation/).
-
-## Step 6: Web installation
+## Step 5: Web installation
 
 1. Start the Apache server with the
 following command:
