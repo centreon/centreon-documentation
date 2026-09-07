@@ -4,13 +4,13 @@ title: Optimiser votre site
 description: Utiliser des recommandations étape par étape pour optimiser la performance du site
 ---
 
-En utilisant les données collectées par la [sonde de recommandations](https://docs.centreon.com/experience-monitoring/configuration/configuration/user-journey/create-a-scenario/#daily-recommendations-audits), Experience Monitoring vous propose des suggestions pour optimiser votre site web.
+En utilisant les données collectées par la [sonde de recommandations](./create-a-scenario.md#audits-de-recommandations-quotidiens), Experience Monitoring vous propose des suggestions pour optimiser votre site web.
 
 Notez que ces recommandations proviennent d'une sonde qui exécute les parcours utilisateur. Vous n'obtiendrez des recommandations que pour les pages figurant dans les étapes du parcours.
 
 ## Obtenir les recommandations pour chaque étape
 
-1. Depuis la page [**Vue d'ensemble**](https://docs.centreon.com/experience-monitoring/how-to-articles/user-journey-screen/) du parcours utilisateur, faites défiler la page jusqu'à la liste des étapes.
+1. Depuis la page [**Vue d'ensemble**](../../how-to-articles/user-journey-screen.md) du parcours utilisateur, faites défiler la page jusqu'à la liste des étapes.
 2. Cliquez sur la loupe à droite de l'étape que vous souhaitez optimiser.
 
 Vous serez redirigé vers l'onglet **Dernière analyse détaillée**.
