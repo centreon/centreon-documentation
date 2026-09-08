@@ -13,13 +13,6 @@ about your monitoring alerts.
 
 ![architecture](../../assets/integrations/open-tickets/ot-easyvista-architecture.png)
 
-## Compatibility
-
-This integration is (at least) compatible with the following EasyVista
-versions:
-
-**To be determined**
-
 ## Requirements
 
 You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
@@ -38,12 +31,12 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to open a ticket with the following parameters
 
-  - Requestor
-  - Urgency
-  - Severity
-  - Asset
-  - External reference
-  - Phone
-  - Recipient
-  - Origin
-  - CI
+- Requestor
+- Urgency
+- Severity
+- Asset
+- External reference
+- Phone
+- Recipient
+- Origin
+- CI
