@@ -11,7 +11,7 @@ description: "Release notes for Centreon Cloud, detailing new features, improvem
 **Configuration**
  
 - Host forms now include relationship fields to define dependencies between resources and reduce alert fatigue.
-- Freshness control (check freshness and threshold) can now be configured directly on host, service, host template, and service template forms.
+- Freshness control for CMA checks (check freshness and threshold) can now be configured directly from host, service, host template, and service template forms.
  
 **Resource Status**
  
