@@ -57,12 +57,17 @@ defined in the host templates below.
 * The **Normal Check Interval** is expressed in minutes. It defines the interval between checks when the host status is OK.
 * The **Retry Check Interval** is expressed in minutes. It defines the check interval of the Not-OK status of the host.
 
+### Data processing
+
+The following options only concern checks by [CMA](../../cma/cma.md)
+
+* **Check Freshness**: active check performed by the engine when the amount of time determined in the **Freshness Threshold** field has elapsed since the last passive check result sent by the object.
+* **Freshness Threshold**: expressed in seconds. If, during this period, no passive check result is received from the host, the active check command is executed. A default threshold value is assigned automatically if this field is left blank and the check is enabled.
+
 ### Classification
 
 * The **Host Groups** list defines the host groups to which the host belongs. You must link at least one hostgroup (mandatory field for ACL management purpose).
 * The **Host Categories** list defines the categories to which the host belongs.
-* The **Parent Hosts** field defines another host as a parent for this host. This can reduce the number of redundant notifications since the monitoring engine will send notifications for the parent host and not for the child host. A host is considered to have no parent host if it is on the same network segment as the host doing the monitoring with nothing in between. Leave this field blank if that is the case.
-* The **Child Hosts** field lets you select other hosts for which the current host will be the parent.
 * The **Host severity** field indicates the severity level of the host.
 
 ### Additional information

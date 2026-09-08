@@ -34,6 +34,13 @@ can be used to hide the value of the macro.
 * The **Normal Check Interval** is expressed in minutes. It defines the interval between checks when the service status is OK.
 * The **Retry Check Interval** is expressed in minutes. It defines the check interval of the Not-OK status of the service.
 
+### Data processing
+
+The following options only concern checks by [CMA](../../cma/cma.md)
+
+* **Check Freshness**: active check performed by the engine when the amount of time determined in the **Freshness Threshold** field has elapsed since the last passive check result sent by the object.
+* **Freshness Threshold**: expressed in seconds. If, during this period, no passive check result is received from the service, the active check command is executed. A default threshold value is assigned automatically if this field is left blank and the check is enabled.
+
 ### Classification
 
 * The **Service groups** list allows us to link the service to one or more service groups.
