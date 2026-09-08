@@ -60,8 +60,8 @@ identiques définies dans modèles d’hôtes en dessous.
  
 Les options suivantes ne concernent que les contrôles effectués par l'[agent CMA](../../cma/cma.md).
  
-* Contrôler la fraicheur du résultat : effectue un contrôle actif lorsque la quantité de temps définie dans Seuil de fraicheur du résultat s'est écoulée depuis le dernier contrôle passif de l'objet.
-* Seuil de fraicheur du résultat : exprimé en secondes. Si durant cette période aucune commande passive de l'hôte n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
+* **Contrôler la fraîcheur du résultat** : effectue un contrôle actif lorsque le délai défini dans **Seuil de fraîcheur du résultat** s'est écoulé depuis le dernier résultat de contrôle passif envoyé par l'objet.
+* **Seuil de fraîcheur du résultat** : exprimé en secondes. Si durant cette période aucun résultat de contrôle passif de l'hôte n’a été reçu, alors la commande de contrôle actif est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
 
 ### Classification
 

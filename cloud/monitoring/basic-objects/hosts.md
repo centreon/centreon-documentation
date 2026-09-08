@@ -61,8 +61,8 @@ defined in the host templates below.
 
 The following options only concern checks by [CMA](../../cma/cma.md)
 
-* Check Freshness: active check performed by the engine when the amount of time determined in the Freshness Threshold has elapsed since the last passive command of the object.
-* Freshness Threshold: expressed in seconds. If, during this period, no passive command is received from the host, the active check command is executed. A default threshold value is assigned automatically if this field is left blank and the check is enabled.
+* **Check Freshness**: active check performed by the engine when the amount of time determined in the **Freshness Threshold** field has elapsed since the last passive check result sent by the object.
+* **Freshness Threshold**: expressed in seconds. If, during this period, no passive check result is received from the host, the active check command is executed. A default threshold value is assigned automatically if this field is left blank and the check is enabled.
 
 ### Classification
 
