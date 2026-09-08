@@ -15,7 +15,7 @@ You must run the installation procedure as a privileged user.
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
-We recommend encrypting the communications of both the web server and the database, even though these steps are not required for Centreon to work. The procedure below sets up this encryption. In some cases (e.g. when running quick tests), you may want a non-secure setup: just skip [step 3: Set up the TLS configuration](#step-3-set-up-the-tls-configuration).
+We recommend encrypting the communications of both the web server and the database, even though these steps are not required for Centreon to work. The procedure below sets up this encryption. In some cases (e.g. when running quick tests), you may want a non-secure setup: just skip step 3: Set up the TLS configuration.
 
 <InstallCommon />
 

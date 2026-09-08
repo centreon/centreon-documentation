@@ -10,7 +10,7 @@ To install a poller quickly, you can use a script.
 
 This is useful when you need to install several pollers with identical settings, when you install from a deployment tool or CI pipeline, or when you have no interactive access to the target machine.
 
-The script will perform all installation steps. You must then [register the poller](./using-packages.md#step-3-register-the-server), then [attach the poller to the central server or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
+The script will perform all installation steps. You must then [register the poller](./using-packages.md#step-3-register-the-poller), then [attach the poller to the central server or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 
 ## Prerequisites
 
