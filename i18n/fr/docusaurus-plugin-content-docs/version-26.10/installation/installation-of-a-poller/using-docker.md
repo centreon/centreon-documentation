@@ -39,7 +39,7 @@ démarre la stack.
   accessible sur cet hôte.
 * Si ce collecteur doit superviser une infrastructure VMware, l'image Docker
   `centreon-vmware` doit être construite au préalable (voir
-  [Optionnel : container centreon-vmware](#optionnel--container-centreon-vmware)).
+  [Optionnel : container centreon-vmware](./docker-advanced-configuration.md#optionnel--container-centreon-vmware)).
 
 ## Étape 1 : Générer la commande d'installation
 
@@ -125,123 +125,10 @@ pouvez aussi ajouter le(s) service(s) correspondant(s) manuellement dans les
 fichiers `docker-compose.yaml` et `.env` générés, puis relancer
 `docker compose up -d`.
 
-### Optionnel : container centreon-vmware
-
-La supervision d'une infrastructure VMware nécessite le SDK Perl VMware
-propriétaire : le démon ne peut pas démarrer sans lui, même avec des
-identifiants en clair. Comme ce SDK ne peut pas être redistribué pour des
-raisons de licence, l'image du container `centreon-vmware` **n'est pas
-publiée sur un registre**. Le `docker-compose.yaml` généré la référence sous
-la forme `connector-vmware:${VMWARE_TAG:-local}` avec `pull_policy: never` :
-vous devez donc la construire localement, sur l'hôte Docker, avant d'utiliser
-`--with-vmware`.
-
-Téléchargez les archives du SDK depuis le portail développeur de Broadcom
-(voir les
-[prérequis du plugin pack VMware ESX](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/#prérequis)
-pour la marche à suivre), puis clonez `centreon-plugins`, déposez les
-archives dans son répertoire `sdks-vmware`, et construisez l'image :
-
-```shell
-git clone https://github.com/centreon/centreon-plugins.git
-cd centreon-plugins
-# Déposez les archives SDK téléchargées dans sdks-vmware/ avant de construire
-docker build \
-  --file .github/docker/connector/Dockerfile.connector-vmware \
-  --tag connector-vmware:local \
-  .
-```
-
-> Cette commande télécharge la dernière version du paquet depuis le dépôt
-> APT stable de Centreon et inclut le SDK par défaut. Ajoutez
-> `--build-arg VERSION=<version>` pour épingler une version précise, ou
-> `--build-arg PACKAGE_SOURCE=mount` pour construire à partir d'un paquet
-> `.deb` déposé dans un répertoire `packages-centreon`. Construire avec
-> `--build-arg WITH_SDK=false` ne fait que valider que l'image se construit :
-> le démon résultant ne peut pas démarrer, le SDK étant requis dans tous les
-> cas.
-
-### Checks personnalisés et dépendances des plugins
-
-Le container `centengine` peut installer des scripts de check personnalisés
-et des dépendances supplémentaires sans reconstruire l'image. Ajoutez les
-volumes correspondants au service `centengine` dans le `docker-compose.yaml`
-généré :
-
-```yaml
-    volumes:
-      # Scripts de plugins personnalisés (doivent être exécutables)
-      - ./custom-plugins:/usr/lib/nagios/plugins/custom:ro
-      # Paquets APT supplémentaires, installés au démarrage
-      - ./custom-deps.json:/etc/centreon-engine/custom-deps.json:ro
-```
-
-* Les **scripts de plugins personnalisés** placés dans `./custom-plugins`
-  deviennent disponibles sous `/usr/lib/nagios/plugins/custom` à l'intérieur
-  du container.
-* **`custom-deps.json`** liste des paquets APT arbitraires à installer, par
-  exemple :
-
-  ```json
-  {
-    "apt": ["snmp", "jq"]
-  }
-  ```
-
-  Ce fichier est lu au démarrage du container, puis surveillé en continu :
-  le modifier sur l'hôte déclenche automatiquement l'installation des
-  paquets listés, sans avoir besoin de redémarrer le container.
-  L'installation des paquets s'exécute en arrière-plan, ce qui n'interrompt
-  pas `centengine` pendant ce temps.
-
-> Les plugins de supervision Centreon (issus des Connecteurs de supervision)
-> n'ont pas besoin d'être configurés ici : Gorgone les installe
-> automatiquement, dans le même volume de configuration partagé, dès lors que
-> **Installation automatique des plugins** est activée à la page
-> **Configuration > Connecteurs > Connecteurs de supervision** et que la
-> configuration du collecteur est déployée depuis le serveur central.
-> Consultez [Connecteurs de supervision](../../monitoring/pluginpacks.md)
-> pour plus de détails.
-
-#### Intégrer les dépendances dans une image personnalisée
-
-Plutôt que d'installer les dépendances au démarrage du container, vous pouvez
-construire votre propre image à partir de l'image officielle et tout
-installer au moment du build :
-
-```dockerfile
-FROM docker.centreon.com/centreon/centreon-engine-trixie:26.10
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-      snmp \
-      jq \
-    && rm -rf /var/lib/apt/lists/*
-```
-
-Construisez-la, puis référencez-la via `ENGINE_TAG` (ou en surchargeant
-directement la valeur `image:`) dans votre `docker-compose.yaml`. L'intérêt
-principal de cette approche est le temps de démarrage : lorsqu'un collecteur
-nécessite de nombreuses dépendances, les installer une seule fois au moment
-du build est plus rapide que de les réinstaller à chaque démarrage du
-container via `custom-deps.json`.
-
-### Optionnel : prise en charge du Centreon Monitoring Agent (CMA)
-
-Ajoutez `--with-cma` à la commande d'installation pour que `centengine`
-puisse accepter les connexions du Centreon Monitoring Agent via OpenTelemetry
-gRPC. Cela ajoute les éléments suivants au service `centengine` :
-
-```yaml
-    volumes:
-      - ./certs/poller.crt:/etc/pki/poller.crt:ro
-      - ./certs/poller.key:/etc/pki/poller.key:ro
-    ports:
-      - "4317:4317"
-```
-
-Générez les certificats TLS et configurez l'agent en suivant
-[Configurer les certificats](../../cma/cma-certificates.md) et
-[Configurer l’environnement de l’agent](../../cma/cma-setup.md).
+Pour la supervision VMware, les scripts de check personnalisés et les
+dépendances de plugins, la prise en charge du CMA, et les notifications par
+e-mail, consultez
+[Configuration Docker avancée](./docker-advanced-configuration.md).
 
 ## Référence des fichiers générés
 
