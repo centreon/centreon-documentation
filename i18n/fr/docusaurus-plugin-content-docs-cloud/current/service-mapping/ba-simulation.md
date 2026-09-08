@@ -4,7 +4,7 @@ title: Simulation
 description: "Simuler l'état d'un arbre de dépendances d'une activité métier avant d'enregistrer votre configuration et de la pousser en production"
 ---
 
-Utilisez le mode simulation pour valider le comportement d'un arbre de dépendances d'activité métier (BA) avant d'enregistrer vos modifications et de pousser la configuration en production.
+Utilisez le mode simulation pour valider le comportement de l'arbre de dépendances d'une activité métier (BA) avant d'enregistrer vos modifications et de pousser la configuration en production.
 
 Vous pouvez simuler l'état des indicateurs, ajuster les valeurs qui influencent le calcul du statut, puis décider a posteriori de conserver ou d'annuler les modifications effectuées.
 
