@@ -187,25 +187,30 @@ above, so `/usr/bin/mail` sends through your relay with no further setup.
 
 The connector is pre-installed under `$CENTREONPLUGINS$` (usually
 `/usr/lib/centreon/plugins/`), as `centreon_notification_email.pl`. Its
-`--smtp-address`, `--smtp-port` and `--from-address` options can either be
-set directly in the command, or reused from the relay you configured above
-via poller resource macros (**Configuration > Pollers > Resources**), since
-`SMTP_HOST`/`SMTP_PORT`/`SMTP_FROM` are also exposed as the Centreon Engine
-macros `$SMTPADDRESS$`, `$SMTPPORT$` and `$SMTPFROMADDRESS$`:
+`--smtp-address`, `--smtp-port` and `--from-address` options take your relay
+directly, no environment variable needed. Replace `smtp.example.com` and
+`centreon-engine@example.com` with your own relay, then define this command
+on the **Configuration > Commands** page:
 
 ```shell
-$CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::plugin --mode=alert --to-address='$CONTACTEMAIL$' --host-address='$HOSTADDRESS$' --host-name='$HOSTNAME$' --host-alias='$HOSTALIAS$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --type='$NOTIFICATIONTYPE$' --host-id='$HOSTID$' --smtp-nossl --smtp-address='$SMTPADDRESS$' --smtp-port='$SMTPPORT$' --from-address='$SMTPFROMADDRESS$'
+$CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::plugin --mode=alert --to-address='$CONTACTEMAIL$' --host-address='$HOSTADDRESS$' --host-name='$HOSTNAME$' --host-alias='$HOSTALIAS$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --type='$NOTIFICATIONTYPE$' --host-id='$HOSTID$' --smtp-nossl --smtp-address='smtp.example.com' --smtp-port='25' --from-address='centreon-engine@example.com'
 ```
 
-> A full configuration export from the central server regenerates
-> `resource.cfg` entirely, which would remove the `$SMTPADDRESS$`-style
-> macros set from the environment variables above. If you rely on the
-> connector, define these values as poller resource macros in the Centreon
-> UI (**Configuration > Pollers > Resources**) instead, so they survive
-> future exports; the native SMTP command above is not affected by this,
-> since `msmtp`'s configuration lives outside any file Gorgone manages.
+> Add `--smtp-user`/`--smtp-password` if your relay requires authentication,
+> and drop `--smtp-nossl` to use TLS.
 
-Remove `--smtp-nossl` and add `--smtp-user`/`--smtp-password` if your relay
-requires authentication. See the connector's own documentation for the full
-list of options (host/service duration, Centreon URL for clickable links in
-the email, etc.).
+If you'd rather not hardcode the relay in every command, reuse the `SMTP_*`
+environment variables from [Option 1](#option-1-native-smtp-command) above
+instead: they're also exposed as the Centreon Engine macros `$SMTPADDRESS$`,
+`$SMTPPORT$` and `$SMTPFROMADDRESS$`, so `--smtp-address='$SMTPADDRESS$'
+--smtp-port='$SMTPPORT$' --from-address='$SMTPFROMADDRESS$'` works too.
+
+> A full configuration export from the central server regenerates
+> `resource.cfg` entirely, which would remove these macros again. If you go
+> this route, define the values as poller resource macros in the Centreon UI
+> (**Configuration > Pollers > Resources**) instead, so they survive future
+> exports - or just hardcode the relay in the command as shown above.
+
+See the connector's own documentation for the full list of options
+(host/service duration, Centreon URL for clickable links in the email,
+etc.).
