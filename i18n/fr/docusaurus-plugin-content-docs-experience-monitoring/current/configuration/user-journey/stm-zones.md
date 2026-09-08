@@ -73,3 +73,5 @@ Notez qu'il faut attendre jusqu'à 24 heures pour que la sonde ait assez de donn
 3. Dans la fenêtre **Configuration avancée**, faites défiler jusqu'à la section **Zones de Monitoring Synthétique**. Votre zone privée apparaît sous **Zones Privées**. Sélectionnez-la et cliquez sur **Sauvegarder**.
 
 Après un bref délai, la sonde aura réalisé son premier contrôle et votre supervision de parcours interne sera alors opérationnelle. Vous pouvez étudier ce parcours de la même manière qu'un [parcours utilisateur](../../how-to-articles/user-journey-screen.md) normal.
+
+Si vous rencontrez des soucis, essayez notre [guide de dépannage pour parcours utilisateurs](../../performance-analysis/errors-and-unavailability-front-end.md).
