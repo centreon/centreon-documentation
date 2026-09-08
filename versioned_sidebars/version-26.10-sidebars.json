@@ -202,6 +202,10 @@
             {
               "type": "doc",
               "id": "monitoring/monitoring-servers/advanced-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/monitoring-servers/broker-tls-db"
             }
           ]
         },
