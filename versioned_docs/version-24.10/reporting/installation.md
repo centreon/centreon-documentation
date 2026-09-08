@@ -533,7 +533,7 @@ file of the slave server or mariadb.cnf on Debian 12.
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 ```
 Then, create the views manually on the slave server:
-1. Download [the following file](../assets/reporting/installation/view_creation.sql) to a temporary folder (in our example, **/tmp**), for instance using **wget**.
+1. Download [the following file](https://docs.centreon.com/assets/files/view_creation-eb5f170ad3d8a0853fe926d3a034f8a2.sql) to a temporary folder (in our example, **/tmp**), for instance using **wget**.
 2. Run the following command (change the name of your temporary folder if necessary):
 ```bash
 mysql centreon < /tmp/view_creation.sql
@@ -562,7 +562,7 @@ replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 
 Then, create the views manually on the slave server:
 
-1. Download [the following file](../assets/reporting/installation/view_creation.sql) to a temporary folder (in our example, **/tmp**), for instance using **wget**.
+1. Download [the following file](https://docs.centreon.com/assets/files/view_creation-eb5f170ad3d8a0853fe926d3a034f8a2.sql) to a temporary folder (in our example, **/tmp**), for instance using **wget**.
 
 2. Run the following command (change the name of your temporary folder if necessary):
 
