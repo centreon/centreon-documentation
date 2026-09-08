@@ -104,7 +104,7 @@ If, on page **Administration > Parameters > Centreon UI**, the **Vertical inheri
 ## Data processing tab
 
 * **Acknowledgement timeout** : is expressed in minutes. Once this time limit expires, the acknowledgement tag is removed from this host. If its status is still not-OK when this happens, the notification process starts once again. Leave this blank so acknowledgements do not expire.
-* **Check Freshness**: active check performed by the engine when the amount of time determined in the **Freshness Threshold** has elapsed since the last [passive command](../../monitoring/passive-monitoring/enable-snmp-traps.md) of the object.
+* **Check Freshness**: active check performed by the engine when the amount of time determined in the Freshness Threshold has elapsed since the last [passive command](../../monitoring/passive-monitoring/enable-snmp-traps.md) of the object.
 * **Freshness Threshold**: expressed in seconds. If, during this period, no passive command is received from the host, the active check command is executed. A threshold will be determined automatically if the field is left blank and the check is enabled.
 * **Flap Detection Enabled**: enable or disable the detection [flapping](../../alerts-notifications/notif-flapping.md) in the statuses (status
   value changing too often in a given period).
