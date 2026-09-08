@@ -36,8 +36,10 @@ can be used to hide the value of the macro.
 
 ### Data processing
 
+The following options only concern CMA checks.
+
 * **Check Freshness**: active check performed by the engine when the amount of time determined in the **Freshness Threshold** field has elapsed since the last passive check result sent by the object.
-* **Freshness Threshold**: expressed in seconds. If, during this period, no passive check result is received from the service, the active check command is executed. A threshold will be determined automatically if the field is left blank and the check is enabled.
+* **Freshness Threshold**: expressed in seconds. If, during this period, no passive check result is received from the service, the active check command is executed. A default threshold value is assigned automatically if this field is left blank and the check is enabled.
 
 ### Classification
 

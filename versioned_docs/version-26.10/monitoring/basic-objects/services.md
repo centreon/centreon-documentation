@@ -76,8 +76,8 @@ can be used to hide the value of the macro.
 ### Data processing tab
 
 * If the **Obsess over service** field is enabled, the monitoring feedback command of the host will be enabled.
-* The **Check Freshness** is an active check performed by the engine when the amount of time determined in the Freshness Threshold has elapsed since the last passive command of the object.
-* The **Freshness Threshold** is expressed in seconds. If, during this period, no passive command is received from the host, the active check command is executed. A threshold will be determined automatically if the field is left blank and the check is enabled.
+* The **Check Freshness** is an active check performed by the engine when the amount of time determined in the Freshness Threshold has elapsed since the last [passive check](../../monitoring/passive-monitoring/enable-snmp-traps.md) of the object.
+* The **Freshness Threshold** is expressed in seconds. If, during this period, no passive command is received from the host, the active check command is executed. A default threshold value is assigned automatically if this field is left blank and the check is enabled.
 * The **Flap Detection Enabled** field allows us to enable or disable the detection of disruption in the statuses (status
   value changing too often in a given period).
 * The **Low flap threshold** and **High flap threshold** fields define the high and low thresholds for the detection of
