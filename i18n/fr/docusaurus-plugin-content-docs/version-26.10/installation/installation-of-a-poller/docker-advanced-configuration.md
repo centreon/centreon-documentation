@@ -137,21 +137,27 @@ notifications par e-mail, à choisir selon votre infrastructure :
   de supervision utilisé pour les notifications par e-mail sur les
   installations par paquets.
 
-Les deux méthodes nécessitent un relais SMTP, configuré via des variables
-d'environnement sur le service `centengine` :
+La **commande SMTP native** nécessite un relais SMTP, configuré via des
+variables d'environnement sur le service `centengine`. Le **connecteur**
+n'en a pas besoin : ses paramètres de relais SMTP sont de simples options en
+ligne de commande, que vous pouvez donc renseigner directement dans la
+commande (voir
+[Option 2](#option-2--connecteur-centreon-plugin-notification-email)
+ci-dessous).
 
 | Variable | Effet |
 |----------|--------|
-| `SMTP_HOST` | Adresse du relais SMTP. Requise pour que l'une ou l'autre méthode fonctionne : tant qu'elle est vide, les notifications ne sont silencieusement pas envoyées. |
+| `SMTP_HOST` | Adresse du relais SMTP. Requise pour la commande SMTP native : tant qu'elle est vide, les notifications ne sont silencieusement pas envoyées. |
 | `SMTP_PORT` | Port du relais SMTP (par défaut : `25`). |
 | `SMTP_FROM` | Adresse `From:` utilisée dans les e-mails de notification sortants. |
 | `SMTP_TLS` | Mettre à `on` pour utiliser TLS lors de la connexion au relais (par défaut : `off`). |
 
-Le `docker-compose.yaml` généré par le script d'installation ne mappe pas ces
-variables par défaut. Ajoutez-les directement dans le bloc `environment:` du
-service `centengine`, ou, pour les garder en dehors du fichier `.env` que le
-script d'installation régénère à chaque exécution, placez-les dans un fichier
-séparé référencé comme `env_file` supplémentaire :
+Si vous utilisez la commande SMTP native, le `docker-compose.yaml` généré
+par le script d'installation ne mappe pas ces variables par défaut.
+Ajoutez-les directement dans le bloc `environment:` du service `centengine`,
+ou, pour les garder en dehors du fichier `.env` que le script d'installation
+régénère à chaque exécution, placez-les dans un fichier séparé référencé
+comme `env_file` supplémentaire :
 
 ```yaml
 services:
