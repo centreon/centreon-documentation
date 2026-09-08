@@ -87,7 +87,7 @@ Le champ **Traps SNMP reliés au service** permet de définir les traps SNMP qui
 
 * Si le champ **Obsess over service** est activé, alors la commande de remontée des contrôles de l’hôte sera activée.
 * Le champ **Contrôler la fraicheur du résultat** permet d’activer ou de désactiver un contrôle actif lorsque la quantité de temps définie dans **Seuil de fraicheur** du résultat s'est écoulée depuis le dernier contrôle passif de l'objet.
-* Le champ **Fraicheur du résultat** est exprimé en secondes. Si durant cette période aucune commande passive de l'hôte n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, une valeur par défaut est appliquée automatiquement.
+* Le champ **Fraicheur du résultat** est exprimé en secondes. Si durant cette période aucune commande passive du service n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, une valeur par défaut est appliquée automatiquement.
 * Le champ **Flap Detection Enabled** permet d’activer ou de désactiver la détection du bagotage des statuts (statut
   changeant trop fréquemment de valeur sur une période donnée).
 * Les champs **Low flap threshold** et **High flap threshold** définissent les seuils hauts et bas pour la détection du
