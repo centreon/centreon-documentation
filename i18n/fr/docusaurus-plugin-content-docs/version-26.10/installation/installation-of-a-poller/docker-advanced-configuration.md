@@ -5,7 +5,7 @@ description: "Configuration optionnelle pour un collecteur basé sur Docker : su
 ---
 
 Cette page couvre la configuration optionnelle d'un collecteur déployé avec
-des [containers Docker](using-docker-poller.md), au-delà des services
+des [containers Docker](using-docker.md), au-delà des services
 `centengine` et `gorgone` par défaut.
 
 ## Optionnel : container centreon-vmware

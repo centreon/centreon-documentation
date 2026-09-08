@@ -5,7 +5,7 @@ description: "Optional configuration for a Docker-based poller: VMware monitorin
 ---
 
 This page covers optional configuration for a poller deployed with
-[Docker containers](using-docker-poller.md), beyond the default `centengine`
+[Docker containers](using-docker.md), beyond the default `centengine`
 and `gorgone` services.
 
 ## Optional: centreon-vmware container
