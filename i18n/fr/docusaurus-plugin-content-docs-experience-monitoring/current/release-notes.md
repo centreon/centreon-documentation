@@ -4,6 +4,16 @@ description: Journal des évolutions fonctionnelles et techniques d'Experience M
 title: Centreon Experience Monitoring - notes de release
 ---
 
+## September 8th, 2026
+
+**Redesigned token management**
+
+Access tokens can now be created, tracked, and revoked from a single, centralized interface, providing a greater visibility while strengthening overall security.
+
+**Internal probes (STM zones) now available for all users**
+
+Internal and intranet applications can now be monitored with the same level of detail as public-facing sites, using a probe deployed directly within your infrastructure.
+
 ## June 22nd, 2026
 
 **Facilitated diagnostics: probe log download**
