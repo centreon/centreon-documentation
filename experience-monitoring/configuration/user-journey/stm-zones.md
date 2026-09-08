@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 A private Synthetic Monitoring Zone (STM zone) allows you to monitor your user journeys on internal domains or networks specific to your organization.
 To do this, a probe must be deployed inside your infrastructure. You can also use a probe to obtain personalized recommendations to optimize your website.
-The probes are able to cache their results to cover for eventual temporary network outage.
+The probes are able to cache their results to cover for an eventual temporary network outage.
 
 ## Prerequisites
 
@@ -73,3 +73,5 @@ Note that it takes up to 24 hours for the probe to gather enough data to start s
 3. In the **Advanced configuration** window, scroll down to the **Synthetic Monitoring Zones** section. Your private zone appears under **Private Zones**. Select it and click **Save**.
 
 After a short while, the probe will run its first check and your internal journey monitoring will be operational. You can analyze it just like a regular [user journey](../../how-to-articles/user-journey-screen.md).
+
+If you are running into any issues, try our [user journey troubleshooting guide](../../performance-analysis/errors-and-unavailability-front-end.md).
