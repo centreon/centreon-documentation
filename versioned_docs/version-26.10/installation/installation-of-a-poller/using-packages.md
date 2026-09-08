@@ -1,167 +1,17 @@
 ---
 id: using-packages
-title: Using packages 
+title: Using packages (poller)
 description: "Install and register a poller using RPM or DEB packages"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
-Centreon provides RPM and DEB packages for its products through the Centreon Open
-Source version available free of charge in our repository.
-
-These packages can be installed on Alma/RHEL/Oracle Linux 8 and 9 and on Debian 12.
+import InstallCommon from '../_install-common.mdx';
 
 You must run the installation procedure as a privileged user.
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
 
-## Prerequisites
-
-After installing your server, update your operating system using the following
-command:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update
-```
-
-### Additional configuration
-
-If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-dnf install glibc-langpack-de
-```
-
-Use the following command to check which languages are installed on your system:
-
-```shell
-locale -a
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf update
-```
-
-### Additional configuration
-
-If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-dnf install glibc-langpack-de
-```
-
-Use the following command to check which languages are installed on your system:
-
-```shell
-locale -a
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt update && apt upgrade
-```
-
-</TabItem>
-</Tabs>
-
-> Accept all GPG keys and reboot your server if a kernel update is proposed.
-
-## Step 1: Pre-installation
-
-### Disable SELinux
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** with **disabled**. You can also run the following command:
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Reboot your operating system to apply the change.
-
-```shell
-reboot
-```
-
-After system startup, perform a quick check of the SELinux status:
-
-```shell
-getenforce
-```
-
-You should have this result:
-
-```shell
-Disabled
-```
-
-> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-
-During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** with **disabled**. You can also run the following command:
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Reboot your operating system to apply the change.
-
-```shell
-reboot
-```
-
-After system startup, perform a quick check of the SELinux status:
-
-```shell
-getenforce
-```
-
-You should have this result:
-
-```shell
-Disabled
-```
-
-> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-SELinux is not installed on Debian 12, continue.
-
-</TabItem>
-</Tabs>
-
-### Configure or disable the firewall
-
-If your firewall is active, add [firewall rules](../../administration/secure-platform.md#enable-firewalld).
-You can also disable the firewall during installation by running the following commands:
-
-```shell
-systemctl stop firewalld
-systemctl disable firewalld
-```
+<InstallCommon />
 
 ### Server name
 
@@ -295,16 +145,6 @@ To install Centreon software, you should first install the Centreon repository.
 Install the Centreon repository using this command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -315,7 +155,17 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 To install the Centreon repository, execute the following command line:
 
@@ -336,7 +186,7 @@ apt update
 
 ## Step 2: Installation
 
-To install the monitoring engine, run the command:
+To install the monitoring engine, run the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -364,26 +214,29 @@ apt install -y --no-install-recommends centreon-poller
 
 To make services start automatically during system bootup, run the following
 command:
+
 ``` shell
 systemctl enable centreon centengine centreontrapd snmptrapd gorgoned
 ```
 
 Passive monitoring services can be started:
+
 ```shell
 systemctl start centreontrapd snmptrapd gorgoned
 ```
 
 Restart Centreon Engine:
+
 ```shell
 systemctl restart centengine
 ```
 
-## Step 3: Register the server
+## Step 3: Register the poller
 
-To turn the server into a poller and to register it to the Central server or a Remote server, execute the following command on the future poller:
+To turn the server into a poller and to register it to the central server or a remote server, execute the following command on the future poller:
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+/usr/share/centreon/bin/registerServerTopology.sh -u admin \
 -t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
@@ -393,14 +246,13 @@ Example:
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
 
-> Replace **\<IP_TARGET_NODE\>** with the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller)
-
-> You must use the default **admin** account as the **\<API_ACCOUNT\>**.
+> Replace **\<IP_TARGET_NODE\>** with the IP of the central server or remote server that you want to link the poller to (IP as seen by the poller).
 
 > If you need to change the HTTP method or the port, you can use the following format for the **-h** option:
 > `HTTPS://<IP_TARGET_NODE>:PORT`
 
 Then follow instructions by
+
 1. Entering your password:
 
     ``` shell
@@ -472,7 +324,7 @@ Couldn't connect to 192.168.0.1:444; Connection refused
 
 > Your Centreon target version is invalid. It should be greater than or equal to 26.10.
 
-## Step 4: Add the Poller to the configuration
+## Step 4: Attach the poller to a central or remote server
 
 Go to [Attach a poller to a central or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 

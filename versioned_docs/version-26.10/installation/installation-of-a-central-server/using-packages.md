@@ -1,6 +1,6 @@
 ---
 id: using-packages
-title: Using packages
+title: Using packages (central server)
 description: "Install a Centreon central server using RPM or DEB packages"
 ---
 import Tabs from '@theme/Tabs';
@@ -10,6 +10,7 @@ import DatabaseLocalInstall from '../_database-local-install.mdx';
 import DatabaseRemoteInstall from '../_database-remote-install.mdx';
 import DatabaseEnableRestart from '../_database-enable-restart.mdx';
 import DatabaseTlsConf from '../_database-tls-conf.mdx';
+import InstallCommon from '../_install-common.mdx';
 
 You must run the installation procedure as a privileged user.
 
@@ -17,152 +18,7 @@ You must run the installation procedure as a privileged user.
 
 We recommend encrypting the communications of both the web server and the database, even though these steps are not required for Centreon to work. The procedure below sets up this encryption. In some cases (e.g. when running quick tests), you may want a non-secure setup: just skip [step 3: Set up the TLS configuration](#step-3-set-up-the-tls-configuration).
 
-## Prerequisites
-
-After installing your server, update your operating system using the following
-command:
-
-<Tabs groupId="os">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf update
-```
-
-### Additional configuration
-
-If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-dnf install glibc-langpack-de
-```
-
-Use the following command to check which languages are installed on your system:
-
-```shell
-locale -a
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-```shell
-dnf update
-```
-
-### Additional configuration
-
-If you intend to use Centreon in French, Spanish, Portuguese or German, install the corresponding packages:
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-dnf install glibc-langpack-de
-```
-
-Use the following command to check which languages are installed on your system:
-
-```shell
-locale -a
-```
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-```shell
-apt update && apt upgrade
-```
-
-</TabItem>
-</Tabs>
-
-> Accept all GPG keys and reboot your server if a kernel update is proposed.
-
-## Step 1: Pre-installation
-
-### Disable SELinux
-
-<Tabs groupId="os">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** with **disabled**. You can also run the following command:
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Reboot your operating system to apply the change.
-
-```shell
-reboot
-```
-
-After system startup, perform a quick check of the SELinux status:
-
-```shell
-getenforce
-```
-
-You should have this result:
-
-```shell
-Disabled
-```
-
-> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** with **disabled**. You can also run the following command:
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Reboot your operating system to apply the change.
-
-```shell
-reboot
-```
-
-After system startup, perform a quick check of the SELinux status:
-
-```shell
-getenforce
-```
-
-You should have this result:
-
-```shell
-Disabled
-```
-
-> **Note that this deactivation should be temporary.** SELinux should be [reenabled after installation](../../administration/secure-platform.md#activate-selinux) for security reasons.
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-SELinux is not installed on Debian 13, continue.
-
-</TabItem>
-</Tabs>
-
-### Configure or disable the firewall
-
-If your firewall is active, add [firewall rules](../../administration/secure-platform.md#enable-firewalld).
-You can also disable the firewall during installation by running the following commands:
-
-```shell
-systemctl stop firewalld
-systemctl disable firewalld
-```
+<InstallCommon />
 
 ### Install the repositories
 

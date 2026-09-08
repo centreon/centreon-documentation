@@ -79,11 +79,3 @@ The script will perform all installation steps. You must then [register the poll
    The script writes a full log, including any errors, to `/var/log/centreon-unattended-<date>.log`.
 
 2. Once the script has run, [register the poller](./using-packages.md#step-3-register-the-server), then [attach the poller to the central server or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
-
-## Help
-
-To get help on the script, use the following command:
-
-```shell
-bash unattended.sh -h
-```

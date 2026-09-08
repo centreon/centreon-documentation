@@ -94,10 +94,9 @@ To install a remote server quicker, you can use a script. This will perform all 
 2. Go to http(s)://\<SERVER_IP\>/centreon (where \<SERVER_IP\> is your server's IP address) and log in. Then follow the
    [initialization of the monitoring](../web-and-post-installation.md#initialization-of-the-monitoring) steps.
 
-   4. Once the script has run, carry out [steps 4 to 8 of the standard installation procedure for a remote server](./using-packages.md#step-5-register-the-server).
+ 3. Once the script has run, carry out [steps 4 to 8 of the standard installation procedure for a remote server](./using-packages.md#step-5-register-the-server).
 
-
-3. Start using Centreon: follow our [Getting started](../../getting-started/welcome.md) guide to start monitoring your resources.
+4. Start using Centreon: follow our [Getting started](../../getting-started/welcome.md) guide to start monitoring your resources.
 
 ## Examples
 

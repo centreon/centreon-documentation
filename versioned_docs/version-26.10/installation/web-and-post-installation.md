@@ -6,7 +6,7 @@ description: "Complete the web setup wizard and initialize your monitoring"
 
 ## Web installation
 
-Log in to Centreon web interface via the URL `http://<IP>/centreon`.
+Log in to Centreon web interface via the URL `http(s)://<IP>/centreon`.
 
 ### Step 1: Welcome to Centreon setup
 
