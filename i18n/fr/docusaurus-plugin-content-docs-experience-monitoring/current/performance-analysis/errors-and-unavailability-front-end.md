@@ -72,9 +72,9 @@ Assez rare, cela indique qu'il n'a pas été possible de récupérer l'IP du sit
 
 Ce problème ne concerne que les [zones STM](../configuration/user-journey/stm-zones.md)
 
-Dès que l'utilisateur se déconnecte, tous les conteneurs se ferment.
+Tous les conteneurs se ferment dès que l'utilisateur se déconnecte.
 
-Vous devez activer le mode « lingering » via loginctl pour éviter que les processus de l'utilisateur ne soient arrêtés dès la fin de la session utilisateur.
+Activez le mode « lingering » via loginctl pour éviter que les processus de l'utilisateur ne soient arrêtés à la fin de la session utilisateur.
 
 ```shell
 loginctl enable-linger $UID

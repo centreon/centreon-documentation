@@ -101,9 +101,9 @@ If it is persistent, verify your DNS configuration and that the domain is still 
 
 This issue only concerns [STM zones](../configuration/user-journey/stm-zones.md)
 
-Once the user logs out, all the containers exit.
+All containers exit when the user logs out
 
-You need to set lingering mode through loginctl to prevent user processes to be killed once the user session completed.
+Set the lingering mode through loginctl to prevent user processes from being killed when the user session ends.
 
 ```shell
 loginctl enable-linger $UID
