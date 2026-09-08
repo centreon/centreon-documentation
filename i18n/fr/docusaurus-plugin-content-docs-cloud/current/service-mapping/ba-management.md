@@ -251,7 +251,7 @@ lignes
 > l'ensemble des données et indicateurs qui lui sont rattachés.
 
 La liste des BA propose un filtre pour se concentrer uniquement sur les activités métier de premier niveau au lieu d'afficher également leurs activités métier enfants.
-- Basculez entre les boutons de la fonctionnalité **Afficher la vue** pour afficher soit "Toutes les Activités Métiers" ou "Uniquement les Activités Métiers de premier niveau".
+- Basculez entre les boutons de la fonctionnalité **Afficher la vue** pour afficher soit **Toutes les Activités Métiers** ou **Uniquement les Activités Métiers de premier niveau**.
 
 ## Indicateurs (KPI)
 
