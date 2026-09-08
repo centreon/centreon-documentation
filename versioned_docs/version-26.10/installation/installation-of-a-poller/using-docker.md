@@ -34,7 +34,7 @@ and runs an installer script on the target Docker host. The script generates the
   reachable on this host.
 * If you plan to monitor VMware infrastructure from this poller, the
   `centreon-vmware` Docker image must be built beforehand (see
-  [Optional: centreon-vmware container](./docker-advanced-configuration.md#optional-centreon-vmware-container)).
+  [Optional: centreon-vmware container](../../monitoring/monitoring-servers/docker-advanced-configuration.md#optional-centreon-vmware-container)).
 
 ## Step 1: Generate the install command
 
@@ -120,7 +120,7 @@ and `.env` files, then run `docker compose up -d` again.
 
 For VMware monitoring, custom check scripts and plugin dependencies, CMA
 support, and email notifications, see
-[Advanced Docker configuration](./docker-advanced-configuration.md).
+[Advanced Docker configuration](../../monitoring/monitoring-servers/docker-advanced-configuration.md).
 
 ## Generated files reference
 

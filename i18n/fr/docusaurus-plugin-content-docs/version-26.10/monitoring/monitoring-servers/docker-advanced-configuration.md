@@ -5,8 +5,8 @@ description: "Configuration optionnelle pour un collecteur basé sur Docker : su
 ---
 
 Cette page couvre la configuration optionnelle d'un collecteur déployé avec
-des [containers Docker](using-docker.md), au-delà des services
-`centengine` et `gorgone` par défaut.
+des [containers Docker](../../installation/installation-of-a-poller/using-docker.md),
+au-delà des services `centengine` et `gorgone` par défaut.
 
 ## Optionnel : container centreon-vmware
 
@@ -83,7 +83,7 @@ généré :
 > **Installation automatique des plugins** est activée à la page
 > **Configuration > Connecteurs > Connecteurs de supervision** et que la
 > configuration du collecteur est déployée depuis le serveur central.
-> Consultez [Connecteurs de supervision](../../monitoring/pluginpacks.md)
+> Consultez [Connecteurs de supervision](../pluginpacks.md)
 > pour plus de détails.
 
 ### Intégrer les dépendances dans une image personnalisée

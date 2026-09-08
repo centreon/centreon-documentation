@@ -39,7 +39,7 @@ démarre la stack.
   accessible sur cet hôte.
 * Si ce collecteur doit superviser une infrastructure VMware, l'image Docker
   `centreon-vmware` doit être construite au préalable (voir
-  [Optionnel : container centreon-vmware](./docker-advanced-configuration.md#optionnel--container-centreon-vmware)).
+  [Optionnel : container centreon-vmware](../../monitoring/monitoring-servers/docker-advanced-configuration.md#optionnel--container-centreon-vmware)).
 
 ## Étape 1 : Générer la commande d'installation
 
@@ -128,7 +128,7 @@ fichiers `docker-compose.yaml` et `.env` générés, puis relancer
 Pour la supervision VMware, les scripts de check personnalisés et les
 dépendances de plugins, la prise en charge du CMA, et les notifications par
 e-mail, consultez
-[Configuration Docker avancée](./docker-advanced-configuration.md).
+[Configuration Docker avancée](../../monitoring/monitoring-servers/docker-advanced-configuration.md).
 
 ## Référence des fichiers générés
 

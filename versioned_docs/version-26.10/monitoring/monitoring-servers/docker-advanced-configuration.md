@@ -5,8 +5,8 @@ description: "Optional configuration for a Docker-based poller: VMware monitorin
 ---
 
 This page covers optional configuration for a poller deployed with
-[Docker containers](using-docker.md), beyond the default `centengine`
-and `gorgone` services.
+[Docker containers](../../installation/installation-of-a-poller/using-docker.md),
+beyond the default `centengine` and `gorgone` services.
 
 ## Optional: centreon-vmware container
 
@@ -75,7 +75,7 @@ the `centengine` service in the generated `docker-compose.yaml`:
 > configuration volume, whenever **Automatic installation of plugins** is
 > enabled on the **Configuration > Connectors > Monitoring Connectors** page
 > and the poller's configuration is deployed from the central server. See
-> [Monitoring Connectors](../../monitoring/pluginpacks.md) for details.
+> [Monitoring Connectors](../pluginpacks.md) for details.
 
 ### Baking dependencies into a custom image
 
