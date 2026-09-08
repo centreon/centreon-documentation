@@ -57,7 +57,7 @@ description: "Release notes for Centreon Cloud, detailing new features, improvem
  
 The Business Activity configuration experience keeps expanding this cycle, with a new simulation mode and finer control over how Business Activities are organized and displayed.
  
-- Business Activities can now be configured with a new **simulation mode**, letting you preview the impact of changes before saving them.
+- Business Activities now support a simulation mode, so you can preview how your changes will affect results before saving them - making it easier to catch mistakes and fine-tune configurations with confidence.
 - Custom icons can now be defined for Business Activities, making nodes and indicators easier to identify in the Business Activity tree.
 - The Business Activity configuration listing now includes a "Show only top level" filter.
 - The impact-weight selector now shows each word's percentage (e.g. Major (50%)) directly in the dropdown.
