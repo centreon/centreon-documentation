@@ -26,7 +26,7 @@ Notre API s’enclenche via un simple appel HTTP sur l'URL `https://app.quanta.i
 
 ## Authentification et génération de token
 
-Vous devrez également spécifier un [token API](tokens.md) pour authentifier la requête.
+Vous devrez également spécifier un [jeton d'accès](tokens.md) pour authentifier la requête.
 
 Ce token devra être au choix:
 
