@@ -96,3 +96,15 @@ What to do:
 Check whether the domain resolves correctly from outside your network.
 If the issue is intermittent, it may indicate DNS instability. 
 If it is persistent, verify your DNS configuration and that the domain is still active.
+
+### Rootless containers exit once the user session exits
+
+This issue only concerns [STM zones](../configuration/user-journey/stm-zones.md)
+
+Once the user logs out, all the containers exit.
+
+You need to set lingering mode through loginctl to prevent user processes to be killed once the user session completed.
+
+```shell
+loginctl enable-linger $UID
+```

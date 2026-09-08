@@ -67,3 +67,15 @@ S’il s'agit bien d'une erreur et que la page ne s'affiche pas correctement, il
 ### Impossible de résoudre l'hôte
 
 Assez rare, cela indique qu'il n'a pas été possible de récupérer l'IP du site, ce qui est le plus souvent révélateur d'un problème au niveau du DNS qui est censé la fournir.
+
+### Les conteneurs sans racine se ferment à la fin de la session utilisateur
+
+Ce problème ne concerne que les [zones STM](../configuration/user-journey/stm-zones.md)
+
+Dès que l'utilisateur se déconnecte, tous les conteneurs se ferment.
+
+Vous devez activer le mode « lingering » via loginctl pour éviter que les processus de l'utilisateur ne soient arrêtés dès la fin de la session utilisateur.
+
+```shell
+loginctl enable-linger $UID
+```
