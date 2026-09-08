@@ -12,7 +12,6 @@ dnf install -y centreon-mariadb centreon
 ```
 
 ```shell
-à déplacer
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -25,7 +24,6 @@ dnf install -y centreon-mariadb centreon
 ```
 
 ```shell
-à déplacer
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -39,13 +37,18 @@ apt install -y centreon-mariadb centreon
 ```
 
 ```shell
-à déplacer
 systemctl daemon-reload
 systemctl restart mariadb
 ```
 
 </TabItem>
 </Tabs>
+
+Set a password for the root user of the database by executing the following command:
+
+```shell
+mariadb-secure-installation
+```
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
@@ -84,6 +87,13 @@ systemctl restart mysql
 
 </TabItem>
 </Tabs>
+
+
+Set a password for the root user of the database by executing the following command:
+
+```shell
+mysql-secure-installation
+```
 
 </TabItem>
 </Tabs>

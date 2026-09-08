@@ -232,13 +232,6 @@ dnf config-manager --set-enabled crb
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
-Install and enable PHP 8.4 using the following commands:
-
-```shell
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf module switch-to php:remi-8.4/common -y
-```
-
 </TabItem>
 <TabItem value="RHEL Linux 10" label="RHEL Linux 10">
 
@@ -254,13 +247,6 @@ If your server is a Cloud RHEL instance, you will have to execute the following 
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 ```
 
-Install and enable PHP 8.4 using the following commands:
-
-```shell
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf module switch-to php:remi-8.4/common -y
-```
-
 </TabItem>
 <TabItem value="Oracle Linux 10" label="Oracle Linux 10">
 
@@ -268,13 +254,6 @@ dnf module switch-to php:remi-8.4/common -y
 dnf install dnf-plugins-core -y
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 dnf config-manager --set-enabled ol10_codeready_builder
-```
-
-Install and enable PHP 8.4 using the following commands:
-
-```shell
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf module switch-to php:remi-8.4/common -y
 ```
 
 </TabItem>
