@@ -188,18 +188,32 @@ above, so `/usr/bin/mail` sends through your relay with no further setup.
 The connector is pre-installed under `$CENTREONPLUGINS$` (usually
 `/usr/lib/centreon/plugins/`), as `centreon_notification_email.pl`. Its
 `--smtp-address`, `--smtp-port` and `--from-address` options take your relay
-directly, no environment variable needed. Replace `smtp.example.com` and
-`centreon-engine@example.com` with your own relay, then define this command
-on the **Configuration > Commands** page:
+directly, no environment variable needed.
+
+The connector picks between its host and service notification templates
+based on whether `--service-description` is set, so the **same command_line**
+can be used as both the host and the service notification command. Replace
+the SMTP, Centreon URL, and token placeholders below with your own, then
+define it on the **Configuration > Commands** page:
 
 ```shell
-$CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::plugin --mode=alert --to-address='$CONTACTEMAIL$' --host-address='$HOSTADDRESS$' --host-name='$HOSTNAME$' --host-alias='$HOSTALIAS$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --type='$NOTIFICATIONTYPE$' --host-id='$HOSTID$' --smtp-nossl --smtp-address='smtp.example.com' --smtp-port='25' --from-address='centreon-engine@example.com'
+$CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::plugin --mode=alert --to-address='$CONTACTEMAIL$' --host-address='$HOSTADDRESS$' --host-name='$HOSTNAME$' --host-alias='$HOSTALIAS$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --host-attempts='$HOSTATTEMPT$' --max-host-attempts='$MAXHOSTATTEMPTS$' --host-duration='$HOSTDURATION$' --date='$SHORTDATETIME$' --type='$NOTIFICATIONTYPE$' --service-description='$SERVICEDESC$' --service-displayname='$SERVICEDISPLAYNAME$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --service-longoutput='$LONGSERVICEOUTPUT$' --service-attempts='$SERVICEATTEMPT$' --max-service-attempts='$MAXSERVICEATTEMPTS$' --service-duration='$SERVICEDURATION$' --host-id='$HOSTID$' --service-id='$SERVICEID$' --notif-author='$NOTIFICATIONAUTHOR$' --notif-comment='$NOTIFICATIONCOMMENT$' --centreon-url='https://central.example.com' --smtp-address='smtp.example.com' --smtp-port='25' --from-address='centreon-engine@example.com' --centreon-user='admin' --centreon-token='your-autologin-key' --smtp-nossl
 ```
 
-> Add `--smtp-user`/`--smtp-password` if your relay requires authentication,
-> and drop `--smtp-nossl` to use TLS.
+* `--centreon-url`, `--centreon-user` and `--centreon-token` (a Centreon
+  autologin key, **Administration > Accounts > your user > Security**) make
+  the email link back to the resource and embed its performance graph. Omit
+  all three if you don't need that - the email is still sent.
+* `--insecure` skips TLS certificate verification when fetching that graph,
+  useful when `--centreon-url` uses a self-signed certificate.
+* Add `--smtp-user`/`--smtp-password` if your relay requires authentication,
+  and drop `--smtp-nossl` to use TLS.
 
-If you'd rather not hardcode the relay in every command, reuse the `SMTP_*`
+> Storing `--centreon-token` in a command definition puts it in plain text
+> in Centreon Engine's configuration. Use a token scoped to a dedicated,
+> low-privilege account rather than an administrator's.
+
+If you'd rather not hardcode the relay in the command, reuse the `SMTP_*`
 environment variables from [Option 1](#option-1-native-smtp-command) above
 instead: they're also exposed as the Centreon Engine macros `$SMTPADDRESS$`,
 `$SMTPPORT$` and `$SMTPFROMADDRESS$`, so `--smtp-address='$SMTPADDRESS$'
@@ -211,6 +225,4 @@ instead: they're also exposed as the Centreon Engine macros `$SMTPADDRESS$`,
 > (**Configuration > Pollers > Resources**) instead, so they survive future
 > exports - or just hardcode the relay in the command as shown above.
 
-See the connector's own documentation for the full list of options
-(host/service duration, Centreon URL for clickable links in the email,
-etc.).
+See the connector's own documentation for the full list of options.

@@ -203,19 +203,37 @@ sans configuration supplémentaire.
 Le connecteur est préinstallé sous `$CENTREONPLUGINS$` (généralement
 `/usr/lib/centreon/plugins/`), sous le nom `centreon_notification_email.pl`.
 Ses options `--smtp-address`, `--smtp-port` et `--from-address` prennent
-votre relais directement, sans variable d'environnement. Remplacez
-`smtp.example.com` et `centreon-engine@example.com` par votre propre relais,
-puis définissez cette commande sur la page **Configuration > Commandes** :
+votre relais directement, sans variable d'environnement.
+
+Le connecteur choisit entre son modèle de notification hôte et son modèle
+service selon que `--service-description` est renseigné ou non : la
+**même command_line** peut donc servir à la fois comme commande de
+notification d'hôte et de service. Remplacez les valeurs SMTP, l'URL
+Centreon et le token ci-dessous par les vôtres, puis définissez-la sur la
+page **Configuration > Commandes** :
 
 ```shell
-$CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::plugin --mode=alert --to-address='$CONTACTEMAIL$' --host-address='$HOSTADDRESS$' --host-name='$HOSTNAME$' --host-alias='$HOSTALIAS$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --type='$NOTIFICATIONTYPE$' --host-id='$HOSTID$' --smtp-nossl --smtp-address='smtp.example.com' --smtp-port='25' --from-address='centreon-engine@example.com'
+$CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::plugin --mode=alert --to-address='$CONTACTEMAIL$' --host-address='$HOSTADDRESS$' --host-name='$HOSTNAME$' --host-alias='$HOSTALIAS$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --host-attempts='$HOSTATTEMPT$' --max-host-attempts='$MAXHOSTATTEMPTS$' --host-duration='$HOSTDURATION$' --date='$SHORTDATETIME$' --type='$NOTIFICATIONTYPE$' --service-description='$SERVICEDESC$' --service-displayname='$SERVICEDISPLAYNAME$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --service-longoutput='$LONGSERVICEOUTPUT$' --service-attempts='$SERVICEATTEMPT$' --max-service-attempts='$MAXSERVICEATTEMPTS$' --service-duration='$SERVICEDURATION$' --host-id='$HOSTID$' --service-id='$SERVICEID$' --notif-author='$NOTIFICATIONAUTHOR$' --notif-comment='$NOTIFICATIONCOMMENT$' --centreon-url='https://central.example.com' --smtp-address='smtp.example.com' --smtp-port='25' --from-address='centreon-engine@example.com' --centreon-user='admin' --centreon-token='votre-cle-autologin' --smtp-nossl
 ```
 
-> Ajoutez `--smtp-user`/`--smtp-password` si votre relais nécessite une
-> authentification, et retirez `--smtp-nossl` pour utiliser TLS.
+* `--centreon-url`, `--centreon-user` et `--centreon-token` (une clé
+  autologin Centreon, **Administration > Comptes > votre utilisateur >
+  Sécurité**) permettent à l'e-mail de renvoyer vers la ressource et d'y
+  intégrer son graphique de performance. Omettez les trois si vous n'en avez
+  pas besoin - l'e-mail est envoyé quand même.
+* `--insecure` désactive la vérification du certificat TLS lors de la
+  récupération de ce graphique, utile si `--centreon-url` utilise un
+  certificat auto-signé.
+* Ajoutez `--smtp-user`/`--smtp-password` si votre relais nécessite une
+  authentification, et retirez `--smtp-nossl` pour utiliser TLS.
 
-Si vous préférez ne pas coder le relais en dur dans chaque commande,
-réutilisez plutôt les variables d'environnement `SMTP_*` de l'
+> Stocker `--centreon-token` dans une définition de commande le place en
+> clair dans la configuration de Centreon Engine. Utilisez un token
+> rattaché à un compte dédié à privilèges limités plutôt qu'à un
+> administrateur.
+
+Si vous préférez ne pas coder le relais en dur dans la commande, réutilisez
+plutôt les variables d'environnement `SMTP_*` de l'
 [Option 1](#option-1--commande-smtp-native) ci-dessus : elles sont
 également exposées comme macros Centreon Engine `$SMTPADDRESS$`,
 `$SMTPPORT$` et `$SMTPFROMADDRESS$`, donc
@@ -230,6 +248,4 @@ réutilisez plutôt les variables d'environnement `SMTP_*` de l'
 > futurs exports - ou codez simplement le relais en dur dans la commande
 > comme montré ci-dessus.
 
-Consultez la documentation du connecteur pour la liste complète des options
-(durée de l'état de l'hôte ou du service, URL Centreon pour les liens
-cliquables dans l'e-mail, etc.).
+Consultez la documentation du connecteur pour la liste complète des options.
