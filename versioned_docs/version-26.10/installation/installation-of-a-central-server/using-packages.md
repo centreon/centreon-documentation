@@ -289,7 +289,7 @@ dnf update
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
 dnf clean all --enablerepo=*
 dnf update -y
 ```
