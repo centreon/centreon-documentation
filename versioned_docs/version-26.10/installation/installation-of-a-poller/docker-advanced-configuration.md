@@ -213,16 +213,19 @@ $CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::pl
 > in Centreon Engine's configuration. Use a token scoped to a dedicated,
 > low-privilege account rather than an administrator's.
 
-If you'd rather not hardcode the relay in the command, reuse the `SMTP_*`
-environment variables from [Option 1](#option-1-native-smtp-command) above
-instead: they're also exposed as the Centreon Engine macros `$SMTPADDRESS$`,
-`$SMTPPORT$` and `$SMTPFROMADDRESS$`, so `--smtp-address='$SMTPADDRESS$'
---smtp-port='$SMTPPORT$' --from-address='$SMTPFROMADDRESS$'` works too.
+If you'd rather not hardcode the relay in the command, define `$SMTPADDRESS$`,
+`$SMTPPORT$` and `$SMTPFROMADDRESS$` as poller resource macros in the
+Centreon UI (**Configuration > Pollers > Resources**), then use them in the
+command instead: `--smtp-address='$SMTPADDRESS$' --smtp-port='$SMTPPORT$'
+--from-address='$SMTPFROMADDRESS$'`.
 
-> A full configuration export from the central server regenerates
-> `resource.cfg` entirely, which would remove these macros again. If you go
-> this route, define the values as poller resource macros in the Centreon UI
-> (**Configuration > Pollers > Resources**) instead, so they survive future
-> exports - or just hardcode the relay in the command as shown above.
+> The `SMTP_*` **environment variables** above only feed the native SMTP
+> command's `msmtp` configuration (Option 1) - the connector doesn't read
+> them. Centreon Engine never passes its own process environment to the
+> commands it runs, and it only understands macros written as `$NAME$`
+> (with the closing `$`), resolved from `resource.cfg`; that file is
+> normally managed entirely by the central server, so the macros above must
+> be defined as poller resource macros through the UI, not by relying on the
+> environment variables from Option 1.
 
 See the connector's own documentation for the full list of options.

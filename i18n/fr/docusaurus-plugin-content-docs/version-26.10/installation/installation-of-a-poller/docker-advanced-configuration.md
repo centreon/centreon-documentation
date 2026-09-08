@@ -232,20 +232,21 @@ $CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::pl
 > rattaché à un compte dédié à privilèges limités plutôt qu'à un
 > administrateur.
 
-Si vous préférez ne pas coder le relais en dur dans la commande, réutilisez
-plutôt les variables d'environnement `SMTP_*` de l'
-[Option 1](#option-1--commande-smtp-native) ci-dessus : elles sont
-également exposées comme macros Centreon Engine `$SMTPADDRESS$`,
-`$SMTPPORT$` et `$SMTPFROMADDRESS$`, donc
-`--smtp-address='$SMTPADDRESS$' --smtp-port='$SMTPPORT$'
---from-address='$SMTPFROMADDRESS$'` fonctionne aussi.
+Si vous préférez ne pas coder le relais en dur dans la commande, définissez
+`$SMTPADDRESS$`, `$SMTPPORT$` et `$SMTPFROMADDRESS$` comme macros de
+ressources du collecteur dans l'interface Centreon
+(**Configuration > Pollers > Ressources**), puis utilisez-les dans la
+commande : `--smtp-address='$SMTPADDRESS$' --smtp-port='$SMTPPORT$'
+--from-address='$SMTPFROMADDRESS$'`.
 
-> Un export complet de la configuration depuis le serveur central régénère
-> entièrement `resource.cfg`, ce qui supprimerait à nouveau ces macros. Si
-> vous choisissez cette option, définissez plutôt ces valeurs comme macros
-> de ressources du collecteur dans l'interface Centreon
-> (**Configuration > Pollers > Ressources**), afin qu'elles survivent aux
-> futurs exports - ou codez simplement le relais en dur dans la commande
-> comme montré ci-dessus.
+> Les **variables d'environnement** `SMTP_*` ci-dessus n'alimentent que la
+> configuration `msmtp` de la commande SMTP native (Option 1) - le
+> connecteur ne les lit pas. Centreon Engine ne transmet jamais son propre
+> environnement de processus aux commandes qu'il exécute, et ne comprend
+> que des macros écrites en `$NOM$` (avec le `$` fermant), résolues depuis
+> `resource.cfg` ; ce fichier est normalement entièrement géré par le
+> serveur central, donc les macros ci-dessus doivent être définies comme
+> macros de ressources du collecteur via l'interface, et non en s'appuyant
+> sur les variables d'environnement de l'Option 1.
 
 Consultez la documentation du connecteur pour la liste complète des options.
