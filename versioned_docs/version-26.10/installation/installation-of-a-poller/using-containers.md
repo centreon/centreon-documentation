@@ -1,6 +1,6 @@
 ---
 id: using-containers
-title: Installing a poller on a container
+title: Installing a poller in a container
 description: "Install a Centreon poller using docker-compose"
 ---
 
