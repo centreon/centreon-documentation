@@ -18,7 +18,7 @@ Depending on your setup, you can [configure your old pollers to use port 443 (re
 
 ## Configure your old pollers to use port 443 (recommended)
 
-1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./docker-requirement-central.md).
+1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./pollers-containers-prerequisites.md).
 2. Update all your pollers to version 26.10.
 3. On the poller, change the target port number to 443 in **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** in the **pullwss** module configuration.
 
@@ -40,7 +40,7 @@ This section should be used only if you have many pollers whose configuration ca
 
 ### Poller with HTTPS
 
-1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./docker-requirement-central.md).
+1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./pollers-containers-prerequisites.md).
 2. Update your pollers to version 26.10.
 3. On the central server, execute the following commands to redirect the traffic from port 8086 to the central server's Gorgone.
 
@@ -68,7 +68,7 @@ This section should be used only if you have many pollers whose configuration ca
 
 > This configuration is only for compatibility with old pollers that cannot be configured to use TLS. Please note that using pullwss without TLS is not recommended in production. Update your configuration as soon as possible.
 
-1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./docker-requirement-central.md).
+1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./pollers-containers-prerequisites.md).
 2. Update your pollers to version 26.10.
 3. On the central server, execute the following commands to redirect the traffic from port 8086 to the central server's Gorgone.
 
@@ -90,7 +90,7 @@ This section should be used only if you have many pollers whose configuration ca
   ```
 
   </TabItem>
-  </Tabs>.
+  </Tabs>
 
 ## Troubleshooting your setup
 
