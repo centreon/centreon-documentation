@@ -75,7 +75,7 @@ the `centengine` service in the generated `docker-compose.yaml`:
 > configuration volume, whenever **Automatic installation of plugins** is
 > enabled on the **Configuration > Connectors > Monitoring Connectors** page
 > and the poller's configuration is deployed from the central server. See
-> [Monitoring Connectors](../../monitoring/pluginpacks.md) for details.
+> [Monitoring Connectors](https://docs.centreon.com/docs/monitoring/pluginpacks/) for details.
 
 ### Baking dependencies into a custom image
 

@@ -18,16 +18,17 @@ This deployment method relies on a generated installation command that downloads
 and runs an installer script on the target Docker host. The script generates the
 `.env` and `docker-compose.yaml` files for you and starts the stack.
 
-> See [Users and groups](../technical.md) for the system users
+> See [Users and groups](https://docs.centreon.com/docs/installation/technical/) for the system users
 > (`centreon-engine`, `centreon-gorgone`, etc.) used inside these containers.
 
 </details>
 
 ## Prerequisites
 
-* On the central server, [Gorgone's **pullwss** module must be configured to accept connections](./pollers-containers-prerequisites.md). This is a one-time setup, shared by all pollers in containers.
+* On the central server, [Gorgone's **pullwss** module must be configured to accept connections](./pollers-containers-prerequisites.md). This is a one-time setup, shared by all pollers in containers. It does not affect other types of poller deployments.
 * A Linux host with **Docker Engine** and the **Docker Compose v2** plugin
   installed (`docker compose version` must succeed).
+* a poller-type token
 * Outbound network access from this host to your Centreon central server.
 * If you plan to receive SNMP traps on this poller, UDP port 162 must be
   reachable on this host.
