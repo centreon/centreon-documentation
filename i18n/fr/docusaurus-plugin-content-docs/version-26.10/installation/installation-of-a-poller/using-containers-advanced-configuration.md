@@ -20,7 +20,7 @@ build it locally, on the Docker host, before using `--with-vmware`.
 
 Download the SDK archives from the Broadcom developer portal (see the
 [prerequisites of the VMware ESX monitoring 
-connector](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx#prerequisites)
+connector](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx#prérequis)
 for instructions), then clone `centreon-plugins`, place the archives in its
 `sdks-vmware` directory, and build the image:
 
