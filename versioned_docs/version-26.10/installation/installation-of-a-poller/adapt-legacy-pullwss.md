@@ -44,8 +44,7 @@ This section should be used only if you have many pollers whose configuration ca
 2. Update your pollers to version 26.10.
 3. On the central server, execute the following commands to redirect the traffic from port 8086 to the central server's Gorgone.
 
-  <Tabs groupId="sync">
-
+  <Tabs groupId="os">
   <TabItem value="Alma / RHEL / Oracle Linux 9/10" label="Alma / RHEL / Oracle Linux 9/10">
 
   ```shell
@@ -54,7 +53,6 @@ This section should be used only if you have many pollers whose configuration ca
   ```
 
   </TabItem>
-
   <TabItem value="Debian 13" label="Debian 13">
 
   ```shell
@@ -74,8 +72,7 @@ This section should be used only if you have many pollers whose configuration ca
 2. Update your pollers to version 26.10.
 3. On the central server, execute the following commands to redirect the traffic from port 8086 to the central server's Gorgone.
 
-  <Tabs groupId="sync">
-
+  <Tabs groupId="os">
   <TabItem value="Alma / RHEL / Oracle Linux 9/10" label="Alma / RHEL / Oracle Linux 9/10">
 
    ```shell
@@ -84,7 +81,6 @@ This section should be used only if you have many pollers whose configuration ca
    ```
 
   </TabItem>
-
   <TabItem value="Debian 13" label="Debian 13">
 
   ```shell
