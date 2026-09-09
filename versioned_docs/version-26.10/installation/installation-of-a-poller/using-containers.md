@@ -4,15 +4,10 @@ title: Installing a poller in a container
 description: "Install a Centreon poller using docker-compose"
 ---
 
-L'utilitaire docker-compose doit être disponible sur le système de conteneurisation où vous voulez installer le collecteur.
+> This container-based poller deployment method is currently in **BETA**.
 
-The first time you install a poller in a container, you must first [enable the platform to receive pullwss connections from pollers](pollers-containers-prerequisites.md). This is only done once and does not affect other poller deployment modes.
-
-:::info Beta feature
-
-This Docker-based poller deployment method is currently in **BETA**.
-
-:::
+<details>
+<summary>Technical details</summary>
 
 Centreon also provides a Docker-based deployment for pollers. Instead of a single
 monolithic container, each poller component runs in its own dedicated container
@@ -23,14 +18,14 @@ This deployment method relies on a generated installation command that downloads
 and runs an installer script on the target Docker host. The script generates the
 `.env` and `docker-compose.yaml` files for you and starts the stack.
 
-> See [Users and groups](../../installation/technical.md) for the system users
+> See [Users and groups](../technical.md) for the system users
 > (`centreon-engine`, `centreon-gorgone`, etc.) used inside these containers.
+
+</details>
 
 ## Prerequisites
 
-* On the central server: Gorgone's **pullwss** module must be configured to
-  accept connections, since a Docker poller always connects out to the
-  central server. This is a one-time setup, shared by all Docker pollers.
+* On the central server, [Gorgone's **pullwss** module must be configured to accept connections](./pollers-containers-prerequisites.md). This is a one-time setup, shared by all pollers in containers.
 * A Linux host with **Docker Engine** and the **Docker Compose v2** plugin
   installed (`docker compose version` must succeed).
 * Outbound network access from this host to your Centreon central server.
@@ -42,7 +37,7 @@ and runs an installer script on the target Docker host. The script generates the
 
 ## Step 1: Generate the install command
 
-1. In the Centreon UI, open the **Pollers** menu at the top of the screen and
+1. On the central server, click **Pollers** at the top left of the screen and
    click **Create new poller** (currently in BETA).
 
    ![image](../../assets/installation/create-poller-banner.png)
