@@ -14,7 +14,7 @@ This chapter describes how to upgrade your Centreon platform from version 23.10 
 
 > Business edition users: MAP Legacy is no longer available in Centreon 25.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
-> Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874).
+> Version 25.10 means the end of support for Debian 11. If you were using Debian 11, you must first migrate to Debian 12 before you can upgrade Centreon. See [Migrate from Debian 11 to Debian 12](../migrate/migrate-from-debian-to-debian.md).
 
 > Warning: If you were using the following monitoring connectors, from version 25.10 you must declare all of their configurations using [the **Configuration \> Additional connector configurations** page](/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration) before deploying the configuration of the corresponding poller:
 > * [VMware ESX](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/)
