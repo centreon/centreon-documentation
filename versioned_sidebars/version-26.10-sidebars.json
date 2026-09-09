@@ -160,6 +160,18 @@
             {
               "type": "doc",
               "id": "installation/installation-of-a-poller/using-containers"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/pollers-containers-prerequisites"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/using-containers-advanced-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/adapt-legacy-pullwss"
             }
           ]
         },
