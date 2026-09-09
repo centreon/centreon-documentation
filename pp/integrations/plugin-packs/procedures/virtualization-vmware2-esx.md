@@ -12,7 +12,7 @@ The Centreon **VMware VM** Monitoring Connector relies on a dedicated connector 
 
 > This Monitoring Connector can be used with either version 6 or 7 of the VMware API.
 
-## Pack assets
+## Pack assets 
 
 ### Templates
 
