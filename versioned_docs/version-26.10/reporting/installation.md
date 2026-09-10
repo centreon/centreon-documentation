@@ -694,7 +694,7 @@ apt update
 #### Install dependencies
 
 <Tabs groupId="os" queryString>
-<TabItem value="RHEL 9" label="RHEL 9">
+<TabItem value="RHEL 10" label="RHEL 10">
 
 Install the **epel** repository:
 
@@ -724,7 +724,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="Alma 8" label="Alma 8">
+<TabItem value="Alma 9" label="Alma 9">
 
 Install the **epel** repository:
 
@@ -738,7 +738,7 @@ Enable the **powertools** repository:
 dnf config-manager --set-enabled 'powertools'
 ```
 </TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
+<TabItem value="RHEL 10" label="RHEL 10">
 
 Install the **epel** repository:
 
@@ -1335,7 +1335,7 @@ Avoid scheduled periods for statistical calculations with Centreon MBI ETL and r
 You can run this cron daily or weekly, depending on the batch execution time and the load generated on the server.
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 9" label="Alma / RHEL / Oracle Linux 9 / RHEL 9">
 
 Restart the cron service:
 
@@ -1381,7 +1381,7 @@ systemctl restart cron
    2. Restart **crond**.
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 9" label="Alma / RHEL / Oracle Linux 9 / RHEL 9">
 
 ```shell
 systemctl restart crond
@@ -1448,7 +1448,7 @@ Once the data building process is complete, you can reenable the daily calculati
 2. Restart the cron service on the reporting server:
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 8 / CentOS 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 8 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 9" label="Alma / RHEL / Oracle Linux 9 / RHEL 9">
 
 ```shell
 systemctl restart crond

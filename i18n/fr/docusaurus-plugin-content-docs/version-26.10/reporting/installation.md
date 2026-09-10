@@ -1329,7 +1329,7 @@ Pour activer la purge automatique des anciennes données, modifiez le fichier cr
 Vous pouvez exécuter ce cron quotidiennement ou hebdomadairement, en fonction du temps d'exécution du batch et de la charge générée sur le serveur.
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 7">
 
 Redémarrez le service cron :
 
@@ -1378,7 +1378,7 @@ Veuillez passer à la section suivante pour continuer l'installation.
    2. Redémarrez **crond**.
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 7">
 
 ```shell
 systemctl restart crond
@@ -1443,7 +1443,7 @@ Sur le serveur de reporting, éditez le fichier **/etc/cron.d/centreon-bi-engine
 ```
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 7">
 
 Redémarrez le service cron sur le serveur de reporting :
 
