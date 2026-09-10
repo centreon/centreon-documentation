@@ -6,8 +6,7 @@ title: Développer vos propres plugins
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Cette section vise à donner un aperçu de la philosophie des plugins Centreon et de la manière dont
-vous pouvez exploiter (ou non) le framework Perl des plugins Centreon et créer des connecteurs à partir de celui-ci.
+Cette page répertorie des ressources GitHub pour découvrir centreon-plugins et créer des connecteurs à partir du framework Perl - ou indépendamment de celui-ci.
 
 Le chemin recommandé est le suivant :
 - [Basics & main guidelines](https://github.com/centreon/centreon-plugins/blob/develop/doc/en/developer/plugins_global.md) - Comprenez les principaux
