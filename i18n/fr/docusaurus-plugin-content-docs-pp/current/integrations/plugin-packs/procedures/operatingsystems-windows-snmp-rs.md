@@ -202,7 +202,7 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 3. Appliquez le modèle d'hôte **OS-Windows-SNMP-Rs-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro                | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+| Macro              | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
 |:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMP\_EXTRA\_OPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
@@ -218,10 +218,10 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 
 | Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING_AVERAGE  | Warning threshold for the overall average                                                                                                        |                   |             |
-| CRITICAL_AVERAGE | Critical threshold for the overall average                                                                                                       |                   |             |
-| WARNING_CORE     | Warning threshold for each CPU core                                                                                                              |                   |             |
-| CRITICAL_CORE    | Critical threshold for each CPU core                                                                                                             |                   |             |
+| WARNING_AVERAGE  | Warning threshold for the overall average                                                                                                                                                 | 90                |             |
+| CRITICAL_AVERAGE | Critical threshold for the overall average                                                                                                                                                 | 95                |             |
+| WARNING_CORE     | Warning threshold for each CPU.                                                                                        |                   |             |
+| CRITICAL_CORE    | Critical threshold for each CPU.                                                                                       |                   |             |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -232,8 +232,8 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 | INCLUDE_NAME     | Include filter (can be used multiple times)                                                                                                      | .*                |             |
 | WARNING_BYTES    | Warning threshold for the metric 'storage.usage.bytes'                                                                                           |                   |             |
 | CRITICAL_BYTES   | Critical threshold for the metric 'storage.usage.bytes'                                                                                          |                   |             |
-| WARNING_PERCENT  | Warning threshold for the metric 'storage.usage.percent'                                                                                         |                   |             |
-| CRITICAL_PERCENT | Critical threshold for the metric 'storage.usage.percent'                                                                                        |                   |             |
+| WARNING_PERCENT  | Warning threshold for the metric 'storage.usage.percent'                                                                                         | 80                |             |
+| CRITICAL_PERCENT | Critical threshold for the metric 'storage.usage.percent'                                                                                        | 90                |             |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -243,8 +243,8 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING_BYTES    | Warning threshold for the metric 'memory.usage.bytes'                                                                                            |                   |             |
 | CRITICAL_BYTES   | Critical threshold for the metric 'memory.usage.bytes'                                                                                           |                   |             |
-| WARNING_PERCENT  | Warning threshold for the metric 'memory.usage.percent'                                                                                          |                   |             |
-| CRITICAL_PERCENT | Critical threshold for the metric 'memory.usage.percent'                                                                                         |                   |             |
+| WARNING_PERCENT  | Warning threshold for the metric 'memory.usage.percent'                                                                                          | 90                |             |
+| CRITICAL_PERCENT | Critical threshold for the metric 'memory.usage.percent'                                                                                         | 95                |             |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -268,8 +268,8 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING_BYTES    | Warning threshold for the metric 'memory.usage.bytes'                                                                                            |                   |             |
 | CRITICAL_BYTES   | Critical threshold for the metric 'memory.usage.bytes'                                                                                           |                   |             |
-| WARNING_PERCENT  | Warning threshold for the metric 'memory.usage.percent'                                                                                          |                   |             |
-| CRITICAL_PERCENT | Critical threshold for the metric 'memory.usage.percent'                                                                                         |                   |             |
+| WARNING_PERCENT  | Warning threshold for the metric 'memory.usage.percent'                                                                                          | 80                |             |
+| CRITICAL_PERCENT | Critical threshold for the metric 'memory.usage.percent'                                                                                         | 90                |             |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -277,7 +277,7 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 
 | Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING_SECONDS  | Warning threshold for the metric 'system.uptime.seconds'                                                                                         |                   |             |
+| WARNING_SECONDS  | Warning threshold for the metric 'system.uptime.seconds'                                                                                         | 3600:             |             |
 | CRITICAL_SECONDS | Critical threshold for the metric 'system.uptime.seconds'                                                                                        |                   |             |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 

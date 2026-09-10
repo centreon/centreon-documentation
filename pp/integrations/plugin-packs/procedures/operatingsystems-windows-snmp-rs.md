@@ -195,7 +195,7 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 3. Apply the **OS-Windows-SNMP-Rs-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro                | Description                                                                                                                              | Default value | Mandatory |
+| Macro              | Description                                                                                                                                        | Default value | Mandatory |
 |:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | SNMP\_EXTRA\_OPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
@@ -209,13 +209,13 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro            | Description                                                                                                                            | Default value | Mandatory |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNING_AVERAGE  | Warning threshold for the overall average                                                                                              |               |           |
-| CRITICAL_AVERAGE | Critical threshold for the overall average                                                                                             |               |           |
-| WARNING_CORE     | Warning threshold for the metric 'core.cpu.usage.percent'                                                                              |               |           |
-| CRITICAL_CORE    | Critical threshold for the metric 'core.cpu.usage.percent'                                                                             |               |           |
-| EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+| Macro            | Description                                                                                                                                      | Default value | Mandatory |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| WARNING_AVERAGE  | Warning threshold for the overall average                                                                                                                                                 | 90            |           |
+| CRITICAL_AVERAGE | Critical threshold for the overall average                                                                                                                                                 | 95            |           |
+| WARNING_CORE     | Warning threshold for the metric 'core.cpu.usage.percent'                                                                                        |               |           |
+| CRITICAL_CORE    | Critical threshold for the metric 'core.cpu.usage.percent'                                                                                       |               |           |
+| EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
 <TabItem value="Disk-Global" label="Disk-Global">
@@ -225,8 +225,8 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 | INCLUDE_NAME     | Include filter (can be used multiple times)                                                                                                      | .*            |           |
 | WARNING_BYTES    | Warning threshold for the metric 'storage.usage.bytes'                                                                                           |               |           |
 | CRITICAL_BYTES   | Critical threshold for the metric 'storage.usage.bytes'                                                                                          |               |           |
-| WARNING_PERCENT  | Warning threshold for the metric 'storage.usage.percent'                                                                                         |               |           |
-| CRITICAL_PERCENT | Critical threshold for the metric 'storage.usage.percent'                                                                                        |               |           |
+| WARNING_PERCENT  | Warning threshold for the metric 'storage.usage.percent'                                                                                         | 80            |           |
+| CRITICAL_PERCENT | Critical threshold for the metric 'storage.usage.percent'                                                                                        | 90            |           |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
@@ -236,8 +236,8 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | WARNING_BYTES    | Warning threshold for the metric 'memory.usage.bytes'                                                                                            |               |           |
 | CRITICAL_BYTES   | Critical threshold for the metric 'memory.usage.bytes'                                                                                           |               |           |
-| WARNING_PERCENT  | Warning threshold for the metric 'memory.usage.percent'                                                                                          |               |           |
-| CRITICAL_PERCENT | Critical threshold for the metric 'memory.usage.percent'                                                                                         |               |           |
+| WARNING_PERCENT  | Warning threshold for the metric 'memory.usage.percent'                                                                                          | 90            |           |
+| CRITICAL_PERCENT | Critical threshold for the metric 'memory.usage.percent'                                                                                         | 95            |           |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
@@ -261,8 +261,8 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | WARNING_BYTES    | Warning threshold for the metric 'memory.usage.bytes'                                                                                            |               |           |
 | CRITICAL_BYTES   | Critical threshold for the metric 'memory.usage.bytes'                                                                                           |               |           |
-| WARNING_PERCENT  | Warning threshold for the metric 'memory.usage.percent'                                                                                          |               |           |
-| CRITICAL_PERCENT | Critical threshold for the metric 'memory.usage.percent'                                                                                         |               |           |
+| WARNING_PERCENT  | Warning threshold for the metric 'memory.usage.percent'                                                                                          | 80            |           |
+| CRITICAL_PERCENT | Critical threshold for the metric 'memory.usage.percent'                                                                                         | 90            |           |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
@@ -270,7 +270,7 @@ apt install centreon-plugin-operatingsystems-windows-snmp-rs
 
 | Macro            | Description                                                                                                                                      | Default value | Mandatory |
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNING_SECONDS  | Warning threshold for the metric 'system.uptime.seconds'                                                                                         |               |           |
+| WARNING_SECONDS  | Warning threshold for the metric 'system.uptime.seconds'                                                                                         | 3600:         |           |
 | CRITICAL_SECONDS | Critical threshold for the metric 'system.uptime.seconds'                                                                                        |               |           |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
