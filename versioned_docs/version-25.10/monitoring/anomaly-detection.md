@@ -98,9 +98,6 @@ apt update && apt install centreon-anomaly-detection
 
 2. Enter your token and click **Save**.
 
-> If your Centreon central server needs a proxy configuration to access the
-> Internet, check the **Use proxy** box.
-
 Your Centreon platform is now ready to use Centreon Anomaly Detection.
 
 ## Configuration
