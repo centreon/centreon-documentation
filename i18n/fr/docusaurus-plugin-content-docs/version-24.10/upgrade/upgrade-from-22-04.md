@@ -205,6 +205,8 @@ su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
 systemctl restart php-fpm
 ```
 
+Notez que ceci peut supprimer des connecteurs et des extensions. Ils devront être reinstallés par la suite.
+
 </TabItem>
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
@@ -228,6 +230,8 @@ systemctl stop php8.0-fpm
 
 </TabItem>
 </Tabs>
+
+Notez que ceci peut supprimer des connecteurs et des extensions. Ils devront être reinstallés par la suite.
 
 Puis, terminez la montée de version de la solution Centreon.
 

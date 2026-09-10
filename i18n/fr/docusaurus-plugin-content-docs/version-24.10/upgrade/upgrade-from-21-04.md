@@ -207,61 +207,7 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
-Puis, finissez la montée de version de la solution Centreon.
-
-1. Videz le cache :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf clean all --enablerepo=*
-```
-
-</TabItem>
-<TabItem value="Debian" label="Debian">
-
-```shell
-apt clean all
-apt update
-```
-
-</TabItem>
-</Tabs>
-
-2. Mettez à jour l'ensemble des composants :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update centreon\* php-pecl-gnupg
-```
-
-</TabItem>
-</Tabs>
-
-> Acceptez les nouvelles clés GPG des dépôts si nécessaire.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Exécutez les commandes suivantes :
-
-```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
-```
-
-</TabItem>
-</Tabs>
+Notez que ceci peut supprimer des connecteurs et des extensions. Ils devront être reinstallés par la suite.
 
 Puis, finissez la montée de version de la solution Centreon.
 
@@ -305,19 +251,6 @@ dnf update centreon\* php-pecl-gnupg
 </Tabs>
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Exécutez les commandes suivantes :
-
-```shell
-systemctl enable php-fpm
-systemctl restart php-fpm
-```
-
-</TabItem>
-</Tabs>
 
 ### Mettre à jour une configuration Apache personnalisée
 
