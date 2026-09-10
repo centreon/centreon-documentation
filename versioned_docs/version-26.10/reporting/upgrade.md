@@ -32,7 +32,7 @@ On EL8, for security reasons, the keys used to sign Centreon RPMs are rotated re
 
 ## Step 1: Update the repository
 
-When you upgrade from a previous major version to 25.10.x, you first need to update the repository on your Central & Reporting servers.
+When you upgrade from a previous major version to 26.10.x, you first need to update the repository on your Central & Reporting servers.
 
 You will find the new "Business" repository on the "Repositories" page in your [Centreon Support account](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
@@ -41,14 +41,6 @@ You will find the new "Business" repository on the "Repositories" page in your [
 1. Update the package, run the following commands:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf clean all
-dnf update centreon-bi-server
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -57,7 +49,15 @@ dnf update centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf clean all
+dnf update centreon-bi-server
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt clean
@@ -111,7 +111,7 @@ Now you can start the upgrade process:
 2. Then run the following commands:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
@@ -120,7 +120,7 @@ dnf update centreon-bi\*
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
@@ -129,7 +129,7 @@ dnf update centreon-bi\*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt clean
