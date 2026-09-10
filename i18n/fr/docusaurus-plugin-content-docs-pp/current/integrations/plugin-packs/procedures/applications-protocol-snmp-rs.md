@@ -89,13 +89,6 @@ apt install centreon-pack-applications-protocol-snmp-rs
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-protocol-snmp-rs
-```
-
-</TabItem>
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Generic SNMP (Rust)**
@@ -161,7 +154,7 @@ apt install centreon-plugin-applications-protocol-snmp-rs
 
 | Macro            | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING_SECONDS  | Warning threshold for the metric 'system.uptime.seconds'                                                                                         |                   |             |
+| WARNING_SECONDS  | Warning threshold for the metric 'system.uptime.seconds'                                                                                         | 3600:             |             |
 | CRITICAL_SECONDS | Critical threshold for the metric 'system.uptime.seconds'                                                                                        |                   |             |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
