@@ -767,7 +767,7 @@ Enable the **codeready-builder** repositories:
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
 </TabItem>
-<TabItem value="Alma 9" label="Alma 9">
+<TabItem value="Alma 10" label="Alma 10">
 
 Install the **epel** repository:
 
@@ -872,7 +872,6 @@ systemctl restart mysql
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 dnf install centreon-bi-reporting-server
 ```
 
@@ -980,7 +979,7 @@ option in `/etc/my.cnf` will NOT work.
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 ```
 
 If the MariaDB service fails to start, remove the *ib_logfile* files
