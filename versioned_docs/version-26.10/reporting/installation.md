@@ -694,7 +694,7 @@ apt update
 #### Install dependencies
 
 <Tabs groupId="os" queryString>
-<TabItem value="RHEL 10" label="RHEL 10">
+<TabItem value="RHEL 9" label="RHEL 9">
 
 Install the **epel** repository:
 
