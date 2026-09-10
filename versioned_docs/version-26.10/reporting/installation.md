@@ -6,7 +6,7 @@ description: "Install and configure the Centreon MBI reporting server and interf
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DatabaseRepository from '../installation/_database-repository.mdx';
-
+ 
 > This page is intended for administrators who will install and configure Centreon MBI.
 
 This page presents the software architecture of the **Centreon MBI** extension, then explains how to install it. To do so, five main steps are required:
