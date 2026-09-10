@@ -190,33 +190,7 @@ rm /var/lib/centreon-broker/* -f
 Centreon 25.10 utilise PHP en version 8.2.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les commandes suivantes et en répondant **y**
-pour confirmer :
-
-```shell
-dnf config-manager --disable remi-modular remi-safe
-dnf module disable composer:2
-dnf module disable php:remi-8.1
-rm -rf /etc/yum.repos.d/remi*
-dnf module reset php
-```
-
-```shell
-dnf module install php:8.2
-dnf distro-sync php\* --allowerasing
-```
-
-Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
-
-```shell
-su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
-systemctl restart php-fpm
-```
-
-</TabItem>
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+<TabItem value="RHEL / Alma / Oracle Linux 8" label="RHEL / Alma / Oracle Linux 8">
 
 Vous devez changer le flux PHP de la version 8.0 à 8.2 en exécutant les commandes suivantes et en répondant **y**
 pour confirmer :
@@ -252,6 +226,8 @@ Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centre
 
 </TabItem>
 </Tabs>
+
+Notez que ceci peut supprimer des connecteurs et des extensions. Ils devront être reinstallés par la suite.
 
 Puis, finissez, la montée de version de la solution Centreon.
 

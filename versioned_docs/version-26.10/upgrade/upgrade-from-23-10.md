@@ -261,6 +261,8 @@ Ensure the `memory_limit` parameter in `/etc/php/8.2/fpm/conf.d/50-centreon.ini`
 </TabItem>
 </Tabs>
 
+Note that this may delete some connectors or extensions which must then be reinstalled afterwards.
+
 Then, finish upgrading the Centreon solution.
 
 1. Clean the cache:
