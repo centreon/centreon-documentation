@@ -1,0 +1,99 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="os">
+<TabItem value="Alma 9" label="Alma 9">
+
+```shell
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+```
+
+Install and enable PHP 8.4 using the following commands:
+
+```shell
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf module switch-to php:remi-8.4/common -y
+```
+
+</TabItem>
+<TabItem value="RHEL 9" label="RHEL 9">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+```
+
+Install and enable PHP 8.4 using the following commands:
+
+```shell
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf module switch-to php:remi-8.4/common -y
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
+
+```shell
+dnf install dnf-plugins-core
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf config-manager --set-enabled ol9_codeready_builder
+```
+
+Install and enable PHP 8.4 using the following commands:
+
+```shell
+dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+dnf module switch-to php:remi-8.4/common -y
+```
+
+</TabItem>
+<TabItem value="Alma Linux 10" label="Alma Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf config-manager --set-enabled crb
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="RHEL Linux 10" label="RHEL Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 10" label="Oracle Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+dnf config-manager --set-enabled ol10_codeready_builder
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+apt update && apt install -y lsb-release ca-certificates apt-transport-https wget gnupg2 curl sudo
+```
+
+</TabItem>
+</Tabs>

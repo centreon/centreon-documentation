@@ -11,6 +11,10 @@ import DatabaseRemoteInstall from '../_database-remote-install.mdx';
 import DatabaseEnableRestart from '../_database-enable-restart.mdx';
 import DatabaseTlsConf from '../_database-tls-conf.mdx';
 import InstallCommon from '../_install-common.mdx';
+import TlsCertificates from '../_tls-certificates.mdx';
+import InterfaceTlsConf from '../_interface-tls-conf.mdx';
+import CentreonRepository from '../_centreon-repository.mdx';
+import DependenciesRepository from '../_dependencies-repository.mdx';
 
 You must run the installation procedure as a privileged user.
 
@@ -24,103 +28,7 @@ We recommend encrypting the communications of both the web server and the databa
 
 #### Dependencies
 
-<Tabs groupId="os">
-<TabItem value="Alma 9" label="Alma 9">
-
-```shell
-dnf install dnf-plugins-core
-dnf install epel-release
-dnf config-manager --set-enabled crb
-```
-
-Install and enable PHP 8.4 using the following commands:
-
-```shell
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf module switch-to php:remi-8.4/common -y
-```
-
-</TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
-```
-
-If your server is a Cloud RHEL instance, you will have to execute the following command:
-
-```shell
-dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
-```
-
-Install and enable PHP 8.4 using the following commands:
-
-```shell
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf module switch-to php:remi-8.4/common -y
-```
-
-</TabItem>
-<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
-
-```shell
-dnf install dnf-plugins-core
-dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf config-manager --set-enabled ol9_codeready_builder
-```
-
-Install and enable PHP 8.4 using the following commands:
-
-```shell
-dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf module switch-to php:remi-8.4/common -y
-```
-
-</TabItem>
-<TabItem value="Alma Linux 10" label="Alma Linux 10">
-
-```shell
-dnf install dnf-plugins-core -y
-dnf install epel-release -y
-dnf config-manager --set-enabled crb
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
-```
-
-</TabItem>
-<TabItem value="RHEL Linux 10" label="RHEL Linux 10">
-
-```shell
-dnf install dnf-plugins-core -y
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
-```
-
-If your server is a Cloud RHEL instance, you will have to execute the following command:
-
-```shell
-dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
-```
-
-</TabItem>
-<TabItem value="Oracle Linux 10" label="Oracle Linux 10">
-
-```shell
-dnf install dnf-plugins-core -y
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
-dnf config-manager --set-enabled ol10_codeready_builder
-```
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-```shell
-apt update && apt install -y lsb-release ca-certificates apt-transport-https wget gnupg2 curl sudo
-```
-
-</TabItem>
-</Tabs>
+<DependenciesRepository />
 
 #### Database repository
 
@@ -128,47 +36,7 @@ apt update && apt install -y lsb-release ca-certificates apt-transport-https wge
 
 #### Centreon repository
 
-To install Centreon software, you should first install the Centreon repository.
-
-Install the Centreon repository using this command:
-
-<Tabs groupId="os">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-```shell
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
-dnf clean all --enablerepo=*
-dnf update -y
-```
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-To install the Centreon repositories, execute the following command:
-
-```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-```
-
-Then import the repository key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-apt update
-```
-
-</TabItem>
-</Tabs>
+<CentreonRepository />
 
 ## Step 2: Install the central server and the database
 
@@ -188,81 +56,7 @@ a remote database on a dedicated server.
 
 ### Generate the certificates
 
-Generate the certificates the platform will need to connect to the web interface and to the database.
-
-1. On the central server, install **openssl**.
-
-   <Tabs groupId="os">
-   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-   ```shell
-   dnf install openssl -y
-   ```
-
-   </TabItem>
-   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-   ```shell
-   dnf install openssl -y
-   ```
-
-   </TabItem>
-   <TabItem value="Debian 13" label="Debian 13">
-
-   ```shell
-   apt install -y openssl
-   ```
-
-   </TabItem>
-   </Tabs>
-
-2. Download the **entrypoint.sh** script.
-
-3. Run the script to generate a root CA and a certificate for this host. Replace \<HOSTNAME\> by the IP address of your machine:
-
-   ```shell
-   mkdir -p /etc/pki/centreon-tls
-   OUT=/etc/pki/centreon-tls \
-   entrypoint.sh <HOSTNAME> localhost 127.0.0.1
-   cd /
-   ```
-
-   The command outputs the following files in **/etc/pki/centreon-tls/**:
-
-      * rootCA.pem            (public)
-      * server.pem            (server certificate)
-      * server-key.pem        (server private key)
-      * CA/rootCA.\{key,pem\}   (set the following permissions root:root, mode 0400)
-
-4. Install the root CA into the OS trust store:
-
-   <Tabs groupId="os">
-   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-   ```shell
-   cp /etc/pki/centreon-tls/rootCA.pem /etc/pki/ca-trust/source/anchors/centreon-dev.crt
-   update-ca-trust extract
-   ```
-
-   </TabItem>
-   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-   ```shell
-   cp /etc/pki/centreon-tls/rootCA.pem /etc/pki/ca-trust/source/anchors/centreon-dev.crt
-   update-ca-trust extract
-   ```
-
-   </TabItem>
-   <TabItem value="Debian 13" label="Debian 13">
-
-   ```shell
-   cp /etc/pki/centreon-tls/rootCA.pem /usr/local/share/ca-certificates/centreon-dev.crt
-   ```
-
-   </TabItem>
-   </Tabs>
-
-5. If you are using a remote database, also execute this procedure on the machine that will host the remote database, then copy the root CA certificate of the database machine to the central server's trust store.
+<TlsCertificates />
 
 ### For the database
 
@@ -270,103 +64,9 @@ Generate the certificates the platform will need to connect to the web interface
 
 ### For the web interface
 
-This section describes how to set up a TLS connection between the central server and the web interface.
+This section describes how to set up a TLS connection between the central server and its web interface.
 
-<Tabs groupId="os">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-1. Configure Apache TLS:
-
-```shell
-dnf install -y mod_ssl
-echo 'Listen 443 https' > /etc/httpd/conf.d/ssl.conf
-```
-
-2. Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
-
-```shell
-sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
-    -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/server-key.pem|g' \
-    /usr/share/centreon/examples/centreon-apache-https.conf \
-    > /etc/httpd/conf.d/00-centreon-tls.conf
-```
-
-3. Enable and restart Centreon services:
-
-```shell
-systemctl daemon-reload
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-1. Configure Apache TLS:
-
-```shell
-dnf install -y mod_ssl
-echo 'Listen 443 https' > /etc/httpd/conf.d/ssl.conf
-```
-
-2. Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
-
-```shell
-sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
-    -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/server-key.pem|g' \
-    /usr/share/centreon/examples/centreon-apache-https.conf \
-    > /etc/httpd/conf.d/00-centreon-tls.conf
-```
-
-3. Enable and restart Centreon services:
-
-```shell
-systemctl daemon-reload
-```
-
-<Tabs groupId="db">
-
-<TabItem value="MariaDB" label="MariaDB">
-
-```shell
-systemctl restart mariadb
-```
-
-</TabItem>
-<TabItem value="MySQL" label="MySQL">
-
-```shell
-systemctl restart mysqld
-```
-
-</TabItem>
-</Tabs>
-
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-Enable every module the official Centreon HTTPS references:
-
-```shell
-a2enmod ssl proxy proxy_fcgi headers deflate rewrite
-```
-
-Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
-
-```shell
-sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
-    -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/server-key.pem|g' \
-    /usr/share/centreon/examples/centreon-apache-https.conf \
-    > /etc/apache2/sites-available/00-centreon-tls.conf
-```
-
-Enable the configuration you just applied.
-
-```shell
-a2ensite 00-centreon-tls
-```
-
-</TabItem>
-</Tabs>
+<InterfaceTlsConf />
 
 ## Step 4: Configuration
 
