@@ -1,6 +1,6 @@
 ---
 id: develop-plugin
-title: Develop Plugin
+title: Developing your own plugins
 ---
 
 import Tabs from '@theme/Tabs';
