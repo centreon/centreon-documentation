@@ -34,7 +34,7 @@ dnf update centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt clean
@@ -80,7 +80,7 @@ dnf update centreon-bi\*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt clean
@@ -107,7 +107,7 @@ dnf update centreon-gorgone\*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt --only-upgrade install centreon-gorgone\*
