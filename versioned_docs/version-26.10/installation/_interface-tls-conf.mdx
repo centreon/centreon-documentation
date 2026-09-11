@@ -1,0 +1,98 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+1. Configure Apache TLS:
+
+```shell
+dnf install -y mod_ssl
+echo 'Listen 443 https' > /etc/httpd/conf.d/ssl.conf
+```
+
+2. Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
+
+```shell
+sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
+    -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/server-key.pem|g' \
+    /usr/share/centreon/examples/centreon-apache-https.conf \
+    > /etc/httpd/conf.d/00-centreon-tls.conf
+```
+
+3. Enable and restart Centreon services:
+
+```shell
+systemctl daemon-reload
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+1. Configure Apache TLS:
+
+```shell
+dnf install -y mod_ssl
+echo 'Listen 443 https' > /etc/httpd/conf.d/ssl.conf
+```
+
+2. Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
+
+```shell
+sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
+    -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/server-key.pem|g' \
+    /usr/share/centreon/examples/centreon-apache-https.conf \
+    > /etc/httpd/conf.d/00-centreon-tls.conf
+```
+
+3. Enable and restart Centreon services:
+
+```shell
+systemctl daemon-reload
+```
+
+<Tabs groupId="db">
+
+<TabItem value="MariaDB" label="MariaDB">
+
+```shell
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+```shell
+systemctl restart mysqld
+```
+
+</TabItem>
+</Tabs>
+
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+Enable every module the official Centreon HTTPS references:
+
+```shell
+a2enmod ssl proxy proxy_fcgi headers deflate rewrite
+```
+
+Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
+
+```shell
+sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
+    -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/server-key.pem|g' \
+    /usr/share/centreon/examples/centreon-apache-https.conf \
+    > /etc/apache2/sites-available/00-centreon-tls.conf
+```
+
+Enable the configuration you just applied.
+
+```shell
+a2ensite 00-centreon-tls
+```
+
+</TabItem>
+</Tabs>

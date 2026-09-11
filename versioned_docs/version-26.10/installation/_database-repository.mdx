@@ -6,25 +6,24 @@ import TabItem from '@theme/TabItem';
 <TabItem value="MariaDB" label="MariaDB">
 
 <Tabs groupId="os">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf module enable -y mariadb:10.11
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf module enable -y mariadb:10.11
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=rhel --os-version=9 --mariadb-server-version=mariadb-11.8 --skip-maxscale
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | bash -s -- --os-type=rhel --os-version=10 --mariadb-server-version=mariadb-11.8 --skip-maxscale
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=13 --mariadb-server-version="mariadb-11.8" --skip-maxscale
 ```
 
 </TabItem>
@@ -33,30 +32,48 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-For new installations, the recommended version of MySQL is 8.4.
-
-<Tabs groupId="sync">
-
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm -y
-```
-
-</TabItem>
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm -y
+dnf install -y "https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm"
+curl -fsSL https://repo.mysql.com/RPM-GPG-KEY-mysql-2025 -o /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
+old_mysql_key=$(rpm -q gpg-pubkey 2>/dev/null | grep -i a8d3785c || true)
+if [ -n "$old_mysql_key" ]; then rpm -e $old_mysql_key 2>/dev/null || true; fi
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
+# install_weak_deps=False: the distro mariadb stack is only a Recommends here; without it dnf
+# pulls mariadb alongside Oracle MySQL and they collide on /usr/bin/mysql.
+dnf install -y --setopt=install_weak_deps=False mysql-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.36-1_all.deb
-sudo dpkg -i mysql-apt-config_0.8.36-1_all.deb
+dnf install -y "https://dev.mysql.com/get/mysql84-community-release-el10-1.noarch.rpm"
+curl -fsSL https://repo.mysql.com/RPM-GPG-KEY-mysql-2025 -o /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
+old_mysql_key=$(rpm -q gpg-pubkey 2>/dev/null | grep -i a8d3785c || true)
+if [ -n "$old_mysql_key" ]; then rpm -e $old_mysql_key 2>/dev/null || true; fi
+rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
+# install_weak_deps=False: the distro mariadb stack is only a Recommends here; without it dnf
+# pulls mariadb alongside Oracle MySQL and they collide on /usr/bin/mysql.
+dnf install -y --setopt=install_weak_deps=False mysql-server
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+mysql_apt_config="mysql-apt-config_0.8.34-1_all.deb"
+curl -fJLO "https://dev.mysql.com/get/$mysql_apt_config"
+echo "mysql-apt-config mysql-apt-config/select-server select mysql-8.4-lts" | debconf-set-selections
+export DEBIAN_FRONTEND="noninteractive"
+apt install -y "./$mysql_apt_config"
+mysql_keyring=$(grep -ohm1 'signed-by=[^] ]*' /etc/apt/sources.list.d/mysql.list 2>/dev/null | cut -d= -f2)
+[ -z "$mysql_keyring" ] && mysql_keyring=/etc/apt/trusted.gpg.d/mysql.gpg
+( set -o pipefail; curl -fsSL https://repo.mysql.com/RPM-GPG-KEY-mysql-2025 | gpg --dearmor --yes -o "$mysql_keyring" )
 apt update
+apt install -y mysql-server mysql-common
 ```
 
 </TabItem>

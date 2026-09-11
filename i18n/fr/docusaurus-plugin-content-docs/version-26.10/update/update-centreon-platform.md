@@ -1,13 +1,13 @@
 ---
 id: update-centreon-platform
-title: Mise à jour d'une plateforme Centreon 25.10
-description: "Étapes pour mettre à jour une version mineure de Centreon 25.10"
+title: Mise à jour d'une plateforme Centreon 26.10
+description: "Étapes pour mettre à jour une version mineure de Centreon 26.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 Ce chapitre décrit la procédure de mise à jour de votre plate-forme Centreon
-25.10 (c'est-à-dire le passage de 25.10.x à 25.10.y).
+26.10 (c'est-à-dire le passage de 26.10.x à 26.10.y).
 
 > Après avoir effectué la mise à jour de votre serveur central, assurez-vous d'également mettre à jour tous vos serveurs distants et vos collecteurs.
 >
@@ -123,7 +123,7 @@ Videz le cache :
 Mettez à jour l'ensemble des composants :
 
   ```shell
-  apt install --only-upgrade centreon
+  apt install --only-upgrade "centreon*"
   ```
 
 </TabItem>
@@ -174,14 +174,14 @@ mise à jour.
 
    - adresse : 10.25.XX.XX
    - port : 80
-   - version : 25.10
+   - version : 26.10
    - identifiant : Admin
    - mot de passe : xxxxx
 
 2. Entrez la requête suivante :
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v25.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v26.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -330,7 +330,7 @@ Vous pouvez réaliser une mise à jour silencieuse de votre plateforme en utilis
 1. Téléchargez le script avec la commande suivante :
 
 ```shell
-curl -L https://download.centreon.com/25.10/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/26.10/unattended.sh -O /tmp/unattended
 ```
 
 2. Lancez le script :
@@ -338,17 +338,17 @@ curl -L https://download.centreon.com/25.10/unattended.sh -O /tmp/unattended
 * Pour un serveur central :
 
 ```shell
-bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 26.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * Pour un serveur distant :
 
 ```shell
-bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 26.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * Pour un collecteur :
 
 ```shell
-bash unattended.sh update -t poller -v 25.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t poller -v 26.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```

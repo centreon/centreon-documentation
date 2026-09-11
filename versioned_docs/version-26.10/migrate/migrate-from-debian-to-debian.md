@@ -1,19 +1,18 @@
 ---
 id: migrate-from-debian-to-debian
-title: Migrate from Debian 11 to Debian 12
-description: "Migrate a Centreon platform from Debian 11 to Debian 12"
+title: Migrate to a newer Debian version
+description: "Migrate a Centreon platform to a newer Debian version"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-This procedure only applies if you wish to migrate from Debian 11 to Debian 12, on another server.
+This procedure only applies if you wish to migrate from Debian to a newer version of Debian, on another server.
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
 
-Be sure that you have fully backed up your environment for the following
-servers:
+Be sure that you have fully backed up your environment for the following servers:
 
 - Central server
 - Database server
@@ -26,7 +25,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 ### Step 1: Install the new central server
 
-1. Install your new Debian 12 OS.
+1. Install your new Debian OS.
 
 2. Install a new Centreon central server from [packages](../installation/installation-of-a-central-server/using-packages.md), until you
 complete the installation process by connecting to the Centreon web interface.
@@ -94,11 +93,24 @@ complete the installation process by connecting to the Centreon web interface.
    mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
    ```
 
-2. On the old server, stop MariaDB:
+2. On the old server, stop your database:
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
    systemctl stop mariadb
    ```
+
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl stop mysql
+   ```
+
+   </TabItem>
+   </Tabs>
 
 3. On the old server, export the dumps to the new Centreon database server (make sure you
 have enough space for large database dumps):
@@ -148,11 +160,24 @@ create them again::
    mysql_upgrade -u root -p
    ```
 
-7. Start the MariaDB process on the new server:
+7. Start the database process on the new server:
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
    systemctl start mariadb
    ```
+
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl start mysql
+   ```
+
+   </TabItem>
+   </Tabs>
 
 > Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
@@ -177,12 +202,12 @@ If you are using custom plugins, synchronize the directories that contain your c
 ### Step 5: Upgrade Centreon
 
 1. On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-25.10.x-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-26.10.x-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory (**x** is the target version number for your migrated machine):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-25.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-26.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. If you use the same IP address or same DNS name on the old Centreon webserver and the new one, do a full cache cleanup of your browser to avoid JS issues.

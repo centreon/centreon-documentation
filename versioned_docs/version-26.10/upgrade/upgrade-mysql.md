@@ -6,7 +6,7 @@ description: "Upgrade MySQL to a version supported by Centreon 25.10"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If you were using Centreon 24.04 or 24.10 with MySQL, be aware that support for MySQL 8.0 ends at the end of April 2026. Make sure your Centreon always uses [a supported version of MySQL](#versions-of-mysql-compatible-with-centreon-2510).
+If you were using Centreon 24.04 or 24.10 with MySQL, be aware that support for MySQL 8.0 ended at the end of April 2026. Make sure your Centreon always uses [a supported version of MySQL](#versions-of-mysql-compatible-with-centreon-2610).
 
 You may have several MySQL databases in your architecture. The central server has a database, each remote server has a database,
 and the MBI and MAP modules each have a dedicated database. Within your architecture, all databases must have the same version of MySQL.
@@ -15,14 +15,13 @@ and the MBI and MAP modules each have a dedicated database. Within your architec
 
 Do not upgrade your version of Centreon and your version of MySQL at the same time. You can perform both upgrades one after the other in the order you want, however, make sure the first upgrade procedure is fully complete before you perform the second one.
 
-## Versions of MySQL compatible with Centreon 25.10
+## Versions of MySQL compatible with Centreon 26.10
 
-* MySQL 8.4 is recommended for new installations.
-* MySQL 8.0 can still be used until its end of support (end of April 2026), but after this date you will have to upgrade to MySQL 8.4.
+* MySQL 8.4
 
 ## Knowing your version of MySQL
 
-To find out which version of MariaDB is installed on your machine, enter the following command:
+To find out which version of MySQL is installed on your machine, enter the following command:
 
 ```shell
 mysql --version
