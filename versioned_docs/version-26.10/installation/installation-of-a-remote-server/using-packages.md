@@ -47,7 +47,7 @@ a remote database on a dedicated server.
   <TabItem value="With a local database" label="With a local database">
     <DatabaseLocalInstall />
 
-You can now move on to the [next step](#step-3-configuration).
+You can now move on to the [next step](#step-3-set-up-the-tls-configuration).
 
   </TabItem>
   <TabItem value="With a remote database" label="With a remote database">
