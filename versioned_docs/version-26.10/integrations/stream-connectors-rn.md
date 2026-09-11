@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### July
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="streamRN" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Clickhouse Metrics**](data-analytics/sc-clickhouse.md) - Added a way for stream connectors to store data. For more technical information, see [PR 205](https://github.com/centreon/centreon-stream-connector-scripts/pull/205).
@@ -74,7 +74,7 @@ import TabItem from '@theme/TabItem';
 
 ### May
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="streamRN" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Enhanced a lot of functionalities to catch up with the new version of Canopsis (24.04).
@@ -87,7 +87,7 @@ import TabItem from '@theme/TabItem';
 
 ### April
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="streamRN" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**All stream connectors**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/docs/README.md) - Added additional debug information when an issue occurs while sending data.
@@ -108,7 +108,7 @@ import TabItem from '@theme/TabItem';
 
 ### January
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="streamRN" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Elastic Metrics**](data-analytics/sc-elasticsearch-metrics.md) - Made elastic username and password optional.
@@ -137,7 +137,7 @@ import TabItem from '@theme/TabItem';
 
 ### October
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="streamRN" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a way to handle deprecated parameters like **max_buffer_age**.
@@ -157,7 +157,7 @@ import TabItem from '@theme/TabItem';
 
 ### July
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="streamRN" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a new **accepted_metrics** parameter to filter metrics that will be sent to metric-oriented stream connectors.
@@ -184,7 +184,7 @@ import TabItem from '@theme/TabItem';
 
 ### January
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="streamRN" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Centreon library: sc_logger**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_logger.lua) - Allowed the possibility to log curl commands with a new method called **log_curl_command**.

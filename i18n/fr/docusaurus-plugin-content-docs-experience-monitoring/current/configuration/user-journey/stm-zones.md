@@ -52,7 +52,7 @@ Lorsque vous créez une sonde, les sondes STM sont le type par défaut. Celles-c
 2. Rafraîchissez la page : une fois démarrée, la sonde s'enregistre automatiquement et apparaît à droite de la zone associée dans la liste des **Zones de Monitoring Synthétique**.
 
 </TabItem>
-<TabItem value="Sonde recommandation">
+<TabItem value="Sonde de recommandation">
 
 Vous pouvez également créer des sondes de recommandations. Ces dernières tournent une fois par jour pour vous faire des recommandations personnalisées sur comment optimiser votre site.
 

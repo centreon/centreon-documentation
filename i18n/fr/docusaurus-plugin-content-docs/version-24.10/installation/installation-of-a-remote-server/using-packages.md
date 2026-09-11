@@ -448,7 +448,7 @@ Puis exécutez la commande suivante (sur le serveur distant si vous utilisez une
 
 Il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell

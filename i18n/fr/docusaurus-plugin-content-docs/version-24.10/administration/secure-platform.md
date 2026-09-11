@@ -254,7 +254,7 @@ chmod 660 /etc/centreon/centreon.conf.php
 
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur **root** de la base de données. Si vous ne l'avez pas déjà fait, exécutez la commande suivante et suivez les instructions :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell

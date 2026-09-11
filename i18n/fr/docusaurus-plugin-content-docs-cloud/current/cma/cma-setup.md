@@ -34,7 +34,7 @@ Un jeton est fourni par défaut à la page **Administration > Jetons d'authentif
 
 #### Comportement des jetons d'authentification CMA : désactivation/expiration/révocation
 
-<Tabs groupId="sync">
+<Tabs groupId="cmaConnect">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 * Le moteur de collecte vérifie la présence et la validité du jeton, et coupe la connexion en cas d'absence du jeton (car désactivé ou révoqué) ou d'expiration de celui-ci. La mention **Token expired** apparaît dans les [logs collecteur et agent](cma-troubleshooting.md#emplacement-des-logs-collecteur-et-agent).
@@ -58,7 +58,7 @@ Un jeton est fourni par défaut à la page **Administration > Jetons d'authentif
 3. Sélectionnez le sens de connexion (par défaut : l'agent se connecte au collecteur).
 4. Sélectionnez le mode de chiffrement
 
-<Tabs groupId="sync">
+<Tabs groupId="cmaConnect">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 5. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. <!--(You can select several pollers if the connection is initiated by the agent, but only one if it is initiated by the poller.)-->
@@ -118,7 +118,7 @@ Cette étape s'effectue sur le collecteur.
 
 ### Configurez le firewall
 
-<Tabs groupId="sync">
+<Tabs groupId="cmaConnect">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 > Ces commandes doivent être adaptées selon le système d'exploitation.
@@ -308,7 +308,7 @@ apt install centreon-monitoring-agent
 
 1. Remplacez le contenu du fichier **/etc/centreon-monitoring-agent/centagent.json** par le contenu suivant :
 
-<Tabs groupId="sync">
+<Tabs groupId="cmaConnect">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 > Si vous utilisez le collecteur **Central**, la valeur de **endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.
@@ -412,7 +412,7 @@ Le programme d'installation de l'agent peut s'utiliser suivant deux modes:
    * Dans le champ **Host name in Centreon**, entrez le nom de l'hôte à superviser tel que vous l'avez saisi dans l'interface Centreon.
   > Important : Ce nom sera la clé de correspondance permettant de remonter les données sur l'hôte Centreon. Il doit être strictement identique au nom d'hôte Centreon (sensible à la casse).
 
-<Tabs groupId="sync">
+<Tabs groupId="cmaConnect">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 
 > Si vous utilisez le collecteur **Central**, la valeur de **Poller endpoint** sera **engine-centreon-$\{CLOUD_ORG\}.euwest1.centreon.cloud:443**.

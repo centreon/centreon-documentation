@@ -41,7 +41,7 @@ monitored.
 You can also simply check by accessing the following URL, which tells you
 whether or not the server is up:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="httpMode" queryString>
 <TabItem value="HTTP" label="HTTP">
 
 ```shell

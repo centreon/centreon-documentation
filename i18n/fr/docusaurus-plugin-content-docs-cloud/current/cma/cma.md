@@ -100,7 +100,7 @@ La connexion entre le collecteur et l'agent doit être sécurisée en production
 
 ### Schéma de fonctionnement
 
-<Tabs groupId="sync">
+<Tabs groupId="cmaConnect">
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 ![image](../assets/cma/initiated-by-agent.png)
 </TabItem>

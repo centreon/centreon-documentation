@@ -391,7 +391,7 @@ Install the Centreon Business repository. You can find this on the
 
 Select the tab according to the database to be used.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 #### MariaDB requirement
@@ -616,7 +616,7 @@ Then install the centreon-map-engine package:
 
 ### Step 3 - Option 2: MAP Engine server installation on an existing Centreon MAP Legacy server
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 > If you already have MAP Legacy and are installing MAP Engine on the same server, you need to perform the following procedure. Otherwise, move to the [step 3 - Option 1: MAP Engine server installation on a new server](#step-3---option-1-map-engine-server-installation-on-a-new-server).
@@ -861,7 +861,7 @@ max_allowed_packet = 20M
 innodb_log_file_size = 200M
 ```
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 Then, restart MariaDB:

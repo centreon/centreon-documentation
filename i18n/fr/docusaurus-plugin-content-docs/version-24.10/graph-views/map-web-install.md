@@ -386,7 +386,7 @@ Installez le dépôt Centreon Business, vous pouvez le trouver sur le [portail d
 
 Sélectionnez l'onglet correspondant au type de base de données à utiliser.
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 #### Prérequis MariaDB
@@ -611,7 +611,7 @@ Installez les paquets de **centreon-map-engine** :
 
 ### Étape 3 - Option 2 : installation de MAP Engine sur un serveur MAP Legacy existant
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 > Si vous avez déjà MAP Legacy et que vous installez MAP Engine sur le même serveur, vous devez suivre la procédure suivante. Si non, passez à l'[étape 3 - Option 1 : installation du serveur MAP Engine sur un nouveau serveur](#étape-3---option-1--installation-de-map-engine-sur-un-nouveau-serveur).
@@ -853,7 +853,7 @@ max_allowed_packet = 20M
 innodb_log_file_size = 200M
 ```
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 Ensuite, redémarrez MariaDB :

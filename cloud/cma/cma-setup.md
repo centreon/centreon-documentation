@@ -57,7 +57,7 @@ A default token is provided on the **Administration > Authentication token** pag
 3. Select the connection direction (default: the agent connects to the poller).
 4. Select an encryption mode.
 
-<Tabs groupId="sync">
+<Tabs groupId="cmaConnect">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 5. In the **Parameters** section, select the poller(s) that will receive data from the agent.
@@ -117,7 +117,7 @@ This step is performed on the poller.
 
 ### Configure the firewall
 
-<Tabs groupId="sync">
+<Tabs groupId="cmaConnect">
 <TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 > These commands need to be adapted depending on the OS.

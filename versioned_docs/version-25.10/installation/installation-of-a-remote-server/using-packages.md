@@ -454,7 +454,7 @@ Then execute the following command (on the remote server if you are using a loca
 
 If you have installed the Centreon server with a local database, it is mandatory to secure the database's root access before installing Centreon. Run the following command:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
 
 ```shell
