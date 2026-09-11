@@ -79,26 +79,9 @@ performances & d'isolation.
 Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-- Centreon Web 25.10
-- Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
-  `timedatectl status`)
-- Evitez l'utilisation des variables ci-dessous dans le fichier de
-  configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
-  - wait_timeout
-  - interactive_timeout
-  
-| Utilisateur          | Groupe                     |
-|----------------------|----------------------------|
-| centreonBI (nouveau) | apache,centreon,centreonBI |
-| apache (existant)    | centreonBI                 |
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Centreon Web 25.10
+- Centreon Web 26.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -113,11 +96,28 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 | apache (existant)    | centreonBI                 |
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-- Centreon Web 25.10
+- Centreon Web 26.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php/8.2/mods-available/centreon.ini` ou `/etc/php/8.2/mods-available/timezone.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
+  `timedatectl status`)
+- Evitez l'utilisation des variables ci-dessous dans le fichier de
+  configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
+  - wait_timeout
+  - interactive_timeout
+  
+| Utilisateur          | Groupe                     |
+|----------------------|----------------------------|
+| centreonBI (nouveau) | apache,centreon,centreonBI |
+| apache (existant)    | centreonBI                 |
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+- Centreon Web 26.10
+- Vérifiez que `date.timezone` est correctement configurée dans le fichier
+  `/etc/php/8.4/mods-available/centreon.ini` ou `/etc/php/8.4/mods-available/timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
@@ -310,15 +310,6 @@ Si vous utilisez MySQL :
 1. Effectuez l'action suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
-
-```shell
-log_bin_trust_function_creators=1
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
@@ -328,7 +319,16 @@ log_bin_trust_function_creators=1
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 Dans le fichier `/etc/mysql/mysql.cnf`, ajoutez:
 
@@ -379,13 +379,6 @@ Les actions listées à cette étape doivent être exécutées **sur le serveur 
 2. Puis lancez la commande suivante :
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-bi-server
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -393,7 +386,14 @@ dnf install centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-bi-server
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 Installez **gpg** :
 
@@ -523,7 +523,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 <Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 
-Si vous utilisez la réplication MariaDB pour vos **bases de données de supervision**, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 12.
+Si vous utilisez la réplication MariaDB pour vos **bases de données de supervision**, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 13.
 
 ```shell
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
@@ -538,7 +538,7 @@ Ensuite, créez les vues manuellement sur le serveur esclave :
 mysql centreon < /tmp/view_creation.sql
 ```
 
-#### Configuration spécifique à Debian 12
+#### Configuration spécifique à Debian 13
 
 MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
 
@@ -555,7 +555,7 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-Si vous utilisez la réplication MySQL pour vos bases de données de supervision, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier my.cnf du serveur esclave ou mysql.cnf sur Debian 12.
+Si vous utilisez la réplication MySQL pour vos bases de données de supervision, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier my.cnf du serveur esclave ou mysql.cnf sur Debian 13.
 
 ```shell
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
@@ -571,7 +571,7 @@ Ensuite, créez les vues manuellement sur le serveur esclave :
 mysql centreon < /tmp/view_creation.sql
 ```
 
-#### Configuration spécifique à Debian 12
+#### Configuration spécifique à Debian 13
 
 MySQL doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant ::
 
@@ -639,32 +639,32 @@ Pendant l'installation de la base de données, notez le mot de passe du compte *
 1. Installez le dépôt standard :
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 Installez les paquets prérequis :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -687,7 +687,7 @@ apt update
 #### Installer les dépendances
 
 <Tabs groupId="os" queryString>
-<TabItem value="RHEL 8" label="RHEL 8">
+<TabItem value="RHEL 9" label="RHEL 9">
 
 Installez le dépôt **epel** :
 
@@ -702,7 +702,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 ```
 
 </TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
+<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
 
 Installez le dépôt **epel** :
 
@@ -717,7 +717,7 @@ dnf config-manager --set-enabled ol8_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="Alma 8" label="Alma 8">
+<TabItem value="Alma 9" label="Alma 9">
 
 Installez le dépôt **epel** :
 
@@ -731,7 +731,7 @@ Activez les dépôts powertools :
 dnf config-manager --set-enabled 'powertools'
 ```
 </TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
+<TabItem value="RHEL 10" label="RHEL 10">
 
 Installez le dépôt **epel** :
 
@@ -746,7 +746,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 ```
 
 </TabItem>
-<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
+<TabItem value="Oracle Linux 10" label="Oracle Linux 10">
 
 Installez le dépôt **epel** :
 
@@ -760,7 +760,7 @@ Activez les dépôts **codeready-builder** :
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
 </TabItem>
-<TabItem value="Alma 9" label="Alma 9">
+<TabItem value="Alma 10" label="Alma 10">
 
 Installez le dépôt **epel** :
 
@@ -775,7 +775,7 @@ dnf config-manager --set-enabled 'crb'
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 Pas de dépendances requises.
 
@@ -787,13 +787,6 @@ Pas de dépendances requises.
 <Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install MariaDB-server MariaDB-client
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -801,7 +794,14 @@ dnf install MariaDB-server MariaDB-client
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install MariaDB-server MariaDB-client
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
@@ -815,10 +815,10 @@ apt install mariadb-server mariadb-client
 <TabItem value="MySQL 8.4" label="MySQL 8.4">
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
+dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm
 dnf config-manager --enable mysql-8.4-lts-community
 dnf module disable mysql
 dnf install mysql-community-server
@@ -826,7 +826,7 @@ systemctl start mysqld
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
 dnf install -y mysql-server mysql
@@ -842,7 +842,7 @@ sudo systemctl status mysqld
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
@@ -861,13 +861,6 @@ systemctl restart mysql
 #### Installer le module MBI sur le serveur MBI
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-bi-reporting-server
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -875,7 +868,14 @@ dnf install centreon-bi-reporting-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
@@ -920,7 +920,7 @@ systemctl start gorgoned && systemctl enable gorgoned
 <Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
 
@@ -951,7 +951,7 @@ socket=$PATH_TO_SOCKET$
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
 
@@ -962,7 +962,7 @@ systemctl restart mariadb
 Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimer les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à nouveau MariaDB :
@@ -978,7 +978,7 @@ socket=$PATH_TO_SOCKET$
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
 
@@ -1027,37 +1027,6 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
-
-```shell
-systemctl restart mysql
-```
-
-Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
-
-```shell
-mkdir -p  /etc/systemd/system/mysql.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
-
-```shell
-rm -f /var/lib/mysql/ib_logfile*
-systemctl start mysql
-```
-
-Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
-
-```shell
-socket=$PATH_TO_SOCKET$
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
@@ -1089,7 +1058,38 @@ socket=$PATH_TO_SOCKET$
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
+
+```shell
+systemctl restart mysql
+```
+
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
+
+```shell
+mkdir -p  /etc/systemd/system/mysql.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mysql
+```
+
+Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf)
 de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mysql.conf.d/`.
@@ -1329,7 +1329,7 @@ Pour activer la purge automatique des anciennes données, modifiez le fichier cr
 Vous pouvez exécuter ce cron quotidiennement ou hebdomadairement, en fonction du temps d'exécution du batch et de la charge générée sur le serveur.
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 7">
 
 Redémarrez le service cron :
 
@@ -1338,7 +1338,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 Redémarrez le service cron :
 
@@ -1378,14 +1378,14 @@ Veuillez passer à la section suivante pour continuer l'installation.
    2. Redémarrez **crond**.
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 7">
 
 ```shell
 systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 systemctl restart cron
@@ -1443,7 +1443,7 @@ Sur le serveur de reporting, éditez le fichier **/etc/cron.d/centreon-bi-engine
 ```
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9 / RHEL 7" label="Alma / RHEL / Oracle Linux 9 / RHEL 7">
 
 Redémarrez le service cron sur le serveur de reporting :
 
@@ -1452,7 +1452,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 Redémarrez le service cron sur le serveur de reporting :
 
