@@ -56,6 +56,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:------------------------|:------|
 | Passthrough_connections | count |
 | Optimized_connections   | count |
+
 </TabItem>
 </Tabs>
 

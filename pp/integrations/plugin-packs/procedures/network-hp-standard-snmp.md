@@ -139,6 +139,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | stack.count                         | N/A  |
 | cpu.count                           | N/A  |
 | hardware.sensor.temperature.celsius | C    |
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 

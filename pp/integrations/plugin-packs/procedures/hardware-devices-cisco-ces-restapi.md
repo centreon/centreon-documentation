@@ -125,6 +125,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:---------------------------|:------|
 | connection_status | N/A |
 | aiclatency | ms |
+
 </TabItem>
 <TabItem value="Components-Software" label="Components-Software">
 

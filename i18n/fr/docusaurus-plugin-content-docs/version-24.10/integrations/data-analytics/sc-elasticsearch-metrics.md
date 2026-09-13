@@ -152,8 +152,8 @@ Vous devrez paramétrer votre équipement Elasticsearch pour qu'il puisse recevo
 | number | update_datastream_index_template | le stream connector mettra à jour l'index template si ce dernier ne correspond pas aux données qui vont être envoyées. (1 = mise à jour automatique, 0 = pas de mise à jour automatique). Même si la mise à jour automatique est activée, elle ne fonctionnera que si l'index template a été créé par Centreon. (L'index template contient une metadonnée qui indique cela.) | 0 |
 | number | add_hostgroups_dimension | Ajoute les groupes d'hôtes aux données envoyées. (1 = ajout des groupes d'hôtes, 0 = pas de groupes d'hôtes envoyés)  | 1 |
 | number | add_poller_dimension | Ajoute le collecteur aux données envoyées. (1 = ajout du collecteur, 0 = pas de collecteur envoyé) | 0 |
-| number | add_servicegroups_dimension | Ajoute les groupes de services aux données envoyées. (1 = ajout des groupes de services, 0 = pas
-de groupes de services envoyés) | 0 |
+| number | add_servicegroups_dimension | Ajoute les groupes de services aux données envoyées. (1 = ajout des groupes de services, 0 = pas | |
+| de groupes de services envoyés) | 0 | | |
 
 7. Utilisez les paramètres optionnels du stream connector pour [filtrer ou adapter les données que vous voulez que Centreon envoie à Elasticsearch](#filtrer-ou-adapter-les-données-que-vous-voulez-envoyer-à-elasticsearch).
 
@@ -258,10 +258,10 @@ Vous pouvez ajouter les options suivantes à votre configuration afin de vous ai
 
 | Type   | Nom                | Description | Valeur par défaut pour le stream connector |
 | ------ | ------------------- | ------------ | -------------------------- |
-| string | logfile | Fichier de log par défaut pour le stream connector (en cas de problème, il est également possible de trouver des informations dans /var/log/centreon-broker/central-broker-master.log) | /var/log/centreonbroker/
-elastic-metrics.log |
-| number | log_level | niveau de verbosité, de 1 à 3, (1 = notice et errors, 2 =
-warning, notice et errors, 3 = warning, notice, errors, info, debug). Il est fortement recommandé de ne pas définir une valeur supérieure à 2. | 1 |
+| string | logfile | Fichier de log par défaut pour le stream connector (en cas de problème, il est également possible de trouver des informations dans /var/log/centreon-broker/central-broker-master.log) | /var/log/centreonbroker/ |
+| elastic-metrics.log | | | |
+| number | log_level | niveau de verbosité, de 1 à 3, (1 = notice et errors, 2 = | |
+| warning, notice et errors, 3 = warning, notice, errors, info, debug). Il est fortement recommandé de ne pas définir une valeur supérieure à 2. | 1 | | |
 | number | log_curl_commands | Affiche toutes les commandes curl utilisées par le stream connector dans le fichier de log (0 = ne rien afficher, 1 = logguer les commandes) | 0 |
 | number | send_data_test | Simule le fonctionnement du stream connector de bout en bout, mais envoie les données au fichier de log plutôt qu'à Elasticsearch (0 = envoyer à Elasticsearch, 1 = envoyer au fichier de log) | 0 |
 

@@ -112,6 +112,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *interface_name*#interface.packets.out.unicast.percentage   | %    |
 | *interface_name*#interface.packets.out.broadcast.percentage | %    |
 | *interface_name*#interface.packets.out.multicast.percentage | %    |
+
 </TabItem>
 <TabItem value="Arp" label="Arp">
 
@@ -190,6 +191,7 @@ No metrics for this service.
 | *interface_name*#interface.packets.in.error.percentage    | %    |
 | *interface_name*#interface.packets.out.discard.percentage | %    |
 | *interface_name*#interface.packets.out.error.percentage   | %    |
+
 </TabItem>
 <TabItem value="Ipsla" label="Ipsla">
 
@@ -610,7 +612,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | WARNINGOUTBCAST         | Threshold                                                                                                                                                                          |                                                           |           |
 | CRITICALOUTBCAST        | Threshold                                                                                                                                                                          |                                                           |           |
 | WARNINGOUTDISCARD       | Threshold                                                                                                                                                                          |                                                           |           |
-@@ -600,8 +603,8 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
+| @@ -600,8 +603,8 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp | | | |
 | CRITICALOUTTRAFFICLIMIT | Threshold                                                                                                                                                                          |                                                           |           |
 | WARNINGOUTUCAST         | Threshold                                                                                                                                                                          |                                                           |           |
 | CRITICALOUTUCAST        | Threshold                                                                                                                                                                          |                                                           |           |

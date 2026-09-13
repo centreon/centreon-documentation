@@ -96,6 +96,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Métrique                     | Unité |
 |:-----------------------------|:------|
 | connection.time.milliseconds | ms    |
+
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
@@ -122,6 +123,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-------------------------------------|:------|
 | *locks*#database.locks.total.count   | count |
 | *locks*#database.locks.waiting.count | count |
+
 </TabItem>
 <TabItem value="Query-Time" label="Query-Time">
 

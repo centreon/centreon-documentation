@@ -106,6 +106,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | hardware.probe.voltage.volt              | V     |
 | hardware.probe.voltage.status            | N/A   |
 | hardware.probe.voltage.count             | count |
+
 </TabItem>
 </Tabs>
 

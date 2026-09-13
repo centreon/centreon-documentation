@@ -100,6 +100,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Métrique       | Unité |
 |:---------------|:------|
 | disk_disk-name | %     |
+
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 

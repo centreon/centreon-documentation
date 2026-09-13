@@ -190,7 +190,7 @@ yum install centreon-plugin-Network-Stormshield-Ssh
 |:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------|:-----------:|
 | COMMAND         | Command to get information. Used it you have output in a file                                                                                    | tail               |             |
 | COMMANDOPTIONS  | Command options                                                                                                                                  | -1 /log/l\_monitor |             |
-| FILTERCOUNTERS  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\                               |yyyy$' |                    |             |
+| FILTERCOUNTERS  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\                               \|yyyy$' |                    |             |
 | FILTERNAME      | Filter by QoS name (can be a regexp)                                                                                                             |                    |             |
 | SPEEDIN         | Set interface speed for incoming traffic (in Mb)                                                                                                 |                    |             |
 | SPEEDOUT        | Set interface speed for outgoing traffic (in Mb)                                                                                                 |                    |             |

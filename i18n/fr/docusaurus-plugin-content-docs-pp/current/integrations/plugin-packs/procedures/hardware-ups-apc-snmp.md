@@ -122,12 +122,14 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Metric name         | Unité |
 |:--------------------|:------|
 | time.offset.seconds | s     |
+
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Unité |
 |:----------------------|:------|
 | system.uptime.seconds | s     |
+
 </TabItem>
 </Tabs>
 

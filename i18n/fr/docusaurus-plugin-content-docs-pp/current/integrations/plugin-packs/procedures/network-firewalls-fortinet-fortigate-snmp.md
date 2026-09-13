@@ -215,6 +215,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *interface_name*#status                              | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
 | *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
 </TabItem>
 <TabItem value="Traffic-Id" label="Traffic-Id">
 
@@ -223,6 +224,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *interface_name*#status                              | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
 | *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
 </TabItem>
 <TabItem value="Traffic-Name" label="Traffic-Name">
 
@@ -231,6 +233,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *interface_name*#status                              | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
 | *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 

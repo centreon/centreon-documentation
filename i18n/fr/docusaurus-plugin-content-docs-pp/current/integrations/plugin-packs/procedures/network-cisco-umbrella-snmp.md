@@ -71,6 +71,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:------------------------------|:------|
 | DNS connectivity status       | N/A   |
 | Local DNS connectivity status | N/A   |
+
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
@@ -87,6 +88,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | cpu.steal.utilization.percentage     | %     |
 | cpu.guest.utilization.percentage     | %     |
 | cpu.guestnice.utilization.percentage | %     |
+
 </TabItem>
 <TabItem value="Load-Average" label="Load-Average">
 
@@ -98,6 +100,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | load.1m.count          | count |
 | load.5m.count          | count |
 | load.15m.count         | count |
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
@@ -112,6 +115,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | swap.usage.bytes        | B     |
 | swap.free.bytes         | B     |
 | swap.usage.percentage   | %     |
+
 </TabItem>
 <TabItem value="Query" label="Query">
 

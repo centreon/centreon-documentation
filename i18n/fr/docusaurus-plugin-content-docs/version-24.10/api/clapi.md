@@ -2914,8 +2914,8 @@ Parameters that you can change are the following:
 | language              | Locale                                                                               |
 | admin                 | *1* if user is admin, *0* otherwise                                                  |
 | authtype              | *ldap* or *local*                                                                    |
-| hostnotifcmd          | host notification command(s). Multiple commands can be defined with delimiter "|"    |
-| svcnotifcmd           | service notification command(s). Multiple commands can be defined with delimiter "|" |
+| hostnotifcmd          | host notification command(s). Multiple commands can be defined with delimiter "\|"    |
+| svcnotifcmd           | service notification command(s). Multiple commands can be defined with delimiter "\|" |
 | hostnotifperiod       | host notification period                                                             |
 | svcnotifperiod        | service notification period                                                          |
 | hostnotifopt          | can be d,u,r,f,s,n                                                                   |
@@ -3533,8 +3533,8 @@ centreon -u admin -p 'centreon' -o HG -a addmember -v "Linux-Servers;srv-new"
 
 | Action | Description                                                                           |
 | ------ | ------------------------------------------------------------------------------------- |
-| set\*  | Overwrites previous definitions. Use the delimiter | to set multiple members          |
-| add\*  | Appends new members to the existing ones. Use the delimiter | to add multiple members |
+| set\*  | Overwrites previous definitions. Use the delimiter \| to set multiple members          |
+| add\*  | Appends new members to the existing ones. Use the delimiter \| to add multiple members |
 
 > ***NOTE:*** You need to generate your configuration file and restart monitoring engine in order to apply changes.
 
@@ -6366,7 +6366,7 @@ centreon -u admin -p 'centreon' -o BV -a ADDACLGROUP -v 'bv1;ALL'
 
 The following columns are required:
 
-|  Column        |   Description
+|  Column        |   Description |
 |----------------|-----------------------------------------------------------------|
 |  Bv name       |   Business View name                                            |
 |  Acl group name|   Acl group name (multiple with a "pipe" separator)             |
@@ -6381,7 +6381,7 @@ centreon -u admin -p 'centreon' -o BV -a DELACLGROUP -v 'bv1;ALL'
 
 The following columns are required:
 
-|  Column        |   Description
+|  Column        |   Description |
 |----------------|-----------------------------------------------------------------|
 |  Bv name       |   Business View name                                            |
 |  Acl group name|   Acl group name (multiple with a "pipe" separator)             |

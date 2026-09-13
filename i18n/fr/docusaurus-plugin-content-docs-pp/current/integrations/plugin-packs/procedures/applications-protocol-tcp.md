@@ -225,7 +225,7 @@ yum install centreon-plugin-Applications-Protocol-Tcp
 | WARNINGRTA    | Response time threshold warning in milliseconds                                                    |                   |             |
 | CRITICALRTA   | Response time threshold critical in milliseconds                                                   |                   |             |
 | WARNINGRTMAX  | Warning maximum response time threshold                                                                                                   |                   |             |
-| CRITICALRTMAX | Critical maximum response time threshold
+| CRITICALRTMAX | Critical maximum response time threshold | | |
 | WARNINGRTMIN  | Warning minimum response time threshold                                                                                                   |                   |             |
 | CRITICALRTMIN | Critical minimum response time threshold                                                                                                   |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |

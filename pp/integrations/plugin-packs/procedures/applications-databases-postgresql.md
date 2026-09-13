@@ -95,6 +95,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name                | Unit |
 |:-----------------------------|:-----|
 | connection.time.milliseconds | ms   |
+
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
@@ -121,6 +122,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:-------------------------------------|:------|
 | *locks*#database.locks.total.count   | count |
 | *locks*#database.locks.waiting.count | count |
+
 </TabItem>
 <TabItem value="Query-Time" label="Query-Time">
 

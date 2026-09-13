@@ -249,7 +249,7 @@ yum install centreon-plugin-Operatingsystems-Aix-Local
 | Macro           | Description                                                                                                                                       | Valeur par défaut | Obligatoire |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | MANAGERETURNS   | Set action according command exit code. Example: %(code) == 0,OK,File xxx exist#%(code) == 1,CRITICAL,File xxx not exist#,UNKNOWN,Command problem |                   |             |
-| EXECCOMMAND     | Command to test (default: none). You can use 'sh' to use '&&' or '\ |\|'                                                                          |                   |             |
+| EXECCOMMAND     | Command to test (default: none). You can use 'sh' to use '&&' or '\ \|\|'                                                                          |                   |             |
 | EXECCOMMANDPATH | Command path                                                                                                                                      |                   |             |
 | EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).  |                   |             |
 

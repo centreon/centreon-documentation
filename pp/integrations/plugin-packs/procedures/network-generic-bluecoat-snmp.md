@@ -99,6 +99,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Metric name    | Unit |
 |:---------------|:-----|
 | disk_disk-name | %    |
+
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
 

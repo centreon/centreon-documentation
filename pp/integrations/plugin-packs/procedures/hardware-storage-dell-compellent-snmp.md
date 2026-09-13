@@ -91,6 +91,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | cache.status       | N/A  |
 | server.status      | N/A  |
 | sc.status          | N/A  |
+
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 

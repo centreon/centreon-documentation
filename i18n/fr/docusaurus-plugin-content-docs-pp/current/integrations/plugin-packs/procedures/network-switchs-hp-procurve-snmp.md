@@ -105,6 +105,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                  | Unité |
 |:---------------------|:------|
 | used_*instance_name* | B     |
+
 </TabItem>
 <TabItem value="Spanning-Tree" label="Spanning-Tree">
 

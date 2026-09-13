@@ -55,6 +55,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:------------------------|:------|
 | Passthrough_connections | count |
 | Optimized_connections   | count |
+
 </TabItem>
 </Tabs>
 

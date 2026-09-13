@@ -316,9 +316,9 @@ Le seul argument donné à la fonction `write()` est un événement. Il est donn
 
 Pour classer l’événement, nous avons deux données qui sont `category` et `element`. Ces deux informations sont des nombres entiers. Si nous concaténons ces deux nombres, nous obtenons un entier plus long égal à l’événement `type` également disponible dans l’événement comme `_type`.
 
-| **entier**| **court**| **court**
-|----------|----------|----------
-| \_type =| catégorie| élém
+| **entier**| **court**| **court** |
+|----------|----------|---------- |
+| \_type =| catégorie| élém |
 
 Parfois, on peut vouloir le nom d’hôte correspondant à un événement mais on ne reçoit que le `host_id`. Il est possible de l’obtenir grâce à la méthode `broker_cache:get_hostname(id)`.
 

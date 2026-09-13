@@ -271,7 +271,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 | INTERVAL         | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
 | AGGREGATION      | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Total             |             |
 | FILTERMETRIC     | Filter metrics (available metrics: 'CPU percent').                                             |                   |             |
-| FILTERDIMENSION  | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| FILTERDIMENSION  | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". | | |
 | WARNINGCPUUSAGE  | Set warning threshold for CPU utilization percentage                                               |                   |             |
 | CRITICALCPUUSAGE | Set critical threshold for CPU utilization percentage                                              |                   |             |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -285,7 +285,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 | INTERVAL                   | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
 | AGGREGATION                | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
 | FILTERMETRIC               | Filter metrics (available metrics: 'IO Percent').                                             |                   |             |
-| FILTERDIMENSION  | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| FILTERDIMENSION  | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". | | |
 | WARNINGIOCONSUMPTIONUSAGE  | Set warning threshold for IO comsuption usage                                                      |                   |             |
 | CRITICALIOCONSUMPTIONUSAGE | Set critical threshold for IO comsuption usage                                                     |                   |             |
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -299,7 +299,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 | INTERVAL            | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
 | AGGREGATION         | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Average             |             |
 | FILTERMETRIC        | Filter metrics (available metrics: 'Memory percent').                                             |                   |             |
-| FILTERDIMENSION     | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| FILTERDIMENSION     | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". | | |
 | WARNINGMEMORYUSAGE  | Set warning threshold for memory utilization percentage                                            |                   |             |
 | CRITICALMEMORYUSAGE | Set critical threshold for memory utilization percentage                                           |                   |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
@@ -313,7 +313,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 | INTERVAL               | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
 | AGGREGATION            | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
 | FILTERMETRIC           | Filter metrics (available metrics: 'Replication Lag In Seconds').                                             |                   |             |
-| FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". | | |
 | WARNINGREPLICATIONLAG  | Thresholds where '*'                                                                               |                   |             |
 | CRITICALREPLICATIONLAG | Thresholds where '*'                                                                               |                   |             |
 | EXTRAOPTIONS           | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --zeroed          |             |
@@ -327,7 +327,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 | INTERVAL               | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
 | AGGREGATION            | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Maximum             |             |
 | FILTERMETRIC           | Filter metrics (available metrics: 'Backup Storage used', 'Server Log storage used', 'Storage Percent', 'Storage Used'). |                   |             |
-| FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| FILTERDIMENSION        | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". | | |
 | WARNINGSERVERLOGUSAGE  | Thresholds                                                                                  |                   |             |
 | CRITICALSERVERLOGUSAGE | Thresholds                                                                                 |                   |             |
 | WARNINGSTORAGEBACKUP   | Thresholds                                                                                 |                   |             |
@@ -347,7 +347,7 @@ yum install centreon-plugin-Cloud-Azure-Database-Postgres-Api
 | INTERVAL           | Set interval of the metric query (can be : PT1M, PT5M, PT15M, PT30M, PT1H, PT6H, PT12H, PT24H)                                                     | PT5M              |             |
 | AGGREGATION        | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times | Average             |             |
 | FILTERMETRIC       | Filter metrics (available metrics: 'Network Out', 'Network In'). |                   |             |
-| FILTERDIMENSION    | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". |
+| FILTERDIMENSION    | Specify the metric dimension (required for some specific metrics) Syntax example: --filter-dimension="$metricname eq '$metricvalue'". | | |
 | WARNINGTRAFFICIN   | Thresholds                                                                                |                   |             |
 | CRITICALTRAFFICIN  | Thresholds                                                                                 |                   |             |
 | WARNINGTRAFFICOUT  | Thresholds                                                                                |                   |             |

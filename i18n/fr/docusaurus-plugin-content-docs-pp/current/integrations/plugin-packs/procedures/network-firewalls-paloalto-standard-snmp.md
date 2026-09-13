@@ -84,6 +84,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-------------------------|:------|
 | cluster status           | N/A   |
 | high-availability status | N/A   |
+
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
@@ -128,6 +129,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                              | Unité |
 |:---------------------------------|:------|
 | *name*#storage.space.usage.bytes | B     |
+
 </TabItem>
 <TabItem value="Panorama" label="Panorama">
 

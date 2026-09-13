@@ -274,6 +274,7 @@ yum install centreon-plugin-Network-Teldat-Snmp
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{simStatus\}, %\{interfaceState\}, %\{cellId\}, %\{simIcc\}, %\{operator\}, %\{imsi\}   | '%\{interfaceState\} =~ /disconnect/'                       |               |
 | CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL.  You can use the following variables: %\{simStatus\}, %\{interfaceState\}, %\{cellId\}, %\{simIcc\}, %\{operator\}, %\{imsi\} | '%\{simStatus\} =~ /LOCKED/ or %\{simStatus\} =~ /DETECTING/' |               |
 | EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose                                                               |             |
+
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
@@ -321,7 +322,7 @@ yum install centreon-plugin-Network-Teldat-Snmp
 | WARNINGUSAGEFREE  | Thresholds on free memory usage                                                                                                                              |                   |             |
 | CRITICALUSAGEFREE | Thresholds on free memory usage                                                                                                                              |                   |             |
 | WARNINGUSAGEPRCT  | Thresholds on memory percent usage                                                                                                                           |                   |             |
-| CRITICALUSAGEPRCT | Thresholds on memory percent usage                                                                                                                           |                   |             
+| CRITICALUSAGEPRCT | Thresholds on memory percent usage                                                                                                                           |                   | |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
 
 </TabItem>

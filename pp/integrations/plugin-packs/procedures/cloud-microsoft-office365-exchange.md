@@ -217,7 +217,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 | Macro                     | Description                                                                                                                                      | Default value                    | Mandatory   |
 |:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------|:-----------:|
 | UNITS                     | Unit of thresholds ('%', 'count')                                                                                                                | %                                |             |
-| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\ | total'                          | active\|total                    |             |
+| FILTERCOUNTERS            | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\ \| total'                          | active\|total                    |             |
 | FILTERUSER                | Filter users                                                                                                                                     |                                  |             |
 | WARNINGACTIVEUSERS        | Warning threshold                                                                                                                                |                                  |             |
 | CRITICALACTIVEUSERS       | Critical threshold                                                                                                                               |                                  |             |
@@ -234,13 +234,14 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Exchange-Api
 | WARNINGTOTALSENDCOUNT     | Warning threshold                                                                                                                                |                                  |             |
 | CRITICALTOTALSENDCOUNT    | Critical threshold                                                                                                                               |                                  |             |
 | EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options). |                                  |             |
+
 </TabItem>
 <TabItem value="Users-Activity-Exchange" label="Users-Activity-Exchange">
 
 | Macro                      | Description                                                                                                                                                                                        | Default value                       | Mandatory |
 |:---------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------------------|:---------:|
 | UNITS                      | Unit of thresholds ('%', 'count')                                                                                                                                                                  | %                                   |           |
-| FILTERCOUNTERS             | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\| total'                                                                             |  active\  |total                    |           |
+| FILTERCOUNTERS             | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\| total'                                                                             |  active\  \|total                    |           |
 | FILTERMAILBOX              | Filter mailboxes                                                                                                                                                                                   |                                     |           |
 | WARNINGACTIVEMAILBOXES     | Warning threshold                                                                                                                                                                                  |                                     |           |
 | CRITICALACTIVEMAILBOXES    | Critical threshold                                                                                                                                                                                 |                                     |           |

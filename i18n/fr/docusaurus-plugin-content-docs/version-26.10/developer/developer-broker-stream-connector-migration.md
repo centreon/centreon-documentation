@@ -86,12 +86,12 @@ Si vous avez besoin de récupérer des champs d’un événement **neb::service*
 
 Pour la migration, ce tableau peut vous aider :
 
-| **objet hérité**| **Objet BBDO 3.0**| **Commentaires**
-|:----------:|:----------:|----------
-| **neb::service** <br/> (1, 23)| **neb::pb\_service** <br/> (1, 27)| 
-| **neb::host** <br/> (1, 12)| **neb::pb\_host** <br/> (1, 30)| 
-| **neb::service\_status** <br/> (1, 24)| **neb::pb\_service\_status** <br/> (1, 29)| Les nouveaux événements sont plus légers. Plusieurs champs peuvent être manquants. Dans ce cas, **pb\_service** est utile pour les obtenir.
-| **neb::host\_status** <br/> (1, 14)| **neb::pb\_host\_status** <br/> (1, 32)| Les nouveaux événements sont plus légers. Plusieurs champs peuvent être manquants. Dans ce cas, **pb\_host** est utile pour les obtenir.
+| **objet hérité**| **Objet BBDO 3.0**| **Commentaires** |
+|:----------:|:----------:|---------- |
+| **neb::service** <br/> (1, 23)| **neb::pb\_service** <br/> (1, 27)| |
+| **neb::host** <br/> (1, 12)| **neb::pb\_host** <br/> (1, 30)| |
+| **neb::service\_status** <br/> (1, 24)| **neb::pb\_service\_status** <br/> (1, 29)| Les nouveaux événements sont plus légers. Plusieurs champs peuvent être manquants. Dans ce cas, **pb\_service** est utile pour les obtenir. |
+| **neb::host\_status** <br/> (1, 14)| **neb::pb\_host\_status** <br/> (1, 32)| Les nouveaux événements sont plus légers. Plusieurs champs peuvent être manquants. Dans ce cas, **pb\_host** est utile pour les obtenir. |
 
 Il existe également deux nouveaux événements avec BBDO 3.0, **neb::pb\_adaptive\_host** et **neb::pb\_adaptive\_service**. Ils apportent des changements de configuration pour un hôte ou un service. Ces événements sont conçus pour être de petite taille.
 

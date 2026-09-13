@@ -126,6 +126,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:---------------------------|:------|
 | connection_status | N/A |
 | aiclatency | ms |
+
 </TabItem>
 <TabItem value="Components-Software" label="Components-Software">
 

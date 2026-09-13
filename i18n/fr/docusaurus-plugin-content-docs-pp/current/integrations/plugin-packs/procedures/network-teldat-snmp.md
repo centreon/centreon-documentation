@@ -320,7 +320,7 @@ yum install centreon-plugin-Network-Teldat-Snmp
 | WARNINGUSAGEFREE  | Thresholds on free memory usage                                                                                                                              |                   |             |
 | CRITICALUSAGEFREE | Thresholds on free memory usage                                                                                                                              |                   |             |
 | WARNINGUSAGEPRCT  | Thresholds on memory percent usage                                                                                                                           |                   |             |
-| CRITICALUSAGEPRCT | Thresholds on memory percent usage                                                                                                                           |                   |             
+| CRITICALUSAGEPRCT | Thresholds on memory percent usage                                                                                                                           |                   | |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>

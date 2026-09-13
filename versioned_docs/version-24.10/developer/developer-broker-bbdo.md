@@ -32,15 +32,15 @@ As a binary protocol, BBDO uses data types to serialize data. They are
 written in a Big Endian format and described in the following table.
 
 
-| Type          | Representation                                                                       | Size (bytes)
-|---------------|--------------------------------------------------------------------------------------|--------------
-| integer       | binary                                                                               | 4
-| short integer | binary                                                                               | 2
-| long integer  | binary                                                                               | 8
-| time          | binary (timestamp)                                                                   | 8
-| boolean       | binary (0 is false, everything else is true)                                         | 1
-| string        | nul-terminated UTF-8 string                                                          | variable
-| real          | nul-terminated UTF-8 string (either in fixed (2013) or scientific (2.013e+3) format) | variable
+| Type          | Representation                                                                       | Size (bytes) |
+|---------------|--------------------------------------------------------------------------------------|-------------- |
+| integer       | binary                                                                               | 4 |
+| short integer | binary                                                                               | 2 |
+| long integer  | binary                                                                               | 8 |
+| time          | binary (timestamp)                                                                   | 8 |
+| boolean       | binary (0 is false, everything else is true)                                         | 1 |
+| string        | nul-terminated UTF-8 string                                                          | variable |
+| real          | nul-terminated UTF-8 string (either in fixed (2013) or scientific (2.013e+3) format) | variable |
 
 ## Packet format
 
@@ -48,14 +48,14 @@ The packet format of Centreon Broker introduces only 16 bytes of header
 to transmit each monitoring event (usually about 100-200 bytes each).
 Fields are provided in the big endian format.
 
-| Field          | Type                   | Description
-|----------------|------------------------|-------------------------------------------------------
-| checksum       | unsigned short integer | CRC-16-CCITT X.25 of size, id, source and destination. The checksum can be used to recover from an incomplete data packet sent in the stream by dropping bytes one by one.
-| size           | unsigned short integer | Size of the packet, excluding header.
-| id             | unsigned integer       | ID of the event.
-| source_id      | unsigned integer       | The id of the source instance of this event.
-| destination_id | unsigned integer       | The id of the destination instance for this event.
-| data           |                        | Payload data.
+| Field          | Type                   | Description |
+|----------------|------------------------|------------------------------------------------------- |
+| checksum       | unsigned short integer | CRC-16-CCITT X.25 of size, id, source and destination. The checksum can be used to recover from an incomplete data packet sent in the stream by dropping bytes one by one. |
+| size           | unsigned short integer | Size of the packet, excluding header. |
+| id             | unsigned integer       | ID of the event. |
+| source_id      | unsigned integer       | The id of the source instance of this event. |
+| destination_id | unsigned integer       | The id of the destination instance for this event. |
+| data           |                        | Payload data. |
 
 Here, the only difference between BBDO 3 and the previous versions is the data
 content. In BBDO 3, this part is a serialized Protobuf object, whereas in
@@ -75,16 +75,16 @@ order is very important to not lose track when unserializing events.
 
 The current available categories are described in the table below.
 
-| Category    | API macro             | Value | Description
-|-------------|-----------------------|-------|--------------------------------------------------
-| NEB         | BBDO_NEB_TYPE         | 1     | Classical monitoring events (hosts, services, notifications, event handlers, plugin execution, ...).
-| BBDO        | BBDO_BBDO_TYPE        | 2     | Category internal to the BBDO protocol.
-| Storage     | BBDO_STORAGE_TYPE     | 3     | Category related to RRD graph building.
-| Correlation | BBDO_CORRELATION_TYPE | 4     | Status correlation (deprecated).
-| Dumper      | BBDO_DUMPER_TYPE      | 5     | Dumper events (only used for tests).
-| Bam         | BBDO_BAM_TYPE         | 6     | Bam events.
-| Extcmd      | BBDO_EXTCMD_TYPE      | 7     | Centreon Broker external commands (deprecated).
-| Internal    | BBDO_INTERNAL_TYPE    | 65535 | Reserved for internal protocol use.
+| Category    | API macro             | Value | Description |
+|-------------|-----------------------|-------|-------------------------------------------------- |
+| NEB         | BBDO_NEB_TYPE         | 1     | Classical monitoring events (hosts, services, notifications, event handlers, plugin execution, ...). |
+| BBDO        | BBDO_BBDO_TYPE        | 2     | Category internal to the BBDO protocol. |
+| Storage     | BBDO_STORAGE_TYPE     | 3     | Category related to RRD graph building. |
+| Correlation | BBDO_CORRELATION_TYPE | 4     | Status correlation (deprecated). |
+| Dumper      | BBDO_DUMPER_TYPE      | 5     | Dumper events (only used for tests). |
+| Bam         | BBDO_BAM_TYPE         | 6     | Bam events. |
+| Extcmd      | BBDO_EXTCMD_TYPE      | 7     | Centreon Broker external commands (deprecated). |
+| Internal    | BBDO_INTERNAL_TYPE    | 65535 | Reserved for internal protocol use. |
 
 ### NEB
 
@@ -224,13 +224,13 @@ order described in the [mapping tables](developer-broker-mapping.md). They are e
 Let's take an example and see how a *host check event* is sent in a
 packet. Its mapping is as follows:
 
-| Property                | Type             | Value in example
-|-------------------------|------------------|---------------------------
-| active\_checks\_enabled | boolean          | True.
-| check\_type             | short integer    | 0 (active host check).
-| host\_id                | unsigned integer | 42
-| next\_check             | time             | 1365080225
-| command\_line           | string           | ./my\_plugin -H 127.0.0.1
+| Property                | Type             | Value in example |
+|-------------------------|------------------|--------------------------- |
+| active\_checks\_enabled | boolean          | True. |
+| check\_type             | short integer    | 0 (active host check). |
+| host\_id                | unsigned integer | 42 |
+| next\_check             | time             | 1365080225 |
+| command\_line           | string           | ./my\_plugin -H 127.0.0.1 |
 
 And gives the following packet with values in hexadecimal.
 

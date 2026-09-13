@@ -403,11 +403,11 @@ This operation should only be performed once for the project.
 **Repeat the same procedure for these datasources: centreon_storage,
 centreon_live et centreon_storage_live**.
 
- Datasource         | Profile file          | Profile to use
---------------------|-----------------------|----------------
-| Censtorage        | creports-profile.xml  | Censtorage
-| Centreon_Live     | cbis-profile.xml      | Centreon
-| Censtorage_Live   | cbis-profile.xml      | Censtorage
+ | Datasource         | Profile file          | Profile to use |
+| --------------------|-----------------------|---------------- |
+| Censtorage        | creports-profile.xml  | Censtorage |
+| Centreon_Live     | cbis-profile.xml      | Centreon |
+| Censtorage_Live   | cbis-profile.xml      | Censtorage |
 
 ### Generating a standard report
 
@@ -579,12 +579,12 @@ this XML file:
 
 Each of these sets of markup tags has several possible attributes:
 
-  Attribute     | Description                                               | text  | select |  multiselect
-  --------------|-----------------------------------------------------------|-------|--------|-----------------
-  id            |  Name of the parameter in the report (report parameter)   |   X   |   X    |     X
-  title         |  Description field displayed next to the parameter        |   X   |   X    |     X
-  data          |  Data to display in the parameter                         |   X   |   X
-  size          |  Size of the text field                                   |   X
+  | Attribute     | Description                                               | text  | select |  multiselect |
+  | --------------|-----------------------------------------------------------|-------|--------|----------------- |
+  | id            |  Name of the parameter in the report (report parameter)   |   X   |   X    |     X |
+  | title         |  Description field displayed next to the parameter        |   X   |   X    |     X |
+  | data          |  Data to display in the parameter                         |   X   |   X | |
+  | size          |  Size of the text field                                   |   X | | |
 
 Below are the possible values for the **data** attribute:
 

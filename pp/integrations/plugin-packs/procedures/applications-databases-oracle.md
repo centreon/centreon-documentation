@@ -301,6 +301,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Metric name | Description                  | Unit |
 |:------------|:-----------------------------|:-----|
 | status      | Check Oracle listener status |      |
+
 </TabItem>
 </Tabs>
 

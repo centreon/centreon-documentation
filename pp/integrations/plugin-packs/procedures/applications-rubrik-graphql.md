@@ -443,6 +443,7 @@ yum install centreon-plugin-Applications-Rubrik-Graphql
 | WARNING_STATUS            | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{name\}                                                                                                                                                               |                   |             |
 | CRITICAL_STATUS           | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                                                                                                                                              |                   |             |
 | EXTRA_OPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                       |                   |             |
+
 </TabItem>
 <TabItem value="Storage" label="Storage">
 

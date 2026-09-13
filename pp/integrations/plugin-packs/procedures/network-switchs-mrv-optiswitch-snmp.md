@@ -70,6 +70,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *interface_name*#status                              | N/A  |
 | *interface_name*#interface.traffic.in.bitspersecond  | b/s  |
 | *interface_name*#interface.traffic.out.bitspersecond | b/s  |
+
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 

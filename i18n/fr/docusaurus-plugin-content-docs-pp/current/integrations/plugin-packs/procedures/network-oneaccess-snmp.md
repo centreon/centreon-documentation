@@ -104,6 +104,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *interface_name*#interface.packets.in.discard.percentage  | %     |
 | *interface_name*#interface.packets.out.error.percentage   | %     |
 | *interface_name*#interface.packets.out.discard.percentage | %     |
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 

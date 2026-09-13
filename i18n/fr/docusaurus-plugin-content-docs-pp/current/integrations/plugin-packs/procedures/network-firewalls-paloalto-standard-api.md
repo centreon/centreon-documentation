@@ -101,6 +101,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | ha2-link-status | N/A   |
 | ha-mode         | N/A   |
 | build-compat    | N/A   |
+
 </TabItem>
 <TabItem value="Health" label="Health">
 

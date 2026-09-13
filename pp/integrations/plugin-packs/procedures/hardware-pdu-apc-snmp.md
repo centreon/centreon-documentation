@@ -92,6 +92,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name                | Unité |
 |:--------------------|:------|
 | time.offset.seconds | s     |
+
 </TabItem>
 <TabItem value="Outlet" label="Outlet">
 

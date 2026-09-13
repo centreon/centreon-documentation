@@ -328,7 +328,7 @@ apt install nagios-nrpe-plugin centreon-plugin-operatingsystems-linux-snmp
 | Macro        | Description                                                                                                                                     | Default value | Mandatory |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | PROCESSARGS  | Filter process arguments                                                                                                                        |               |           |
-| PROCESSNAME  | Filter process name                                                                                                                             | ^mysqld       | mariadb$  |             |
+| PROCESSNAME  | Filter process name                                                                                                                             | ^mysqld       \| mariadb$  |             |
 | PROCESSPATH  | Filter process path                                                                                                                             |               |           |
 | CRITICAL     | Critical threshold of matching processes count                                                                                                  | 1:            |           |
 | WARNING      | Warning threshold of matching processes count                                                                                                   |               |           |

@@ -107,6 +107,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *ont*#module.rx.power.dbm             | dBm   |
 | *ont*#module.bias.current.milliampere | mA    |
 | *ont*#olt.rx.ont.power.dbm            | dBm   |
+
 </TabItem>
 <TabItem value="Gpon-Ont-Traffic" label="Gpon-Ont-Traffic">
 
@@ -141,6 +142,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *interface_name*#interface.packets.in.error.percentage    | %    |
 | *interface_name*#interface.packets.out.discard.percentage | %    |
 | *interface_name*#interface.packets.out.error.percentage   | %    |
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
