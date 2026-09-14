@@ -57,3 +57,10 @@ activité métier entière depuis un seul écran :
   toutes ensemble plutôt que nœud par nœud.
 
   ![image](../assets/service-mapping/bam-config-3.gif)
+
+- **Développez ou réduisez l'arborescence en un clic** : utilisez les boutons
+**Déplier l'arbre** et **Replier l'arbre** pour ouvrir ou fermer en une seule fois tous les nœuds
+de l'arborescence, plutôt que de cliquer sur chaque
+branche individuellement.
+
+  ![image](../assets/service-mapping/bam-config-4.gif)

@@ -54,3 +54,9 @@ activity from a single screen:
   then save them together instead of one node at a time.
 
   ![image](../assets/service-mapping/bam-config-3.gif)
+
+- **Expand or collapse the tree in one click**: use the **Expand tree** and **Collapse tree**
+buttons to open or close every node of the tree at once,
+instead of clicking through each branch individually.
+
+  ![image](../assets/service-mapping/bam-config-4.gif)
