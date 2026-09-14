@@ -26,11 +26,14 @@ jobs:
       - name: List changed Markdown files
         id: changed
         run: |
-          git fetch --no-tags origin "${{ github.base_ref }}"
-          files=$(git diff --name-only --diff-filter=d \
-            "origin/${{ github.base_ref }}...HEAD" -- '*.md' '*.mdx' | tr '\n' ' ')
-          echo "files=${files}" >> "$GITHUB_OUTPUT"
-          echo "Changed Markdown files: ${files:-<none>}"
+          {
+            echo "files<<EOF"
+            git -c core.quotePath=false diff --name-only --diff-filter=d \
+              "origin/${BASE_REF}...HEAD" -- '*.md' '*.mdx'
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+        env:
+          BASE_REF: ${{ github.base_ref }}
         shell: bash
 
       - name: Lint changed Markdown files
