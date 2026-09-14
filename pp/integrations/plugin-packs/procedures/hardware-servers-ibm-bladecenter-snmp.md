@@ -68,6 +68,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Metric name           | Unit  |
 |:----------------------|:------|
 | status | N/A     |
+
 </TabItem>
 <TabItem value="Hardware-Blade" label="Hardware-Blade">
 

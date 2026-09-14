@@ -64,59 +64,59 @@ Now, let's see what these tags refer to.
 
 \* = Mandatory tag
 
-| Tag name     | Description
-|--------------|-------------------
-| title*       | Title of your widget
-| author*      | Your name
-| email        | Your email address
-| website      | URL of your project
-| description* | Short description of your widget
-| version*     | Version of your widget. Increment this number whenever you publish a new version.
-| keywords     | A few key words that describe your widget
-| screenshot   | Screenshot that shows the best side of your widget. Screenshot should be placed within your widget directory.
-| thumbnail    | Logo of your project. Best size is 100px x 25px. Thumbnail should be placed within your widget directory.
-| url*         | Path of the main page of your widget
-| autorefresh  |This parameter is not implemented yet
+| Tag name     | Description |
+|--------------|------------------- |
+| title*       | Title of your widget |
+| author*      | Your name |
+| email        | Your email address |
+| website      | URL of your project |
+| description* | Short description of your widget |
+| version*     | Version of your widget. Increment this number whenever you publish a new version. |
+| keywords     | A few key words that describe your widget |
+| screenshot   | Screenshot that shows the best side of your widget. Screenshot should be placed within your widget directory. |
+| thumbnail    | Logo of your project. Best size is 100px x 25px. Thumbnail should be placed within your widget directory. |
+| url*         | Path of the main page of your widget |
+| autorefresh  |This parameter is not implemented yet |
 
 ### Parameter attributes
 
 \* = *Mandatory parameter*
 
-| Tag attributes    | Description
-|-------------------|---------------------
-| label*            | Label of the parameter
-| name*             | Name of the parameter that will be used for retrieving its value
-| defaultValue*     | Default Value of the parameter
-| requirePermission | Value can be "1" or "0". When set to 1, this parameter will not be shown to unauthorized users.
-| type*             | Parameter type, must be one of the following: text,boolean,date,list,range,compare,host,hostgroup, hostTemplate,servicegroup,serviceTemplate
-| min*              | For range type only. It refers to the minimum value of the range parameter
-| max*              | For range type only. It refers to the maximum value of the range parameter
-| step*             | For range type only. It refers to the step value of the range parameter
+| Tag attributes    | Description |
+|-------------------|--------------------- |
+| label*            | Label of the parameter |
+| name*             | Name of the parameter that will be used for retrieving its value |
+| defaultValue*     | Default Value of the parameter |
+| requirePermission | Value can be "1" or "0". When set to 1, this parameter will not be shown to unauthorized users. |
+| type*             | Parameter type, must be one of the following: text,boolean,date,list,range,compare,host,hostgroup, hostTemplate,servicegroup,serviceTemplate |
+| min*              | For range type only. It refers to the minimum value of the range parameter |
+| max*              | For range type only. It refers to the maximum value of the range parameter |
+| step*             | For range type only. It refers to the step value of the range parameter |
 
 Parameter type
 ==============
 
-| Tag name      | Description
-|---------------|-------------------
-| text          | Renders a text input element
-| boolean       | Renders a checkbox
-| date          | Renders two text input elements. One for the start date, the other one for the end date.
-| list          | Renders a selectbox. The selectbox will be populated with the option tags, which must be defined within the preference tag.
-| range         | Renders a selectbox which will be populated with values depending on the min, max and step definitions.
-| compare       | Renders a selectbox and a text input. Selectbox will contain SQL operands such as:
-|               | > : greater than
-|               | < : less than
-|               | >= : greater or equal
-|               | \<= : less or equal
-|               | = : equal
-|               | != : not equal
-|               | LIKE : can be used with the wildcard %%
-|               | NOT LIKE : can be used with the wildcard %%
-host            | Renders a selectbox populated with a list of hosts.
-hostgroup       | Renders a selectbox populated with a list of hostgroups.
-hostTemplate    | Renders a selectbox populated with a list of host templates.
-servicegroup    | Renders a selectbox populated with a list of servicegroups.
-serviceTemplate | Renders a selectbox populated with a list of service templates.
+| Tag name      | Description |
+|---------------|------------------- |
+| text          | Renders a text input element |
+| boolean       | Renders a checkbox |
+| date          | Renders two text input elements. One for the start date, the other one for the end date. |
+| list          | Renders a selectbox. The selectbox will be populated with the option tags, which must be defined within the preference tag. |
+| range         | Renders a selectbox which will be populated with values depending on the min, max and step definitions. |
+| compare       | Renders a selectbox and a text input. Selectbox will contain SQL operands such as: |
+|               | > : greater than |
+|               | < : less than |
+|               | >= : greater or equal |
+|               | \<= : less or equal |
+|               | = : equal |
+|               | != : not equal |
+|               | LIKE : can be used with the wildcard %% |
+|               | NOT LIKE : can be used with the wildcard %% |
+| host            | Renders a selectbox populated with a list of hosts. |
+| hostgroup       | Renders a selectbox populated with a list of hostgroups. |
+| hostTemplate    | Renders a selectbox populated with a list of host templates. |
+| servicegroup    | Renders a selectbox populated with a list of servicegroups. |
+| serviceTemplate | Renders a selectbox populated with a list of service templates. |
 
 The preference window would look like this as a result:
 

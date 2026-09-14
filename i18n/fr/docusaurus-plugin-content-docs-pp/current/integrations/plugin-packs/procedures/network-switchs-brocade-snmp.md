@@ -121,6 +121,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *interface_name*#status                              | N/A   |
 | *interface_name*#interface.traffic.in.bitspersecond  | b/s   |
 | *interface_name*#interface.traffic.out.bitspersecond | b/s   |
+
 </TabItem>
 <TabItem value="Traffic-*" label="Traffic-*">
 

@@ -200,6 +200,7 @@ yum install centreon-plugin-Applications-Voip-3cx-Restapi
 | WARNING_SUPPORT  | Set warning condition for support status. Default: '%\{support\} !~ /true/' (support disabled). Variables available: `support`, `maintenance_expires_in` (in days), `maintenance_expires_date`                                                      | %\{support\} !~ /true/                                       |             |
 | CRITICAL_SUPPORT | Set critical condition for support status. Variables available: `support`, `maintenance_expires_in`, `maintenance_expires_date`                                                                                                                     |                                                              |             |
 | EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                                                                                                        |                                                              |             |
+
 </TabItem>
 <TabItem value="System" label="System">
 

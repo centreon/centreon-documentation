@@ -501,6 +501,7 @@ All **custom modes** specific options are listed here:
 | --password       | API password.                                                                                       |
 | --api-path       | Specify api path (default: '/api/v2')                                                               |
 | --timeout        | Set timeout in seconds (default: 10).                                                               |
+
 </TabItem>
 <TabItem value="towercli" label="towercli">
 
@@ -516,6 +517,7 @@ All **custom modes** specific options are listed here:
 | --command-path    | Command path (default: none).                                                                   |
 | --command-options | Command options (default: none).                                                                |
 | --proxyurl        | Proxy URL if any                                                                                |
+
 </TabItem>
 </Tabs>
 

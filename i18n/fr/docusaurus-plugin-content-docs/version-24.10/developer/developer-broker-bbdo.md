@@ -18,28 +18,28 @@ Cette section porte sur le protocole BBDO 2.
 
 En tant que protocole binaire, BBDO utilise des types de données pour sérialiser les données. Ils sont écrits dans un format Big Endian et décrits dans le tableau suivant.
 
-| Type| Représentation| Taille (octets)
-|----------|----------|----------
-| entier| binaire| 4
-| entier court| binaire| 2
-| entier long| binaire| 8
-| temps| binaire (horodatage)| 8
-| booléen| binaire (0 est False, tout le reste est True)| 1
-| chaîne| chaîne UTF-8 non terminée| variable
-| réel| chaîne UTF-8 non terminée (au format fixe (2013) ou scientifique (2.013e+3))| variable
+| Type| Représentation| Taille (octets) |
+|----------|----------|---------- |
+| entier| binaire| 4 |
+| entier court| binaire| 2 |
+| entier long| binaire| 8 |
+| temps| binaire (horodatage)| 8 |
+| booléen| binaire (0 est False, tout le reste est True)| 1 |
+| chaîne| chaîne UTF-8 non terminée| variable |
+| réel| chaîne UTF-8 non terminée (au format fixe (2013) ou scientifique (2.013e+3))| variable |
 
 ## Format de paquet
 
 Le format des paquets de Centreon Broker n’introduit que 16 octets d’en-tête pour transmettre chaque événement de supervision (généralement environ 100-200 octets chacun). Les champs sont fournis au format Big Endian.
 
-| Champ| Type| Description
-|----------|----------|----------
-| checksum| entier court non signé| CRC-16-CCITT X.25 de la taille, de l’ID, de la source et de la destination. La somme de contrôle peut être utilisée pour récupérer un paquet de données incomplet envoyé dans le flux en laissant tomber les octets un par un.
-| size| entier court non signé| Taille du paquet, hors en-tête.
-| id| entier non signé| ID de l’événement.
-| source\_id| entier non signé| L’ID de l’instance source de cet événement.
-| destination\_id| entier non signé| L’ID de l’instance de destination de cet événement.
-| data| | Données utiles.
+| Champ| Type| Description |
+|----------|----------|---------- |
+| checksum| entier court non signé| CRC-16-CCITT X.25 de la taille, de l’ID, de la source et de la destination. La somme de contrôle peut être utilisée pour récupérer un paquet de données incomplet envoyé dans le flux en laissant tomber les octets un par un. |
+| size| entier court non signé| Taille du paquet, hors en-tête. |
+| id| entier non signé| ID de l’événement. |
+| source\_id| entier non signé| L’ID de l’instance source de cet événement. |
+| destination\_id| entier non signé| L’ID de l’instance de destination de cet événement. |
+| data| | Données utiles. |
 
 Ici, la seule différence entre BBDO 3 et les versions précédentes est le contenu des données. Dans BBDO 3, cette partie est un objet Protobuf sérialisé alors que dans les versions précédentes, il s’agit de données sérialisées comme expliqué dans la section Types.
 
@@ -53,57 +53,57 @@ Les catégories d’événements sérialisent les propriétés des événements 
 
 Les catégories actuellement disponibles sont décrites dans le tableau ci-dessous.
 
-| Catégorie| macro API| Valeur| Description
-|----------|----------|----------|----------
-| NEB| BBDO\_NEB\_TYPE| 1| Événements classiques de supervision (hôtes, services, notifications, gestionnaires d’événements, exécution des plugins, ...).
-| BBDO| BBDO\_BBDO\_TYPE| 2| Catégorie interne au protocole BBDO.
-| Storage| BBDO\_STORAGE\_TYPE| 3| Catégorie liée à la création de graphiques RRD.
-| Correlation| BBDO\_CORRELATION\_TYPE| 4| Corrélation d’état (obsolète).
-| Dumper| BBDO\_DUMPER\_TYPE| 5| Événements de dumper (utilisés uniquement pour les tests).
-| Bam| BBDO\_BAM\_TYPE| 6| Événements BAM.
-| Extcmd| BBDO\_EXTCMD\_TYPE| 7| Commandes externes de Centreon Broker (obsolète).
-| Internal| BBDO\_INTERNAL\_TYPE| 65535| Réservé à l’usage interne du protocole.
+| Catégorie| macro API| Valeur| Description |
+|----------|----------|----------|---------- |
+| NEB| BBDO\_NEB\_TYPE| 1| Événements classiques de supervision (hôtes, services, notifications, gestionnaires d’événements, exécution des plugins, ...). |
+| BBDO| BBDO\_BBDO\_TYPE| 2| Catégorie interne au protocole BBDO. |
+| Storage| BBDO\_STORAGE\_TYPE| 3| Catégorie liée à la création de graphiques RRD. |
+| Correlation| BBDO\_CORRELATION\_TYPE| 4| Corrélation d’état (obsolète). |
+| Dumper| BBDO\_DUMPER\_TYPE| 5| Événements de dumper (utilisés uniquement pour les tests). |
+| Bam| BBDO\_BAM\_TYPE| 6| Événements BAM. |
+| Extcmd| BBDO\_EXTCMD\_TYPE| 7| Commandes externes de Centreon Broker (obsolète). |
+| Internal| BBDO\_INTERNAL\_TYPE| 65535| Réservé à l’usage interne du protocole. |
 
 ### NEB
 
 Le tableau ci-dessous répertorie les types d’événements disponibles dans la catégorie NEB. Ils doivent être combinés avec la catégorie BBDO\_NEB\_TYPE pour obtenir un ID d’événement BBDO.
 
-| Type| Valeur| Utilise Protobuf
-|----------|----------|----------
-| Acknowledgement| 1| Non
-| Comment| 2| Non
-| Custom variable| 3| Non
-| Custom variable status| 4| Non
-| Downtime| 5| Non
-| Event handler| 6| Non
-| Flapping status| 7| Non
-| Host check| 8| Non
-| Host dependency| 9| Non
-| Host group| 10| Non
-| Host group member| 11| Non
-| Host| 12| Non
-| Host parent| 13| Non
-| Host status| 14| Non
-| Instance| 15| Non
-| Instance status| 16| Non
-| Log entry| 17| Non
-| Module| 18| Non
-| Service check| 19| Non
-| Service dependency| 20| Non
-| Service group| 21| Non
-| Service group member| 22| Non
-| Service| 23| Non
-| Service status| 24| Non
-| Instance Configuration| 25| Non
-| Responsive Instance| 26| Non
-| Pb Service| 27| Oui
-| Pb Adaptive Service| 28| Oui
-| Pb Service Status| 29| Oui
-| Pb Host| 30| Oui
-| Pb Adaptive Host| 31| Oui
-| Pb Host Status| 32| Oui
-| Pb Severity| 33| Oui
-| Pb Tag| 34| Oui
+| Type| Valeur| Utilise Protobuf |
+|----------|----------|---------- |
+| Acknowledgement| 1| Non |
+| Comment| 2| Non |
+| Custom variable| 3| Non |
+| Custom variable status| 4| Non |
+| Downtime| 5| Non |
+| Event handler| 6| Non |
+| Flapping status| 7| Non |
+| Host check| 8| Non |
+| Host dependency| 9| Non |
+| Host group| 10| Non |
+| Host group member| 11| Non |
+| Host| 12| Non |
+| Host parent| 13| Non |
+| Host status| 14| Non |
+| Instance| 15| Non |
+| Instance status| 16| Non |
+| Log entry| 17| Non |
+| Module| 18| Non |
+| Service check| 19| Non |
+| Service dependency| 20| Non |
+| Service group| 21| Non |
+| Service group member| 22| Non |
+| Service| 23| Non |
+| Service status| 24| Non |
+| Instance Configuration| 25| Non |
+| Responsive Instance| 26| Non |
+| Pb Service| 27| Oui |
+| Pb Adaptive Service| 28| Oui |
+| Pb Service Status| 29| Oui |
+| Pb Host| 30| Oui |
+| Pb Adaptive Host| 31| Oui |
+| Pb Host Status| 32| Oui |
+| Pb Severity| 33| Oui |
+| Pb Tag| 34| Oui |
 
 ### Storage
 
@@ -179,13 +179,13 @@ La plupart des événements répertoriés dans chaque [catégorie d’événemen
 
 Prenons un exemple et voyons comment un *événement* *host check* est envoyé dans un paquet. Son mapping est le suivant :
 
-| Propriété| Type| Valeur dans l’exemple
-|----------|----------|----------
-| active\_checks\_enabled| booléen| True.
-| check\_type| entier court| 0 (contrôle de l’hôte actif).
-| host\_id| entier non signé| 42
-| next\_check| temps| 1365080225
-| command\_line| chaîne| ./my\_plugin -H 127.0.0.1
+| Propriété| Type| Valeur dans l’exemple |
+|----------|----------|---------- |
+| active\_checks\_enabled| booléen| True. |
+| check\_type| entier court| 0 (contrôle de l’hôte actif). |
+| host\_id| entier non signé| 42 |
+| next\_check| temps| 1365080225 |
+| command\_line| chaîne| ./my\_plugin -H 127.0.0.1 |
 
 Et donne le paquet suivant avec les valeurs en hexadécimal.
 

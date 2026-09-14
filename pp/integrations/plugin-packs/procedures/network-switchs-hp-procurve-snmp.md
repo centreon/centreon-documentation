@@ -104,6 +104,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name                 | Unit |
 |:---------------------|:-----|
 | used_*instance_name* | B    |
+
 </TabItem>
 <TabItem value="Spanning-Tree" label="Spanning-Tree">
 

@@ -107,6 +107,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | hardware.probe.voltage.volt              | V     |
 | hardware.probe.voltage.status            | N/A   |
 | hardware.probe.voltage.count             | count |
+
 </TabItem>
 </Tabs>
 

@@ -314,7 +314,7 @@ yum install centreon-plugin-Network-Viptela-Snmp
 | CRITICALCONNECTIONSUP            | Threshold                                                                                                                                                |                     |           |
 | WARNINGCONNNECTIONSDETECTED      | Threshold                                                                                                                                                |                     |           |
 | CRITICALCONNNECTIONSDETECTED     | Threshold                                                                                                                                                |                     |           |
-| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{type\}, %\{privateIp\}, %\{publicIp\} | %\{status\} !~ /up\ | connect/  |             |
+| CRITICALSTATUS                   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{type\}, %\{privateIp\}, %\{publicIp\} | %\{status\} !~ /up\ \| connect/  |             |
 | WARNINGSTATUS                    | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{type\}, %\{privateIp\}, %\{publicIp\}  |                     |           |
 | EXTRAOPTIONS                     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                   | --verbose           |           |
 
@@ -391,7 +391,7 @@ yum install centreon-plugin-Network-Viptela-Snmp
 | CRITICALOUTERROR   | Threshold                                                                                                                                                         |                                                  |           |
 | WARNINGOUTTRAFFIC  | Threshold                                                                                                                                                         |                                                  |           |
 | CRITICALOUTTRAFFIC | Threshold                                                                                                                                                         |                                                  |           |
-| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\ | dormant/  |             |
+| CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} | %\{admstatus\} eq "up" and %\{opstatus\} !~ /up\ \| dormant/  |             |
 | WARNINGSTATUS      | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\}  |                                                  |           |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                            | --verbose                                        |           |
 

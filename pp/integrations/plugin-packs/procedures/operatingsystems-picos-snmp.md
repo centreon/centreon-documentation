@@ -101,6 +101,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | interface_name#interface.packets.in.discard.percentage | %     |
 | interface_name#interface.packets.out.error.percentage  | %     |
 | nterface_name#interface.packets.out.discard.percentage | %     |
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 

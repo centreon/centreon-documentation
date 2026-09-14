@@ -97,6 +97,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Name  | Unit |
 |:------|:-----|
 | state | N/A  |
+
 </TabItem>
 <TabItem value="Cache-Age" label="Cache-Age">
 
@@ -258,6 +259,7 @@ No metrics for this service.
 |:-------|:-----|
 | status | N/A  |
 | lag    | s    |
+
 </TabItem>
 <TabItem value="Snapshot-Age-Global" label="Snapshot-Age-Global">
 

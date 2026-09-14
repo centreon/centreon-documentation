@@ -137,6 +137,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | stack.count                         | N/A   |
 | cpu.count                           | N/A   |
 | hardware.sensor.temperature.celsius | C     |
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 

@@ -182,6 +182,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-------------------------------------------------|:------|
 | temperature status                               | N/A   |
 | *temperature_index*#hardware.temperature.celsius | C     |
+
 </TabItem>
 <TabItem value="Node-Status-Global" label="Node-Status-Global">
 

@@ -83,7 +83,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 |:----------------------------------------|:-------------------------------------------------------------------------------------------------------|
 | Net-Netapp-Ontap-SNMP-Cluster-Node-Name | Découvre les noeuds du cluster et les supervise                          |
 | Net-Netapp-Ontap-SNMP-Disk-Name         | Découvre les disques avec un problème de fonctionnement et les supervise |
-| Net-Netapp-Ontap-SNMP-Plex-Name         | Découvre les plex et les supervise                                       |                                                                                                    |
+| Net-Netapp-Ontap-SNMP-Plex-Name         | Découvre les plex et les supervise                                       \|                                                                                                    |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -98,6 +98,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom   | Unité |
 |:------|:------|
 | state | N/A   |
+
 </TabItem>
 <TabItem value="Cache-Age" label="Cache-Age">
 
@@ -259,6 +260,7 @@ Pas de métrique pour ce service.
 |:-------|:------|
 | status | N/A   |
 | lag    | s     |
+
 </TabItem>
 <TabItem value="Snapshot-Age-Global" label="Snapshot-Age-Global">
 

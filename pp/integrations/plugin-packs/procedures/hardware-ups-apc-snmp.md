@@ -121,12 +121,14 @@ Here is the list of services for this connector, detailing all metrics and statu
 | Metric name         | Unit |
 |:--------------------|:-----|
 | time.offset.seconds | s    |
+
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
 | Metric name           | Unit |
 |:----------------------|:-----|
 | system.uptime.seconds | s    |
+
 </TabItem>
 </Tabs>
 

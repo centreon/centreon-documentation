@@ -100,6 +100,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | ha2-link-status | N/A  |
 | ha-mode         | N/A  |
 | build-compat    | N/A  |
+
 </TabItem>
 <TabItem value="Health" label="Health">
 

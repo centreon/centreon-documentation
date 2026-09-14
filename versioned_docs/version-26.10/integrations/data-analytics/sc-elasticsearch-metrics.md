@@ -147,19 +147,19 @@ You may need to configure your Elasticsearch server so that it can receive data 
 | string | elastic_password | API account password | |
 | string | index_name | Name of the Elasticsearch index that should be used | centreon-metrics |
 | string | index_template_api_endpoint | Path to the endpoint of the Elasticsearch index template | /_index_template |
-| string | index_pattern | By default this takes the name of the index and adds `*`. This is the name of the indexes
-for which the index template will apply when the latter is created by the stream connector | centreon-metrics* |
+| string | index_pattern | By default this takes the name of the index and adds `*`. This is the name of the indexes | |
+| for which the index template will apply when the latter is created by the stream connector | centreon-metrics* | | |
 | number | index_priority | Priority of the index when the index template is created by the stream connector | 200 |
 | number | create_datastream_index_template | The stream connector will automatically create the index template if it does not find it (1 = automatic creation, 0 = index template is not created) | 1 |
-| number | update_datastream_index_template | The stream connector will update the index template if the latter does not correspond
-to the data that will be sent. (1 = autoupdate, 0 = does not auto-update). Even if automatic updating is activated, it will only
-work if the index template was created by Centreon. (The index template contains metadata that indicates this.) | 0 |
-| number | add_hostgroups_dimension | Adds the host groups to the data that is sent. (1 = addition of
-host groups, 0 = no host groups added) | 1 |
-| number | add_poller_dimension | adds the poller to the data that is sent. (1 = addition of
-poller, 0 = no poller added) | 0 |
-| number | add_servicegroups_dimension | Adds the service groups to the data that is sent. (1 = addition of
-service groups, 0 = no service groups added) | 0 |
+| number | update_datastream_index_template | The stream connector will update the index template if the latter does not correspond | |
+| to the data that will be sent. (1 = autoupdate, 0 = does not auto-update). Even if automatic updating is activated, it will only | | | |
+| work if the index template was created by Centreon. (The index template contains metadata that indicates this.) | 0 | | |
+| number | add_hostgroups_dimension | Adds the host groups to the data that is sent. (1 = addition of | |
+| host groups, 0 = no host groups added) | 1 | | |
+| number | add_poller_dimension | adds the poller to the data that is sent. (1 = addition of | |
+| poller, 0 = no poller added) | 0 | | |
+| number | add_servicegroups_dimension | Adds the service groups to the data that is sent. (1 = addition of | |
+| service groups, 0 = no service groups added) | 0 | | |
 
 7. Use the stream connector's optional parameters to [filter or adapt the data you want Centreon to send to Elasticsearch](#filtering-or-adapting-the-data-you-want-to-send-to-elasticsearch).
 
@@ -189,12 +189,12 @@ Each optional parameter has a default value, that is indicated in the correspond
 
 | Type   | Name                | Description |
 | ------ | ------------------- | -------------------------------------- |
-| string | accepted_pollers | Only metrics handled by the pollers listed here will be sent (separator ,) e.g.:
-poller_1,poller_2                                    |
-| string | accepted_hostgroups   | Only metrics relating to the host groups listed here will be sent (separator ,) e.g.:
-hg_1,hg_2             |
-| string | accepted_servicegroups | Only metrics relating to the service groups listed here will be sent (separator ,) e.g.:
-sg_1,sg_2 |
+| string | accepted_pollers | Only metrics handled by the pollers listed here will be sent (separator ,) e.g.: |
+| poller_1,poller_2                                    | | |
+| string | accepted_hostgroups   | Only metrics relating to the host groups listed here will be sent (separator ,) e.g.: |
+| hg_1,hg_2             | | |
+| string | accepted_servicegroups | Only metrics relating to the service groups listed here will be sent (separator ,) e.g.: |
+| sg_1,sg_2 | | |
 | string | accepted_metrics | [Lua pattern](#examples-of-lua-patterns) that the metric's name must match. If the name of the metric doesn't match the pattern, the metric is not sent. Default value: .* |
 | string | accepted_hosts | [Lua pattern](#examples-of-lua-patterns) that the host's name must match. If the name of the host doesn't match the pattern, no metrics attached to that host will be sent. |
 | string | accepted_services | [Lua pattern](#examples-of-lua-patterns) that the service's name must match. If the name of the service doesn't match the pattern, no metrics attached to this service will be sent. |
@@ -267,10 +267,10 @@ You can add the following options to your configuration to help you with debuggi
 
 | Type   | Name                | Description | Default value for the stream connector |
 | ------ | ------------------- | ------------ | -------------------------- |
-| string | logfile | default log file for the stream connector (when a malfunction occurs, it's also possible to find information in /var/log/centreon-broker/central-broker-master.log) | /var/log/centreonbroker/
-elastic-metrics.log |
-| number | log_level | verbosity level, ranging from 1 to 3, (1 = notice and errors, 2 =
-warning, notice and errors, 3 = warning, notice, errors, info, debug). It is strongly recommended not to set a value beyond 2 | 1 |
+| string | logfile | default log file for the stream connector (when a malfunction occurs, it's also possible to find information in /var/log/centreon-broker/central-broker-master.log) | /var/log/centreonbroker/ |
+| elastic-metrics.log | | | |
+| number | log_level | verbosity level, ranging from 1 to 3, (1 = notice and errors, 2 = | |
+| warning, notice and errors, 3 = warning, notice, errors, info, debug). It is strongly recommended not to set a value beyond 2 | 1 | | |
 | number | log_curl_commands | displays all curl commands used by the stream connector in the log file (0 = display nothing, 1 = log the commands) | 0 |
 | number | send_data_test | simulates the end-to-end operation of the stream connector but sends the data to the log file instead of Elasticsearch (0 = send to Elasticsearch, 1 = send to the log file) | 0 |
 

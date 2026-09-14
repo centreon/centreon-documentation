@@ -203,7 +203,7 @@ yum install centreon-plugin-Network-Oracle-Otd-Snmp
 | Macro                | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERNAME           | Filter by vserver name (can be a regexp)                                                                                                         | .*                |             |
-| FILTERCOUNTERS       | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\                               |yyyy$' |                   |             |
+| FILTERCOUNTERS       | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\                               \|yyyy$' |                   |             |
 | WARNINGCOUNT2XX      | Threshold                                                                                                                                        |                   |             |
 | CRITICALCOUNT2XX     | Threshold                                                                                                                                        |                   |             |
 | WARNINGCOUNT3XX      | Threshold                                                                                                                                        |                   |             |

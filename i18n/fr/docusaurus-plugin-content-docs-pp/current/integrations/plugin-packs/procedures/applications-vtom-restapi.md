@@ -356,6 +356,7 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 | --api-password         | API password.                                                                                                                                                                                                                               |
 | --token                | Use token authentication directly.                                                                                                                                                                                                          |
 | --timeout              | Set timeout in seconds (default: 30).                                                                                                                                                                                                       |
+
 </TabItem>
 <TabItem value="legacy" label="legacy">
 
@@ -384,6 +385,7 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 | --api-username         | API username.                                                                                                                                                                                                                               |
 | --api-password         | API password.                                                                                                                                                                                                                               |
 | --timeout              | Set timeout in seconds (default: 30).                                                                                                                                                                                                       |
+
 </TabItem>
 </Tabs>
 

@@ -112,6 +112,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *interface_name*#interface.packets.out.unicast.percentage   | %     |
 | *interface_name*#interface.packets.out.broadcast.percentage | %     |
 | *interface_name*#interface.packets.out.multicast.percentage | %     |
+
 </TabItem>
 <TabItem value="Arp" label="Arp">
 
@@ -190,6 +191,7 @@ Pas de métrique pour ce service
 | *interface_name*#interface.packets.in.error.percentage    | %     |
 | *interface_name*#interface.packets.out.discard.percentage | %     |
 | *interface_name*#interface.packets.out.error.percentage   | %     |
+
 </TabItem>
 <TabItem value="Ipsla" label="Ipsla">
 
@@ -587,7 +589,7 @@ yum install centreon-plugin-Network-Cisco-Standard-Snmp
 | CRITICALINUCAST         | Threshold                                                                                                                                                                          |                                                           |             |
 | WARNINGINVOLUME         |                                                                                                                                                                                    |                                                           |             |
 | WARNINGINVOLUME         | Threshold                                                                                                                                                                          |                                                           |             |
-| CRITICALINVOLUME        | Threshold                                                                                                                                                                          | 
+| CRITICALINVOLUME        | Threshold                                                                                                                                                                          | | |
 | WARNINGOUTBCAST         | Threshold                                                                                                                                                                          |                                                           |             |
 | CRITICALOUTBCAST        | Threshold                                                                                                                                                                          |                                                           |             |
 | WARNINGOUTDISCARD       | Threshold                                                                                                                                                                          |                                                           |             |

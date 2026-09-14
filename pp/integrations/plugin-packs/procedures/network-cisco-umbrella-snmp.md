@@ -70,6 +70,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:------------------------------|:-----|
 | DNS connectivity status       | N/A  |
 | Local DNS connectivity status | N/A  |
+
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
@@ -86,6 +87,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | cpu.steal.utilization.percentage     | %    |
 | cpu.guest.utilization.percentage     | %    |
 | cpu.guestnice.utilization.percentage | %    |
+
 </TabItem>
 <TabItem value="Load-Average" label="Load-Average">
 
@@ -97,6 +99,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | load.1m.count          | count |
 | load.5m.count          | count |
 | load.15m.count         | count |
+
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
@@ -111,6 +114,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | swap.usage.bytes        | B    |
 | swap.free.bytes         | B    |
 | swap.usage.percentage   | %    |
+
 </TabItem>
 <TabItem value="Query" label="Query">
 

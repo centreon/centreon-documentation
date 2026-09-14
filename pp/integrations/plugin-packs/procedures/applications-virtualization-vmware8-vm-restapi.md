@@ -220,8 +220,8 @@ yum install centreon-plugin-Virtualization-Vmware8-Vm-Restapi
 | VMWARE8PROTO        | Define the protocol to use (default: https)                                                                                                               | https             |             |
 | VMWARE8PORT         | Define the port of the vSphere server (default: 443)                                                                                                      | 443               |             |
 | TIMEOUT             | Define the timeout for API requests (default: 10 seconds)                                                                                                 |                   |             |
-| VMWARE8VCENTER      | Define the hostname of the vSphere server                                                                                                                 |                   | | VMWARE8VMID       | Define which VM to monitor based on its resource ID (example: `vm-1234`). **Using this option is mandatory if you have several VMs with the same name.** |                   |             |
-X           |
+| VMWARE8VCENTER      | Define the hostname of the vSphere server                                                                                                                 |                   | \| VMWARE8VMID       \| Define which VM to monitor based on its resource ID (example: `vm-1234`). **Using this option is mandatory if you have several VMs with the same name.** \|                   \|             |
+| X           | | | |
 | VMWARE8VMNAME       | Define which VM to monitor based on its name (example: `WEBSERVER01`). When possible, it is recommended to use `--vm-id` instead. **Do not use this option if you have several VMs with the same name.** |                   |             |
 | VMWARE8EXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                                                      |                   |             |
 

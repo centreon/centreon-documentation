@@ -425,11 +425,11 @@ Cette action est à effectuer une seule fois dans le projet.
 **Refaire la même chose pour les datasources: centreon_storage,
 centreon_live et centreon_storage_live**
 
- Datasource     | Fichier de profile    | Profil à sélectionner
-----------------|-----------------------|---------------------------
- Censtorage     | reports-profile.xml   | Censtorage 
-Centreon_Live   | cbis-profile.xml      | Centreon 
-Censtorage_Live | cbis-profile.xml      | Censtorage
+ | Datasource     | Fichier de profile    | Profil à sélectionner |
+| ----------------|-----------------------|--------------------------- |
+ | Censtorage     | reports-profile.xml   | Censtorage |
+| Centreon_Live   | cbis-profile.xml      | Centreon |
+| Censtorage_Live | cbis-profile.xml      | Censtorage |
 
 ### Générer un rapport standard
 
@@ -622,12 +622,12 @@ types d'objet peuvent être définis dans ce XML:
 
 Chacune de ces balises peut avoir plusieurs attributs possibles:
 
-  Attribut      | Description                                           |Text   | Select  | Multiselect
-  --------------|-------------------------------------------------------|-------|---------|-----------------
-  id            | Nom du paramètre dans le rapport (report parameter)   |   X   |    X    |     X                                          
-  title         | Description affichée à côté du paramètre              |   X   |    X    |     X
-  data          | Donnée à afficher dans ce paramètre                   |   X   |    X
-  size          | Taille du champs texte                                |   X                       
+  | Attribut      | Description                                           |Text   | Select  | Multiselect |
+  | --------------|-------------------------------------------------------|-------|---------|----------------- |
+  | id            | Nom du paramètre dans le rapport (report parameter)   |   X   |    X    |     X |
+  | title         | Description affichée à côté du paramètre              |   X   |    X    |     X |
+  | data          | Donnée à afficher dans ce paramètre                   |   X   |    X | |
+  | size          | Taille du champs texte                                |   X | | |
 
 
 Ci-dessous les possibles valeurs pour l'attribut **data**.

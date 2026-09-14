@@ -1026,7 +1026,7 @@ yum install centreon-plugin-Virtualization-Vmware2-Connector-Plugin
 | Macro                  | Description                                                                                                                    | Default value     | Mandatory   |
 |:-----------------------|:-------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTER                 | The connector will only take into account alerts coming from the datastores listed here                                        | .*                |             |
-| UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%\{accessible\} !~ /^true\ |1$/i'). You can use the following variables: %\{accessible\} |                   |             |
+| UNKNOWNSTATUS          | Define the conditions to match for the status to be UNKNOWN (Default: '%\{accessible\} !~ /^true\ \|1$/i'). You can use the following variables: %\{accessible\} |                   |             |
 | WARNINGOFF             | Warning threshold                                                                                                              |                   |             |
 | CRITICALOFF            | Critical threshold                                                                                                             |                   |             |
 | WARNINGON              | Warning threshold                                                                                                              |                   |             |

@@ -93,6 +93,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Nom                 | Unité |
 |:--------------------|:------|
 | time.offset.seconds | s     |
+
 </TabItem>
 <TabItem value="Outlet" label="Outlet">
 

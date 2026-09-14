@@ -504,85 +504,85 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété                         | Type             | Description | Version |
 | --------------------------------- | ---------------- | ----------- | ------- |
-| acknowledged                      | booléen          |             |
-| acknowledgement\_type             | entier court     |             |
-| action\_url                       | chaîne           |             |
-| active\_checks\_enabled           | booléen          |             |
-| address                           | chaîne           |             |
-| alias                             | chaîne           |             |
-| check\_freshness                  | booléen          |             |
-| check\_interval                   | réel             |             |
-| check\_period                     | chaîne           |             |
-| check\_type                       | entier court     |             |
-| current\_check\_attempt           | entier court     |             |
-| current\_state                    | entier court     |             |
-| default\_active\_checks\_enabled  | booléen          |             |
-| default\_event\_handler\_enabled  | booléen          |             |
-| default\_flap\_detection\_enabled | booléen          |             |
-| default\_notifications\_enabled   | booléen          |             |
-| default\_passive\_checks\_enabled | booléen          |             |
-| downtime\_depth                   | entier court     |             |
-| display\_name                     | chaîne           |             |
-| enabled                           | booléen          |             |
-| event\_handler                    | chaîne           |             |
-| event\_handler\_enabled           | booléen          |             |
-| execution\_time                   | réel             |             |
-| first\_notification\_delay        | réel             |             |
-| flap\_detection\_enabled          | booléen          |             |
-| flap\_detection\_on\_down         | booléen          |             |
-| flap\_detection\_on\_unreachable  | booléen          |             |
-| flap\_detection\_on\_up           | booléen          |             |
-| freshness\_threshold              | réel             |             |
-| has\_been\_checked                | booléen          |             |
-| high\_flap\_threshold             | réel             |             |
-| host\_name                        | chaîne           |             |
-| host\_id                          | entier non signé |             |
-| icon\_image                       | chaîne           |             |
-| icon\_image\_alt                  | chaîne           |             |
-| instance\_id                      | entier non signé |             |
-| is\_flapping                      | booléen          |             |
-| last\_check                       | temps            |             |
-| last\_hard\_state                 | entier court     |             |
-| last\_hard\_state\_change         | temps            |             |
-| last\_notification                | temps            |             |
-| last\_state\_change               | temps            |             |
-| last\_time\_down                  | temps            |             |
-| last\_time\_unreachable           | temps            |             |
-| last\_time\_up                    | temps            |             |
-| last\_update                      | temps            |             |
-| latency                           | réel             |             |
-| low\_flap\_threshold              | réel             |             |
-| max\_check\_attempts              | entier court     |             |
-| next\_check                       | temps            |             |
-| next\_notification                | temps            |             |
-| no\_more\_notifications           | booléen          |             |
-| notes                             | chaîne           |             |
-| notes\_url                        | chaîne           |             |
-| notification\_interval            | réel             |             |
-| notification\_number              | entier court     |             |
-| notification\_period              | chaîne           |             |
-| notifications\_enabled            | booléen          |             |
-| notify\_on\_down                  | booléen          |             |
-| notify\_on\_downtime              | booléen          |             |
-| notify\_on\_flapping              | booléen          |             |
-| notify\_on\_recovery              | booléen          |             |
-| notify\_on\_unreachable           | booléen          |             |
-| obsess\_over                      | booléen          |             |
-| passive\_checks\_enabled          | booléen          |             |
-| percent\_state\_change            | réel             |             |
-| retry\_interval                   | réel             |             |
-| should\_be\_scheduled             | booléen          |             |
-| stalk\_on\_down                   | booléen          |             |
-| stalk\_on\_unreachable            | booléen          |             |
-| stalk\_on\_up                     | booléen          |             |
-| statusmap\_image                  | chaîne           |             |
-| state\_type                       | entier court     |             |
-| check\_command                    | chaîne           |             |
-| output                            | chaîne           |             |
-| perf\_data                        | chaîne           |             |
-| retain\_nonstatus\_information    | booléen          |             |
-| retain\_status\_information       | booléen          |             |
-| timezone                          | chaîne           |             |
+| acknowledged                      | booléen          |             | |
+| acknowledgement\_type             | entier court     |             | |
+| action\_url                       | chaîne           |             | |
+| active\_checks\_enabled           | booléen          |             | |
+| address                           | chaîne           |             | |
+| alias                             | chaîne           |             | |
+| check\_freshness                  | booléen          |             | |
+| check\_interval                   | réel             |             | |
+| check\_period                     | chaîne           |             | |
+| check\_type                       | entier court     |             | |
+| current\_check\_attempt           | entier court     |             | |
+| current\_state                    | entier court     |             | |
+| default\_active\_checks\_enabled  | booléen          |             | |
+| default\_event\_handler\_enabled  | booléen          |             | |
+| default\_flap\_detection\_enabled | booléen          |             | |
+| default\_notifications\_enabled   | booléen          |             | |
+| default\_passive\_checks\_enabled | booléen          |             | |
+| downtime\_depth                   | entier court     |             | |
+| display\_name                     | chaîne           |             | |
+| enabled                           | booléen          |             | |
+| event\_handler                    | chaîne           |             | |
+| event\_handler\_enabled           | booléen          |             | |
+| execution\_time                   | réel             |             | |
+| first\_notification\_delay        | réel             |             | |
+| flap\_detection\_enabled          | booléen          |             | |
+| flap\_detection\_on\_down         | booléen          |             | |
+| flap\_detection\_on\_unreachable  | booléen          |             | |
+| flap\_detection\_on\_up           | booléen          |             | |
+| freshness\_threshold              | réel             |             | |
+| has\_been\_checked                | booléen          |             | |
+| high\_flap\_threshold             | réel             |             | |
+| host\_name                        | chaîne           |             | |
+| host\_id                          | entier non signé |             | |
+| icon\_image                       | chaîne           |             | |
+| icon\_image\_alt                  | chaîne           |             | |
+| instance\_id                      | entier non signé |             | |
+| is\_flapping                      | booléen          |             | |
+| last\_check                       | temps            |             | |
+| last\_hard\_state                 | entier court     |             | |
+| last\_hard\_state\_change         | temps            |             | |
+| last\_notification                | temps            |             | |
+| last\_state\_change               | temps            |             | |
+| last\_time\_down                  | temps            |             | |
+| last\_time\_unreachable           | temps            |             | |
+| last\_time\_up                    | temps            |             | |
+| last\_update                      | temps            |             | |
+| latency                           | réel             |             | |
+| low\_flap\_threshold              | réel             |             | |
+| max\_check\_attempts              | entier court     |             | |
+| next\_check                       | temps            |             | |
+| next\_notification                | temps            |             | |
+| no\_more\_notifications           | booléen          |             | |
+| notes                             | chaîne           |             | |
+| notes\_url                        | chaîne           |             | |
+| notification\_interval            | réel             |             | |
+| notification\_number              | entier court     |             | |
+| notification\_period              | chaîne           |             | |
+| notifications\_enabled            | booléen          |             | |
+| notify\_on\_down                  | booléen          |             | |
+| notify\_on\_downtime              | booléen          |             | |
+| notify\_on\_flapping              | booléen          |             | |
+| notify\_on\_recovery              | booléen          |             | |
+| notify\_on\_unreachable           | booléen          |             | |
+| obsess\_over                      | booléen          |             | |
+| passive\_checks\_enabled          | booléen          |             | |
+| percent\_state\_change            | réel             |             | |
+| retry\_interval                   | réel             |             | |
+| should\_be\_scheduled             | booléen          |             | |
+| stalk\_on\_down                   | booléen          |             | |
+| stalk\_on\_unreachable            | booléen          |             | |
+| stalk\_on\_up                     | booléen          |             | |
+| statusmap\_image                  | chaîne           |             | |
+| state\_type                       | entier court     |             | |
+| check\_command                    | chaîne           |             | |
+| output                            | chaîne           |             | |
+| perf\_data                        | chaîne           |             | |
+| retain\_nonstatus\_information    | booléen          |             | |
+| retain\_status\_information       | booléen          |             | |
+| timezone                          | chaîne           |             | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -733,13 +733,13 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété               | Type             | Description                                           | Version |
 | ----------------------- | ---------------- | ----------------------------------------------------- | ------- |
-| active\_checks\_enabled | booléen          | True si les contrôles actifs sont activés sur l’hôte. |
-| check\_type             | entier court     |                                                       |
-| host\_id                | entier non signé | ID de l’hôte.                                         |
-| next\_check             | temps            | Heure à laquelle le prochain contrôle est prévu.      |
-| command\_line           | chaîne           | Ligne de commande du contrôle.                        |
-| source\_id              | entier non signé | L’ID de l’instance source de cet évènement.           |
-| destination\_id         | entier non signé | L’ID de l’instance de destination de cet évènement.   |
+| active\_checks\_enabled | booléen          | True si les contrôles actifs sont activés sur l’hôte. | |
+| check\_type             | entier court     |                                                       | |
+| host\_id                | entier non signé | ID de l’hôte.                                         | |
+| next\_check             | temps            | Heure à laquelle le prochain contrôle est prévu.      | |
+| command\_line           | chaîne           | Ligne de commande du contrôle.                        | |
+| source\_id              | entier non signé | L’ID de l’instance source de cet évènement.           | |
+| destination\_id         | entier non signé | L’ID de l’instance de destination de cet évènement.   | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -796,13 +796,13 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété                      | Type             | Description | Version |
 | ------------------------------ | ---------------- | ----------- | ------- |
-| dependency\_period             | chaîne           |             |
-| dependent\_host\_id            | entier non signé |             |
-| enabled                        | booléen          |             |
-| execution\_failure\_options    | chaîne           |             |
-| inherits\_parent               | booléen          |             |
-| host\_id                       | entier non signé |             |
-| notification\_failure\_options | chaîne           |             |
+| dependency\_period             | chaîne           |             | |
+| dependent\_host\_id            | entier non signé |             | |
+| enabled                        | booléen          |             | |
+| execution\_failure\_options    | chaîne           |             | |
+| inherits\_parent               | booléen          |             | |
+| host\_id                       | entier non signé |             | |
+| notification\_failure\_options | chaîne           |             | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -829,10 +829,10 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété       | Type             | Description                                                          | Version |
 | --------------- | ---------------- | -------------------------------------------------------------------- | ------- |
-| host\_group\_id | entier non signé |                                                                      |
-| name            | chaîne           | Nom du groupe.                                                       |
-| enabled         | booléen          | True si le groupe est activé, False s’il ne l’est pas (suppression). |
-| poller\_id      | entier non signé |                                                                      |
+| host\_group\_id | entier non signé |                                                                      | |
+| name            | chaîne           | Nom du groupe.                                                       | |
+| enabled         | booléen          | True si le groupe est activé, False s’il ne l’est pas (suppression). | |
+| poller\_id      | entier non signé |                                                                      | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -859,11 +859,11 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété       | Type             | Description                                                                 | Version |
 | --------------- | ---------------- | --------------------------------------------------------------------------- | ------- |
-| group\_id       | unsigned integer | ID du groupe.
-| host\_id        | entier non signé | ID de l’hôte.                                                               |
-| enabled         | booléen          | True si l'hôte est membre du groupe, False s'il ne l’est pas (suppression). |
-| group           | chaîne           | Nom du groupe.                                                              |
-| instance\_id    | entier non signé | ID de l’instance.                                                           |
+| group\_id       | unsigned integer | ID du groupe. | |
+| host\_id        | entier non signé | ID de l’hôte.                                                               | |
+| enabled         | booléen          | True si l'hôte est membre du groupe, False s'il ne l’est pas (suppression). | |
+| group           | chaîne           | Nom du groupe.                                                              | |
+| instance\_id    | entier non signé | ID de l’instance.                                                           | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -890,9 +890,9 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété  | Type             | Description                                                                       | Version |
 | ---------- | ---------------- | --------------------------------------------------------------------------------- | ------- |
-| enabled    | booléen          | True si la fonction parent est activée, False si elle ne l’est pas (suppression). |
-| child\_id  | entier non signé | ID d’hôte enfant.                                                                 |
-| parent\_id | entier non signé | ID d’hôte parent.                                                                 |
+| enabled    | booléen          | True si la fonction parent est activée, False si elle ne l’est pas (suppression). | |
+| child\_id  | entier non signé | ID d’hôte enfant.                                                                 | |
+| parent\_id | entier non signé | ID d’hôte parent.                                                                 | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -919,48 +919,48 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété                 | Type             | Description | Version |
 | ------------------------- | ---------------- | ----------- | ------- |
-| acknowledged              | booléen          |             |
-| acknowledgement\_type     | entier court     |             |
-| active\_checks\_enabled   | booléen          |             |
-| check\_interval           | réel             |             |
-| check\_period             | chaîne           |             |
-| check\_type               | entier court     |             |
-| current\_check\_attempt   | entier court     |             |
-| current\_state            | entier court     |             |
-| downtime\_depth           | entier court     |             |
-| enabled                   | booléen          |             |
-| event\_handler            | chaîne           |             |
-| event\_handler\_enabled   | booléen          |             |
-| execution\_time           | réel             |             |
-| flap\_detection\_enabled  | booléen          |             |
-| has\_been\_checked        | booléen          |             |
-| host\_id                  | entier non signé |             |
-| is\_flapping              | booléen          |             |
-| last\_check               | temps            |             |
-| last\_hard\_state         | entier court     |             |
-| last\_hard\_state\_change | temps            |             |
-| last\_notification        | temps            |             |
-| last\_state\_change       | temps            |             |
-| last\_time\_down          | temps            |             |
-| last\_time\_unreachable   | temps            |             |
-| last\_time\_up            | temps            |             |
-| last\_update              | temps            |             |
-| latency                   | réel             |             |
-| max\_check\_attempts      | entier court     |             |
-| next\_check               | temps            |             |
-| next\_host\_notification  | temps            |             |
-| no\_more\_notifications   | booléen          |             |
-| notification\_number      | entier court     |             |
-| notifications\_enabled    | booléen          |             |
-| obsess\_over              | booléen          |             |
-| passive\_checks\_enabled  | booléen          |             |
-| percent\_state\_change    | réel             |             |
-| retry\_interval           | réel             |             |
-| should\_be\_scheduled     | booléen          |             |
-| state\_type               | entier court     |             |
-| check\_command            | chaîne           |             |
-| output                    | chaîne           |             |
-| perf\_data                | chaîne           |             |
+| acknowledged              | booléen          |             | |
+| acknowledgement\_type     | entier court     |             | |
+| active\_checks\_enabled   | booléen          |             | |
+| check\_interval           | réel             |             | |
+| check\_period             | chaîne           |             | |
+| check\_type               | entier court     |             | |
+| current\_check\_attempt   | entier court     |             | |
+| current\_state            | entier court     |             | |
+| downtime\_depth           | entier court     |             | |
+| enabled                   | booléen          |             | |
+| event\_handler            | chaîne           |             | |
+| event\_handler\_enabled   | booléen          |             | |
+| execution\_time           | réel             |             | |
+| flap\_detection\_enabled  | booléen          |             | |
+| has\_been\_checked        | booléen          |             | |
+| host\_id                  | entier non signé |             | |
+| is\_flapping              | booléen          |             | |
+| last\_check               | temps            |             | |
+| last\_hard\_state         | entier court     |             | |
+| last\_hard\_state\_change | temps            |             | |
+| last\_notification        | temps            |             | |
+| last\_state\_change       | temps            |             | |
+| last\_time\_down          | temps            |             | |
+| last\_time\_unreachable   | temps            |             | |
+| last\_time\_up            | temps            |             | |
+| last\_update              | temps            |             | |
+| latency                   | réel             |             | |
+| max\_check\_attempts      | entier court     |             | |
+| next\_check               | temps            |             | |
+| next\_host\_notification  | temps            |             | |
+| no\_more\_notifications   | booléen          |             | |
+| notification\_number      | entier court     |             | |
+| notifications\_enabled    | booléen          |             | |
+| obsess\_over              | booléen          |             | |
+| passive\_checks\_enabled  | booléen          |             | |
+| percent\_state\_change    | réel             |             | |
+| retry\_interval           | réel             |             | |
+| should\_be\_scheduled     | booléen          |             | |
+| state\_type               | entier court     |             | |
+| check\_command            | chaîne           |             | |
+| output                    | chaîne           |             | |
+| perf\_data                | chaîne           |             | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1053,14 +1053,14 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété      | Type             | Description                                                  | Version |
 | -------------- | ---------------- | ------------------------------------------------------------ | ------- |
-| engine         | chaîne           | Nom du moteur de supervision utilisé sur cette instance.     |
-| id             | entier non signé | ID de l’instance.                                            |
-| name           | chaîne           | Nom de l’instance.                                           |
-| is\_running    | booléen          | Si cette instance est en cours d’exécution ou non.           |
-| pid            | entier non signé | Supervision du PID du moteur.                                |
-| program\_end   | temps            | Heure à laquelle l’instance s’est arrêtée.                   |
-| program\_start | temps            | Heure à laquelle l’instance a démarré.                       |
-| version        | chaîne           | Version du moteur de supervision utilisé sur cette instance. |
+| engine         | chaîne           | Nom du moteur de supervision utilisé sur cette instance.     | |
+| id             | entier non signé | ID de l’instance.                                            | |
+| name           | chaîne           | Nom de l’instance.                                           | |
+| is\_running    | booléen          | Si cette instance est en cours d’exécution ou non.           | |
+| pid            | entier non signé | Supervision du PID du moteur.                                | |
+| program\_end   | temps            | Heure à laquelle l’instance s’est arrêtée.                   | |
+| program\_start | temps            | Heure à laquelle l’instance a démarré.                       | |
+| version        | chaîne           | Version du moteur de supervision utilisé sur cette instance. | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1114,22 +1114,22 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété                         | Type             | Description                                                                               | Version |
 | --------------------------------- | ---------------- | ----------------------------------------------------------------------------------------- | ------- |
-| active\_host\_checks\_enabled     | booléen          | Si les contrôles d’hôtes actifs sont activés ou non de manière globale.                   |
-| active\_service\_checks\_enabled  | booléen          | Si les contrôles de services actifs sont activés ou non de manière globale.               |
-| check\_hosts\_freshness           | booléen          | Si le contrôle de la fraîcheur des hôtes est activé ou non de manière globale.            |
-| check\_services\_freshness        | booléen          | Si le contrôle de la fraîcheur des services est activé ou non de manière globale.         |
-| event\_handler\_enabled           | booléen          | Si les gestionnaires d’évènements sont activés ou non de manière globale.                 |
-| flap\_detection\_enabled          | booléen          | Si la détection des bagotements est activée ou non de manière globale.                    |
-| id                                | entier non signé | ID de l’instance.                                                                         |
-| last\_alive                       | temps            | La dernière fois que l’instance a été identifiée comme étant vivante.                     |
-| last\_command\_check              | temps            | Dernière fois qu’une commande de contrôle a été exécutée.                                 |
-| notifications\_enabled            | booléen          | Si les notifications sont activées ou non de manière globale.                             |
-| obsess\_over\_hosts               | booléen          | Si oui ou non le moteur de supervision remontera les résultats de contrôles des hôtes.    |
-| obsess\_over\_services            | booléen          | Si oui ou non le moteur de supervision remontera les résultats de contrôles des services. |
-| passive\_host\_checks\_enabled    | booléen          | Si les contrôles passifs d’hôtes sont activés ou non de manière globale.                  |
-| passive\_service\_checks\_enabled | booléen          | Si les contrôles passifs de services sont activés ou non de manière globale.              |
-| global\_host\_event\_handler      | chaîne           | Gestionnaire d’évènements global pour les hôtes.                                          |
-| global\_service\_event\_handler   | chaîne           | Gestionnaire d’évènements global pour les services.                                       |
+| active\_host\_checks\_enabled     | booléen          | Si les contrôles d’hôtes actifs sont activés ou non de manière globale.                   | |
+| active\_service\_checks\_enabled  | booléen          | Si les contrôles de services actifs sont activés ou non de manière globale.               | |
+| check\_hosts\_freshness           | booléen          | Si le contrôle de la fraîcheur des hôtes est activé ou non de manière globale.            | |
+| check\_services\_freshness        | booléen          | Si le contrôle de la fraîcheur des services est activé ou non de manière globale.         | |
+| event\_handler\_enabled           | booléen          | Si les gestionnaires d’évènements sont activés ou non de manière globale.                 | |
+| flap\_detection\_enabled          | booléen          | Si la détection des bagotements est activée ou non de manière globale.                    | |
+| id                                | entier non signé | ID de l’instance.                                                                         | |
+| last\_alive                       | temps            | La dernière fois que l’instance a été identifiée comme étant vivante.                     | |
+| last\_command\_check              | temps            | Dernière fois qu’une commande de contrôle a été exécutée.                                 | |
+| notifications\_enabled            | booléen          | Si les notifications sont activées ou non de manière globale.                             | |
+| obsess\_over\_hosts               | booléen          | Si oui ou non le moteur de supervision remontera les résultats de contrôles des hôtes.    | |
+| obsess\_over\_services            | booléen          | Si oui ou non le moteur de supervision remontera les résultats de contrôles des services. | |
+| passive\_host\_checks\_enabled    | booléen          | Si les contrôles passifs d’hôtes sont activés ou non de manière globale.                  | |
+| passive\_service\_checks\_enabled | booléen          | Si les contrôles passifs de services sont activés ou non de manière globale.              | |
+| global\_host\_event\_handler      | chaîne           | Gestionnaire d’évènements global pour les hôtes.                                          | |
+| global\_service\_event\_handler   | chaîne           | Gestionnaire d’évènements global pour les services.                                       | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1192,19 +1192,19 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété             | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Version |
 | --------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
-| c\_time               | temps            | Temps de connexion.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| host\_id              | entier non signé | ID de l’hôte. 0 si l’entrée du journal ne fait pas référence à un hôte ou un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| host\_name            | chaîne           | Nom de l’hôte. Peut être vide si l’entrée du journal ne fait pas référence à un hôte ou un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| instance\_name        | chaîne           | Nom de l’instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| log\_type             | entier court     | 0 pour SOFT, 1 pour HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| msg\_type             | entier court     | 0 pour SERVICE ALERT (envoyé lors du changement d’état du service), 1 pour HOST ALERT (envoyé lors du changement d’état de l’hôte), 2 pour SERVICE NOTIFICATION (notification envoyée pour un service), 3 pour HOST NOTIFICATION (notification envoyée pour un hôte), 4 pour Warning (avertissement de Centreon Engine), 5 pour EXTERNAL COMMAND (commande externe reçue), 6 pour CURRENT SERVICE STATE (état actuel du service supervisé, généralement envoyé lors du rechargement de la configuration), 7 pour CURRENT HOST STATE (état actuel de l’hôte supervisé, (état actuel de l’hôte supervisé, généralement envoyé lors du rechargement de la configuration), 8 pour INITIAL SERVICE STATE (état initial du service, après traitement de rétention, envoyé au début du processus), 9 pour INITIAL HOST STATE (état initial de l’hôte surveillé, après traitement de rétention, envoyé au début du processus), 10 pour la commande externe ACKNOWLEDGE\_SVC\_PROBLEM (cas particulier de EXTERNAL COMMAND pour l’acquittement du service), 11 pour la commande externe ACKNOWLEDGE\_HOST\_PROBLEM (cas particulier de EXTERNAL COMMAND pour l’acquittement de l’hôte). |
-| notification\_cmd     | chaîne           | Commande de notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| notification\_contact | chaîne           | Contact pour la notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| retry                 | entier           | Tentative de contrôle actuelle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| service\_description  | chaîne           | Description du service. Vide si l’entrée du journal ne fait pas référence à un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| service\_id           | entier non signé | ID de service. 0 si l’entrée du journal ne fait pas référence à un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| status                | entier court     | Statut de l’hôte / du service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| output                | chaîne           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| c\_time               | temps            | Temps de connexion.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | |
+| host\_id              | entier non signé | ID de l’hôte. 0 si l’entrée du journal ne fait pas référence à un hôte ou un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | |
+| host\_name            | chaîne           | Nom de l’hôte. Peut être vide si l’entrée du journal ne fait pas référence à un hôte ou un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | |
+| instance\_name        | chaîne           | Nom de l’instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | |
+| log\_type             | entier court     | 0 pour SOFT, 1 pour HARD.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | |
+| msg\_type             | entier court     | 0 pour SERVICE ALERT (envoyé lors du changement d’état du service), 1 pour HOST ALERT (envoyé lors du changement d’état de l’hôte), 2 pour SERVICE NOTIFICATION (notification envoyée pour un service), 3 pour HOST NOTIFICATION (notification envoyée pour un hôte), 4 pour Warning (avertissement de Centreon Engine), 5 pour EXTERNAL COMMAND (commande externe reçue), 6 pour CURRENT SERVICE STATE (état actuel du service supervisé, généralement envoyé lors du rechargement de la configuration), 7 pour CURRENT HOST STATE (état actuel de l’hôte supervisé, (état actuel de l’hôte supervisé, généralement envoyé lors du rechargement de la configuration), 8 pour INITIAL SERVICE STATE (état initial du service, après traitement de rétention, envoyé au début du processus), 9 pour INITIAL HOST STATE (état initial de l’hôte surveillé, après traitement de rétention, envoyé au début du processus), 10 pour la commande externe ACKNOWLEDGE\_SVC\_PROBLEM (cas particulier de EXTERNAL COMMAND pour l’acquittement du service), 11 pour la commande externe ACKNOWLEDGE\_HOST\_PROBLEM (cas particulier de EXTERNAL COMMAND pour l’acquittement de l’hôte). | |
+| notification\_cmd     | chaîne           | Commande de notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | |
+| notification\_contact | chaîne           | Contact pour la notification.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | |
+| retry                 | entier           | Tentative de contrôle actuelle.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | |
+| service\_description  | chaîne           | Description du service. Vide si l’entrée du journal ne fait pas référence à un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | |
+| service\_id           | entier non signé | ID de service. 0 si l’entrée du journal ne fait pas référence à un service spécifique.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | |
+| status                | entier court     | Statut de l’hôte / du service.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | |
+| output                | chaîne           | Output.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1280,12 +1280,12 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété          | Type             | Description                                            | Version |
 | ------------------ | ---------------- | ------------------------------------------------------ | ------- |
-| args               | chaîne           | Arguments du module.                                   |
-| enabled            | booléen          | Si ce module est activé ou non.                        |
-| filename           | chaîne           | Chemin d’accès au fichier du module.                   |
-| instance\_id       | entier non signé | ID de l’instance.                                      |
-| loaded             | booléen          | Si ce module est chargé ou non.                        |
-| should\_be\_loaded | booléen          | Si ce module doit être (aurait dû être) chargé ou non. |
+| args               | chaîne           | Arguments du module.                                   | |
+| enabled            | booléen          | Si ce module est activé ou non.                        | |
+| filename           | chaîne           | Chemin d’accès au fichier du module.                   | |
+| instance\_id       | entier non signé | ID de l’instance.                                      | |
+| loaded             | booléen          | Si ce module est chargé ou non.                        | |
+| should\_be\_loaded | booléen          | Si ce module doit être (aurait dû être) chargé ou non. | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1312,88 +1312,88 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété                         | Type             | Description | Version |
 | --------------------------------- | ---------------- | ----------- | ------- |
-| acknowledged                      | booléen          |             |
-| acknowledged\_type                | entier court     |             |
-| action\_url                       | chaîne           |             |
-| active\_checks\_enabled           | booléen          |             |
-| check\_freshness                  | booléen          |             |
-| check\_interval                   | réel             |             |
-| check\_period                     | chaîne           |             |
-| check\_type                       | entier court     |             |
-| current\_check\_attempt           | entier court     |             |
-| current\_state                    | entier court     |             |
-| default\_active\_checks\_enabled  | booléen          |             |
-| default\_event\_handler\_enabled  | booléen          |             |
-| default\_flap\_detection\_enabled | booléen          |             |
-| default\_notifications\_enabled   | booléen          |             |
-| default\_passive\_checks\_enabled | booléen          |             |
-| dowtine\_depth                    | entier court     |             |
-| display\_name                     | chaîne           |             |
-| enabled                           | booléen          |             |
-| event\_handler                    | chaîne           |             |
-| event\_handler\_enabled           | booléen          |             |
-| execution\_time                   | réel             |             |
-| first\_notification\_delay        | réel             |             |
-| flap\_detection\_enabled          | booléen          |             |
-| flap\_detection\_on\_critical     | booléen          |             |
-| flap\_detection\_on\_ok           | booléen          |             |
-| flap\_detection\_on\_unknown      | booléen          |             |
-| flap\_detection\_on\_warning      | booléen          |             |
-| freshness\_threshold              | réel             |             |
-| has\_been\_checked                | booléen          |             |
-| high\_flap\_threshold             | réel             |             |
-| host\_id                          | entier non signé |             |
-| host\_name                        | chaîne           |             |
-| icon\_image                       | chaîne           |             |
-| icon\_image\_alt                  | chaîne           |             |
-| service\_id                       | entier non signé |             |
-| is\_flapping                      | booléen          |             |
-| is\_volatile                      | booléen          |             |
-| last\_check                       | temps            |             |
-| last\_hard\_state                 | entier court     |             |
-| last\_hard\_state\_change         | temps            |             |
-| last\_notification                | temps            |             |
-| last\_state\_change               | temps            |             |
-| last\_time\_critical              | temps            |             |
-| last\_time\_ok                    | temps            |             |
-| last\_time\_unknown               | temps            |             |
-| last\_time\_warning               | temps            |             |
-| last\_update                      | temps            |             |
-| latency                           | réel             |             |
-| low\_flap\_threshold              | réel             |             |
-| max\_check\_attempts              | entier court     |             |
-| next\_check                       | temps            |             |
-| next\_notification                | temps            |             |
-| no\_more\_notifications           | booléen          |             |
-| notes                             | chaîne           |             |
-| notes\_url                        | chaîne           |             |
-| notification\_interval            | réel             |             |
-| notification\_number              | entier court     |             |
-| notification\_period              | chaîne           |             |
-| notifications\_enabled            | booléen          |             |
-| notify\_on\_critical              | booléen          |             |
-| notify\_on\_downtime              | booléen          |             |
-| notify\_on\_flapping              | booléen          |             |
-| notify\_on\_recovery              | booléen          |             |
-| notify\_on\_unknown               | booléen          |             |
-| notify\_on\_warning               | booléen          |             |
-| obsess\_over                      | booléen          |             |
-| passive\_checks\_enabled          | booléen          |             |
-| percent\_state\_change            | réel             |             |
-| retry\_interval                   | réel             |             |
-| scheduled\_downtime\_depth        | entier court     |             |
-| service\_description              | chaîne           |             |
-| should\_be\_scheduled             | booléen          |             |
-| stalk\_on\_critical               | booléen          |             |
-| stalk\_on\_ok                     | booléen          |             |
-| stalk\_on\_unknown                | booléen          |             |
-| stalk\_on\_warning                | booléen          |             |
-| state\_type                       | entier court     |             |
-| check\_command                    | chaîne           |             |
-| output                            | chaîne           |             |
-| perf\_data                        | chaîne           |             |
-| retain\_nonstatus\_information    | booléen          |             |
-| retain\_status\_information       | booléen          |             |
+| acknowledged                      | booléen          |             | |
+| acknowledged\_type                | entier court     |             | |
+| action\_url                       | chaîne           |             | |
+| active\_checks\_enabled           | booléen          |             | |
+| check\_freshness                  | booléen          |             | |
+| check\_interval                   | réel             |             | |
+| check\_period                     | chaîne           |             | |
+| check\_type                       | entier court     |             | |
+| current\_check\_attempt           | entier court     |             | |
+| current\_state                    | entier court     |             | |
+| default\_active\_checks\_enabled  | booléen          |             | |
+| default\_event\_handler\_enabled  | booléen          |             | |
+| default\_flap\_detection\_enabled | booléen          |             | |
+| default\_notifications\_enabled   | booléen          |             | |
+| default\_passive\_checks\_enabled | booléen          |             | |
+| dowtine\_depth                    | entier court     |             | |
+| display\_name                     | chaîne           |             | |
+| enabled                           | booléen          |             | |
+| event\_handler                    | chaîne           |             | |
+| event\_handler\_enabled           | booléen          |             | |
+| execution\_time                   | réel             |             | |
+| first\_notification\_delay        | réel             |             | |
+| flap\_detection\_enabled          | booléen          |             | |
+| flap\_detection\_on\_critical     | booléen          |             | |
+| flap\_detection\_on\_ok           | booléen          |             | |
+| flap\_detection\_on\_unknown      | booléen          |             | |
+| flap\_detection\_on\_warning      | booléen          |             | |
+| freshness\_threshold              | réel             |             | |
+| has\_been\_checked                | booléen          |             | |
+| high\_flap\_threshold             | réel             |             | |
+| host\_id                          | entier non signé |             | |
+| host\_name                        | chaîne           |             | |
+| icon\_image                       | chaîne           |             | |
+| icon\_image\_alt                  | chaîne           |             | |
+| service\_id                       | entier non signé |             | |
+| is\_flapping                      | booléen          |             | |
+| is\_volatile                      | booléen          |             | |
+| last\_check                       | temps            |             | |
+| last\_hard\_state                 | entier court     |             | |
+| last\_hard\_state\_change         | temps            |             | |
+| last\_notification                | temps            |             | |
+| last\_state\_change               | temps            |             | |
+| last\_time\_critical              | temps            |             | |
+| last\_time\_ok                    | temps            |             | |
+| last\_time\_unknown               | temps            |             | |
+| last\_time\_warning               | temps            |             | |
+| last\_update                      | temps            |             | |
+| latency                           | réel             |             | |
+| low\_flap\_threshold              | réel             |             | |
+| max\_check\_attempts              | entier court     |             | |
+| next\_check                       | temps            |             | |
+| next\_notification                | temps            |             | |
+| no\_more\_notifications           | booléen          |             | |
+| notes                             | chaîne           |             | |
+| notes\_url                        | chaîne           |             | |
+| notification\_interval            | réel             |             | |
+| notification\_number              | entier court     |             | |
+| notification\_period              | chaîne           |             | |
+| notifications\_enabled            | booléen          |             | |
+| notify\_on\_critical              | booléen          |             | |
+| notify\_on\_downtime              | booléen          |             | |
+| notify\_on\_flapping              | booléen          |             | |
+| notify\_on\_recovery              | booléen          |             | |
+| notify\_on\_unknown               | booléen          |             | |
+| notify\_on\_warning               | booléen          |             | |
+| obsess\_over                      | booléen          |             | |
+| passive\_checks\_enabled          | booléen          |             | |
+| percent\_state\_change            | réel             |             | |
+| retry\_interval                   | réel             |             | |
+| scheduled\_downtime\_depth        | entier court     |             | |
+| service\_description              | chaîne           |             | |
+| should\_be\_scheduled             | booléen          |             | |
+| stalk\_on\_critical               | booléen          |             | |
+| stalk\_on\_ok                     | booléen          |             | |
+| stalk\_on\_unknown                | booléen          |             | |
+| stalk\_on\_warning                | booléen          |             | |
+| state\_type                       | entier court     |             | |
+| check\_command                    | chaîne           |             | |
+| output                            | chaîne           |             | |
+| perf\_data                        | chaîne           |             | |
+| retain\_nonstatus\_information    | booléen          |             | |
+| retain\_status\_information       | booléen          |             | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1556,12 +1556,12 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété               | Type             | Description                                               | Version |
 | ----------------------- | ---------------- | --------------------------------------------------------- | ------- |
-| active\_checks\_enabled | booléen          | True si les contrôles actifs sont activés sur le service. |
-| check\_type             | court            |                                                           |
-| host\_id                | entier non signé | ID de l’hôte.                                             |
-| next\_check             | temps            | Heure à laquelle le prochain contrôle est prévu.          |
-| service\_id             | entier non signé | ID de service.                                            |
-| command\_line           | chaîne           | Ligne de commande du contrôle.                            |
+| active\_checks\_enabled | booléen          | True si les contrôles actifs sont activés sur le service. | |
+| check\_type             | court            |                                                           | |
+| host\_id                | entier non signé | ID de l’hôte.                                             | |
+| next\_check             | temps            | Heure à laquelle le prochain contrôle est prévu.          | |
+| service\_id             | entier non signé | ID de service.                                            | |
+| command\_line           | chaîne           | Ligne de commande du contrôle.                            | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1618,15 +1618,15 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété                      | Type             | Description | Version |
 | ------------------------------ | ---------------- | ----------- | ------- |
-| dependency\_period             | chaîne           |             |
-| dependent\_host\_id            | entier non signé |             |
-| dependent\_service\_id         | entier non signé |             |
-| enabled                        | booléen          |             |
-| execution\_failure\_options    | chaîne           |             |
-| host\_id                       | entier non signé |             |
-| inherits\_parent               | booléen          |             |
-| notification\_failure\_options | chaîne           |             |
-| service\_id                    | entier non signé |             |
+| dependency\_period             | chaîne           |             | |
+| dependent\_host\_id            | entier non signé |             | |
+| dependent\_service\_id         | entier non signé |             | |
+| enabled                        | booléen          |             | |
+| execution\_failure\_options    | chaîne           |             | |
+| host\_id                       | entier non signé |             | |
+| inherits\_parent               | booléen          |             | |
+| notification\_failure\_options | chaîne           |             | |
+| service\_id                    | entier non signé |             | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1653,10 +1653,10 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété  | Type             | Description                                                         | Version |
 | ---------- | ---------------- | ------------------------------------------------------------------- | ------- |
-| id         | entier non signé |                                                                     |
-| name       | chaîne           | Nom du groupe.                                                      |
-| enabled    | enabled          | True si le groupe est activé, faux s’il ne l’est pas (suppression). |
-| poller\_id | entier non signé |                                                                     |
+| id         | entier non signé |                                                                     | |
+| name       | chaîne           | Nom du groupe.                                                      | |
+| enabled    | enabled          | True si le groupe est activé, faux s’il ne l’est pas (suppression). | |
+| poller\_id | entier non signé |                                                                     | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1683,12 +1683,12 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété   | Type             | Description                                                         | Version |
 | ----------- | ---------------- | ------------------------------------------------------------------- | ------- |
-| id          | entier non signé |                                                                     |
-| host\_id    | entier non signé |                                                                     |
-| service\_id | entier non signé |                                                                     |
-| enabled     | enabled          | True si le groupe est activé, faux s’il ne l’est pas (suppression). |
-| group\_name | chaîne           | Nom du groupe.                                                      |
-| poller\_id  | entier non signé |                                                                     |
+| id          | entier non signé |                                                                     | |
+| host\_id    | entier non signé |                                                                     | |
+| service\_id | entier non signé |                                                                     | |
+| enabled     | enabled          | True si le groupe est activé, faux s’il ne l’est pas (suppression). | |
+| group\_name | chaîne           | Nom du groupe.                                                      | |
+| poller\_id  | entier non signé |                                                                     | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1857,8 +1857,8 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété  | Type             | Description                                                                          | Version |
 | ---------- | ---------------- | ------------------------------------------------------------------------------------ | ------- |
-| loaded     | booléen          | True si l’instance s’est chargée avec succès.                                        |
-| poller\_id | entier non signé | ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload). |
+| loaded     | booléen          | True si l’instance s’est chargée avec succès.                                        | |
+| poller\_id | entier non signé | ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload). | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">
@@ -1885,8 +1885,8 @@ Le contenu de ce message est sérialisé de la manière suivante :
 
 | Propriété  | Type             | Description                                                                          | Version |
 | ---------- | ---------------- | ------------------------------------------------------------------------------------ | ------- |
-| poller\_id | entier non signé | ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload). |
-| responsive | booléen          | Un booléen indiquant si le collecteur ayant l’ID **poller_id** répond ou non.        |
+| poller\_id | entier non signé | ID du collecteur qui a reçu une demande de mise à jour de la configuration (reload). | |
+| responsive | booléen          | Un booléen indiquant si le collecteur ayant l’ID **poller_id** répond ou non.        | |
 
 </TabItem>
 <TabItem value="BBDO v3" label="BBDO v3">

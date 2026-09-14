@@ -483,6 +483,7 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 | --command-path    | Command path (default: none).                                                                                                                       |
 | --command-options | Command options (default: none).                                                                                                                    |
 | --proxyurl        | Proxy URL if any                                                                                                                                    |
+
 </TabItem>
 <TabItem value="api" label="api">
 
@@ -516,6 +517,7 @@ Les options spécifiques aux **custom modes** sont listées ci-dessous :
 | --aggregation          | Define how the data must be aggregated. Available aggregations: 'minimum', 'maximum', 'average', 'total' and 'count'. Can be called multiple times.                                                                                         |
 | --zeroed               | Set metrics value to 0 if they are missing. Useful when some metrics are undefined.                                                                                                                                                         |
 | --timeout              | Set timeout in seconds (default: 10).                                                                                                                                                                                                       |
+
 </TabItem>
 </Tabs>
 

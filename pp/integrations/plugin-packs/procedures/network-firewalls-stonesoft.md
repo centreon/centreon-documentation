@@ -110,6 +110,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:-----|:-----|
 | free | B    |
 | used | B    |
+
 </TabItem>
 <TabItem value="Disk-Name" label="Disk-Name">
 
@@ -117,6 +118,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 |:-----|:-----|
 | free | B    |
 | used | B    |
+
 </TabItem>
 <TabItem value="Dropped-Packets" label="Dropped-Packets">
 

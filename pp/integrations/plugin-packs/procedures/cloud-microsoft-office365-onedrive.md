@@ -244,7 +244,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 | Macro                          | Description                                                                                                                            | Default value | Mandatory |
 |:-------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
 | UNITS                          | Unit of thresholds ('%', 'count')                                                                                                      | %             |           |
-| FILTERCOUNTERS                 | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\                   | total'        | active-sites\|total |             |
+| FILTERCOUNTERS                 | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active-sites\                   \| total'        | active-sites\|total |             |
 | FILTERURL                      | Filter on url                                                                                                                          |               |           |
 | FILTEROWNER                    | Filter on owner                                                                                                                        |               |           |
 | WARNINGACTIVEFILECOUNT         | Threshold                                                                                                                              |               |           |
@@ -272,7 +272,7 @@ yum install centreon-plugin-Cloud-Microsoft-Office365-Onedrive-Api
 
 | Macro                              | Description                                                                                                                            | Default value     | Mandatory |
 |:-----------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:------------------|:---------:|
-| FILTERCOUNTERS                     | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\                         |total'   | active\|total     |             |
+| FILTERCOUNTERS                     | Only display some counters (regexp can be used). Example to hide per user counters: --filter-counters='active\                         \|total'   | active\|total     |             |
 | UNITS                              | Unit of thresholds  ('%', 'count')                                                                                                     | %                 |           |
 | FILTERUSER                         | Filter users                                                                                                                           |                   |           |
 | WARNINGACTIVEUSERS                 | Threshold                                                                                                                              |                   |           |

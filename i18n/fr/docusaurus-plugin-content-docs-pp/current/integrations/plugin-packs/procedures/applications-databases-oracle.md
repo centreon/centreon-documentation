@@ -303,6 +303,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | Métrique | Description                  | Unité |
 |:---------|:-----------------------------|:------|
 | status   | Check Oracle listener status |       |
+
 </TabItem>
 </Tabs>
 

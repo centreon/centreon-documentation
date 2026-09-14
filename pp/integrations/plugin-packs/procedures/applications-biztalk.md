@@ -27,8 +27,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias               | Service Template                               | Service Description                                       |
 |:----------------------------|:-----------------------------------------------|:----------------------------------------------------------|
-| Received-Locations-Disabled | App-Biztalk-Received-Locations-Disabled-custom | Check the number of disabled 
- "biztalk received locations" |
+| Received-Locations-Disabled | App-Biztalk-Received-Locations-Disabled-custom | Check the number of disabled |
+ | "biztalk received locations" | | |
 
 > The services listed above are created automatically when the **App-Biztalk-custom** host template is used.
 

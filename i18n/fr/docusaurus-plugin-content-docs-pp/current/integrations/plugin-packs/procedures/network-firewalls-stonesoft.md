@@ -111,6 +111,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-----|:------|
 | free | B     |
 | used | B     |
+
 </TabItem>
 <TabItem value="Disk-Name" label="Disk-Name">
 
@@ -118,6 +119,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-----|:------|
 | free | B     |
 | used | B     |
+
 </TabItem>
 <TabItem value="Dropped-Packets" label="Dropped-Packets">
 

@@ -524,6 +524,7 @@ All available options for each service template are listed below:
 | --critical-count  |   Threshold on the number of results.                                                                                                                                                                                                                                                                                                                                       |
 | --warning-value   |   Threshold. Define the warning threshold based on values. Variables %\{index\} and %\{value\} can be used. Example: --warning-value='%\{value\} !~ /OK/'                                                                                                                                                                                                                   |
 | --critical-value  |   Threshold. Define the critical threshold based on values. Variables %\{index\} and %\{value\} can be used. Example: --critical-value='%\{value\} =~ /FAILED/'                                                                                                                                                                                                             |
+
 </TabItem>
 </Tabs>
 

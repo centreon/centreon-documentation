@@ -68,6 +68,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | parity.chain               | N/A   |
 | parity.nodeName              | N/A   |
 | parity.is_validator             | N/A   |
+
 </TabItem>
 <TabItem value="Parity" label="Parity">
 

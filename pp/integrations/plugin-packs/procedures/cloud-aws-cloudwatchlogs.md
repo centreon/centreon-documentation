@@ -329,6 +329,7 @@ All **custom modes** specific options are listed here:
 | --statistic         | Set cloudwatch statistics (can be: 'minimum', 'maximum', 'average', 'sum').                    |
 | --zeroed            | Set metrics value to 0 if none. Useful when CloudWatch does not return value when not defined. |
 | --proxyurl          | Proxy URL if any                                                                               |
+
 </TabItem>
 <TabItem value="awscli" label="awscli">
 
@@ -352,6 +353,7 @@ All **custom modes** specific options are listed here:
 | --command-options   | Command options (default: none). Only use for testing purpose, when you want to set ALL parameters of a command by yourself.                                                                               |
 | --proxyurl          | Proxy URL if any                                                                                                                                                                                           |
 | --skip-ssl-check    | Avoid certificate issuer verification. Useful when AWS resources are hosted by a third party.   Note that it strips all stderr from the command result. Debug will only display CLI instead of everything. |
+
 </TabItem>
 </Tabs>
 
