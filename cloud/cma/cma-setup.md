@@ -11,7 +11,7 @@ import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
 This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/25.10/).)
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
@@ -90,7 +90,7 @@ This section applies:
 * if the poller initiates the connection to the agent
 * if the agent initiates the connection ro the poller but the option **Create hosts automatically** is not selected.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
@@ -216,7 +216,7 @@ This step is performed on the monitored host.
 
 ### Download and install the agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 #### Install the Centreon repository and the agent
@@ -809,7 +809,7 @@ Each instance has its own configuration and executes it independently of other i
 
 #### Configuration
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 The configuration for each instance is stored in a dedicated JSON file on the host.
@@ -835,7 +835,7 @@ Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Centreon\NomDuService
 
 > Running multiple instances configured with the same \<endpoint; host\> pair will cause duplicate metrics in the database for that host. It is mandatory to change the endpoint and/or host values when deploying a new instance.
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 1. Make a copy of the configuration file created during the initial deployment of CMA.
@@ -915,7 +915,7 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /AGENTINSTANCE="ServiceName"  /COM
 
 #### Editing a named instance
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 1. Make the desired changes in the JSON file for the instance.
@@ -957,7 +957,7 @@ See [**Uninstalling the agent**](#uninstalling-the-agent).
 
 ### Updating an existing configuration
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 1. Edit the following file: **/etc/centreon-monitoring-agent/centagent.json**.
@@ -983,7 +983,7 @@ centreon-monitoring-agent-modify.exe /VERYSILENT /AGENTINSTANCE "ServiceName"
 
 ### Updating the agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 Update the agent using your package manager.
@@ -1066,7 +1066,7 @@ This updates both the agent binaries and the configuration of the specified inst
 
 ### Uninstalling the agent
 
-<Tabs groupId="sync">
+<Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
 To uninstall an instance, run the following commands, adapting the name of the service and configuration file:

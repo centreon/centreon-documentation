@@ -545,7 +545,7 @@ systemctl restart apache2
 
 Vous devez ensuite finaliser le processus de mise à jour :
 
-  <Tabs groupId="sync" queryString>
+  <Tabs groupId="upgradeMethod" queryString>
   <TabItem value="Avec l'assistant d'interface" label="Avec l'assistant d'interface">
 
 1. Connectez-vous à l'interface web Centreon, l'assistant d'interface s'affiche. Cliquez sur **Next** :

@@ -133,7 +133,7 @@ Mettez à jour l'ensemble des composants :
 
 Vous devez maintenant finaliser la mise à jour :
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="upgradeMethod" queryString>
 <TabItem value="Avec l'assistant d'interface" label="Avec l'assistant d'interface">
 
 1. Connectez-vous à l'interface web Centreon pour démarrer le processus de

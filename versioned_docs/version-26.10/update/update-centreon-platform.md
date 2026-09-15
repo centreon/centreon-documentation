@@ -130,7 +130,7 @@ Then upgrade all the components with the following command:
 
 Now you need to finalize the update:
 
-<Tabs groupId="sync" queryString>
+<Tabs groupId="upgradeMethod" queryString>
 <TabItem value="Using the wizard" label="Using the wizard">
 
 1. Log on to the Centreon web interface to continue the update process. Click **Next**:
