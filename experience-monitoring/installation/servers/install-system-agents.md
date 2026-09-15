@@ -23,7 +23,7 @@ Sending system information to Experience Monitoring requires installing the Expe
 
 ## Prerequisites
 
-* To install the Experience Monitoring agent, you will need an **auto-registration token**. Each site has its own token. To retrieve a token, in the site you want, go to **Settings > System**. The token is displayed in a green box.
+* To install the Experience Monitoring agent, you will need an [access token](../tokens.md).
 
 * System agents must be able to communicate with our infrastructure. You may need to whitelist our [IP addresses](#endpoint-addresses-for-server-agents).
 
@@ -149,7 +149,7 @@ To install the Experience Monitoring agent:
     yum install quanta-agent
     ```
 
-5. Edit the file **/etc/quanta/agent.yml** and replace __YOUR_EXPERIENCE_MONITORING_TOKEN__ with [your **auto-registration token**](#prerequisites):
+5. Edit the file **/etc/quanta/agent.yml** and replace __YOUR_EXPERIENCE_MONITORING_TOKEN__ with [your **access token**](#prerequisites):
 
     ```shell
     __YOUR_EXPERIENCE_MONITORING_TOKEN__

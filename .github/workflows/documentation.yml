@@ -242,6 +242,8 @@ jobs:
           BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
       - name: Clear previous docusaurus build & rspack cache from github cache
+        # GITHUB_TOKEN is read-only on fork PRs, so this API call would fail.
+        if: ${{ github.event.pull_request.head.repo.fork != true }}
         env:
           CACHE_KEY_SUFFIX: "${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}"
         run: |
@@ -262,7 +264,8 @@ jobs:
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
 
   deploy-preview:
-    if: ${{ github.event_name == 'pull_request' }}
+    # Fork PRs get no AWS/CloudFront secrets and must not run on the self-hosted runner.
+    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork != true }}
     needs: [get-versions, build]
     runs-on: infrastructure
 

@@ -98,6 +98,34 @@ La connexion entre le collecteur et l'agent doit être sécurisée en production
 <!--* TLS: the certificate is signed by a certification authority and the Common Name (CN) is verified.
 * TLS insecure: the certification authority and Common Name are not verified (self-signed certificates can be used).-->
 
+### Compatibilité entre les versions de l'agent et du collecteur
+
+À partir de la version 25.10, la sécurisation de la connexion entre l'agent et le collecteur est renforcée : un jeton d'authentification valide est obligatoire dès que l'un des deux composants (l'agent ou le collecteur/la plateforme) est en version 25.10 ou supérieure. En version 24.10, les connexions sans jeton restent tolérées à titre transitoire.
+
+Si vous exploitez un parc avec des agents et des collecteurs de versions différentes (par exemple lors d'une montée de version progressive), le comportement dépend de la version de chaque composant :
+
+| Agent | Collecteur / plateforme | Sans jeton d'authentification | Avec jeton d'authentification valide |
+|---|---|---|---|
+| 24.10 | 24.10 | Autorisé (comportement transitoire) | Fonctionne |
+| 25.10 | 24.10 | Autorisé (comportement transitoire) | Fonctionne |
+| 24.10 | 25.10 | **Refusé** par le collecteur | Fonctionne |
+| 25.10 | 25.10 | **Refusé** par le collecteur | Fonctionne |
+
+> Nous vous recommandons de toujours configurer un jeton d'authentification, quelle que soit la version, afin d'éviter toute interruption de la supervision lors d'une montée de version de la plateforme.
+
+Par ailleurs, certaines fonctionnalités de l'agent introduites en version 25.10 nécessitent un support côté Engine sur le collecteur, et ne fonctionnent donc que si l'agent **et** le collecteur sont tous les deux en version 25.10 ou supérieure :
+
+| Fonctionnalité de l'agent (nouveauté 25.10) | Collecteur **25.10** + agent **24.10** | Collecteur **24.10** + agent **25.10** |
+|---|:---:|:---:|
+| Commandes personnalisées (`custom`) | ❌ | ✅ |
+| Prise en compte des plages horaires de contrôle (timeperiods) | ❌ | ❌ |
+| Gestion des tentatives SOFT/HARD (retry) | ❌ | ❌ |
+| Chiffrement des identifiants (`encrypt::`) | ❌ | ❌ |
+| Auto-enregistrement de l'hôte | ❌ | ❌ |
+| Contrôle forcé (force check) | ❌ | ❌ |
+
+Les contrôles natifs de base (CPU, mémoire, stockage, uptime, services Windows, journal d'événements, process, tâches planifiées, compteurs de performance, etc.) restent disponibles quelle que soit la combinaison de versions.
+
 ### Schéma de fonctionnement
 
 <Tabs groupId="cmaConnect" queryString>
