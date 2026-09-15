@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
 import { useLocation } from '@docusaurus/router';
-import { useDoc } from '@docusaurus/plugin-content-docs/client';
 import Translate from '@docusaurus/Translate';
 import { EditIcon, FeedbackIcon, TheWatchIcon } from '../FeedbackButtons/icons';
 import { getFeedbackFormUrl, THE_WATCH_NEW_TOPIC_URL } from '../FeedbackButtons/links';
@@ -10,16 +9,16 @@ import 'typeface-roboto';
 
 /**
  * Floating "?" button, displayed at the bottom right of every documentation
- * page. It must be rendered from DocItem/Layout and not from the TOC: pages
- * without any level 2 title have no TOC at all, and the button used to be
- * missing on those pages (MON-201729).
+ * page. It used to be rendered from the TOC, which is not rendered at all on
+ * pages without any level 2 title, so the button was missing on those pages
+ * (MON-201729).
+ *
+ * `editUrl` is optional: generated category index pages have no source file to
+ * edit, so they only get the feedback and The Watch buttons.
  */
-export default function FloatingHelpButton() {
+export default function FloatingHelpButton({ editUrl }) {
   const [showFooterButtons, setShowFooterButtons] = useState(false);
   const location = useLocation();
-  const { metadata } = useDoc();
-
-  const editUrl = metadata?.editUrl || '';
 
   const handleToggleButtons = () => {
     setShowFooterButtons((prev) => !prev);
