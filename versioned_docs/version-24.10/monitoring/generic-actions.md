@@ -28,7 +28,7 @@ Thanks to this method, it is no longer necessary to create each host individuall
 
 To duplicate an object:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Method 1" label="Method 1">
 
 For example, to duplicate a Business Activity:
@@ -67,7 +67,7 @@ community without it being necessary to change each sheet of each host individua
 
 To perform a mass change:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects that you want to change.
@@ -94,7 +94,7 @@ The main advantage is to be able to keep the configuration of an object without 
 
 To enable/disable an object:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects you want to enable/disable.
@@ -127,7 +127,7 @@ You can also use the following buttons at the end of the line:
 
 To delete an object:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Method 1" label="Method 1">
 
 1. Select the objects you want to delete.

@@ -26,7 +26,7 @@ service). Un commentaire possède les propriétés suivantes :
 
 Pour ajouter un commentaire, deux solutions sont possibles :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails de l'objet
@@ -69,7 +69,7 @@ d'un hôte ou d'un service.
 
 ### En pratique
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails de l'objet
@@ -114,7 +114,7 @@ d'un hôte ou d'un service.
 
 Il y a deux moyens de gérer les notifications :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détails de l'objet
@@ -167,7 +167,7 @@ Il existe deux types de programmation :
 
 Il y a deux moyens de forcer la vérification d'un service :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page de détails d'un objet" label="Page de détails d'un objet">
 
 1.  Accédez à la page de détail de l’objet

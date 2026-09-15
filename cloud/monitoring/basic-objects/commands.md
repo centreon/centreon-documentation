@@ -142,7 +142,7 @@ Centreon recommends using its official packages. Most of Centreon’s endorsed s
 
 Run the following commands as a privileged user:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -177,7 +177,7 @@ Centreon recommends using its official packages. Most of Centreon’ endorsed so
 
 Run the following commands as a privileged user:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

@@ -89,7 +89,7 @@ You can also configure:
 
 ### Step 4: Manage user creation
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Users automatic management" label="Automatic management">
 
 If you turn on **Enable auto import**, users that log in to Centreon for the first time will be created in the Centreon configuration. (Turning the option on does not automatically import all users from your infrastructure.)
@@ -112,7 +112,7 @@ On page **Configuration > Users > Contacts/Users**, [create the users](../monito
 
 ### Step 5: Manage Authorizations
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Role automatic management" label="Automatic management">
 
 If you turn on **Enable automatic management**, users who log in to Centreon will be automatically [granted rights](../administration/access-control-lists.md), as they will be linked to [access groups](../administration/access-control-lists.md#creating-an-access-group) according to the rules you have defined.
@@ -152,7 +152,7 @@ If you turn off **Enable automatic management**, you have to [grant users rights
 
 ### Step 6: Manage Contact groups
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Groups automatic management" label="Automatic management">
 
 If you turn on **Enable automatic management**, users who log in to Centreon will be attached to the [contact groups](../monitoring/basic-objects/contacts-groups.md#contact-groups) you have defined.
@@ -200,7 +200,7 @@ and to authorize the following `redirect URI` to forward your connected users to
 
 ## Examples of configuration
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Microsoft Azure AD" label="Microsoft Azure AD">
 
 Here is an example configuration for Microsoft Azure Active Directory:

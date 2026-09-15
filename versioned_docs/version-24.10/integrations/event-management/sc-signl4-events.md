@@ -24,7 +24,7 @@ Perform the installation on the server that will send data to Signl4 (central se
 
 2. Run the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

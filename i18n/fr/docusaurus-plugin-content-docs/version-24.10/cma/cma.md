@@ -30,7 +30,7 @@ Utilisez l'agent CMA :
 
 L'agent peut être installé sur et superviser les OS suivants :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 * RHEL/Oracle Linux/Alma Linux 8
@@ -128,7 +128,7 @@ Les contrôles natifs de base (CPU, mémoire, stockage, uptime, services Windows
 
 ### Schéma de fonctionnement
 
-<Tabs groupId="sync">
+<Tabs groupId="cmaConnect" queryString>
 <TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
 ![image](../assets/cma/initiated-by-agent.png)
 </TabItem>

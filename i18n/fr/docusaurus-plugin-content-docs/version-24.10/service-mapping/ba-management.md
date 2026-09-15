@@ -42,7 +42,7 @@ disponibles afin de rendre compte de l'état d'une BA:
 
 Ci-dessous des explications et exemples pour chacune des méthodes
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Best Status" label="Best Status">
 
 L'ordre appliqué pour "Best" status est le suivant :

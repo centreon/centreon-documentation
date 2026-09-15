@@ -30,7 +30,7 @@ Use the CMA agent:
 
 The CMA can be installed on and monitor the following OSs:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 * RHEL/Oracle Linux/Alma Linux 8
@@ -102,13 +102,13 @@ The connection between the poller and the agent must be secure in production. Yo
 
 ### Operating diagram
 
-<Tabs groupId="sync">
-<TabItem value="Agent connects to poller" label="Agent connects to poller">
+<Tabs groupId="cmaConnect" queryString>
+<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
 
 ![image](../assets/cma/initiated-by-agent.png)
 
 </TabItem>
-<TabItem value="Poller connects to agent" label="Poller connects to agent">
+<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
 
 ![image](../assets/cma/initiated-by-poller.png)
 

@@ -34,7 +34,7 @@ If you want to manually configure certificates, the agent configuration, and/or 
 The installation scripts allow you to deploy CMA on a host directly from the command line, without going through the Centreon interface.
 These scripts are downloaded and retrieved by the installation command described above, but can also be used independently, for example for automation purposes.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Windows" label="Windows">
 
 ### Syntax

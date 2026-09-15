@@ -28,7 +28,7 @@ L'équipement doit être accessible depuis le collecteur Centreon sur le port SN
 
 Connectez-vous à votre collecteur en SSH et installez le plugin standard Cisco (voir la [procédure de surveillance pour le connecteur de supervision **Cisco standard**](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) pour plus d'informations) :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

@@ -102,7 +102,7 @@ adresses IP seront autorisées à accéder à l'interface Centreon.
 
 ### Étape 4 : Gérer la création d'utilisateurs
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Gestion automatique utilisateurs" label="Gestion automatique">
 
 Si vous activez l'import automatique des utilisateurs, les utilisateurs qui se connecteront à Centreon pour la première fois
@@ -129,7 +129,7 @@ qui se connecteront à Centreon avec OpenID Connect.
 
 ### Étape 5 : Gérer les autorisations
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Role automatic management" label="Gestion automatique">
 
 Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon se verront
@@ -176,7 +176,7 @@ Si vous désactivez l'option **Activer la gestion automatique**, vous devrez [at
 
 ### Étape 6 : Gérer les groupes de contacts
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Groups automatic management" label="Gestion automatique">
 
 Si vous activez l'option **Activer la gestion automatique**, les utilisateurs qui se connectent à Centreon seront rattachés
@@ -228,7 +228,7 @@ authentifier vos utilisateur, et pour autoriser l'uri de redirection suivante un
 
 ### Exemples de configuration
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Microsoft Azure AD" label="Microsoft Azure AD">
 
 Voici un exemple de configuration pour Microsoft Azure Active Directory:

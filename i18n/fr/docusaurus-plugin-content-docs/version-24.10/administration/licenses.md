@@ -37,7 +37,7 @@ Allez à la page **Administration > Extensions > Gestionnaire**. Tous les module
 
 ## Ajouter une licence
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Licences en ligne" label="Licences en ligne">
 
 > Consultez les [tableaux des flux réseau](../installation/technical.md#tableaux-des-flux-réseau) pour l'intégration de votre plateforme de supervision.

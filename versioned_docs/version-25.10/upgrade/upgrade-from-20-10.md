@@ -55,19 +55,10 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 
 Before upgrading your Centreon platform, make sure the following package repositories are enabled:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="EL" label="EL">
 
 * EPEL
-* BaseOS
-* AppStream
-* centreon
-* centreon-modules, if you are using Centreon Business Edition.
-
-</TabItem>
-<TabItem value="Debian 11" label="Debian 11">
-
-* bullseye, bullseye-updates, bullseye-backports and bullseye security
 * BaseOS
 * AppStream
 * centreon
@@ -125,7 +116,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 ### Install the MariaDB repository
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 ```shell
@@ -141,7 +132,7 @@ dnf module enable -y mariadb:10.11
 
 2. If you have installed Business extensions, delete the configuration of the 20.10 repository: 
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -177,7 +168,7 @@ rm /var/lib/centreon-broker/* -f
 
 Centreon 25.10 uses PHP in version 8.2.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell
@@ -225,7 +216,7 @@ Then, finish upgrading the Centreon solution.
 
 1. Clean the cache:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
    
 ```shell
@@ -244,7 +235,7 @@ dnf clean all --enablerepo=*
 
 2. Then upgrade all the components with the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -256,7 +247,7 @@ dnf update centreon\* php-pecl-gnupg
 
 > Accept new GPG keys from the repositories as needed.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Execute the following commands:
@@ -272,7 +263,7 @@ systemctl restart php-fpm
 
 This section only applies if you customized your Apache configuration.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
 
 When you upgrade your platform, the Apache configuration file is not upgraded automatically. The new configuration file brought by the rpm does not replace the old file. You must copy the changes manually to your customized configuration file.
@@ -374,7 +365,7 @@ The MariaDB components can now be upgraded.
 
 Run the following command on the dedicated DBMS server:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -461,7 +452,7 @@ systemctl enable mariadb
 
 ### Finalizing the upgrade
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
@@ -568,7 +559,7 @@ systemctl restart centengine
 
 Run the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

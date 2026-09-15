@@ -62,7 +62,7 @@ La communication entre le serveur Central et un Poller est assurée par Gorgone 
 être faite en utilisant ZMQ (avec un Gorgone s'exécutant sur le Poller,
 recommandé) ou en utilisant le protocole SSH.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Avec ZMQ (Recommandé)" label="Avec ZMQ (Recommandé)">
 
 1. Sélectionner le type de communication :

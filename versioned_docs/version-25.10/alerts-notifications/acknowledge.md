@@ -46,7 +46,7 @@ Acknowledgements apply to Business Activities (BAs) as follows:
 
 To acknowledge an alert, there are several solutions:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From the Resources Status page" label="From the Resources Status page">
 
 1. Go to **Monitoring > Resources Status**.
@@ -143,7 +143,7 @@ The following window appears:
 
 To delete the acknowledgment of an incident on an object:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From the Resources Status page" label="From the Resources Status page">
 
 1. Go to **Monitoring > Resources Status**.

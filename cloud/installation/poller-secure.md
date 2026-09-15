@@ -77,7 +77,7 @@ shutdown -r now
 
 Depending on the type of server, install the packages with the following command:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -154,7 +154,7 @@ following this [procedure](#activate-selinux) using **enforcing** mode.
 
 ## Enable firewalld
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Install firewalld:

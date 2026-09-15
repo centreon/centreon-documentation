@@ -101,7 +101,7 @@ Let's say that a frontend server that performs properly may be defined by:
 So the state of a frontend-X is the Worst status of these 3 indicators. The first step is over; let's create a 
 Frontend-1 business activity:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Concept" label="Concept">
 
 ![image](../assets/service-mapping/frontend-1-concept.png)
@@ -118,7 +118,7 @@ Frontend-1 business activity:
 Now that we've defined our 10 frontend servers, we'll attach them to a parent business activity called "Frontends Cluster"
 so that it tells us whether or not we have 20% of Frontend servers available
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Concept" label="Concept">
 
 ![image](../assets/service-mapping/ratio.png)

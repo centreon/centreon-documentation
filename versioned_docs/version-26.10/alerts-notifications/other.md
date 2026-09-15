@@ -26,7 +26,7 @@ following properties:
 
 There are two solutions to add a comment:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access to the details page of the object
@@ -65,7 +65,7 @@ It is possible to temporarily enable or disable a check on a host or a service.
 
 ### Practice
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the details page of the object
@@ -110,7 +110,7 @@ host or a service.
 
 There are two ways of managing notifications:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the details page of the object
@@ -161,7 +161,7 @@ There are two types of programming:
 
 There are two ways of forcing the check of a service:
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From the detailed sheet of an object" label="From the detailed sheet of an object">
 
 1.  Access the detail page of the object

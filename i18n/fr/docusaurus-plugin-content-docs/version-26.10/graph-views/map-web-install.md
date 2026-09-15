@@ -30,7 +30,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 
 #### Matériel
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
 | Élément                     | Valeur    |
@@ -157,7 +157,7 @@ Notez que l'interface web de MAP a les mêmes prérequis que l'interface web Cen
 
 ### Désactiver SELinux
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
@@ -566,7 +566,7 @@ Installez les paquets de **centreon-map-engine** :
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Debian 12" label="Debian 12">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine

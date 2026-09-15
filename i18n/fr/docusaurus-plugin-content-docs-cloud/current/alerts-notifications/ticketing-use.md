@@ -22,7 +22,7 @@ En règle générale, votre administrateur aura créé deux widgets, avec des ti
 
 ## Comment ouvrir un ticket ?
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Dans les tableaux de bord" label="Dans les tableaux de bord">
 
 > Dans la fonctionnalité **Tableaux de bord**, Open Ticket est disponible via le widget **Tableau des ressources**, dans la liste des événements.
@@ -58,7 +58,7 @@ Votre tableau de bord affiche maintenant le widget **Tableau des ressources** co
 
 Vous pouvez fermer les tickets dans Centreon : pour certains fournisseurs, le ticket sera également automatiquement fermé dans votre outil ITSM.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Dans les tableaux de bord" label="Dans les tableaux de bord">
 
 Vous pouvez fermer les tickets directement depuis le widget Tableau des ressources.

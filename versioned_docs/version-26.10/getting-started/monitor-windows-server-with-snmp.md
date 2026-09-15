@@ -26,7 +26,7 @@ Find below some steps to install and configure SNMP on Windows 10.
 
 There are several ways to enable SNMP: from the **Settings** menu or by using PowerShell.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="From the Settings menu" label="From the Settings menu">
 
 1. Go to **Settings > Apps & features > Optional features**.
@@ -94,7 +94,7 @@ Then select **Accept SNMP packets from these hosts** and add the IP address of t
 
 Connect to your poller using SSH and install the Windows SNMP plugin (see the [monitoring procedure for the **Windows SNMP** Monitoring Connector](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) for more information):
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

@@ -43,7 +43,7 @@ rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon
 
 Lancer la mise à jour sur les deux serveurs centraux :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Videz le cache :
@@ -74,7 +74,7 @@ dnf update centreon\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 Videz le cache :
 
@@ -96,7 +96,7 @@ Une fois les mises à jour des paquets terminées sur les deux centraux, il rest
 
 En parallèle, sur le **central passif**, il faut déplacer le répertoire **"install"** et regénérer le cache Symfony pour éviter d'afficher à nouveau l'interface de mise à jour suite à une bascule :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
@@ -111,7 +111,7 @@ mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`da
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
@@ -124,7 +124,7 @@ sudo -u www-data /usr/share/centreon/bin/console cache:clear
 
 Les crons sont remis en place lors de la mise à jour des RPMs. Supprimez-les sur les deux noeuds centraux afin d'éviter les exécutions concurrentes.
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
@@ -144,7 +144,7 @@ rm -f /etc/cron.d/centreon-auto-disco
 systemctl restart crond
 ```
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 rm -f /etc/cron.d/centreon
