@@ -67,7 +67,7 @@ and runs an installer script on the target container host. The script generates 
 
 ## Step 2: Run the install command on the container host
 
-1. Run the copied command as a user who is allowed to use Docker on the target
+1. Run the copied command as a user who is allowed to use containers on the target
 host.
 
    <details>
@@ -107,7 +107,7 @@ host.
 
    </details>
 
-2. Check the health status of the `gorgone` container on the Docker host:
+2. Check the health status of the `gorgone` container on the container's host:
 
    ```shell
    docker compose ps
