@@ -11,7 +11,7 @@ import TabItem from '@theme/TabItem';
 
 ### August
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Optimized the stream connector to avoid DOS.
