@@ -19,7 +19,7 @@ This page describes what to do if the following conditions are met:
 
 ### Pullwss mode
 
-By default, the central server initiates the connection to its pollers. However, a poller running in a container cannot accept incoming connections, so this default does not work.
+By default, the central server initiates the connection to its pollers. However, a poller running in a container cannot accept incoming connections, so this mode does not work.
 
 **pullwss** mode reverses the direction: the poller opens a WebSocket connection to the central server and keeps it open.
 
@@ -169,7 +169,7 @@ The poller will automatically connect to the central server using pullwss.
 
 ## If you delete all your pollers in containers
 
-If in th efuture you sould delete all your pollers in containers, do not forget to undo the steps above.
+If in the future you should delete all your pollers in containers, do not forget to undo the steps above.
 
 ## Troubleshooting the installation
 

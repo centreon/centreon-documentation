@@ -165,7 +165,7 @@ Instead of installing dependencies at container startup, you can build your
 own image on top of the official one and install everything at build time:
 
 ```dockerfile
-FROM docker.centreon.com/centreon/centreon-engine-trixie:26.10
+FROM ghcr.io/centreon/centreon-engine:26.10
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
       snmp \
