@@ -6,7 +6,7 @@ description: "Configuring Centreon to receive connections from pollers in contai
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page explains how to configure your platform to be able to use pollers in containers.
+This page explains how to configure your platform to be able to use pollers in containers. You only have to perform this procedure once for the whole platform, before you install your first poller in a container. It has no impact on other poller deployment modes.
 
 ## When to use this procedure
 
@@ -21,7 +21,7 @@ This page describes what to do if the following conditions are met:
 
 By default, the central server initiates the connection to its pollers. However, a poller running in a container cannot accept incoming connections, so this default does not work.
 
-**pullwss** mode reverses the direction: the poller opens a WebSocket connection to the central server and keeps it open. You need to perform this procedure once for the whole platform, when you first install a poller in a container. This has no impact on other types of poller deployments.
+**pullwss** mode reverses the direction: the poller opens a WebSocket connection to the central server and keeps it open.
 
 The recomended and secure way is to use HTTPS. This means that certificates are needed to secure the connection. To simplify certificate lifecycle management, Apache (which already hosts the Centreon web interface) is used as a reverse proxy to terminate the TLS connection and forward the traffic to the central server's Gorgone.
 

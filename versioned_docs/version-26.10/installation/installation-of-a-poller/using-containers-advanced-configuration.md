@@ -4,128 +4,18 @@ title: Advanced container configuration
 description: "Optional configuration for a container-based poller: VMware monitoring, custom plugins, CMA support, and email notifications"
 ---
 
-This page covers optional configuration for a poller deployed with
-[containers](./using-containers.md),
+This page covers optional configuration for a poller deployed in a
+[container](./using-containers.md),
 beyond the default `centengine` and `gorgone` services.
 
-## Optional: centreon-vmware container
-
-Monitoring VMware infrastructure requires the proprietary VMware Perl SDK:
-the daemon cannot start at all without it, even with plain-text credentials.
-Because the SDK cannot be redistributed for licensing reasons, the
-`centreon-vmware` container image is **not published on a registry**. The
-generated `docker-compose.yaml` references it as
-`connector-vmware:${VMWARE_TAG:-local}` with `pull_policy: never`, so you must
-build it locally, on the Docker host, before using `--with-vmware`.
-
-Download the SDK archives from the Broadcom developer portal (see the
-[prerequisites of the VMware ESX monitoring
-connector](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx#prerequisites)
-for instructions), then clone `centreon-plugins`, place the archives in its
-`sdks-vmware` directory, and build the image:
-
-```shell
-git clone https://github.com/centreon/centreon-plugins.git
-cd centreon-plugins
-# Place the downloaded SDK archives in sdks-vmware/ before building
-docker build \
-  --file .github/docker/connector/Dockerfile.connector-vmware \
-  --tag connector-vmware:local \
-  .
-```
-
-> This downloads the latest package from Centreon's stable APT repository and
-> includes the SDK by default. Add `--build-arg VERSION=<version>` to pin a
-> specific release, or `--build-arg PACKAGE_SOURCE=mount` to build from a
-> `.deb` package placed in a `packages-centreon` directory instead. Building
-> with `--build-arg WITH_SDK=false` only validates that the image builds: the
-> resulting daemon cannot start, since the SDK is required in all cases.
-
-## Custom checks and plugin dependencies
-
-The `centengine` container can install custom check scripts and extra APT
-dependencies without rebuilding the image. Add the corresponding volumes to
-the `centengine` service in the generated `docker-compose.yaml`:
-
-```yaml
-    volumes:
-      # Custom plugin scripts (must be executable)
-      - ./custom-plugins:/usr/lib/nagios/plugins/custom:ro
-      # Extra APT packages, installed at startup
-      - ./custom-deps.json:/etc/centreon-engine/custom-deps.json:ro
-```
-
-* **Custom plugin scripts** placed in `./custom-plugins` become available
-  under `/usr/lib/nagios/plugins/custom` inside the container.
-* **`custom-deps.json`** lists arbitrary APT packages to install, for example:
-
-  ```json
-  {
-    "apt": ["snmp", "jq"]
-  }
-  ```
-
-  This file is read when the container starts, and watched for changes
-  afterward: editing it on the host triggers an automatic install of the
-  listed packages, with no need to restart the container. Package
-  installation runs in the background, so `centengine` is not blocked while
-  it happens.
-
-> Centreon monitoring plugins (from Monitoring Connectors) don't need to be
-> configured here: Gorgone installs them automatically, in the same shared
-> configuration volume, whenever **Automatic installation of plugins** is
-> enabled on the **Configuration > Connectors > Monitoring Connectors** page
-> and the poller's configuration is deployed from the central server. See
-> [Monitoring Connectors](https://docs.centreon.com/docs/monitoring/pluginpacks/) for details.
-
-### Baking dependencies into a custom image
-
-Instead of installing dependencies at container startup, you can build your
-own image on top of the official one and install everything at build time:
-
-```dockerfile
-FROM docker.centreon.com/centreon/centreon-engine-trixie:26.10
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-      snmp \
-      jq \
-    && rm -rf /var/lib/apt/lists/*
-```
-
-Build it, then reference it as `ENGINE_TAG` (or override the `image:` value
-directly) in your `docker-compose.yaml`. The main advantage of this approach
-is startup time: when a poller needs many dependencies, installing them once
-at build time is faster than installing them every time the container starts
-via `custom-deps.json`.
-
-## Optional: Centreon Monitoring Agent (CMA) support
-
-Add `--with-cma` to the install command so that `centengine` can accept
-connections from the Centreon Monitoring Agent over OpenTelemetry gRPC. This
-adds the following to the `centengine` service:
-
-```yaml
-    volumes:
-      - ./certs/poller.crt:/etc/pki/poller.crt:ro
-      - ./certs/poller.key:/etc/pki/poller.key:ro
-    ports:
-      - "4317:4317"
-```
-
-Generate the TLS certificates and configure the agent side following
-[Configuring certificates](../../cma/cma-certificates.md) and
-[Setting up the agent's environment](../../cma/cma-setup.md).
-
-## Optional: Email notifications
+## Allow the poller to send email notifications
 
 The `centengine` image ships two independent ways to send email
 notifications, so you can use whichever fits your infrastructure:
 
 * A **native SMTP command**, using the `mail` command (from `mailutils`)
   relayed through `msmtp`.
-* The **`centreon-plugin-notification-email` connector**, the same
-  Monitoring Connector used for email notifications on package-based
-  installations.
+* The **`centreon-plugin-notification-email` connector**.
 
 The **native SMTP command** needs an SMTP relay to send through, configured
 with environment variables on the `centengine` service. The **connector**
@@ -230,3 +120,112 @@ command instead: `--smtp-address='$SMTPADDRESS$' --smtp-port='$SMTPPORT$'
 > environment variables from Option 1.
 
 See the connector's own documentation for the full list of options.
+
+## Allow the poller to use custom plugins for monitoring
+
+The `centengine` container can install custom check scripts and extra APT
+dependencies without rebuilding the image. Add the corresponding volumes to
+the `centengine` service in the generated `docker-compose.yaml`:
+
+```yaml
+    volumes:
+      # Custom plugin scripts (must be executable)
+      - ./custom-plugins:/usr/lib/nagios/plugins/custom:ro
+      # Extra APT packages, installed at startup
+      - ./custom-deps.json:/etc/centreon-engine/custom-deps.json:ro
+```
+
+* **Custom plugin scripts** placed in `./custom-plugins` become available
+  under `/usr/lib/nagios/plugins/custom` inside the container.
+* **`custom-deps.json`** lists arbitrary APT packages to install, for example:
+
+  ```json
+  {
+    "apt": ["snmp", "jq"]
+  }
+  ```
+
+  This file is read when the container starts, and watched for changes
+  afterward: editing it on the host triggers an automatic install of the
+  listed packages, with no need to restart the container. Package
+  installation runs in the background, so `centengine` is not blocked while
+  it happens.
+
+> this section only applies for custom plugins. No action is needed to use the official Centreon monitoring connectors.
+> Centreon monitoring plugins (from Monitoring Connectors) don't need to be
+> configured here: Gorgone installs them automatically, in the same shared
+> configuration volume, whenever **Automatic installation of plugins** is
+> enabled on the **Configuration > Connectors > Monitoring Connectors** page
+> and the poller's configuration is deployed from the central server. See
+> [Monitoring Connectors](https://docs.centreon.com/docs/monitoring/pluginpacks/) for details.
+
+### Baking dependencies into a custom image
+
+Instead of installing dependencies at container startup, you can build your
+own image on top of the official one and install everything at build time:
+
+```dockerfile
+FROM docker.centreon.com/centreon/centreon-engine-trixie:26.10
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+      snmp \
+      jq \
+    && rm -rf /var/lib/apt/lists/*
+```
+
+Build it, then reference it as `ENGINE_TAG` (or override the `image:` value
+directly) in your `docker-compose.yaml`. The main advantage of this approach
+is startup time: when a poller needs many dependencies, installing them once
+at build time is faster than installing them every time the container starts
+via `custom-deps.json`.
+
+## Allow the poller to monitor VMware resources
+
+Monitoring VMware infrastructure requires the proprietary VMware Perl SDK:
+the daemon cannot start at all without it, even with plain-text credentials.
+Because the SDK cannot be redistributed for licensing reasons, the
+`centreon-vmware` container image is **not published on a registry**. The
+generated `docker-compose.yaml` references it as
+`connector-vmware:${VMWARE_TAG:-local}` with `pull_policy: never`, so you must
+build it locally, on the container host, before using `--with-vmware`.
+
+Download the SDK archives from the Broadcom developer portal (see the
+[prerequisites of the VMware ESX monitoring
+connector](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx#prerequisites)
+for instructions), then clone `centreon-plugins`, place the archives in its
+`sdks-vmware` directory, and build the image:
+
+```shell
+git clone https://github.com/centreon/centreon-plugins.git
+cd centreon-plugins
+# Place the downloaded SDK archives in sdks-vmware/ before building
+docker build \
+  --file .github/docker/connector/Dockerfile.connector-vmware \
+  --tag connector-vmware:local \
+  .
+```
+
+> This downloads the latest package from Centreon's stable APT repository and
+> includes the SDK by default. Add `--build-arg VERSION=<version>` to pin a
+> specific release, or `--build-arg PACKAGE_SOURCE=mount` to build from a
+> `.deb` package placed in a `packages-centreon` directory instead. Building
+> with `--build-arg WITH_SDK=false` only validates that the image builds: the
+> resulting daemon cannot start, since the SDK is required in all cases.
+
+## Allow the poller to receive data from Centreon Monitoring Agents (CMA)
+
+Add `--with-cma` to the install command so that `centengine` can accept
+connections from the Centreon Monitoring Agent over OpenTelemetry gRPC. This
+adds the following to the `centengine` service:
+
+```yaml
+    volumes:
+      - ./certs/poller.crt:/etc/pki/poller.crt:ro
+      - ./certs/poller.key:/etc/pki/poller.key:ro
+    ports:
+      - "4317:4317"
+```
+
+Generate the TLS certificates and configure the agent side following
+[Configuring certificates](../../cma/cma-certificates.md) and
+[Setting up the agent's environment](../../cma/cma-setup.md).
