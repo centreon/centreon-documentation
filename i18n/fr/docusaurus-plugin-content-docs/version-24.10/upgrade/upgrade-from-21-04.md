@@ -252,6 +252,19 @@ dnf update centreon\* php-pecl-gnupg
 
 > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Exécutez les commandes suivantes :
+
+```shell
+systemctl enable php-fpm
+systemctl restart php-fpm
+```
+
+</TabItem>
+</Tabs>
+
 ### Mettre à jour une configuration Apache personnalisée
 
 Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache. 
