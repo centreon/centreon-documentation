@@ -116,7 +116,7 @@ You are using the Dashboards feature with a **viewer** or an **editor** profile:
   > Only users or groups meeting the following two conditions are displayed:
   > - belong to the same access groups as yours,
   > - have access to the Dashboards menu (can be activated using access rights).
-4. Select either **Viewer** or **Editor** profile.
+4. Select either the **Viewer** or **Editor** profile.
 5. Click the **+** button to add it.
 6. Repeat the action for each user you want to add.
 7. Click the **Update** button to save your changes.
