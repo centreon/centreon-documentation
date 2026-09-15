@@ -35,7 +35,7 @@ and runs an installer script on the target container host. The script generates 
   reachable on this host.
 * If you plan to monitor VMware infrastructure from this poller, the
   `centreon-vmware` Docker image must be built beforehand (see
-  [Optional: centreon-vmware container](./using-containers-advanced-configuration.md#optional-centreon-vmware-container)).
+  [Centreon-vmware container](./using-containers-advanced-configuration.md#allow-the-poller-to-monitor-vmware-resources)).
 
 ## Step 1: Generate the install command
 
@@ -156,8 +156,8 @@ Add the following flags to the install command to include additional features:
 | Flag | Effect |
 |------|--------|
 | `--with-snmptrap` | Adds the `snmptrapd` and `centreontrapd` services, for passive monitoring via SNMP traps. |
-| `--with-vmware` | [Allow the poller to monitor VMware resources](using-containers-advanced-configuration.md#optional-allow-the-poller-to-monitor-vmware-resources) (adds the `centreon-vmware` service). |
-| `--with-cma` | [Allows the poller to receive data from Centreon Monitoring Agents (CMA)](./using-containers-advanced-configuration.md#optional-allow-the-poller-to-receive-data-from-centreon-monitoring-agents-cma). Mounts TLS certificates and exposes port 4317, for pollers that accept connections from the Centreon Monitoring Agent (CMA) over OpenTelemetry gRPC. |
+| `--with-vmware` | [Allow the poller to monitor VMware resources](using-containers-advanced-configuration.md#allow-the-poller-to-monitor-vmware-resources) (adds the `centreon-vmware` service). |
+| `--with-cma` | [Allows the poller to receive data from Centreon Monitoring Agents (CMA)](./using-containers-advanced-configuration.md#allow-the-poller-to-receive-data-from-centreon-monitoring-agents-cma). Mounts TLS certificates and exposes port 4317, for pollers that accept connections from the Centreon Monitoring Agent (CMA) over OpenTelemetry gRPC. |
 | `--tz <timezone>` | Sets the container timezone (default: `UTC`). |
 | `--debug true` | Enables debug logging on the services. |
 | `--gorgone-ssl <true\|false>` | Overrides the SSL setting used for the Gorgone connection to the central server. |
