@@ -28,7 +28,7 @@ Ce Pack vise à superviser à la fois la couche d'infrastructure (noeuds) et les
 
 ### Modèles
 
-Le connecteur de supervision **Kubernetes API** apporte 2 modèles d'hôte :
+Le connecteur de supervision **Kubernetes API** apporte 4 modèles d'hôte :
 
 * **Cloud-Kubernetes-Api-custom**
 * **Cloud-Kubernetes-Kubectl-custom**
@@ -1017,7 +1017,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESAPIPORT       | API port                                                                                                                   | 443               |             |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
-| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
@@ -1038,7 +1038,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KUBECTLCONFIGFILE       | Kubernetes configuration file path.            | ~/.kube/config | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl           |             |
-| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
@@ -1063,7 +1063,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESAPIPORT       | API port                                                                                                                   | 443               |             |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
-| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
@@ -1084,7 +1084,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KUBECTLCONFIGFILE       | Kubernetes configuration file path.              | ~/.kube/config | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl           |             |
-| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
