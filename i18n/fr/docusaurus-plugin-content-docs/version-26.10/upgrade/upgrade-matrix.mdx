@@ -41,7 +41,7 @@ export const UpgradeTable = () => {
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: '1rem' }}>
         {[
           { id: 'version', value: version, setter: setVersion, label: 'Toutes les versions', options: ['25.10','24.10','24.04','23.10','23.04','22.10 et antérieures'] },
-          { id: 'os', value: os, setter: setOs, label: 'Tous les OS', options: ['RHEL/Oracle/Alma Linux 8','RHEL/Oracle/Alma Linux 9','Debian 11','Debian 12'] },
+          { id: 'os', value: os, setter: setOs, label: 'Tous les OS', options: ['RHEL/Oracle/AlmaLinux 8','RHEL/Oracle/AlmaLinux 9','Debian 11','Debian 12'] },
           { id: 'compat', value: compat, setter: setCompat, label: 'Compatibilité 26.10', options: null },
         ].map(f => (
           <select
