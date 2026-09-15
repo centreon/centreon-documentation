@@ -56,6 +56,7 @@ The connector brings the following service templates (sorted by the host templat
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Check the usage of a node identified by its name (for example at the end of the associated discovery rule) | X          |
 | PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Check PersistentVolumes status                                                                             | X          |
 | Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Check pods and containers status                                                                           | X          |
+| Pod-Usage                    | Cloud-Kubernetes-Pod-Usage-Api-custom                    | Check pods CPU and memory usage                                                                            | X          |
 | ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Check ReplicaSets status                                                                                   | X          |
 | ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Check ReplicationControllers status                                                                        | X          |
 | ResourceQuota-Status         | Cloud-Kubernetes-ResourceQuota-Status-Api-custom         | Check ResourceQuota status                                                                                 | X          |
@@ -80,6 +81,7 @@ The connector brings the following service templates (sorted by the host templat
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Check the usage of a node identified by its name (for example at the end of the associated discovery rule) | X          |
 | PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Check PersistentVolumes status                                                                             | X          |
 | Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Check pods and containers status                                                                           | X          |
+| Pod-Usage                    | Cloud-Kubernetes-Pod-Usage-Api-custom                    | Check pods CPU and memory usage                                                                            | X          |
 | ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Check ReplicaSets status                                                                                   | X          |
 | ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Check ReplicationControllers status                                                                        | X          |
 | ResourceQuota-Status         | Cloud-Kubernetes-ResourceQuota-Status-Api-custom         | Check ResourceQuota status                                                                                 | X          |
@@ -144,6 +146,7 @@ More information about discovering hosts automatically is available on the [dedi
 | Cloud-Kubernetes-Api-Nodes-Usage                   | Discover Kubernetes Nodes to monitor their usage                   |
 | Cloud-Kubernetes-Api-PersistentVolumes-Status      | Discover Kubernetes PersistentVolumes to monitor their status      |
 | Cloud-Kubernetes-Api-Pods-Status                   | Discover Kubernetes Pods to monitor their status                   |
+| Cloud-Kubernetes-Api-Pods-Usage                    | Discover Kubernetes Pods to monitor their CPU and memory usage     |
 | Cloud-Kubernetes-Api-ReplicaSets-Status            | Discover Kubernetes ReplicaSets to monitor their status            |
 | Cloud-Kubernetes-Api-ReplicationControllers-Status | Discover Kubernetes ReplicationControllers to monitor their status |
 | Cloud-Kubernetes-Api-ResourceQuota-Status          | Discover Kubernetes ResourceQuotas to monitor their status        |
@@ -225,6 +228,16 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *pods*~restarts.total.count                   | count |
 | *pods*~*containers*#container-status          | N/A   |
 | *pods*~*containers*#containers.restarts.count | count |
+
+</TabItem>
+<TabItem value="Pod-Usage" label="Pod-Usage">
+
+| Metric name                        | Unit |
+|:-----------------------------------|:-----|
+| *pods*#pod.cpu.usage.millicores    | N/A  |
+| *pods*#pod.cpu.usage.percentage    | %    |
+| *pods*#pod.memory.usage.bytes      | B    |
+| *pods*#pod.memory.usage.percentage | %    |
 
 </TabItem>
 <TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
@@ -513,6 +526,41 @@ metric's name:
 | `coredns-74ff55c5b-g4hmt#containers.ready.count`            |
 | `coredns-74ff55c5b-g4hmt#restarts.total.count`              |
 | `coredns-74ff55c5b-g4hmt_coredns#containers.restarts.count` |
+
+</TabItem>
+<TabItem value="Pod-Usage" label="Pod-Usage">
+
+This indicator gathers CPU and memory usage per pod (from the `metrics.k8s.io`
+API), compared to the resources requested by that pod's containers. It
+requires `metrics-server` to be installed and reachable in the cluster.
+
+Using Kubernetes command line tool, it could look like the following:
+
+```shell
+kubectl top pod web-1 --namespace production --containers
+POD     NAME   CPU(cores)   MEMORY(bytes)
+web-1   app    120m         128Mi
+```
+
+```shell
+kubectl get pod web-1 --namespace production -o=custom-columns="CPU REQUESTS:.spec.containers[*].resources.requests.cpu,MEMORY REQUESTS:.spec.containers[*].resources.requests.memory"
+CPU REQUESTS   MEMORY REQUESTS
+200m           256Mi
+```
+
+Then the resulting output in Centreon could look like:
+
+```text
+Pod 'production/web-1' CPU usage: 120 millicores, CPU usage: 60.00% of requests, Memory usage: 128.00 MB, Memory usage: 50.00% of requests
+```
+
+If the service collects metrics for several Pods (depending on the chosen
+scenario), the Pod's name (prefixed by its namespace) will be appended to
+the metric's name:
+
+| Metric                                      |
+|---------------------------------------------|
+| `production/web-1#pod.cpu.usage.millicores` |
 
 </TabItem>
 <TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
@@ -1155,6 +1203,24 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                              | --verbose                                          |             |
 
 </TabItem>
+<TabItem value="Pod-Usage" label="Pod-Usage">
+
+| Macro                       | Description                                                                                                                            | Default value | Mandatory |
+|:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| FILTERPOD                   | Filter pod name (can be a regexp)                                                                                                      | .*            |           |
+| FILTERNAMESPACE             | Filter pod namespace (can be a regexp)                                                                                                 | .*            |           |
+| FILTERCONTAINERNAME         | Filter container name (can be a regexp). Only matching containers are summed into the pod usage                                        | .*            |           |
+| WARNINGPODCPUUSAGE          | Warning threshold in millicores                                                                                                        |               |           |
+| CRITICALPODCPUUSAGE         | Critical threshold in millicores                                                                                                       |               |           |
+| WARNINGPODCPUPERCENTAGE     | Warning threshold in percentage of CPU requests                                                                                        | 90            |           |
+| CRITICALPODCPUPERCENTAGE    | Critical threshold in percentage of CPU requests                                                                                       | 95            |           |
+| WARNINGPODMEMORYUSAGE       | Warning threshold in bytes                                                                                                             |               |           |
+| CRITICALPODMEMORYUSAGE      | Critical threshold in bytes                                                                                                            |               |           |
+| WARNINGPODMEMORYPERCENTAGE  | Warning threshold in percentage of memory requests                                                                                     | 90            |           |
+| CRITICALPODMEMORYPERCENTAGE | Critical threshold in percentage of memory requests                                                                                    | 95            |           |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
+
+</TabItem>
 <TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
 
 | Macro             | Description                                                                                                                                                                                    | Default value          | Mandatory   |
@@ -1298,6 +1364,7 @@ The plugin brings the following modes:
 | node-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/nodeusage.pm)]                                     | Cloud-Kubernetes-Node-Usage-Api-custom<br />Cloud-Kubernetes-Node-Usage-Name-Api-custom   |
 | persistentvolume-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/persistentvolumestatus.pm)]           | Cloud-Kubernetes-PersistentVolume-Status-Api-custom                                       |
 | pod-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/podstatus.pm)]                                     | Cloud-Kubernetes-Pod-Status-Api-custom                                                    |
+| pod-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/podusage.pm)]                                       | Cloud-Kubernetes-Pod-Usage-Api-custom                                                     |
 | replicaset-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/replicasetstatus.pm)]                       | Cloud-Kubernetes-ReplicaSet-Status-Api-custom                                             |
 | replicationcontroller-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/replicationcontrollerstatus.pm)] | Cloud-Kubernetes-ReplicationController-Status-Api-custom                                  |
 | resourcequota-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/resourcequotastatus.pm)]                 | Cloud-Kubernetes-ResourceQuota-Status-Api-custom                                          |
@@ -1502,6 +1569,22 @@ All available options for each service template are listed below:
 | --warning-*                 | Warning threshold. Can be: 'containers-ready', 'total-restarts-count' (count), 'restarts-count' (count).                                                                                           |
 | --critical-*                | Critical threshold. Can be: 'containers-ready', 'total-restarts-count' (count), 'restarts-count' (count).                                                                                          |
 | --units                     | Units of thresholds (default: '%') ('%', 'count').                                                                                                                                                 |
+</TabItem>
+<TabItem value="Pod-Usage" label="Pod-Usage">
+
+| Option                           | Description                                                                                      |
+|:---------------------------------|:-------------------------------------------------------------------------------------------------|
+| --filter-name                    | Filter pod name (can be a regexp).                                                               |
+| --filter-namespace               | Filter pod namespace (can be a regexp).                                                          |
+| --filter-container-name          | Filter container name (can be a regexp). Only matching containers are summed into the pod usage. |
+| --warning-pod-cpu-usage          | Threshold in millicores.                                                                         |
+| --critical-pod-cpu-usage         | Threshold in millicores.                                                                         |
+| --warning-pod-cpu-percentage     | Threshold in percentage of CPU requests.                                                         |
+| --critical-pod-cpu-percentage    | Threshold in percentage of CPU requests.                                                         |
+| --warning-pod-memory-usage       | Threshold in bytes.                                                                              |
+| --critical-pod-memory-usage      | Threshold in bytes.                                                                              |
+| --warning-pod-memory-percentage  | Threshold in percentage of memory requests.                                                      |
+| --critical-pod-memory-percentage | Threshold in percentage of memory requests.                                                      |
 
 </TabItem>
 <TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
