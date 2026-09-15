@@ -7,10 +7,34 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
-## Étape 1: Configurez Centreon
+## Utilisation de la commande d'installation prête à l'emploi
 
-Cette étape s'effectue via l'interface du serveur central. (Il est également possible de réaliser ces étapes via [l'API Centreon Web](https://docs-api.centreon.com/api/centreon-web/25.10/).)
+> Cette procédure n'est valable que pour le mode "Connexion initiée par l'agent". Pour le mode "Connexion inistiée par le collecteur", adaptez la procédure avec les paramètres corrects, ou utilisez la [procédure d'installation manuelle](cma-setup-manual.md).
 
+1. Accédez à **Configuration > Pollers > Configurations d'agent**, puis cliquez sur **Commande**.
+2. Dans la fenêtre qui s'affiche, renseignez les informations correspondant à votre environnement (poller qui supervisera vos hôtes, type de système d'exploitation de vos hôtes).
+3. Copiez la commande affichée dans la fenêtre, puis exécutez-la sur chaque hôte que vous souhaitez superviser avec l'agent.
+   L'agent CMA est déployé, et la connexion entre CMA et le collecteur est établie via TLS.
+
+> L'exécution de cette commande nécessite que l'hôte dispose d'un accès à internet.
+
+### Comment sont gérés les certificats ?
+
+A la création d'un collecteur, les certificats sont gérés automatiquement :
+
+* le certificat CA est généré et stocké dans **/etc/pki/centreon-engine** (TTL de 10 ans).
+* une paire clé privée/publique est générée, à partir des fichiers CA (TTL faible, renouvelée automatiquement tous les 30 jours). Cette paire sera stockée dans la mémoire du collecteur et son empreinte stockée dans la base de données.
+* CMA, une fois déployé, utilisera cette empreinte pour récupérer et valider la clé publique et établir la connexion TLS avec le collecteur.
+
+Si vous souhaitez configurer manuellement les certificats, la configuration d'agent et/ou les jetons, reportez-vous à le [documentation dédiée](cma-setup-manual.md).
+
+
+## Utilisation des scripts d'installation
+
+Les scripts d'installation permettent de déployer CMA sur un hôte directement depuis la ligne de commande, sans passer par l'interface Centreon.
+Ces scripts sont téléchargés et récupérés par la commande d'installation décrite ci-dessus, mais peuvent également être utilisés de manière indépendante, par exemple pour des besoins d'automatisation.
+
+<<<<<<< HEAD
 <Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
@@ -18,12 +42,45 @@ Cette étape s'effectue via l'interface du serveur central. (Il est également p
 2. [Installez](../monitoring/pluginpacks.md#installer-le-pack) le connecteur de supervision [**Linux Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent).
 
 </TabItem>
+=======
+<Tabs groupId="sync">
+>>>>>>> 5f8045de10e3d0245be7d05c53378ad577cfde8f
 <TabItem value="Windows" label="Windows">
 
-1. Sur votre serveur central, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**.
-2. [Installez](../monitoring/pluginpacks.md#installer-le-pack) le connecteur de supervision [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent).
+### Syntaxe
+
+```powershell
+.\install_cma.ps1 -Endpoint <endpoint> -Token <token> [options]
+```
+
+### Paramètres
+
+| Paramètre | Option script | Option CLI (`/PARAM=`) | Valeur par défaut |
+|---|---|---|---|
+| Endpoint | `-Endpoint` | `endpoint` | _(requis)_ |
+| Token | `-Token` | `token` | _(demandé à l'exécution)_ |
+| Nom de l'hôte | `-HostName` | `host` | `%COMPUTERNAME%` |
+| Modèle d'hôte | `-HostTemplate` | `hosttemplate` | _(vide)_ |
+| Version | `-Version` | — | `25.10` |
+| Composants | `-Components` | `components` | `agent,plugins` |
+| Chiffrement | `-Encryption` | `encryption` | `full` |
+| Reverse (collecteur → agent) | `-Reverse` | `reverse` | `false` |
+| Certificat | `-Cert` | `cert` | _(vide)_ |
+| Clé privée | `-Key` | `key` | _(vide)_ |
+| Certificat CA | `-CA` | `ca` | _(vide)_ |
+| Nom commun | `-CommonName` | `commonname` | _(vide)_ |
+| Empreinte | `-Fingerprint` | `fingerprint` | _(vide)_ |
+| Type de log | `-LogType` | `logtype` | `event-log` |
+| Niveau de log | `-LogLevel` | `loglevel` | `error` |
+| Fichier de log | `-LogFile` | `logfile` | _(vide)_ |
+| Taille max du fichier de log (Mo) | `-MaxFileSize` | `maxfilesize` | `10` |
+| Nombre max de fichiers de log | `-MaxNumber` | `maxnumber` | `10` |
+| Fichier de checks personnalisés | `-CustomCheckFile` | `customcheckfile` | _(vide)_ |
+| Source des plugins | `-PluginSrc` | `pluginsrc` | `auto` |
+| Instance d'agent | — | `agentinstance` | _(vide)_ |
 
 </TabItem>
+<<<<<<< HEAD
 </Tabs>
 
 3. Si vous souhaitez superviser une [application supportée par CMA](cma.md#applications-supervisables-par-cma), installez le connecteur correspondant sur votre serveur central.
@@ -92,83 +149,60 @@ Cette section s'applique :
 * si l'agent établit la connexion avec le collecteur, mais que l'option **Créer les hôtes automatiquement** n'est pas sélectionnée.
 
 <Tabs groupId="os">
+=======
+>>>>>>> 5f8045de10e3d0245be7d05c53378ad577cfde8f
 <TabItem value="Linux" label="Linux">
 
-Sur le serveur central, [créez l'hôte](../monitoring/basic-objects/hosts.md) et appliquez-lui le modèle d'hôte **OS-Linux-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
+### Syntaxe
 
-> Selon le sens de connexion souhaité, le champ "Adresse" de l'hôte n'aura pas d'impact (connexion initiée par l'agent) ou sera récupéré lors de la sélection de l’hôte dans la configuration d'agent (connexion initiée par le collecteur).
+```bash
+./install_cma.sh --endpoint <endpoint> --token <token> [options]
+```
 
-Créez les services associés au modèle d'hôte.
+### Paramètres
 
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-Sur le serveur central, [créez l'hôte](../monitoring/basic-objects/hosts.md) et appliquez-lui le modèle d'hôte **OS-Windows-Centreon-Monitoring-Agent-custom**. Le modèle comprend l'option **Activer les contrôles passifs** qui est définie sur **On**.
-
-Créez les services associés au modèle d'hôte.
+| Paramètre | Option courte | Option longue | Clé de configuration centagent.json | Valeur par défaut |
+|---|---|---|---|---|
+| Endpoint | `-e` | `--endpoint` | `endpoint` | _(requis)_ |
+| Token | `-t` | `--token` | `token` | _(demandé à l'exécution)_ |
+| Nom de l'hôte | `-n` | `--host` | `host` | `$(hostname)` |
+| Modèle d'hôte | `-H` | `--host-template` | `host_template` | _(vide)_ |
+| Version | `-v` | `--version` | — | `25.10` |
+| Composants | `-p` | `--components` | — | `agent,plugins` |
+| Chiffrement | `-c` | `--encryption` | `encryption` | `full` |
+| Reverse (collecteur → agent) | `-r` | `--reverse` | `reversed_grpc_streaming` | `false` |
+| Certificat | `-C` | `--cert` | `public_cert` | _(vide)_ |
+| Clé privée | `-k` | `--key` | `private_key` | _(vide)_ |
+| Certificat CA | `-a` | `--ca` | `ca_certificate` | _(vide)_ |
+| Nom commun | `-N` | `--common-name` | `ca_name` | _(vide)_ |
+| Empreinte | `-f` | `--fingerprint` | `fingerprint` | _(vide)_ |
+| Type de log | `-T` | `--log-type` | `log_type` | `file` |
+| Niveau de log | `-l` | `--log-level` | `log_level` | `error` |
+| Fichier de log | `-L` | `--log-file` | `log_file` | `/var/log/centreon-monitoring-agent/centagent.log` |
+| Taille max du fichier de log (Mo) | `-M` | `--max-file-size` | `log_max_file_size` | `10` |
+| Nombre max de fichiers de log | `-m` | `--max-number` | `log_max_files` | `10` |
+| Fichier de checks personnalisés | `-x` | `--custom-check-file` | `custom_check_file` | _(vide)_ |
+| Dry run | `-d` | `--dry-run` | — | `false` |
 
 </TabItem>
 </Tabs>
 
-## Étape 2 : Préparez le collecteur
+<!-- ## Que se passe-t-il lorsque vous exécutez la commande ?
 
-> Cette étape n'est pas nécessaire si vous souhaitez utiliser CMA avec le collecteur **Central**.
+Sur le collecteur, les [certificats](cma-certificates.md) sont gérés automatiquement :
 
-Cette étape s'effectue sur le collecteur.
+* le certificat CA est généré et stocké dans **/etc/pki/centreon-engine**.
+* une paire clé privée/certificat est générée, à partir des fichiers CA (TTL faible, renouvelée automatiquement tous les 30 jours). Cette paire sera stockée dans la mémoire du collecteur.
 
-### Configurez le firewall
+Sur le serveur central :
 
-<Tabs groupId="cmaConnect">
-<TabItem value="L'agent se connecte au collecteur" label="L'agent se connecte au collecteur">
+* un [jeton CMA](../administration/api_tokens.md) est créé.
+* La [configuration de l'agent](cma-setup-manual.md#configure-polleragent-communication) est créée pour le poller que vous avez sélectionné.
+* L'empreinte digitale du certificat est stockée dans la base de données.
 
-> Ces commandes doivent être adaptées selon le système d'exploitation.
+Sur l'hôte : l'agent CMA est déployé.
 
-Exécutez les commandes suivantes :
-
-```bash
-firewall-cmd --zone=public --add-port=4317/tcp --permanent
-```
-
-```bash
-firewall-cmd --reload 
-```
-
-</TabItem>
-<TabItem value="Le collecteur se connecte à l'agent" label="Le collecteur se connecte à l'agent">
-
-Pas d'action nécessaire.
-
-</TabItem>
-</Tabs>
-
-### Configurez les paramètres de chiffrement
-
-Voir [section dédiée](cma-certificates.md) pour déterminer quels fichiers sont nécessaires, selon votre configuration et le sens de connexion souhaité. 
-
-### Ajoutez les commandes CMA à vos listes blanches personnalisées
-
-[Les collecteurs ont des listes blanches par défaut](../monitoring/basic-objects/commands.md#liste-blanche-de-commandes), celles-ci doivent autoriser les commandes CMA.
-
-Sur le collecteur, dans votre fichier personnalisé de liste blanche (par exemple, **/etc/centreon-engine-whitelist/my-whitelist.yml**), incluez les lignes suivantes dans le bloc **cma-whitelist** :
-
-```text
-whitelist:
-  regex:
-    - \/usr\/lib(64)?\/nagios\/plugins\/.*
-    - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
-    
-cma-whitelist:
-  default:
-    regex:
-      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
-      - \/usr\/lib(?:64)?\/centreon\/plugins\/.*
-      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
-      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
-      - ^\{\s*"check":".*\}$
-      - \/usr\/bin\/echo\s+Host\s+alive
-      - cmd\.exe\s+\/C\s+echo\s+.*
-```
-
+<<<<<<< HEAD
 Vous pouvez au besoin spécifier des liste blanches par hôte. La syntaxe sera :
 
 ```text
@@ -1125,3 +1159,6 @@ unins000.exe /VERYSILENT /AGENTINSTANCE=SERVICENAME1,SERVICENAME2
 ## Étape 4 : Tester le fonctionnement de l'agent
 
 Voir [section dédiée](cma-troubleshooting.md).
+=======
+À la fin, la connexion entre CMA et le collecteur est établie via TLS. -->
+>>>>>>> 5f8045de10e3d0245be7d05c53378ad577cfde8f

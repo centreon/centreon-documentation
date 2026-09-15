@@ -7,10 +7,34 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PollerAgentConfiguration from './_poller-agent-configuration.mdx';
 
-## Step 1: Configure Centreon
+## Using the ready-to-run installation command
 
-This step is performed via the central server's interface. (It is also possible to perform these steps using [the Centreon Web API](https://docs-api.centreon.com/api/centreon-web/25.10/).)
+> This procedure only applies to the "Agent-initiated connection" mode. For Poller-initiated mode, either adapt the procedure to the correct parameters, or use the [manual installation procedure](cma-setup-manual.md).
 
+1. Go to **Configuration > Pollers > Agent configurations**, then click **Command**.
+2. In the window that appears, fill in the details corresponding to your environment (poller that will monitor your hosts, type of OS for your hosts).
+3. Copy the command displayed in the window, then run it on each host you want to monitor with the agent.
+   The CMA agent is deployed, and the connection between CMA and the poller is established in TLS.
+
+> Running this command requires the host to have internet access.
+
+### How are certificates managed?
+
+When a poller is created, certificates are managed automatically:
+
+* The CA certificate is generated and stored in **/etc/pki/centreon-engine** (TTL of 10 years).
+* A private/public key pair is generated from the CA files (low TTL, renewed automatically every 30 days). This pair is stored in the poller's memory, and its fingerprint is stored in the database.
+* Once deployed, CMA will use this fingerprint to retrieve and validate the public key and establish the TLS connection with the poller.
+
+If you want to manually configure certificates, the agent configuration, and/or tokens, refer to the [dedicated documentation](cma-setup-manual.md).
+
+
+## Using the installation scripts
+
+The installation scripts allow you to deploy CMA on a host directly from the command line, without going through the Centreon interface.
+These scripts are downloaded and retrieved by the installation command described above, but can also be used independently, for example for automation purposes.
+
+<<<<<<< HEAD
 <Tabs groupId="os">
 <TabItem value="Linux" label="Linux">
 
@@ -18,12 +42,45 @@ This step is performed via the central server's interface. (It is also possible 
 2. [Install](../monitoring/pluginpacks.md#installing-the-pack) the [**Linux Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent) monitoring connector.
 
 </TabItem>
+=======
+<Tabs groupId="sync">
+>>>>>>> 5f8045de10e3d0245be7d05c53378ad577cfde8f
 <TabItem value="Windows" label="Windows">
 
-1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](../monitoring/pluginpacks.md#installing-the-pack) the [**Windows Centreon Monitoring Agent**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-centreon-monitoring-agent) monitoring connector.
+### Syntax
+
+```powershell
+.\install_cma.ps1 -Endpoint <endpoint> -Token <token> [options]
+```
+
+### Parameters
+
+| Parameter | Script option | CLI option (`/PARAM=`) | Default value |
+|---|---|---|---|
+| Endpoint | `-Endpoint` | `endpoint` | _(required)_ |
+| Token | `-Token` | `token` | _(prompted at runtime)_ |
+| Host name | `-HostName` | `host` | `%COMPUTERNAME%` |
+| Host template | `-HostTemplate` | `hosttemplate` | _(empty)_ |
+| Version | `-Version` | — | `25.10` |
+| Components | `-Components` | `components` | `agent,plugins` |
+| Encryption | `-Encryption` | `encryption` | `full` |
+| Reverse (poller → agent) | `-Reverse` | `reverse` | `false` |
+| Certificate | `-Cert` | `cert` | _(empty)_ |
+| Private key | `-Key` | `key` | _(empty)_ |
+| CA certificate | `-CA` | `ca` | _(empty)_ |
+| Common name | `-CommonName` | `commonname` | _(empty)_ |
+| Fingerprint | `-Fingerprint` | `fingerprint` | _(empty)_ |
+| Log type | `-LogType` | `logtype` | `event-log` |
+| Log level | `-LogLevel` | `loglevel` | `error` |
+| Log file | `-LogFile` | `logfile` | _(empty)_ |
+| Max log file size (MB) | `-MaxFileSize` | `maxfilesize` | `10` |
+| Max number of log files | `-MaxNumber` | `maxnumber` | `10` |
+| Custom check file | `-CustomCheckFile` | `customcheckfile` | _(empty)_ |
+| Plugin source | `-PluginSrc` | `pluginsrc` | `auto` |
+| Agent instance | — | `agentinstance` | _(empty)_ |
 
 </TabItem>
+<<<<<<< HEAD
 </Tabs>
 
 3. If you want to monitor a [CMA-supported application](cma.md#applications-you-can-monitor-with-cma), install the corresponding connector on your central server.
@@ -91,83 +148,60 @@ This section applies:
 * if the agent initiates the connection ro the poller but the option **Create hosts automatically** is not selected.
 
 <Tabs groupId="os">
+=======
+>>>>>>> 5f8045de10e3d0245be7d05c53378ad577cfde8f
 <TabItem value="Linux" label="Linux">
 
-On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Linux-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
+### Syntax
 
-> Depending on the desired connection direction, the host's **Address** field will have no impact (connection initiated by the agent) or will be retrieved when the host is selected in the agent configuration (connection initiated by the poller).
+```bash
+./install_cma.sh --endpoint <endpoint> --token <token> [options]
+```
 
-Create the services associated with the host template.
+### Parameters
 
-</TabItem>
-<TabItem value="Windows" label="Windows">
-
-On the central server, [create the host](../monitoring/basic-objects/hosts.md) and apply the **OS-Windows-Centreon-Monitoring-Agent-custom** host template to it. The template includes the **Enable passive checks** option, which is set to **On**.
-
-Create the services associated with the host template.
+| Parameter | Short option | Long option | centagent.json config key | Default value |
+|---|---|---|---|---|
+| Endpoint | `-e` | `--endpoint` | `endpoint` | _(required)_ |
+| Token | `-t` | `--token` | `token` | _(prompted at runtime)_ |
+| Host name | `-n` | `--host` | `host` | `$(hostname)` |
+| Host template | `-H` | `--host-template` | `host_template` | _(empty)_ |
+| Version | `-v` | `--version` | — | `25.10` |
+| Components | `-p` | `--components` | — | `agent,plugins` |
+| Encryption | `-c` | `--encryption` | `encryption` | `full` |
+| Reverse (poller → agent) | `-r` | `--reverse` | `reversed_grpc_streaming` | `false` |
+| Certificate | `-C` | `--cert` | `public_cert` | _(empty)_ |
+| Private key | `-k` | `--key` | `private_key` | _(empty)_ |
+| CA certificate | `-a` | `--ca` | `ca_certificate` | _(empty)_ |
+| Common name | `-N` | `--common-name` | `ca_name` | _(empty)_ |
+| Fingerprint | `-f` | `--fingerprint` | `fingerprint` | _(empty)_ |
+| Log type | `-T` | `--log-type` | `log_type` | `file` |
+| Log level | `-l` | `--log-level` | `log_level` | `error` |
+| Log file | `-L` | `--log-file` | `log_file` | `/var/log/centreon-monitoring-agent/centagent.log` |
+| Max log file size (MB) | `-M` | `--max-file-size` | `log_max_file_size` | `10` |
+| Max number of log files | `-m` | `--max-number` | `log_max_files` | `10` |
+| Custom check file | `-x` | `--custom-check-file` | `custom_check_file` | _(empty)_ |
+| Dry run | `-d` | `--dry-run` | — | `false` |
 
 </TabItem>
 </Tabs>
 
-## Step 2: Prepare the poller
+<!-- ## What happens when you run the command
 
-> This step is not necessary if you want to use CMA with the **Central** poller.
+On the poller, [certificates](cma-certificates.md) are managed automatically:
 
-This step is performed on the poller.
+* the CA certificate is generated and stored in **/etc/pki/centreon-engine**.
+* a private key/certificate pair is generated, based on the CA files (Low TTL, renewed auotmatically every 30 days). This pair will be stored in the memory of the poller.
 
-### Configure the firewall
+On the central server:
 
-<Tabs groupId="cmaConnect">
-<TabItem value="The agent connects to the poller" label="The agent connects to the poller">
+* a [CMA token](../administration/api_tokens.md) is created.
+* the [agent configuration](cma-setup-manual.md#configure-polleragent-communication) is created for the poller you selected.
+* the fingerprint of the certificate is stored in the database.
 
-> These commands need to be adapted depending on the OS.
+On the host: the CMA agent is deployed.
 
-Run the following commands:
-
-```bash
-firewall-cmd --zone=public --add-port=4317/tcp --permanent
-```
-
-```bash
-firewall-cmd --reload 
-```
-
-</TabItem>
-<TabItem value="The poller connects to the agent" label="The poller connects to the agent">
-
-No action is required.
-
-</TabItem>
-</Tabs>
-
-### Configure encryption settings
-
-See the [dedicated section](cma-certificates.md) to determine which files are required, depending on your configuration and the connection direction you need.
-
-### Add CMA commands to your custom whitelists
-
-[Pollers have whitelists set by default](/cloud/monitoring/basic-objects/commands#command-whitelist)), these must allow CMA commands. On the poller, in your custom whitelist file (e.g., **/etc/centreon-engine-whitelist/my-whitelist.yml**), include the following lines in the **cma-whitelist** block:
-
-```text
-whitelist:
-  regex:
-    - \/usr\/lib(64)?\/nagios\/plugins\/.*
-    - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
-    
-cma-whitelist:
-  default:
-    regex:
-      - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
-      - \/usr\/lib(?:64)?\/centreon\/plugins\/.*
-      - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
-      - \"C:\/Program Files\/Centreon\/Plugins\/centreon_plugins.exe\"\s+.+
-      - ^\{\s*"check":".*\}$
-      - \/usr\/bin\/echo\s+Host\s+alive
-      - cmd\.exe\s+\/C\s+echo\s+.*
-```
-
-If necessary, you can specify whitelists by host. The syntax will be:
-
+<<<<<<< HEAD
 ```text
 whitelist:
   regex:
@@ -1126,3 +1160,7 @@ unins000.exe /VERYSILENT /AGENTINSTANCE=SERVICENAME1,SERVICENAME2
 ## Step 4: Test if the agent works
 
 See [dedicated section](cma-troubleshooting.md).
+=======
+At the end, the connection between CMA and the pller is established in TLS.
+ -->
+>>>>>>> 5f8045de10e3d0245be7d05c53378ad577cfde8f
