@@ -742,6 +742,10 @@ module.exports = {
             {
               "type": "doc",
               "id": "integrations/itsm/ot-servicenow"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-matrix42"
             }
           ]
         },
