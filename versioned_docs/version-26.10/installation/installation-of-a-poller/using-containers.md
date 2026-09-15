@@ -6,7 +6,7 @@ description: "Install a Centreon poller using docker-compose"
 
 > The container-based poller deployment method is currently in **BETA**.
 
-A ready-to-use installation command for container-based pollers can be retrieved from the central server's interface, tailored to your platform.
+A ready-to-use installation command for container-based pollers can be retrieved from the central server's interface, tailored to your platform. Container-based pollers use Debian 13.
 
 <details>
 <summary>Container contents</summary>

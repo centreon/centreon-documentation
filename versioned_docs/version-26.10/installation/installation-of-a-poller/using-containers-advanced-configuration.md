@@ -4,24 +4,26 @@ title: Advanced container configuration
 description: "Optional configuration for a container-based poller: VMware monitoring, custom plugins, CMA support, and email notifications"
 ---
 
-This page covers optional configuration for a poller deployed in a
-[container](./using-containers.md),
+This page covers optional configuration for a poller [deployed in a
+container](./using-containers.md),
 beyond the default `centengine` and `gorgone` services.
 
 ## Allow the poller to send email notifications
 
-The `centengine` image ships two independent ways to send email
+This section applies if you want your poller to be able to send notifications.
+
+A poller in a container has two different ways to send email
 notifications, so you can use whichever fits your infrastructure:
 
-* A **native SMTP command**, using the `mail` command (from `mailutils`)
-  relayed through `msmtp`.
-* The **`centreon-plugin-notification-email` connector**.
+* A [native SMTP command](#option-1-native-smtp-command), using the `mail` command (from `mailutils`)
+  relayed through `msmtp`. 
+* The [**centreon-plugin-notification-email** connector](#option-2-centreon-plugin-notification-email-connector).
 
-The **native SMTP command** needs an SMTP relay to send through, configured
-with environment variables on the `centengine` service. The **connector**
-does not need them - its SMTP relay settings are plain command-line options,
-so you can set them directly in the command instead (see
-[Option 2](#option-2-centreon-plugin-notification-email-connector) below).
+### Option 1: Native SMTP command
+
+This is the most common way of [sending notifications](../../alerts-notifications/notif-configuration.md).
+
+The native SMTP command needs an SMTP relay to send emails. Configure it with environment variables on the `centengine` service in the docker-compose.
 
 | Variable | Effect |
 |----------|--------|
@@ -36,6 +38,8 @@ directly to the `centengine` service's `environment:` block, or, to keep
 them out of the `.env` file the install script regenerates on every run, put
 them in a separate file and reference it as an extra `env_file`:
 
+Add the last 3 lines to your docker-compose file.
+
 ```yaml
 services:
   centengine:
@@ -45,6 +49,8 @@ services:
       - .env.smtp
 ```
 
+Then store your environment variables in a `.env.smtp` file located in the same directory as the docker-compose file.
+
 ```shell
 # .env.smtp
 SMTP_HOST=smtp.example.com
@@ -53,28 +59,21 @@ SMTP_FROM=centreon-engine@example.com
 SMTP_TLS=off
 ```
 
-Restart the `centengine` service (`docker compose up -d`) after changing
-these variables.
-
-### Option 1: Native SMTP command
+Restart the `centengine` service (`docker compose up -d`) after changing these variables.
 
 `mailutils` and `msmtp` are pre-installed in the image. At startup,
 `centengine` writes an `msmtp` configuration from the `SMTP_*` variables
 above, so `/usr/bin/mail` sends through your relay with no further setup.
 
-> Centreon Engine executes `command_line` directly, without going through a
-> shell: it does not understand pipes (`|`) or redirections on its own. A
-> command combining `printf` and `mail` with a pipe must be wrapped in
-> `/bin/sh -c '...'` so the shell (not Centreon Engine) interprets the pipe -
-> otherwise `printf` runs alone and silently sends nothing. Define
-> notification commands like this one on the **Configuration > Commands**
-> page:
+Here is an example of notification command:
 
 ```shell
 /bin/sh -c 'printf "%b" "***** Centreon *****\n\nNotification Type: $NOTIFICATIONTYPE$\n\nHost: $HOSTALIAS$\nState: $HOSTSTATE$\nAddress: $HOSTADDRESS$\nInfo: $HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | /usr/bin/mail -s "Host $HOSTSTATE$ alert for $HOSTALIAS$" $CONTACTEMAIL$'
 ```
 
 ### Option 2: centreon-plugin-notification-email connector
+
+The connector's SMTP relay settings are plain command-line options, so you can set them directly in the command.
 
 The connector is pre-installed under `$CENTREONPLUGINS$` (usually
 `/usr/lib/centreon/plugins/`), as `centreon_notification_email.pl`. Its
@@ -110,22 +109,13 @@ Centreon UI (**Configuration > Pollers > Resources**), then use them in the
 command instead: `--smtp-address='$SMTPADDRESS$' --smtp-port='$SMTPPORT$'
 --from-address='$SMTPFROMADDRESS$'`.
 
-> The `SMTP_*` **environment variables** above only feed the native SMTP
-> command's `msmtp` configuration (Option 1) - the connector doesn't read
-> them. Centreon Engine never passes its own process environment to the
-> commands it runs, and it only understands macros written as `$NAME$`
-> (with the closing `$`), resolved from `resource.cfg`; that file is
-> normally managed entirely by the central server, so the macros above must
-> be defined as poller resource macros through the UI, not by relying on the
-> environment variables from Option 1.
-
-See the connector's own documentation for the full list of options.
-
 ## Allow the poller to use custom plugins for monitoring
 
-The `centengine` container can install custom check scripts and extra APT
-dependencies without rebuilding the image. Add the corresponding volumes to
-the `centengine` service in the generated `docker-compose.yaml`:
+This section only applies if you want to use your own custom plugins for monitoring. No action is needed to use the official Centreon monitoring connectors.
+
+The `centengine` container can install custom check scripts and extra APT dependencies without rebuilding the image.
+
+In the generated `docker-compose.yaml`, add the following volumes to the `centengine` service :
 
 ```yaml
     volumes:
@@ -135,9 +125,8 @@ the `centengine` service in the generated `docker-compose.yaml`:
       - ./custom-deps.json:/etc/centreon-engine/custom-deps.json:ro
 ```
 
-* **Custom plugin scripts** placed in `./custom-plugins` become available
-  under `/usr/lib/nagios/plugins/custom` inside the container.
-* **`custom-deps.json`** lists arbitrary APT packages to install, for example:
+* Create a **custom-plugins** directory and store your custom plugin scripts there. The container will copy them to `/usr/lib/nagios/plugins/custom`.
+* If your plugin needs system dependencies, you must declare them in a `custom-deps.json` file. For example:
 
   ```json
   {
@@ -151,18 +140,12 @@ the `centengine` service in the generated `docker-compose.yaml`:
   installation runs in the background, so `centengine` is not blocked while
   it happens.
 
-> this section only applies for custom plugins. No action is needed to use the official Centreon monitoring connectors.
-> Centreon monitoring plugins (from Monitoring Connectors) don't need to be
-> configured here: Gorgone installs them automatically, in the same shared
-> configuration volume, whenever **Automatic installation of plugins** is
-> enabled on the **Configuration > Connectors > Monitoring Connectors** page
-> and the poller's configuration is deployed from the central server. See
-> [Monitoring Connectors](https://docs.centreon.com/docs/monitoring/pluginpacks/) for details.
-
 ### Baking dependencies into a custom image
 
-Instead of installing dependencies at container startup, you can build your
-own image on top of the official one and install everything at build time:
+If you have a large number of dependencies, you can build a custom image on top of the official one instead of adding the dependencies one by one to the `custom-deps.json` file. Your custom image will be deployed using the docker-compose.
+
+<!-- Instead of installing dependencies at container startup, you can build your
+own image on top of the official one and install everything at build time: -->
 
 ```dockerfile
 FROM ghcr.io/centreon/centreon-engine:26.10
@@ -181,10 +164,12 @@ via `custom-deps.json`.
 
 ## Allow the poller to monitor VMware resources
 
+Follow this procedure before you deploy a poller in a container using the `--with-vmware` option.
+
 Monitoring VMware infrastructure requires the proprietary VMware Perl SDK:
 the daemon cannot start at all without it, even with plain-text credentials.
 Because the SDK cannot be redistributed for licensing reasons, the
-`centreon-vmware` container image is **not published on a registry**. The
+`centreon-vmware` container image is not published on a registry. The
 generated `docker-compose.yaml` references it as
 `connector-vmware:${VMWARE_TAG:-local}` with `pull_policy: never`, so you must
 build it locally, on the container host, before using `--with-vmware`.
@@ -214,9 +199,9 @@ docker build \
 
 ## Allow the poller to receive data from Centreon Monitoring Agents (CMA)
 
-Add `--with-cma` to the install command so that `centengine` can accept
-connections from the Centreon Monitoring Agent over OpenTelemetry gRPC. This
-adds the following to the `centengine` service:
+Add `--with-cma` to the poller install command so that `centengine` can accept
+connections from the Centreon Monitoring Agent over OpenTelemetry gRPC. Using `--with-cma`
+adds the following to the `centengine` service in the docker-compose:
 
 ```yaml
     volumes:
@@ -226,6 +211,6 @@ adds the following to the `centengine` service:
       - "4317:4317"
 ```
 
-Generate the TLS certificates and configure the agent side following
+Then generate the corresponding TLS certificates and configure the agent side following
 [Configuring certificates](../../cma/cma-certificates.md) and
 [Setting up the agent's environment](../../cma/cma-setup.md).
