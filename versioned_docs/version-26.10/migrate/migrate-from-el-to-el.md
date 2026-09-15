@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 This procedure only applies if the following conditions are met:
 
-- You wish to migrate from a 64-bit EL-type OS to another supported 64-bit EL-type OS. For instance, if you want to migrate from a CentOS 7 to an Alma 8 or 9.
+- You wish to migrate from a 64-bit EL-type OS to another supported 64-bit EL-type OS. For instance, if you want to migrate from a CentOS 7 to an Alma 9.
 - Your version of Centreon is 18.10 or newer.
 
 All servers (central, remote and pollers) in your architecture must have the same major version of Centreon. It is also recommended that they have the same minor version.
@@ -40,14 +40,14 @@ complete the installation process by connecting to the Centreon web interface.
 3. Perform software and system updates:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf update
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
 dnf update
@@ -99,11 +99,24 @@ dnf update
    mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
    ```
 
-2. On the old server, stop MariaDB:
+2. On the old server, stop the database:
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
    systemctl stop mariadb
    ```
+
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl stop mysql
+   ```
+
+   </TabItem>
+   </Tabs>
 
 3. On the old server, export the dumps to the new Centreon database server (make sure you
 have enough space for large database dumps):
@@ -153,11 +166,24 @@ create them again:
    mysql_upgrade -u root -p
    ```
 
-7. Start the MariaDB process on the new server:
+7. Start the database process on the new server:
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
    systemctl start mariadb
    ```
+
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl start mysql
+   ```
+
+   </TabItem>
+   </Tabs>
 
 > Replace **\<IP_NEW_CENTREON\>** by the IP address of the new Centreon server.
 
@@ -166,13 +192,6 @@ create them again:
 If you only use Centreon plugins, reinstall them on the new server:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-plugin-\*
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -180,10 +199,10 @@ dnf install centreon-plugin-\*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-apt install centreon-plugin-\*
+dnf install centreon-plugin-\*
 ```
 
 </TabItem>
@@ -200,12 +219,12 @@ rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/c
 ### Step 5: Upgrade Centreon
 
 1. On the new server, force the update by moving the contents of the
-**/var/lib/centreon/installs/install-25.10.x-YYYYMMDD\_HHMMSS** directory to
+**/var/lib/centreon/installs/install-26.10.x-YYYYMMDD\_HHMMSS** directory to
 the **/usr/share/centreon/www/install** directory (**x** is the target version number for your migrated machine):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-25.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-26.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. If you use the same IP address or same DNS name on the old Centreon webserver and the new one, do a full cache cleanup of your browser to avoid JS issues.
