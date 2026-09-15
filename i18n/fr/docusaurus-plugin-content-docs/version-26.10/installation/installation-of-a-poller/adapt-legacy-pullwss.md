@@ -1,26 +1,26 @@
 ---
 id: adapt-legacy-pullwss
-title: Adapting legacy pullwss poller setups
-description: How to adapt legacy pullwss connections to the new pollers in containers configuration
+title: Adapter les anciennes configurations de collecteurs pullwss
+description: "Comment adapter les anciennes connexions pullwss à la nouvelle configuration des collecteurs en conteneur"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## When to use this procedure
+## Quand utiliser cette procédure
 
-This page describes what to do if the following conditions are met:
+Cette page décrit la marche à suivre si les conditions suivantes sont réunies :
 
-* You have upgraded an existing platform to version 26.10.
-* This platform used some pollers in pullwss mode.
-* You now wish to use pollers in containers. (If you do not wish to use pollers in containers, your old pollers in pullwss mode will work just fine, there is nothing to do.)
+* Vous avez mis à jour une plateforme existante en version 26.10.
+* Cette plateforme utilisait des collecteurs en mode pullwss.
+* Vous souhaitez désormais utiliser des collecteurs en conteneur. (Si vous ne souhaitez pas utiliser de collecteurs en conteneur, vos anciens collecteurs en mode pullwss continueront de fonctionner normalement : vous n'avez rien à faire.)
 
-Depending on your setup, you can [configure your old pollers to use port 443 (recommended)](#configure-your-old-pollers-to-use-port-443-recommended), or [redirect traffic to Gorgone (not recommended)](#redirect-traffic-to-gorgone-not-recommended).
+Selon votre installation, vous pouvez [configurer vos anciens collecteurs pour qu'ils utilisent le port 443 (recommandé)](#configurer-vos-anciens-collecteurs-pour-quils-utilisent-le-port-443-recommandé) ou [rediriger le trafic vers Gorgone (non recommandé)](#rediriger-le-trafic-vers-gorgone-non-recommandé).
 
-## Configure your old pollers to use port 443 (recommended)
+## Configurer vos anciens collecteurs pour qu'ils utilisent le port 443 (recommandé)
 
-1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./pollers-containers-prerequisites.md).
-2. Update all your pollers to version 26.10.
-3. On the poller, change the target port number to 443 in **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** in the **pullwss** module configuration.
+1. Configurez le serveur central pour qu'il puisse recevoir le trafic pullwss de vos collecteurs en conteneur, comme décrit dans la page [Prérequis pour les collecteurs en conteneur](./pollers-containers-prerequisites.md).
+2. Mettez à jour tous vos collecteurs en version 26.10.
+3. Sur le collecteur, remplacez le numéro de port cible par 443 dans le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**, au niveau de la configuration du module **pullwss**.
 
 ```json
 modules:
@@ -34,15 +34,15 @@ modules:
       ping: 1
 ```
 
-## Redirect traffic to Gorgone (not recommended)
+## Rediriger le trafic vers Gorgone (non recommandé)
 
-This section should be used only if you have many pollers whose configuration cannot be reconfigured easily as described above. In that case, edit the Apache configuration on your central server to keep the legacy pullwss port 8086 and redirect the traffic to Gorgone.
+N'utilisez cette section que si vous avez de nombreux collecteurs dont la configuration ne peut pas être modifiée facilement comme décrit ci-dessus. Dans ce cas, modifiez la configuration d'Apache sur votre serveur central afin de conserver l'ancien port pullwss 8086 et de rediriger le trafic vers Gorgone.
 
-### Poller with HTTPS
+### Collecteur avec HTTPS
 
-1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./pollers-containers-prerequisites.md).
-2. Update your pollers to version 26.10.
-3. On the central server, execute the following commands to redirect the traffic from port 8086 to the central server's Gorgone.
+1. Configurez le serveur central pour qu'il puisse recevoir le trafic pullwss de vos collecteurs en conteneur, comme décrit dans la page [Prérequis pour les collecteurs en conteneur](./pollers-containers-prerequisites.md).
+2. Mettez à jour vos collecteurs en version 26.10.
+3. Sur le serveur central, exécutez les commandes suivantes pour rediriger le trafic du port 8086 vers Gorgone sur le serveur central.
 
   <Tabs groupId="os">
   <TabItem value="Alma / RHEL / Oracle Linux 9/10" label="Alma / RHEL / Oracle Linux 9/10">
@@ -64,13 +64,13 @@ This section should be used only if you have many pollers whose configuration ca
   </TabItem>
   </Tabs>
 
-### Poller without HTTPS (plain HTTP, not recommended)
+### Collecteur sans HTTPS (HTTP simple, non recommandé)
 
-> This configuration is only for compatibility with old pollers that cannot be configured to use TLS. Please note that using pullwss without TLS is not recommended in production. Update your configuration as soon as possible.
+> Cette configuration n'existe que pour assurer la compatibilité avec d'anciens collecteurs qui ne peuvent pas être configurés pour utiliser TLS. Notez que l'utilisation de pullwss sans TLS est déconseillée en production. Mettez votre configuration à jour dès que possible.
 
-1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./pollers-containers-prerequisites.md).
-2. Update your pollers to version 26.10.
-3. On the central server, execute the following commands to redirect the traffic from port 8086 to the central server's Gorgone.
+1. Configurez le serveur central pour qu'il puisse recevoir le trafic pullwss de vos collecteurs en conteneur, comme décrit dans la page [Prérequis pour les collecteurs en conteneur](./pollers-containers-prerequisites.md).
+2. Mettez à jour vos collecteurs en version 26.10.
+3. Sur le serveur central, exécutez les commandes suivantes pour rediriger le trafic du port 8086 vers Gorgone sur le serveur central.
 
   <Tabs groupId="os">
   <TabItem value="Alma / RHEL / Oracle Linux 9/10" label="Alma / RHEL / Oracle Linux 9/10">
@@ -92,6 +92,6 @@ This section should be used only if you have many pollers whose configuration ca
   </TabItem>
   </Tabs>
 
-## Troubleshooting your setup
+## Dépanner votre installation
 
-See [Troubleshooting the installation](./pollers-containers-prerequisites.md#troubleshooting-the-installation).
+Voir [Dépanner l'installation](./pollers-containers-prerequisites.md#dépanner-linstallation).

@@ -1,43 +1,43 @@
 ---
 id: pollers-containers-prerequisites
-title: Pollers in containers prerequisites
-description: "Configuring Centreon to receive connections from pollers in containers"
+title: Prérequis pour les collecteurs en conteneur
+description: "Configurer Centreon pour recevoir les connexions des collecteurs en conteneur"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page explains how to configure your platform to be able to use pollers in containers.
+Cette page explique comment configurer votre plateforme afin de pouvoir utiliser des collecteurs en conteneur. Cette procédure n'est à réaliser qu'une seule fois pour l'ensemble de la plateforme, avant d'installer votre premier collecteur en conteneur. Elle n'a aucun impact sur les autres modes de déploiement des collecteurs.
 
-## When to use this procedure
+## Quand utiliser cette procédure
 
-This page describes what to do if the following conditions are met:
+Cette page décrit la marche à suivre si les conditions suivantes sont réunies :
 
-* You have just installed a platform in version 26.10, or upgraded a platform that did not have any pollers in pullwss mode.
-* You want to use pollers in containers for the first time.
+* Vous venez d'installer une plateforme en version 26.10, ou vous avez mis à jour une plateforme qui ne comportait aucun collecteur en mode pullwss.
+* Vous souhaitez utiliser des collecteurs en conteneur pour la première fois.
 
-> If your platform had pollers in pullwss mode and you now wish to use pollers in containers, follow [Adapting legacy pullwss poller setups](./adapt-legacy-pullwss.md).
+> Si votre plateforme comportait des collecteurs en mode pullwss et que vous souhaitez désormais utiliser des collecteurs en conteneur, suivez la procédure [Adapter les anciennes configurations de collecteurs pullwss](./adapt-legacy-pullwss.md).
 
-### Pullwss mode
+### Le mode pullwss
 
-By default, the central server initiates the connection to its pollers. However, a poller running in a container cannot accept incoming connections, so this default does not work.
+Par défaut, c'est le serveur central qui initie la connexion vers ses collecteurs. Or un collecteur qui s'exécute dans un conteneur ne peut pas accepter de connexions entrantes : ce mode ne fonctionne donc pas.
 
-**pullwss** mode reverses the direction: the poller opens a WebSocket connection to the central server and keeps it open. You need to perform this procedure once for the whole platform, when you first install a poller in a container. This has no impact on other types of poller deployments.
+Le mode **pullwss** inverse le sens de la connexion : c'est le collecteur qui ouvre une connexion WebSocket vers le serveur central, puis qui la maintient ouverte.
 
-The recomended and secure way is to use HTTPS. This means that certificates are needed to secure the connection. To simplify certificate lifecycle management, Apache (which already hosts the Centreon web interface) is used as a reverse proxy to terminate the TLS connection and forward the traffic to the central server's Gorgone.
+La méthode recommandée et sécurisée consiste à utiliser HTTPS. Des certificats sont donc nécessaires pour sécuriser la connexion. Pour simplifier la gestion du cycle de vie de ces certificats, Apache (qui héberge déjà l'interface web Centreon) sert de reverse proxy : il termine la connexion TLS et transmet le trafic vers Gorgone sur le serveur central.
 
-## Installation requirements
+## Prérequis à l'installation
 
-* Ensure the central server and Gorgone are already installed and up to date with the latest major version.
+* Assurez-vous que le serveur central et Gorgone sont déjà installés et à jour dans la dernière version majeure.
 
-* If not already done, configure certificates for Apache. (This is described in the standard installation procedure for this version.)
+* Si ce n'est pas déjà fait, configurez les certificats pour Apache. (Cette opération est décrite dans la procédure d'installation standard de cette version.)
 
-* The poller must be able to reach the central server.
+* Le collecteur doit pouvoir joindre le serveur central.
 
-## Step 1: Configure Gorgone on the central server
+## Étape 1 : Configurer Gorgone sur le serveur central
 
-In previous versions of Centreon, Gorgone could listen for pullwss connections directly on the network if manually configured to do so. Starting with version 26.10, the recommended method is to use Apache as a reverse proxy for Gorgone.
+Dans les versions précédentes de Centreon, Gorgone pouvait écouter directement les connexions pullwss sur le réseau, à condition d'être configuré manuellement. À partir de la version 26.10, la méthode recommandée consiste à utiliser Apache comme reverse proxy pour Gorgone.
 
-1. On the central server, update the file **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** as follows. The `nodes` module should already be present, and does not need modification in a default installation. The `proxy` module is already present too, but not the `httpserver` sub-key, which you should add.
+1. Sur le serveur central, modifiez le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** comme suit. Le module `nodes` doit déjà être présent et ne nécessite aucune modification dans une installation par défaut. Le module `proxy` est également présent, mais pas la sous-clé `httpserver`, que vous devez ajouter.
 
   ```yaml
   gorgone:
@@ -57,44 +57,44 @@ In previous versions of Centreon, Gorgone could listen for pullwss connections d
 
   ```
 
-  > Please note this is a yaml file, so indentation is important. Use 2 spaces for each indentation level.
+  > Attention, il s'agit d'un fichier YAML : l'indentation y est importante. Utilisez 2 espaces par niveau d'indentation.
 
-  Explanation of the configuration:
+  Explication de la configuration :
 
-  * `ssl: false` and `address: "localhost"`: Gorgone only accepts connections from the local machine, in plain HTTP. Apache is the one terminating TLS for the pollers and forwarding the traffic locally, so Gorgone itself does not need a certificate.
-  * `port: 8087`: internal port used only for the connection between Apache and Gorgone on the same host. It should not be exposed to the network.
+  * `ssl: false` et `address: "localhost"` : Gorgone n'accepte que les connexions provenant de la machine locale, en HTTP simple. C'est Apache qui termine le TLS pour les collecteurs et qui transmet le trafic en local ; Gorgone n'a donc pas besoin de certificat.
+  * `port: 8087` : port interne utilisé uniquement pour la connexion entre Apache et Gorgone sur le même serveur. Il ne doit pas être exposé sur le réseau.
 
-2. Restart Gorgone after this change:
+2. Redémarrez Gorgone après cette modification :
 
   ```shell
   systemctl restart gorgoned
   ```
 
-3. Check that Gorgone is listening on port 8087 correctly:
+3. Vérifiez que Gorgone écoute bien sur le port 8087 :
 
   ```shell
   sudo ss -tnlp | grep 8087
   ```
 
-  The command should return one line similar to this:
+  La commande doit renvoyer une ligne semblable à celle-ci :
 
   ```text
   LISTEN 0      4096                [::1]:8087          [::]:*    users:(("gorgone-proxy-h",pid=2305,fd=28))
   ```
 
-## Step 2: Configure Apache as a reverse proxy
+## Étape 2 : Configurer Apache comme reverse proxy
 
-This step is also done on the central server.
+Cette étape se réalise également sur le serveur central.
 
-### Apache modules prerequisites
+### Prérequis sur les modules Apache
 
-Make sure the `proxy_wstunnel` Apache module is enabled:
+Assurez-vous que le module Apache `proxy_wstunnel` est activé :
 
 <Tabs groupId="os">
 
 <TabItem value="Alma / RHEL / Oracle Linux 9/10" label="Alma / RHEL / Oracle Linux 9/10">
   
-Unlike .deb packages, the Alma Linux 9 **httpd** package already has the **proxy_wstunnel** module enabled by default, so there is nothing to do.
+Contrairement aux paquets .deb, le paquet **httpd** d'Alma Linux 9 active déjà le module **proxy_wstunnel** par défaut : il n'y a donc rien à faire.
 
 </TabItem>
 
@@ -108,9 +108,9 @@ systemctl restart apache2
 </TabItem>
 </Tabs>
   
-### Apache reverse proxy configuration
+### Configuration du reverse proxy Apache
 
-1. Edit your Apache configuration file. This is located here:
+1. Modifiez votre fichier de configuration Apache. Celui-ci se trouve ici :
 
   <Tabs groupId="os">
   <TabItem value="Alma / RHEL / Oracle Linux 9/10" label="Alma / RHEL / Oracle Linux 9/10">
@@ -130,10 +130,10 @@ systemctl restart apache2
   </TabItem>
   </Tabs>
 
-2. Add the correct contents to the Apache virtual host:
+2. Ajoutez le contenu adéquat au VirtualHost Apache :
 
-   * Centreon offers an example configuration file to enable HTTPS and serve Gorgone as a reverse proxy, available at: `/usr/share/centreon/examples/centreon.apache.https.conf`. You can copy and paste the contents.
-   * However, if you have a custom configuration and cannot just copy and paste the example file, this is the required configuration to add inside your Apache virtual host:
+   * Centreon fournit un exemple de fichier de configuration permettant d'activer HTTPS et d'exposer Gorgone derrière un reverse proxy, disponible ici : `/usr/share/centreon/examples/centreon.apache.https.conf`. Vous pouvez en copier-coller le contenu.
+   * Cependant, si vous disposez d'une configuration personnalisée et que vous ne pouvez pas copier-coller le fichier d'exemple tel quel, voici la configuration à ajouter dans votre VirtualHost Apache :
 
     ```apache
         <IfModule mod_proxy_wstunnel.c>
@@ -142,7 +142,7 @@ systemctl restart apache2
         </IfModule>
     ```
 
-3. Restart Apache
+3. Redémarrez Apache
 
   <Tabs groupId="os">
   <TabItem value="Alma / RHEL / Oracle Linux 9/10" label="Alma / RHEL / Oracle Linux 9/10">
@@ -162,34 +162,33 @@ systemctl restart apache2
   </TabItem>
   </Tabs>
 
-## Step 3: Add the poller to the platform's configuration
+## Étape 3 : Ajouter le collecteur à la configuration de la plateforme
 
-You can now add a poller in a container. To do so, retrieve the correct command from the Centreon web interface. 
-The poller will automatically connect to the central server using pullwss.
+Vous pouvez maintenant ajouter un collecteur en conteneur. Pour cela, [récupérez la commande adéquate depuis l'interface web Centreon](./using-containers.md). Le collecteur se connectera automatiquement au serveur central via pullwss.
 
-## If you delete all your pollers in containers
+## Si vous supprimez tous vos collecteurs en conteneur
 
-If in th efuture you sould delete all your pollers in containers, do not forget to undo the steps above.
+Si vous veniez à supprimer à l'avenir tous vos collecteurs en conteneur, n'oubliez pas d'annuler les étapes ci-dessus.
 
-## Troubleshooting the installation
+## Dépanner l'installation
 
-If your installation does not work, there are multiple things you can check:
+Si votre installation ne fonctionne pas, plusieurs points sont à vérifier :
 
-### Can the poller reach the central server on port 443?
+### Le collecteur peut-il joindre le serveur central sur le port 443 ?
 
-You can check from the poller with the following command:
+Vous pouvez le vérifier depuis le collecteur avec la commande suivante :
 
 ```shell
 nc -zv <central_hostname> 443
 ```
 
-### Is Gorgone correctly listening on port 8087?
+### Gorgone écoute-t-il bien sur le port 8087 ?
 
 ```bash
 curl --header "Connection: Upgrade" --header "Upgrade: websocket" http://localhost:8087/
 ```
 
-The expected output is:
+La sortie attendue est la suivante :
 
 ```text
 HTTP/1.1 101 Switching Protocols
@@ -199,13 +198,13 @@ Server: Mojolicious (Perl)
 Upgrade: websocket
 ```
 
-### Does Apache2 redirect the traffic to Gorgone correctly?
+### Apache2 redirige-t-il correctement le trafic vers Gorgone ?
 
 ```bash
 curl -v --header "Connection: Upgrade" --header "Upgrade: websocket" https://localhost:443/centreon/gorgone/pullwss/websocket
 ```
 
-The expected output is:
+La sortie attendue est la suivante :
 
 ```text
 < HTTP/1.1 101 Switching Protocols
@@ -215,4 +214,4 @@ The expected output is:
 < Upgrade: websocket
 ```
 
-If you see an HTML page indicating `You need to enable JavaScript to run this app`, the Apache reverse proxy is not configured correctly, and the traffic is redirected to the Centreon web interface instead of to Gorgone. Check your Apache configuration and restart Apache after any change.
+Si vous obtenez une page HTML indiquant `You need to enable JavaScript to run this app`, le reverse proxy Apache n'est pas configuré correctement : le trafic est redirigé vers l'interface web Centreon au lieu de Gorgone. Vérifiez votre configuration Apache et redémarrez Apache après chaque modification.
