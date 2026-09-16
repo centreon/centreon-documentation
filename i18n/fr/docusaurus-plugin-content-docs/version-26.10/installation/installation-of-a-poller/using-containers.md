@@ -1,170 +1,170 @@
 ---
 id: using-containers
-title: Installing a poller in a container
-description: "Install a Centreon poller using docker-compose"
+title: Installer un collecteur dans un conteneur
+description: "Installer un collecteur Centreon à l'aide de docker-compose"
 ---
 
-> This container-based poller deployment method is currently in **BETA**.
+> La méthode de déploiement de collecteurs en conteneur est actuellement en **BÊTA**.
+
+Une commande d'installation prête à l'emploi et adaptée à votre plateforme est disponible depuis l'interface du serveur central.
 
 <details>
-<summary>Technical details</summary>
+<summary>Contenu des conteneurs</summary>
 
-Centreon also provides a Docker-based deployment for pollers. Instead of a single
-monolithic container, each poller component runs in its own dedicated container
-(Centreon Engine, Gorgone, and optionally SNMP trap handling and VMware
-monitoring), orchestrated by a single `docker-compose.yaml` file.
+Les collecteurs en conteneur utilisent Debian 13.
 
-This deployment method relies on a generated installation command that downloads
-and runs an installer script on the target Docker host. The script generates the
-`.env` and `docker-compose.yaml` files for you and starts the stack.
+Plutôt qu'un seul conteneur monolithique, chaque composant du collecteur s'exécute dans son
+propre conteneur (Centreon Engine, Gorgone et, en option, la gestion des traps SNMP et la
+supervision VMware), le tout orchestré par un unique fichier `docker-compose.yaml`.
 
-> See [Users and groups](https://docs.centreon.com/docs/installation/technical/) for the system users
-> (`centreon-engine`, `centreon-gorgone`, etc.) used inside these containers.
+Cette méthode de déploiement repose sur une commande d'installation générée, qui télécharge
+puis exécute un script d'installation sur l'hôte des conteneurs. Le script génère pour vous les
+fichiers `.env` et `docker-compose.yaml`, puis démarre l'ensemble des services.
+
+> Voir [Utilisateurs et groupes](https://docs.centreon.com/docs/installation/technical/) pour connaître les
+> utilisateurs système (`centreon-engine`, `centreon-gorgone`, etc.) utilisés dans ces conteneurs.
 
 </details>
 
-## Prerequisites
+## Prérequis
 
-* On the central server, [Gorgone's **pullwss** module must be configured to accept connections](./pollers-containers-prerequisites.md). This is a one-time setup, shared by all pollers in containers. It does not affect other types of poller deployments.
-* A Linux host with **Docker Engine** and the **Docker Compose v2** plugin
-  installed (`docker compose version` must succeed).
-* a poller-type token
-* Outbound network access from this host to your Centreon central server.
-* If you plan to receive SNMP traps on this poller, UDP port 162 must be
-  reachable on this host.
-* If you plan to monitor VMware infrastructure from this poller, the
-  `centreon-vmware` Docker image must be built beforehand (see
-  [Optional: centreon-vmware container](./using-containers-advanced-configuration.md#optional-centreon-vmware-container)).
+* Sur le serveur central, [le module **pullwss** de Gorgone doit être configuré pour accepter les connexions](./pollers-containers-prerequisites.md). Cette opération n'est à réaliser qu'une seule fois, avant d'installer votre premier collecteur en conteneur.
+* Un hôte Linux sur lequel **Docker Engine** et le plugin **Docker Compose v2** sont
+  installés (la commande `docker compose version` doit aboutir).
+* Vous devez avoir créé un jeton d'authentification de type collecteur.
+* Un accès réseau sortant depuis cet hôte vers votre serveur central Centreon.
+* Si vous prévoyez de recevoir des traps SNMP sur ce collecteur, le port UDP 162 doit être
+  accessible sur cet hôte.
+* Si vous prévoyez de superviser une infrastructure VMware depuis ce collecteur, l'image
+  Docker `centreon-vmware` doit avoir été construite au préalable (voir
+  [Conteneur centreon-vmware](./using-containers-advanced-configuration.md#permettre-au-collecteur-de-superviser-des-ressources-vmware)).
 
-## Step 1: Generate the install command
+## Étape 1 : Générer la commande d'installation
 
-1. On the central server, click **Pollers** at the top left of the screen and
-   click **Create new poller** (currently in BETA).
+1. Sur le serveur central, cliquez sur **Collecteurs** en haut à gauche de l'écran puis, dans la fenêtre qui s'ouvre, cliquez sur **Créer un collecteur**.
 
    ![image](../../assets/installation/create-poller-banner.png)
 
-2. Fill in the poller's information, select its environment and token, then
-   generate the installation command:
+2. Renseignez les informations concernant le collecteur :
 
-   ![image](../../assets/installation/create-poller-ui.png)
+   * **Nom du collecteur** : un nom unique pour ce collecteur. Il apparaîtra dans la liste des collecteurs.
+   * **Adresse du collecteur** : l'adresse de la machine hôte sur laquelle vous allez installer le collecteur.
+      > L'adresse du collecteur n'a aucune incidence sur la connectivité : Gorgone
+      > utilise PullWSS, c'est donc toujours le collecteur qui initie la connexion vers le
+      > serveur central, et non l'inverse.
+   * **Adresse du serveur central Centreon, telle que vue par ce collecteur** : l'URL que ce collecteur utilise pour joindre le serveur central, par exemple `http(s)://10.10.10.10/centreon`.
 
-   1. **Poller name**: a unique name for this poller.
-   2. **Poller address**: the poller's own address (see note below).
-   3. **Centreon Central address, as seen by this poller**: the URL this
-      poller uses to reach the central server.
-   4. **Container**: the environment to generate the command for (as opposed
-      to **VM or physical**).
-   5. **Select token**: an existing Gorgone poller token.
-   6. The button that generates the installation command.
+3. Sélectionnez **Conteneur** comme environnement du collecteur.
 
-   > The **Poller address** does not affect connectivity: Gorgone uses
-   > PullWSS, so the poller always initiates the connection to the central
-   > server, not the other way around.
+4. Sélectionnez le [jeton d'authentification](#prérequis) que vous avez créé pour ce collecteur.
 
-3. Copy the generated installation command, and keep this window open. It
-   looks like this:
+5. Dans la section **Générer la commande d'installation**, cliquez sur le bouton et patientez le temps que la commande soit générée.
 
-   ![image](../../assets/installation/create-poller-ui-with-command.png)
+6. Copiez la commande à l'aide du bouton situé en haut à droite du bloc de code. Laissez la fenêtre ouverte : vous en aurez de nouveau besoin par la suite.
+
+7. Ajoutez à la commande les [options facultatives](#services-optionnels-à-ajouter-à-la-commande-dinstallation) que vous souhaitez (par exemple pour permettre au collecteur de recevoir des données des agents CMA, ou pour superviser des ressources VMware. Dans les deux cas, vous devrez suivre les procédures correspondantes dans [Configuration avancée des conteneurs](./using-containers-advanced-configuration.md)).
+
+8. Si vous souhaitez pouvoir utiliser les notifications par e-mail ou des plugins personnalisés, suivez les procédures correspondantes dans
+[Configuration avancée des conteneurs](./using-containers-advanced-configuration.md).
+
+## Étape 2 : Exécuter la commande d'installation sur l'hôte des conteneurs
+
+1. Exécutez la commande copiée en tant qu'utilisateur autorisé à utiliser des conteneurs sur
+l'hôte cible.
+
+   <details>
+   <summary>Ce que fait le script</summary>
+
+   Le script :
+
+   1. Vérifie que Docker et le plugin Docker Compose v2 sont disponibles.
+   2. Génère un fichier `.env` et un fichier `docker-compose.yaml` dans le répertoire
+      courant.
+   3. Démarre les services avec `docker compose up -d`, sauf si l'option `--no-start` a
+      été ajoutée à la commande (dans ce cas, démarrez-les vous-même plus tard avec
+      `docker compose up -d`).
+
+   Par défaut, deux services sont toujours générés :
+
+   * **centengine** : Centreon Engine, le moteur de supervision.
+   * **gorgone** : Gorgone, chargé de récupérer la configuration du collecteur et de
+   communiquer avec le serveur central.
+
+   **Référence des fichiers générés**
+
+   Le fichier `docker-compose.yaml` généré par le script d'installation relie les services
+   entre eux à l'aide de volumes Docker nommés : vous n'avez donc rien à configurer
+   vous-même.
+
+   | Volume | Partagé entre | Rôle |
+   |--------|-----------------|---------|
+   | `poller-engine` | centengine, gorgone | Configuration de Centreon Engine (`/etc/centreon-engine`) |
+   | `poller-broker` | centengine, gorgone | Configuration de Centreon Broker (`/etc/centreon-broker`) |
+   | `poller-centcmd` | centengine, gorgone, centreontrapd | Pipe de commandes externes de Centreon Engine (`/var/lib/centreon-engine/rw`) |
+   | `poller-snmp-spool` | snmptrapd, centreontrapd | Répertoire de spool dans lequel les traps reçus sont écrits, puis traités |
+   | `poller-snmp-traps` | gorgone, centreontrapd | Définitions des traps SNMP transmis par le serveur central |
+
+   Chaque service dispose également d'un healthcheck Docker : la commande
+   `docker compose ps` indique donc `healthy` dès qu'un service est complètement démarré.
+
+   </details>
+
+2. Vérifiez l'état de santé du conteneur `gorgone` sur l'hôte des conteneurs :
 
    ```shell
-   curl -fsSL <CENTRAL_URL>/poller/install.sh | bash -s -- \
-     --type docker \
-     --poller_token <TOKEN_NAME>:<TOKEN_SECRET> \
-     --uid <POLLER_UID> \
-     --name '<POLLER_NAME>' \
-     --central_url <CENTRAL_URL> \
-     --appsecret <APP_SECRET> \
-     --salt <SALT>
+   docker compose ps
    ```
 
-   > Replace **\<CENTRAL_URL\>** with the full URL of your Centreon central
-   > server, including its web application base path (for example,
-   > `https://centreon.example.com/centreon`).
+   Dès que `gorgone` indique `healthy`, la connexion au serveur central est établie.
 
-## Step 2: Run the install command on the Docker host
+   Si `gorgone` n'atteint pas l'état `healthy` au bout de quelques minutes, consultez ses journaux
+(`docker compose logs gorgone`), puis reportez-vous aux pages
+[Rattacher un collecteur à un serveur central ou distant](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md)
+et [Communications entre serveurs](../../monitoring/monitoring-servers/communications.md)
+pour en savoir plus sur la façon dont les collecteurs s'enregistrent et communiquent avec le
+serveur central.
 
-Run the copied command as a user who is allowed to use Docker on the target
-host. The script:
+## Étape 3 : Exporter la configuration
 
-1. Checks that Docker and the Docker Compose v2 plugin are available.
-2. Generates a `.env` file and a `docker-compose.yaml` file in the current
-   directory.
-3. Starts the stack with `docker compose up -d`, unless `--no-start` was
-   added to the command (in that case, start it yourself later with
-   `docker compose up -d`).
+Sur le serveur central, revenez à la fenêtre de création du collecteur et cliquez sur
+**Exporter la configuration** pour transmettre la configuration de supervision au collecteur.
 
-By default, the generated stack always includes two services:
-
-* **centengine**: Centreon Engine, the monitoring engine.
-* **gorgone**: Gorgone, in charge of retrieving the poller's configuration and
-  communicating with the central server.
-
-## Step 3: Add optional services
-
-Add these flags to the install command **before running it** to include
-additional services in the generated stack:
-
-| Flag | Effect |
-|------|--------|
-| `--with-snmptrap` | Adds the `snmptrapd` and `centreontrapd` services, for passive monitoring via SNMP traps. |
-| `--with-vmware` | Adds the `centreon-vmware` service (see prerequisite below). |
-| `--with-cma` | Mounts TLS certificates and exposes port 4317, for pollers that accept connections from the Centreon Monitoring Agent (CMA) over OpenTelemetry gRPC. |
-| `--tz <timezone>` | Sets the container timezone (default: `UTC`). |
-| `--debug true` | Enables debug logging on the services. |
-| `--gorgone-ssl <true\|false>` | Overrides the SSL setting used for the Gorgone connection to the central server. |
-| `--no-start` | Only generates `.env` and `docker-compose.yaml`; does not start the stack. |
-
-If you already ran the install command without these flags, you can also add
-the corresponding service(s) by hand to the generated `docker-compose.yaml`
-and `.env` files, then run `docker compose up -d` again.
-
-For VMware monitoring, custom check scripts and plugin dependencies, CMA
-support, and email notifications, see
-[Advanced Docker configuration](./using-containers-advanced-configuration.md).
-
-## Generated files reference
-
-The `docker-compose.yaml` generated by the install script wires the services
-together using named Docker volumes, so you don't need to configure this
-yourself:
-
-| Volume | Shared between | Purpose |
-|--------|-----------------|---------|
-| `poller-engine` | centengine, gorgone | Centreon Engine configuration (`/etc/centreon-engine`) |
-| `poller-broker` | centengine, gorgone | Centreon Broker configuration (`/etc/centreon-broker`) |
-| `poller-centcmd` | centengine, gorgone, centreontrapd | Centreon Engine's external command pipe (`/var/lib/centreon-engine/rw`) |
-| `poller-snmp-spool` | snmptrapd, centreontrapd | Spool directory where received traps are written and then processed |
-| `poller-snmp-traps` | gorgone, centreontrapd | SNMP trap definitions pushed by the central server |
-
-Each service also has a Docker healthcheck, so `docker compose ps` reports
-`healthy` once a service is fully up.
-
-## Step 4: Confirm the connection and export the configuration
-
-The poller creation window does not show a "connected" status by itself.
-Instead, check the health status of the `gorgone` container on the Docker
-host:
-
-```shell
-docker compose ps
-```
-
-Once `gorgone` reports `healthy`, the connection to the central server is
-established. Go back to the poller creation window and click
-**Export configuration** to push the monitoring configuration to the poller.
-
-The poller then shows up as running on the **Configuration > Pollers** page:
+Le collecteur apparaît alors comme actif à la page **Configuration > Collecteurs** :
 
 ![image](../../assets/installation/connected-poller.png)
 
-If `gorgone` does not become healthy after a few minutes, check its logs
-(`docker compose logs gorgone`), then see
-[Attach a poller to a central or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md)
-and [Communications between servers](../../monitoring/monitoring-servers/communications.md)
-for more details on how pollers register and communicate with the central
-server.
+## Étape 4 : Sécuriser votre plateforme
 
-## Step 5: Secure your platform
+Pensez à sécuriser votre plateforme Centreon en suivant nos
+[recommandations](../../administration/secure-platform.md).
 
-Remember to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform.md).
+## Services optionnels à ajouter à la commande d'installation
+
+La commande générée de base ressemble à ceci :
+
+```shell
+curl -fsSL <CENTRAL_URL>/poller/install.sh | bash -s -- \
+   --type docker \
+   --poller_token <TOKEN_NAME>:<TOKEN_SECRET> \
+   --uid <POLLER_UID> \
+   --name '<POLLER_NAME>' \
+   --central_url <CENTRAL_URL> \
+   --appsecret <APP_SECRET> \
+   --salt <SALT>
+```
+
+Ajoutez les options suivantes à la commande d'installation pour inclure des fonctionnalités supplémentaires :
+
+| Option | Effet |
+|------|--------|
+| `--with-snmptrap` | Ajoute les services `snmptrapd` et `centreontrapd`, pour la supervision passive via les traps SNMP. |
+| `--with-vmware` | [Permet au collecteur de superviser des ressources VMware](using-containers-advanced-configuration.md#permettre-au-collecteur-de-superviser-des-ressources-vmware) (ajoute le service `centreon-vmware`). |
+| `--with-cma` | [Permet au collecteur de recevoir des données des agents CMA](./using-containers-advanced-configuration.md#permettre-au-collecteur-de-recevoir-des-données-des-agents-cma). Monte les certificats TLS et expose le port 4317, pour les collecteurs qui acceptent les connexions de l'agent CMA (Centreon Monitoring Agent) via OpenTelemetry gRPC. |
+| `--tz <timezone>` | Définit le fuseau horaire des conteneurs (par défaut : `UTC`). |
+| `--debug true` | Active la journalisation de débogage sur les services. |
+| `--gorgone-ssl <true\|false>` | Remplace le paramètre SSL utilisé pour la connexion de Gorgone au serveur central. |
+| `--no-start` | Génère uniquement les fichiers `.env` et `docker-compose.yaml` ; ne démarre pas les services. |
+
+Si vous avez déjà exécuté la commande d'installation sans ces options, vous pouvez également
+ajouter le ou les services correspondants à la main dans les fichiers `docker-compose.yaml`
+et `.env` générés, puis exécuter de nouveau `docker compose up -d`.

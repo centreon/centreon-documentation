@@ -6,10 +6,12 @@ description: "Install a Centreon poller using docker-compose"
 
 > The container-based poller deployment method is currently in **BETA**.
 
-A ready-to-use installation command for container-based pollers can be retrieved from the central server's interface, tailored to your platform. Container-based pollers use Debian 13.
+A ready-to-use installation command for container-based pollers can be retrieved from the central server's interface, tailored to your platform.
 
 <details>
 <summary>Container contents</summary>
+
+Container-based pollers use Debian 13.
 
 Instead of a single monolithic container, each poller component runs in its own dedicated container
 (Centreon Engine, Gorgone, and optionally SNMP trap handling and VMware
@@ -50,7 +52,7 @@ and runs an installer script on the target container host. The script generates 
       > The **Poller address** does not affect connectivity: Gorgone uses
       > PullWSS, so the poller always initiates the connection to the central
       > server, not the other way around.
-   * **Centreon Central address, as seen by this poller**: the URL this poller uses to reach the central server.
+   * **Centreon Central address, as seen by this poller**: the URL this poller uses to reach the central server, e.g. `http(s)://10.10.10.10/centreon`.
 
 3. Select **Container** as the poller's environment.
 
