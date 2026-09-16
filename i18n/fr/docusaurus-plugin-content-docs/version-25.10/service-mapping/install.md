@@ -81,7 +81,7 @@ indiquant la date de fin de validité de la licence :
 > replicate-ignore-table=centreon.mod_bam_view_kpi
 > ```
 >
-> puis créer les vues sur le slave [avec le fichier suivant](view_creation.sql), en lançant la commande:
+> puis créer les vues sur le slave [avec le fichier suivant](https://docs.centreon.com/fr/assets/files/view_creation-40750b8dad6e40d6e628d82828222318.sql), en lançant la commande:
 >
 > ``` shell
 > myqsl centreon < view_creation.sql

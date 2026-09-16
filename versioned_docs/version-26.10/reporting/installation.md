@@ -277,7 +277,7 @@ vgdisplay vg_data | grep -i free*
 >```
 
 Be sure to optimize MariaDB/MySQL on your reporting server.
-You will need at least 12 GB of RAM in order to use the [following file](../assets/reporting/installation/centreon.cnf).
+You will need at least 12 GB of RAM in order to use the [following file](https://docs.centreon.com/assets/files/centreon-5f252db1951f8afdc9509062bc1f0084.cnf).
 
 > If you want to use a different directory than `/var/lib/mysql/`, edit the **datadir** and **tmpdir** variables in the centreon.cnf file.
 
@@ -911,7 +911,7 @@ systemctl start gorgoned && systemctl enable gorgoned
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
+Make sure that the optimized configuration [file](https://docs.centreon.com/assets/files/centreon-5f252db1951f8afdc9509062bc1f0084.cnf) provided
 in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MariaDB service:
 
 ```shell
@@ -946,7 +946,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf) provided
+Make sure that the optimized configuration [file](https://docs.centreon.com/assets/files/centreon-5f252db1951f8afdc9509062bc1f0084.cnf) provided
 in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MariaDB service:
 
 ```shell
@@ -981,7 +981,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Make sure that the optimized configuration [file](../assets/reporting/installation/centreon.cnf)
+Make sure that the optimized configuration [file](https://docs.centreon.com/assets/files/centreon-5f252db1951f8afdc9509062bc1f0084.cnf)
 provided in the requirements is present in `/etc/mysql/mariadb.conf.d/`.
 
 Rename the file to `80-centreon.cnf`:
@@ -1034,7 +1034,7 @@ socket=$PATH_TO_SOCKET$
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Ensure that the [optimized configuration file](../assets/reporting/installation/centreon.cnf) provided in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
+Ensure that the [optimized configuration file](https://docs.centreon.com/assets/files/centreon-5f252db1951f8afdc9509062bc1f0084.cnf) provided in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
 
 ```shell
 systemctl restart mysql
@@ -1065,7 +1065,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Ensure that the [optimized configuration file](../assets/reporting/installation/centreon.cnf) provided in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
+Ensure that the [optimized configuration file](https://docs.centreon.com/assets/files/centreon-5f252db1951f8afdc9509062bc1f0084.cnf) provided in the prerequisites is present in `/etc/my.cnf.d/`, then restart the MySQL service:
 
 
 ```shell
@@ -1097,7 +1097,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Ensure that the [optimized configuration file](../assets/reporting/installation/centreon.cnf) provided in the prerequisites is present in `/etc/mysql/mysql.conf.d/`.
+Ensure that the [optimized configuration file](https://docs.centreon.com/assets/files/centreon-5f252db1951f8afdc9509062bc1f0084.cnf) provided in the prerequisites is present in `/etc/mysql/mysql.conf.d/`.
 
 Rename the file as `80-centreon.cnf`:
 
