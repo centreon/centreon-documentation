@@ -86,7 +86,7 @@ As explained in the example below, in the **Mapping ticket arguments** you could
 
 ## CI parameter
 
-It is possible to send the CI field to EasyVista. When configured (see [custom lists](../../alerts-notifications/ticketing.md#list-definition) for more information) it will send either the name of the host or a selected hostgroup when you tick the "Use hostgroup name as CI" option. When you open a ticket on multiple hosts at once, only groups in which the common hosts belong can be selected. Still in the multiple hosts selection, you will be forced to select one of the host names as CI if you are not using the host group feature.
+It is possible to send the CI field to EasyVista. When configured (see [custom lists](../../alerts-notifications/ticketing.md#définition-de-liste) for more information) it will send either the name of the host or a selected hostgroup when you tick the "Use hostgroup name as CI" option. When you open a ticket on multiple hosts at once, only groups in which the common hosts belong can be selected. Still in the multiple hosts selection, you will be forced to select one of the host names as CI if you are not using the host group feature.
 
 ![custom list](../../assets/integrations/easy-vista-rest/openticket_demo.gif)
 

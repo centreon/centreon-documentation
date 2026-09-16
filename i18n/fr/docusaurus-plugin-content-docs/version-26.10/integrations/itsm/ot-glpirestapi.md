@@ -95,7 +95,7 @@ This open ticket connector can also send the following information when opening 
 - Priority
 - Group and User role
 
-Those information are not retrieved from Glpi. They are configured in your open ticket rule as [custom lists](../../alerts-notifications/ticketing.md#list-definition).
+Those information are not retrieved from Glpi. They are configured in your open ticket rule as [custom lists](../../alerts-notifications/ticketing.md#définition-de-liste).
 
 ## Test commands
 
