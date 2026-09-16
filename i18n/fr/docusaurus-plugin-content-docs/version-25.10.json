@@ -346,5 +346,9 @@
   "sidebar.docs.category.Release notes for Centreon 25.10": {
     "message": "Notes de release Centreon Infra Monitoring 25.10",
     "description": "The label for category Release notes for Centreon 25.10 in sidebar docs"
-  }       
+  },
+  "sidebar.docs.category.Manual setup (advanced)": {
+    "message": "Installation manuelle",
+    "description": "The label for category Manual setup (advanced) in sidebar docs"
+  }
 }

@@ -9,40 +9,6 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 |----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
 | Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
 
-### Prérequis système sur le collecteur
-
-> Pour pouvoir utiliser l'agent **Centreon Monitoring Agent**, vous devez utiliser un collecteur ayant au
-> minimum la version 24.10 pour les utilisateurs OnPrem de `centreon-engine`. L'agent devra se configurer en se connectant à Centreon Engine.
-
-### Configuration de Centreon Engine
-
-<Tabs groupId="version" queryString>
-<TabItem value="OnPrem" label="OnPrem">
-
-[Configurez la communication entre le collecteur et l'agent](/docs/cma/cma-setup#configurez-la-communication-collecteuragent).  (Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version situé dans le coin supérieur droit pour passer à une autre version si nécessaire.)
-
-</TabItem>
-<TabItem value="Cloud" label="Cloud">
-
-[Configurez la communication entre le collecteur et l'agent](/cloud/cma/cma-setup#configurez-la-communication-collecteuragent).
-
-</TabItem>
-</Tabs>
-
-### Prérequis système sur l'hôte à superviser
-
-<Tabs groupId="version" queryString>
-<TabItem value="OnPrem" label="OnPrem">
-
-[Configurez la communication entre le collecteur et l'agent](/docs/cma/cma-setup#configurez-la-communication-collecteuragent).  (Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version situé dans le coin supérieur droit pour passer à une autre version si nécessaire.)
-
-</TabItem>
-<TabItem value="Cloud" label="Cloud">
-
-[Configurez la communication entre le collecteur et l'agent](/cloud/cma/cma-setup#configurez-la-communication-collecteuragent).
-
-</TabItem>
-</Tabs>
 
 ### Installation de Centreon Monitoring Agent
 
@@ -50,13 +16,13 @@ Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
 <TabItem value="OnPrem" label="OnPrem">
 
 La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
-[la documentation dédiée à ce sujet](/docs/cma/cma-setup#étape-3--préparez-lhôte).
+[la documentation dédiée à ce sujet](/docs/cma/cma-setup).
 Cela comprend l'installation de l'agent et des plug-ins qui exécuteront les contrôles non natifs. (Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version dans le coin supérieur droit pour passer à une autre version si nécessaire.)
 
 </TabItem>
 <TabItem value="Cloud" label="Cloud">
 
-La procédure d'installation et de configuration de Centreon Monitoring Agent est détaillée dans [une page dédiée](/cloud/cma/cma-setup#étape-3--préparez-lhôte). Elle comprend l'installation de l'agent et l'installation des plugins qui exécuteront les contrôles non natifs.
+La procédure d'installation et de configuration de Centreon Monitoring Agent est détaillée dans [une page dédiée](/cloud/cma/cma-setup). Elle comprend l'installation de l'agent et l'installation des plugins qui exécuteront les contrôles non natifs.
 
 </TabItem>
 </Tabs>
