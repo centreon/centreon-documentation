@@ -154,24 +154,33 @@
               "id": "installation/installation-of-a-poller/unattended-install-poller"
             },
             {
+              "type": "category",
+              "label": "Pollers in containers",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/using-containers"
+                },
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/pollers-containers-prerequisites"
+                },
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/using-containers-advanced-configuration"
+                },
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/adapt-legacy-pullwss"
+                }
+              ]
+            },
+            {
               "type": "doc",
               "id": "installation/installation-of-a-poller/using-packages"
-            },
-            {
-              "type": "doc",
-              "id": "installation/installation-of-a-poller/using-containers"
-            },
-            {
-              "type": "doc",
-              "id": "installation/installation-of-a-poller/pollers-containers-prerequisites"
-            },
-            {
-              "type": "doc",
-              "id": "installation/installation-of-a-poller/using-containers-advanced-configuration"
-            },
-            {
-              "type": "doc",
-              "id": "installation/installation-of-a-poller/adapt-legacy-pullwss"
             }
           ]
         },
@@ -185,7 +194,7 @@
             {
               "type": "doc",
               "id": "installation/installation-of-a-remote-server/unattended-install-remote"
-            },            
+            },
             {
               "type": "doc",
               "id": "installation/installation-of-a-remote-server/using-packages"
@@ -795,7 +804,7 @@
               "type": "doc",
               "id": "graph-views/map-web-migrate"
             },
-           {
+            {
               "type": "doc",
               "id": "graph-views/map-web-monitoring"
             },
@@ -1148,7 +1157,7 @@
             {
               "type": "doc",
               "id": "upgrade/introduction"
-            },            
+            },
             {
               "type": "doc",
               "id": "upgrade/upgrade-matrix"
@@ -1235,34 +1244,34 @@
       "type": "category",
       "label": "Centreon Monitoring Agent",
       "link": {
-                "type": "generated-index"
-              },
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "cma/cma"
-                },
-                {
-                  "type": "doc",
-                  "id": "cma/cma-setup"
-                },
-                {
-                  "type": "doc",
-                  "id": "cma/cma-certificates"
-                },
-                {
-                  "type": "doc",
-                  "id": "cma/cma-custom"
-                },
-                {
-                  "type": "doc",
-                  "id": "cma/cma-migratenscpp"
-                },
-                {
-                  "type": "doc",
-                  "id": "cma/cma-troubleshooting"
-                }
-              ]
+        "type": "generated-index"
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "cma/cma"
+        },
+        {
+          "type": "doc",
+          "id": "cma/cma-setup"
+        },
+        {
+          "type": "doc",
+          "id": "cma/cma-certificates"
+        },
+        {
+          "type": "doc",
+          "id": "cma/cma-custom"
+        },
+        {
+          "type": "doc",
+          "id": "cma/cma-migratenscpp"
+        },
+        {
+          "type": "doc",
+          "id": "cma/cma-troubleshooting"
+        }
+      ]
     },
     {
       "type": "category",
@@ -1680,10 +1689,10 @@
         {
           "type": "category",
           "label": "Release notes for Centreon 26.10",
-          "link": { 
+          "link": {
             "type": "doc",
             "id": "releases/introduction"
-          }, 
+          },
           "items": [
             {
               "type": "doc",
