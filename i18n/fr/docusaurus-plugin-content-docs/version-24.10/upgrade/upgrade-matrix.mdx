@@ -4,42 +4,48 @@ title: Matrice des montées de version possibles
 ---
 
 import React, { useState } from 'react';
+import Link from '@docusaurus/Link';
+import { useLocation } from '@docusaurus/router';
 
 export const UpgradeTable = () => {
   const [version, setVersion] = useState('');
   const [os, setOs] = useState('');
   const [compat, setCompat] = useState('');
 
+  // Resolve links against the docs root of the current version/locale instead of
+  // the browser URL: with trailingSlash, relative hrefs resolve one level too deep.
+  const docsRoot = useLocation().pathname.split('/upgrade/upgrade-matrix')[0] + '/';
+
   const rows = [
-    { version: '24.04', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-24-04' },
-    { version: '24.04', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-24-04' },
-    { version: '24.04', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: '../migrate/introduction' },
-    { version: '24.04', os: 'Debian 12 "bookworm"', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-24-04' },
-    { version: '23.10', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-23-10' },
-    { version: '23.10', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-23-10' },
-    { version: '23.10', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: '../migrate/introduction' },
-    { version: '23.04', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-23-04' },
-    { version: '23.04', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-23-04' },
-    { version: '23.04', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: '../migrate/introduction' },
-    { version: '22.10', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '22.10', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '22.10', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-22-10' },
-    { version: '22.10', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: '../migrate/introduction' },
-    { version: '22.04', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-22-04' },
-    { version: '22.04', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '22.04', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '22.04', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: '../migrate/introduction' },
-    { version: '21.10', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '21.10', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '21.10', os: 'RHEL/OracleLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-21-10' },
-    { version: '21.04', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '21.04', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '21.04', os: 'RHEL/OracleLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-21-04' },
-    { version: '20.10', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '20.10', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '20.10', os: 'RHEL/OracleLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade-from-20-10' },
-    { version: '20.04', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
-    { version: '20.04', os: 'RHEL 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: '../migrate/introduction' },
+    { version: '24.04', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-24-04' },
+    { version: '24.04', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-24-04' },
+    { version: '24.04', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: 'migrate/introduction' },
+    { version: '24.04', os: 'Debian 12 "bookworm"', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-24-04' },
+    { version: '23.10', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-23-10' },
+    { version: '23.10', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-23-10' },
+    { version: '23.10', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: 'migrate/introduction' },
+    { version: '23.04', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-23-04' },
+    { version: '23.04', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-23-04' },
+    { version: '23.04', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: 'migrate/introduction' },
+    { version: '22.10', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '22.10', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '22.10', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-22-10' },
+    { version: '22.10', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: 'migrate/introduction' },
+    { version: '22.04', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-22-04' },
+    { version: '22.04', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '22.04', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '22.04', os: 'Debian 11 "bullseye"', compat: 'NON', proc: 'Procédure de migration depuis Debian', href: 'migrate/introduction' },
+    { version: '21.10', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '21.10', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '21.10', os: 'RHEL/OracleLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-21-10' },
+    { version: '21.04', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '21.04', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '21.04', os: 'RHEL/OracleLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-21-04' },
+    { version: '20.10', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '20.10', os: 'RHEL/OracleLinux 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '20.10', os: 'RHEL/OracleLinux 8', compat: 'OUI', proc: 'Procédure de montée de version', href: 'upgrade/upgrade-from-20-10' },
+    { version: '20.04', os: 'CentOS 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
+    { version: '20.04', os: 'RHEL 7', compat: 'NON', proc: 'Procédure de migration depuis EL', href: 'migrate/introduction' },
   ];
 
   const versions = [...new Set(rows.map(r => r.version))];
@@ -128,7 +134,7 @@ export const UpgradeTable = () => {
                   {r.compat}
                 </span>
               </td>
-              <td style={tdStyle}><a href={r.href}>{r.proc}</a></td>
+              <td style={tdStyle}><Link to={docsRoot + r.href}>{r.proc}</Link></td>
             </tr>
           ))}
         </tbody>
