@@ -233,6 +233,10 @@
         {
           "type": "doc",
           "id": "reporting/secure-your-mbi-platform"
+        },
+        {
+          "type": "doc",
+          "id": "graph-views/self-signed-certificate"
         }
       ]
     },

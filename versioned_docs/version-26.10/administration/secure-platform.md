@@ -517,6 +517,725 @@ Status for the jail: centreon
 
 > For more information, go to the [official website](http://www.fail2ban.org).
 
+## Secure the web server with HTTPS
+
+The [standard installation procedure from packages](../installation/installation-of-a-central-server/using-packages.md) lets you install your central server in HTTPS mode. If for some reason you chose to install it in HTTP mode, or you upgraded an HTTP central server and now want to switch to HTTPS, follow this procedure.
+
+It is strongly recommended that you switch to HTTPS mode. Use a certificate issued by a trusted authority. Self-signed certificates must not be used in production.
+
+- If you already have a certificate validated by an authority, you can go directly to this [step](#activating-https-mode-on-your-web-server) to activate HTTPS mode on your Apache server.
+
+- If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
+
+- If, for test purposes, you want to use a self-signed certificate, follow [this procedure](./self-signed-certificate.md) before activating HTTPS mode on your server.
+
+### Activating HTTPS mode on your web server
+
+1. Install the SSL module for Apache:
+  
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install mod_ssl openssl
+```
+  
+2. Install your certificates:
+
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
+
+```shell
+cp centreon7.key /etc/pki/tls/private/
+cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install mod_ssl openssl
+```
+  
+2. Install your certificates:
+
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
+
+```shell
+cp centreon7.key /etc/pki/tls/private/
+cp centreon7.crt /etc/pki/tls/certs/
+cp ca_demo.crt /etc/pki/tls/certs/
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
+apt update
+a2enmod ssl
+a2enmod security2
+systemctl restart apache2
+```
+
+2. Install your certificates:
+
+Install your certificates (**centreon7.key** and **centreon7.crt** in our example, and the CA certificate) by copying them to the Apache configuration:
+
+```shell
+cp centreon7.key /etc/ssl/private/
+cp centreon7.crt /etc/ssl/certs/
+cp ca_demo.crt /etc/ssl/certs/
+```
+
+</TabItem>
+</Tabs>
+
+3. Back up the previous Apache configuration for Centreon:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+cp /etc/httpd/conf.d/10-centreon.conf{,.origin}
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+cp /etc/apache2/sites-available/centreon.conf{,.origin}
+```
+
+</TabItem>
+</Tabs>
+
+4. Edit the Centreon Apache configuration:
+
+> Centreon offers an example of a configuration file to enable HTTPS, available in the following directory:
+> **/usr/share/centreon/examples/centreon.apache.https.conf**
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **\<VirtualHost *:443\>** section.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file by adding the **\<VirtualHost *:443\>** section.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+Edit the **/etc/apache2/sites-available/centreon.conf** file by adding the **\<VirtualHost *:443\>** section.
+</TabItem>
+</Tabs>
+
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+```
+
+This is how the file should look:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+
+<VirtualHost *:443>
+    #####################
+    # SSL configuration #
+    #####################
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    ServerSignature Off
+    TraceEnable Off
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    </IfModule>
+
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    ErrorDocument 404 ${base_uri}/index.html
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        DirectoryIndex index.php
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
+
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
+```
+
+> Do not forget to change the **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
+> certificate and key. In our case: **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** and **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+
+<VirtualHost *:443>
+    #####################
+    # SSL configuration #
+    #####################
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    ServerSignature Off
+    TraceEnable Off
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    </IfModule>
+
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    ErrorDocument 404 ${base_uri}/index.html
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        DirectoryIndex index.php
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
+
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
+```
+
+> Do not forget to change the **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
+> certificate and key. In our case: **SSLCertificateFile /etc/pki/tls/certs/centreon7.crt** and **SSLCertificateKeyFile /etc/pki/tls/private/centreon7.key**.
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```apacheconf
+Define base_uri "/centreon"
+Define install_dir "/usr/share/centreon"
+
+ServerTokens Prod
+
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+</VirtualHost>
+
+<VirtualHost *:443>
+    #####################
+    # SSL configuration #
+    #####################
+    SSLEngine On
+    SSLProtocol All -SSLv3 -SSLv2 -TLSv1 -TLSv1.1
+    SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-DSS-AES256-GCM-SHA384:DHE-DSS-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-GCM-SHA256:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!DSS:!RC4:!SEED:!ADH:!IDEA
+    SSLHonorCipherOrder On
+    SSLCompression Off
+    SSLCertificateFile /etc/pki/tls/certs/ca.crt
+    SSLCertificateKeyFile /etc/pki/tls/private/ca.key
+
+    Header set X-Frame-Options: "sameorigin"
+    Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;SameSite=Strict
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+    ServerSignature Off
+    TraceEnable Off
+
+    Alias ${base_uri}/api ${install_dir}
+    Alias ${base_uri} ${install_dir}/www/
+
+    <IfModule mod_brotli.c>
+        AddOutputFilterByType BROTLI_COMPRESS text/html text/plain text/xml text/css text/javascript application/javascript application/json
+    </IfModule>
+
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+
+    <LocationMatch ^\${base_uri}/?(?!api/latest/|api/beta/|api/v[0-9]+/|api/v[0-9]+\.[0-9]+/)(.*\.php(/.*)?)$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/www/$1"
+    </LocationMatch>
+
+    <LocationMatch ^\${base_uri}/?(authentication|api/(latest|beta|v[0-9]+|v[0-9]+\.[0-9]+))/.*$>
+        ProxyPassMatch "fcgi://127.0.0.1:9042${install_dir}/api/index.php/$1"
+    </LocationMatch>
+
+    ProxyTimeout 300
+    ErrorDocument 404 ${base_uri}/index.html
+    Options -Indexes +FollowSymLinks
+
+    <IfModule mod_security2.c>
+        # https://github.com/SpiderLabs/ModSecurity/issues/652
+        SecRuleRemoveById 200003
+    </IfModule>
+
+    <Directory "${install_dir}/www">
+        DirectoryIndex index.php
+        AllowOverride none
+        Require all granted
+        FallbackResource ${base_uri}/index.html
+    </Directory>
+
+    <Directory "${install_dir}/api">
+        AllowOverride none
+        Require all granted
+    </Directory>
+
+    <If "'${base_uri}' != '/'">
+        RedirectMatch ^/$ ${base_uri}
+    </If>
+</VirtualHost>
+```
+
+> Do not forget to change the **SSLCertificateFile** and **SSLCertificateKeyFile** directives with the path containing your
+> certificate and key. In our case: **SSLCertificateFile /etc/ssl/certs/centreon7.crt** and **SSLCertificateKeyFile /etc/ssl/private/centreon7.key**.
+
+</TabItem>
+</Tabs>
+
+5. Enable HttpOnly / Secure flags and hide the Apache server signature:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
+
+```apacheconf
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+ServerSignature Off
+ServerTokens Prod
+```
+
+Edit the **/etc/php.d/50-centreon.ini** file:
+
+* Make sure that the `expose_php` parameter is disabled:
+
+```phpconf
+expose_php = Off
+```
+
+* Add the path to the CA certificate that was used to sign the server's certificate:
+
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Edit the **/etc/httpd/conf.d/10-centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
+
+```apacheconf
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+ServerSignature Off
+ServerTokens Prod
+```
+
+Edit the **/etc/php.d/50-centreon.ini** file:
+
+* Make sure that the `expose_php` parameter is disabled:
+
+```phpconf
+expose_php = Off
+```
+
+* Add the path to the CA certificate that was used to sign the server's certificate:
+
+  ```text
+  openssl.cafile=/etc/pki/tls/certs/ca_demo.crt
+  curl.cainfo=/etc/pki/tls/certs/ca_demo.crt
+  ```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+Edit the **/etc/apache2/sites-available/centreon.conf** file and add the following lines before the `<VirtualHost>` tag:
+
+```apacheconf
+Header set X-Frame-Options: "sameorigin"
+Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+ServerSignature Off
+ServerTokens Prod
+TraceEnable Off
+```
+
+Edit the **/etc/php/8.2/mods-available/centreon.ini** file and add the following lines:
+
+```text
+openssl.cafile=/etc/ssl/certs/ca_demo.crt
+curl.cainfo=/etc/ssl/certs/ca_demo.crt
+```
+
+</TabItem>
+</Tabs>
+
+6. Hide the default **/icons** directory:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
+
+```apacheconf
+#Alias /icons/ "/usr/share/httpd/icons/"
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Edit the **/etc/httpd/conf.d/autoindex.conf** file and comment the following line:
+
+```apacheconf
+#Alias /icons/ "/usr/share/httpd/icons/"
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+Edit the **/etc/apache2/mods-available/autoindex.conf** file and comment the following line:
+
+> The default icons directory is already hidden.
+
+</TabItem>
+</Tabs>
+
+7. You can perform this test to check that Apache is properly configured, by running the following command:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```apacheconf
+apachectl configtest
+```
+
+The expected result is the following:
+
+```apacheconf
+Syntax OK
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```apacheconf
+apachectl configtest
+```
+
+The expected result is the following:
+
+```apacheconf
+Syntax OK
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```apacheconf
+apache2ctl configtest
+```
+
+The expected result is the following:
+
+```apacheconf
+Syntax OK
+```
+
+</TabItem>
+</Tabs>
+
+8. Restart the Apache and PHP processes to take the new configuration into account:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd
+```
+
+If everything is ok, you should have:
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+systemctl restart php-fpm httpd
+```
+
+Then check its status:
+
+```shell
+systemctl status httpd
+```
+
+If everything is ok, you should have:
+
+```shell
+● httpd.service - The Apache HTTP Server
+   Loaded: loaded (/usr/lib/systemd/system/httpd.service; enabled; vendor preset: disabled)
+  Drop-In: /usr/lib/systemd/system/httpd.service.d
+           └─php-fpm.conf
+   Active: active (running) since Tue 2020-10-27 12:49:42 GMT; 2h 35min ago
+     Docs: man:httpd.service(8)
+ Main PID: 1483 (httpd)
+   Status: "Total requests: 446; Idle/Busy workers 100/0;Requests/sec: 0.0479; Bytes served/sec: 443 B/sec"
+    Tasks: 278 (limit: 5032)
+   Memory: 39.6M
+   CGroup: /system.slice/httpd.service
+           ├─1483 /usr/sbin/httpd -DFOREGROUND
+           ├─1484 /usr/sbin/httpd -DFOREGROUND
+           ├─1485 /usr/sbin/httpd -DFOREGROUND
+           ├─1486 /usr/sbin/httpd -DFOREGROUND
+           ├─1487 /usr/sbin/httpd -DFOREGROUND
+           └─1887 /usr/sbin/httpd -DFOREGROUND
+
+```
+
+</TabItem>
+<TabItem value="Debian 12" label="Debian 12">
+
+```shell
+systemctl restart php8.2-fpm apache2
+```
+
+Then check its status:
+
+```shell
+systemctl status apache2
+```
+
+If everything is ok, you should have:
+
+```shell
+● apache2.service - The Apache HTTP Server
+    Loaded: loaded (/lib/systemd/system/apache2.service; enabled; vendor pres>
+     Active: active (running) since Tue 2022-08-09 05:01:36 UTC; 3h 56min ago
+       Docs: https://httpd.apache.org/docs/2.4/
+   Main PID: 518 (apache2)
+      Tasks: 11 (limit: 2356)
+     Memory: 18.1M
+        CPU: 1.491s
+     CGroup: /system.slice/apache2.service
+             ├─ 518 /usr/sbin/apache2 -k start
+             ├─1252 /usr/sbin/apache2 -k start
+             ├─1254 /usr/sbin/apache2 -k start
+             ├─1472 /usr/sbin/apache2 -k start
+             ├─3857 /usr/sbin/apache2 -k start
+             ├─3858 /usr/sbin/apache2 -k start
+             ├─3859 /usr/sbin/apache2 -k start
+             ├─3860 /usr/sbin/apache2 -k start
+             ├─3876 /usr/sbin/apache2 -k start
+             ├─6261 /usr/sbin/apache2 -k start
+             └─6509 /usr/sbin/apache2 -k start
+```
+
+</TabItem>
+</Tabs>
+
+Now you can access your platform with your browser in HTTPS mode.
+
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you must set the `centreon.url=https://<server-address>` inside the **/etc/centreon-map/map-config.properties** file to use HTTPS instead of HTTP. Otherwise recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#configure-httpstls-on-the-map-server).
+
+9. Gorgone API configuration
+
+Replace **127.0.0.1** with the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file:
+
+```text
+gorgone:
+  tpapi:
+    - name: centreonv2
+      base_url: "http://centreon7.localdomain/centreon/api/latest/"
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+    - name: clapi
+      username: "centreon-gorgone"
+      password: "bpltc4aY"
+```
+
+Then restart the Gorgone daemon:
+
+```shell
+systemctl restart gorgoned
+```
+
+Then check its status:
+
+```shell
+systemctl status gorgoned
+```
+
+If everything is ok, you should have:
+
+```shell
+● gorgoned.service - Centreon Gorgone
+   Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2023-03-06 15:58:10 CET; 27min ago
+ Main PID: 1791096 (perl)
+    Tasks: 124 (limit: 23040)
+   Memory: 595.3M
+   CGroup: /system.slice/gorgoned.service
+           ├─1791096 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
+           ├─1791109 gorgone-statistics
+           ├─1791112 gorgone-legacycmd
+           ├─1791117 gorgone-engine
+           ├─1791118 gorgone-audit
+           ├─1791125 gorgone-nodes
+           ├─1791138 gorgone-action
+           ├─1791151 gorgone-cron
+           ├─1791158 gorgone-dbcleaner
+           ├─1791159 gorgone-autodiscovery
+           ├─1791166 gorgone-httpserver
+           ├─1791180 gorgone-proxy
+           ├─1791181 gorgone-proxy
+           ├─1791182 gorgone-proxy
+           ├─1791189 gorgone-proxy
+           └─1791190 gorgone-proxy
+
+mars 06 15:58:10 ito-central systemd[1]: gorgoned.service: Succeeded.
+mars 06 15:58:10 ito-central systemd[1]: Stopped Centreon Gorgone.
+mars 06 15:58:10 ito-central systemd[1]: Started Centreon Gorgone.
+```
+
+You should see the following line in the Gorgone daemon log file **/var/log/centreon-gorgone/gorgoned.log**:
+
+```text
+2023-03-06 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started
+```
+
 ## Custom URI
 
 It is possible to customize the URI for your Centreon platform. For example, **/centreon** can be replaced by **/monitoring**.
@@ -592,7 +1311,7 @@ To use http2, you need to follow these steps:
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. [Configure https on Centreon](#secure-the-web-server-with-https)
+1. [Configure https on Centreon](../installation/installation-of-a-central-server/using-packages.md#step-3-set-up-the-tls-configuration)
 
 2. Install the nghttp2 module:
 

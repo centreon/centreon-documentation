@@ -54,7 +54,7 @@ a remote database on a dedicated server.
 
 ## Step 3: Set up the TLS configuration
 
-### Generate the certificates
+### Prepare the certificates
 
 <TlsCertificates />
 

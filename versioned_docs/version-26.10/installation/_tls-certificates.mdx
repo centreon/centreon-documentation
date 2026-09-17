@@ -1,53 +1,20 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Generate the certificates the platform will need to connect to the web interface and to the database.
+Use a certificate issued by a trusted authority. Self-signed certificates must not be used in production.
 
-1. On the central server, install **openssl**.
+* If you already have a certificate validated by an authority, you can activate HTTPS mode on your Apache server.
+* If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
+* If, for test purposes, you want to use a self-signed certificate, follow [this procedure](./self-signed-certificate.md) before activating HTTPS mode on your server.
 
-   <Tabs groupId="os">
-   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-   ```shell
-   dnf install openssl -y
-   ```
-
-   </TabItem>
-   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-   ```shell
-   dnf install openssl -y
-   ```
-
-   </TabItem>
-   <TabItem value="Debian 13" label="Debian 13">
-
-   ```shell
-   apt install -y openssl
-   ```
-
-   </TabItem>
-   </Tabs>
-
-2. Download the **entrypoint.sh** script.
-
-3. Run the script to generate a root CA and a certificate for this host. Replace \<HOSTNAME\> by the IP address of your machine:
-
-   ```shell
-   mkdir -p /etc/pki/centreon-tls
-   OUT=/etc/pki/centreon-tls \
-   entrypoint.sh <HOSTNAME> localhost 127.0.0.1
-   cd /
-   ```
-
-   The command outputs the following files in **/etc/pki/centreon-tls/**:
+Let's say you have the following files in **/etc/pki/centreon-tls/**:
 
       * rootCA.pem            (public)
       * server.pem            (server certificate)
       * server-key.pem        (server private key)
       * CA/rootCA.\{key,pem\}   (set the following permissions root:root, mode 0400)
 
-4. Install the root CA into the OS trust store:
+1. Install the root CA into the OS trust store:
 
    <Tabs groupId="os">
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -75,4 +42,4 @@ Generate the certificates the platform will need to connect to the web interface
    </TabItem>
    </Tabs>
 
-5. If you are using a remote database, also execute this procedure on the machine that will host the remote database, then copy the root CA certificate of the database machine to the central server's trust store.
+2. If you are using a remote database, also execute this procedure on the machine that will host the remote database, then copy the root CA certificate of the database machine to the central server's trust store.
