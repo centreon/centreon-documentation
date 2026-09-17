@@ -1028,6 +1028,22 @@ Then restart the agent:
 systemctl restart centagent
 ```
 
+This updates the agent only. Plugins (`centreon-plugin-*` packages) are separate packages that are not affected by this command.
+
+To update only the plugins, without touching the agent, use your package manager on the relevant `centreon-plugin-*` package(s), e.g.:
+
+```shell
+dnf update centreon-plugin-Operatingsystems-Linux-Local
+```
+
+Or, to update all the Centreon plugins installed on the host:
+
+```shell
+dnf update 'centreon-plugin-*'
+```
+
+On Debian/Ubuntu, replace `dnf update` with `apt-get update && apt-get upgrade`. No agent restart is required after updating plugins only.
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
@@ -1043,6 +1059,8 @@ systemctl restart centagent
    * **Update**: allows you to update both the agent binaries and the configuration. Select the instance to update — the configuration fields are pre-filled with the current values and can be modified.
 2. Select **Update**, choose the instance to update, adjust the configuration if needed, and complete the wizard.
 
+To update only the plugins, without updating the agent binaries, uncheck the agent in the list of components (binaries) and leave only **Plugins** checked before completing the wizard.
+
 </TabItem>
 <TabItem value="Silent mode" label="Silent mode (console)">
 
@@ -1053,6 +1071,12 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /AGENTINSTANCE="Servic
 ```
 
 This updates both the agent binaries and the configuration of the specified instance.
+
+To update only the plugins, without updating the agent binaries, add `/COMPONENTS=plugins`:
+
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+```
 
 </TabItem>
 </Tabs>
