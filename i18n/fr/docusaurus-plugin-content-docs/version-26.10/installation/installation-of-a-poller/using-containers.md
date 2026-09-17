@@ -41,7 +41,7 @@ fichiers `.env` et `docker-compose.yaml`, puis démarre l'ensemble des services.
 
 ## Étape 1 : Générer la commande d'installation
 
-1. Sur le serveur central, cliquez sur **Collecteurs** en haut à gauche de l'écran puis, dans la fenêtre qui s'ouvre, cliquez sur **Créer un collecteur**.
+1. Sur le serveur central, cliquez sur la zone des collecteurs en haut à gauche de l'écran puis, dans la fenêtre qui s'ouvre, cliquez sur **Créer un collecteur**.
 
    ![image](../../assets/installation/create-poller-banner.png)
 
@@ -52,7 +52,7 @@ fichiers `.env` et `docker-compose.yaml`, puis démarre l'ensemble des services.
       > L'adresse du collecteur n'a aucune incidence sur la connectivité : Gorgone
       > utilise PullWSS, c'est donc toujours le collecteur qui initie la connexion vers le
       > serveur central, et non l'inverse.
-   * **Adresse du serveur central Centreon, telle que vue par ce collecteur** : l'URL que ce collecteur utilise pour joindre le serveur central, par exemple `http(s)://10.10.10.10/centreon`.
+   * **Adresse du serveur central Centreon, telle que vue par ce collecteur** : l'URL que ce collecteur utilise pour joindre le serveur central, par exemple `http(s)://10.10.10.10/centreon`. Si votre serveur central est configuré en HTTPS, la connexion entre le serveur central et le collecteur sera automatiquement configurée en HTTPS aussi.
 
 3. Sélectionnez **Conteneur** comme environnement du collecteur.
 
@@ -117,7 +117,7 @@ l'hôte cible.
 
    Dès que `gorgone` indique `healthy`, la connexion au serveur central est établie.
 
-   Si `gorgone` n'atteint pas l'état `healthy` au bout de quelques minutes, consultez ses journaux
+   Si `gorgone` n'atteint pas l'état `healthy` au bout de quelques minutes, consultez ses logs
 (`docker compose logs gorgone`), puis reportez-vous aux pages
 [Rattacher un collecteur à un serveur central ou distant](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md)
 et [Communications entre serveurs](../../monitoring/monitoring-servers/communications.md)
@@ -127,7 +127,7 @@ serveur central.
 ## Étape 3 : Exporter la configuration
 
 Sur le serveur central, revenez à la fenêtre de création du collecteur et cliquez sur
-**Exporter la configuration** pour transmettre la configuration de supervision au collecteur.
+**Exporter la configuration**.
 
 Le collecteur apparaît alors comme actif à la page **Configuration > Collecteurs** :
 
@@ -135,7 +135,7 @@ Le collecteur apparaît alors comme actif à la page **Configuration > Collecteu
 
 ## Étape 4 : Sécuriser votre plateforme
 
-Pensez à sécuriser votre plateforme Centreon en suivant nos
+Si votre serveur central est configuré en HTTPS, la connexion entre le serveur central et le collecteur sera automatiquement configurée en HTTPS aussi. Pensez cependant à effectuer les autres actions de sécurisation de votre plateforme Centreon en suivant nos
 [recommandations](../../administration/secure-platform.md).
 
 ## Services optionnels à ajouter à la commande d'installation

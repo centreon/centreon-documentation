@@ -41,7 +41,7 @@ and runs an installer script on the target container host. The script generates 
 
 ## Step 1: Generate the install command
 
-1. On the central server, click **Pollers** at the top left of the screen and in the popup that opens, click **Create new poller**.
+1. On the central server, click the pollers zone at the top left of the screen and in the popup that opens, click **Create new poller**.
 
    ![image](../../assets/installation/create-poller-banner.png)
 
@@ -52,7 +52,7 @@ and runs an installer script on the target container host. The script generates 
       > The **Poller address** does not affect connectivity: Gorgone uses
       > PullWSS, so the poller always initiates the connection to the central
       > server, not the other way around.
-   * **Centreon Central address, as seen by this poller**: the URL this poller uses to reach the central server, e.g. `http(s)://10.10.10.10/centreon`.
+   * **Centreon Central address, as seen by this poller**: the URL this poller uses to reach the central server, e.g. `http(s)://10.10.10.10/centreon`. If your central server is configured in HTTPS, the connection between the central server and the poller will be automatically configured in HTTPS too.
 
 3. Select **Container** as the poller's environment.
 
@@ -127,7 +127,7 @@ server.
 ## Step 3: Export the configuration
 
 On the central server, go back to the poller creation window and click
-**Export configuration** to push the monitoring configuration to the poller.
+**Export configuration**.
 
 The poller then shows up as running on the **Configuration > Pollers** page:
 
@@ -135,8 +135,7 @@ The poller then shows up as running on the **Configuration > Pollers** page:
 
 ## Step 4: Secure your platform
 
-Remember to secure your Centreon platform following our
-[recommendations](../../administration/secure-platform.md).
+If your central server is configured in HTTPS, the connection between the central server and the poller will automatically be configured in HTTPS as well. However, remember to carry out the other security measures for your Centreon platform by following our [recommendations](../../administration/secure-platform.md).
 
 ## Optional services to add to the installation command
 
