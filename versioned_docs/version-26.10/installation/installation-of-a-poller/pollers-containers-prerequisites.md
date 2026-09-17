@@ -162,9 +162,9 @@ systemctl restart apache2
   </TabItem>
   </Tabs>
 
-## Step 3: Add the poller to the platform's configuration
+## Add the poller to the platform's configuration
 
-You can now add a poller in a container. To do so, retrieve the correct command from the Centreon web interface. 
+You can now add a poller in a container. To do so, [retrieve the correct command from the Centreon web interface](./using-containers.md).
 The poller will automatically connect to the central server using pullwss.
 
 ## If you delete all your pollers in containers
