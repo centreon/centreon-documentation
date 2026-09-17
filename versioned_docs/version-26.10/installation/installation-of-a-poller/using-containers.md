@@ -156,12 +156,12 @@ Add the following flags to the install command to include additional features:
 
 | Flag | Effect |
 |------|--------|
-| `--with-snmptrap` | Adds the `snmptrapd` and `centreontrapd` services, for passive monitoring via SNMP traps. |
-| `--with-vmware` | [Allow the poller to monitor VMware resources](using-containers-advanced-configuration.md#allow-the-poller-to-monitor-vmware-resources) (adds the `centreon-vmware` service). |
+| `--with-snmptrap` | Adds the `snmptrapd` and `centreontrapd` services, for passive monitoring via [SNMP traps](../../monitoring/passive-monitoring/enable-snmp-traps.md). |
+| `--with-vmware` | [Allow the poller to monitor VMware resources](using-containers-advanced-configuration.md#allow-the-poller-to-monitor-vmware-resources) (adds the `centreon-vmware` service to the docker-compose). |
 | `--with-cma` | [Allows the poller to receive data from Centreon Monitoring Agents (CMA)](./using-containers-advanced-configuration.md#allow-the-poller-to-receive-data-from-centreon-monitoring-agents-cma). Mounts TLS certificates and exposes port 4317, for pollers that accept connections from the Centreon Monitoring Agent (CMA) over OpenTelemetry gRPC. |
 | `--tz <timezone>` | Sets the container timezone (default: `UTC`). |
 | `--debug true` | Enables debug logging on the services. |
-| `--gorgone-ssl <true\|false>` | Overrides the SSL setting used for the Gorgone connection to the central server. |
+| `--gorgone-ssl <true\|false>` | Overrides the SSL setting used for the Gorgone connection to the central server (by default, HTTPS if the central server already uses HTTPS). |
 | `--no-start` | Only generates `.env` and `docker-compose.yaml`; does not start the stack. |
 
 If you already ran the install command without these flags, you can also add
