@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ### Creating a self-signed certificate
 
->  This procedure allows you to create:
+This procedure allows you to create:
 
 - A private key for the server: **centreon7.key** in our case. It will be used by the Apache service.
 - A CSR (Certificate Signing Request) file: **centreon7.csr** in our case.

@@ -1,20 +1,20 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Use a certificate issued by a trusted authority. Self-signed certificates must not be used in production.
+Use a certificate issued by a trusted authority. Self-signed certificates may be used for test purposes, but they MUST NOT be used in production.
 
-* If you already have a certificate validated by an authority, you can activate HTTPS mode on your Apache server.
+* If you already have a certificate validated by an authority, you can proceed to the next step.
 * If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
-* If, for test purposes, you want to use a self-signed certificate, follow [this procedure](../administration/self-signed-certificate.md) before activating HTTPS mode on your server.
+* If, for test purposes, you want to use a self-signed certificate, follow [this procedure](../administration/self-signed-certificate.md).
 
 Let's say you have the following files in **/etc/pki/centreon-tls/**:
 
       * rootCA.pem            (public)
       * server.pem            (server certificate)
       * server-key.pem        (server private key)
-      * CA/rootCA.\{key,pem\}   (set the following permissions root:root, mode 0400)
+      * CA/rootCA.\{key,pem\}   (set the following permissions: root:root, mode 0400)
 
-1. Install the root CA into the OS trust store:
+1. Install the root CA into the OS trust store of the central server's host machine:
 
    <Tabs groupId="os">
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
