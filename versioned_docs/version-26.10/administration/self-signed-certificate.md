@@ -6,7 +6,7 @@ description: "Create a self-signed certificate with OpenSSL to enable HTTPS on y
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-### Creating a self-signed certificate
+> Self-signed certificates are for test purposes only. You MUST NOT use them in production.
 
 This procedure allows you to create:
 
