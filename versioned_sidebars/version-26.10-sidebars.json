@@ -236,7 +236,7 @@
         },
         {
           "type": "doc",
-          "id": "graph-views/self-signed-certificate"
+          "id": "administration/self-signed-certificate"
         }
       ]
     },
