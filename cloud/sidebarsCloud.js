@@ -733,6 +733,10 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/ot-mail"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-matrix42"
             },
             {
