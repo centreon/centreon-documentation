@@ -62,25 +62,8 @@ module.exports = {
           id: 'integrations/plugin-packs/releases/release-notes'
         },
         {
-          type: 'category',
-          label: 'Developers Center',
-          link: {
-            type: 'generated-index'
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/introduction'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
-            }
-          ]
+        type: 'doc',
+          id: 'integrations/plugin-packs/getting-started/develop-plugin'
         }
       ]
     },
