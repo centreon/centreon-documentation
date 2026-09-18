@@ -1,20 +1,19 @@
 ---
-id: upgrade-centreon-ha-from-22-04
-title: Montée de version de Centreon HA depuis Centreon 22.04
-description: "Mettre à niveau un cluster Centreon HA depuis la version 22.04 vers la 25.10"
+id: upgrade-centreon-ha-from-25-10
+title: Montée de version de Centreon HA depuis Centreon 25.10
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 22.04 vers la version 25.10.
+Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 25.10 vers la version 26.10.
 
-> Si vous utilisiez Debian 11, vous ne pouvez pas directement monter à la version 25.10. Vous devez [migrer votre platforme vers Debian 12](migrate/migrate-from-debian-to-debian.md) d'abord, puis réinstaller la HA. Contactez votre représentant commercial Centreon pour discuter de toute migration avec la HA.
+> Si vous envisagez également de migrer votre plateforme vers un autre système d’exploitation, contactez votre représentant commercial Centreon pour en discuter.
 
 ## Prérequis
 
 ### Suspendre la gestion des ressources du cluster
 
-Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de surpendre toutes les ressources Centreon, ainsi que MariaDB.
+Afin d'éviter un basculement du cluster pendant la mise à jour, il est nécessaire de suspendre toutes les ressources Centreon, ainsi que MariaDB.
 
 ```bash
 pcs property set maintenance-mode=true
@@ -58,12 +57,28 @@ systemctl stop cbd-sql
 
 Maintenant, pour effectuer la montée de version:
 
-> Pour le **nœud central actif** et **le nœud base de données actif s'il existe**, [suivez la documentation officielle](../../upgrade/upgrade-from-22-04.md) **jusqu'à l'étape "Mettre à jour MariaDB" incluse**.
+> Pour le **nœud central actif** et **le nœud base de données actif s'il existe**, [suivez la documentation officielle](../../upgrade/upgrade-from-24-10.md) **jusqu'à l'étape "Mettre à jour MariaDB" incluse**.
 
-> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, [suivez la documentation officielle](../../upgrade/upgrade-from-22-04.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse. Ensuite, sautez à l'étape "Mettre à jour MariaDB"**. Ne procédez pas aux étapes "Finalisation de la mise à jour" et "Actions post montée de version".
+> Pour le **nœud central passif** et **le nœud base de données passif s'il existe**, [suivez la documentation officielle](../../upgrade/upgrade-from-24-10.md) **jusqu'à l'étape "Mettre à jour une configuration Apache personnalisée" incluse. Ensuite, sautez à l'étape "Mettre à jour MariaDB"**. Ne procédez pas aux étapes "Finalisation de la mise à jour" et "Actions post montée de version".
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+Uniquement sur les serveurs deux nœuds centraux, restaurer le fichier `/etc/centreon-ha/centreon_central_sync.pm`.
+
+```bash
+mv /etc/centreon-ha/centreon_central_sync.pm.rpmsave /etc/centreon-ha/centreon_central_sync.pm
+```
+
+Sur le **nœud central passif**, déplacez le répertoire **install** pour éviter d'obtenir l'écran "upgrade" dans l'interface en cas de nouvel échange de rôles et rechargez le cache Apache.
+
+```bash
+mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y-%m-%d`
+sudo -u apache /usr/share/centreon/bin/console cache:clear
+```
+
+</TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 Uniquement sur les serveurs deux nœuds centraux, restaurer le fichier `/etc/centreon-ha/centreon_central_sync.pm`.
 
@@ -101,6 +116,13 @@ systemctl restart crond
 ```
 
 </TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
+
+```bash
+systemctl restart crond
+```
+
+</TabItem>
 </Tabs>
 
 Le cron **centreon-ha-mysql** étant supprimé, vérifiez que vous avez bien la ligne suivante dans la section **server** du fichier **/etc/my.cnf.d/server.cnf**, il est normalement déjà en place depuis 22.04 et la réplication GTID :
@@ -128,9 +150,6 @@ find /usr/share/centreon/www/img/media -type f \( ! -iname ".keep" ! -iname ".ht
 Depuis Centreon 22.04, la réplication de MariaDB est maintenant basée sur [GTID](https://mariadb.com/kb/en/gtid/).
 
 Cependant, certains changements doivent toujours être apportés.
-
-<Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
 
 ### Sauvegarder la configuration
 
@@ -162,14 +181,11 @@ pcs resource group remove centreon cbd_central_broker
 pcs resource group add centreon cbd_central_broker --before gorgone
 ```
 
-</TabItem>
-</Tabs>
-
 ### Nettoyer les fichiers de mémoire de broker
 
-> **WARNING:** exécuter cette commande uniquement sur le nœud central passif.
+> **WARNING:** exécuter cette commande uniquement sur le noeud central passif.
 
-Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.*:
+Avant de reprendre la gestion des ressources du cluster, pour éviter les problèmes de broker, il faut nettoyer tous les fichiers *.memory.*, *.unprocessed.* ou *.queue.* :
 
 ```bash
 rm -f /var/lib/centreon-broker/central-broker-master.memory*
@@ -193,7 +209,6 @@ pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.
 Vous devriez obtenir un résultat similaire:
 
 ```text
-order-centreon-ms_mysql-clone-mandatory
 colocation-ms_mysql-clone-centreon-INFINITY
 colocation-centreon-ms_mysql-clone-INFINITY
 ```
@@ -201,7 +216,54 @@ colocation-centreon-ms_mysql-clone-INFINITY
 et supprimer **toutes** les contraintes, **adapter les ID avec les vôtres**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory
+pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
+pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
+```
+
+Vérifier que toutes les contraintes ont bien été supprimées:
+
+```bash
+pcs constraint
+```
+
+Vous devriez obtenir un résultat comme celui-ci:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+Si c'est le cas, recréez uniquement les contraintes nécessaires.
+
+```bash
+pcs constraint colocation add master "ms_mysql-clone" with "centreon"
+pcs constraint colocation add master "centreon" with "ms_mysql-clone"
+```
+
+</TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
+
+Commencez par extraire tous les identifiants des contraintes:
+
+```bash
+pcs constraint config --full
+```
+
+Vous devriez obtenir un résultat similaire:
+
+```text
+Colocation Constraints:
+  Promoted resource 'centreon' with Started resource 'ms_mysql-clone' (id: colocation-centreon-ms_mysql-clone-INFINITY)
+    score=INFINITY
+  Promoted resource 'ms_mysql-clone' with Started resource 'centreon' (id: colocation-ms_mysql-clone-centreon-INFINITY)
+    score=INFINITY
+```
+
+et supprimer **toutes** les contraintes, **adapter les ID avec les vôtres**
+
+```bash
 pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
 ```
@@ -291,12 +353,80 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 ```
 
 </TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
+
+Extraire d'abord tous les identifiants de contraintes:
+
+```bash
+pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+```
+
+Vous devriez obtenir un résultat similaire en fonction de vos noms d'hôtes :
+
+```text
+location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
+location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
+location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+location-centreon-cc-ha-bdd2-2210-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web1-2210-alma8--INFINITY
+location-ms_mysql-clone-cc-ha-web2-2210-alma8--INFINITY
+location-php-clone-cc-ha-bdd1-2210-alma8--INFINITY
+location-php-clone-cc-ha-bdd2-2210-alma8--INFINITY
+order-centreon-ms_mysql-clone-mandatory
+colocation-ms_mysql-clone-vip_mysql-INFINITY
+colocation-centreon-vip-INFINITY
+```
+
+et supprimer **toutes** les contraintes, **adapter les ids avec les vôtres**
+
+```bash
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd1-2210-alma8--INFINITY
+pcs constraint delete location-cbd_rrd-clone-cc-ha-bdd2-2210-alma8--INFINITY
+pcs constraint delete location-centreon-cc-ha-bdd1-2210-alma8--INFINITY
+...
+```
+
+Vérifier que toutes les contraintes sont bien supprimées:
+
+```bash
+pcs constraint
+```
+
+Vous devriez obtenir un résultat comme celui-ci:
+
+```text
+Location Constraints:
+Ordering Constraints:
+Colocation Constraints:
+Ticket Constraints:
+```
+
+Si c'est le cas, recréez uniquement les contraintes nécessaires.
+
+Afin de coller le rôle de base de données primaire avec l'IP virtuelle, définissez une contrainte mutuelle:
+
+```bash
+pcs constraint colocation add "vip_mysql" with master "ms_mysql-clone"
+pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
+```
+
+</TabItem>
 </Tabs>
 
 Recréez ensuite la contrainte qui empêche les processus Centreon de s'exécuter sur les nœuds de la base de données et vice-et-versa.:
 
 <Tabs groupId="sync">
 <TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+
+```bash
+pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location ms_mysql-clone avoids @CENTRAL_MASTER_NAME@=INFINITY @CENTRAL_SLAVE_NAME@=INFINITY
+pcs constraint location cbd_rrd-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+pcs constraint location php-clone avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY
+```
+
+</TabItem>
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY

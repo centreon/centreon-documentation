@@ -23,6 +23,7 @@ When you upgrade from one major version of Centreon to another, you must:
 
 | Centreon | MariaDB |
 |----------|---------|
+| 26.10    | 11.8    |
 | 25.10    | 10.11   |
 | 24.10    | 10.11   |
 | 24.04    | 10.11   |
@@ -47,7 +48,7 @@ To find out which version of MariaDB is installed on your machine, enter the fol
 rpm -qa |grep MariaDB
 ```
 
-The results should look like this:
+The results should look like this example:
 
 ```shell
 MariaDB-client-10.5.8-1.el8.centos.x86_64
@@ -64,7 +65,7 @@ MariaDB-compat-10.5.8-1.el8.centos.x86_64
 rpm -qa |grep MariaDB
 ```
 
-The results should look like this:
+The results should look like this example:
 
 ```shell
 MariaDB-client-10.5.8-1.el9.centos.x86_64
@@ -81,7 +82,7 @@ MariaDB-compat-10.5.8-1.el9.centos.x86_64
 dpkg -l |grep MariaDB
 ```
 
-The results should look like this:
+The results should look like this example:
 
 ```shell
 ii  libdbd-mysql-perl:amd64                4.050-3+b1                                                                 amd64        Perl5 database interface to the MariaDB/MySQL database
@@ -100,7 +101,7 @@ ii  mysql-common                           1:10.5.17+maria~deb11      all       
 
 ## Upgrading between major MariaDB versions
 
-You must uninstall then reinstall MariaDB to upgrade between major versions (for example to switch from version 10.5 to version 10.11).
+You must uninstall then reinstall MariaDB to upgrade between major versions. In this example, we will switch from version 10.11 to version 11.8. Adapt the procedure if you are upgrading from another version.
 
 1. Stop the MariaDB service:
 
@@ -140,15 +141,15 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-At the **[ Knowing your version of MariaDB](#knowing-your-version-of-mariadb)** step, the **grep** command returned the precise version of MariaDB you have.
+At the **[Knowing your version of MariaDB](#knowing-your-version-of-mariadb)** step, the **grep** command returned the precise version of MariaDB you have.
 
-* If the results of the **grep** command included “10.5”, your uninstallation command must include it too, like in the following example:
+* If the results of the **grep** command included the version of MariaDB (e.g., “10.11”), your uninstallation command must include it too, like in the following example:
 
 ```shell
-dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server-10.5 mariadb-client mariadb-client-10.5 mariadb-client-core-10.5 mariadb-common mariadb-server-core-10.5 mysql-common
+dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server-10.11 mariadb-client mariadb-client-10.11 mariadb-client-core-10.11 mariadb-common mariadb-server-core-10.11 mysql-common
 ```
 
-* If the results of the **grep** command did not include “10.5”, use the following command:
+* If the results of the **grep** command did not include “10.11”, use the following command:
 
 ```shell
 dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server mariadb-client mariadb-client mariadb-client-core mariadb-common mariadb-server-core mysql-common
@@ -169,45 +170,45 @@ dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-co
 
 > Make sure you have [installed the official MariaDB repository](https://mariadb.com/kb/en/mariadb-package-repository-setup-and-usage/) before you continue the procedure.
 
-3. Install version 10.11:
+3. Install version 11.8:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
 
 ```shell
-dnf module enable -y mariadb:10.11
-dnf install mariadb-server-10.11\* mariadb-10.11\*
+dnf module enable -y mariadb:11.8
+dnf install mariadb-server-11.8\* mariadb-11.8\*
 ```
 
 </TabItem>
 <TabItem value="RHEL 8" label="RHEL 8">
 
 ```shell
-dnf module enable -y mariadb:10.11
-dnf install mariadb-server-10.11\* mariadb-10.11\*
+dnf module enable -y mariadb:11.8
+dnf install mariadb-server-11.8\* mariadb-11.8\*
 ```
 
 </TabItem>
 <TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
 ```shell
-dnf module enable -y mariadb:10.11
-dnf install mariadb-server-10.11\* mariadb-10.11\*
+dnf module enable -y mariadb:11.8
+dnf install mariadb-server-11.8\* mariadb-11.8\*
 ```
 
 </TabItem>
 <TabItem value="RHEL 9" label="RHEL 9">
 
 ```shell
-dnf module enable -y mariadb:10.11
-dnf install mariadb-server-10.11\* mariadb-10.11\*
+dnf module enable -y mariadb:11.8
+dnf install mariadb-server-11.8\* mariadb-11.8\*
 ```
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-11.8"
 ```
 
 ```shell
