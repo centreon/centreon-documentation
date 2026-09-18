@@ -36,9 +36,9 @@ The connector will also try to access the following API endpoints depending on t
 open ticket rule:
 
 - `/ApiToken/GenerateAccessTokenFromApiToken/`, to exchange the configured API Token for a short-lived
-  access token used to authenticate every other call
-- `/ticket/close`, to close a ticket back from Centreon
-- `/data/fragments/{ddname}`, to list users, responsible roles (groups), services, assets and categories
+  access token used to authenticate every other call.
+- `/ticket/close`, to close a ticket back from Centreon.
+- `/data/fragments/{ddname}`, to list users, responsible roles (groups), services, assets and categories.
 
 Some test commands that you can run from your Centreon central server are available in the
 [Test commands](#test-commands) section.

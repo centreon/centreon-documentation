@@ -66,7 +66,7 @@ following defaults:
 | Services | `SPSArticleClassBase` |
 
 > If you need more information regarding retrieved data from an open ticket connector, please read the
-> [retrieved data chapter](../../alerts-notifications/ticketing/mapping.md) from the Open Ticket global
+> [advanced configuration chapter](../../alerts-notifications/ticketing.md#advanced-configuration) from the Open Ticket global
 > documentation.
 
 ### Filters
