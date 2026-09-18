@@ -6,7 +6,7 @@ description: "Aperçu des catégories de modèles de rapports disponibles dans C
 
 Vous pouvez ici prévisualiser les modèles de rapport et obtenir des informations sur leurs paramètres et leurs prérequis. Les modèles de rapport sont regroupés par le type de données qu'ils contiennent.
 
-Pour un aperçu de chaque rapport, consultez notre PDF [**Exemple de rapports**](../../assets/reporting/Centreon-MBI-Exemples-de-rapports.pdf).
+Pour un aperçu de chaque rapport, consultez notre PDF [**Exemple de rapports**](https://docs.centreon.com/fr/assets/files/Centreon-MBI-Exemples-de-rapports-0f88992fa2693e21391de4787d1e2390.pdf).
 
 | Catégorie de rapport | Type de données |
 | --- | --- |
