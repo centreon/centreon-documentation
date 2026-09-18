@@ -29,7 +29,7 @@ La méthode recommandée et sécurisée consiste à utiliser HTTPS. Des certific
 
 * Assurez-vous que le serveur central et Gorgone sont déjà installés et à jour dans la dernière version majeure.
 
-* Si ce n'est pas déjà fait, configurez les certificats pour Apache. (Cette opération est décrite dans la procédure d'installation standard de cette version.)
+* Si ce n'est pas déjà fait, configurez le HTTPS sur votre serveur central. Cela peut être fait dans le cadre de la [procédure d'installation](../installation-of-a-central-server/using-packages.md#étape-3--mettre-en-place-la-configuration-tls), ou [séparément](../../administration/secure-platform.md#activer-le-mode-https-sur-le-serveur-web).
 
 * Le collecteur doit pouvoir joindre le serveur central.
 

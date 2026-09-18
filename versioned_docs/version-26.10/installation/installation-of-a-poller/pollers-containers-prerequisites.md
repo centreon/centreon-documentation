@@ -29,7 +29,7 @@ The recomended and secure way is to use HTTPS. This means that certificates are 
 
 * Ensure the central server and Gorgone are already installed and up to date with the latest major version.
 
-* If not already done, configure certificates for Apache. (This is described in the standard installation procedure for this version.)
+* If not already done, configure HTTPS on your central server. This can be done as part of the [installation procedure](../installation-of-a-central-server/using-packages.md#step-3-set-up-the-tls-configuration), or [separately](../../administration/secure-platform.md#activating-https-mode-on-your-web-server).
 
 * The poller must be able to reach the central server.
 
