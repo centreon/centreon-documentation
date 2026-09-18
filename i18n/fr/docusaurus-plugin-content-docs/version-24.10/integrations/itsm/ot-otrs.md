@@ -1,7 +1,7 @@
 ---
 id: ot-otrs-restapi
 title: OTRS RestAPI
-description: "Configurer le connecteur API Rest OTRS et importer le webservice"
+description: "Configure the OTRS open-tickets provider using the OTRS REST API, including webservice import for OTRS 4 and 5"
 ---
 
 ## How it works
@@ -20,9 +20,7 @@ This connector is at least compatible with the following versions of OTRS:
 
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md#configuration-avancée)
-into your Centreon instance
+You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
 
 Our provider requires the following parameters:
 

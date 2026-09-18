@@ -1,14 +1,14 @@
 ---
 id: itsm-overview
 title: ITSM
-description: "Présentation des connecteurs ITSM pour transformer les alertes en tickets"
+description: "Présentation des intégrations ITSM disponibles dans Centreon Cloud pour transformer les alertes de supervision en tickets"
 ---
 
-Ouvrez des tickets depuis une ou plusieurs alertes détectées par Centreon
-afin de permettre une gestion de l'incident et des actions correctives au plus proche 
-de vos processus internes.
+Transform one or several alerts into case(s) in your favorite ITSM tool. 
+Doing so allows for advanced incident management in a dedicated tool, and to seamlessly 
+integrate Centreon monitoring alerts in your existing processes.
 
-Les interconnexions disponibles sont les suivantes :
+Available providers:
 
 import DocCardList from '@theme/DocCardList';
 
