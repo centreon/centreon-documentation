@@ -65,12 +65,6 @@ Restart the `centengine` service (`docker compose up -d`) after changing these v
 `centengine` writes an `msmtp` configuration from the `SMTP_*` variables
 above, so `/usr/bin/mail` sends through your relay with no further setup.
 
-Here is an example of notification command:
-
-```shell
-/bin/sh -c 'printf "%b" "***** Centreon *****\n\nNotification Type: $NOTIFICATIONTYPE$\n\nHost: $HOSTALIAS$\nState: $HOSTSTATE$\nAddress: $HOSTADDRESS$\nInfo: $HOSTOUTPUT$\n\nDate/Time: $LONGDATETIME$\n" | /usr/bin/mail -s "Host $HOSTSTATE$ alert for $HOSTALIAS$" $CONTACTEMAIL$'
-```
-
 ### Option 2: centreon-plugin-notification-email connector
 
 The connector's SMTP relay settings are plain command-line options, so you can set them directly in the command.
