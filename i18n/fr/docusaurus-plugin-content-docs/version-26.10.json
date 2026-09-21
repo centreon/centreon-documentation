@@ -322,5 +322,9 @@
   "sidebar.docs.category.Using MBI": {
     "message": "Utiliser MBI",
     "description": "The label for category Using MBI in sidebar docs"
-  }      
+  },
+  "sidebar.docs.category.Pollers in containers": {
+    "message": "Collecteurs en conteneurs",
+    "description": "The label for category Pollers in containers in sidebar docs"
+  }        
 }

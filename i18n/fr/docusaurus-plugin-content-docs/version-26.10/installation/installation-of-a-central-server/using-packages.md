@@ -388,7 +388,7 @@ une base de données distante sur un serveur dédié.
   </TabItem>
 </Tabs>
 
-## Étape 3 : Configuration
+## Étape 3 : Mettre en place la configuration TLS
 
 ### Nom du serveur
 
