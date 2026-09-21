@@ -297,7 +297,7 @@ vgdisplay vg_data | grep -i free*
 
 Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez besoin
 d'au moins 12GB de mémoire vive afin d'utiliser le
-[fichier suivant](https://docs.centreon.com/fr/assets/files/centreon-1a1f8b403880262feadd0f805b1238c9.cnf).
+[fichier suivant](../assets/reporting/installation/centreon.cnf).
 
 > Si vous souhaitez utiliser un répertoire autre que `/var/lib/mysql/`, éditez les variables **datadir** et **tmpdir** du fichier centreon.cnf.
 
@@ -530,7 +530,7 @@ replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 ```
 Ensuite, créez les vues manuellement sur le serveur esclave :
 
-1. Téléchargez [le fichier suivant](https://docs.centreon.com/fr/assets/files/view_creation-eb5f170ad3d8a0853fe926d3a034f8a2.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
+1. Téléchargez [le fichier suivant](../assets/reporting/installation/view_creation.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
 
 2. Exécutez la commande suivante (changez le nom de votre répertoire temporaire si besoin) :
 
@@ -563,7 +563,7 @@ replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
 
 Ensuite, créez les vues manuellement sur le serveur esclave :
 
-1. Téléchargez [le fichier suivant](https://docs.centreon.com/fr/assets/files/view_creation-eb5f170ad3d8a0853fe926d3a034f8a2.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
+1. Téléchargez [le fichier suivant](../assets/reporting/installation/view_creation.sql) dans un répertoire temporaire (ici, **/tmp**), par exemple en utilisant **wget**.
 
 2. Exécutez la commande suivante (changez le nom de votre répertoire temporaire si besoin) :
 
@@ -922,7 +922,7 @@ systemctl start gorgoned && systemctl enable gorgoned
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Assurez vous que [le fichier](https://docs.centreon.com/fr/assets/files/centreon-1a1f8b403880262feadd0f805b1238c9.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
 
 ```shell
 systemctl restart mariadb
@@ -953,7 +953,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Assurez vous que [le fichier](https://docs.centreon.com/fr/assets/files/centreon-1a1f8b403880262feadd0f805b1238c9.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
 
 ```shell
 systemctl restart mariadb
@@ -980,7 +980,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Assurez vous que [le fichier](https://docs.centreon.com/fr/assets/files/centreon-1a1f8b403880262feadd0f805b1238c9.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
 
 Renommez le fichier en `80-centreon.cnf`:
 
@@ -1029,7 +1029,7 @@ socket=$PATH_TO_SOCKET$
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-Assurez vous que [le fichier](https://docs.centreon.com/fr/assets/files/centreon-1a1f8b403880262feadd0f805b1238c9.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
 
 ```shell
 systemctl restart mysql
@@ -1060,7 +1060,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Assurez vous que [le fichier](https://docs.centreon.com/fr/assets/files/centreon-1a1f8b403880262feadd0f805b1238c9.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
 
 ```shell
 systemctl restart mysql
@@ -1091,7 +1091,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-Assurez vous que [le fichier](https://docs.centreon.com/fr/assets/files/centreon-1a1f8b403880262feadd0f805b1238c9.cnf)
+Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf)
 de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mysql.conf.d/`.
 
 Renommez le fichier en `80-centreon.cnf`:
