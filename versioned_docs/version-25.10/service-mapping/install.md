@@ -81,7 +81,7 @@ the license expiry date:
 > replicate-ignore-table=centreon.mod_bam_view_kpi
 > ```
 >
-> Create the view manually on the slave server [using this file](https://docs.centreon.com/assets/files/view_creation-40750b8dad6e40d6e628d82828222318.sql), by executing the
+> Create the view manually on the slave server [using this file](view_creation.sql), by executing the
 > following command:
 >
 > ``` shell
