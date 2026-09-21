@@ -13,7 +13,7 @@ Les rapports MBI sont créés en utilisant des tâches planifiées (ou "jobs"). 
 1. Assurez-vous d'avoir [préparé vos données](preparing-data.md) selon les prérequis MBI.
 2. Allez à la page **Rapports > Monitoring Business Intelligence > Jobs**.
 3. Cliquez sur **Add** pour créer une nouvelle tâche.
-4. Dans l'onglet **Job parameters**, dans le champ **Modèle de rapport**, sélectionnez le modèle de rapport que vous souhaitez utiliser. Chaque modèle de rapport contient des données spécifiques : consultez notre [catalogue des rapports disponibles](available-reports/available-reports.md) pour choisir un modèle adapté à vos besoins. (Une fois que vous avez choisi un modèle de rapport, le contenu de [l'onglet **Paramètres du rapport**](#définir-des-paramètres-spécifiques-au-rapportg) se met à jour).
+4. Dans l'onglet **Job parameters**, dans le champ **Modèle de rapport**, sélectionnez le modèle de rapport que vous souhaitez utiliser. Chaque modèle de rapport contient des données spécifiques : consultez notre [catalogue des rapports disponibles](available-reports/available-reports.md) pour choisir un modèle adapté à vos besoins. (Une fois que vous avez choisi un modèle de rapport, le contenu de [l'onglet **Paramètres du rapport**](#définir-des-paramètres-spécifiques-au-rapport) se met à jour).
 
 ## Étape 2 : Configurer la tâche
 
