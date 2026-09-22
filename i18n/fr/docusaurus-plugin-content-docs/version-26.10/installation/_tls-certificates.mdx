@@ -1,0 +1,45 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Utilisez un certificat délivré par une autorité de confiance. Les certificats auto-signés peuvent être utilisés à des fins de test, mais ils NE DOIVENT PAS être utilisés en production.
+
+* Si vous disposez déjà d'un certificat validé par une autorité, passez à l'étape suivante.
+* Si vous ne disposez pas d'un certificat validé par une autorité, vous pouvez en générer un sur des plateformes telles que [Let's Encrypt](https://letsencrypt.org/).
+* Si, à des fins de test, vous souhaitez utiliser un certificat auto-signé, suivez [cette procédure](../administration/self-signed-certificate.md).
+
+Supposons que vous disposiez des fichiers suivants dans **/etc/pki/centreon-tls/** :
+
+      * rootCA.pem            (public)
+      * server.pem            (certificat du serveur)
+      * server-key.pem        (clé privée du serveur)
+      * CA/rootCA.\{key,pem\}   (définissez les permissions suivantes : root:root, mode 0400)
+
+1. Installez l'autorité de certification racine dans le trust store du système d'exploitation de la machine hébergeant le serveur central :
+
+   <Tabs groupId="os">
+   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+   ```shell
+   cp /etc/pki/centreon-tls/rootCA.pem /etc/pki/ca-trust/source/anchors/centreon-dev.crt
+   update-ca-trust extract
+   ```
+
+   </TabItem>
+   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+   ```shell
+   cp /etc/pki/centreon-tls/rootCA.pem /etc/pki/ca-trust/source/anchors/centreon-dev.crt
+   update-ca-trust extract
+   ```
+
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
+
+   ```shell
+   cp /etc/pki/centreon-tls/rootCA.pem /usr/local/share/ca-certificates/centreon-dev.crt
+   ```
+
+   </TabItem>
+   </Tabs>
+
+2. Si vous utilisez une base de données distante, exécutez également cette procédure sur la machine qui hébergera la base de données distante, puis copiez le certificat de l'autorité de certification racine de cette machine dans le trust store de la machine hôte du serveur central.

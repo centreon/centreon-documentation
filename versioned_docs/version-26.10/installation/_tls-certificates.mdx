@@ -9,10 +9,10 @@ Use a certificate issued by a trusted authority. Self-signed certificates may be
 
 Let's say you have the following files in **/etc/pki/centreon-tls/**:
 
-      * rootCA.pem            (public)
-      * server.pem            (server certificate)
-      * server-key.pem        (server private key)
-      * CA/rootCA.\{key,pem\}   (set the following permissions: root:root, mode 0400)
+* rootCA.pem            (public)
+* server.pem            (server certificate)
+* server-key.pem        (server private key)
+{/* * CA/rootCA.\{key,pem\}   (set the following permissions: root:root, mode 0400) */}
 
 1. Install the root CA into the OS trust store of the central server's host machine:
 
@@ -42,4 +42,4 @@ Let's say you have the following files in **/etc/pki/centreon-tls/**:
    </TabItem>
    </Tabs>
 
-2. If you are using a remote database, also execute this procedure on the machine that will host the remote database, then copy the root CA certificate of the database machine to the central server's trust store.
+2. If you are using a remote database, also execute this procedure on the machine that will host the remote database, then copy the root CA certificate of the database machine to the central server host machine's trust store.

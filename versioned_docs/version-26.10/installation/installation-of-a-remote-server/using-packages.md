@@ -67,7 +67,7 @@ You can now move on to the [next step](#step-3-set-up-the-tls-configuration).
 
 ### For the web interface
 
-This section describes how to set up a TLS connection between the remote server and its web interface.
+This section describes how to set up a TLS connection between the remote server and its web interface<!-- and between the remote server and the central server-->.
 
 <InterfaceTlsConf />
 
@@ -88,7 +88,7 @@ hostnamectl set-hostname remote1
 ### Service startup during system bootup
 
 To make services start automatically during system bootup, run these commands
-on the central server:
+on the remote server:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -112,7 +112,7 @@ systemctl start crond
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-systemctl enable php8.2-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
+systemctl enable php8.4-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
 ```
 
 </TabItem>

@@ -77,16 +77,6 @@ Please note that the following configuration is only an example for an 8 GB of R
 We recommend you consult your database administrator for a configuration that fits your needs.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-> ```shell
-> $ cat /etc/my.cnf.d/centreon.cnf
-> [server]
-> innodb_file_per_table=1
-> open_files_limit=32000
-> ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 > ```shell
@@ -97,7 +87,17 @@ We recommend you consult your database administrator for a configuration that fi
 > ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 > ```shell
 > $ cat /etc/mysql/mariadb.conf.d/80-centreon.cnf
@@ -142,16 +142,6 @@ Please note that the following configuration is only an example for an 8 GB of R
 We recommend you consult your database administrator for a configuration that fits your needs.
 
 <Tabs groupId="os">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-> ```shell
-> $ cat /etc/my.cnf.d/centreon.cnf
-> [server]
-> innodb_file_per_table=1
-> open_files_limit=32000
-> ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 > ```shell
@@ -162,7 +152,17 @@ We recommend you consult your database administrator for a configuration that fi
 > ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+> ```shell
+> $ cat /etc/my.cnf.d/centreon.cnf
+> [server]
+> innodb_file_per_table=1
+> open_files_limit=32000
+> ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 > ```shell
 > $ cat /etc/mysql/mysql.conf.d/80-centreon.cnf
