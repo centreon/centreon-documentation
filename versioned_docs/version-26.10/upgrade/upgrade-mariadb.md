@@ -13,7 +13,7 @@ and the MBI and MAP modules each have a dedicated database. Within your architec
 
 When you upgrade from one major version of Centreon to another, you must:
 
-1. Upgrade Centreon (packages, web installation, deploying the configuration).
+1. Upgrade Centreon (packages, web installation, deploying the configuration). Note that you can only upgrade Centreon [from a supported OS](upgrade-matrix.mdx).
 2. Upgrade MariaDB.
 
 > Refer to the official MariaDB documentation for more information about this process:
@@ -29,43 +29,19 @@ When you upgrade from one major version of Centreon to another, you must:
 | 24.04    | 10.11   |
 | 23.10    | 10.5    |
 | 23.04    | 10.5    |
-| 22.10    | 10.5    |
-| 22.04    | 10.5    |
-| 21.10    | 10.5    |
-| 21.04    | 10.5    |
-| 20.10    | 10.3.x  |
-| 20.04    | 10.3.x  |
-| 19.10    | 10.1.x  |
 
 ## Knowing your version of MariaDB
 
 To find out which version of MariaDB is installed on your machine, enter the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-rpm -qa |grep MariaDB
-```
-
-The results should look like this example:
-
-```shell
-MariaDB-client-10.5.8-1.el8.centos.x86_64
-MariaDB-server-10.5.8-1.el8.centos.x86_64
-MariaDB-common-10.5.8-1.el8.centos.x86_64
-MariaDB-shared-10.5.8-1.el8.centos.x86_64
-MariaDB-compat-10.5.8-1.el8.centos.x86_64
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 rpm -qa |grep MariaDB
 ```
 
-The results should look like this example:
+The results may look like this example:
 
 ```shell
 MariaDB-client-10.5.8-1.el9.centos.x86_64
@@ -73,27 +49,6 @@ MariaDB-server-10.5.8-1.el9.centos.x86_64
 MariaDB-common-10.5.8-1.el9.centos.x86_64
 MariaDB-shared-10.5.8-1.el9.centos.x86_64
 MariaDB-compat-10.5.8-1.el9.centos.x86_64
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-dpkg -l |grep MariaDB
-```
-
-The results should look like this example:
-
-```shell
-ii  libdbd-mysql-perl:amd64                4.050-3+b1                                                                 amd64        Perl5 database interface to the MariaDB/MySQL database
-ii  libmariadb3:amd64                      1:10.5.17+maria~deb11      amd64        MariaDB database client library
-ii  mariadb-client-10.5                    1:10.5.17+maria~deb11      amd64        MariaDB database client binaries
-ii  mariadb-client-core-10.5               1:10.5.17+maria~deb11      amd64        MariaDB database core client binaries
-ii  mariadb-common                         1:10.5.17+maria~deb11      all          MariaDB common configuration files
-ii  mariadb-server                         1:10.5.17+maria~deb11      all          MariaDB database server (metapackage depending on the latest version)
-ii  mariadb-server-10.5                    1:10.5.17+maria~deb11      amd64        MariaDB database server binaries
-ii  mariadb-server-core-10.5               1:10.5.17+maria~deb11      amd64        MariaDB database core server files
-ii  mysql-common                           1:10.5.17+maria~deb11      all          MariaDB database common files (e.g. /etc/mysql/my.cnf)
 ```
 
 </TabItem>
@@ -112,19 +67,6 @@ You must uninstall then reinstall MariaDB to upgrade between major versions. In 
 2. Uninstall the current version:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
-
-```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-```
-
-</TabItem>
-<TabItem value="RHEL 8" label="RHEL 8">
-
-```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
-```
-</TabItem>
 <TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
 ```shell
@@ -136,23 +78,6 @@ rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared Mari
 
 ```shell
 rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-At the **[Knowing your version of MariaDB](#knowing-your-version-of-mariadb)** step, the **grep** command returned the precise version of MariaDB you have.
-
-* If the results of the **grep** command included the version of MariaDB (e.g., “10.11”), your uninstallation command must include it too, like in the following example:
-
-```shell
-dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server-10.11 mariadb-client mariadb-client-10.11 mariadb-client-core-10.11 mariadb-common mariadb-server-core-10.11 mysql-common
-```
-
-* If the results of the **grep** command did not include “10.11”, use the following command:
-
-```shell
-dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server mariadb-client mariadb-client mariadb-client-core mariadb-common mariadb-server-core mysql-common
 ```
 
 </TabItem>
@@ -173,22 +98,6 @@ dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-co
 3. Install version 11.8:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
-
-```shell
-dnf module enable -y mariadb:11.8
-dnf install mariadb-server-11.8\* mariadb-11.8\*
-```
-
-</TabItem>
-<TabItem value="RHEL 8" label="RHEL 8">
-
-```shell
-dnf module enable -y mariadb:11.8
-dnf install mariadb-server-11.8\* mariadb-11.8\*
-```
-
-</TabItem>
 <TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
 ```shell
@@ -202,23 +111,6 @@ dnf install mariadb-server-11.8\* mariadb-11.8\*
 ```shell
 dnf module enable -y mariadb:11.8
 dnf install mariadb-server-11.8\* mariadb-11.8\*
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-11.8"
-```
-
-```shell
-sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common
-```
-
-If an error message informs you that one or several MariaDB packages are missing, you will need to specify the missing packages in the command, like in the following example:
-
-```shell
-sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common MISSING-PACKAGE_A MISSING-PACKAGE_B
 ```
 
 </TabItem>
@@ -295,24 +187,10 @@ Follow these steps to upgrade between minor versions of MariaDB (for example, to
 1. Update MariaDB:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update MariaDB-*
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf update MariaDB-*
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt update MariaDB-*
 ```
 
 </TabItem>
