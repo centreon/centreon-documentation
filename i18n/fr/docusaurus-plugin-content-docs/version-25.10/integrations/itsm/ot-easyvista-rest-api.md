@@ -1,149 +1,133 @@
 ---
 id: ot-easyvista-rest-api
-title: EasyVista API Rest
-description: "Configurer le connecteur EasyVista API Rest pour la création de tickets"
+title: EasyVista RestAPI
+description: "Set up the EasyVista open-tickets provider using the EasyVista REST API, including custom fields and connector testing"
 ---
 
-Le fournisseur EasyVista Open Tickets utilise l'API Rest EasyVista pour ouvrir des incidents sur vos alertes de supervision.
+The EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents about your monitoring alerts.
 
-## Prérequis
+## Feature information
 
-- Avant d'aller plus loin, assurez-vous d'avoir installé correctement [Centreon Open Tickets](https://docs.centreon.com/docs/alerts-notifications/ticketing-install/) sur votre instance Centreon.
+| Open ticket | Close ticket (from Centreon to EasyVista) | Handle custom fields |
+| -- | -- | -- |
+| ✓ | ✓ | ✓ |
 
-- Ensuite, vous devez [configurer Open Tickets](../../alerts-notifications/ticketing.md#hôtes-et-services) afin que les ressources (hôtes et services) puissent recevoir un numéro de ticket.
+## Requirements
 
-## Installer le fournisseur EasyVistaRest
+You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
 
-1. [Téléchargez](https://share.centreon.com/s/qypnoTgYfxHejaS) le dossier **EasyVistaRest** dans **/usr/share/centreon/www/modules/centreon-open-tickets/providers** sur votre serveur central, ou un serveur distant.
+### Network flow
 
-2. Modifiez le fichier **/usr/share/centreon/www/modules/centreon-open-tickets/providers/register.php** en ajoutant une ligne pour EasyVistaRest, comme suit:
+| Source | Destination | Protocol/Port |
+| -- | -- | -- |
+| Centreon central server | Easyvista | TCP/443 (https) or TCP/80 (http) |
 
-  ```shell
-  $register_providers['RequestTracker2'] = 12;
-  $register_providers['Itop'] = 13;
-  $register_providers['EasyVistaRest'] = 14;
-  ```
+### Account
 
-## Configurer votre serveur EasyVista
+You need the following information:
 
-Vous devrez paramétrer votre équipement EasyVista pour qu'il puisse recevoir des données de la part de Centreon. Reportez-vous à la documentation d'EasyVista. Assurez-vous qu'EasyVista puisse recevoir les données envoyées par Centreon : les flux ne doivent pas être bloqués par la configuration d'EasyVista ou par un équipement de sécurité.
+- Account
+- Password or token
 
-## Configurer le connecteur dans Centreon
+The aforementioned account must be able to open a ticket through the **/requests API endpoint**.
+The connector will also try to access the following API endpoint depending on the configuration of your open ticket rule:
+- /assets
 
-1. Dans Centreon, allez dans **Configuration > Notifications > Règles** pour configurer Centreon Open Tickets. Cela ouvre le formulaire **Règles**.
+Some test commands that you can run from your Centreon central server are available in the [Test commands](#test-commands) section.
 
-2. Cliquez sur **Ajouter** et renseignez un nouveau nom pour EasyVistaRest.
+### Account password or token
 
-3. Sélectionnez **EasyVistaRest** dans la liste des **Provider**.
+You can either use:
+- an API token,
+- or the user password method by setting the **Use token** to 1 (token will be needed) or 0 (user and password will be used).
 
-### Définir les paramètres obligatoires
+## Retrieved data
 
-Vous devez saisir les paramètres suivants dans la section **Easyvista Rest Api** :
+This open ticket connector can retrieve the following information from your EasyVista server:
+- Assets
 
-- **Address**: adresse IP du serveur EasyVista sur lequel vous souhaitez ouvrir des tickets.
-- **API path**
-- **Account** : compte utilisateur pour accéder à l'API.
-- **Bearer token or account password** : l'utilisation d'un token API (Bearer token) est recommandée mais vous pouvez toujours définir une authentification standard. Si vous avez choisi **Bearer token**, référez-vous à la [documentation EasyVista](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/#HProcE9dures).
-- **Use token** : renseignez **0** si vous avez opté pour une authentification standard.
+> If you need more information regarding retrieved data from an open ticket connector, please read the [retrieved data chapter](../../alerts-notifications/ticketing.md) from the Open Ticket global documentation.
 
-### Ajouter des champs personnalisés EasyVista
+## Assets
 
-> Si vous avez créé des champs personnalisés dans EasyVista, vous devez également les créer dans Centreon.
+Every information sent to EasyVista comes from Centreon, except of assets. To be able to retrieve them, you will need to use the following syntax in the **Filter field** of the **Lists definition**. It must be set as follows: **search=field1:value1,field2:value2**. For more information please refer to the [EasyVista documentation](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/).
 
-Vos champs personnalisés apparaîtront dans la fenêtre pop-up qui vous permettra d'ouvrir un ticket. Vous devez utiliser la syntaxe spécifique à EasyVista : le nom d'un champ personnalisé doit commencer par ``e_``.
-
-Dans cet exemple, nous allons ajouter le champ **e_city**.
-
-#### Ajouter le champ au modèle du formulaire
-
-1. Dans la section **Easyvista Rest Api**, cliquez sur **+Add a new entry**.
-2. Dans la liste **Argument**, sélectionnez **Custom Field**.
-3. Remplissez la **Valeur** en suivant ce format : ``{$select.e_city.value}`` (avec **e_city** dans cet exemple).
-  > L'élément **e_city** doit être identique à l'ID EasyVista.
+![architecture](../../assets/integrations/easy-vista-rest/filters.png)
   
-  > L'élément **.value** peut être remplacé par **.placeholder**, voir cette [étape](#définir-les-valeurs-possibles).
-4. Ajoutez autant d'entrées que nécessaire.
+### Add EasyVista custom fields
 
-#### Définir le type du champ
+EasyVista allows you to create custom fields for your ticket's form. Since they are not standard, Open Ticket will only allow you to manually configure them. This requires a specific syntax and actions. This section will guide you through this configuration.
 
-Vous devez maintenant définir le type de l'argument que vous avez paramétré précédemment. Comme vous avez ajouté des champs personnalisés, l'argument doit être de type **custom**.
+#### Add a custom field in the provider configuration
 
-1. Dans la section **Common**, cliquez sur **+Add a new entry** dans le paramètre **Lists**.
-2. En suivant notre exemple, renseigner :
-   - **e_city** dans le champ **Id**,
-   - **Meilleures villes** dans le champ **Label**,
-   - **Custom** dans le champ **Type**.
-  > Assurez-vous que l'**Id** est identique à celui que vous avez saisi dans le champ personnalisé plus haut : **e_city** dans notre cas.
+- Add a new **Mapping ticket arguments** with the **+ Add a new entry** button.
+  - In the **Argument** field, select **Custom Field**.
+  - In the **Value** field, enter `{$select.e_<your_field_name>.value}` where `<your_field_name>` must be replaced with the name of your custom field in EasyVista. For example, a **city** custom field could become **\{$select.e_city.value\}**.
 
-#### Définir les valeurs possibles
+![arg list](../../assets/integrations/easy-vista-rest/custom_field.png)
 
-Maintenant que le champ personnalisé est configuré, vous devez lui associer des valeurs possibles. Il s'agit de la liste des valeurs que les utilisateurs verront dans Centreon lorsqu'ils ouvriront un ticket. Dans notre cas, vous allez définir les valeurs possibles pour **e_city**.
+- Add a new **List** for your custom field with the **+Add a new entry** button.
+  - In the **Id** field, you **must** keep the same syntax than before. So for a *e_city* custom field, the Id will be **e_city**.
+  - In the **Label** field, enter a meaningful label.
+  - In the **Type** field, select **Custom**.
+  - The **Filters**, **Mandatory** and **Sort** parameters are optional.
 
-> Pour la valeur que vous avez définie précédemment dans le champ **Argument** :
-- si vous avez spécifié ``{$select.e_city.value}``: le nom du paramètre **value** sera envoyé à EasyVista,
-- si vous avez spécifié ``{$select.e_city.placeholder}``: le nom du paramètre **label** sera envoyé à EasyVista. Le champ **Label** sera celui que les utilisateurs verront dans la liste de sélection des valeurs lorsqu'ils ouvriront le ticket.
+![list](../../assets/integrations/easy-vista-rest/custom_type.png)
 
-1. Dans la partie **Custom list definition**, cliquez sur **+Ajouter une nouvelle entrée**.
-2. Remplissez les paramètres **Value** (par exemple le code postal de la ville) et **Label** (par exemple le nom de la ville).
-3. Ajoutez autant de nouvelles entrées que nécessaire. Dans notre exemple, il s'agirait de plusieurs villes avec leur code postal et leur nom.
+- Add new **Custom list definitions** for your custom field with the **+Add a new entry** button. This is where you set up the possible values for your fields.
+  - In the **Id** field you **must** keep the same syntax than before. So for a *e_city* custom field, the Id will be **e_city**.
+  - In the **Value** field, you usually set the value that will be sent to EasyVista. In the example below, we have set the zip code of each city.
+  - In the **Label** field, set a value that is meaningful for your users (or more human-readable). Therefore, in our example, it is going to be name of the city.
+  - The **Default** parameter is optional.
 
-### Définir des filtres pour les biens (assets)
+As explained in the example below, in the **Mapping ticket arguments** you could also use `{$select.e_<your_field_name>.placeholder}` instead of `{$select.e_<your_field_name>.value}` if you wish to send the name of the city instead of the zip code.
 
-Toutes les informations envoyées par Centreon à EasyVista proviennent de Centreon. La seule exception peut être les biens, aussi nommés assets (équipements, éléments de configuration et ressources supervisées) qui peuvent être récupérées à partir des API EasyVista.
+![custom list](../../assets/integrations/easy-vista-rest/custom_list.png)
 
-> Le champ du filtre aura le format suivant (à titre d'exemple) : ``search=field:value1,field:value2`` (voir la [documentation EasyVista](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20See%20a%20list%20of%20assets/?language=fr)).
+## CI parameter
 
-Suivez cette procédure si vous devez importer des ressources depuis EasyVista :
+It is possible to send the CI field to EasyVista. When configured (see [custom lists](../../alerts-notifications/ticketing.md#définition-de-liste) for more information) it will send either the name of the host or a selected hostgroup when you tick the "Use hostgroup name as CI" option. When you open a ticket on multiple hosts at once, only groups in which the common hosts belong can be selected. Still in the multiple hosts selection, you will be forced to select one of the host names as CI if you are not using the host group feature.
 
-1. Dans la section **Common**, cliquez sur **+Ajouter une nouvelle entrée** dans le paramètre **Listes**.
-2. Renseignez les paramètres comme suit (il s'agit d'un exemple) :
-   - **Id**
-   - **Label:** Asset
-   - **Type:** Asset
-   - **Filter:** search=field:value
+![custom list](../../assets/integrations/easy-vista-rest/openticket_demo.gif)
 
-## Tester le connecteur
+## Test commands
 
-Pour vous aider à analyser les problèmes, utilisez les commandes curl suivantes pour tester le connecteur.
+The curl commands listed below must be run from your central server. You need to replace all elements between `<>` for example `<easy_vista_address>` may be replaced with `my_ezv.local`.
 
-> Notez que vous devez adapter les commandes suivantes avec vos propres valeurs. Par exemple, ``<easy_vista_address>`` doit être remplacé par l'adresse de votre serveur EasyVista.
+If you are using the user/password authentication, replace the `--header 'Authorization: Bearer <token>'` part with `-u '<user>:<password>'`.
 
-Les commandes ci-dessous considèrent que vous utilisez la méthode d'authentification par token Bearer.
-Si vous utilisez la méthode d'authentification standard (utilisateur et mot de passe), vous devez remplacer ``-H 'Authorization : Bearer`` par `-u ':'`.
+### Open a ticket
 
-> Les commandes ci-dessous sont données à titre d'exemple.
-
-### Tester l'ouverture d'un ticket
-
-```shell
-curl -X POST -k 'https://<easy_vista_address>/api/v1/requests' -H 'Content-Type:
-application/json' -H 'Authorization: Bearer <token>' -d '{"requests":
-[{"catalog_guid:"1234","catalog_code":"1234"}]}'
+```bash
+curl 'https://<easy_vista_address>/api/v1/requests' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>' \
+--data '{"requests":[{"catalog_guid:"1234","catalog_code":"1234"}]}'
 ```
 
-> Ceci est un exemple. Voir la [documentation EasyVista](https://wiki.easyvista.com/xwiki/bin/view/Documentation/Integration/WebService%20REST/REST%20API%20-%20Create%20an%20incident-request/).
+### Close a ticket
 
-### Tester la fermeture d'un ticket
-
-```shell
-curl -X PUT -k 'https://<easy_vista_address>/api/v1/requests/<ticket_id>' -H
-'Content-Type: application/json' -H 'Authorization: Bearer <token>' -d '{"closed":
-{}}
+```bash
+curl -X PUT 'https://<easy_vista_address>/api/v1/requests/<ticket_id>' -H
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>' \
+--data '{"closed":{}}'
 ```
 
-### Récupérer des ressources
+### Get EasyVista assets
 
-- Avec le filtre :
+Without filters:
 
-  ```shell
-  curl -X GET -k 'https://<easy_vista_address>/api/v1/assets/?fields=asset_tag,HREF'
-  -H 'Content-Type: application/json' -H 'Authorization: Bearer <token>'
-  ```
+```bash
+curl -X GET 'https://<easy_vista_address>/api/v1/assets/?fields=asset_tag,HREF' -H
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>'
+```
 
-- Sans le filtre :
+With filters:
 
-  ```shell
-  curl -X GET -k 'https://<easy_vista_address>/api/v1/assets/?
-  fields=asset_tag,HREF&search=field:value' -H 'Content-Type: application/json' -H
-  'Authorization: Bearer <token>'
-  ```
+```bash
+curl -X GET 'https://<easy_vista_address>/api/v1/assets/?fields=asset_tag,HREF&search=<field>:<value>' -H
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer <token>'
+```

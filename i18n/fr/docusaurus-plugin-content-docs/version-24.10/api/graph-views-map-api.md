@@ -1,6 +1,6 @@
 ---
 id: map-api
-title: MAP API
+title: API MAP
 description: "Automatiser la création et la maintenance des cartes standard via l'API"
 ---
 

@@ -62,25 +62,8 @@ module.exports = {
           id: 'integrations/plugin-packs/releases/release-notes'
         },
         {
-          type: 'category',
-          label: 'Developers Center',
-          link: {
-            type: 'generated-index'
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/introduction'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
-            }
-          ]
+        type: 'doc',
+          id: 'integrations/plugin-packs/getting-started/develop-plugin'
         }
       ]
     },
@@ -194,6 +177,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-mssql'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-cma'
         },
         {
           type: 'doc',
@@ -554,6 +541,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-pvx-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-quadstor-cma'
         },
         {
           type: 'doc',

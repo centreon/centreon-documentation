@@ -17,11 +17,7 @@ Reportez-vous ensuite à la [procédure d'installation](map-web-install.md) pour
 
 Après cela, vous devrez effectuer des étapes supplémentaires, expliquées ci-dessous, pour terminer l'installation de Centreon MAP pour votre serveur distant Centreon.
 
-## Architecture
-
-Le schéma ci-dessous décrit l'architecture de MAP avec un serveur distant :
-
-![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
+Pour plus d'informations sur l'architecture de MAP avec un serveur distant, consultez la page [Architecture de MAP](map-architecture.md).
 
 ## Configuration de Centreon Broker
 
