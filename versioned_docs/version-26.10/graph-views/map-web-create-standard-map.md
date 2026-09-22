@@ -94,7 +94,7 @@ Use **Media** elements to add:
 Use **Link** elements to make connections between items (with anchor points):
 - **Link:** is a simple arrow link element to connect two items.
 - **Status link:** use this link between two items and configure a resource to monitor from it. Then this link will display the color status of the resource you specified.
-- **Metric link:** use this link between two items and configure a service and its metrics from it. Then this link will display the metrics of the service you specified. 
+- **Metric link:** use this link between two items and configure a service or meta-service and its metrics from it. Then this link will display the metrics of the service or meta-service you specified. 
 
 #### Centreon elements
 
