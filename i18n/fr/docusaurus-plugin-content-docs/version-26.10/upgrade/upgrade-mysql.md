@@ -14,9 +14,16 @@ Vous pouvez potentiellement avoir plusieurs bases MySQL dans votre architecture.
 
 Ne mettez pas à jour votre version de Centreon et votre version de MySQL en même temps. Vous pouvez effectuer les deux mises à jour l'une après l'autre dans l'ordre que vous souhaitez, mais assurez-vous que la première procédure de mise à jour soit entièrement terminée avant d'effectuer la seconde.
 
-## Versions de MySQL compatibles avec Centreon 26.10
+## Version de MySQL pour chaque version de Centreon
 
-* MySQL 8.4
+| Centreon | MySQL   |
+|----------|---------|
+| 26.10    | 8.4     |
+| 25.10    | 8.4 (recommandé)</br>8.0 jusqu'à sa fin de support (avril 2026) |
+| 24.10    | 8.4 (recommandé)</br>8.0  jusqu'à sa fin de support (avril 2026) |
+| 24.04    | 8.0     |
+| 23.10    | non supporté   |
+| 23.04    | non supporté   |
 
 ## Connaître la version de MySQL
 
@@ -47,24 +54,9 @@ mysql Ver 8.0.x for Linux on x86_64
    2. Si vous utilisez MBI:
 
       <Tabs groupId="sync">
-      <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-      Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
-
-      </TabItem>
       <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
       Dans le fichier **/etc/my.cnf.d/mysql-server.cnf**, ajoutez `log_bin_trust_function_creators=1`.
-
-      </TabItem>
-      <TabItem value="Debian 12" label="Debian 12">
-
-      Dans le fichier `/etc/mysql/mysql.cnf`, ajoutez:
-
-      ```shell
-      [mysqld]
-      log_bin_trust_function_creators=1
-      ```
 
       </TabItem>
       </Tabs>
