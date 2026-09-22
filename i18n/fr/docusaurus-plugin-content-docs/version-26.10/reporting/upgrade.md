@@ -26,10 +26,6 @@ La montée de version de Centreon MBI se fait en 4 étapes :
 
 Voir [Introduction à la montée de version](../upgrade/introduction.md).
 
-### Mettre à jour la clé de signature RPM
-
-Sous EL8, pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
-
 ## Étape 1 : Montée de version du paquet
 
 Lors d'une montée de version majeure (ex: 20.10.x à 26.10.x) il faut en premier lieu mettre à jour
@@ -43,14 +39,6 @@ Vous trouverez ce dépôt depuis votre compte sur notre [platefome de support, �
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf clean all
-dnf update centreon-bi-server
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
 dnf clean all
@@ -112,15 +100,6 @@ Vous pouvez maintenant procéder à la montée de version :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf clean all
-dnf update centreon-bi\*
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
