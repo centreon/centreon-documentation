@@ -20,8 +20,8 @@ Do not upgrade your version of Centreon and your version of MySQL at the same ti
 | Centreon | MySQL   |
 |----------|---------|
 | 26.10    | 8.4     |
-| 25.10    | 8.4 (recommended)</br>8.0 until its end of support (April 2026) |
-| 24.10    | 8.4 (recommended)</br>8.0 until its end of support (April 2026) |
+| 25.10    | 8.4 (recommended)<br />8.0 until its end of support (April 2026) |
+| 24.10    | 8.4 (recommended)<br />8.0 until its end of support (April 2026) |
 | 24.04    | 8.0     |
 | 23.10    | not supported   |
 | 23.04    | not supported    |
