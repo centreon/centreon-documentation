@@ -18,7 +18,7 @@ import DependenciesRepository from '../_dependencies-repository.mdx';
 
 Vous devez exécuter la procédure d'installation en tant qu'utilisateur privilégié.
 
-> Lorsque vous exécutez une commande, vérifiez les messages obtenus. En cas de message d'erreur, arrêtez la procédure et corrigez le problème.
+> Lorsque vous exécutez une commande, vérifiez ce qu'elle affiche. En cas de message d'erreur, arrêtez la procédure et corrigez le problème.
 
 Nous vous recommandons de chiffrer les communications du serveur web comme celles de la base de données, même si ces étapes ne sont pas nécessaires au fonctionnement de Centreon. La procédure ci-dessous met en place ce chiffrement. Dans certains cas (par exemple pour réaliser des tests rapides), vous pouvez préférer une installation non sécurisée : il vous suffit alors d'ignorer l'[étape 3 : Mettre en place la configuration TLS](#étape-3--mettre-en-place-la-configuration-tls).
 
