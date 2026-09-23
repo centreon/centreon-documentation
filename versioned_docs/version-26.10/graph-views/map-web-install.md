@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 This topic describes how to install Centreon MAP. We recommend that you install MAP on a dedicated server. However, if you do not have large volumes of data, you can install it on the central server.
 
-> If you plan to use MAP in HTTPS, please note that securing the HTTPS protocol requires configuration on both the Centreon platform and the MAP server. It is therefore easier to plan for this before beginning the installation. See the [Secure MAP in HTTPS](#secure-map-in-https) page for the full procedure.
+> If you plan to use MAP in HTTPS, please note that securing the HTTPS protocol requires configuration on both the Centreon platform and the MAP server. It is therefore easier to plan for this before beginning the installation. See the [Secure MAP in HTTPS](#secure-map-in-https) section for the full procedure.
 
 ## License
 
@@ -33,7 +33,7 @@ See the [software requirements](../installation/prerequisites.md#characteristics
 
 #### Hardware
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 | Element                     | Value     |
@@ -131,7 +131,26 @@ This is how your MAP server should be partitioned:
 | vg_data |   | Free space (unallocated) | 2 GB                               |
 
 </TabItem>
-<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+<TabItem value="Up to 20,000 hosts" label="Up to 20,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 18 GB      |
+
+This is how your MAP server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 2 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 8 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 5 GB                               |
+| vg_data |   | Free space (unallocated) | 2 GB                               |
+
+</TabItem>
+<TabItem value="Over 20,000 hosts" label="Over 20,000 hosts">
 
 For very large amounts of data, contact your sales representative.
 
@@ -439,7 +458,7 @@ apt update && apt install mariadb-server
 </TabItem>
 </Tabs>
 
-Then enable and restart mariadb.
+Then enable and restart mariadb
 
 ```shell
 systemctl enable mariadb
