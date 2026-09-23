@@ -14,7 +14,7 @@ There are several ways to install Centreon. Which one suits your needs best?
 
 If you already have the OS and you only want to install Centreon, use either of these:
 
-* [Unattended installation](../installation/installation-of-a-central-server/unattended.md), donc by running a script.
+* [Unattended installation](../installation/installation-of-a-central-server/unattended.md), done by running a script.
 * [RPM or DEB packages](../installation/installation-of-a-central-server/using-packages.md).
 
 See the list of [supported operating systems](../installation/compatibility.md#operating-systems).
