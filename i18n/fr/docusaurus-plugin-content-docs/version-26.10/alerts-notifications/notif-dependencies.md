@@ -182,13 +182,13 @@ services (dit dépendants).
     de services dépendants
 -   Le champ **Comments** permet de commenter la dépendance
 
-### Meta-services
+### Métaservices
 
 Pour configurer une dépendance logique, rendez-vous dans le menu
-`Configuration > Notifications > Dependencies > Meta Services` et
+`Configuration > Notifications > Dependencies > Métaservices` et
 cliquez sur **Add**.
 
-![image](../assets/alerts/03metaservicedependance.png)
+![image](../assets/alerts/03métaservicedependance.png)
 
 Deux types de méta-services : Un méta-service est dit maître s'il
 contrôle l'exécution et la notification d'autres méta-services (dit
@@ -206,7 +206,7 @@ dépendants).
 -   Le champ **Notification Failure Criteria** indique quels sont les
     statuts du ou des méta-services qui empêcheront l'envoi de
     notifications pour des méta-services dépendants
--   La liste **Meta-service name** définie le (ou les) méta-service(s)
+-   La liste **Métaservice name** définie le (ou les) méta-service(s)
     maître(s)
 -   La liste **Dependent meta-service** définie le (ou les)
     méta-service(s) dépendant(s)

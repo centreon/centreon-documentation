@@ -104,7 +104,7 @@ Utilisez les éléments de la section **Liens** pour établir des liens entre le
   - Host
   - Service
   - Service group
-  - Meta-service
+  - Métaservice
 
 - Elément de la section **Centreon MAP** :
   - ### Conteneur

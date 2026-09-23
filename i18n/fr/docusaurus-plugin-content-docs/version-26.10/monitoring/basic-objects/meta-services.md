@@ -41,13 +41,13 @@ données disponibles sont :
 
 Pour ajouter un méta-service :
 
-Rendez-vous dans le menu : **Configuration > Services > Meta Services** et cliquez sur le bouton **Add**
+Rendez-vous dans le menu : **Configuration > Services > Métaservices** et cliquez sur le bouton **Add**
 
-![image](../../assets/configuration/02addmetaservice.png)
+![image](../../assets/configuration/02addmétaservice.png)
 
 ### Informations générales
 
-* Le champ **Meta Service Name** correspond au nom du méta-service affiché dans l’interface. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
+* Le champ **Métaservice Name** correspond au nom du méta-service affiché dans l’interface. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
 * Le champ **Output format string (printf-style)** correspond au message de sortie (‘output’) visible dans Centreon.
   La valeur “%d” correspond à la valeur calculée par le méta-service.
 * Le champ **Warning level** and **Critical level** correspondent respectivement aux seuils "WARNING" et
@@ -66,7 +66,7 @@ ce cas à sélectionner dans la liste déroulante Métrique.
 
 > Plus d’informations sur le formatage *[PRINTF](http://en.wikipedia.org/wiki/Printf_format_string)*.
 
-### Etat du Meta Service
+### Etat du Métaservice
 
 * Le champ **Check Period** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut du méta-service.
 * Le champ **Max Check Attempts** définit le nombre de contrôles à effectuer avant de valider le statut du méta-service
@@ -98,7 +98,7 @@ Si vous avez choisi l’option **Service list**, au sein de l’écran regroupan
   sont appelées indicateurs. ![image](../../assets/configuration/common/flechedirection.png)
 2. Cliquez sur le bouton **Add**
 
-![image](../../assets/configuration/02metaservicesindicators.png)
+![image](../../assets/configuration/02métaservicesindicators.png)
 
 * Le champ **Host** permet de sélectionner l’hôte auquel le service à sélectionner appartient.
 * Le champ **Service** permet de choisir le service (première liste) ainsi que la métrique au sein de ce service
