@@ -176,33 +176,33 @@ service groups.
     dependent services
 -   The **Comments** field can be used to comment on the dependencies
 
-### Meta-services
+### Metaservices
 
 To configure a logical dependency, go into the
-`Configuration> Notifications > Dependencies > Meta Services` menu and
+`Configuration> Notifications > Dependencies > Metaservices` menu and
 click **Add**.
 
 ![image](../assets/alerts/03metaservicedependance.png)
 
-Two types of meta-service: a meta-service is called a “master” if it
+Two types of metaservice: a metaservice is called a “master” if it
 controls the execution and the notification of other (“dependent”)
-meta-services.
+metaservices.
 
 -   The **Name** and **Description** fields indicate the name and
     description of the dependencies
 -   The **Parent relationship** field should be ignored if you use the
     Centreon Engine. If it is enabled, and if the links of dependencies
-    of the master meta-service become unavailable, the dependencies in
+    of the master metaservice become unavailable, the dependencies in
     the creation process are no longer taken into account.
 -   The **Execution Failure Criteria** field Indicates the
     statuses of the meta-master service(s) that will prevent the check
     of the meta-dependent services
 -   The **Notification Failure Criteria** field indicates the statuses
-    of the meta-service(s) preventing the sending of notifications to
+    of the metaservice(s) preventing the sending of notifications to
     meta-dependent services
--   The **Meta-service name** list defines the master meta-service(s)
--   The **Dependent meta-service** names list defines the dependent
-    meta-service(s)
+-   The **Metaservice name** list defines the master metaservice(s)
+-   The **Dependent metaservice** names list defines the dependent
+    metaservice(s)
 -   The **Comments** field can be used to comment on the dependencies
 
 ## Examples
