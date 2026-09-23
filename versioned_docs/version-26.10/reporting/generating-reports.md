@@ -11,7 +11,7 @@ Reports are created using jobs. A job is a report definition, that can include s
 ## Step 1: Create a new job
 
 1. Make sure you have [prepared your data](preparing-data.md) as per the MBI requirements.
-2. Go to **Reporting > Monitoring Business Intelligence > Jobs**.  
+2. Go to **Reporting > Monitoring Business Intelligence > Jobs**. 
 3. Click the **Add** button to create a new job.
 4. On the **Job parameters** tab, in the **Report template** field, select the report template you want. Each report template contains specific data: use our [catalog of available reports](available-reports/available-reports.md) to choose the template best suited to your needs (once you have selected a report template, the contents of the [**Report template parameters** tab](#define-report-specific-parameters) display the options concerning this specific report template).
 
@@ -25,7 +25,7 @@ Go to the **Job parameters** tab of the job creation page.
 * Select the [**job groups**](concepts.md#job-groups) you want so as to [share your report with other non-admin users](share.md):
    * They will be able to edit the job (if they have the correct ACL to access the **Reporting > Monitoring Business Intelligence > Jobs** page).
    * They will be able to see the generated report in the **Reporting > Monitoring Business Intelligence > Report view** page (if they have the correct ACL to access this page).
-   * This is not the same as [publishing your report for other users](reports-publication-rule.md), which is done using the **Publication** tab.
+   * This is not the same as [publishing your report for other users](reports-publication-rule.md), which is done using the **Publication** section.
 
 * Select the **Language** of the report: you can generate reports in French or English (ignore the refresh icon next to the list).
 * Select the **Output formats** you want for this report: bear in mind that not all report designs support all formats. Refer to the [catalog of available reports](available-reports/available-reports.md) to find out which outputs are supported for the report design you selected.  
@@ -44,10 +44,7 @@ In the **Scheduling** section of the **Job parameters** tab:
 
 ### Define report-specific parameters
 
-Go to the **Report Parameters** tab of the job configuration page. The contents of this tab varies according to the report design you selected on the [**Configuration** tab](#configure-the-main-parameters) (it will be empty if no report design is selected yet).
-
-* Typically, fields will allow you to define which host groups, host categories and service categories to include in the report. Fields with two sections (**Available/Selected**) must have at least one category or group in the **Selected** section.
-* You may need to select which **time periods** to include in the report.
+Go to the **Report content** tab of the job configuration page. The contents of this tab varies according to the report design you selected on the [**Configuration** tab](#configure-the-main-parameters) (it will be empty if no report design is selected yet). Typically, fields will allow you to define which host groups, host categories and service categories to include in the report.
 
 ### Select publication rules to share your generated report (optional)
 
