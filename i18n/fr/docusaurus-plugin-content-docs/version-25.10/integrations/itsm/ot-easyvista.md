@@ -1,7 +1,7 @@
 ---
 id: ot-easyvista
 title: EasyVista API SOAP
-description: "Ancien connecteur SOAP pour ouvrir des tickets EasyVista depuis les alertes"
+description: "Configure the deprecated EasyVista SOAP API open-tickets provider, superseded by the EasyVista REST API version"
 ---
 
 > **SOAP** Service Manager web services are no longer maintained, so we recommend that you use the [**Rest API** version](./ot-easyvista-rest-api.md) to benefit from the latest enhancements and features.
@@ -13,18 +13,9 @@ about your monitoring alerts.
 
 ![architecture](../../assets/integrations/open-tickets/ot-easyvista-architecture.png)
 
-## Compatibility
-
-This integration is (at least) compatible with the following EasyVista
-versions:
-
-**To be determined**
-
 ## Requirements
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md#configuration-avancée)
-into your Centreon instance
+You need to [configure Open Tickets](../../alerts-notifications/ticketing.md) in order for resources (hosts and services) to receive a ticket number.
 
 Our provider requires the following parameters:
 
@@ -40,12 +31,12 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to open a ticket with the following parameters
 
-  - Requestor
-  - Urgency
-  - Severity
-  - Asset
-  - External reference
-  - Phone
-  - Recipient
-  - Origin
-  - CI
+- Requestor
+- Urgency
+- Severity
+- Asset
+- External reference
+- Phone
+- Recipient
+- Origin
+- CI

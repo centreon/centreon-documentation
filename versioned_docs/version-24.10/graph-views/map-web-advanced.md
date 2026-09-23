@@ -1,6 +1,6 @@
 ---
 id: map-web-advanced
-title: Advanced parameters in MAP
+title: Customizing status computation
 description: "Configure advanced parameters for inherited status computation in MAP"
 ---
 

@@ -26,7 +26,7 @@ Un collecteur OpenTelemetry comprend trois composants principaux qui s'exécuten
 Les receivers, les processors et les exporters sont organisés en un pipeline qui définit l'ordre dans lequel ils s'exécutent.
 Chaque composant est défini à l'aide de fichiers YAML.
 
-* Si vous n'avez besoin de recevoir des logs qu'à partir d'un petit nombre de sources, vous pouvez regrouper toute la configuration dans un seul fichier (**config.yaml**). [Voir deux exemples ici](collector-simple.md).
+* Si vous n'avez besoin de recevoir des logs qu'à partir d'un petit nombre de sources, vous pouvez regrouper toute la configuration dans un seul fichier (**config.yaml**).
 * Sinon, la meilleure pratique consiste à utiliser un fichier pour la configuration générale du collecteur et un fichier par source de données (c'est la méthode décrite dans [notre procédure principale](./collector.md)).
 
 Dans tous les cas, les receivers, les processors et les exporters doivent être définis.

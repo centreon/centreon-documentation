@@ -122,7 +122,9 @@ Deux fichiers de configuration existent pour Centreontrapd :
 * **/etc/centreon/conf.pm** contient les informations de connexion à la base de données MariaDB/MySQL
 * **/etc/centreon/centreontrapd.pm** contient la configuration du service centreontrapd
 
-#### Configuration du service
+#### Avancé : configurer centreontrapd
+
+> Seuls les utilisateurs avancés doivent modifier ces fichiers.
 
 Au sein du fichier **/etc/centreon/centreontrapd.pm** il est conseillé de modifier uniquement trois paramètres (si
 nécessaire) :

@@ -33,6 +33,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'centreon-hub'
+        },
+        {
+          type: 'doc',
+          id: 'user-rights'
         }
        ]
     },
@@ -50,7 +54,7 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'collector/collector-simple'
+          id: 'collector/collector-generator'
         },
         {
           type: 'doc',
