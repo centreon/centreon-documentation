@@ -14,14 +14,23 @@ This procedure allows you to create the following files:
 
 | File         | Where to store it                 | Role                                                                    |
 |--------------|-----------------------------------|-------------------------------------------------------------------------|
-| server.key   | On the server you want to make secure (central/remote, database...) | Stays secret on the secure server. Used to decrypt the client's data.  |
-| server-key.pem   | On the server you want to make secure (central/remote, database...) | The signed certificate that will be sent automatically to any client that tries to connect to the secure server.         |
-| rootCA.pem   | On the client (browser, OS...) | Root CA self-signed certificate. This is a public file, used to validate the **server.pem**  certificate the client has received. **rootCA.pem** will have to be copied to all machines that will interact with the secure machine (that has sent server-key.pem). only applies for self-signed certificates?    |
+| server-key.pem  | On the server you want to make secure (central/remote, database...) | Private key for **server.pem**: stays secret on the secure server. Used to prove the server's identity.  |
+| server.pem   | On the server you want to make secure (central/remote, database...) | The signed certificate that will be sent automatically to any client that tries to connect to the secure server.         |
+| rootCA.pem   | On the client (browser, OS...) | Root CA self-signed certificate. This is a public file, used to validate the **server.pem**  certificate the client has received. **rootCA.pem** will have to be copied to all machines that will interact with the secure machine (that has sent **server.pem**).   |
 | rootCA.key   | Only on the machine that generates the CA, stays in a temporary folder | This file plays no role in production. It is used only to sign **rootCA.pem** when creating it.    |
 
 ## What this procedure does
 
-The procedure creates the files you need to set up a TLS connection, in a temporary folder. When you set up HTTPS on a server, you will need to deploy the necessary files to the correct location. Example: **/etc/pki/centreon-tls** is the default location for certificates on EL. Debian's default path is **/etc/ssl/certs**.
+The procedure creates the files you need to set up a TLS connection, in temporary folders. When you set up HTTPS on a server, you will need to deploy the necessary files to the correct location. Example: **/etc/pki/centreon-tls** is the default location for certificates on EL. Debian's default path is **/etc/ssl/certs**.
+
+The procedure can be run on a Centreon platform that has a local database, or a remote one.
+
+* If you have a local database, run the commands in both tabs on your Centreon server.
+* If you have a remote database, run the procedure twice:
+   * On your Centreon server, create a CA (steps 1 to 3), then run the commands in the **On the central/remote server** tabs.
+   * On the database server, create another CA, then run the commands in the **On the database server** tabs.
+   
+   You then have two different **rootCA.pem** files. Copy the **rootCA.pem** from the database server to the machines that connect to the database (for example, your Centreon server). Copy the **rootCA.pem** from your Centreon server to the machines that connect to it.
 
 <!-- This procedure creates your own small Certificate Authority (CA), then uses it to issue and sign a server certificate. Here is the general idea:
 
@@ -33,11 +42,18 @@ The procedure creates the files you need to set up a TLS connection, in a tempor
 
 Set up folders to keep everything organized: one for the CA's own files, one for files meant for the web or database service.
 
+For the CA:
+
+```shell
+sudo mkdir -p /out/CA
+```
+
+For the central/remote server, or for the database:
+
 <Tabs groupId="sync">
 <TabItem value="On the central/remote server" label="On the central/remote server">
 
 ```shell
-sudo mkdir -p /out/CA
 sudo mkdir -p /out/web
 ```
 
@@ -45,7 +61,6 @@ sudo mkdir -p /out/web
 <TabItem value="On the database server" label="On the database server">
 
 ```shell
-sudo mkdir -p /out/CA
 sudo mkdir -p /out/db
 ```
 
@@ -74,13 +89,13 @@ It's "self-signed" because there's no higher authority above it — the CA vouch
 ```shell
 sudo openssl req -x509 -new -nodes -key /out/CA/rootCA.key \
   -sha256 -days 3650 \
-  -subj "/CN=Test Dev CA/O=YourOrganization /OU=R&D" \
+  -subj "/CN=Test Dev CA/O=YourOrganization/OU=R&D" \
   -out /out/CA/rootCA.pem
 ```
 
 ## Step 4: Generate leaf server private key (2048-bit RSA)
 
-This is the private key for the actual server (the central/remote server or the database). It's separate from the CA key — the server should never share a key with the CA.
+This is the private key for the actual server (the central/remote server or the database). It's separate from the CA key. The server should never share a key with the CA.
 
 <Tabs groupId="sync">
 <TabItem value="On the central/remote server" label="On the central/remote server">
@@ -123,16 +138,16 @@ IP.1  = 127.0.0.1
 EOF
 ```
 
-## Step 6: Generate Certificate Signing Request
+## Step 6: Generate a Certificate Signing Request
 
-A CSR is a request document, generated from the server's private key, that says "here's who I am, please sign me." It doesn't do anything on its own — it's an intermediate file, only useful as input to Step 7 (and can be deleted afterward if you like).
+A CSR is a request document, generated from the server's private key, that says "here's who I am, please sign me." It doesn't do anything on its own. It's an intermediate file, only useful as input to Step 7 (and can be deleted afterward if you like).
 
 
 <Tabs groupId="sync">
 <TabItem value="On the central/remote server" label="On the central/remote server">
 
 ```shell
-openssl req -new -key /out/web/server-key.pem -out /out/web/server.csr \
+sudo openssl req -new -key /out/web/server-key.pem -out /out/web/server.csr \
   -subj "/CN=web/O=Centreon"
 ```
 
@@ -140,8 +155,8 @@ openssl req -new -key /out/web/server-key.pem -out /out/web/server.csr \
 <TabItem value="On the database server" label="On the database server">
 
 ```shell
-openssl req -new -key /out/db/server-key.pem -out /out/db/server.csr \
-  -subj "/CN=web/O=Centreon"
+sudo openssl req -new -key /out/db/server-key.pem -out /out/db/server.csr \
+  -subj "/CN=db/O=Centreon"
 ```
 
 </TabItem>
@@ -160,73 +175,55 @@ This is the step that actually produces the usable server certificate: the CA (i
 <TabItem value="On the central/remote server" label="On the central/remote server">
 
 ```shell
-sudo openssl x509 -req -in /out/server.csr \
+sudo openssl x509 -req -in /out/web/server.csr \
   -CA /out/CA/rootCA.pem -CAkey /out/CA/rootCA.key \
   -CAserial /out/CA/rootCA.srl -CAcreateserial \
   -out /out/web/server.pem -days 397 -sha256 \
-  -extfile /out/web/cert.ext -extensions v3_req
+  -extfile /out/cert.ext -extensions v3_req
 ```
 
 </TabItem>
 <TabItem value="On the database server" label="On the database server">
 
 ```shell
-sudo openssl x509 -req -in /out/server.csr \
+sudo openssl x509 -req -in /out/db/server.csr \
   -CA /out/CA/rootCA.pem -CAkey /out/CA/rootCA.key \
   -CAserial /out/CA/rootCA.srl -CAcreateserial \
   -out /out/db/server.pem -days 397 -sha256 \
-  -extfile /out/db/cert.ext -extensions v3_req
+  -extfile /out/cert.ext -extensions v3_req
 ```
 
 </TabItem>
 </Tabs>
 
-## Step 8: Copy Root CA and set permissions -> quel est l'intérêt?
-
-Make a convenient copy of the root CA certificate alongside the server files (this is the file you'd distribute to clients so they trust your CA — note it's the public certificate, rootCA.pem, never the .key file).
+## Step 8: Set permissions
 
 Permissions here follow the principle of least privilege:
 
 * `0644` (readable by everyone, writable only by owner) for public certificates — they contain no secrets.
 * `0640` (readable by owner and group, not others) for the server's private key, since it's sensitive but likely needs to be read by a service running under a specific group.
 
+For the root CA:
+
 ```shell
-sudo cp /out/CA/rootCA.pem /out/rootCA.pem
-sudo chmod 0644 /out/rootCA.pem /out/server.pem
-sudo chmod 0640 /out/server-key.pem
+sudo chmod 0644 /out/CA/rootCA.pem
 ```
 
-## Step 9: Create MariaDB-specific copies -> pas logique?
-
-<!-- dans le cas d'une base locale? optionnel? -->
-
-If the database runs as a separate service/container (e.g., MariaDB), it typically needs its own copy of the certificate and key, owned by the user/group it runs as (here 1001:1001 — adjust to match your actual DB container/user UID/GID).
-
-Note the key permission here is tighter (0600, owner-only) than the general server key in Step 8, and ownership is explicitly changed with chown so the database process can read it.
+For the central/remote server:
 
 ```shell
-sudo cp /out/server.pem /out/db/server.pem
-sudo cp /out/server-key.pem /out/db/server-key.pem
+sudo chmod 0644 /out/web/server.pem
+sudo chmod 0640 /out/web/server-key.pem
+```
+
+For the database:
+
+```shell
 sudo chmod 0644 /out/db/server.pem
-sudo chmod 0600 /out/db/server-key.pem
-sudo chown 1001:1001 /out/db/server.pem /out/db/server-key.pem
+sudo chmod 0640 /out/db/server-key.pem
 ```
 
-## Step 10: Generate environment manifest
-
-Finally, write a small .env-style file listing where each certificate/key lives, so other tooling (deployment scripts, docker-compose, systemd units, etc.) can source this file instead of hardcoding paths everywhere.
-
-```shell
-sudo tee /out/certs.env > /dev/null <<EOF
-ROOTCA_PATH=/out/rootCA.pem
-SERVER_CERT_PATH=/out/server.pem
-SERVER_KEY_PATH=/out/server-key.pem
-DB_CERT_PATH=/out/db/server.pem
-DB_KEY_PATH=/out/db/server-key.pem
-EOF
-```
-
-## Step 10: Deploy the files?
+You now have the files you need in your **/out** folder. You can copy them to the correct locations on your servers (and rename them if you need to).
 
 <!-- VIEILLE PROCEDURE
 This procedure allows you to create:
@@ -370,9 +367,24 @@ Now that you have your self-signed certificate, you can perform the following pr
 | rootCA.key                  |   |   |   |   |   |   |   |   |   |   |
 | server.pem                  | v | v |   | v | v | v | v | v | v | v |
 | server.key                  | v | v * |   | v | v | v | v | v | v | v | -->
+<!-- 
+## Where the files should be ultimately stored
 
-## Détails des chemins
+This table shows the standard locations (system paths) where the TLS certificates used by the various Centreon components are typically stored, depending on the Linux distribution.
 
+| Machine (Service) | File | Standard path on EL | Standard path on Debian |
+|:---|:---|:---|:---|
+| central/remote (Apache / Nginx) | rootCA.pem | /etc/pki/ca-trust/source/anchors | /usr/local/share/ca-certificates |
+|  | server.pem | /etc/pki/tls/certs | /etc/ssl/certs |
+|  | server-key.pem | /etc/pki/tls/private | /etc/ssl/private |
+| central/remote (Gorgone - Perl) | rootCA.pem | /etc/pki/centreon-tls | /etc/pki/centreon-tls |
+|  | server.pem | /etc/pki/centreon-tls | /etc/pki/centreon-tls |
+|  | server-key.pem | /etc/pki/centreon-tls | /etc/pki/centreon-tls|
+| central-db | rootCA.pem | /etc/my.cnf.d/ssl | /etc/mysql/ssl |
+|  | server.pem | /etc/my.cnf.d/ssl | /etc/mysql/ssl |
+|  | server-key.pem | /etc/my.cnf.d/ssl | /etc/mysql/ssl |
+ -->
+<!-- tableau complet
 | Machine (Service) | Fichier | Chemin standard - RHEL (AlmaLinux) | Chemin standard - Debian (Ubuntu) |
 |:---|:---|:---|:---|
 | central / remote (Apache / Nginx) | rootCA | /etc/pki/ca-trust/source/anchors/rootCA.pem | /usr/local/share/ca-certificates/rootCA.crt * |
@@ -386,4 +398,4 @@ Now that you have your self-signed certificate, you can perform the following pr
 |  | server | /etc/my.cnf.d/ssl/server.pem | /etc/mysql/ssl/server.pem |
 |  | key | /etc/my.cnf.d/ssl/server.key | /etc/mysql/ssl/server.key |
 | map / mbi (Services Java) | rootCA | Intégré dans : /etc/pki/java/cacerts | Intégré dans : /etc/ssl/certs/java/cacerts |
-|  | Keystore | /etc/centreon-map/keystore.p12 (Format PKCS12) | /var/lib/centreon-map/keystore.p12 (ou /etc/) |
+|  | Keystore | /etc/centreon-map/keystore.p12 (Format PKCS12) | /var/lib/centreon-map/keystore.p12 (ou /etc/) | -->
