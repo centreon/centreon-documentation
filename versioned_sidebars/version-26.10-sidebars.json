@@ -1254,22 +1254,6 @@
             {
               "type": "doc",
               "id": "migrate/migrate-from-debian-to-debian"
-            },
-            {
-              "type": "doc",
-              "id": "migrate/migrate-from-3-4"
-            },
-            {
-              "type": "doc",
-              "id": "migrate/nagios-to-centreon"
-            },
-            {
-              "type": "doc",
-              "id": "migrate/poller-display-to-remote-server"
-            },
-            {
-              "type": "doc",
-              "id": "developer/developer-gorgone-migrate-from-centcore"
             }
           ]
         }
