@@ -6,7 +6,7 @@ description: "Mettre à jour MySQL vers une version compatible avec Centreon 25.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Si vous utilisiez Centreon 24.04 ou 24.10 avec MySQL, sachez que le support de MySQL 8.0 prendra fin en avril 2026. Assurez-vous que votre Centreon utilise toujours [une version supportée de MySQL](#versions-de-mysql-compatibles-avec-centreon-2610).
+Si vous utilisiez Centreon 24.04 ou 24.10 avec MySQL, sachez que le support de MySQL 8.0 prendra fin en avril 2026. Assurez-vous que votre Centreon utilise toujours [une version supportée de MySQL](#version-de-mysql-pour-chaque-version-de-centreon).
 
 Vous pouvez potentiellement avoir plusieurs bases MySQL dans votre architecture. Le serveur central a une base, chaque serveur distant a une base, et les modules MBI et MAP ont chacun une base dédiée. Dans une architecture, toutes les bases doivent avoir la même version de MySQL.
 
@@ -19,8 +19,8 @@ Ne mettez pas à jour votre version de Centreon et votre version de MySQL en mê
 | Centreon | MySQL   |
 |----------|---------|
 | 26.10    | 8.4     |
-| 25.10    | 8.4 (recommandé)</br>8.0 jusqu'à sa fin de support (avril 2026) |
-| 24.10    | 8.4 (recommandé)</br>8.0  jusqu'à sa fin de support (avril 2026) |
+| 25.10    | 8.4 (recommandé)<br />8.0 jusqu'à sa fin de support (avril 2026) |
+| 24.10    | 8.4 (recommandé)<br />8.0  jusqu'à sa fin de support (avril 2026) |
 | 24.04    | 8.0     |
 | 23.10    | non supporté   |
 | 23.04    | non supporté   |
