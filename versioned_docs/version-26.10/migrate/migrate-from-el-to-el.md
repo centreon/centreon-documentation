@@ -40,14 +40,14 @@ complete the installation process by connecting to the Centreon web interface.
 3. Perform software and system updates:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
 dnf update
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf update

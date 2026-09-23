@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Cette procédure ne s'applique que dans les conditions suivantes :
 
-- Vous souhaitez migrer d'un OS de type EL 64-bits vers Debian. Par exemple, vous souhaitez migrer d'un CentOS 7 à Debian 12.
+- Vous souhaitez migrer d'un OS de type EL 64-bits vers Debian. Par exemple, vous souhaitez migrer d'un CentOS 7 à Debian 13.
 - Votre version de Centreon est 18.10 ou plus récente, et vous souhaitez passer à la dernière version de Centreon. Si vous souhaitez migrer depuis une plus ancienne version, [contactez l'équipe support Centreon](https://support.centreon.com).
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
@@ -95,11 +95,24 @@ apt update && apt upgrade
    mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
    ```
 
-2. Sur l'ancien serveur, arrêtez MariaDB :
+2. Sur l'ancien serveur, arrêtez la base de données :
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
    systemctl stop mariadb
    ```
+
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl stop mysql
+   ```
+
+   </TabItem>
+   </Tabs>
 
 3. Depuis l'ancien serveur, exportez les dumps vers le nouveau serveur de base de données (assurez-vous d'avoir assez d'espace):
 
@@ -147,11 +160,24 @@ apt update && apt upgrade
    mysql_upgrade -u root -p
    ```
 
-7. Démarrez le processus **mariadb** sur le nouveau serveur :
+7. Démarrez le processus de base de données sur le nouveau serveur :
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
    systemctl start mariadb
    ```
+
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl start mysql
+   ```
+
+   </TabItem>
+   </Tabs>
 
 > Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur
 > Centreon.
