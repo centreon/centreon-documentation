@@ -266,9 +266,9 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
 
 10. Allez à la page **Configuration > Connecteurs > Connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
 
-### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
+<!-- ### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
 
-Si vous migrez depuis un Centreon 18.10, 19.04 ou 19.10, vous devez également [migrer de Centcore à Gorgone](../developer/developer-gorgone-migrate-from-centcore.md).
+Si vous migrez depuis un Centreon 18.10, 19.04 ou 19.10, vous devez également [migrer de Centcore à Gorgone](../developer/developer-gorgone-migrate-from-centcore.md). -->
 
 ### Étape 7: Mettre à jour les modules
 

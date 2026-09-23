@@ -9,3 +9,5 @@ Les procédures de migration s'appliquent dans le cas où vous souhaitez install
 Dans les cas où vous souhaitez simplement changer de version de Centreon alors que celui-ci est installé sur un OS supporté, utilisez les [procédures d'upgrade](../upgrade/introduction.md).
 
 Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
+
+Si vous souhaitez migrer depuis une version très ancienne de Centreon (par exemple, Centreon 3.4), [contactez le support](https://support.centreon.com/).

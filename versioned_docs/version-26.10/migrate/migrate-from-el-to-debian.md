@@ -261,9 +261,9 @@ chapter for more information.
 
 10. Go to **Configuration > Connectors > Monitoring Connectors**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
-### Step 6 (older versions only): Migrate to Gorgone
+<!-- ### Step 6 (older versions only): Migrate to Gorgone
 
-If you are migrating from a Centreon version 18.10, 19.04 or 19.10, [migrate from Centcore to Gorgone](../developer/developer-gorgone-migrate-from-centcore.md).
+If you are migrating from a Centreon version 18.10, 19.04 or 19.10, [migrate from Centcore to Gorgone](../developer/developer-gorgone-migrate-from-centcore.md). -->
 
 ### Step 7: Upgrade the modules
 

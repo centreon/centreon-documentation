@@ -16,5 +16,4 @@ Avant de monter Centreon de version, pensez à réaliser une sauvegarde de votre
 > leur nouveau dépôt afin d'éviter les problèmes de dépendances.
 > Consultez [cette page](../reporting/upgrade.md#étape-1--montée-de-version-du-paquet).
 
-> Si vous souhaitez changer l'OS du serveur hôte, suivez la [procédure de migration](../migrate/introduction.md). (Si vous souhaitez migrer une plateforme qui utilise **Centreon Poller Display 1.6.x**, consultez la
-> [procédure de migration](../migrate/poller-display-to-remote-server.md) correspondante.)
+> Si vous souhaitez changer l'OS du serveur hôte, suivez la [procédure de migration](../migrate/introduction.md).
