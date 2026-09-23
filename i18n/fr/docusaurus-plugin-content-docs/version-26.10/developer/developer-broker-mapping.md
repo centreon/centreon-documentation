@@ -1664,7 +1664,7 @@ message KpiStatus {
 }
 ```
 
-### Métaservice status event
+### Metaservice status event
 
 Cet évènement a été créé pour envoyer les changements d'état d'un méta-service.
 

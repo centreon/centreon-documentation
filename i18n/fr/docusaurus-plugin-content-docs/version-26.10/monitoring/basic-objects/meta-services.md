@@ -43,7 +43,7 @@ Pour ajouter un méta-service :
 
 Rendez-vous dans le menu : **Configuration > Services > Métaservices** et cliquez sur le bouton **Add**
 
-![image](../../assets/configuration/02addmétaservice.png)
+![image](../../assets/configuration/02addmetaservice.png)
 
 ### Informations générales
 
@@ -98,7 +98,7 @@ Si vous avez choisi l’option **Service list**, au sein de l’écran regroupan
   sont appelées indicateurs. ![image](../../assets/configuration/common/flechedirection.png)
 2. Cliquez sur le bouton **Add**
 
-![image](../../assets/configuration/02métaservicesindicators.png)
+![image](../../assets/configuration/02metaservicesindicators.png)
 
 * Le champ **Host** permet de sélectionner l’hôte auquel le service à sélectionner appartient.
 * Le champ **Service** permet de choisir le service (première liste) ainsi que la métrique au sein de ce service
