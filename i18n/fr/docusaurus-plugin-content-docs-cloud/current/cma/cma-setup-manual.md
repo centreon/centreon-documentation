@@ -1030,6 +1030,22 @@ Redémarrez ensuite l'agent :
 systemctl restart centagent
 ```
 
+Cette commande met à jour uniquement l'agent. Les plugins (paquets `centreon-plugin-*`) sont des paquets distincts qui ne sont pas concernés par cette commande.
+
+Pour ne mettre à jour que les plugins, sans toucher à l'agent, utilisez votre gestionnaire de paquets sur le ou les paquets `centreon-plugin-*` concernés, par exemple :
+
+```shell
+dnf update centreon-plugin-Operatingsystems-Linux-Local
+```
+
+Ou, pour mettre à jour tous les plugins Centreon installés sur l'hôte :
+
+```shell
+dnf update 'centreon-plugin-*'
+```
+
+Sur Debian/Ubuntu, remplacez `dnf update` par `apt-get update && apt-get upgrade`. Aucun redémarrage de l'agent n'est nécessaire après une mise à jour des plugins uniquement.
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
@@ -1045,6 +1061,8 @@ systemctl restart centagent
    * **Mise à jour** : permet de mettre à jour à la fois les binaires et la configuration. Sélectionnez l'instance à mettre à jour — les champs de configuration sont pré-remplis avec les valeurs actuelles et peuvent être modifiés.
 2. Sélectionnez **Mise à jour**, choisissez l'instance à mettre à jour, ajustez la configuration si nécessaire, et terminez l'assistant.
 
+Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent, décochez l'agent dans la liste des composants (binaires) et laissez uniquement **Plugins** coché avant de terminer l'assistant.
+
 </TabItem>
 <TabItem value="Mode silencieux" label="Mode silencieux (console)">
 
@@ -1055,6 +1073,12 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /AGENTINSTANCE="Servic
 ```
 
 Cette commande met à jour les binaires et la configuration de l'instance spécifiée.
+
+Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent, ajoutez `/COMPONENTS=plugins` :
+
+```shell
+centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+```
 
 </TabItem>
 </Tabs>
