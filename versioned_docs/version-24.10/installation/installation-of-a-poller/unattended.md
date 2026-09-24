@@ -60,7 +60,7 @@ apt update && apt upgrade
 2. Download the script using the following command:
 
 ```shell
-curl -L https://download.centreon.com/24.10/unattended.sh --output /tmp/unattended.sh
+curl -L https://raw.githubusercontent.com/centreon/centreon/24.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
 ```
 
 3. Run the following command as **root**:
