@@ -46,7 +46,7 @@ dnf install centreon-stream-connector-servicenow
 
 </TabItem>
 
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-servicenow
