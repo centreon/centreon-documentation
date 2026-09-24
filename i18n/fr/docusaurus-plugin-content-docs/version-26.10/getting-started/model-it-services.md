@@ -110,7 +110,7 @@ Définissons simplement ce qu'est un serveur frontend-x qui est ok:
 Partant de ces règles, l'état d'un serveur frontal le plus approprié va être déterminé par la
 règle de calcul "Worst status". Voici un exemple avec le serveur (1)
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Concept" label="Concept">
 
 ![image](../assets/service-mapping/frontend-1-concept.png)
@@ -127,7 +127,7 @@ Maintenant que nous avons défini nos 10 serveurs frontaux en suivant cette règ
 principale: le cluster des serveurs frontaux. Nous allons pour cela utiliser la règle "Ratio" et défnir que ce Cluster
 passera en Critique lorsque plus de 80% des serveurs frontaux seront non-ok.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Concept" label="Concept">
 
 ![image](../assets/service-mapping/ratio.png)

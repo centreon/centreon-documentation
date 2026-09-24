@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 1. Pour mettre à jour le module, exécutez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

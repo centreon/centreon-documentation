@@ -29,7 +29,7 @@ To be able to get data from MIP API, you must have a valid API key. Contact MIP 
 
 ### Centreon
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Online License" label="Online License">
 
 1. Install the MIP plugin on each poller monitoring MIP endpoints:

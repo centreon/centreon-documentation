@@ -17,7 +17,7 @@ Les agents d'application vous permettent de collecter des données système à p
 
 1. Installez le paquet.
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -59,7 +59,7 @@ Les agents d'application vous permettent de collecter des données système à p
 
 1. Installez le paquet :
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -100,7 +100,7 @@ Les agents d'application vous permettent de collecter des données système à p
 
 1. Installez le paquet :
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -141,7 +141,7 @@ Les agents d'application vous permettent de collecter des données système à p
 
 1. Installez le paquet :
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -184,7 +184,7 @@ Les agents d'application vous permettent de collecter des données système à p
 
 1. Installez le paquet :
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -232,7 +232,7 @@ instance: nom_de_votre_instance
 
 1. Installez le paquet :
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -279,7 +279,7 @@ instance: nom_de_votre_instance
 
 1. Installez le paquet :
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash

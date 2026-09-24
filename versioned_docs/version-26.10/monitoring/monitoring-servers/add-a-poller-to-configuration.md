@@ -63,7 +63,7 @@ The communication between the central server and a poller is ensured by Gorgone 
 be done using ZMQ (with a Gorgone running on the poller, recommended) or using
 SSH protocol.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Using ZMQ (Recommended)" label="Using ZMQ (Recommended)">
 
 1. Select the communication type:

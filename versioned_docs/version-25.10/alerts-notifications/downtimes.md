@@ -36,7 +36,7 @@ There are several ways to define downtime:
 -   From the real-time monitoring interface
 -   From the **Downtime** menu
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Resources Status page" label="Resources Status page">
 
 1. Go to **Monitoring > Resources Status**.

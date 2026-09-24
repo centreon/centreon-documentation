@@ -27,7 +27,7 @@ You must have:
     - If you have an online license, the Monitoring Connectors are already available in the interface.
     - If you have an offline license in your central server's terminal, enter:
      
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

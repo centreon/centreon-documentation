@@ -30,7 +30,7 @@ Use the CMA agent:
 
 The CMA can be installed on and monitor the following OSs:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Linux" label="Linux">
 
 * RHEL/Oracle Linux/Alma Linux 8
@@ -122,7 +122,7 @@ Basic native checks (CPU, memory, storage, uptime, Windows services, event log, 
 
 ### Operating diagram
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Agent connects to poller" label="Agent connects to poller">
 
 ![image](../assets/cma/initiated-by-agent.png)

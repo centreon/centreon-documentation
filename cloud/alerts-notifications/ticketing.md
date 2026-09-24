@@ -38,7 +38,7 @@ Typically, you would add the same widget twice, to create 2 different views:
 
 Make sure you give your two widgets relevant titles so that your users know which is which.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Dashboards" label="Dashboards">
 
 1. Go to **Home > Dashboards**, select your dashboard and add two **Resource table** widgets.

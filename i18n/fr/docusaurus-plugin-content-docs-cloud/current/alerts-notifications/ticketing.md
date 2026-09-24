@@ -38,7 +38,7 @@ En général, vous ajouterez le même widget deux fois, pour créer deux vues di
 
 Donnez à vos deux widgets des titres parlants afin que vos utilisateurs sachent lequel est lequel.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Tableaux de bord" label="Tableaux de bord">
 
 1. Allez à la page **Accueil > Tableaux de bord**, sélectionnez votre tableau de bord et ajoutez deux widgets **Tableau des ressources**.

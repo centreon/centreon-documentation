@@ -141,7 +141,7 @@ Utilisé avec Centreon Engine, il accélère l'exécution des scripts Perl.
 
 Exécutez la commande suivante en tant qu'utilisateur privilégié :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -213,7 +213,7 @@ Utilisé avec Centreon Engine, il accélère l'exécution des contrôles faits v
 
 Exécutez la commande suivante en tant qu'utilisateur privilégié :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

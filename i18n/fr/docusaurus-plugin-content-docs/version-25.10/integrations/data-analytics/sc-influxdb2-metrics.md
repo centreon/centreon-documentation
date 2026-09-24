@@ -26,7 +26,7 @@ Faites l'installation sur le serveur qui enverra les données à InfluxDB 2 (ser
 
 2. Exécutez la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -43,7 +43,7 @@ dnf install centreon-stream-connector-influxdb
 
 </TabItem>
 
-<TabItem value="Debian 11 & 12" label="Debian_11_&_12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```shell
 apt install centreon-stream-connector-influxdb

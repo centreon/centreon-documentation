@@ -26,7 +26,7 @@ main server.
 
 Run the command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell
@@ -67,7 +67,7 @@ This part is to install **Centreon DSM** on a poller. Only the client will be in
 
 Run the command:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ``` shell

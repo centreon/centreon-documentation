@@ -29,7 +29,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 2. In order to update the Centreon MAP module, execute the
 following commands:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
  - On the central server:

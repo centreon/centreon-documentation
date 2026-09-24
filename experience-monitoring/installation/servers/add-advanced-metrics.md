@@ -17,7 +17,7 @@ Application agents allow you to collect system data from various components of y
 
 1. Install the package.
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -59,7 +59,7 @@ Application agents allow you to collect system data from various components of y
 
 1. Install the package:
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -100,7 +100,7 @@ Application agents allow you to collect system data from various components of y
 
 1. Install the package:
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -141,7 +141,7 @@ Application agents allow you to collect system data from various components of y
 
 1. Install the package:
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -184,7 +184,7 @@ Application agents allow you to collect system data from various components of y
 
 1. Install the package:
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -232,7 +232,7 @@ instance: your_instance_name
 
 1. Install the package:
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash
@@ -279,7 +279,7 @@ instance: your_instance_name
 
 1. Install the package:
 
-   <Tabs groupId="os">
+   <Tabs groupId="os" queryString>
    <TabItem value="Debian" label="Debian">
 
     ```bash

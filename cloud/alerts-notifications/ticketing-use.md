@@ -22,7 +22,7 @@ Typically, your admin will have created 2 widgets, with relevant titles:
 
 ## How do I open a ticket?
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="In dashboards" label="In dashboards">
 
 > In the **Dashboards** feature, Open Ticket is available in the **Resource table** widget, in the list of events.
@@ -51,7 +51,7 @@ Your dashboard now displays the **Resource table** widget containing resources w
 
 You can close tickets in Centreon: for some providers, the ticket will be automatically closed in your ITSM tool too.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="In dashboards" label="In dashboards">
 
 You can close tickets directly from the **Resource table** widget.

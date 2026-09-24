@@ -30,7 +30,7 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 This script uses the Perl-Nagios-Object library to read CFG files. To install it,
 please follow these steps on your Nagios(R) server:
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

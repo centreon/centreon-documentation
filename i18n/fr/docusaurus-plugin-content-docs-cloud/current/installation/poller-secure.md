@@ -92,7 +92,7 @@ shutdown -r now
 
 Suivant le type de serveur, installer les paquets avec la commande suivante :
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
    ```shell
@@ -170,7 +170,7 @@ Si après un certain temps, aucune erreur n'est présente, vous pouvez activer S
 
 ## Activer firewalld
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 Installez firewalld:

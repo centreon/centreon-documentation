@@ -63,7 +63,7 @@ Exécutez les commandes suivantes pour mettre à niveau votre serveur Centreon M
 
 1. Mettez à jour les dépôts Centreon et Centreon MAP :
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
@@ -138,7 +138,7 @@ Vous devez copier les modifications manuellement dans votre fichier de configura
 
 ## Étape 2 : interface web Centreon MAP
 
-<Tabs groupId="sync">
+<Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell

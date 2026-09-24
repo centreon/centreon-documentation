@@ -36,7 +36,7 @@ Il existe plusieurs manières de définir un temps d'arrêt :
 -   Depuis la page **Statut des ressources**
 -   Depuis le menu **Downtime**
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Page Statut des ressources" label="Page Statut des ressources">
 
 1. Allez à la page **Supervision > Statut des ressources**.

@@ -34,7 +34,7 @@ Si vous souhaitez configurer manuellement les certificats, la configuration d'ag
 Les scripts d'installation permettent de déployer CMA sur un hôte directement depuis la ligne de commande, sans passer par l'interface Centreon.
 Ces scripts sont téléchargés et récupérés par la commande d'installation décrite ci-dessus, mais peuvent également être utilisés de manière indépendante, par exemple pour des besoins d'automatisation.
 
-<Tabs groupId="sync">
+<Tabs groupId="sync" queryString>
 <TabItem value="Windows" label="Windows">
 
 ### Syntaxe
