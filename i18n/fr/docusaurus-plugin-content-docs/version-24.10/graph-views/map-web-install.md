@@ -704,12 +704,12 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    systemctl restart mariadb
    ```
 
-Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera automatiquement installé, si nécessaire.
+Lors de l'installation du serveur Centreon MAP Engine, Java (OpenJDK 17) sera automatiquement installé, si nécessaire.
 
 > Suivez cette procédure de dépannage si OpenJDK 17 cause un incident [empêchant l'installation de centreon-map-engine](./map-web-troubleshooting.md#centreon-map-engine-et-toutes-ses-dépendances-ne-peuvent-pas-être-installés-sur-alma-linux-8).
 
 #### Prérequis Java
-  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  > Assurez-vous qu'OpenJDK 17 est installé avant de commencer la procédure. Il est installé automatiquement avec le paquet centreon-map-engine s'il n'est pas déjà présent.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
@@ -717,14 +717,14 @@ Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera au
   java -version
   ```
   
-  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+  - Pour installer ou mettre à jour vers OpenJDK 17, utilisez le gestionnaire de paquets de votre distribution (par exemple `dnf install java-17-openjdk` sur Alma/RHEL/Oracle Linux, `apt install openjdk-17-jdk` sur Debian). Si vous avez spécifiquement besoin d'Oracle JDK plutôt que d'OpenJDK, allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 :
   ```shell
   sudo update-alternatives --config java
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
@@ -819,12 +819,12 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    systemctl restart mysql
    ```
 
-Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera automatiquement installé, si nécessaire.
+Lors de l'installation du serveur Centreon MAP Engine, Java (OpenJDK 17) sera automatiquement installé, si nécessaire.
 
 > Suivez cette procédure de dépannage si OpenJDK 17 cause un incident [empêchant l'installation de centreon-map-engine](./map-web-troubleshooting.md#centreon-map-engine-et-toutes-ses-dépendances-ne-peuvent-pas-être-installés-sur-alma-linux-8).
 
 #### Prérequis Java
-  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  > Assurez-vous qu'OpenJDK 17 est installé avant de commencer la procédure. Il est installé automatiquement avec le paquet centreon-map-engine s'il n'est pas déjà présent.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
@@ -832,14 +832,14 @@ Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera au
   java -version
   ```
   
-  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+  - Pour installer ou mettre à jour vers OpenJDK 17, utilisez le gestionnaire de paquets de votre distribution (par exemple `dnf install java-17-openjdk` sur Alma/RHEL/Oracle Linux, `apt install openjdk-17-jdk` sur Debian). Si vous avez spécifiquement besoin d'Oracle JDK plutôt que d'OpenJDK, allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 :
   ```shell
   sudo update-alternatives --config java
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
 
 </TabItem>
 </Tabs>
