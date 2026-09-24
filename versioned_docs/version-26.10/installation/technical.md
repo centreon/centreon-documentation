@@ -91,7 +91,7 @@ import TabItem from '@theme/TabItem';
 Description of software and linked users:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
@@ -105,7 +105,7 @@ Description of software and linked users:
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
@@ -119,7 +119,7 @@ Description of software and linked users:
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 | Software          | Service          | User             | Comment         |
 | ----------------- | ---------------- | ---------------- | --------------- |
@@ -131,6 +131,7 @@ Description of software and linked users:
 | Centreon Broker   | cbd              | centreon-broker  | automatic start |
 | Centreon Engine   | centengine       | centreon-engine  | automatic start |
 | Centreon Gorgone  | gorgoned         | centreon-gorgone | automatic start |
+
 </TabItem>
 </Tabs>
 
