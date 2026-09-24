@@ -75,7 +75,8 @@ Vous devez installer le dépôt Remi, puis basculer le flux PHP de la version {p
 ```shell
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
 rpm -e --nodeps php-sourceguardian-loader
-dnf module switch-to php:remi-8.4/common -y
+dnf module reset php -y
+dnf module enable php:remi-8.4 -y
 ```
 
 </TabItem>
@@ -105,7 +106,8 @@ dnf clean all --enablerepo=*
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf update centreon\* php-pecl-gnupg
+rpm -e --nodeps php-pecl-gnupg
+dnf update -y "centreon*" --exclude=php-pecl-gnupg
 ```
 
 </TabItem>
