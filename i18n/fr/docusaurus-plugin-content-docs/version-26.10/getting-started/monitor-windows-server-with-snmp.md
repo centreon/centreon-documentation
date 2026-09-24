@@ -96,13 +96,6 @@ Sélectionnez ensuite **Accepter les paquets SNMP de ces hôtes** et ajoutez l'a
 Connectez-vous à votre collecteur en SSH et installez le plugin Windows SNMP (voir la [procédure de supervision du connecteur de supervision **Windows SNMP**](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) pour plus d'informations):
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-plugin-Operatingsystems-Windows-Snmp
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -110,14 +103,20 @@ dnf install centreon-plugin-Operatingsystems-Windows-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-plugin-Operatingsystems-Windows-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-plugin-operatingsystems-windows-snmp
 ```
 
 </TabItem>
-
 </Tabs>
 
 ### Sur le serveur central
