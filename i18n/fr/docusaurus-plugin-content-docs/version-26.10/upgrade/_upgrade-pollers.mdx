@@ -1,0 +1,81 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Montée de version des collecteurs
+
+### Mise à jour du dépôt Centreon
+
+Exécutez la commande suivante :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y dnf-plugins-core && \
+rm -f /etc/yum.repos.d/centreon* && \
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
+```
+
+</TabItem>
+</Tabs>
+
+### Montée de version de la solution Centreon
+
+Videz le cache :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+</Tabs>
+
+Montez ensuite tous les composants de version à l'aide de la commande suivante :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update centreon\*
+```
+
+> Si vous avez installé MariaDB à partir de ses dépôts officiels, vous pouvez rencontrer un conflit. Consultez notre [procédure dédiée](../resources/known-issues.md#vous-avez-un-conflit-entre-les-paquets-mysql-common-et-mariadb-common) pour le contourner.
+
+</TabItem>
+</Tabs>
+
+> Acceptez les nouvelles clés GPG des dépôts si elles vous sont proposées.
+
+Redémarrez **centreon** :
+
+```shell
+systemctl restart centreon
+```
+### Récupération de la clé de déchiffrement
+
+Exécutez le script suivant avec la bonne adresse IP afin de permettre au collecteur de recevoir et de traiter des données chiffrées.
+
+L'adresse IP à utiliser dépend des conditions suivantes :
+- Pour les collecteurs rattachés directement au serveur central, utilisez l'adresse IP du serveur central.
+- Pour les collecteurs rattachés à un serveur distant, utilisez l'adresse IP du serveur distant. Dans ce cas, vous devez toutefois vérifier au préalable que le serveur distant dispose de la bonne clé, en contrôlant que la valeur d'`app_secret` dans le fichier `/etc/centreon-engine/engine-context.json` est identique à celle du serveur central. Si ce n'est pas le cas, relancez le script avec la bonne adresse IP pour corriger le fichier .json.
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Exemple :
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
+
+Redémarrez **centengine** :
+
+```shell
+systemctl restart centengine
+```

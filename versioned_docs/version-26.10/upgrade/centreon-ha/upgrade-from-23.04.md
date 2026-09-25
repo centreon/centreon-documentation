@@ -1,14 +1,12 @@
 ---
 id: upgrade-centreon-ha-from-23-04
 title: Upgrade Centreon HA from Centreon 23.04
-description: "Upgrade a Centreon HA cluster from version 23.04 to 25.10"
+description: "Upgrade a Centreon HA cluster from version 23.04 to 26.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon HA platform from version 23.04 to version 25.10.
-
-> If you were using Debian 11, you cannot upgrade your platform directly to version 25.10. You need to [migrate your platform to Debian 12](migrate/migrate-from-debian-to-debian.md) first, then reinstall HA. Contact your Centreon sales representative to discuss any migration with HA.
+This chapter describes how to upgrade your Centreon HA platform from version 23.04 to version 26.10. Please refer to the [upgrade matrix](../upgrade-matrix.mdx) to know whether your OS is still supported. If not, you will need to migrate your platform: contact your Centreon sales representative to discuss any migration with HA.
 
 ## Prerequisites
 
@@ -63,7 +61,7 @@ Now, to perform the upgrade:
 > For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-23-04.md) **until the "Update your customized Apache configuration" step included**. Then, skip to the "Upgrade MariaDB" step and follow its instructions. **Do not follow "Finalizing the upgrade" and "Post-upgrade actions"**.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL / Alma / Oracle Linux 9" label="RHEL / Alma / Oracle Linux 9">
 
 Then on the **two central nodes**, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
@@ -94,7 +92,7 @@ rm -f /etc/cron.d/centreon-ha-mysql
 and restart the cron daemon:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL / Alma / Oracle Linux 9" label="RHEL / Alma / Oracle Linux 9">
 
 ```bash
 systemctl restart crond
@@ -176,9 +174,9 @@ rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL / Alma / Oracle Linux 9" label="RHEL / Alma / Oracle Linux 9">
 
-First extract all contraint IDs:
+First extract all constraint IDs:
 
 ```bash
 pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
@@ -227,9 +225,9 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL / Alma / Oracle Linux 9" label="RHEL / Alma / Oracle Linux 9">
 
-First extract all contraint IDs:
+First extract all constraint IDs:
 
 ```bash
 pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
@@ -290,7 +288,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL / Alma / Oracle Linux 9" label="RHEL / Alma / Oracle Linux 9">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY

@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Cette procédure ne s'applique que dans les conditions suivantes :
 
-- Vous souhaitez migrer d'un OS de type EL 64-bits vers Debian. Par exemple, vous souhaitez migrer d'un CentOS 7 à Debian 12.
+- Vous souhaitez migrer d'un OS de type EL 64-bits vers Debian. Par exemple, vous souhaitez migrer d'un CentOS 7 à Debian 13.
 - Votre version de Centreon est 18.10 ou plus récente, et vous souhaitez passer à la dernière version de Centreon. Si vous souhaitez migrer depuis une plus ancienne version, [contactez l'équipe support Centreon](https://support.centreon.com).
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
@@ -95,11 +95,24 @@ apt update && apt upgrade
    mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
    ```
 
-2. Sur l'ancien serveur, arrêtez MariaDB :
+2. Sur l'ancien serveur, arrêtez la base de données :
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
    systemctl stop mariadb
    ```
+
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl stop mysql
+   ```
+
+   </TabItem>
+   </Tabs>
 
 3. Depuis l'ancien serveur, exportez les dumps vers le nouveau serveur de base de données (assurez-vous d'avoir assez d'espace):
 
@@ -147,11 +160,24 @@ apt update && apt upgrade
    mysql_upgrade -u root -p
    ```
 
-7. Démarrez le processus **mariadb** sur le nouveau serveur :
+7. Démarrez le processus de base de données sur le nouveau serveur :
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
    systemctl start mariadb
    ```
+
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl start mysql
+   ```
+
+   </TabItem>
+   </Tabs>
 
 > Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur
 > Centreon.
@@ -177,12 +203,12 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
 ### Étape 5 : Montée de version de la solution Centreon
 
 1. Sur le nouveau serveur, forcez la montée de version en déplacant le contenu du répertoire
-   **/var/lib/centreon/installs/install-25.10.x-YYYYMMDD_HHMMSS** dans le
+   **/var/lib/centreon/installs/install-26.10.x-YYYYMMDD_HHMMSS** dans le
    répertoire **/usr/share/centreon/www/install** (**x** est le numéro de version cible pour votre machine migrée):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-25.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-26.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. Si vous utilisez la meme adresse IP ou le même nom DNS entre l'ancien serveur
@@ -240,9 +266,9 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
 
 10. Allez à la page **Configuration > Connecteurs > Connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
 
-### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
+<!-- ### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
 
-Si vous migrez depuis un Centreon 18.10, 19.04 ou 19.10, vous devez également [migrer de Centcore à Gorgone](../developer/developer-gorgone-migrate-from-centcore.md).
+Si vous migrez depuis un Centreon 18.10, 19.04 ou 19.10, vous devez également [migrer de Centcore à Gorgone](../developer/developer-gorgone-migrate-from-centcore.md). -->
 
 ### Étape 7: Mettre à jour les modules
 

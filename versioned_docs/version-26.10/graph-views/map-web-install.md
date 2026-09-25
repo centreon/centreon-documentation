@@ -33,7 +33,7 @@ See the [software requirements](../installation/prerequisites.md#characteristics
 
 #### Hardware
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 | Element                     | Value     |
@@ -131,7 +131,26 @@ This is how your MAP server should be partitioned:
 | vg_data |   | Free space (unallocated) | 2 GB                               |
 
 </TabItem>
-<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+<TabItem value="Up to 20,000 hosts" label="Up to 20,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 8 vCPU    |
+| RAM                         | 18 GB      |
+
+This is how your MAP server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 2 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 8 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 5 GB                               |
+| vg_data |   | Free space (unallocated) | 2 GB                               |
+
+</TabItem>
+<TabItem value="Over 20,000 hosts" label="Over 20,000 hosts">
 
 For very large amounts of data, contact your sales representative.
 
@@ -163,38 +182,6 @@ Note that the MAP web interface has the same requirements as the Centreon web in
 ### Disable SELinux
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** by **disabled**. You can also run the following command:
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Reboot your operating system to apply the change.
-
-```shell
-reboot
-```
-
-After system startup, perform a quick check of the SELinux status:
-
-```shell
-getenforce
-```
-
-You should have this result:
-
-```shell
-Disabled
-```
-
-> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
-> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
-> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
@@ -227,9 +214,41 @@ Disabled
 > - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-SELinux is not installed on Debian 12, continue.
+During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
+**enforcing** by **disabled**. You can also run the following command:
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Reboot your operating system to apply the change.
+
+```shell
+reboot
+```
+
+After system startup, perform a quick check of the SELinux status:
+
+```shell
+getenforce
+```
+
+You should have this result:
+
+```shell
+Disabled
+```
+
+> **Note that this deactivation should be temporary.** To enable SELinux again, edit the **/etc/selinux/config** file and change the value with the following options:
+> - ``SELINUX=enforcing`` to make SELinux security policy enforced.
+> - ``SELINUX=permissive`` to make SELinux print warnings instead of enforce security policy.
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+SELinux is not installed on Debian 13, continue.
 
 </TabItem>
 </Tabs>
@@ -283,31 +302,6 @@ in order to create new Centreon Broker output. It will be revoked later ([at thi
 You need to install the Centreon repository:
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-First you need to install an EPEL repository:
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-The command should return results as follows:
-
-```shell
-Installed:
-  epel-release-8-17.el8.noarch
-
-Complete!
-```
-
-Then install the Centreon repository:
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 First you need to install an EPEL repository:
@@ -329,13 +323,42 @@ Then install the Centreon repository:
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+First you need to install an EPEL repository:
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+```
+
+The command should return results as follows:
+
+<!-- TODO(Sam): vérifier la sortie exacte de la commande EPEL sur EL10 (nom de build). -->
+
+```shell
+Installed:
+  epel-release-10-<build>.el10.noarch
+
+Complete!
+```
+
+Then install the Centreon repository:
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 Install the following dependencies:
+
+<!-- TODO(Sam): vérifier que software-properties-common est toujours disponible sur Debian 13. -->
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
@@ -344,7 +367,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 To install the Centreon repository, execute the following command:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -378,13 +401,6 @@ Select the tab corresponding to the database you want to use.
 First you need to add the MariaDB repository:
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf module enable -y mariadb:10.11
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -392,10 +408,21 @@ dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+<!-- TODO(Sam): EL10 ne propose plus les flux de modules DNF : vérifier comment installer MariaDB 10.11 (ou la version cible) sur EL10. -->
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+dnf module enable -y mariadb:10.11
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+<!-- TODO(Sam): vérifier que le script mariadb_repo_setup prend en charge Debian 13 (--os-version=13) avec MariaDB 10.11. -->
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=13 --mariadb-server-version="mariadb-10.11"
 ```
 
 </TabItem>
@@ -404,13 +431,6 @@ curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- -
 Then install your MariaDB database:
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install mariadb-server
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -418,7 +438,14 @@ dnf install mariadb-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install mariadb-server
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update && apt install mariadb-server
@@ -463,13 +490,6 @@ mariadb-secure-installation
 Depending on your operating system, you may need to add the MySQL repository:
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm -y
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -477,7 +497,18 @@ dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+<!-- TODO(Sam): vérifier que le RPM mysql84-community-release existe pour el10 et son numéro de release. -->
+
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el10-1.noarch.rpm -y
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+<!-- TODO(Sam): vérifier que mysql-apt-config 0.8.32 prend en charge Debian 13, sinon mettre à jour la version du paquet. -->
 
 ```shell
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.32-1_all.deb
@@ -495,17 +526,6 @@ apt update
 </Tabs>
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
-dnf config-manager --enable mysql-8.4-lts-community
-dnf module disable mysql
-dnf install mysql-community-server
-systemctl start mysqld
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -522,7 +542,25 @@ sudo systemctl status mysqld
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+<!-- TODO(Sam): vérifier la version de MySQL fournie par EL10 (8.4 ?) : l'option default-authentication-plugin n'existe plus en 8.4. -->
+
+```shell
+dnf install -y mysql-server mysql
+dnf install -y centreon-mysql
+systemctl enable --now mysqld
+echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
+systemctl daemon-reload
+systemctl restart mysqld
+systemctl list-units --type=service | grep -i mysql
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo systemctl start mysqld
+sudo systemctl status mysqld
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
@@ -557,13 +595,6 @@ mysql_secure_installation
 Then install the centreon-map-engine package:
    
    <Tabs groupId="os" queryString>
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   dnf install centreon-map-engine
-   ```
-   
-   </TabItem>
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
@@ -571,7 +602,14 @@ Then install the centreon-map-engine package:
    ```
    
    </TabItem>
-   <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+   
+   ```shell
+   dnf install centreon-map-engine
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -606,13 +644,6 @@ This procedure is to ensure that the configuration file can be used for both MAP
 1. Make a backup of the **map.cnf** file:
 
    <Tabs groupId="os" queryString>
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
-   ```
-   
-   </TabItem>
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
@@ -620,7 +651,14 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 12" label="Debian 12">
+   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+   
+   ```shell
+   cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
    
    ```shell
    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
@@ -632,13 +670,6 @@ This procedure is to ensure that the configuration file can be used for both MAP
 2. Install the centreon-map-engine package
    
    <Tabs groupId="os" queryString>
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   dnf install centreon-map-engine
-   ```
-   
-   </TabItem>
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
@@ -646,7 +677,14 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 12" label="Debian 12">
+   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+   
+   ```shell
+   dnf install centreon-map-engine
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -658,13 +696,6 @@ This procedure is to ensure that the configuration file can be used for both MAP
 3. Retrieve the configuration file backup:
   
    <Tabs groupId="os" queryString>
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
-   ```
-   
-   </TabItem>
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
@@ -672,7 +703,14 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 12" label="Debian 12">
+   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+   
+   ```shell
+   cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
    
    ```shell
    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
@@ -688,12 +726,14 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
 
 When installing Centreon MAP Engine server, it will automatically install java
-(OpenJDK 17) if needed.
+(OpenJDK 25) if needed.
+
+<!-- TODO(Sam): cette note et son ancre visent une section Alma Linux 8, plus supportée en 26.10. À supprimer ou à mettre à jour avec map-web-troubleshooting.md. -->
 
 > Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-engine from being installed](./map-web-troubleshooting.md#centreon-map-engine-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
 
 #### Java requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  > Ensure a version of Java 25 is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
   
@@ -701,14 +741,16 @@ When installing Centreon MAP Engine server, it will automatically install java
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+  <!-- TODO(Sam): vérifier que l'ancre #java25 existe sur la page de téléchargement Oracle. -->
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  - If you need to upgrade the Java installation to Java 25, go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java25) page.
+
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 25 version:
   ```shell
   sudo update-alternatives --config java
   ```
   
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 25 version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
@@ -722,13 +764,6 @@ This procedure is to ensure that the configuration file can be used for both MAP
 1. Make a backup of the **map.cnf** file:
 
    <Tabs groupId="os" queryString>
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
-   ```
-   
-   </TabItem>
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
@@ -736,7 +771,14 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 12" label="Debian 12">
+   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+   
+   ```shell
+   cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
    
    ```shell
    cp /etc/mysql/map.cnf /etc/mysql/map.cnf.bk
@@ -748,13 +790,6 @@ This procedure is to ensure that the configuration file can be used for both MAP
 2. Install the centreon-map-engine package
    
    <Tabs groupId="os" queryString>
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   dnf install centreon-map-engine
-   ```
-   
-   </TabItem>
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
@@ -762,7 +797,14 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 12" label="Debian 12">
+   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+   
+   ```shell
+   dnf install centreon-map-engine
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
    
    ```shell
    apt update && apt-get -o Dpkg::Options::="--force-overwrite" install centreon-map-engine
@@ -774,13 +816,6 @@ This procedure is to ensure that the configuration file can be used for both MAP
 3. Retrieve the configuration file backup:
   
    <Tabs groupId="os" queryString>
-   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-   
-   ```shell
-   cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
-   ```
-   
-   </TabItem>
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
    
    ```shell
@@ -788,7 +823,14 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
    
    </TabItem>
-   <TabItem value="Debian 12" label="Debian 12">
+   <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+   
+   ```shell
+   cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
+   ```
+   
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
    
    ```shell
    cp /etc/mysql/map.cnf.bk /etc/mysql/map.cnf
@@ -804,12 +846,14 @@ This procedure is to ensure that the configuration file can be used for both MAP
    ```
 
 When installing Centreon MAP Engine server, it will automatically install java
-(OpenJDK 17) if needed.
+(OpenJDK 25) if needed.
+
+<!-- TODO(Sam): cette note et son ancre visent une section Alma Linux 8, plus supportée en 26.10. À supprimer ou à mettre à jour avec map-web-troubleshooting.md. -->
 
 > Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-engine from being installed](./map-web-troubleshooting.md#centreon-map-engine-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
 
 #### Java requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  > Ensure a version of Java 25 is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
   
@@ -817,14 +861,16 @@ When installing Centreon MAP Engine server, it will automatically install java
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+  <!-- TODO(Sam): vérifier que l'ancre #java25 existe sur la page de téléchargement Oracle. -->
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  - If you need to upgrade the Java installation to Java 25, go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java25) page.
+
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 25 version:
   ```shell
   sudo update-alternatives --config java
   ```
   
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 25 version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
 </TabItem>
 </Tabs>
@@ -1012,13 +1058,6 @@ Install the Centreon Business repository. You can find this on the
 1. From your terminal, run the following command on the central server:
 
   <Tabs groupId="os" queryString>
-  <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-  ```shell
-  sudo dnf install centreon-map-web-client
-  ```
-
-  </TabItem>
   <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
@@ -1026,7 +1065,14 @@ Install the Centreon Business repository. You can find this on the
   ```
 
   </TabItem>
-  <TabItem value="Debian 12" label="Debian 12">
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+  ```shell
+  sudo dnf install centreon-map-web-client
+  ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
 
   ```shell
   sudo apt install centreon-map-web-client

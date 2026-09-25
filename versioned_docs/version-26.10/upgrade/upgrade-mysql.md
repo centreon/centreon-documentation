@@ -6,7 +6,7 @@ description: "Upgrade MySQL to a version supported by Centreon 25.10"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-If you were using Centreon 24.04 or 24.10 with MySQL, be aware that support for MySQL 8.0 ends at the end of April 2026. Make sure your Centreon always uses [a supported version of MySQL](#versions-of-mysql-compatible-with-centreon-2510).
+If you were using Centreon 24.04 or 24.10 with MySQL, be aware that support for MySQL 8.0 ended at the end of April 2026. Make sure your Centreon always uses [a supported version of MySQL](#version-of-mysql-for-each-version-of-centreon).
 
 You may have several MySQL databases in your architecture. The central server has a database, each remote server has a database,
 and the MBI and MAP modules each have a dedicated database. Within your architecture, all databases must have the same version of MySQL.
@@ -15,14 +15,20 @@ and the MBI and MAP modules each have a dedicated database. Within your architec
 
 Do not upgrade your version of Centreon and your version of MySQL at the same time. You can perform both upgrades one after the other in the order you want, however, make sure the first upgrade procedure is fully complete before you perform the second one.
 
-## Versions of MySQL compatible with Centreon 25.10
+## Version of MySQL for each version of Centreon
 
-* MySQL 8.4 is recommended for new installations.
-* MySQL 8.0 can still be used until its end of support (end of April 2026), but after this date you will have to upgrade to MySQL 8.4.
+| Centreon | MySQL   |
+|----------|---------|
+| 26.10    | 8.4     |
+| 25.10    | 8.4 (recommended)<br />8.0 until its end of support (April 2026) |
+| 24.10    | 8.4 (recommended)<br />8.0 until its end of support (April 2026) |
+| 24.04    | 8.0     |
+| 23.10    | not supported   |
+| 23.04    | not supported    |
 
 ## Knowing your version of MySQL
 
-To find out which version of MariaDB is installed on your machine, enter the following command:
+To find out which version of MySQL is installed on your machine, enter the following command:
 
 ```shell
 mysql --version
@@ -49,24 +55,9 @@ mysql Ver 8.0.x for Linux on x86_64
    2. If you are using MBI:
 
       <Tabs groupId="sync">
-      <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-      In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
-
-      </TabItem>
       <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
       In the **/etc/my.cnf.d/mysql-server.cnf** file, add `log_bin_trust_function_creators=1`.
-
-      </TabItem>
-      <TabItem value="Debian 12" label="Debian 12">
-
-      In the `/etc/mysql/mysql.cnf` file, add:
-
-      ```shell
-      [mysqld]
-      log_bin_trust_function_creators=1
-      ```
 
       </TabItem>
       </Tabs>
