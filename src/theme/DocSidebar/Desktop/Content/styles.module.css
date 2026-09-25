@@ -38,3 +38,37 @@ html[data-theme='dark'] .switch {
 .active:hover {
   color: var(--ifm-color-primary);
 }
+
+/* Bottom bar: stays at the bottom of the sidebar, below the scrollable menu */
+.bottomBar {
+  flex: none;
+  padding: 0.6rem 0.75rem 0.75rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.goAnywhere {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ifm-color-emphasis-700);
+  font: inherit;
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.goAnywhere:hover,
+.goAnywhere:focus-visible {
+  background: var(--ifm-menu-color-background-hover);
+  color: var(--ifm-color-primary);
+}
+
+.goAnywhere kbd {
+  margin-left: auto;
+  font-size: 0.7rem;
+}

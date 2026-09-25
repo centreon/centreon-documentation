@@ -646,14 +646,6 @@
     "message": "Merci ! Dites-nous ce qui manquait dans le formulaire qui vient de s'ouvrir.",
     "description": "Content page redesign (Programme Bijou)"
   },
-  "navbar.docs": {
-    "message": "Docs",
-    "description": "Navbar and sidebar redesign (Programme Bijou)"
-  },
-  "navbar.api": {
-    "message": "API",
-    "description": "Navbar and sidebar redesign (Programme Bijou)"
-  },
   "sidebar.spaces.connectors": {
     "message": "Connecteurs",
     "description": "Navbar and sidebar redesign (Programme Bijou)"
@@ -697,5 +689,9 @@
   "reader.width.full": {
     "message": "Pleine",
     "description": "Reader preferences (Programme Bijou)"
+  },
+  "sidebar.goAnywhere": {
+    "message": "Aller n'importe où",
+    "description": "Sidebar bottom bar that opens the search (Programme Bijou)"
   }
 }

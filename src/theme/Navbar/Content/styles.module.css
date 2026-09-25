@@ -27,47 +27,13 @@ See https://github.com/facebook/docusaurus/pull/11142
   white-space: nowrap;
 }
 
-/* Infra Monitoring sub-sections (OnPrem, Cloud, Connectors) */
-.subSections {
-  display: flex;
-  align-items: center;
-}
-
-.subSections :global(.navbar__link) {
-  font-size: 0.925rem;
-}
-
 @media (max-width: 1400px) {
   .platform {
     display: none;
   }
 }
 
-@media (max-width: 996px) {
-  .subSections,
-  .community {
-    display: none;
-  }
-}
-
-/* Keep the logo and navbar links on one line */
+/* Keep the logo on one line */
 :global(.navbar__brand) {
   flex-shrink: 0;
-}
-
-.subSections :global(.navbar__link),
-.community {
-  white-space: nowrap;
-}
-
-/* Docs / API / Community */
-.links {
-  display: flex;
-  align-items: center;
-}
-
-@media (max-width: 996px) {
-  .links {
-    display: none;
-  }
 }

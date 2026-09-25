@@ -819,3 +819,10 @@ html:root {
     width: 12rem;
   }
 }
+
+/* Doc area at least as tall as the screen, so that the sidebar is never
+   squeezed on short pages (its bottom bar gives it a clean edge, see
+   src/theme/DocSidebar/Desktop/Content). */
+html.docs-wrapper .main-wrapper main {
+  min-height: calc(100vh - var(--ifm-navbar-height));
+}

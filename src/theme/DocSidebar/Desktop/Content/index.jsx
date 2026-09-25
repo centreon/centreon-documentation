@@ -48,11 +48,36 @@ function SpaceSwitch() {
   );
 }
 
+// Bottom bar of the sidebar ("Go anywhere ⌘K", as in the UX/UI mockup): it
+// opens the navbar search and gives the scrollable menu a clean bottom edge.
+function GoAnywhere() {
+  const focusSearch = () => {
+    const input = document.querySelector('.navbar .navbar__search-input');
+    if (input) {
+      input.focus();
+    }
+  };
+  return (
+    <div className={styles.bottomBar}>
+      <button type="button" className={styles.goAnywhere} onClick={focusSearch}>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+          strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="6.5" />
+          <path d="m20 20-4.2-4.2" />
+        </svg>
+        <span>{translate({ id: 'sidebar.goAnywhere', message: 'Go anywhere' })}</span>
+        <kbd>⌘K</kbd>
+      </button>
+    </div>
+  );
+}
+
 export default function ContentWrapper(props) {
   return (
     <>
       <SpaceSwitch />
       <Content {...props} />
+      <GoAnywhere />
     </>
   );
 }

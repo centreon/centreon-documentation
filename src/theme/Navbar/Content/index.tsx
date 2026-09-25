@@ -16,30 +16,11 @@ import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import {useActivePlugin} from '@docusaurus/plugin-content-docs/client';
 
-import Link from '@docusaurus/Link';
 import {translate} from '@docusaurus/Translate';
 import ProductSwitcher from '../ProductSwitcher';
 import ReaderSettings from '../ReaderSettings';
 
 import styles from './styles.module.css';
-
-// Same navbar links on every page (the community is linked from the footer).
-// "Docs" leads to the landing page of the product being viewed, "API" to its
-// API reference.
-function getProductLinks(pluginId: string): {docsTo: string; apiTo: string} {
-  switch (pluginId) {
-    case 'cloud':
-      return {docsTo: '/cloud/getting-started/welcome/', apiTo: '/docs/api/introduction/'};
-    case 'pp':
-      return {docsTo: '/pp/integrations/plugin-packs/getting-started/introduction/', apiTo: '/docs/api/introduction/'};
-    case 'experience-monitoring':
-      return {docsTo: '/experience-monitoring/getting-started/welcome/', apiTo: '/docs/api/introduction/'};
-    case 'logmanagement':
-      return {docsTo: '/logmanagement/getting-started/welcome/', apiTo: '/logmanagement/api/'};
-    default:
-      return {docsTo: '/docs/getting-started/welcome/', apiTo: '/docs/api/introduction/'};
-  }
-}
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
@@ -97,7 +78,6 @@ export default function NavbarContent(): ReactNode {
 
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
-  const {docsTo, apiTo} = getProductLinks(pluginId);
   const searchBarItem = items.find((item) => item.type === 'search');
 
   return (
@@ -111,16 +91,6 @@ export default function NavbarContent(): ReactNode {
             {translate({id: 'navbar.platform', message: 'Observability Platform'})}
           </span>
           <ProductSwitcher items={items} activePluginId={pluginId} />
-          <div className={styles.links}>
-            <Link
-              className={clsx('navbar__item navbar__link', pluginId && 'navbar__link--active')}
-              to={docsTo}>
-              {translate({id: 'navbar.docs', message: 'Docs'})}
-            </Link>
-            <Link className="navbar__item navbar__link" to={apiTo}>
-              {translate({id: 'navbar.api', message: 'API'})}
-            </Link>
-          </div>
         </>
       }
       right={
