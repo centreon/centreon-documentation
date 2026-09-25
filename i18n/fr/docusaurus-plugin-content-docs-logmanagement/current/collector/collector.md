@@ -1,6 +1,7 @@
 ﻿---
 id: collector
 title: Configuration manuelle de collecteur
+doc_type: how-to
 description: Configurer un collecteur OpenTelemetry pour collecter plusieurs sources de logs sur un même hôte
 ---
 
@@ -25,7 +26,11 @@ resource attributes -->
 * Générez [un jeton pour authentifier l'hôte auprès de votre plateforme Centreon Log Management](../administration/tokens.md).
 * L'endpoint requis pour connecter un collecteur OpenTelemetry à votre plateforme Centreon Log Management est `https://api.euwest1.obs.mycentreon.com/v1/ingress/otlp/v1/logs`.
 
-> Log Management peut traiter des batch de logs d'une taille de 5 MiB maximum. Au-delà, vous recevrez une erreur 413. (Si besoin, utilisez [le paramètre **sending_queue.sizer.bytes** de votre exporteur](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) pour adapter la taille de vos batchs.)
+:::caution
+
+Log Management peut traiter des batch de logs d'une taille de 5 MiB maximum. Au-delà, vous recevrez une erreur 413. (Si besoin, utilisez [le paramètre **sending_queue.sizer.bytes** de votre exporteur](https://github.com/open-telemetry/opentelemetry-collector/tree/main/exporter/otlphttpexporter) pour adapter la taille de vos batchs.)
+
+:::
 
 ## Étape 1 : Installez OpenTelemetry Collector sur votre hôte
 

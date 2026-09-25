@@ -1,6 +1,7 @@
 ﻿---
 id: observability
 title: Centreon Log Management and observability
+doc_type: concept
 description: How Centreon Log Management fits into an observability strategy
 ---
 

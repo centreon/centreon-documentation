@@ -16,16 +16,37 @@ import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import {useActivePlugin} from '@docusaurus/plugin-content-docs/client';
 
-import DocsDropdownNavbarItem from '../../NavbarItem/DocsDropdownNavbarItem';
+import Link from '@docusaurus/Link';
+import {translate} from '@docusaurus/Translate';
+import ProductSwitcher from '../ProductSwitcher';
+import ReaderSettings from '../ReaderSettings';
 
 import styles from './styles.module.css';
+
+// Same navbar links on every page (the community is linked from the footer).
+// "Docs" leads to the landing page of the product being viewed, "API" to its
+// API reference.
+function getProductLinks(pluginId: string): {docsTo: string; apiTo: string} {
+  switch (pluginId) {
+    case 'cloud':
+      return {docsTo: '/cloud/getting-started/welcome/', apiTo: '/docs/api/introduction/'};
+    case 'pp':
+      return {docsTo: '/pp/integrations/plugin-packs/getting-started/introduction/', apiTo: '/docs/api/introduction/'};
+    case 'experience-monitoring':
+      return {docsTo: '/experience-monitoring/getting-started/welcome/', apiTo: '/docs/api/introduction/'};
+    case 'logmanagement':
+      return {docsTo: '/logmanagement/getting-started/welcome/', apiTo: '/logmanagement/api/'};
+    default:
+      return {docsTo: '/docs/getting-started/welcome/', apiTo: '/docs/api/introduction/'};
+  }
+}
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
   return useThemeConfig().navbar.items as NavbarItemConfig[];
 }
 
-function NavbarItems({items, allItems, position}: {items: NavbarItemConfig[], allItems: NavbarItemConfig[], position: string}): ReactNode {
+function NavbarItems({items, allItems, position, isDocPage = false}: {items: NavbarItemConfig[], allItems: NavbarItemConfig[], position: string, isDocPage?: boolean}): ReactNode {
   return (
     <>
       {items.map((item, i) => (
@@ -33,8 +54,9 @@ function NavbarItems({items, allItems, position}: {items: NavbarItemConfig[], al
       ))}
       {position === 'right' && (
         <>
+          {/* Reading settings only matter on documentation pages */}
+          {isDocPage && <ReaderSettings />}
           <NavbarColorModeToggle className={styles.colorModeToggle} />
-          <DocsDropdownNavbarItem items={allItems} />
         </>
       )}
     </>
@@ -75,22 +97,7 @@ export default function NavbarContent(): ReactNode {
 
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
-  const filteredLeftItems = leftItems.filter(item => {
-    if (['default', 'pp', 'cloud'].includes(pluginId)) {
-      return (
-        (item.type === 'doc')
-        || ('to' in item && item.to && (item.to.includes('pp') || item.to.includes('cloud')))
-      );
-    }
-    if (pluginId === 'experience-monitoring') {
-      return 'to' in item && item.to && item.to.includes('experience-monitoring');
-    }
-    if (pluginId === 'logmanagement') {
-      return 'to' in item && item.to && item.to.includes('log');
-    }
-    return false;
-  });
-
+  const {docsTo, apiTo} = getProductLinks(pluginId);
   const searchBarItem = items.find((item) => item.type === 'search');
 
   return (
@@ -100,14 +107,27 @@ export default function NavbarContent(): ReactNode {
         <>
           {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
           <NavbarLogo />
-          <NavbarItems items={filteredLeftItems} allItems={items} position="left" />
+          <span className={styles.platform}>
+            {translate({id: 'navbar.platform', message: 'Observability Platform'})}
+          </span>
+          <ProductSwitcher items={items} activePluginId={pluginId} />
+          <div className={styles.links}>
+            <Link
+              className={clsx('navbar__item navbar__link', pluginId && 'navbar__link--active')}
+              to={docsTo}>
+              {translate({id: 'navbar.docs', message: 'Docs'})}
+            </Link>
+            <Link className="navbar__item navbar__link" to={apiTo}>
+              {translate({id: 'navbar.api', message: 'API'})}
+            </Link>
+          </div>
         </>
       }
       right={
         // TODO stop hardcoding items?
         // Ask the user to add the respective navbar items => more flexible
         <>
-          <NavbarItems items={rightItems} allItems={items} position="right" />
+          <NavbarItems items={rightItems} allItems={items} position="right" isDocPage={!!pluginId} />
           {/* <NavbarColorModeToggle className={styles.colorModeToggle} /> */}
           {!searchBarItem && (
             <NavbarSearch>

@@ -1,0 +1,40 @@
+.switch {
+  display: flex;
+  gap: 0.2rem;
+  margin: 0.75rem 0.75rem 0.25rem;
+  padding: 0.2rem;
+  border-radius: 8px;
+  background: rgba(0, 0, 61, 0.06);
+}
+
+html[data-theme='dark'] .switch {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.space {
+  flex: 1;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+  opacity: 0.65;
+}
+
+.space:hover {
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+  opacity: 1;
+}
+
+.active {
+  background: var(--ifm-background-surface-color);
+  color: var(--ifm-color-primary);
+  opacity: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 61, 0.12);
+}
+
+.active:hover {
+  color: var(--ifm-color-primary);
+}

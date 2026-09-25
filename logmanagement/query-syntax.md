@@ -1,6 +1,7 @@
 ---
 id: query-syntax
 title: Query syntax
+doc_type: reference
 description: Syntax reference for querying log attributes and filtering data
 ---
 
@@ -117,7 +118,11 @@ To query data contained in these sections, simply chain the steps from the root 
 | `*` | Zero or more characters | `time*` → timeout, timer… |
 | `?` | Exactly one character | `te?t` → test, text… |
 
-> Wildcards cannot be used at the start of a term (e.g. `*foo` is not supported).
+:::note
+
+Wildcards cannot be used at the start of a term (e.g. `*foo` is not supported).
+
+:::
 
 ### Ranges
 

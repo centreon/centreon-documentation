@@ -1,6 +1,7 @@
 ---
 id: dashboards
 title: Creating dashboards
+doc_type: how-to
 description: Build dashboards with widgets to visualize log data and trends
 ---
 import Tabs from '@theme/Tabs';

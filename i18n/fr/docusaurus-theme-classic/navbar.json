@@ -1,14 +1,14 @@
 {
-  "item.label.Infra Monitoring OnPrem": {
-    "message": "Infra Monitoring OnPrem",
-    "description": "Navbar item with label Centreon OnPrem"
+  "item.label.OnPrem": {
+    "message": "OnPrem",
+    "description": "Navbar item with label OnPrem (Infra Monitoring sub-section)"
   },
-  "item.label.Infra Monitoring Cloud": {
-    "message": "Infra Monitoring Cloud",
-    "description": "Navbar item with label Centreon Cloud"
+  "item.label.Cloud": {
+    "message": "Cloud",
+    "description": "Navbar item with label Cloud (Infra Monitoring sub-section)"
   },
-  "item.label.Monitoring Connectors": {
-    "message": "Connecteurs de supervision",
-    "description": "Navbar item with label Monitoring Connectors"
+  "item.label.Connectors": {
+    "message": "Connecteurs",
+    "description": "Navbar item with label Connectors (Infra Monitoring sub-section)"
   }
 }

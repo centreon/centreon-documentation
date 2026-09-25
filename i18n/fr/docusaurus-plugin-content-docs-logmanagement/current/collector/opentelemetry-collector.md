@@ -1,6 +1,7 @@
 ---
 id: opentelemetry-collector
 title: Fonctionnement d'un collecteur OpenTelemetry
+doc_type: concept
 description: Comment les collecteurs OpenTelemetry reçoivent, traitent et exportent les logs
 ---
 

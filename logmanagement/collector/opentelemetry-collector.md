@@ -1,6 +1,7 @@
 ---
 id: opentelemetry-collector
 title: How an OpenTelemetry collector works
+doc_type: concept
 description: How OpenTelemetry collectors receive, process, and export logs
 ---
 

@@ -1,6 +1,7 @@
 ﻿---
 id: concepts
 title: Bases de Centreon Log Management
+doc_type: concept
 description: Concepts clés et terminologie de Centreon Log Management
 ---
 
@@ -20,11 +21,11 @@ Voici les principales fonctionnalités de Centreon Log Management :
 
 1. Log Management [collecte](../collector/collector.md) et centralise des logs provenant de diverses sources (serveurs, applications, bases de données, dispositifs réseau, etc).
 
-3. Log Management vous permet d'[analyser ces logs en temps réel](../explore-analyze.md), à l'aide de filtres, de [requêtes](../query-syntax.md) ou de [tableaux de bord](../dashboards.md). Cela vous aide à détecter les anomalies, les erreurs, les incidents de sécurité ou les comportements inattendus : consultez les [**cas d'utilisation**](use-cases.md) pour des exemples détaillés.
+2. Log Management vous permet d'[analyser ces logs en temps réel](../explore-analyze.md), à l'aide de filtres, de [requêtes](../query-syntax.md) ou de [tableaux de bord](../dashboards.md). Cela vous aide à détecter les anomalies, les erreurs, les incidents de sécurité ou les comportements inattendus : consultez les [**cas d'utilisation**](use-cases.md) pour des exemples détaillés.
 
-4. Log Management crée des [évènements d'alerte](../resources/glossary.md#évènement-dalerte) (alert events) en cas de problème ou de dépassement des seuils critiques, conformément aux [règles d'alerte](../alerts.md) (alert rules) que vous avez définies.
+3. Log Management crée des [évènements d'alerte](../resources/glossary.md#évènement-dalerte) (alert events) en cas de problème ou de dépassement des seuils critiques, conformément aux [règles d'alerte](../alerts.md) (alert rules) que vous avez définies.
 
-5. Log Management vous permet de stocker les logs en toute sécurité pendant de longues périodes (à des fins de conformité, de sécurité ou d'analyse historique).
+4. Log Management vous permet de stocker les logs en toute sécurité pendant de longues périodes (à des fins de conformité, de sécurité ou d'analyse historique).
 
 ## Qu'est-ce qu'OpenTelemetry et comment Centreon Log Management l'utilise-t-il ?
 

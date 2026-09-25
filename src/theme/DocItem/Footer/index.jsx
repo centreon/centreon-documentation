@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import { ThemeClassNames } from '@docusaurus/theme-common';
 import { useDoc } from '@docusaurus/plugin-content-docs/client';
-import LastUpdated from '@theme/LastUpdated';
 import TagsListInline from '@theme/TagsListInline';
-import Translate from '@docusaurus/Translate';
+import Translate, { translate } from '@docusaurus/Translate';
 import { useLocation } from '@docusaurus/router';
-import { EditIcon, FeedbackIcon, TheWatchIcon } from '@site/src/components/FeedbackButtons/icons';
+import { EditIcon, TheWatchIcon } from '@site/src/components/FeedbackButtons/icons';
 import { getFeedbackFormUrl, THE_WATCH_NEW_TOPIC_URL } from '@site/src/components/FeedbackButtons/links';
 import styles from './styles.module.css';
 
@@ -20,94 +19,78 @@ function TagsRow({ tags }) {
   );
 }
 
-function EditMetaRow({
-  editUrl,
-  lastUpdatedAt,
-  lastUpdatedBy,
-  formattedLastUpdatedAt,
-}) {
+/**
+ * "Was this page helpful?" Both answers are sent to Google Analytics; "No"
+ * also opens the feedback form, prefilled with the current page.
+ */
+function Helpful() {
   const location = useLocation();
+  const [answer, setAnswer] = useState(null);
+
+  const send = (value) => {
+    setAnswer(value);
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'doc_feedback', { helpful: value, page_path: location.pathname });
+    }
+    if (value === 'no') {
+      window.open(getFeedbackFormUrl(location.pathname), '_blank', 'noopener');
+    }
+  };
+
+  if (answer) {
+    return (
+      <p className={styles.thanks} role="status">
+        {answer === 'yes'
+          ? translate({ id: 'doc.feedback.thanks', message: 'Thanks for your feedback!' })
+          : translate({ id: 'doc.feedback.thanksNo', message: 'Thanks! Tell us what was missing in the form that just opened.' })}
+      </p>
+    );
+  }
+
   return (
-    <div className={clsx(ThemeClassNames.docs.docFooterEditMetaRow, 'row')}>
-      <div className="col">
-        {(lastUpdatedAt || lastUpdatedBy) && (
-          <LastUpdated
-            lastUpdatedAt={lastUpdatedAt}
-            formattedLastUpdatedAt={formattedLastUpdatedAt}
-            lastUpdatedBy={lastUpdatedBy}
-            className={styles.lastUpdatedText}
-          />
-        )}
-      </div>
-      <div className="col col--12">
-        <div className={styles.buttonsContainer}>
-          {editUrl && (
-            <a href={editUrl} className={clsx(styles.buttonFilled)}>
-              <EditIcon className={styles.buttonIcon} />
-              <Translate
-                id="theme.common.editThisPage"
-                description="The link label to edit the page"
-              >
-                Éditer cette page
-              </Translate>
-            </a>
-          )}
-          <a
-            rel="noreferrer noopener"
-            href={getFeedbackFormUrl(location.pathname)}
-            target="_blank"
-            className={clsx(styles.buttonFilled)}
-          >
-            <FeedbackIcon className={styles.svgIconFeedback} />
-            <Translate
-              id="theme.common.feedback"
-              description="The link label to give feedback on the page"
-            >
-              Give feedback on this page
-            </Translate>
-          </a>
-          <a
-            rel="noreferrer noopener"
-            href={THE_WATCH_NEW_TOPIC_URL}
-            target="_blank"
-            className={clsx(styles.buttonFilled, styles.theWatchButton)}
-          >
-            <TheWatchIcon />
-            <Translate
-              id="theme.common.theWatchButton"
-              description="The link label for the -the watch- button"
-            >
-              Ask on The Watch
-            </Translate>
-          </a>
-        </div>
-      </div>
+    <div className={styles.helpful}>
+      <span>{translate({ id: 'doc.feedback.question', message: 'Was this page helpful?' })}</span>
+      <button type="button" className={styles.answer} onClick={() => send('yes')}>
+        {translate({ id: 'doc.feedback.yes', message: 'Yes' })}
+      </button>
+      <button type="button" className={styles.answer} onClick={() => send('no')}>
+        {translate({ id: 'doc.feedback.no', message: 'No' })}
+      </button>
     </div>
   );
 }
 
 export default function DocItemFooter() {
-  const { metadata } = useDoc();
-  const { editUrl, lastUpdatedAt, formattedLastUpdatedAt, lastUpdatedBy, tags } = metadata;
-  const canDisplayTagsRow = tags.length > 0;
-  const canDisplayEditMetaRow = !!(editUrl || lastUpdatedAt || lastUpdatedBy);
-  const canDisplayFooter = canDisplayTagsRow || canDisplayEditMetaRow;
+  const { metadata, frontMatter } = useDoc();
+  const { editUrl, tags } = metadata;
 
-  if (!canDisplayFooter) {
+  // Product landing pages have no page footer.
+  if (frontMatter.landing) {
     return null;
   }
 
   return (
-    <footer className={clsx(ThemeClassNames.docs.docFooter, 'docusaurus-mt-lg')}>
-      {canDisplayTagsRow && <TagsRow tags={tags} />}
-      {canDisplayEditMetaRow && (
-        <EditMetaRow
-          editUrl={editUrl}
-          lastUpdatedAt={lastUpdatedAt}
-          lastUpdatedBy={lastUpdatedBy}
-          formattedLastUpdatedAt={formattedLastUpdatedAt}
-        />
-      )}
+    <footer className={clsx(ThemeClassNames.docs.docFooter, styles.footer)}>
+      {tags.length > 0 && <TagsRow tags={tags} />}
+      <div className={styles.row}>
+        <Helpful />
+        <div className={styles.links}>
+          {editUrl && (
+            <a href={editUrl} className={styles.link}>
+              <EditIcon className={styles.icon} />
+              <Translate id="theme.common.editThisPage" description="The link label to edit the page">
+                Edit this page
+              </Translate>
+            </a>
+          )}
+          <a rel="noreferrer noopener" href={THE_WATCH_NEW_TOPIC_URL} target="_blank" className={styles.link}>
+            <TheWatchIcon className={styles.icon} />
+            <Translate id="theme.common.theWatchButton" description="The link label for the -the watch- button">
+              Ask on The Watch
+            </Translate>
+          </a>
+        </div>
+      </div>
     </footer>
   );
 }

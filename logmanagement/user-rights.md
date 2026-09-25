@@ -1,6 +1,7 @@
 ---
 id: user-rights
 title: User rights in Centreon Log Management
+doc_type: reference
 ---
 
 In Centreon Log Management, users can:

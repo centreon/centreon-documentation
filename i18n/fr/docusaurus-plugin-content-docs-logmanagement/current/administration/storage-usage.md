@@ -1,6 +1,7 @@
 ---
 id: storage-usage
 title: Surveiller l’utilisation du stockage
+doc_type: how-to
 description: Surveiller l'utilisation du stockage de votre plateforme Centreon Log Management
 ---
 

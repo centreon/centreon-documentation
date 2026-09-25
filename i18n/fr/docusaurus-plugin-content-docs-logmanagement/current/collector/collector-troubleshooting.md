@@ -1,6 +1,7 @@
 ﻿---
 id: collector-troubleshooting
 title: Dépanner votre installation
+doc_type: how-to
 description: Dépanner l'installation du collector OpenTelemetry et les problèmes de collecte de logs
 ---
 

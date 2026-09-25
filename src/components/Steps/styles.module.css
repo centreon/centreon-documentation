@@ -1,0 +1,46 @@
+.steps > ol {
+  list-style: none;
+  counter-reset: step;
+  padding-left: 0;
+  margin: 1.25rem 0 1.5rem;
+}
+
+.steps > ol > li {
+  position: relative;
+  counter-increment: step;
+  padding: 0.15rem 0 1.25rem 3rem;
+  margin: 0;
+}
+
+/* Step number */
+.steps > ol > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--ifm-color-primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+html[data-theme='dark'] .steps > ol > li::before {
+  color: #00003d;
+}
+
+/* Line joining the steps */
+.steps > ol > li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: calc(1rem - 1px);
+  top: 2.25rem;
+  bottom: 0.25rem;
+  width: 2px;
+  background: var(--ifm-toc-border-color);
+  opacity: 0.25;
+}

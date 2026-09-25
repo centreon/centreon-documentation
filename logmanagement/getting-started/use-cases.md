@@ -1,6 +1,7 @@
 ﻿---
 id: use-cases
 title: Use cases
+doc_type: concept
 description: Common use cases for detecting and resolving IT issues with logs
 ---
 

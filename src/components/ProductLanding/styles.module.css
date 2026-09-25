@@ -1,0 +1,348 @@
+.landing {
+  --pl-line: rgba(0, 0, 61, 0.1);
+  --pl-band: #f5f5fa;
+  --pl-icon-bg: rgba(49, 2, 221, 0.08);
+  --pl-muted: rgba(0, 0, 61, 0.62);
+  --pl-card: #ffffff;
+  --pl-input: #f5f5fa;
+  display: grid;
+  gap: 3rem;
+  /* Same 1440px block as the navbar and footer (see "LAYOUT WIDTH" in
+     custom.css). The side inset comes from the doc column's own padding. */
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0.5rem 0 0;
+}
+
+html[data-theme='dark'] .landing {
+  --pl-line: rgba(255, 255, 255, 0.14);
+  --pl-band: rgba(255, 255, 255, 0.04);
+  --pl-icon-bg: rgba(55, 214, 174, 0.12);
+  --pl-muted: rgba(255, 255, 255, 0.68);
+  --pl-card: #07074f;
+  --pl-input: rgba(255, 255, 255, 0.06);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  color: var(--pl-muted);
+}
+
+.pushRight {
+  margin-left: auto;
+  flex: none;
+}
+
+/* ---------- Hero: two columns ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.title {
+  margin: 0 0 1.25rem;
+  font-family: var(--ifm-font-family-base);
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.tagline {
+  margin: 0 0 1.75rem;
+  max-width: 34ch;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  color: var(--pl-muted);
+}
+
+/* Real search input, restyled */
+.search {
+  width: 100%;
+  max-width: 34rem;
+  margin-bottom: 2rem;
+}
+
+.search :global(.navbar__search) {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.search :global([class^='searchBar_']) {
+  display: block !important;
+  width: 100%;
+}
+
+html[data-theme] .search :global(.navbar__search-input) {
+  width: 100%;
+  height: 3.25rem;
+  padding-left: 2.9rem;
+  border: 1px solid var(--pl-line);
+  border-radius: 10px;
+  background-color: var(--pl-input);
+  background-position: 1rem center;
+  background-size: 1.1rem;
+  color: var(--ifm-font-color-base);
+  font-size: 1rem;
+  --ifm-navbar-search-input-placeholder-color: var(--pl-muted);
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="%233102DD" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
+}
+
+html[data-theme='dark'] .search :global(.navbar__search-input) {
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="%2337D6AE" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
+}
+
+html[data-theme] .search :global(.navbar__search-input:focus) {
+  border-color: var(--ifm-color-primary);
+}
+
+.search :global([class*='dropdownMenu']) {
+  left: 0 !important;
+  right: auto !important;
+  z-index: 10;
+}
+
+/* Key figures */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 2.25rem;
+  margin: 0;
+}
+
+.stats dt {
+  font-family: var(--ifm-font-family-base);
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.statAccent {
+  color: var(--ifm-color-primary);
+}
+
+.stats dd {
+  margin: 0.15rem 0 0;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  color: var(--pl-muted);
+}
+
+/* Summary of the intents */
+.intents {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 1.5rem;
+}
+
+.intents li {
+  margin: 0;
+  border-top: 1px solid var(--pl-line);
+}
+
+.intent,
+.task {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  height: 100%;
+  padding: 0.8rem 0.4rem;
+  border-radius: 8px;
+  color: inherit;
+}
+
+.intent:hover {
+  color: inherit;
+  text-decoration: none;
+  background: var(--pl-band);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 8px;
+  background: var(--pl-icon-bg);
+  color: var(--ifm-color-primary);
+}
+
+.intentTitle {
+  display: block;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.intentText {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--pl-muted);
+}
+
+.crossLink {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--ifm-color-primary);
+  border-radius: 10px;
+  background: var(--pl-icon-bg);
+  font-size: 0.925rem;
+  font-weight: 600;
+}
+
+.crossLink:hover {
+  text-decoration: none;
+}
+
+/* ---------- Quick start band ---------- */
+.band {
+  display: grid;
+  gap: 1.25rem;
+  padding: 2rem;
+  border-radius: 14px;
+  background: var(--pl-band);
+}
+
+.bandTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.75rem;
+  margin: 0;
+  font-family: var(--ifm-font-family-base);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.bandTitle span {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--pl-muted);
+}
+
+.tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.task {
+  align-items: center;
+  padding: 1.1rem 1.2rem;
+  border: 1px solid var(--pl-line);
+  background: var(--pl-card);
+  box-shadow: 0 1px 2px rgba(0, 0, 61, 0.06);
+  transition: border-color 0.15s ease;
+}
+
+.task:hover {
+  color: inherit;
+  text-decoration: none;
+  border-color: var(--ifm-color-primary);
+}
+
+/* ---------- Resources ---------- */
+.resourcesBlock {
+  display: grid;
+  gap: 1rem;
+}
+
+.resources {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 3rem;
+}
+
+.resource {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 0.4rem;
+  border-top: 1px solid var(--pl-line);
+  color: inherit;
+  font-weight: 700;
+}
+
+.resource:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.resourceIcon {
+  flex: none;
+  color: var(--ifm-color-primary);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .tasks {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .intents,
+  .resources {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .band {
+    padding: 1.25rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .task {
+    transition: none;
+  }
+}
+
+/* The landing sits inside a doc page: keep its own sizes over the generic
+   Markdown heading and list styles (see custom.css). */
+.landing .title.title {
+  margin: 0 0 1.25rem;
+  font-size: clamp(2.4rem, 4.2vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.landing .bandTitle.bandTitle {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.landing .intents > li,
+.landing .tasks > li,
+.landing .resources > li {
+  margin: 0;
+}

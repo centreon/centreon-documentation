@@ -1,6 +1,7 @@
 ---
 id: collector-generator
 title: Générer un fichier de configuration de collecteur OTel
+doc_type: how-to
 ---
 
 La configuration d'un collecteur OpenTelemetry peut être complexe. Log Management propose une interface où vous sélectionnez des extraits de configuration pour vos sources de données (snippets), puis les adaptez à votre environnement. Vous téléchargez ensuite le résultat, prêt à l'emploi.

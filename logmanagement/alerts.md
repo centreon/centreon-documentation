@@ -1,6 +1,7 @@
 ---
 id: alert-events
 title: Defining alert rules
+doc_type: how-to
 description: Create alert rules to detect abnormal log patterns and trigger alert events
 ---
 import Tabs from '@theme/Tabs';
@@ -37,6 +38,8 @@ Possible alert event statuses are:
 
 <!--For the beta program, you can create up to 10 alert rules.-->
 
+<Steps>
+
 1. Go to **Alerts & notifications > Alert rules**.
 2. Click **Add**.
 3. In the window that appears, enter a name and a description for your alert rule, then define the criteria you want.
@@ -47,6 +50,8 @@ Possible alert event statuses are:
    * **Query**: use the correct [query syntax](query-syntax.md).
    * **Conditions**: define which [alert status the alert event should have](#alert-event-statuses).
 4. Save your alert rule. The window is closed and your alert rule appears in the list of alert rules. The rule starts being evaluated and producing alert events.
+
+</Steps>
 
 ## Viewing the last alert event for an alert rule
 

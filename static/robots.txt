@@ -1,0 +1,14 @@
+# robots.txt for docs.centreon.com
+#
+# Pending decisions (Programme Bijou):
+#   - Decision 1: exclude older on-premises versions from indexing
+#     (for example "Disallow: /docs/24.10/"), or point their canonical URLs
+#     to the current version instead.
+#   - Decision 2: explicit policy for AI crawlers (GPTBot, ClaudeBot,
+#     PerplexityBot, Google-Extended). Everything is allowed for now.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://docs.centreon.com/sitemap.xml
+Sitemap: https://docs.centreon.com/fr/sitemap.xml

@@ -1,0 +1,90 @@
+.footer {
+  background: #00003d;
+  color: #ffffff;
+  padding: 3rem 0 1.5rem;
+}
+
+/* Width is shared with the navbar: see "HEADER AND FOOTER WIDTH" in custom.css */
+.inner {
+  padding: 0 var(--ifm-navbar-padding-horizontal);
+}
+
+.top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.logo img {
+  display: block;
+  height: 31px;
+  width: auto;
+}
+
+.brand p {
+  margin: 1rem 0 0;
+  max-width: 30ch;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.title {
+  margin: 0 0 0.9rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.column ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.column a {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.column a:hover,
+.column a:focus-visible {
+  color: #37d6ae;
+  text-decoration: none;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  margin-top: 2.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 996px) {
+  .top {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .top {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

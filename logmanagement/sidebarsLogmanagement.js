@@ -1,148 +1,91 @@
+// Sidebar organized by user intent, following the common navigation frame
+// shared by the three products (Discover, then product-specific tasks, then
+// Administer, Extend & automate, and Reference).
 module.exports = {
   logmanagement: [
     {
+      type: 'doc',
+      id: 'getting-started/welcome',
+      label: 'Overview',
+      className: 'sidebar-icon sidebar-icon--overview',
+    },
+    {
       type: 'category',
-      label: 'Getting started with Centreon Log Management',
+      label: 'Discover',
+      className: 'sidebar-icon sidebar-icon--discover',
+      collapsed: false,
+      items: [
+        'getting-started/concepts',
+        'getting-started/observability',
+        'getting-started/use-cases',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Send logs',
+      className: 'sidebar-icon sidebar-icon--send',
+      collapsed: true,
+      items: [
+        'collector/opentelemetry-collector',
+        'collector/collector-generator',
+        'collector/collector',
+        'collector/collector-troubleshooting',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Explore & analyze',
+      className: 'sidebar-icon sidebar-icon--explore',
+      collapsed: true,
       link: {
         type: 'doc',
-        id: 'getting-started/welcome'
+        id: 'explore-analyze',
       },
-       items: [
-        {
-          type: 'doc',
-          id: 'getting-started/observability'
-        },
-        {
-          type: 'doc',
-          id: 'getting-started/concepts'
-        },
-        {
-          type: 'doc',
-          id: 'getting-started/use-cases'
-        }
-       ]
-    },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Managing users",
-          "link": {
-            "type": "generated-index",
-          },
-          items: [
-        {
-          type: 'doc',
-          id: 'centreon-hub'
-        },
-        {
-          type: 'doc',
-          id: 'user-rights'
-        }
-       ]
+      items: [
+        'log-explorer',
+        'query-syntax',
+        'dashboards',
+      ],
     },
     {
-          "collapsed": true,
-          "type": "category",
-          "label": "Sending logs to Centreon Log Management",
-          "link": {
-            "type": "generated-index",
-          },
-          items: [
-        {
-          type: 'doc',
-          id: 'collector/opentelemetry-collector'
-        },
-        {
-          type: 'doc',
-          id: 'collector/collector-generator'
-        },
-        {
-          type: 'doc',
-          id: 'collector/collector'
-        },
-        {
-          type: 'doc',
-          id: 'collector/collector-troubleshooting'
-        }
-       ]
+      type: 'category',
+      label: 'Create alerts',
+      className: 'sidebar-icon sidebar-icon--alert',
+      collapsed: true,
+      items: [
+        'alert-events',
+        'notifications',
+      ],
     },
     {
-          "collapsed": true,
-          "type": "category",
-          "label": "Exploring and analyzing logs",
-          "link": {
-            "type": "doc",
-            "id": "explore-analyze"
-          },
-          items: [
-        {
-          type: 'doc',
-          id: 'log-explorer'
-        },
-        {
-          type: 'doc',
-          id: 'query-syntax'
-        },
-        {
-          type: 'doc',
-          id: 'dashboards'
-        }
-       ]
-    },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Managing alerts and notifications",
-          "link": {
-            "type": "generated-index",
-          },
-          items: [
-        {
-          type: 'doc',
-          id: 'alert-events'
-        },
-        {
-          type: 'doc',
-          id: 'notifications'
-        }
-       ]
-    },
-        {
-          "collapsed": true,
-          "type": "category",
-          "label": "Administration",
-          "link": {
-            "type": "generated-index",
-          },
-          items: [
-        {
-          type: 'doc',
-          id: 'administration/storage-usage'
-        },
-        {
-          type: 'doc',
-          id: 'administration/tokens'
-        }
-       ]
+      type: 'category',
+      label: 'Administer',
+      className: 'sidebar-icon sidebar-icon--administer',
+      collapsed: true,
+      items: [
+        'centreon-hub',
+        'user-rights',
+        'administration/tokens',
+        'administration/storage-usage',
+      ],
     },
     {
-          type: 'doc',
-          id: 'api',
-          label: 'API'
+      type: 'category',
+      label: 'Extend & automate',
+      className: 'sidebar-icon sidebar-icon--extend',
+      collapsed: true,
+      items: [
+        'api',
+      ],
     },
     {
-          "collapsed": true,
-          "type": "category",
-          "label": "Resources",
-          "link": {
-            "type": "generated-index",
-          },
-          items: [
-        {
-          type: 'doc',
-          id: 'resources/glossary'
-        }
-      ]
-    }
-  ]
-}
+      type: 'category',
+      label: 'Reference',
+      className: 'sidebar-icon sidebar-icon--reference',
+      collapsed: true,
+      items: [
+        'resources/glossary',
+      ],
+    },
+  ],
+};

@@ -1,6 +1,7 @@
 ﻿---
 id: glossary
 title: Glossaire des termes Centreon Log Management
+doc_type: reference
 description: Définitions des principaux termes de Centreon Log Management
 ---
 

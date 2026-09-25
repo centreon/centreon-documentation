@@ -152,7 +152,7 @@
     "description": "The label used for the latest version suggestion link label"
   },
   "theme.common.editThisPage": {
-    "message": "Éditer cette page",
+    "message": "Modifier cette page",
     "description": "The link label to edit the current page"
   },
   "theme.common.headingLinkTitle": {
@@ -407,7 +407,7 @@
     "description": "To give feedback"
   },
   "theme.common.theWatchButton": {
-    "message": "Questionner la communauté",
+    "message": "Poser une question sur The Watch",
     "description": "To ask a question on The Watch"
   },
   "Expand all": {
@@ -437,5 +437,265 @@
   "theme.SearchPage.searchContext.everywhere": {
     "message": "Toutes les sections",
     "description": "The label for search page to search everywhere"
+  },
+  "home.meta.title": {
+    "message": "Documentation",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.meta.description": {
+    "message": "Documentation de la plateforme d'observabilité Centreon : installez, configurez et utilisez Infra Monitoring, Experience Monitoring et Log Management.",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.hero.eyebrow": {
+    "message": "Documentation Centreon",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.hero.title": {
+    "message": "Cherchez. Trouvez. Agissez.",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.hero.search": {
+    "message": "Que cherchez-vous ?",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.figures.title": {
+    "message": "Chiffres clés",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.figures.connectors": {
+    "message": "connecteurs de supervision",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.figures.openSource": {
+    "message": "open source depuis",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.figures.community": {
+    "message": "Rejoindre la communauté The Watch",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.products.title": {
+    "message": "Choisir un produit",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.products.getStarted": {
+    "message": "Prise en main",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.badge.available": {
+    "message": "Disponible",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.badge.new": {
+    "message": "Nouveau",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cim.description": {
+    "message": "Supervisez toute votre infrastructure, OnPrem ou Cloud.",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cim.task.poller": {
+    "message": "Installer un collecteur",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cim.task.host": {
+    "message": "Ajouter un hôte",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cim.task.notifications": {
+    "message": "Configurer les notifications",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cim.task.dashboard": {
+    "message": "Créer un tableau de bord",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cxm.description": {
+    "message": "Mesurez l'expérience réelle et la performance web.",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cxm.task.start": {
+    "message": "Démarrer avec Experience Monitoring",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cxm.task.journey": {
+    "message": "Créer un parcours utilisateur",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cxm.task.rum": {
+    "message": "Mettre en place le Real User Monitoring",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.cxm.task.dashboards": {
+    "message": "Analyser les tableaux de bord de performance",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.clm.description": {
+    "message": "Centralisez et analysez vos logs en temps réel.",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.clm.task.send": {
+    "message": "Envoyer vos premiers logs",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.clm.task.search": {
+    "message": "Rechercher dans vos logs",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.clm.task.alert": {
+    "message": "Créer une alerte sur les logs",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.product.clm.task.concepts": {
+    "message": "Découvrir les notions de base",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.news.title": {
+    "message": "Nouveautés",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.news.link": {
+    "message": "Notes de version",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.news.text": {
+    "message": "Découvrez les nouvelles fonctionnalités et corrections de Centreon Infra Monitoring {version}.",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.popular.title": {
+    "message": "Populaire",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.popular.host": {
+    "message": "Ajouter un hôte",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.popular.resourceStatus": {
+    "message": "Statut des ressources",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.popular.apiTokens": {
+    "message": "Jetons d'API",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.previews.title": {
+    "message": "Aperçus produit",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.previews.status": {
+    "message": "Console de statut des ressources",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.previews.dashboard": {
+    "message": "Exemple de tableau de bord",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "home.previews.architecture": {
+    "message": "Architecture distribuée",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "navbar.platform": {
+    "message": "Observability Platform",
+    "description": "Homepage and navbar redesign (Programme Bijou)"
+  },
+  "footer.description": {
+    "message": "Documentation de la plateforme d'observabilité Centreon.",
+    "description": "Footer brand description (Programme Bijou)"
+  },
+  "doc.meta.type.tutorial": {
+    "message": "Tutoriel",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.meta.type.howTo": {
+    "message": "Guide pratique",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.meta.type.concept": {
+    "message": "Concept",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.meta.type.reference": {
+    "message": "Référence",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.meta.readingTime": {
+    "message": "{minutes} min de lecture",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.meta.updated": {
+    "message": "Mis à jour en {date}",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.feedback.question": {
+    "message": "Cette page vous a-t-elle aidé ?",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.feedback.yes": {
+    "message": "Oui",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.feedback.no": {
+    "message": "Non",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.feedback.thanks": {
+    "message": "Merci pour votre retour !",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "doc.feedback.thanksNo": {
+    "message": "Merci ! Dites-nous ce qui manquait dans le formulaire qui vient de s'ouvrir.",
+    "description": "Content page redesign (Programme Bijou)"
+  },
+  "navbar.docs": {
+    "message": "Docs",
+    "description": "Navbar and sidebar redesign (Programme Bijou)"
+  },
+  "navbar.api": {
+    "message": "API",
+    "description": "Navbar and sidebar redesign (Programme Bijou)"
+  },
+  "sidebar.spaces.connectors": {
+    "message": "Connecteurs",
+    "description": "Navbar and sidebar redesign (Programme Bijou)"
+  },
+  "sidebar.spaces.label": {
+    "message": "Espaces d'Infra Monitoring",
+    "description": "Navbar and sidebar redesign (Programme Bijou)"
+  },
+  "reader.settings": {
+    "message": "Options de lecture",
+    "description": "Reader preferences (Programme Bijou)"
+  },
+  "reader.font": {
+    "message": "Taille du texte",
+    "description": "Reader preferences (Programme Bijou)"
+  },
+  "reader.font.small": {
+    "message": "Petite",
+    "description": "Reader preferences (Programme Bijou)"
+  },
+  "reader.font.normal": {
+    "message": "Normale",
+    "description": "Reader preferences (Programme Bijou)"
+  },
+  "reader.font.large": {
+    "message": "Grande",
+    "description": "Reader preferences (Programme Bijou)"
+  },
+  "reader.width": {
+    "message": "Largeur du contenu",
+    "description": "Reader preferences (Programme Bijou)"
+  },
+  "reader.width.standard": {
+    "message": "Standard",
+    "description": "Reader preferences (Programme Bijou)"
+  },
+  "reader.width.wide": {
+    "message": "Large",
+    "description": "Reader preferences (Programme Bijou)"
+  },
+  "reader.width.full": {
+    "message": "Pleine",
+    "description": "Reader preferences (Programme Bijou)"
   }
 }

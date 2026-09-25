@@ -1,6 +1,7 @@
 ---
 id: centreon-hub
 title: User portal (Centreon Hub)
+doc_type: how-to
 description: Manage organizations, user accounts, and access via Centreon Hub
 ---
 

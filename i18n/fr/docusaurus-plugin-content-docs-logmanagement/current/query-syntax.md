@@ -1,6 +1,7 @@
 ---
 id: query-syntax
 title: Syntaxe des requêtes
+doc_type: reference
 description: Référence de syntaxe pour interroger les attributs des logs et filtrer les données
 ---
 
@@ -115,7 +116,11 @@ Pour requêter sur des données contenues dans ces sections, il suffit de chaîn
 | `*` | Zéro ou plusieurs caractères | `time*` → timeout, timer… |
 | `?` | Exactement un caractère | `te?t` → test, text… |
 
-> Les caractères génériques ne peuvent pas être utilisés en début de terme (ex. `*foo` n'est pas supporté).
+:::note
+
+Les caractères génériques ne peuvent pas être utilisés en début de terme (ex. `*foo` n'est pas supporté).
+
+:::
 
 ### Plages de valeurs
 

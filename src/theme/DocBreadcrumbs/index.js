@@ -10,6 +10,7 @@ import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
 import { translate } from '@docusaurus/Translate';
 import { useLocation } from '@docusaurus/router';
 import HomeBreadcrumbItem from '@theme/DocBreadcrumbs/Items/Home';
+import DocMeta from '@theme/DocItem/Meta';
 import styles from './styles.module.css';
 
 // TODO move to design system folder
@@ -91,6 +92,7 @@ export default function DocBreadcrumbs() {
   })
 
   return (
+    <>
     <nav
       className={clsx(
         ThemeClassNames.docs.docBreadcrumbs,
@@ -122,5 +124,7 @@ export default function DocBreadcrumbs() {
         })}
       </ul>
     </nav>
+    <DocMeta />
+    </>
   );
 }

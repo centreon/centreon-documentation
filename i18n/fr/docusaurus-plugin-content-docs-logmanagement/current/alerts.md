@@ -1,6 +1,7 @@
 ---
 id: alert-events
 title: Définir des règles d'alerte
+doc_type: how-to
 description: Créer des règles d'alerte pour détecter des schémas de logs anormaux et générer des évènements d'alerte
 ---
 import Tabs from '@theme/Tabs';
@@ -37,6 +38,8 @@ Les différents statuts d'évènements d'alerte possibles sont les suivants :
 
 <!--Pour le programme BETA, vous pouvez créer jusqu'à 10 règles d'alerte.-->
 
+<Steps>
+
 1. Allez à la page **Alerts & notifications > Alert rules**.
 2. Cliquez sur **Add**.
 3. Dans la fenêtre qui s'affiche, entrez un nom et une description pour votre règle d'alerte, puis définissez les critères souhaités.
@@ -47,6 +50,8 @@ Les différents statuts d'évènements d'alerte possibles sont les suivants :
    * **Query**: utilisez la [syntaxe de requête](query-syntax.md) correcte.
    * **Conditions**: définit quel [statut d'alerte l'évènement d'alerte doit avoir](#statuts-dévènements-dalerte).
 4. Enregistrez votre règle d'alerte. La fenêtre se ferme et votre règle d'alerte apparaît dans la liste des règles d'alerte. La règle commence à être évaluée et à générer des évènements d'alerte.
+
+</Steps>
 
 ## Afficher le dernier évènement d'alerte pour chaque règle
 

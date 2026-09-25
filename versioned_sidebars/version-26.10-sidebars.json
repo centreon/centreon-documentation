@@ -80,7 +80,8 @@
             "getting-started/analyze-resources-availability"
           ]
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--start"
     },
     {
       "type": "category",
@@ -209,7 +210,8 @@
           "type": "doc",
           "id": "installation/offline"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--install"
     },
     {
       "type": "category",
@@ -230,7 +232,8 @@
           "type": "doc",
           "id": "reporting/secure-your-mbi-platform"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--security"
     },
     {
       "type": "category",
@@ -451,7 +454,8 @@
           "type": "doc",
           "id": "monitoring/web-import-export"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--monitor"
     },
     {
       "type": "category",
@@ -589,7 +593,8 @@
             }
           ]
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--alert"
     },
     {
       "type": "category",
@@ -622,7 +627,8 @@
           "type": "doc",
           "id": "monitoring/basic-objects/customization"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--users"
     },
     {
       "type": "category",
@@ -689,7 +695,8 @@
             }
           ]
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--dashboard"
     },
     {
       "type": "category",
@@ -874,7 +881,8 @@
           "type": "doc",
           "id": "alerts-notifications/availability"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--dashboard"
     },
     {
       "type": "category",
@@ -1024,7 +1032,8 @@
             }
           ]
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--dashboard"
     },
     {
       "type": "category",
@@ -1157,7 +1166,8 @@
           "type": "doc",
           "id": "administration/sql-proxy"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--administer"
     },
     {
       "type": "category",
@@ -1277,58 +1287,61 @@
             }
           ]
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--install"
     },
     {
       "type": "link",
       "href": "/pp/integrations/plugin-packs/getting-started/introduction",
-      "label": "Monitoring Connectors"
+      "label": "Monitoring Connectors",
+      "className": "sidebar-icon sidebar-icon--connector"
     },
     {
       "type": "category",
       "label": "Centreon Monitoring Agent",
       "link": {
-                "type": "generated-index"
-              },
-              "items": [
-                {
-                  "type": "doc",
-                  "id": "cma/cma"
-                },
-                {
-                  "type": "doc",
-                  "id": "cma/cma-setup"
-                },
-                {
-                  "type": "category",
-                  "label": "Manual setup (advanced)",
-                  "link": {
-                    "type": "generated-index"
-                  },
-                  "items": [
-                    {
-                      "type": "doc",
-                      "id": "cma/cma-setup-manual"
-                    },
-                    {
-                      "type": "doc",
-                      "id": "cma/cma-certificates"
-                    }
-                  ]
-                },
-                {
-                  "type": "doc",
-                  "id": "cma/cma-custom"
-                },
-                {
-                  "type": "doc",
-                  "id": "cma/cma-migratenscpp"
-                },
-                {
-                  "type": "doc",
-                  "id": "cma/cma-troubleshooting"
-                }
-              ]
+        "type": "generated-index"
+      },
+      "items": [
+        {
+          "type": "doc",
+          "id": "cma/cma"
+        },
+        {
+          "type": "doc",
+          "id": "cma/cma-setup"
+        },
+        {
+          "type": "category",
+          "label": "Manual setup (advanced)",
+          "link": {
+            "type": "generated-index"
+          },
+          "items": [
+            {
+              "type": "doc",
+              "id": "cma/cma-setup-manual"
+            },
+            {
+              "type": "doc",
+              "id": "cma/cma-certificates"
+            }
+          ]
+        },
+        {
+          "type": "doc",
+          "id": "cma/cma-custom"
+        },
+        {
+          "type": "doc",
+          "id": "cma/cma-migratenscpp"
+        },
+        {
+          "type": "doc",
+          "id": "cma/cma-troubleshooting"
+        }
+      ],
+      "className": "sidebar-icon sidebar-icon--send"
     },
     {
       "type": "category",
@@ -1511,7 +1524,8 @@
             }
           ]
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--extend"
     },
     {
       "type": "category",
@@ -1524,7 +1538,8 @@
           "type": "doc",
           "id": "mobile/introduction"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--mobile"
     },
     {
       "type": "category",
@@ -1562,7 +1577,8 @@
           "type": "doc",
           "id": "api/api-tokens"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--extend"
     },
     {
       "type": "category",
@@ -1635,7 +1651,8 @@
             }
           ]
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--extend"
     },
     {
       "type": "category",
@@ -1754,7 +1771,8 @@
             }
           ]
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--install"
     },
     {
       "type": "category",
@@ -1766,10 +1784,10 @@
         {
           "type": "category",
           "label": "Release notes for Centreon 26.10",
-          "link": { 
+          "link": {
             "type": "doc",
             "id": "releases/introduction"
-          }, 
+          },
           "items": [
             {
               "type": "doc",
@@ -1785,7 +1803,8 @@
           "type": "doc",
           "id": "releases/lifecycle"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--reference"
     },
     {
       "type": "category",
@@ -1819,7 +1838,8 @@
             }
           ]
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--security"
     },
     {
       "type": "category",
@@ -1848,7 +1868,8 @@
           "type": "doc",
           "id": "resources/contribute"
         }
-      ]
+      ],
+      "className": "sidebar-icon sidebar-icon--reference"
     }
   ]
 }

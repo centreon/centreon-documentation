@@ -1,6 +1,7 @@
 ﻿---
 id: use-cases
 title: Cas d'usage
+doc_type: concept
 description: Cas d'usage courants pour détecter et résoudre des problèmes informatiques via les logs
 ---
 

@@ -1,6 +1,7 @@
 ---
 id: collector-troubleshooting
 title: Troubleshooting your installation
+doc_type: how-to
 description: Troubleshoot OpenTelemetry collector installation and log collection issues
 ---
 

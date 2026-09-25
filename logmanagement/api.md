@@ -1,6 +1,7 @@
 ---
 id: api
 title: API
+doc_type: reference
 description: Use the REST API to interact with logs, alerts, and configuration
 ---
 

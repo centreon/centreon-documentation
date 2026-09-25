@@ -28,20 +28,20 @@
   --ifm-color-pink: rgba(181, 92, 247, 0.1);
   --ifm-color-pink-solid: #f7eefe;
   --ifm-color-dark: #00003D;
-  --ifm-color-blue: #2213e2;
+  --ifm-color-blue: #3102dd;
   --ifm-color-green: #37d6ae;
   --ifm-color-white: #ffffff;
 }
 
 html:root {
-  --ifm-color-primary: #2213e2;
-  --ifm-color-primary-dark: #1f11cb;
-  --ifm-color-primary-darker: #1d10c0;
-  --ifm-color-primary-darkest: #180d9e;
-  --ifm-color-primary-light: #3021ec;
-  --ifm-color-primary-lighter: #3a2ced;
-  --ifm-color-primary-lightest: #5a4ef0;
-  --docusaurus-collapse-button-bg: #2213E2;
+  --ifm-color-primary: #3102dd;
+  --ifm-color-primary-dark: #2c02c7;
+  --ifm-color-primary-darker: #2a02bc;
+  --ifm-color-primary-darkest: #22019b;
+  --ifm-color-primary-light: #3602f3;
+  --ifm-color-primary-lighter: #3904fd;
+  --ifm-color-primary-lightest: #5325fd;
+  --docusaurus-collapse-button-bg: #3102DD;
   --ifm-toc-border-color: var(--ifm-color-dark);
   --ifm-font-color-base: var(--ifm-color-dark);
   --ifm-font-family-base: 'Red Hat Display', serif;
@@ -49,10 +49,10 @@ html:root {
   --ifm-heading-font-family: var(--ifm-font-family-heading);
   --ifm-menu-link-sublist-icon: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" viewBox="0 0 24 24"><path fill="rgba(0,0,0,1)" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path></svg>');
   --ifm-menu-link-padding-vertical: 0.5rem;
-  --ifm-navbar-padding-vertical: 26px;
+  --ifm-navbar-padding-vertical: 12px;
   --ifm-menu-color-background-hover: transparent;
   --ifm-menu-color-background-active: transparent;
-  --ifm-navbar-height: 96px;
+  --ifm-navbar-height: 64px;
   --ifm-footer-link-color: var(--ifm-color-dark);
   --ifm-menu-color: var(--ifm-color-dark);
   --ifm-toc-link-color: var(--ifm-color-dark);
@@ -61,8 +61,8 @@ html:root {
   --ifm-background-color: #fff;
   --ifm-code-background: rgba(7, 0, 63, 0.1);
   --ifm-blockquote-border-left-width: 8px;
-  --ifm-blockquote-border-color: #2213E2;
-  --ifm-blockquote-background-color: rgba(34, 19, 226, 0.15);
+  --ifm-blockquote-border-color: #3102DD;
+  --ifm-blockquote-background-color: rgba(49, 2, 221, 0.15);
   --ifm-blockquote-padding-vertical: 16px;
   --ifm-blockquote-padding-horizontal: 32px;
   --ifm-global-radius: 5px;
@@ -80,7 +80,7 @@ html[data-theme='dark']:root {
   --ifm-background-color: #00003D;
   --ifm-background-color-invert: #fff;
   --ifm-background-surface-color: #00003D;
-  --docusaurus-collapse-button-bg: #2213E2;
+  --docusaurus-collapse-button-bg: #3102DD;
   --ifm-color-content: #ffffff;
   --ifm-toc-border-color: #ffffff;
   --ifm-font-color-base: #ffffff;
@@ -91,8 +91,8 @@ html[data-theme='dark']:root {
   --ifm-toc-link-color: #fff;
   --ifm-code-background: rgba(255,255,255,0.15);
 
-  --ifm-blockquote-border-color: rgba(34, 19, 226, 1);
-  --ifm-blockquote-background-color: rgba(34, 19, 226, 0.5);
+  --ifm-blockquote-border-color: rgba(49, 2, 221, 1);
+  --ifm-blockquote-background-color: rgba(49, 2, 221, 0.5);
   --ifm-product-dropdown-background-color: #120950;
 }
 
@@ -361,4 +361,461 @@ html[data-theme="dark"] .navbar__search-input {
 kbd[class^=searchHint] {
   color: var(--ifm-background-color-invert);
   background-color: var(--ifm-background-color);
+}
+
+/* LAYOUT WIDTH: one width for every page. The navbar, the footer, the
+   homepage, the product landings and the doc pages (sidebar + content + table
+   of contents) all fit in the same centered 1440px block. */
+.navbar__inner {
+  max-width: calc(1440px - 2 * var(--ifm-navbar-padding-horizontal));
+  margin: 0 auto;
+}
+/* The footer has no side padding of its own: its content is inset like the
+   navbar's (the navbar element carries that padding) */
+html .site-footer__inner {
+  width: calc(100% - 2 * var(--ifm-navbar-padding-horizontal));
+  max-width: calc(1440px - 2 * var(--ifm-navbar-padding-horizontal));
+  margin: 0 auto;
+  padding: 0;
+}
+
+
+/* ==========================================================================
+   CONTENT PAGES (Programme Bijou): lighter typography, breadcrumbs, sidebar,
+   table of contents, callouts and pagination, following the UX/UI mockup.
+   ========================================================================== */
+html:root {
+  --docusaurus-collapse-button-bg: transparent;
+  --docusaurus-collapse-button-bg-hover: rgba(49, 2, 221, 0.08);
+  --ifm-menu-color-background-active: rgba(49, 2, 221, 0.08);
+  --ifm-menu-color-background-hover: rgba(0, 0, 61, 0.04);
+  --ifm-menu-link-padding-vertical: 0.35rem;
+  --ifm-blockquote-background-color: rgba(49, 2, 221, 0.06);
+  --ifm-blockquote-border-color: var(--ifm-color-primary);
+  --ifm-blockquote-border-left-width: 4px;
+  --ifm-blockquote-padding-vertical: 0.9rem;
+  --ifm-blockquote-padding-horizontal: 1.1rem;
+}
+html[data-theme='dark']:root {
+  --docusaurus-collapse-button-bg: transparent;
+  --docusaurus-collapse-button-bg-hover: rgba(55, 214, 174, 0.1);
+  --ifm-menu-color-background-active: rgba(55, 214, 174, 0.12);
+  --ifm-menu-color-background-hover: rgba(255, 255, 255, 0.05);
+  --ifm-blockquote-background-color: rgba(55, 214, 174, 0.08);
+  --ifm-blockquote-border-color: #37d6ae;
+}
+
+.navbar.navbar--fixed-top {
+  font-family: var(--ifm-font-family-base);
+}
+.navbar__search-input {
+  --search-local-input-active-border-color: var(--ifm-color-primary);
+}
+
+/* Typography */
+.theme-doc-markdown.markdown {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.theme-doc-markdown.markdown h1,
+.theme-doc-markdown.markdown h2,
+.theme-doc-markdown.markdown h3,
+.theme-doc-markdown.markdown h4 {
+  font-family: var(--ifm-font-family-base);
+  letter-spacing: -0.01em;
+}
+.theme-doc-markdown.markdown h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+.theme-doc-markdown.markdown h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-top: 2.25rem;
+}
+.theme-doc-markdown.markdown h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+/* The first paragraph under the title reads as a lead */
+.theme-doc-markdown.markdown > header + p {
+  font-size: 1.12rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+/* Breadcrumbs: plain text separated by chevrons */
+.theme-doc-breadcrumbs .breadcrumbs__link {
+  padding: 0;
+  background: none !important;
+  font-size: 0.85rem;
+  color: var(--ifm-color-primary);
+}
+.theme-doc-breadcrumbs .breadcrumbs__item--active .breadcrumbs__link {
+  color: var(--ifm-font-color-base);
+}
+.theme-doc-breadcrumbs .breadcrumbs__item:not(:last-child)::after {
+  content: '›';
+  width: auto;
+  height: auto;
+  background: none;
+  filter: none;
+  margin: 0 0.4rem;
+}
+
+/* Callouts written as blockquotes */
+.theme-doc-markdown blockquote {
+  border-radius: 0 8px 8px 0;
+}
+.theme-admonition {
+  border-radius: 0 8px 8px 0;
+  font-size: 0.95rem;
+}
+
+/* Left sidebar */
+aside.theme-doc-sidebar-container a.menu__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 6px;
+}
+.theme-doc-sidebar-menu > .menu__list-item > .menu__link,
+.theme-doc-sidebar-menu > .menu__list-item > .menu__list-item-collapsible > .menu__link {
+  font-weight: 700;
+}
+.theme-doc-sidebar-menu .menu__list .menu__list .menu__link {
+  font-size: 0.85rem;
+}
+aside.theme-doc-sidebar-container .menu__link--active:not(.menu__link--sublist) {
+  background: var(--ifm-menu-color-background-active);
+}
+aside.theme-doc-sidebar-container button.button {
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+aside.theme-doc-sidebar-container button.button svg g,
+[class^="expandButton"] svg g {
+  fill: var(--ifm-color-emphasis-600);
+}
+
+/* Optional icons on top-level sidebar entries (className in the sidebar) */
+.sidebar-icon > .menu__link::before,
+.sidebar-icon > .menu__list-item-collapsible > .menu__link::before {
+  content: '';
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-right: 0.6rem;
+  background: currentColor;
+  -webkit-mask: var(--sidebar-icon) center / contain no-repeat;
+  mask: var(--sidebar-icon) center / contain no-repeat;
+}
+.sidebar-icon--overview {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 5.5A2 2 0 0 1 6.5 4H19v14H6.5a2 2 0 0 0-2 2z'/%3E%3Cpath d='M4.5 20V5.5M8.5 8h6'/%3E%3C/svg%3E");
+}
+.sidebar-icon--discover {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='9'/%3E%3Cpath d='m15.5 8.5-2 5-5 2 2-5z'/%3E%3C/svg%3E");
+}
+.sidebar-icon--start {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 19c1-4 3.5-7.5 9-11l1.5 1.5c-3.5 5.5-7 8-11 9z'/%3E%3Cpath d='M14 8l2-4 4 4-4 2'/%3E%3C/svg%3E");
+}
+.sidebar-icon--install {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 18a4.5 4.5 0 0 1-.5-9 6 6 0 0 1 11.5 1.5A3.75 3.75 0 0 1 17.5 18'/%3E%3Cpath d='M12 11v7M9 15l3 3 3-3'/%3E%3C/svg%3E");
+}
+.sidebar-icon--send {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 18a4.5 4.5 0 0 1-.5-9 6 6 0 0 1 11.5 1.5A3.75 3.75 0 0 1 17.5 18'/%3E%3Cpath d='M12 12v7M9 15l3-3 3 3'/%3E%3C/svg%3E");
+}
+.sidebar-icon--explore {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='6.5'/%3E%3Cpath d='m20 20-4.2-4.2'/%3E%3C/svg%3E");
+}
+.sidebar-icon--alert {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z'/%3E%3Cpath d='M10 20.5a2 2 0 0 0 4 0'/%3E%3C/svg%3E");
+}
+.sidebar-icon--monitor {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.5' y='4.5' width='17' height='12' rx='1.5'/%3E%3Cpath d='M8 20h8M12 16.5V20M7 11l2.5-2.5 2.5 2.5 4-4'/%3E%3C/svg%3E");
+}
+.sidebar-icon--administer {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8'/%3E%3C/svg%3E");
+}
+.sidebar-icon--extend {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m8.5 8-4 4 4 4M15.5 8l4 4-4 4M13.5 5l-3 14'/%3E%3C/svg%3E");
+}
+.sidebar-icon--reference {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 4.5h10.5L19 8v11.5H5z'/%3E%3Cpath d='M8.5 11h7M8.5 14.5h7M8.5 7.5h4'/%3E%3C/svg%3E");
+}
+
+/* Right table of contents */
+.theme-doc-toc-desktop::before {
+  content: 'On this page';
+  display: block;
+  margin-bottom: 0.6rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-emphasis-600);
+}
+html[lang='fr'] .theme-doc-toc-desktop::before {
+  content: 'Sur cette page';
+}
+.table-of-contents.table-of-contents__left-border {
+  border-left-color: var(--ifm-color-emphasis-200);
+}
+.table-of-contents__link {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-700);
+}
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* Previous / next as compact buttons */
+.pagination-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.pagination-nav__link {
+  display: inline-flex;
+  align-items: center;
+  max-width: 48%;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+}
+.pagination-nav__link--next {
+  margin-left: auto;
+}
+.pagination-nav__sublabel {
+  display: none;
+}
+.pagination-nav__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.pagination-nav__link--prev .pagination-nav__label::before {
+  content: '← ';
+}
+.pagination-nav__link--next .pagination-nav__label::after {
+  content: ' →';
+}
+
+/* Pages with a search in their hero (product landings) hide the navbar one */
+html:has([data-hero-search]) .navbar .navbar__search {
+  display: none;
+}
+
+/* Version selector as a pill with a document icon, as in the UX/UI mockup */
+.navbar__link.navbar-version {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+.navbar__link.navbar-version::before {
+  content: '';
+  width: 0.9rem;
+  height: 0.9rem;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3.5h8l4 4v13H6z'/%3E%3Cpath d='M14 3.5v4h4M9 12h6M9 15.5h6'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 3.5h8l4 4v13H6z'/%3E%3Cpath d='M14 3.5v4h4M9 12h6M9 15.5h6'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+
+/* More sidebar icons (Infra Monitoring OnPrem top-level entries) */
+.sidebar-icon--security {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3.5 5 6v5.5c0 4.2 2.9 7.6 7 9 4.1-1.4 7-4.8 7-9V6z'/%3E%3Cpath d='m9 12 2 2 4-4'/%3E%3C/svg%3E");
+}
+.sidebar-icon--users {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='8.5' r='3'/%3E%3Cpath d='M3.5 19a5.5 5.5 0 0 1 11 0'/%3E%3Ccircle cx='17' cy='9.5' r='2.5'/%3E%3Cpath d='M15.5 14.2A4.5 4.5 0 0 1 21 18.5'/%3E%3C/svg%3E");
+}
+.sidebar-icon--dashboard {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='4' width='7' height='7' rx='1.5'/%3E%3Crect x='13' y='4' width='7' height='4' rx='1.5'/%3E%3Crect x='13' y='10' width='7' height='10' rx='1.5'/%3E%3Crect x='4' y='13' width='7' height='7' rx='1.5'/%3E%3C/svg%3E");
+}
+.sidebar-icon--connector {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 3.5v4M15 3.5v4M7 7.5h10v3a5 5 0 0 1-10 0z'/%3E%3Cpath d='M12 15.5v5'/%3E%3C/svg%3E");
+}
+.sidebar-icon--mobile {
+  --sidebar-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='7' y='3' width='10' height='18' rx='2'/%3E%3Cpath d='M11 17.5h2'/%3E%3C/svg%3E");
+}
+
+/* ---------- Content pages, closer to the UX/UI mockup ---------- */
+/* Sidebar on a light grey ground */
+html:root {
+  --bijou-sidebar-bg: #f7f7fb;
+}
+html[data-theme='dark']:root {
+  --bijou-sidebar-bg: #05054a;
+}
+aside.theme-doc-sidebar-container {
+  background: var(--bijou-sidebar-bg);
+  border-right: 1px solid var(--ifm-color-emphasis-200) !important;
+}
+aside.theme-doc-sidebar-container a.menu__link {
+  font-size: 0.875rem;
+}
+.theme-doc-sidebar-menu .menu__list .menu__list .menu__link {
+  font-size: 0.825rem;
+}
+
+/* A readable text column, as in the mockup */
+.theme-doc-markdown.markdown,
+.theme-doc-breadcrumbs,
+.theme-doc-footer,
+.pagination-nav {
+  max-width: 48rem;
+}
+.theme-doc-markdown.markdown {
+  font-size: 15.5px;
+}
+.theme-doc-markdown.markdown h1 {
+  font-size: 1.95em;
+}
+.theme-doc-markdown.markdown h2 {
+  font-size: 1.35em;
+  margin-top: 2rem;
+}
+.theme-doc-markdown.markdown h3 {
+  font-size: 1.1em;
+}
+
+/* Callouts: tinted ground, left border, label inline ("Note — ...") */
+.theme-admonition {
+  --ifm-alert-border-width: 0;
+  --ifm-alert-border-left-width: 3px;
+  --ifm-alert-padding-vertical: 0.85rem;
+  --ifm-alert-padding-horizontal: 1.1rem;
+  box-shadow: none;
+}
+.theme-admonition > div:first-child {
+  float: left;
+  margin: 0 0.4rem 0 0;
+  font-size: inherit;
+  text-transform: capitalize;
+  line-height: inherit;
+}
+.theme-admonition > div:first-child svg {
+  display: none;
+}
+.theme-admonition > div:first-child::after {
+  content: ' —';
+}
+.theme-admonition > div:last-child > :last-child {
+  margin-bottom: 0;
+}
+
+/* Product landing pages are doc pages too: they keep the full width */
+.theme-doc-markdown.markdown:has([data-product-landing]) {
+  max-width: none;
+}
+
+/* Doc pages: the layout root (sidebar, content, table of contents) */
+html.docs-wrapper .main-wrapper > div {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+/* Product landings are doc pages without sidebar: no extra inner container */
+html:has([data-product-landing]) .main-wrapper main .container {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+/* READER PREFERENCES (text size and content width, set from the "Aa" button
+   of the navbar). Headings are sized in em, so they follow the text size. */
+html[data-reader-font='s'] .theme-doc-markdown.markdown {
+  font-size: 14.5px;
+}
+html[data-reader-font='l'] .theme-doc-markdown.markdown {
+  font-size: 17.5px;
+}
+
+html[data-reader-width='wide'] .theme-doc-markdown.markdown,
+html[data-reader-width='wide'] .theme-doc-breadcrumbs,
+html[data-reader-width='wide'] .theme-doc-footer,
+html[data-reader-width='wide'] .pagination-nav {
+  max-width: 64rem;
+}
+html[data-reader-width='wide'].docs-wrapper:not(:has([data-product-landing])) .main-wrapper > div {
+  max-width: 1760px;
+}
+html[data-reader-width='wide'].docs-wrapper:not(:has([data-product-landing])) .navbar__inner,
+html[data-reader-width='wide'].docs-wrapper:not(:has([data-product-landing])) .site-footer__inner {
+  max-width: calc(1760px - 2 * var(--ifm-navbar-padding-horizontal));
+}
+
+html[data-reader-width='full'] .theme-doc-markdown.markdown,
+html[data-reader-width='full'] .theme-doc-breadcrumbs,
+html[data-reader-width='full'] .theme-doc-footer,
+html[data-reader-width='full'] .pagination-nav {
+  max-width: none;
+}
+html[data-reader-width='full'].docs-wrapper:not(:has([data-product-landing])) .main-wrapper > div {
+  max-width: none;
+}
+html[data-reader-width='full'].docs-wrapper:not(:has([data-product-landing])) .navbar__inner,
+html[data-reader-width='full'].docs-wrapper:not(:has([data-product-landing])) .site-footer__inner {
+  max-width: none;
+}
+
+/* ---------- Doc pages: content next to the right column ---------- */
+/* Breadcrumbs are hidden (they stay in the HTML for search engines) */
+nav.theme-doc-breadcrumbs {
+  display: none;
+}
+/* The content column is only as wide as the text, so the right column sits
+   right next to it (instead of a fixed 75% / 25% split). Docusaurus caps the
+   column with a layered "max-width: 75% !important", which an unlayered rule
+   cannot override: the width is set through flex-basis instead. */
+@media (min-width: 997px) {
+  main .row:has(.theme-doc-toc-desktop) > .col:first-child {
+    flex: 0 1 calc(48rem + 2 * var(--ifm-spacing-horizontal));
+  }
+  main .row:has(.theme-doc-toc-desktop) > .col--3 {
+    flex: 0 0 16.5rem;
+    max-width: 16.5rem;
+  }
+  html[data-reader-width='wide'] main .row:has(.theme-doc-toc-desktop) > .col:first-child {
+    flex-basis: calc(64rem + 2 * var(--ifm-spacing-horizontal));
+  }
+  html[data-reader-width='full'] main .row:has(.theme-doc-toc-desktop) > .col:first-child {
+    flex: 1 1 0;
+  }
+}
+
+/* Thin separator between the navbar and the page, across the full width */
+.navbar.navbar--fixed-top {
+  border-bottom: 1px solid rgba(0, 0, 61, 0.12);
+}
+html[data-theme='dark'] .navbar.navbar--fixed-top {
+  border-bottom-color: rgba(255, 255, 255, 0.14);
+}
+
+/* Sidebar chevrons: thin stroke, smaller and muted (the original icon is a
+   filled 24px chevron stretched to 2rem). Dark mode keeps Infima's filter,
+   which turns the stroke light. */
+html:root {
+  --ifm-menu-link-sublist-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235F5F8A' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 14.5l5-5 5 5'/%3E%3C/svg%3E");
+}
+.menu__link--sublist-caret::after,
+.menu__caret::before {
+  width: 1rem;
+  min-width: 1rem;
+  height: 1rem;
+  background-size: 1rem 1rem;
+}
+
+/* Medium screens: a narrower navbar search, so that it does not overlap the
+   Docs / API links */
+@media (min-width: 997px) and (max-width: 1280px) {
+  .navbar .navbar__search-input {
+    width: 12rem;
+  }
 }

@@ -1,6 +1,7 @@
 ﻿---
 id: tokens
 title: Managing authentication tokens
+doc_type: how-to
 description: Generate and manage authentication tokens for log-sending hosts
 ---
 import Tabs from '@theme/Tabs';

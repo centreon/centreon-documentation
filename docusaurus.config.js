@@ -105,6 +105,14 @@ const config = {
   trailingSlash: true,
 
   headTags: [
+  // Reader preferences (text size, content width) are applied before the page
+  // renders, so that there is no visible jump. See src/theme/Navbar/ReaderSettings.
+  {
+    tagName: 'script',
+    attributes: { type: 'text/javascript' },
+    innerHTML:
+      `try{var p=JSON.parse(localStorage.getItem('reader-preferences')||'{}');var r=document.documentElement;if(p.font)r.setAttribute('data-reader-font',p.font);if(p.width)r.setAttribute('data-reader-width',p.width)}catch(e){}`,
+  },
   {
     tagName: 'script',
     attributes: { type: 'text/javascript' },
@@ -120,10 +128,10 @@ const config = {
     locales: ['en', 'fr'],
     localeConfigs: {
       en: {
-        label: '🇬🇧 English',
+        label: 'English',
       },
       fr: {
-        label: '🇫🇷 Français',
+        label: 'Français',
       },
     },
   },
@@ -154,7 +162,7 @@ const config = {
             return versions.reduce(
               (accumulator, currentValue) => {
                 accumulator[currentValue] = {
-                  label: Object.keys(accumulator).length === 0 ? `⭐ ${currentValue}` : currentValue,
+                  label: currentValue,
                   banner: currentValue === '24.04' ? 'unmaintained' : 'none'
                 }
 
@@ -372,7 +380,7 @@ const config = {
 
       docs: {
         sidebar: {
-          hideable: true,
+          hideable: false,
         },
       },
 
@@ -412,7 +420,7 @@ const config = {
               type: 'doc',
               docId: defaultPageId,
               position: 'left',
-              label: 'Infra Monitoring OnPrem'
+              label: 'OnPrem'
             },
           ];
 
@@ -421,7 +429,7 @@ const config = {
               ...items,
               {
                 to: '/cloud/getting-started/welcome',
-                label: 'Infra Monitoring Cloud',
+                label: 'Cloud',
                 position: 'left',
                 activeBaseRegex: '/cloud/',
               },
@@ -433,7 +441,7 @@ const config = {
               ...items,
               {
                 to: '/pp/integrations/plugin-packs/getting-started/introduction',
-                label: 'Monitoring Connectors',
+                label: 'Connectors',
                 position: 'left',
                 activeBaseRegex: '/pp/',
               },
@@ -473,6 +481,7 @@ const config = {
             {
               type: 'docsVersionDropdown',
               position: 'right',
+              className: 'navbar-version',
               dropdownActiveClassDisabled: true,
               dropdownItemsAfter: [
                 {
@@ -507,32 +516,62 @@ const config = {
       },
 
       footer: {
-        links: [
-          {
+        links: (() => {
+          const community = {
+            title: 'Community',
             items: [
+              {
+                label: 'The Watch',
+                href: 'https://thewatch.centreon.com/',
+              },
+              {
+                label: 'GitHub',
+                href: 'https://github.com/centreon/centreon',
+              },
+              {
+                label: 'Download',
+                href: 'https://download.centreon.com/',
+              },
               {
                 label: 'Corporate Website',
                 href: 'https://www.centreon.com/en/',
               },
-            ],
-          },
-          {
-            items: [
               {
                 label: 'Blog',
                 href: 'https://www.centreon.com/en/blog/',
               },
             ],
-          },
-          {
-            items: [
-              {
-                label: 'Download',
-                href: 'https://download.centreon.com/',
-              },
-            ],
-          },
-        ],
+          };
+
+          // Archived builds only contain one on-premises version.
+          if (archivedVersion) {
+            return [community];
+          }
+
+          const products = [
+            { label: 'Infra Monitoring', to: '/docs/getting-started/welcome' },
+            ...(experienceMonitoring
+              ? [{ label: 'Experience Monitoring', to: '/experience-monitoring/getting-started/welcome' }]
+              : []),
+            ...(logmanagement
+              ? [{ label: 'Log Management', to: '/logmanagement/getting-started/welcome' }]
+              : []),
+          ];
+
+          return [
+            { title: 'Products', items: products },
+            {
+              title: 'Resources',
+              items: [
+                { label: 'Release notes', to: '/docs/releases/introduction' },
+                { label: 'Compatibility', to: '/docs/installation/compatibility' },
+                { label: 'REST API', to: '/docs/api/rest-api-v2' },
+                { label: 'Glossary', to: '/docs/resources/glossary' },
+              ],
+            },
+            community,
+          ];
+        })(),
         logo: {
           alt: 'Centreon Open Source Logo',
           src: 'img/logo_centreon.png',

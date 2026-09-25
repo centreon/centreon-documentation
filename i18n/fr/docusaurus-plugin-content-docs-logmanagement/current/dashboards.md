@@ -1,6 +1,7 @@
 ---
 id: dashboards
 title: Créer des tableaux de bord
+doc_type: how-to
 description: Créer des tableaux de bord avec des widgets pour visualiser les logs et leurs tendances
 ---
 import Tabs from '@theme/Tabs';

@@ -14,3 +14,60 @@ See https://github.com/facebook/docusaurus/pull/11142
 :global(.navbar__items--right) > :last-child {
   padding-right: 0;
 }
+
+/* Short platform label next to the logo, as in the UX/UI mockup */
+.platform {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  padding: 0 0.9rem;
+  margin-right: 0.5rem;
+  border-left: 1px solid var(--ifm-toc-border-color);
+  white-space: nowrap;
+}
+
+/* Infra Monitoring sub-sections (OnPrem, Cloud, Connectors) */
+.subSections {
+  display: flex;
+  align-items: center;
+}
+
+.subSections :global(.navbar__link) {
+  font-size: 0.925rem;
+}
+
+@media (max-width: 1400px) {
+  .platform {
+    display: none;
+  }
+}
+
+@media (max-width: 996px) {
+  .subSections,
+  .community {
+    display: none;
+  }
+}
+
+/* Keep the logo and navbar links on one line */
+:global(.navbar__brand) {
+  flex-shrink: 0;
+}
+
+.subSections :global(.navbar__link),
+.community {
+  white-space: nowrap;
+}
+
+/* Docs / API / Community */
+.links {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 996px) {
+  .links {
+    display: none;
+  }
+}
