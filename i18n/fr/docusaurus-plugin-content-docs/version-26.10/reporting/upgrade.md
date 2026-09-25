@@ -26,13 +26,9 @@ La montée de version de Centreon MBI se fait en 4 étapes :
 
 Voir [Introduction à la montée de version](../upgrade/introduction.md).
 
-### Mettre à jour la clé de signature RPM
-
-Sous EL8, pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centreon sont changées régulièrement. Le dernier changement a eu lieu le 14 octobre 2021. Lorsque vous mettez Centreon à jour depuis une version plus ancienne, vous devez suivre la [procédure de changement de clé](../security/key-rotation.md#installation-existante), afin de supprimer l'ancienne clé et d'installer la nouvelle.
-
 ## Étape 1 : Montée de version du paquet
 
-Lors d'une montée de version majeure (ex: 20.10.x à 25.10.x) il faut en premier lieu mettre à jour
+Lors d'une montée de version majeure (ex: 20.10.x à 26.10.x) il faut en premier lieu mettre à jour
  le dépôt contenant les paquets. 
 
 Vous trouverez ce dépôt depuis votre compte sur notre [platefome de support, à la page **Dépôts**](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
@@ -42,14 +38,6 @@ Vous trouverez ce dépôt depuis votre compte sur notre [platefome de support, �
 1. Mettre à jour le paquet: se connecter sur le serveur Centreon et exécuter la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf clean all
-dnf update centreon-bi-server
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -58,7 +46,7 @@ dnf update centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt clean
@@ -111,15 +99,6 @@ Vous pouvez maintenant procéder à la montée de version :
 2. Puis mettez à jour les paquets, en exécutant la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf clean all
-dnf update centreon-bi\*
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -129,7 +108,7 @@ dnf update centreon-bi\*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt clean
