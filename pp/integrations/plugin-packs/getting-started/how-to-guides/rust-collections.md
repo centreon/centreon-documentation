@@ -1,6 +1,6 @@
 ---
 id: rust-collections
-title: Rust Collections
+title: Rust Collections (experimental)
 description: "Configure a JSON rather than coding a plugin"
 ---
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,6 @@
 ---
 id: rust-collections
-title: Collections Rust
+title: Collections Rust (expérimental)
 description: "Configurez un fichier JSON plutôt que de développer un plugin"
 ---
 import Tabs from '@theme/Tabs';
@@ -90,7 +90,7 @@ Ajouter l'attribut `format_version` à la racine de votre fichier permet au plug
 
 `collect.snmp` est la liste des requêtes. Chacune porte un `name`, un `oid` et un `query` valant `Get` ou `Walk` — ces deux valeurs sont sensibles à la casse. Tous les `Get` sont regroupés en une seule requête réseau ; chaque `Walk` est une traversée de sous-arbre distincte.
 
-Le `name` n'est pas décoratif : c'est le nom de la macro sous laquelle la valeur devient utilisable dans `compute`. Un `Get` nommé `memTotalReal` s'y référence par `{memTotalReal}` et vaut un scalaire ; un `Walk` nommé `cpu` donne `{cpu}`, un vecteur d'une entrée par ligne.
+Le `name` est le nom de la macro sous laquelle la valeur devient utilisable dans `compute`. Un `Get` nommé `memTotalReal` s'y référence par `{memTotalReal}` et vaut un scalaire ; un `Walk` nommé `cpu` donne `{cpu}`, un vecteur d'une entrée par ligne.
 
 ```json
 {
