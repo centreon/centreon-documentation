@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+> **Warning important information:** We have fixed a general plugins issue that was causing empty `OK:`; these will now be correctly treated as `UNKNOWN`.
+
 ### September
 
 <Tabs groupId="sync">
