@@ -534,7 +534,7 @@ This indicator gathers CPU and memory usage per pod (from the `metrics.k8s.io`
 API), compared to the resources requested by that pod's containers. It
 requires `metrics-server` to be installed and reachable in the cluster.
 
-Using Kubernetes command line tool, it could look like the following:
+Using the Kubernetes command line tool, it could look like the following:
 
 ```shell
 kubectl top pod web-1 --namespace production --containers
