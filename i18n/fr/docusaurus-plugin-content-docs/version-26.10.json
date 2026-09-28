@@ -346,7 +346,7 @@
   "sidebar.docs.category.Pollers in containers": {
     "message": "Collecteurs en conteneurs",
     "description": "The label for category Pollers in containers in sidebar docs"
-  }        
+  },        
   "sidebar.docs.category.Manual setup (advanced)": {
     "message": "Installation manuelle",
     "description": "The label for category Manual setup (advanced) in sidebar docs"
