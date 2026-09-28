@@ -29,9 +29,7 @@ Le connecteur apporte les modèles de service suivants
 |:-------|:--------------------------------------|:----------------------------------------------------------|
 | Cpu    | OS-Linux-Cpu-SNMP-Rs-custom           | Contrôle du taux d'utilisation du CPU de la machine       |
 | Memory | OS-Linux-Memory-SNMP-Rs-custom        | Contrôle l'utilisation de la mémoire vive (RAM)           |
-| Memory | OS-Linux-Memory-64bits-SNMP-Rs-custom | Contrôle l'utilisation de la mémoire vive (RAM)           |
 | Swap   | OS-Linux-Swap-SNMP-Rs-custom          | Contrôle du taux d'utilisation de la mémoire virtuelle    |
-| Swap   | OS-Linux-Swap-64bits-SNMP-Rs-custom   | Contrôle du taux d'utilisation de la swap                 |
 | Uptime | OS-Linux-Uptime-SNMP-Rs-custom        | Durée depuis laquelle l'hôte fonctionne sans interruption |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Linux-SNMP-Rs-custom** est utilisé.
@@ -42,11 +40,9 @@ Le connecteur apporte les modèles de service suivants
 | Alias           | Modèle de service                       | Description                                                                                                                            |
 |:----------------|:----------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|
 | Disk-Global     | OS-Linux-Disk-Global-SNMP-Rs-custom     | Contrôle du taux d'espace libre disponible des disques                                                                                 |
-| Memory          | OS-Linux-Memory-SNMP-Rs-custom          | Contrôle l'utilisation de la mémoire vive (RAM)                                                                                        |
-| Memory          | OS-Linux-Memory-64bits-SNMP-Rs-custom   | Contrôle l'utilisation de la mémoire vive (RAM)                                                                                        |
+| Memory          | OS-Linux-Memory-64bits-SNMP-Rs-custom   | Contrôle l'utilisation de la mémoire vive (RAM) lorsque la taille dépasse 4TB                                                                                       |
 | Process-Generic | OS-Linux-Process-Generic-SNMP-Rs-custom | Contrôle permettant de vérifier que les processus Windows sont démarrés et de surveiller leur utilisation de la mémoire vive et du CPU |
-| Swap            | OS-Linux-Swap-SNMP-Rs-custom            | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                 |
-| Swap            | OS-Linux-Swap-64bits-SNMP-Rs-custom     | Contrôle du taux d'utilisation de la swap                                                                                              |
+| Swap            | OS-Linux-Swap-64bits-SNMP-Rs-custom     | Contrôle du taux d'utilisation de la swap lorsque la taille dépasse 4TB                                                                                             |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 

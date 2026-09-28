@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                      | Service Description                                  |
 |:--------------|:--------------------------------------|:-----------------------------------------------------|
-| Cpu           | OS-Linux-Cpu-SNMP-Rs-custom           | Check the rate of utilization of CPU for the machine |
+| Cpu           | OS-Linux-Cpu-SNMP-Rs-custom           | Check CPU utilization rate for the machine |
 | Memory        | OS-Linux-Memory-SNMP-Rs-custom        | Monitor the memory (RAM) usage                       |
 | Swap          | OS-Linux-Swap-SNMP-Rs-custom          | Check the swap usage   |
 | Uptime        | OS-Linux-Uptime-SNMP-Rs-custom        | Time since the host has been running                 |
