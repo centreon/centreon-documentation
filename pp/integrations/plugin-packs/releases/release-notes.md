@@ -26,20 +26,20 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Azure Load Balancer**](../procedures/cloud-azure-network-loadbalancer.md) - added `tags` attribute to **host discovery**.
-- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - added new mode **pod-usage** and **service discovery rule** associated.
-- [**Qnap SNMP**](../procedures/hardware-storage-qnap-snmp.md) - enhanced error message when oids return `undef` in **hardware** mode. 
-- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - `centreon_plugins.exe` now supports curl http backend.
-- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - `centreon_plugins.exe` now supports curl http backend.
-- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - `centreon_plugins.exe` now supports curl http backend.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - added new **pod-usage** mode and the associated service discovery rule.
+- [**Qnap SNMP**](../procedures/hardware-storage-qnap-snmp.md) - enhanced the error message dipslayed when OIDs return `undef` in **hardware** mode. 
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Aviat Networks SNMP**](../procedures/network-aviat-snmp.md) - fixed connector pointing at an unexisting version of the plugin on debian13.
+- [**Aviat Networks SNMP**](../procedures/network-aviat-snmp.md) - "Fixed connector referencing a plugin version that doesn't exist on Debian 13.
 - [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - fixed qwinsta parsing fails with specific languages in **sessions** mode.
 - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - fixed qwinsta parsing fails with specific languages in **sessions** mode.
 - [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - fixed qwinsta parsing fails with specific languages in **sessions** mode.
-- [**HP Ilo Rest API**](../procedures/hardware-servers-hp-ilo-restapi.md) - removed perl warnings when running the command in some modes.
+- [**HP Ilo Rest API**](../procedures/hardware-servers-hp-ilo-restapi.md) - removed perl warnings displayed when running the command in some modes.
 
 </TabItem>
 </Tabs>
