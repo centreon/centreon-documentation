@@ -9,6 +9,41 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+### Septembre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Generic SNMP (Rust)**](../procedures/applications-protocol-snmp-rs.md) - Initial release (experimental).
+- [**Linux SNMP (Rust)**](../procedures/operatingsystems-linux-snmp-rs.md) - Initial release (experimental).
+- [**Vates Pool REST API**](../procedures/applications-virtualization-vates-pool-restapi.md) - Initial release.
+- [**Vates VM REST API**](../procedures/applications-virtualization-vates-vm-restapi.md) - Initial release.
+- [**Vates XCPng Host REST API**](../procedures/applications-virtualization-vates-host-restapi.md) - Initial release.
+- [**Vates Xen Orchestra REST API**](../procedures/applications-virtualization-vates-xenorchestra-restapi.md) - Initial release.
+- [**Windows SNMP (Rust)**](../procedures/operatingsystems-windows-snmp-rs.md) - Initial release (experimental).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Azure Load Balancer**](../procedures/cloud-azure-network-loadbalancer.md) - Added `tags` attribute to **host discovery**.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added new **pod-usage** mode and the associated service discovery rule.
+- [**Qnap SNMP**](../procedures/hardware-storage-qnap-snmp.md) - Enhanced the error message dipslayed when OIDs return `undef` in **hardware** mode. 
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Aviat Networks SNMP**](../procedures/network-aviat-snmp.md) - Fixed connector referencing a plugin version that doesn't exist on Debian 13.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [**HP Ilo Rest API**](../procedures/hardware-servers-hp-ilo-restapi.md) - Removed perl warnings displayed when running the command in some modes.
+
+</TabItem>
+</Tabs>
+
 ### Août
 
 <Tabs groupId="sync">
