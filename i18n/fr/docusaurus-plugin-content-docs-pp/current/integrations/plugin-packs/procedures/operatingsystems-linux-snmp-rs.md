@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-linux-snmp-rs
 title: Linux SNMP (Rust)
+description: Supervisez vos serveurs Linux via SNMP. Expérimental : plugin Rust en beta
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
