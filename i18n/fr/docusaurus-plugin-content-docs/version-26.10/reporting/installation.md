@@ -873,7 +873,7 @@ apt install centreon-bi-reporting-server
 </TabItem>
 </Tabs>
 
-Assurez-vous qu'une version de Java 17 (ou 18) est installée.
+Assurez-vous qu'une version de Java 25 est installée.
    
    - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
    
@@ -881,9 +881,9 @@ Assurez-vous qu'une version de Java 17 (ou 18) est installée.
    java -version
    ```
    
-   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+   - Pour une mise à jour de Java en version 25, allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java25).
    
-   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 25 :
    
    ```shell
    sudo update-alternatives --config java
