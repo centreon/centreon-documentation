@@ -26,7 +26,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                                  | Service Description                                                                |
 |:--------------|:--------------------------------------------------|:-----------------------------------------------------------------------------------|
-| Vm-Status     | Virt-Vates-Xen-Orchestra-Vm-Status-Restapi-custom | Monitor the number of VM in each state (running, suspended, halted, paused, total) |
+| Vm-Status     | Virt-Vates-Xen-Orchestra-Vm-Status-Restapi-custom | Monitor the number of VMs in each state (running, suspended, halted, paused, total) |
 
 > The services listed above are created automatically when the **Virt-Vates-Xenorchestra-Restapi-custom** host template is used.
 
@@ -35,7 +35,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias      | Service Template                                           | Service Description                                     | Discovery |
 |:-------------------|:-----------------------------------------------------------|:--------------------------------------------------------|:---------:|
-| Storage-Repository | Virt-Vates-Xen-Orchestra-Storage-Repository-Restapi-custom | Monitor one or multiples Storage Repository space usage |     X     |
+| Storage-Repository | Virt-Vates-Xen-Orchestra-Storage-Repository-Restapi-custom | Monitor one or multiple Storage Repositories space usage |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -89,7 +89,7 @@ To create a read-only user you can use the `--create-xoa-read-only-user` option 
 /usr/lib/centreon/plugins/centreon_vates_xen_orchestra_restapi.pl --plugin='apps::virtualization::vates::xenorchestra::plugin' --mode='list-storage-repository' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
 ```
 
-you can use `--insecure` if your XOA don't have public signed certificate, and `--debug` to see every HTTP call made.
+You can use `--insecure` if your XOA doesn't have a public signed certificate, and `--debug` to see every HTTP call made.
 
 If the automated creation does not work, you can manually create an user from the web interface instead.
 

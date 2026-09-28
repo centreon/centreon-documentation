@@ -27,7 +27,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias     | Modèle de service                                 | Description                                                                                     |
 |:----------|:--------------------------------------------------|:------------------------------------------------------------------------------------------------|
-| Vm-Status | Virt-Vates-Xen-Orchestra-Vm-Status-Restapi-custom | Supervision du nombre de VM dans chaque états (running, suspended, halted, paused, total) Vates |
+| Vm-Status | Virt-Vates-Xen-Orchestra-Vm-Status-Restapi-custom | Supervision du nombre de VMs dans chaque état (running, suspended, halted, paused, total) |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Vates-Xenorchestra-Restapi-custom** est utilisé.
 
@@ -36,7 +36,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias              | Modèle de service                                          | Description                                                        | Découverte |
 |:-------------------|:-----------------------------------------------------------|:-------------------------------------------------------------------|:----------:|
-| Storage-Repository | Virt-Vates-Xen-Orchestra-Storage-Repository-Restapi-custom | supervision de l'utilisation d'un ou plusieurs storage repository | X          |
+| Storage-Repository | Virt-Vates-Xen-Orchestra-Storage-Repository-Restapi-custom | Supervision de l'utilisation d'un ou plusieurs storage repository | X          |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -90,7 +90,7 @@ Pour créer un utilisateur ayant seulement les droits de lecture, vous pouvez ut
 /usr/lib/centreon/plugins/centreon_vates_xen_orchestra_restapi.pl --plugin='apps::virtualization::vates::xenorchestra::plugin' --mode='list-storage-repository' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
 ```
 
-Vous pouvez utiliser `--insecure` si vous n'avez pas de certificats reconnus, et `--debug` pour observer les appels api exacts effectués.
+Vous pouvez utiliser `--insecure` si vous n'avez pas de certificats reconnus, et `--debug` pour observer les appels API exacts effectués.
 
 Si la création automatisée ne fonctionne pas, vous pouvez créer un utilisateur via l'interface web à la place.
 
