@@ -1,9 +1,12 @@
 ---
 id: operatingsystems-windows-snmp-rs
 title: Windows SNMP (Rust)
+description: Monitor Windows servers via SNMP. Experimental: Rust plugin in beta
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+> The centreon-plugin-rust-snmp 20260900 Rust plugin is currently in beta.
 
 ## Connector dependencies
 
@@ -26,7 +29,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Service Alias | Service Template                      | Service Description                                  |
 |:--------------|:--------------------------------------|:-----------------------------------------------------|
-| Cpu           | OS-Windows-Cpu-SNMP-Rs-custom         | Check the rate of utilization of CPU for the machine |
+| Cpu           | OS-Windows-Cpu-SNMP-Rs-custom         | Check the rate of CPU utilization for the machine |
 | Disk-Global   | OS-Windows-Disk-Global-SNMP-Rs-custom | Check the rate of free space on disks                |
 | Memory        | OS-Windows-Memory-SNMP-Rs-custom      | Monitor the memory (RAM) usage                       |
 | Swap          | OS-Windows-Swap-SNMP-Rs-custom        | Check the rate of the utilization of virtual memory  |
@@ -323,12 +326,12 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                                                                                                     | Linked service template                                              |
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/cpu.json.pm)]                   | OS-Windows-Cpu-SNMP-Rs-custom                                        |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/operatingsystems-windows-snmp/memory.json.pm)]          | OS-Windows-Memory-SNMP-Rs-custom<br />OS-Windows-Swap-SNMP-Rs-custom |
-| processcount [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/processcount.json.pm)] | OS-Windows-Process-Generic-SNMP-Rs-custom                            |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/storage.json.pm)]           | OS-Windows-Disk-Global-SNMP-Rs-custom                                |
-| sysdesc [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/sysdesc.json.pm)]           | Not used in this Monitoring Connector                                |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/uptime.json.pm)]             | OS-Windows-Uptime-SNMP-Rs-custom                                     |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/cpu.json)]                   | OS-Windows-Cpu-SNMP-Rs-custom                                        |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/operatingsystems-windows-snmp/memory.json)]          | OS-Windows-Memory-SNMP-Rs-custom<br />OS-Windows-Swap-SNMP-Rs-custom |
+| processcount [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/processcount.json)] | OS-Windows-Process-Generic-SNMP-Rs-custom                            |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/storage.json)]           | OS-Windows-Disk-Global-SNMP-Rs-custom                                |
+| sysdesc [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/sysdesc.json)]           | Non utilisé dans ce connecteur de supervision                        |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/uptime.json)]             | OS-Windows-Uptime-SNMP-Rs-custom                                     |
 
 ### Available options
 
