@@ -32,7 +32,7 @@ The connector brings the following service templates (sorted by the host templat
 | Cpu           | OS-Windows-Cpu-SNMP-Rs-custom         | Check the rate of CPU utilization for the machine |
 | Disk-Global   | OS-Windows-Disk-Global-SNMP-Rs-custom | Check the rate of free space on disks                |
 | Memory        | OS-Windows-Memory-SNMP-Rs-custom      | Monitor the memory (RAM) usage                       |
-| Swap          | OS-Windows-Swap-SNMP-Rs-custom        | Check the rate of the utilization of virtual memory  |
+| Swap          | OS-Windows-Swap-SNMP-Rs-custom        | Check the virtual memory utilization rate  |
 | Uptime        | OS-Windows-Uptime-SNMP-Rs-custom      | Time since the host has been running                 |
 
 > The services listed above are created automatically when the **OS-Windows-SNMP-Rs-custom** host template is used.
