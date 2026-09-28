@@ -75,7 +75,7 @@ To create a read-only user you can use the `--create-xoa-read-only-user` option 
 /usr/lib/centreon/plugins/centreon_vates_vm_restapi.pl --plugin='apps::virtualization::vates::vm::plugin' --mode='discovery' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
 ```
 
-you can use `--insecure` if your XOA don't have public signed certificate, and `--debug` to see every HTTP call made.
+You can use `--insecure` if your XOA doesn't have a public signed certificate, and `--debug` to see every HTTP call made.
 
 If the automated creation does not work, you can manually create an user from the web interface instead.
 
@@ -200,8 +200,8 @@ yum install centreon-plugin-Virtualization-Vates-Vm-Restapi
 
 | Macro            | Description                                                                                                                                      | Default value | Mandatory |
 |:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| CPUWARNINGUSAGE  | Threshold warning for the CPU usage percentage                                                                                                   |               |           |
-| CPUCRITICALUSAGE | Threshold critical for the CPU usage percentage                                                                                                  |               |           |
+| CPUWARNINGUSAGE  | Warning threshold for the CPU usage percentage                                                                                                   |               |           |
+| CPUCRITICALUSAGE | Critical threshold for the CPU usage percentage                                                                                                  |               |           |
 | EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
@@ -209,12 +209,12 @@ yum install centreon-plugin-Virtualization-Vates-Vm-Restapi
 
 | Macro                       | Description                                                                                                                                      | Default value | Mandatory |
 |:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNING_MEMORY_TOTAL_BYTES  | Threshold warning for the total memory, in bytes                                                                                                 |               |           |
-| CRITICAL_MEMORY_TOTAL_BYTES | Threshold critical for the total memory, in bytes                                                                                                |               |           |
-| WARNING_MEMORY_USAGE_BYTES  | Threshold warning for the memory used, in bytes                                                                                                  |               |           |
-| CRITICAL_MEMORY_USAGE_BYTES | Threshold critical for the memory used, in bytes                                                                                                 |               |           |
-| WARNING_MEMORY_USAGE_PRCT   | Threshold warning for the memory usage percentage. Default: 80                                                                                   | 80            |           |
-| CRITICAL_MEMORY_USAGE_PRCT  | Threshold critical for the memory usage percentage. Default: 95                                                                                  | 95            |           |
+| WARNING_MEMORY_TOTAL_BYTES  | Warning threshold for the total memory, in bytes                                                                                                 |               |           |
+| CRITICAL_MEMORY_TOTAL_BYTES | Critical threshold for the total memory, in bytes                                                                                                |               |           |
+| WARNING_MEMORY_USAGE_BYTES  | Warning threshold for the memory used, in bytes                                                                                                  |               |           |
+| CRITICAL_MEMORY_USAGE_BYTES | Critical threshold for the memory used, in bytes                                                                                                 |               |           |
+| WARNING_MEMORY_USAGE_PRCT   | Warning threshold for the memory usage percentage. Default: 80                                                                                   | 80            |           |
+| CRITICAL_MEMORY_USAGE_PRCT  | Critical threshold for the memory usage percentage. Default: 95                                                                                  | 95            |           |
 | EXTRA_OPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
@@ -372,12 +372,12 @@ All available options for each service template are listed below:
 |:------------------------------|:-------------------------------------------------------------------------|
 | --vm-uuid                     | Identify the virtual machine by its exact uuid.                          |
 | --vm-name                     | Identify the virtual machine by its name (only one machine is expected). |
-| --warning-memory-usage-prct   | Threshold warning for the memory usage percentage. Default: 80           |
-| --critical-memory-usage-prct  | Threshold critical for the memory usage percentage. Default: 95          |
-| --warning-memory-usage-bytes  | Threshold warning for the memory used, in bytes.                         |
-| --critical-memory-usage-bytes | Threshold critical for the memory used, in bytes.                        |
-| --warning-memory-total-bytes  | Threshold warning for the total memory, in bytes.                        |
-| --critical-memory-total-bytes | Threshold critical for the total memory, in bytes.                       |
+| --warning-memory-usage-prct   | Warning threshold for the memory usage percentage. Default: 80           |
+| --critical-memory-usage-prct  | Critical threshold for the memory usage percentage. Default: 95          |
+| --warning-memory-usage-bytes  | Warning threshold for the memory used, in bytes.                         |
+| --critical-memory-usage-bytes | Critical threshold for the memory used, in bytes.                        |
+| --warning-memory-total-bytes  | Warning threshold for the total memory, in bytes.                        |
+| --critical-memory-total-bytes | Critical threshold for the total memory, in bytes.                       |
 
 </TabItem>
 </Tabs>
