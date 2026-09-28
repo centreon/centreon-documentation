@@ -355,16 +355,16 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                                                                                                     | Linked service template                 |
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/applications-protocol-snmp/cpu.json.pm)]                   | OS-Linux-Cpu-SNMP-Rs-custom             |
-| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/operatingsystems-linux-snmp/inodes.json.pm)]            | Not used in this Monitoring Connector   |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/operatingsystems-linux-snmp/memory.json.pm)]            | OS-Linux-Memory-SNMP-Rs-custom          |
-| memory-64 [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/operatingsystems-linux-snmp/memory-64.json.pm)]      | OS-Linux-Memory-64bits-SNMP-Rs-custom   |
-| processcount [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/applications-protocol-snmp/processcount.json.pm)] | OS-Linux-Process-Generic-SNMP-Rs-custom |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/applications-protocol-snmp/storage.json.pm)]           | OS-Linux-Disk-Global-SNMP-Rs-custom     |
-| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/operatingsystems-linux-snmp/swap.json.pm)]                | OS-Linux-Swap-SNMP-Rs-custom            |
-| swap-64 [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/operatingsystems-linux-snmp/swap-64.json.pm)]          | OS-Linux-Swap-64bits-SNMP-Rs-custom     |
-| sysdesc [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/applications-protocol-snmp/sysdesc.json.pm)]           | Not used in this Monitoring Connector   |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/rust-plugins/rs-collections/applications-protocol-snmp/uptime.json.pm)]             | OS-Linux-Uptime-SNMP-Rs-custom          |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/cpu.json)]                   | OS-Linux-Cpu-SNMP-Rs-custom                   |
+| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/operatingsystems-linux-snmp/inodes.json)]            | Non utilisé dans ce connecteur de supervision |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/operatingsystems-linux-snmp/memory.json)]            | OS-Linux-Memory-SNMP-Rs-custom                |
+| memory-64 [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/operatingsystems-linux-snmp/memory-64.json)]      | OS-Linux-Memory-64bits-SNMP-Rs-custom         |
+| processcount [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/processcount.json)] | OS-Linux-Process-Generic-SNMP-Rs-custom       |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/storage.json)]           | OS-Linux-Disk-Global-SNMP-Rs-custom           |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/operatingsystems-linux-snmp/swap.json)]                | OS-Linux-Swap-SNMP-Rs-custom                  |
+| swap-64 [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/operatingsystems-linux-snmp/swap-64.json)]          | OS-Linux-Swap-64bits-SNMP-Rs-custom           |
+| sysdesc [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/sysdesc.json)]           | Non utilisé dans ce connecteur de supervision |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/uptime.json)]             | OS-Linux-Uptime-SNMP-Rs-custom                |
 
 ### Available options
 
