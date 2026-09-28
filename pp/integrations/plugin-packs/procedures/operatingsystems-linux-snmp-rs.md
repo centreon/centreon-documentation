@@ -11,7 +11,7 @@ description: Monitor Linux servers via SNMP (experimental Rust plugin)
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> The current centreon-plugin-rust-snmp 20260900 Rust plugin is currently in beta.
+> The centreon-plugin-rust-snmp 20260900 Rust plugin is currently in beta.
 
 ## Connector dependencies
 
