@@ -288,8 +288,10 @@ html .theme-code-block {
 .theme-doc-markdown.markdown {
   font-size: 18px;
 }
+/* Code blocks follow the text size (and the reader's text size setting):
+   see --ifm-code-font-size in the "code" section at the end of this file */
 .theme-doc-markdown.markdown pre code {
-  font-size: 15px;
+  font-size: inherit;
 }
 .theme-doc-markdown.markdown a {
   text-decoration: none;
@@ -825,4 +827,12 @@ html:root {
    src/theme/DocSidebar/Desktop/Content). */
 html.docs-wrapper .main-wrapper main {
   min-height: calc(100vh - var(--ifm-navbar-height));
+}
+
+
+/* CODE: code blocks and inline code at about 88% of the text size (13.6px
+   for 15.5px text), so that more lines fit without horizontal scrolling */
+html:root {
+  --ifm-code-font-size: 88%;
+  --ifm-pre-line-height: 1.55;
 }
