@@ -74,6 +74,7 @@ You need to install the Remi repo and the switch the PHP stream from version {pr
 
 ```shell
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
+rpm -e --nodeps php-sourceguardian-loader
 dnf module switch-to php:remi-8.4/common -y
 ```
 

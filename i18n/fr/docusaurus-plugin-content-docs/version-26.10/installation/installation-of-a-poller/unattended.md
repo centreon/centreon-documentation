@@ -1,82 +1,81 @@
 ---
 id: unattended-install-poller
 title: Installation silencieuse d'un collecteur
-description: "Installer rapidement un collecteur à l'aide d'un script"
+description: "Installer rapidement un collecteur à l'aide d'un script d'installation silencieuse"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Pour installer un collecteur plus rapidement, vous pouvez utiliser un script. Le script exécutera les étapes d'installation proprement dites. Vous devrez ensuite enregistrer le collecteur et le rattacher au serveur central ou au serveur distant.
+Pour installer un collecteur rapidement, vous pouvez utiliser un script.
 
-## Procédure d'installation
+C'est utile lorsque vous devez installer plusieurs collecteurs avec des paramètres identiques, lorsque vous installez depuis un outil de déploiement ou une chaîne d'intégration continue, ou lorsque vous n'avez pas d'accès interactif à la machine cible.
+
+Le script exécutera toutes les étapes de l'installation. Vous devrez ensuite [rattacher le collecteur au serveur central ou à un serveur distant](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
+
+## Prérequis
 
 1. Mettez votre système à jour :
 
-<Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
+   <Tabs groupId="os">
+   <TabItem value="RHEL 9" label="RHEL 9">
 
-```shell
-dnf update
-subscription-manager register --username my_username --password my_password --auto-attach --force
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
+   ```shell
+   dnf update
+   subscription-manager register --username my_username --password my_password --auto-attach --force
+   subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+   ```
 
-> Remplacez **my_username** et **my_password** par les identifiants de votre compte RedHat.
+   Remplacez **my_username** et **my_password** par les identifiants de votre compte Red Hat.
 
-</TabItem>
+   </TabItem>
+   <TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+   ```shell
+   dnf update
+   ```
 
-```shell
-dnf update
-```
+   </TabItem>
+   <TabItem value="RHEL 10" label="RHEL 10">
 
-</TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
+   ```shell
+   dnf update
+   subscription-manager register --username my_username --password my_password --auto-attach --force
+   subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
+   ```
 
-```shell
-dnf update
-subscription-manager register --username my_username --password my_password --auto-attach --force
-subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
-```
+    Remplacez **my_username** et **my_password** par les identifiants de votre compte Red Hat.
 
-</TabItem>
-<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
+   </TabItem>
+   <TabItem value="Alma / Oracle Linux 10" label="Alma / Oracle Linux 10">
 
-```shell
-dnf update
-```
+   ```shell
+   dnf update
+   ```
 
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+   </TabItem>
+   <TabItem value="Debian 13" label="Debian 13">
 
-```shell
-apt update && apt upgrade
-```
+   ```shell
+   apt update && apt upgrade
+   ```
 
-</TabItem>
-</Tabs>
+   </TabItem>
+   </Tabs>
 
-2. Téléchargez le script à l'aide de la commande suivante :
+2. Téléchargez le script :
 
-```shell
-curl -L https://download.centreon.com/26.10/unattended.sh --output /tmp/unattended.sh
-```
+   ```shell
+   curl -L https://download.centreon.com/26.10/unattended.sh --output /tmp/unattended.sh
+   ```
 
-3. Exécutez la commande suivante en **root** :
+## Procédure d'installation
 
-```shell
-bash /tmp/unattended.sh install -t poller -v 26.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
-```
+1. Exécutez la commande suivante en tant que **root** :
 
-  Vous obtiendrez un fichier de log complet avec toutes les erreurs dans votre répertoire **tmp**, fichier nommé **unattended(date).log**.
+   ```shell
+   bash /tmp/unattended.sh install -t poller -v 26.10 -r stable -l DEBUG  2>&1
+   ```
 
-4. Une fois le script exécuté, suivez les [étapes 3 à 5 de la procédure d'installation d'un collecteur](using-packages.md#étape-3--enregistrer-le-serveur).
+   Le script écrit un journal complet, comprenant les éventuelles erreurs, dans `/var/log/centreon-unattended-<date>.log`.
 
-## Aide
-
-Pour obtenir de l'aide sur le script, utilisez la commande suivante :
-
-```shell
-bash unattended.sh -h
-```
+2. Une fois le script exécuté, [rattachez le collecteur au serveur central ou à un serveur distant](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).

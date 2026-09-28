@@ -1,0 +1,148 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Prérequis
+
+Après avoir installé votre serveur hôte, mettez à jour votre système d'exploitation à l'aide de la
+commande suivante :
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf update
+```
+
+### Configuration supplémentaire pour EL 9
+
+Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
+```
+
+Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf update
+```
+
+### Configuration supplémentaire pour EL 10
+Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
+
+```shell
+dnf install glibc-langpack-fr
+dnf install glibc-langpack-es
+dnf install glibc-langpack-pt
+dnf install glibc-langpack-de
+```
+
+Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
+
+```shell
+locale -a
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+apt update && apt upgrade
+```
+
+</TabItem>
+</Tabs>
+
+> Acceptez toutes les clés GPG proposées et redémarrez votre serveur si une mise à jour du noyau est proposée.
+
+## Étape 1 : Pré-installation
+
+### Désactiver SELinux
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier **/etc/selinux/config** et remplacez
+**enforcing** par **disabled**, ou bien exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le démarrage du système, effectuez une vérification rapide de l'état de SELinux :
+
+```shell
+getenforce
+```
+
+Vous devriez obtenir ce résultat :
+
+```shell
+Disabled
+```
+
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Pendant l'installation, SELinux doit être désactivé. Éditez le fichier **/etc/selinux/config** et remplacez
+**enforcing** par **disabled**, ou bien exécutez la commande suivante :
+
+```shell
+sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
+```
+
+Redémarrez votre système d'exploitation pour prendre en compte le changement.
+
+```shell
+reboot
+```
+
+Après le démarrage du système, effectuez une vérification rapide de l'état de SELinux :
+
+```shell
+getenforce
+```
+
+Vous devriez obtenir ce résultat :
+
+```shell
+Disabled
+```
+
+> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+SELinux n'est pas installé sur Debian 13, continuez.
+
+</TabItem>
+</Tabs>
+
+### Configurer ou désactiver le pare-feu
+
+Si votre pare-feu est actif, ajoutez les [règles de pare-feu](../administration/secure-platform.md#activer-firewalld).
+Vous pouvez également le désactiver le temps de l'installation en exécutant les commandes suivantes :
+
+```shell
+systemctl stop firewalld
+systemctl disable firewalld
+```

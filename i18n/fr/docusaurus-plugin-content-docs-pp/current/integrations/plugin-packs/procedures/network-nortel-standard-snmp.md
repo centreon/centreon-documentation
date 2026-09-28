@@ -10,12 +10,12 @@ import TabItem from '@theme/TabItem';
 
 Ce connecteur a été conçu pour être compatible avec les produits suivants.
 
-| Produit     | Modèles       | Versions |
-| ----------- | ------------- | -------- |
-| Extreme Networks | 4950GTS-PWR+ | - |
-| Extreme Networks | 5520-24T | - |
-| Extreme Networks | 7520-48Y-8C | - |
-| Extreme Networks | 7520-48YE-8CE | - |
+| Produit          | Modèles       | Versions |
+|------------------|---------------|----------|
+| Extreme Networks | 4950GTS-PWR+  | -        |
+| Extreme Networks | 5520-24T      | -        |
+| Extreme Networks | 7520-48Y-8C   | -        |
+| Extreme Networks | 7520-48YE-8CE | -        |
 
 ## Contenu du pack
 
@@ -43,14 +43,14 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                      | Modèle de service                                          | Description                                                                        | Découverte |
-|:---------------------------|:-----------------------------------------------------------|:-----------------------------------------------------------------------------------|:----------:|
+| Alias                      | Modèle de service                                          | Description                                                                         | Découverte |
+|:---------------------------|:-----------------------------------------------------------|:------------------------------------------------------------------------------------|:----------:|
 | Packet-Errors-Generic-Id   | Net-Nortel-Standard-Packet-Errors-Generic-Id-SNMP-custom   | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau         |            |
 | Packet-Errors-Generic-Name | Net-Nortel-Standard-Packet-Errors-Generic-Name-SNMP-custom | Contrôle le pourcentage de paquets en erreur/écartés d'une interface réseau         |            |
-| Packet-Errors-Global       | Net-Nortel-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau | X          |
-| Traffic-Generic-Id         | Net-Nortel-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                                  |            |
-| Traffic-Generic-Name       | Net-Nortel-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                  |            |
-| Traffic-Global             | Net-Nortel-Standard-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau                           | X          |
+| Packet-Errors-Global       | Net-Nortel-Standard-Packet-Errors-Global-SNMP-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau |     X      |
+| Traffic-Generic-Id         | Net-Nortel-Standard-Traffic-Generic-Id-SNMP-custom         | Contrôle le trafic réseau d'une interface réseau                                    |            |
+| Traffic-Generic-Name       | Net-Nortel-Standard-Traffic-Generic-Name-SNMP-custom       | Contrôle le trafic réseau d'une interface réseau                                    |            |
+| Traffic-Global             | Net-Nortel-Standard-Traffic-Global-SNMP-custom             | Contrôle le trafic réseau de plusieurs interfaces réseau                            |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -71,10 +71,10 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de services
 
-| Nom de la règle                             | Description                                                             |
-|:--------------------------------------------|:------------------------------------------------------------------------|
-| Net-Nortel-Standard-SNMP-Packet-Errors-Name | Découvre les interfaces réseau et supervise les paquets erronés et rejetés   |
-| Net-Nortel-Standard-SNMP-Traffic-Name       | Découvre les interfaces réseau et supervise le statut et l'utilisation |
+| Nom de la règle                             | Description                                                                |
+|:--------------------------------------------|:---------------------------------------------------------------------------|
+| Net-Nortel-Standard-SNMP-Packet-Errors-Name | Découvre les interfaces réseau et supervise les paquets erronés et rejetés |
+| Net-Nortel-Standard-SNMP-Traffic-Name       | Découvre les interfaces réseau et supervise le statut et l'utilisation     |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -264,8 +264,8 @@ yum install centreon-plugin-Network-Nortel-Standard-Snmp
 > Si vous utilisez SNMP en version 3, vous devez configurer les paramètres spécifiques associés via la macro **SNMPEXTRAOPTIONS**.
 > Plus d'informations dans la section [Troubleshooting SNMP](../getting-started/how-to-guides/troubleshooting-plugins.md#mapping-des-options-snmpv3).
 
-| Macro            | Description                                                                                          | Valeur par défaut | Obligatoire |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| Macro            | Description                                                                                                                                        | Valeur par défaut | Obligatoire |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SNMPEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 4. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -278,139 +278,139 @@ yum install centreon-plugin-Network-Nortel-Standard-Snmp
 <Tabs groupId="sync">
 <TabItem value="Cpu" label="Cpu">
 
-| Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING10M    | Thresholds                                                                                         |                   |             |
-| CRITICAL10M   | Thresholds                                                                                         |                   |             |
-| WARNING1H     | Thresholds                                                                                         |                   |             |
-| CRITICAL1H    | Thresholds                                                                                         |                   |             |
-| WARNING1M     | Thresholds                                                                                         |                   |             |
-| CRITICAL1M    | Thresholds                                                                                         |                   |             |
-| WARNING5M     | Thresholds                                                                                         |                   |             |
-| CRITICAL5M    | Thresholds                                                                                         |                   |             |
-| WARNINGTOTAL  | Thresholds                                                                                         |                   |             |
-| CRITICALTOTAL | Thresholds                                                                                         |                   |             |
+| Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING10M    | Thresholds                                                                                                                                       |                   |             |
+| CRITICAL10M   | Thresholds                                                                                                                                       |                   |             |
+| WARNING1H     | Thresholds                                                                                                                                       |                   |             |
+| CRITICAL1H    | Thresholds                                                                                                                                       |                   |             |
+| WARNING1M     | Thresholds                                                                                                                                       |                   |             |
+| CRITICAL1M    | Thresholds                                                                                                                                       |                   |             |
+| WARNING5M     | Thresholds                                                                                                                                       |                   |             |
+| CRITICAL5M    | Thresholds                                                                                                                                       |                   |             |
+| WARNINGTOTAL  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALTOTAL | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'card', 'entity', 'led'            | .*                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| COMPONENT    | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'card', 'entity', 'led', 'temperature'                                           | .*                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGUSAGE      | Thresholds                                                                                         |                   |             |
-| CRITICALUSAGE     | Thresholds                                                                                         |                   |             |
-| WARNINGUSAGEFREE  | Thresholds                                                                                         |                   |             |
-| CRITICALUSAGEFREE | Thresholds                                                                                         |                   |             |
-| WARNINGUSAGEPRCT  | Thresholds                                                                                         | 80                |             |
-| CRITICALUSAGEPRCT | Thresholds                                                                                         | 90                |             |
+| Macro             | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNINGUSAGE      | Thresholds                                                                                                                                       |                   |             |
+| CRITICALUSAGE     | Thresholds                                                                                                                                       |                   |             |
+| WARNINGUSAGEFREE  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALUSAGEFREE | Thresholds                                                                                                                                       |                   |             |
+| WARNINGUSAGEPRCT  | Thresholds                                                                                                                                       | 80                |             |
+| CRITICALUSAGEPRCT | Thresholds                                                                                                                                       | 90                |             |
 | EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Packet-Errors-Generic-Id" label="Packet-Errors-Generic-Id">
 
-| Macro              | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID        | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')          |                   |             |
-| WARNINGINDISCARD   | Thresholds                                                                                         |                   |             |
-| CRITICALINDISCARD  | Thresholds                                                                                         |                   |             |
-| WARNINGINERROR     | Thresholds                                                                                         |                   |             |
-| CRITICALINERROR    | Thresholds                                                                                         |                   |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                         |                   |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                         |                   |             |
-| WARNINGOUTERROR    | Thresholds                                                                                         |                   |             |
-| CRITICALOUTERROR   | Thresholds                                                                                         |                   |             |
+| Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACEID        | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                        |                   |             |
+| WARNINGINDISCARD   | Thresholds                                                                                                                                       |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                       |                   |             |
+| WARNINGINERROR     | Thresholds                                                                                                                                       |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                       |                   |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                       |                   |             |
+| WARNINGOUTERROR    | Thresholds                                                                                                                                       |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Packet-Errors-Generic-Name" label="Packet-Errors-Generic-Name">
 
-| Macro              | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')          |                   |             |
-| WARNINGINDISCARD   | Thresholds                                                                                         |                   |             |
-| CRITICALINDISCARD  | Thresholds                                                                                         |                   |             |
-| WARNINGINERROR     | Thresholds                                                                                         |                   |             |
-| CRITICALINERROR    | Thresholds                                                                                         |                   |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                         |                   |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                         |                   |             |
-| WARNINGOUTERROR    | Thresholds                                                                                         |                   |             |
-| CRITICALOUTERROR   | Thresholds                                                                                         |                   |             |
+| Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACENAME      | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                        |                   |             |
+| WARNINGINDISCARD   | Thresholds                                                                                                                                       |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                       |                   |             |
+| WARNINGINERROR     | Thresholds                                                                                                                                       |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                       |                   |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                                                                       |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                       |                   |             |
+| WARNINGOUTERROR    | Thresholds                                                                                                                                       |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                       |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Packet-Errors-Global" label="Packet-Errors-Global">
 
-| Macro              | Description                                                                                                                                                                                                         | Valeur par défaut | Obligatoire |
-|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER             | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                           | .*                |             |
-| WARNINGINDISCARD   | Thresholds                                                                                                                                                                                                          |                   |             |
-| CRITICALINDISCARD  | Thresholds                                                                                                                                                                                                          |                   |             |
-| WARNINGINERROR     | Thresholds                                                                                                                                                                                                          |                   |             |
-| CRITICALINERROR    | Thresholds                                                                                                                                                                                                          |                   |             |
-| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                                                                          |                   |             |
-| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                                                          |                   |             |
-| WARNINGOUTERROR    | Thresholds                                                                                                                                                                                                          |                   |             |
-| CRITICALOUTERROR   | Thresholds                                                                                                                                                                                                          |                   |             |
+| Macro              | Description                                                                                                                                                                                                                     | Valeur par défaut | Obligatoire |
+|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER             | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                                                                                                       | .*                |             |
+| WARNINGINDISCARD   | Thresholds                                                                                                                                                                                                                      |                   |             |
+| CRITICALINDISCARD  | Thresholds                                                                                                                                                                                                                      |                   |             |
+| WARNINGINERROR     | Thresholds                                                                                                                                                                                                                      |                   |             |
+| CRITICALINERROR    | Thresholds                                                                                                                                                                                                                      |                   |             |
+| WARNINGOUTDISCARD  | Thresholds                                                                                                                                                                                                                      |                   |             |
+| CRITICALOUTDISCARD | Thresholds                                                                                                                                                                                                                      |                   |             |
+| WARNINGOUTERROR    | Thresholds                                                                                                                                                                                                                      |                   |             |
+| CRITICALOUTERROR   | Thresholds                                                                                                                                                                                                                      |                   |             |
 | CRITICALSTATUS     | Define the conditions to match for the status to be CRITICAL (default: '%\{admstatus\} eq "up" and %\{opstatus\} ne "up"'). You can use the following variables: %\{admstatus\}, %\{opstatus\}, %\{duplexstatus\}, %\{display\} |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                  | --verbose         |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                | --verbose         |             |
 
 </TabItem>
 <TabItem value="Stack" label="Stack">
 
-| Macro                | Description                                                                                                                                                                                                                | Valeur par défaut                                                    | Obligatoire |
-|:---------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:-----------:|
-| UNIT                 | Select the time unit for the performance data and thresholds.May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds                                                       | s                                                                    |             |
-| UNKNOWNUNITSTATUS    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{operState\}, %\{adminState\}, %\{serial\}                                                                                   |                                                                      |             |
-| WARNINGUNITDETECTED  | Thresholds                                                                                                                                                                                                                 |                                                                      |             |
-| CRITICALUNITDETECTED | Thresholds                                                                                                                                                                                                                 |                                                                      |             |
+| Macro                | Description                                                                                                                                                                                                                          | Valeur par défaut                                                    | Obligatoire |
+|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------|:-----------:|
+| UNIT                 | Select the time unit for the performance data and thresholds.May be 's' for seconds, 'm' for minutes, 'h' for hours, 'd' for days, 'w' for weeks. Default is seconds                                                                 | s                                                                    |             |
+| UNKNOWNUNITSTATUS    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{operState\}, %\{adminState\}, %\{serial\}                                                                                       |                                                                      |             |
+| WARNINGUNITDETECTED  | Thresholds                                                                                                                                                                                                                           |                                                                      |             |
+| CRITICALUNITDETECTED | Thresholds                                                                                                                                                                                                                           |                                                                      |             |
 | WARNINGUNITSTATUS    | Define the conditions to match for the status to be WARNING (default: '%\{adminState\} eq "enable" && %\{operState\} =~ /nonFatalErr\|warning/i'). You can use the following variables: %\{operState\}, %\{adminState\}, %\{serial\} | %\{adminState\} eq "enable" && %\{operState\} =~ /nonFatalErr\|warning/i |             |
 | CRITICALUNITSTATUS   | Define the conditions to match for the status to be CRITICAL (default: '%\{adminState\} eq "enable" && %\{operState\} =~ /fatalErr/i'). You can use the following variables: %\{operState\}, %\{adminState\}, %\{serial\}            | %\{adminState\} eq "enable" && %\{operState\} =~ /fatalErr/i             |             |
-| WARNINGUNITSTOTAL    | Thresholds                                                                                                                                                                                                                 |                                                                      |             |
-| CRITICALUNITSTOTAL   | Thresholds                                                                                                                                                                                                                 |                                                                      |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                         | --verbose                                                            |             |
+| WARNINGUNITSTOTAL    | Thresholds                                                                                                                                                                                                                           |                                                                      |             |
+| CRITICALUNITSTOTAL   | Thresholds                                                                                                                                                                                                                           |                                                                      |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                     | --verbose                                                            |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Id" label="Traffic-Generic-Id">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')          |                   |             |
-| WARNINGIN    | Thresholds                                                                                         | 80                |             |
-| CRITICALIN   | Thresholds                                                                                         | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                         | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                         | 90                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACEID  | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                        |                   |             |
+| WARNINGIN    | Thresholds                                                                                                                                       | 80                |             |
+| CRITICALIN   | Thresholds                                                                                                                                       | 90                |             |
+| WARNINGOUT   | Thresholds                                                                                                                                       | 80                |             |
+| CRITICALOUT  | Thresholds                                                                                                                                       | 90                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Generic-Name" label="Traffic-Generic-Name">
 
-| Macro         | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:--------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INTERFACENAME | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')          |                   |             |
-| WARNINGIN     | Thresholds                                                                                         | 80                |             |
-| CRITICALIN    | Thresholds                                                                                         | 90                |             |
-| WARNINGOUT    | Thresholds                                                                                         | 80                |             |
-| CRITICALOUT   | Thresholds                                                                                         | 90                |             |
+| Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| INTERFACENAME | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                        |                   |             |
+| WARNINGIN     | Thresholds                                                                                                                                       | 80                |             |
+| CRITICALIN    | Thresholds                                                                                                                                       | 90                |             |
+| WARNINGOUT    | Thresholds                                                                                                                                       | 80                |             |
+| CRITICALOUT   | Thresholds                                                                                                                                       | 90                |             |
 | EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Traffic-Global" label="Traffic-Global">
 
-| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
-|:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| FILTER       | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')          | .*                |             |
-| WARNINGIN    | Thresholds                                                                                         | 80                |             |
-| CRITICALIN   | Thresholds                                                                                         | 90                |             |
-| WARNINGOUT   | Thresholds                                                                                         | 80                |             |
-| CRITICALOUT  | Thresholds                                                                                         | 90                |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER       | Set the interface (number expected) example: 1,2,... (empty means 'check all interfaces')                                                        | .*                |             |
+| WARNINGIN    | Thresholds                                                                                                                                       | 80                |             |
+| CRITICALIN   | Thresholds                                                                                                                                       | 90                |             |
+| WARNINGOUT   | Thresholds                                                                                                                                       | 80                |             |
+| CRITICALOUT  | Thresholds                                                                                                                                       | 90                |             |
 | EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -559,14 +559,14 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-| Option               | Description                                                                                                                                                                                                              |
-|:---------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --component          | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'card', 'entity', 'led'.                                                                                                                                 |
-| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=psu,1                                                                            |
-| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                               |
-| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='entity,WARNING,disabled'   |
-| --warning            | Set warning threshold (syntax: type,regexp,threshold) Example: --warning='temperature,.*,30' --warning=fan.temperature,.*,10                                                                                             |
-| --critical           | Set critical threshold (syntax: type,regexp,threshold) Example: --critical='temperature,.*,40'                                                                                                                           |
+| Option               | Description                                                                                                                                                                                                            |
+|:---------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --component          | Which component to check (default: '.*'). Can be: 'fan', 'psu', 'card', 'entity', 'led', 'temperature'.                                                                                                                 |
+| --filter             | Exclude the items given as a comma-separated list (example: --filter=psu). You can also exclude items from specific instances: --filter=psu,1                                                                          |
+| --no-component       | Define the expected status if no components are found (default: critical).                                                                                                                                             |
+| --threshold-overload | Use this option to override the status returned by the plugin when the status label matches a regular expression (syntax: section,\[instance,\]status,regexp). Example: --threshold-overload='entity,WARNING,disabled' |
+| --warning            | Set warning threshold (syntax: type,regexp,threshold) Example: --warning='temperature,.*,30' --warning=fan.temperature,.*,10                                                                                           |
+| --critical           | Set critical threshold (syntax: type,regexp,threshold) Example: --critical='temperature,.*,40'                                                                                                                         |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">

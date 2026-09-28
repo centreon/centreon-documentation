@@ -48,7 +48,7 @@ systemctl enable --now mariadb
 systemctl restart mariadb
 ```
 
-5. Secure the installation:
+5. Secure the installation by defining a password for the database root account:
 
 ```shell
 mariadb-secure-installation
@@ -120,7 +120,7 @@ systemctl enable --now mariadb
 systemctl restart mariadb
 ```
 
-5. Secure the installation:
+5. Secure the installation by defining a password for the database root account:
 
 ```shell
 mariadb-secure-installation
@@ -238,7 +238,7 @@ done
 
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-1. ...
+1. Create the configuration file for the database to start in TLS.
 
 ```shell
 cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
@@ -346,7 +346,7 @@ SSL: Cipher in use is TLS_AES_128_GCM_SHA256
 ```
 
 
-8. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
+9. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
 
 ```shell
 for f in /etc/centreon/.env /usr/share/centreon/.env; do
@@ -363,7 +363,7 @@ done
 
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-1. ...
+1. Create the configuration file for the database to start in TLS.
 
 ```shell
 cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
@@ -471,7 +471,7 @@ SSL: Cipher in use is TLS_AES_128_GCM_SHA256
 ```
 
 
-8. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
+9. Set the environment variables that will be used by PHP to communicate with the database in TLS mode.
 
 ```shell
 for f in /etc/centreon/.env /usr/share/centreon/.env; do

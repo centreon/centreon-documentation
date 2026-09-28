@@ -1,6 +1,6 @@
 ---
 id: map-web-advanced
-title: Paramètres avancés dans MAP
+title: Personnaliser le calcul du statut
 description: "Configurer les paramètres avancés de calcul du statut hérité dans MAP"
 ---
 
