@@ -2344,6 +2344,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-linux-snmp-rs'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-linux-snmpv3'
         },
         {
