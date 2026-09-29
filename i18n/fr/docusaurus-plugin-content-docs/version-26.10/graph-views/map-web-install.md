@@ -727,7 +727,7 @@ Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 25) sera au
   sudo update-alternatives --config java
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 25 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-reconnue)).
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 25 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
@@ -840,7 +840,7 @@ Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 25) sera au
   sudo update-alternatives --config java
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 25 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-reconnue)).
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 25 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
 
 </TabItem>
 </Tabs>

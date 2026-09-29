@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 
 ### Vérifier votre système d'exploitation
 
-Assurez-vous que le serveur central et le serveur MAP fonctionnent sous un [système d'exploitation pris en charge par cette version](../installation/compatibility.md#systèmes-dexploitation).
+Assurez-vous que le serveur central et le serveur MAP fonctionnent sous un [système d'exploitation pris en charge par cette version](../installation/compatibility.md#système-dexploitation).
 
 Si l'un de vos serveurs fonctionne sous un système d'exploitation qui n'est plus pris en charge, vous ne pouvez pas le monter de version directement. Migrez d'abord votre plateforme vers un système d'exploitation pris en charge :
 
