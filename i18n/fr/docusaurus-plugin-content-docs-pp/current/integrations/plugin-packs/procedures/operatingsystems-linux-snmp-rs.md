@@ -167,7 +167,7 @@ dnf install centreon-pack-operatingsystems-linux-snmp-rs
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-snmp-rs
