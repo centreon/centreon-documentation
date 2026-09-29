@@ -116,7 +116,7 @@ Afin de superviser vos équipements Linux, le serveur SNMP doit être configuré
 
 ### Configuration basique
 
-**Note :** les commandes ci-après peuvent changer en fonction de la distribution. Des documentations sont disponibles sur les sites officiels des éditeurs. 
+**Note :** la configuration ci-après peut varier en fonction de la distribution. En cas d'erreur, référez-vous à la documentation disponible sur les sites officiels de votre distribution.
 
 Ci-dessous, un exemple de fichier snmpd.conf (remplacer **my-snmp-community** par la communauté que vous souhaitez utiliser).
 
