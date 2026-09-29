@@ -111,7 +111,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 To monitor a Linux based device, the SNMP service must be installed and configured. Most of Linux distributions rely on net-snmp. 
 
-## net-snmp server configuration
+## SNMP server configuration
 
 
 ### Basic configuration
