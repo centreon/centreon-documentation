@@ -25,6 +25,10 @@ module.exports = {
             },
             {
               type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/rust-collections'
+            },
+            {
+              type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
             },
             {
