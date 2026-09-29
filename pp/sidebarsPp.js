@@ -3107,6 +3107,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/virtualization-vates-xenorchestra-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-vmware2-esx'
         },
         {
