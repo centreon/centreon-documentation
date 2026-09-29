@@ -64,7 +64,7 @@ Update button to update the extension and the widgets.
 
 ### Java version requirement
   
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  > Ensure a version of Java 25 is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
   
@@ -72,9 +72,9 @@ Update button to update the extension and the widgets.
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+  - If you need to upgrade the Java installation to Java 25, go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java25) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 25 version:
   
   ```shell
   sudo update-alternatives --config java

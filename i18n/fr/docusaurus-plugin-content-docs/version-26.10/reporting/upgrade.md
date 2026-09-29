@@ -64,7 +64,7 @@ apt install --only-upgrade centreon-bi-server
 
 ### Prérequis de la version Java
   
-  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  > Assurez-vous qu'une version de Java 25 est installée avant de commencer la procédure.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
@@ -72,9 +72,9 @@ apt install --only-upgrade centreon-bi-server
   java -version
   ```
   
-  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+  - Pour une mise à jour de Java en version 25, allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java25).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 25 :
   
   ```shell
   sudo update-alternatives --config java
