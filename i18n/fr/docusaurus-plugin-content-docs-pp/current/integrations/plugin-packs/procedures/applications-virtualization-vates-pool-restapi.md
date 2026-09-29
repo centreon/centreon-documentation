@@ -1,6 +1,7 @@
 ---
 id: applications-virtualization-vates-pool-restapi
 title: Vates Pool REST API
+description: "Supervisez le taux de surallocation CPU de vos pools Vates XCP-ng via l'API REST Xen Orchestra avec le connecteur Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
