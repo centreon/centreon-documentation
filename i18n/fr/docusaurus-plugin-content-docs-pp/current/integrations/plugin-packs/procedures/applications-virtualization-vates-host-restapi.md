@@ -41,7 +41,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle   | Description                                                                  |
 |:------------------|:-----------------------------------------------------------------------------|
-| Vates XCPng Hosts | Discover Vates XCPng hosts by requesting Xen Orchestra server using Rest API |
+| Vates XCPng Hosts | Discover Vates XCPng hosts by querying a Xen Orchestra server using the Rest API |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -77,7 +77,7 @@ Pour créer un utilisateur ayant seulement les droits de lecture, vous pouvez ut
 /usr/lib/centreon/plugins/centreon_vates_vm_restapi.pl --plugin='apps::virtualization::vates::vm::plugin' --mode='discovery' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
 ```
 
-Vous pouvez utiliser `--insecure` si vous n'avez pas de certificats reconnus, et `--debug` pour observer les appels api exacts effectués.
+Vous pouvez utiliser `--insecure` si vous n'avez pas de certificats reconnus, et `--debug` pour observer les appels API exacts effectués.
 
 Si la création automatisée ne fonctionne pas, vous pouvez créer un utilisateur via l'interface web à la place.
 
@@ -171,7 +171,7 @@ apt install centreon-plugin-virtualization-vates-xcpng-host-restapi
 | VATES_PASSWORD      | Define the password for authentication                                                                                                             |                   |      X      |
 | VATES_PROTO         | Define the protocol to use                                                                                                                         | https             |             |
 | VATES_PORT          | Define the port of the Vates server                                                                                                                | 443               |             |
-| VATES_HOST_UUID     | Identify the host by its exact uuid                                                                                                                |                   |             |
+| VATES_HOST_UUID     | Identify the host by its exact UUID                                                                                                                |                   |             |
 | VATES_EXTRA_OPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.

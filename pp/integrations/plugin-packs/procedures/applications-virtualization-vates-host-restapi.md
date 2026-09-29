@@ -41,7 +41,7 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name         | Description                                                                  |
 |:------------------|:-----------------------------------------------------------------------------|
-| Vates XCPng Hosts | Discover Vates XCPng hosts by requesting Xen Orchestra server using Rest API |
+| Vates XCPng Hosts | Discover Vates XCPng hosts by querying a Xen Orchestra server using the Rest API |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -173,7 +173,7 @@ apt install centreon-plugin-virtualization-vates-xcpng-host-restapi
 | VATES_PASSWORD      | Define the password for authentication                                                                                                   |               |     X     |
 | VATES_PROTO         | Define the protocol to use                                                                                                               | https         |           |
 | VATES_PORT          | Define the port of the Vates server                                                                                                      | 443           |           |
-| VATES_HOST_UUID     | Identify the host by its exact uuid                                                                                                      |               |           |
+| VATES_HOST_UUID     | Identify the host by its exact UUID                                                                                                    |               |           |
 | VATES_EXTRA_OPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
