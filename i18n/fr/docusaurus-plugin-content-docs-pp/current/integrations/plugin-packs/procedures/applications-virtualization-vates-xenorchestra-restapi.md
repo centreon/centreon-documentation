@@ -1,6 +1,7 @@
 ---
 id: applications-virtualization-vates-xenorchestra-restapi
 title: Vates Xen Orchestra REST API
+description: Supervisez les statuts des VM et l'utilisation des plusieurs storage repositories d'un environnement de virtualisation Xen Orchestra
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -212,12 +213,12 @@ yum install centreon-plugin-Virtualization-Vates-Xen-Orchestra-Restapi
 
 | Macro               | Description                                                                                                                                                                                     | Valeur par défaut | Obligatoire |
 |:--------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| INCLUDE_NAME        | Filter storage repository by name (can be a regexp). Only matching storage repository are checked                                                                                               |                   |             |
+| INCLUDE_NAME        | Filter storage repositories by name (can be a regexp). Only matching storage repositories are checked                                                                                               |                   |             |
 | EXCLUDE_NAME        | Exclude storage repository by name (can be a regexp)                                                                                                                                            |                   |             |
 | INCLUDE_SR_TYPE     | Filter storage repository by `SR\_type` (can be a regexp). Only matching storage repository are checked. Non exhaustive list of possible value : `ext`, `nfs`, `udev`, `iso`, `linstor`         |                   |             |
 | EXCLUDE_SR_TYPE     | Exclude storage repository by `SR\_type` (can be a regexp)                                                                                                                                      |                   |             |
 | INCLUDE_HOST_NAMES  | Filter storage repository by `host names` (can be a regexp). One storage repository can be split across multiples physical hosts. Only storage repository present on matching hosts are checked |                   |             |
-| EXCLUDE_HOST_NAMES  | Exclude storage repository by `host names` (can be a regexp)                                                                                                                                    |                   |             |
+| EXCLUDE_HOST_NAMES  | Exclude storage repositories by `host names` (can be a regexp)                                                                                                                                    |                   |             |
 | WARNING_TOTAL_SIZE  | Threshold in bytes                                                                                                                                                                              |                   |             |
 | CRITICAL_TOTAL_SIZE | Threshold in bytes                                                                                                                                                                              |                   |             |
 | WARNING_USAGE       | Threshold in percentage                                                                                                                                                                         | 90                |             |
@@ -229,16 +230,16 @@ yum install centreon-plugin-Virtualization-Vates-Xen-Orchestra-Restapi
 
 | Macro              | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNING_HALTED     | Threshold warning for the number of halted VMs                                                                                                   |                   |             |
-| CRITICAL_HALTED    | Threshold critical for the number of halted VMs                                                                                                  |                   |             |
-| WARNING_PAUSED     | Threshold warning for the number of paused VMs                                                                                                   |                   |             |
-| CRITICAL_PAUSED    | Threshold critical for the number of paused VMs                                                                                                  |                   |             |
-| WARNING_RUNNING    | Threshold warning for the number of running VMs                                                                                                  |                   |             |
-| CRITICAL_RUNNING   | Threshold critical for the number of running VMs                                                                                                 |                   |             |
-| WARNING_SUSPENDED  | Threshold warning for the number of suspended VMs                                                                                                |                   |             |
-| CRITICAL_SUSPENDED | Threshold critical for the number of suspended VMs                                                                                               |                   |             |
-| WARNING_TOTAL      | Threshold warning for the total number of VMs                                                                                                    |                   |             |
-| CRITICAL_TOTAL     | Threshold critical for the total number of VMs                                                                                                   |                   |             |
+| WARNING_HALTED     | Threshold for the number of halted VMs    |                   |             |
+| CRITICAL_HALTED    | Threshold for the number of halted VMs    |                   |             |
+| WARNING_PAUSED     | Threshold for the number of paused VMs    |                   |             |
+| CRITICAL_PAUSED    | Threshold for the number of paused VMs    |                   |             |
+| WARNING_RUNNING    | Threshold for the number of running VMs   |                   |             |
+| CRITICAL_RUNNING   | Threshold for the number of running VMs   |                   |             |
+| WARNING_SUSPENDED  | Threshold for the number of suspended VMs |                   |             |
+| CRITICAL_SUSPENDED | Threshold for the number of suspended VMs |                   |             |
+| WARNING_TOTAL      | Threshold for the total number of VMs     |                   |             |
+| CRITICAL_TOTAL     | Threshold for the total number of VMs     |                   |             |
 | EXTRA_OPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
@@ -400,7 +401,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --include-sr-type                | Filter storage repository by `SR\_type` (can be a regexp). Only matching storage repository are checked. Non exhaustive list of possible value : `ext`, `nfs`, `udev`, `iso`, `linstor`.         |
 | --exclude-sr-type                | Exclude storage repository by `SR\_type` (can be a regexp).                                                                                                                                      |
 | --include-host-names             | Filter storage repository by `host names` (can be a regexp). One storage repository can be split across multiples physical hosts. Only storage repository present on matching hosts are checked. |
-| --exclude-host-names             | Exclude storage repository by `host names` (can be a regexp).                                                                                                                                    |
+| --exclude-host-names             | Exclude storage repositories by `host names` (can be a regexp).                                                                                                                                    |
 | --host-storage-config-cache-time | for `--include-host-names` and `--exclude-host-names`, cache the Storage Repository -\> Physical Block Device -\> host relation. Cache time is expressed in minutes. Default : 10                |
 | --warning-total-size             | Threshold in bytes.                                                                                                                                                                              |
 | --critical-total-size            | Threshold in bytes.                                                                                                                                                                              |
@@ -416,16 +417,16 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --exclude-vm-name    | Exclude virtual machines by name (can be a regexp).                               |
 | --include-vm-uuid    | Filter virtual machines by uuid (can be a regexp). Only matching VMs are checked. |
 | --exclude-vm-uuid    | Exclude virtual machines by uuid (can be a regexp).                               |
-| --warning-running    | Threshold warning for the number of running VMs.                                  |
-| --critical-running   | Threshold critical for the number of running VMs.                                 |
-| --warning-halted     | Threshold warning for the number of halted VMs.                                   |
-| --critical-halted    | Threshold critical for the number of halted VMs.                                  |
-| --warning-paused     | Threshold warning for the number of paused VMs.                                   |
-| --critical-paused    | Threshold critical for the number of paused VMs.                                  |
-| --warning-suspended  | Threshold warning for the number of suspended VMs.                                |
-| --critical-suspended | Threshold critical for the number of suspended VMs.                               |
-| --warning-total      | Threshold warning for the total number of VMs.                                    |
-| --critical-total     | Threshold critical for the total number of VMs.                                   |
+| --warning-running    | Threshold for the number of running VMs.                                 |
+| --critical-running   | Threshold for the number of running VMs.                                 | 
+| --warning-halted     | Threshold for the number of halted VMs.                                  |
+| --critical-halted    | Threshold for the number of halted VMs.                                  | 
+| --warning-paused     | Threshold for the number of paused VMs.                                  |
+| --critical-paused    | Threshold for the number of paused VMs.                                  | 
+| --warning-suspended  | Threshold for the number of suspended VMs.                               |
+| --critical-suspended | Threshold for the number of suspended VMs.                               |
+| --warning-total      | Threshold for the total number of VMs.                                   |
+| --critical-total     | Threshold for the total number of VMs.                                   |
 
 </TabItem>
 </Tabs>

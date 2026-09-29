@@ -1,6 +1,7 @@
 ---
 id: applications-virtualization-vates-xenorchestra-restapi
 title: Vates Xen Orchestra REST API
+description: Monitor VM statuses and storage repositories usage of a Xen Orchestra vitualization environment
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -218,7 +219,7 @@ yum install centreon-plugin-Virtualization-Vates-Xen-Orchestra-Restapi
 | INCLUDE_SR_TYPE     | Filter storage repository by `SR\_type` (can be a regexp). Only matching storage repository are checked. Non exhaustive list of possible value : `ext`, `nfs`, `udev`, `iso`, `linstor`         |               |           |
 | EXCLUDE_SR_TYPE     | Exclude storage repository by `SR\_type` (can be a regexp)                                                                                                                                      |               |           |
 | INCLUDE_HOST_NAMES  | Filter storage repository by `host names` (can be a regexp). One storage repository can be split across multiples physical hosts. Only storage repository present on matching hosts are checked |               |           |
-| EXCLUDE_HOST_NAMES  | Exclude storage repository by `host names` (can be a regexp)                                                                                                                                    |               |           |
+| EXCLUDE_HOST_NAMES  | Exclude storage repositories by `host names` (can be a regexp)                                                                                                                                    |               |           |
 | WARNING_TOTAL_SIZE  | Threshold in bytes                                                                                                                                                                              |               |           |
 | CRITICAL_TOTAL_SIZE | Threshold in bytes                                                                                                                                                                              |               |           |
 | WARNING_USAGE       | Threshold in percentage                                                                                                                                                                         | 90            |           |
@@ -230,16 +231,16 @@ yum install centreon-plugin-Virtualization-Vates-Xen-Orchestra-Restapi
 
 | Macro              | Description                                                                                                                                      | Default value | Mandatory |
 |:-------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| WARNING_HALTED     | Threshold warning for the number of halted VMs                                                                                                   |               |           |
-| CRITICAL_HALTED    | Threshold critical for the number of halted VMs                                                                                                  |               |           |
-| WARNING_PAUSED     | Threshold warning for the number of paused VMs                                                                                                   |               |           |
-| CRITICAL_PAUSED    | Threshold critical for the number of paused VMs                                                                                                  |               |           |
-| WARNING_RUNNING    | Threshold warning for the number of running VMs                                                                                                  |               |           |
-| CRITICAL_RUNNING   | Threshold critical for the number of running VMs                                                                                                 |               |           |
-| WARNING_SUSPENDED  | Threshold warning for the number of suspended VMs                                                                                                |               |           |
-| CRITICAL_SUSPENDED | Threshold critical for the number of suspended VMs                                                                                               |               |           |
-| WARNING_TOTAL      | Threshold warning for the total number of VMs                                                                                                    |               |           |
-| CRITICAL_TOTAL     | Threshold critical for the total number of VMs                                                                                                   |               |           |
+| WARNING_HALTED     | Threshold for the number of halted VMs    |                   |             |
+| CRITICAL_HALTED    | Threshold for the number of halted VMs    |                   |             |
+| WARNING_PAUSED     | Threshold for the number of paused VMs    |                   |             |
+| CRITICAL_PAUSED    | Threshold for the number of paused VMs    |                   |             |
+| WARNING_RUNNING    | Threshold for the number of running VMs   |                   |             |
+| CRITICAL_RUNNING   | Threshold for the number of running VMs   |                   |             |
+| WARNING_SUSPENDED  | Threshold for the number of suspended VMs |                   |             |
+| CRITICAL_SUSPENDED | Threshold for the number of suspended VMs |                   |             |
+| WARNING_TOTAL      | Threshold for the total number of VMs     |                   |             |
+| CRITICAL_TOTAL     | Threshold for the total number of VMs     |                   |             |
 | EXTRA_OPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
@@ -399,7 +400,7 @@ All available options for each service template are listed below:
 | --include-sr-type                | Filter storage repository by `SR\_type` (can be a regexp). Only matching storage repository are checked. Non exhaustive list of possible value : `ext`, `nfs`, `udev`, `iso`, `linstor`.         |
 | --exclude-sr-type                | Exclude storage repository by `SR\_type` (can be a regexp).                                                                                                                                      |
 | --include-host-names             | Filter storage repository by `host names` (can be a regexp). One storage repository can be split across multiples physical hosts. Only storage repository present on matching hosts are checked. |
-| --exclude-host-names             | Exclude storage repository by `host names` (can be a regexp).                                                                                                                                    |
+| --exclude-host-names             | Exclude storage repositories by `host names` (can be a regexp).                                                                                                                                    |
 | --host-storage-config-cache-time | for `--include-host-names` and `--exclude-host-names`, cache the Storage Repository -\> Physical Block Device -\> host relation. Cache time is expressed in minutes. Default : 10                |
 | --warning-total-size             | Threshold in bytes.                                                                                                                                                                              |
 | --critical-total-size            | Threshold in bytes.                                                                                                                                                                              |
