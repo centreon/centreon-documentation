@@ -1,6 +1,7 @@
 ---
 id: applications-virtualization-vates-pool-restapi
 title: Vates Pool REST API
+description: "Monitor the CPU overcommit ratio of your Vates XCP-ng pools through the Xen Orchestra REST API with the Centreon connector"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
