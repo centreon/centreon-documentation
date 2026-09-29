@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-windows-snmp-rs
 title: Windows SNMP (Rust)
-description: Monitor Windows servers via SNMP. Experimental: Rust plugin in beta
+description: "Monitor Windows servers via SNMP. Experimental: Rust plugin in beta"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
