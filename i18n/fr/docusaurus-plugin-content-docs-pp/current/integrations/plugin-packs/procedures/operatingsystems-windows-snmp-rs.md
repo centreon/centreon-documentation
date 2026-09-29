@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-windows-snmp-rs
 title: Windows SNMP (Rust)
-description: Supervisez vos serveurs Windows via SNMP (plugin Rust expérimental)
+description: "Supervisez vos serveurs Windows via SNMP (plugin Rust expérimental)"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
