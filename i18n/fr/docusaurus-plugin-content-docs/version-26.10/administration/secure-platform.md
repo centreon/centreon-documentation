@@ -614,10 +614,7 @@ cp rootCA.pem /etc/pki/tls/certs/
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-curl -sSL https://packages.sury.org/apache2/README.txt | sudo bash -x
-apt update
 a2enmod ssl
-a2enmod security2
 systemctl restart apache2
 ```
 
@@ -683,6 +680,8 @@ cp /etc/apache2/sites-available/centreon.conf{,.origin}
 </TabItem>
 </Tabs>
 
+Voici un exemple de ce à quoi le fichier peut ressembler avant d'insérer le bloc :
+
 ```apacheconf
 Define base_uri "/centreon"
 Define install_dir "/usr/share/centreon"
@@ -696,7 +695,7 @@ ServerTokens Prod
 </VirtualHost>
 ```
 
-Voici un exemple de ce à quoi le fichier peut ressembler :
+Voici un exemple de ce à quoi le fichier peut ressembler une fois le bloc inséré :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -943,15 +942,6 @@ ServerTokens Prod
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
-
-```apacheconf
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-ServerSignature Off
-ServerTokens Prod
-```
-
 Éditez le fichier **/etc/php.d/50-centreon.ini** :
 
 * Assurez-vous que le paramètre `expose_php` est désactivé :
@@ -970,15 +960,6 @@ ServerTokens Prod
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-Éditez le fichier **/etc/httpd/conf.d/10-centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
-
-```apacheconf
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-ServerSignature Off
-ServerTokens Prod
-```
-
 Éditez le fichier **/etc/php.d/50-centreon.ini** :
 
 * Assurez-vous que le paramètre `expose_php` est désactivé :
@@ -996,17 +977,6 @@ ServerTokens Prod
   
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
-
-Éditez le fichier **/etc/apache2/sites-available/centreon.conf** en ajoutant les lignes suivantes avant la balise `<VirtualHost>` :
-
-```apacheconf
-Header set X-Frame-Options: "sameorigin"
-Header always edit Set-Cookie ^(.*)$ $1;HttpOnly;Secure;SameSite=Strict
-Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-ServerSignature Off
-ServerTokens Prod
-TraceEnable Off
-```
 
 Éditez le fichier **/etc/php/8.4/mods-available/centreon.ini** et ajoutez les lignes suivantes :
 
@@ -1497,6 +1467,7 @@ dnf install mod_security
 
 ```shell
 apt install libapache2-mod-security2
+a2enmod security2
 ```
 
 </TabItem>
