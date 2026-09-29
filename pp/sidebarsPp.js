@@ -3131,6 +3131,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-xenorchestra-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-host-restapi'
         },
         {
