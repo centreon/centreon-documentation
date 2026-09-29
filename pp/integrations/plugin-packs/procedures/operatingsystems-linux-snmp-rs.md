@@ -113,7 +113,6 @@ To monitor a Linux based device, the SNMP service must be installed and configur
 
 ## net-snmp server configuration
 
-A detailed documentation on how-to configure SNMP is available in the documentation of each Linux distribution.
 
 ### Basic configuration
 
