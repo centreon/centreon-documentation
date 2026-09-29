@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-snmp-rs
 title: Generic SNMP (Rust)
+description: Monitor any SNMP-enabled device via generic OID checks using the Rust SNMP plugin
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -49,10 +50,19 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-The SNMP agent must be enabled and configured on the resource. 
-Please refer to the official documentation from the manufacturer/publisher. 
-Your resource may require a list of addresses authorized to query it to be set up. 
+### SNMP Configuration
+
+The SNMP agent must be enabled and configured on the resource.
+Please refer to the official documentation from the manufacturer/publisher.
+Your resource may require a list of addresses authorized to query it to be set up.
 Please ensure that the addresses of the Centreon pollers are included in this list.
+
+### Network flow
+
+The target server must be reachable from the Centreon poller on the UDP/161
+SNMP port.
+
+
 
 ## Installing the monitoring connector
 
@@ -208,11 +218,11 @@ The plugin brings the following modes:
 
 | Mode                                                                                                                                                                                                     | Linked service template               |
 |:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/cpu.json.pm)]                   | Not used in this Monitoring Connector |
-| processcount [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/processcount.json.pm)] | Not used in this Monitoring Connector |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/storage.json.pm)]           | Not used in this Monitoring Connector |
-| sysdesc [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/sysdesc.json.pm)]           | Not used in this Monitoring Connector |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src//home/omercier/projets/centreon-plugins/rust-plugins/rs-collections/applications-protocol-snmp/uptime.json.pm)]             | App-Protocol-SNMP-Uptime-Rs-custom    |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/cpu.json)]                   | Non utilisé dans ce connecteur de supervision |
+| processcount [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/processcount.json)] | Non utilisé dans ce connecteur de supervision |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/storage.json)]           | Non utilisé dans ce connecteur de supervision |
+| sysdesc [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/sysdesc.json)]           | Non utilisé dans ce connecteur de supervision |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/rust-plugins/rs-collections/applications-protocol-snmp/uptime.json)]             | App-Protocol-SNMP-Uptime-Rs-custom            |
 
 ### Available options
 
