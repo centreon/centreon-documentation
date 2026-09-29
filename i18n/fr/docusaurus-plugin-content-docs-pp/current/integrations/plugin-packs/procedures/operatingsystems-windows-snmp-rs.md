@@ -6,7 +6,7 @@ description: "Supervisez vos serveurs Windows via SNMP (plugin Rust expérimenta
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> Expérimental : le plugin Rust centreon-plugin-rust-snmp 20260900 est actuellement en phase beta.
+> Expérimental : le plugin Rust centreon-plugin-rust-snmp est actuellement en phase beta.
 
 ## Dépendances du connecteur de supervision
 
