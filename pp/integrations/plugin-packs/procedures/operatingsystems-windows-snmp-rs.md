@@ -6,7 +6,7 @@ description: "Monitor Windows servers via SNMP. Experimental: Rust plugin in bet
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> The centreon-plugin-rust-snmp 20260900 Rust plugin is currently in beta.
+> The centreon-plugin-rust-snmp Rust plugin is currently in beta.
 
 ## Connector dependencies
 
