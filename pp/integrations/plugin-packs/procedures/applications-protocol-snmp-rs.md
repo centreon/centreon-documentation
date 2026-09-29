@@ -6,6 +6,8 @@ description: Monitor any SNMP-enabled device via generic OID checks using the Ru
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> The centreon-plugin-rust-snmp Rust plugin is currently in beta.
+
 ## Connector dependencies
 
 The following monitoring connectors will be installed when you install the **Generic SNMP (Rust)** connector through the
