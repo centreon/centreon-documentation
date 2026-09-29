@@ -1,7 +1,7 @@
 ---
 id: applications-virtualization-vates-host-restapi
 title: Vates XCPng Host REST API
-description: Monitor Vates physical hosts using
+description: "Monitor the CPU and memory usage of your Vates XCP-ng hosts through the Xen Orchestra REST API with the Centreon connector"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
