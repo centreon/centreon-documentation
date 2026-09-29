@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
-> **Warning important information:** We have fixed a general plugins issue that was causing empty `OK:`; these will now be correctly treated as `UNKNOWN`.
+> **Warning, important information**: We have fixed an issue affecting all plugins that was causing empty `OK`: outputs. These will now return the correct value, `UNKNOWN`.
 
 ### September
 
