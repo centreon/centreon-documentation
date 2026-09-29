@@ -164,7 +164,7 @@ dnf install centreon-pack-operatingsystems-linux-snmp-rs
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```bash
 apt install centreon-pack-operatingsystems-linux-snmp-rs
@@ -193,21 +193,21 @@ Use the commands below according to your operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-plugin-operatingsystems-windows-snmp-rs
+dnf install centreon-plugin-operatingsystems-linux-snmp-rs
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-plugin-operatingsystems-windows-snmp-rs
+dnf install centreon-plugin-operatingsystems-linux-snmp-rs
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```bash
-apt install centreon-plugin-operatingsystems-windows-snmp-rs
+apt install centreon-plugin-operatingsystems-linux-snmp-rs
 ```
 
 </TabItem>
