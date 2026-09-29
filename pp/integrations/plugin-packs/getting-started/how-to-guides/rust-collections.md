@@ -1,7 +1,7 @@
 ---
 id: rust-collections
 title: Rust Collections (experimental)
-description: "Configure a JSON rather than coding a plugin"
+description: "Obtain new monitoring features by configuring a JSON file rather than coding a Perl plugin"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
