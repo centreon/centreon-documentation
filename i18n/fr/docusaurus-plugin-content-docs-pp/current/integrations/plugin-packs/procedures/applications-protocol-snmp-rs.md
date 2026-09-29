@@ -6,6 +6,8 @@ description: Supervisez n'importe quel équipement supportant SNMP via des OID g
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Expérimental : le plugin Rust centreon-plugin-rust-snmp est actuellement en phase beta.
+
 ## Dépendances du connecteur de supervision
 
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Generic SNMP (Rust)** 
