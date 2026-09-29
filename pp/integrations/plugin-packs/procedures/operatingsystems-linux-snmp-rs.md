@@ -117,6 +117,8 @@ A detailed documentation on how-to configure SNMP is available in the documentat
 
 ### Basic configuration
 
+**Notice:** the configuration below may vary depending on your distribution. Refer to the official documentation if this does not work for you.
+
 Find below a minimalist snmpd.conf / net-snmp config file (replace **my-snmp-community** by the relevant value).
 
 ```
