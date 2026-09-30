@@ -138,8 +138,11 @@ listen stats
 ```
 
 > `bind *:8404` : Expose la page des statistiques sur le port 8404.
+> 
 > `stats uri /haproxy?stats` : Définit l’URL d’accès aux statistiques.
+> 
 > `stats auth username:password` : Définit l’authentification (choisissez le couple username/password)
+> 
 > `stats refresh 10s` : Rafraîchit les statistiques toutes les 10 secondes (vous pouvez ajuster cette valeur à votre cas).
 
 Vous pouvez vérifier l'accès à la page API (depuis un navigateur ou avec curl) :
