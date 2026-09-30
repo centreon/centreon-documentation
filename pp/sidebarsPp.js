@@ -66,25 +66,8 @@ module.exports = {
           id: 'integrations/plugin-packs/releases/release-notes'
         },
         {
-          type: 'category',
-          label: 'Developers Center',
-          link: {
-            type: 'generated-index'
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/introduction'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
-            }
-          ]
+        type: 'doc',
+          id: 'integrations/plugin-packs/getting-started/develop-plugin'
         }
       ]
     },
@@ -3129,13 +3112,18 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-proxmox-ve-restapi'
         },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-xenorchestra-restapi'
-        },
+
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-host-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-pool-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-xenorchestra-restapi'
         },
         {
           type: 'doc',

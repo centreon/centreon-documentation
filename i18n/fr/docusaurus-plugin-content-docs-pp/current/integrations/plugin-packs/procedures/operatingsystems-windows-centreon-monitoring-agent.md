@@ -672,6 +672,8 @@ CRITICAL= 0
 | CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
 | TIMEOUT              | Set timeout for command execution                                                                                                         | 120               |             |
 
+> Les macros `FILTERNAME`, `EXCLUDENAME`, `FILTERDISPLAY` et `EXCLUDEDISPLAY` acceptent des expressions régulières qui sont transmises à l'agent au sein d'un payload JSON. Pour faire correspondre un caractère spécial littéral (par exemple un `$` dans un nom de service), il faut l'échapper à la fois pour le JSON **et** pour la regex. Par exemple, pour cibler un service nommé `SQLAgent$SAGEV12PRD`, utilisez `^SQLAgent\\\\$SAGEV12PRD` (double échappement par antislash) ou `^SQLAgent\[$\]SAGEV12PRD` (classe de caractères).
+
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
@@ -694,6 +696,8 @@ CRITICAL= 0
 | WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
 | CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
 | TIMEOUT              | Set timeout for command execution                                                                                                         | 120               |             |
+
+> Les macros `FILTERNAME`, `EXCLUDENAME`, `FILTERDISPLAY` et `EXCLUDEDISPLAY` acceptent des expressions régulières qui sont transmises à l'agent au sein d'un payload JSON. Pour faire correspondre un caractère spécial littéral (par exemple un `$` dans un nom de service), il faut l'échapper à la fois pour le JSON **et** pour la regex. Par exemple, pour cibler un service nommé `SQLAgent$SAGEV12PRD`, utilisez `^SQLAgent\\\\$SAGEV12PRD` (double échappement par antislash) ou `^SQLAgent\[$\]SAGEV12PRD` (classe de caractères).
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">

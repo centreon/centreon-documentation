@@ -56,10 +56,19 @@ identiques définies dans modèles d’hôtes en dessous.
   le statut de l’hôte est OK.
 * Le champ **Intervalle non-régulier de contrôle** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK de l’hôte.
 
+### Traitement des données
+ 
+Les options suivantes ne concernent que les contrôles effectués par l'[agent CMA](../../cma/cma.md).
+ 
+* **Contrôler la fraîcheur du résultat** : effectue un contrôle actif lorsque le délai défini dans **Seuil de fraîcheur du résultat** s'est écoulé depuis le dernier résultat de contrôle passif envoyé par l'objet.
+* **Seuil de fraîcheur du résultat** : exprimé en secondes. Si durant cette période aucun résultat de contrôle passif de l'hôte n’a été reçu, alors la commande de contrôle actif est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
+
 ### Classification
 
 * Le champ **Groupes d'hôtes** définit les groupes d’hôtes auxquels l’hôte appartient. Vous devez associer au moins un groupe d'hôtes (champ obligatoire pour des raisons de gestion des ACLs).
 * Le champ **Catégories d'hôte** définit les catégories auxquelles l’hôte appartient.
+* Le champ **Hôtes parents** établit une relation de parenté entre cet hôte et un autre. Cette option permet de réduire le nombre d'alertes redondantes, car le moteur de supervision n'enverra une notification que pour le parent et non pour ses enfants. On considère qu'un hôte n'a pas de parent s'il se trouve sur le même segment du réseau que l'hôte qui le supervise sans aucun intermédiaire. Laissez ce champ libre dans ce cas-là.
+* Le champ **Hôtes enfants** permet de choisir d'autres hôtes dont l'hôte actuel sera le parent.
 * Le champ **Criticité d'hôte** indique le niveau de criticité de l’hôte.
 
 ### Informations supplémentaires

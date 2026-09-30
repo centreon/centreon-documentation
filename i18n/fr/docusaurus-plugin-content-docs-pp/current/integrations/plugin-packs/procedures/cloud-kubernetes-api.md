@@ -28,7 +28,7 @@ Ce Pack vise à superviser à la fois la couche d'infrastructure (noeuds) et les
 
 ### Modèles
 
-Le connecteur de supervision **Kubernetes API** apporte 2 modèles d'hôte :
+Le connecteur de supervision **Kubernetes API** apporte 4 modèles d'hôte :
 
 * **Cloud-Kubernetes-Api-custom**
 * **Cloud-Kubernetes-Kubectl-custom**
@@ -53,6 +53,7 @@ Le connecteur apporte les modèles de service suivants
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Contrôle l'utilisation d'un noeud identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
 | PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Contrôle le statut des PersistentVolumes                 | X          |
 | Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Contrôle le statut des pods et des containers            | X          |
+| Pod-Usage                    | Cloud-Kubernetes-Pod-Usage-Api-custom                    | Contrôle l'utilisation CPU/mémoire des pods              | X          |
 | ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Contrôle le statut des ReplicaSets                       | X          |
 | ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Contrôle le statut des ReplicationControllers            | X          |
 | ResourceQuota-Status         | Cloud-Kubernetes-ResourceQuota-Status-Api-custom         | Contrôle le statut des ResourceQuota                     | X          |
@@ -77,6 +78,7 @@ Le connecteur apporte les modèles de service suivants
 | Node-Usage                   | Cloud-Kubernetes-Node-Usage-Name-Api-custom              | Contrôle l'utilisation d'un noeud identifié par son nom (par exemple à l'issue de la règle de découverte associée) | X          |
 | PersistentVolume-Status      | Cloud-Kubernetes-PersistentVolume-Status-Api-custom      | Contrôle le statut des PersistentVolumes                 | X          |
 | Pod-Status                   | Cloud-Kubernetes-Pod-Status-Api-custom                   | Contrôle le statut des pods et des containers            | X          |
+| Pod-Usage                    | Cloud-Kubernetes-Pod-Usage-Api-custom                    | Contrôle l'utilisation CPU/mémoire des pods              | X          |
 | ReplicaSet-Status            | Cloud-Kubernetes-ReplicaSet-Status-Api-custom            | Contrôle le statut des ReplicaSets                       | X          |
 | ReplicationController-Status | Cloud-Kubernetes-ReplicationController-Status-Api-custom | Contrôle le statut des ReplicationControllers            | X          |
 | ResourceQuota-Status         | Cloud-Kubernetes-ResourceQuota-Status-Api-custom         | Contrôle le statut des ResourceQuota                     | X          |
@@ -133,19 +135,20 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de services
 
-| Nom de la règle                                    | Description |
-|:---------------------------------------------------|:------------|
-| Cloud-Kubernetes-Api-CronJobs-Status               | Découvrez les CronJobs Kubernetes pour superviser leur statut               |
-| Cloud-Kubernetes-Api-Daemonsets-Status             | Découvrez les DaemonSets Kubernetes pour superviser leur statut             |
-| Cloud-Kubernetes-Api-Deployments-Status            | Découvrez les Deployments Kubernetes pour superviser leur statut            |
-| Cloud-Kubernetes-Api-Nodes-Status                  | Découvrez les Nodes Kubernetes pour superviser leur statut                  |
-| Cloud-Kubernetes-Api-Nodes-Usage                   | Découvrez les Nodes Kubernetes pour superviser leur utilisation             |
-| Cloud-Kubernetes-Api-PersistentVolumes-Status      | Découvrez les PersistentVolumes Kubernetes pour superviser leur statut      |
-| Cloud-Kubernetes-Api-Pods-Status                   | Découvrez les Pods Kubernetes pour superviser leur statut                   |
-| Cloud-Kubernetes-Api-ReplicaSets-Status            | Découvrez les ReplicaSets Kubernetes pour superviser leur statut            |
-| Cloud-Kubernetes-Api-ReplicationControllers-Status | Découvrez les ReplicationControllers Kubernetes pour superviser leur statut |
-| Cloud-Kubernetes-Api-ResourceQuota-Status          | Découvrez les ResourceQuotas Kubernetes pour superviser leur statut         |
-| Cloud-Kubernetes-Api-StatefulSets-Status           | Découvrez les StatefulSets Kubernetes pour superviser leur statut           |
+| Nom de la règle                                    | Description                                                                   |
+|:---------------------------------------------------|:------------------------------------------------------------------------------|
+| Cloud-Kubernetes-Api-CronJobs-Status               | Découvrez les CronJobs Kubernetes pour superviser leur statut                 |
+| Cloud-Kubernetes-Api-Daemonsets-Status             | Découvrez les DaemonSets Kubernetes pour superviser leur statut               |
+| Cloud-Kubernetes-Api-Deployments-Status            | Découvrez les Deployments Kubernetes pour superviser leur statut              |
+| Cloud-Kubernetes-Api-Nodes-Status                  | Découvrez les Nodes Kubernetes pour superviser leur statut                    |
+| Cloud-Kubernetes-Api-Nodes-Usage                   | Découvrez les Nodes Kubernetes pour superviser leur utilisation               |
+| Cloud-Kubernetes-Api-PersistentVolumes-Status      | Découvrez les PersistentVolumes Kubernetes pour superviser leur statut        |
+| Cloud-Kubernetes-Api-Pods-Status                   | Découvrez les Pods Kubernetes pour superviser leur statut                     |
+| Cloud-Kubernetes-Api-Pods-Usage                    | Découvrez les Pods Kubernetes pour superviser leur utilisation CPU et mémoire |
+| Cloud-Kubernetes-Api-ReplicaSets-Status            | Découvrez les ReplicaSets Kubernetes pour superviser leur statut              |
+| Cloud-Kubernetes-Api-ReplicationControllers-Status | Découvrez les ReplicationControllers Kubernetes pour superviser leur statut   |
+| Cloud-Kubernetes-Api-ResourceQuota-Status          | Découvrez les ResourceQuotas Kubernetes pour superviser leur statut           |
+| Cloud-Kubernetes-Api-StatefulSets-Status           | Découvrez les StatefulSets Kubernetes pour superviser leur statut             |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -223,6 +226,16 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *pods*~restarts.total.count                   | count |
 | *pods*~*containers*#container-status          | N/A   |
 | *pods*~*containers*#containers.restarts.count | count |
+
+</TabItem>
+<TabItem value="Pod-Usage" label="Pod-Usage">
+
+| Métrique                           | Unité |
+|:-----------------------------------|:------|
+| *pods*#pod.cpu.usage.millicores    | N/A   |
+| *pods*#pod.cpu.usage.percentage    | %     |
+| *pods*#pod.memory.usage.bytes      | B     |
+| *pods*#pod.memory.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
@@ -515,6 +528,43 @@ nom de la métrique :
 | `coredns-74ff55c5b-g4hmt#containers.ready.count`            |
 | `coredns-74ff55c5b-g4hmt#restarts.total.count`              |
 | `coredns-74ff55c5b-g4hmt_coredns#containers.restarts.count` |
+
+</TabItem>
+<TabItem value="Pod-Usage" label="Pod-Usage">
+
+Cet indicateur rassemblera l'utilisation CPU et mémoire par Pod (depuis l'API
+`metrics.k8s.io`), comparée aux ressources demandées par les conteneurs de ce
+Pod. Il nécessite que `metrics-server` soit installé et accessible dans le
+cluster.
+
+En utilisant l'outil de ligne de commande Kubernetes, cela pourrait ressembler
+à ce qui suit :
+
+```shell
+kubectl top pod web-1 --namespace production --containers
+POD     NAME   CPU(cores)   MEMORY(bytes)
+web-1   app    120m         128Mi
+```
+
+```shell
+kubectl get pod web-1 --namespace production -o=custom-columns="CPU REQUESTS:.spec.containers[*].resources.requests.cpu,MEMORY REQUESTS:.spec.containers[*].resources.requests.memory"
+CPU REQUESTS   MEMORY REQUESTS
+200m           256Mi
+```
+
+La sortie résultante dans Centreon pourrait ressembler à :
+
+```text
+Pod 'production/web-1' CPU usage: 120 millicores, CPU usage: 60.00% of requests, Memory usage: 128.00 MB, Memory usage: 50.00% of requests
+```
+
+Si le service collecte des métriques de plusieurs Pods (selon le scénario
+choisi), le nom du Pod (préfixé par son namespace) sera ajouté au nom de la
+métrique :
+
+| Métrique                                    |
+|---------------------------------------------|
+| `production/web-1#pod.cpu.usage.millicores` |
 
 </TabItem>
 <TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
@@ -967,7 +1017,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESAPIPORT       | API port                                                                                                                   | 443               |             |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
-| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
@@ -988,7 +1038,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KUBECTLCONFIGFILE       | Kubernetes configuration file path.            | ~/.kube/config | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl           |             |
-| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
@@ -1013,7 +1063,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | KUBERNETESAPIPORT       | API port                                                                                                                   | 443               |             |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
 | KUBERNETESAPINAMESPACE  | Set namespace to get informations                                                                                          |                   |             |
-| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
@@ -1034,7 +1084,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 |:------------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | KUBECTLCONFIGFILE       | Kubernetes configuration file path.              | ~/.kube/config | X           |
 | KUBERNETESAPICUSTOMMODE | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | kubectl           |             |
-| KUBERNETESNODENAME      | Filter StatefulSet name (can be a regexp)                                                                                  |                   |             |
+| KUBERNETESNODENAME      | Filter node name (can be a regexp)                                                                                  |                   |             |
 | PROXYURL                | Proxy URL if any                                                                                                           |                   |             |
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
@@ -1160,6 +1210,24 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | WARNINGTOTALRESTARTSCOUNT  | Warning threshold                                                                                                                                                                               |                                                    |             |
 | CRITICALTOTALRESTARTSCOUNT | Critical threshold                                                                                                                                                                              |                                                    |             |
 | EXTRAOPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                              | --verbose                                          |             |
+
+</TabItem>
+<TabItem value="Pod-Usage" label="Pod-Usage">
+
+| Macro                       | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTERPOD                   | Filter pod name (can be a regexp)                                                                                                                | .*                |             |
+| FILTERNAMESPACE             | Filter pod namespace (can be a regexp)                                                                                                           | .*                |             |
+| FILTERCONTAINERNAME         | Filter container name (can be a regexp). Only matching containers are summed into the pod usage                                                  | .*                |             |
+| WARNINGPODCPUUSAGE          | Warning threshold in millicores                                                                                                                  |                   |             |
+| CRITICALPODCPUUSAGE         | Critical threshold in millicores                                                                                                                 |                   |             |
+| WARNINGPODCPUPERCENTAGE     | Warning threshold in percentage of CPU requests                                                                                                  | 90                |             |
+| CRITICALPODCPUPERCENTAGE    | Critical threshold in percentage of CPU requests                                                                                                 | 95                |             |
+| WARNINGPODMEMORYUSAGE       | Warning threshold in bytes                                                                                                                       |                   |             |
+| CRITICALPODMEMORYUSAGE      | Critical threshold in bytes                                                                                                                      |                   |             |
+| WARNINGPODMEMORYPERCENTAGE  | Warning threshold in percentage of memory requests                                                                                               | 90                |             |
+| CRITICALPODMEMORYPERCENTAGE | Critical threshold in percentage of memory requests                                                                                              | 95                |             |
+| EXTRAOPTIONS                | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">
@@ -1307,6 +1375,7 @@ Le plugin apporte les modes suivants :
 | node-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/nodeusage.pm)]                                     | Cloud-Kubernetes-Node-Usage-Api-custom<br />Cloud-Kubernetes-Node-Usage-Name-Api-custom   |
 | persistentvolume-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/persistentvolumestatus.pm)]           | Cloud-Kubernetes-PersistentVolume-Status-Api-custom                                       |
 | pod-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/podstatus.pm)]                                     | Cloud-Kubernetes-Pod-Status-Api-custom                                                    |
+| pod-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/podusage.pm)]                                       | Cloud-Kubernetes-Pod-Usage-Api-custom                                                     |
 | replicaset-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/replicasetstatus.pm)]                       | Cloud-Kubernetes-ReplicaSet-Status-Api-custom                                             |
 | replicationcontroller-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/replicationcontrollerstatus.pm)] | Cloud-Kubernetes-ReplicationController-Status-Api-custom                                  |
 | resourcequota-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/cloud/kubernetes/mode/resourcequotastatus.pm)]                 | Cloud-Kubernetes-ResourceQuota-Status-Api-custom                                          |
@@ -1511,6 +1580,23 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --warning-*                 | Warning threshold. Can be: 'containers-ready', 'total-restarts-count' (count), 'restarts-count' (count).                                                                                           |
 | --critical-*                | Critical threshold. Can be: 'containers-ready', 'total-restarts-count' (count), 'restarts-count' (count).                                                                                          |
 | --units                     | Units of thresholds (default: '%') ('%', 'count').                                                                                                                                                 |
+
+</TabItem>
+<TabItem value="Pod-Usage" label="Pod-Usage">
+
+| Option                           | Description                                                                                      |
+|:---------------------------------|:-------------------------------------------------------------------------------------------------|
+| --filter-name                    | Filter pod name (can be a regexp).                                                               |
+| --filter-namespace               | Filter pod namespace (can be a regexp).                                                          |
+| --filter-container-name          | Filter container name (can be a regexp). Only matching containers are summed into the pod usage. |
+| --warning-pod-cpu-usage          | Threshold in millicores.                                                                         |
+| --critical-pod-cpu-usage         | Threshold in millicores.                                                                         |
+| --warning-pod-cpu-percentage     | Threshold in percentage of CPU requests.                                                         |
+| --critical-pod-cpu-percentage    | Threshold in percentage of CPU requests.                                                         |
+| --warning-pod-memory-usage       | Threshold in bytes.                                                                              |
+| --critical-pod-memory-usage      | Threshold in bytes.                                                                              |
+| --warning-pod-memory-percentage  | Threshold in percentage of memory requests.                                                      |
+| --critical-pod-memory-percentage | Threshold in percentage of memory requests.                                                      |
 
 </TabItem>
 <TabItem value="ReplicaSet-Status" label="ReplicaSet-Status">

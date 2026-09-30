@@ -38,6 +38,13 @@ Pour créer un service, allez à la page **Configuration > Services > Services p
   le statut du service est OK.
 * Le champ **Intervalle non-régulier de contrôle** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK du service.
 
+### Traitement des données
+
+Les options suivantes ne concernent que les contrôles effectués par l'[agent CMA](../../cma/cma.md).
+ 
+* **Contrôler la fraîcheur du résultat** : effectue un contrôle actif lorsque le délai défini dans **Seuil de fraîcheur du résultat** s'est écoulé depuis le dernier résultat de contrôle passif envoyé par l'objet.
+* **Seuil de fraîcheur du résultat** : exprimé en secondes. Si durant cette période aucun résultat de contrôle passif du service n’a été reçu, alors la commande de contrôle actif est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
+
 ### Classification
 
 * La liste **Groupes de services** permet de lier le service à un ou plusieurs groupes de services.
