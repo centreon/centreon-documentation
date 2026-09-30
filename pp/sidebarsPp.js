@@ -3119,6 +3119,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-vm-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-pool-restapi'
         },
         {
