@@ -44,7 +44,7 @@ Pour revenir au comportement par défaut, passez l'option à `false` (ou supprim
 
 ## centreon-map-engine et toutes ses dépendances ne peuvent pas être installés sur Alma Linux 8
 
-#### Symptôme
+#### Symptôme 
 
 Vous obtenez une erreur GPG pendant l'installation d'OpenJDK 17 empêchant l'installation de centreon-map-engine et de toutes ses dépendances.
 
