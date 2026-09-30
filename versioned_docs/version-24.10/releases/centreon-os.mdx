@@ -33,11 +33,11 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
   <summary>Bug fixes</summary>
 
 - [Agent Configuration] Creating an agent configuration no longer fails on some pollers.
-- [CLAPI] Fixed an issue in the CLAPI export where recurrent downtimes with specific monthly periods (other than "First" or "Last" of the month) were missing.
-- [Configuration] Temporary export folders are now cleaned up, preventing disk saturation when generating poller configuration.
+- [CLAPI] Fixed an issue with the CLAPI export that caused recurrent downtimes with specific monthly periods (other than "First" or "Last" of the month) to be missing.
+- [Configuration] Temporary export folders are now properly deleted after use, preventing disk saturation when generating poller configuration.
 - [Dashboards] The resource table widget now requires an Open Ticket rule when ticket management is enabled.
 - [Performance Graphs] Curve thickness set in the curve settings now applies to the on-screen graph, matching the PNG export.
-- [Unattended] Pin stable plugin repositories for debian unattended installation.
+- [Unattended] Prioritize stable plugin repositories for debian unattended installation.
 
 </details>
 
