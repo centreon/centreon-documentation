@@ -3098,6 +3098,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-pool-restapi'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-vmware2-esx'
         },
         {
