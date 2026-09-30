@@ -8,6 +8,40 @@ import TabItem from '@theme/TabItem';
 
 Cette page présente quelques recommandations pour résoudre des incidents lors de l'installation de MAP.
 
+## Le serveur MAP met beaucoup de temps à redémarrer ou consomme trop de mémoire
+
+#### Symptôme
+
+Le serveur **centreon-map-engine** met beaucoup de temps à redémarrer, ou consomme une grande quantité de CPU et de mémoire.
+
+#### Problème
+
+Par défaut, le serveur MAP calcule le statut des ressources de toutes les cartes, y compris celles qu'aucun utilisateur n'est en train de consulter. Sur les plateformes de grand volume, ce calcul peut consommer beaucoup de ressources.
+
+#### Solution
+
+Vous pouvez configurer le serveur MAP pour qu'il ne calcule le statut des ressources que pour les cartes ouvertes par les utilisateurs.
+
+1. Sur le serveur MAP, éditez le fichier suivant :
+
+```shell
+   vim /etc/centreon-map/map-config.properties
+```
+
+2. Ajoutez la ligne suivante :
+
+```shell
+   map.on-demand-status.enabled=true
+```
+
+3. Redémarrez le service **centreon-map-engine** :
+
+```shell
+   systemctl restart centreon-map-engine.service
+```
+
+Pour revenir au comportement par défaut, passez l'option à `false` (ou supprimez la ligne), puis redémarrez le service.
+
 ## centreon-map-engine et toutes ses dépendances ne peuvent pas être installés sur Alma Linux 8
 
 #### Symptôme
@@ -42,15 +76,15 @@ Vous pouvez mettre à jour le mot de passe en accédant à ce fichier : **/etc/c
 
 ## La configuration MAP ne fonctionne pas en HTTPS
 
-### Symptôme
+#### Symptôme
 
 La configuration du module MAP ne fonctionne pas. Ce problème se produit lorsque le module MAP est installé sur le serveur central Centreon alors que la plateforme MAP est sécurisée en HTTPS.
 
-### Problème
+#### Problème
 
 La configuration MAP n'est pas définie en TLS.
 
-### Solution
+#### Solution
 
 Si vous utilisez IPv6, vous devez forcer le serveur MAP à utiliser IPv4. 
 

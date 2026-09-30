@@ -8,6 +8,40 @@ import TabItem from '@theme/TabItem';
 
 This chapter shows some guidelines on how to troubleshoot your MAP installation.
 
+## The MAP server takes a long time to restart or uses too much memory
+
+#### Symptom
+
+The **centreon-map-engine** server takes a long time to restart, or uses a large amount of CPU and memory.
+
+#### Problem
+
+By default, the MAP server calculates the status of the resources in all maps, even the ones that no user is currently viewing. On large platforms, this can use a lot of resources.
+
+#### Solution
+
+You can configure the MAP server so that it only calculates the status of resources in the maps that users have opened.
+
+1. On the MAP server, edit the following file:
+
+```shell
+   vim /etc/centreon-map/map-config.properties
+```
+
+2. Add the following line:
+
+```shell
+   map.on-demand-status.enabled=true
+```
+
+3. Restart the **centreon-map-engine** service:
+
+```shell
+   systemctl restart centreon-map-engine.service
+```
+
+To go back to the default behavior, set the option to `false` (or remove the line), then restart the service.
+
 ## centreon-map-engine and all its dependencies cannot get installed on Alma Linux 8
 
 #### Symptom
@@ -42,15 +76,15 @@ You can update the password by accessing this file: **/etc/centreon-map/map-conf
 
 ## MAP configuration is not working in HTTPS
 
-### Symptom
+#### Symptom
 
 The MAP configuration is not working. This issue occurs when the MAP module is installed on the Centreon central server while the MAP platform is secured in HTTPS.
 
-### Problem
+#### Problem
 
 The MAP configuration is not set in TLS.
 
-### Solution
+#### Solution
 
 If you are using IPv6, you need to force the MAP server to use IPv4. 
 
