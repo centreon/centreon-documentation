@@ -198,7 +198,15 @@ Add the following code to your Apache configuration file, in both the `<VirtualH
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 ```
 
-### Step 6: Finalize the upgrade
+### Step 6: Upgrade the database
+
+<ul>
+  <li>If you were using MariaDB {props.oldMariadbVersion}, [upgrade it](upgrade-mariadb.md) to version 11.8.</li>
+  {props.showSecondPoint && <li>If you were using MySQL 8.0, [upgrade it to version 8.4](upgrade-mysql.md).</li>}
+  {props.showThirdPoint && <li>If you were already using MySQL 8.4, you don't need to do anything.</li>}
+</ul>
+
+### Step 7: Finalize the upgrade
 
 1. Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
 following command:
@@ -289,7 +297,7 @@ page:
 
 8. Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
-### Step 7: Post-upgrade actions
+### Step 8: Post-upgrade actions
 
 1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
 with the following:
@@ -318,11 +326,3 @@ with the following:
     ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-### Step 8: Upgrade the database
-
-<ul>
-  <li>If you were using MariaDB {props.oldMariadbVersion}, [upgrade it](upgrade-mariadb.md) to version 11.8.</li>
-  {props.showSecondPoint && <li>If you were using MySQL 8.0, [upgrade it to version 8.4](upgrade-mysql.md).</li>}
-  {props.showThirdPoint && <li>If you were already using MySQL 8.4, you don't need to do anything.</li>}
-</ul>

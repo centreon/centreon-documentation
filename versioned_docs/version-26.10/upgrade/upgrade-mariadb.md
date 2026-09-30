@@ -64,36 +64,24 @@ You must uninstall then reinstall MariaDB to upgrade between major versions. In 
     systemctl stop mariadb
     ```
 
-2. Uninstall the current version:
+2. Execute the following command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
 
 ```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+dnf module reset mariadb -y
 ```
 
 </TabItem>
 <TabItem value="RHEL 9" label="RHEL 9">
 
 ```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
+dnf module reset mariadb -y
 ```
 
 </TabItem>
 </Tabs>
-
-> During this uninstallation step, you may encounter an error because one or several MariaDB packages are missing. In that case, you should execute the uninstallation command without including the missing package.
->
-> For instance, you get the following error message:
->
-> `package MariaDB-compat is not installed`
->
-> As **MariaDB-compat** is the missing package, please execute the same command without quoting **MariaDB-compat**:
->
-> `rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common`
-
-> Make sure you have [installed the official MariaDB repository](https://mariadb.com/kb/en/mariadb-package-repository-setup-and-usage/) before you continue the procedure.
 
 3. Install version 11.8:
 
@@ -147,6 +135,18 @@ dnf install mariadb-server-11.8\* mariadb-11.8\*
 
     ```shell
     systemctl enable mariadb
+    ```
+
+7. Before you finish upgrading your Centreon platform, execute the following command on the central server:
+
+    ```shell
+    systemctl restart php-fpm httpd
+    ```
+
+8. Make sure MariaDB is running using `systemctl status mariadb`. If not, start it:
+
+    ```shell
+    systemctl start mariadb
     ```
 
 ### Upgrading from 10.1 to a more recent version

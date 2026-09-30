@@ -95,6 +95,35 @@ You can now log in using the **admin** account and [initialize the monitoring](#
 
 ## Initialization of the monitoring
 
+Apply the following permissions:
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+usermod -a -G centreon-broker www-data
+usermod -a -G www-data centreon-broker
+```
+
+</TabItem>
+</Tabs>
+
 To start the monitoring processes:
 
 1. From your web interface, go to **Configuration > Pollers**.
