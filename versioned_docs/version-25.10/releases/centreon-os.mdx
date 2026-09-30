@@ -33,8 +33,8 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
   <summary>Bug fixes</summary>
 
 - [API] API requests containing invalid non-integer values for the page or limit parameters (e.g., ?page=abc) now correctly return an HTTP 400 Bad Request instead of an uncaught HTTP 500 error, ensuring accurate error reporting and preventing critical log pollution.
-- [Administration] API tokens now display correctly after the user who created them is deleted.
-- [CLAPI] Fixed an issue in the CLAPI export where recurrent downtimes with specific monthly periods (other than "First" or "Last" of the month) were missing.
+- [Administration] API tokens created by LDAP users now display correctly after that user is deleted.
+- [CLAPI] Fixed an issue with the CLAPI export that caused recurrent downtimes with specific monthly periods (other than "First" or "Last" of the month) to be missing.
 - [CMA] Filtering agent configurations by name or poller now returns the matching results instead of a blank page or wrong entries.
 - [Configuration] Changes made in a host's Relations tab are now recorded in the logs like other configuration changes.
 - [Configuration] Temporary export folders are now cleaned up, preventing disk saturation when generating poller configuration.
@@ -42,10 +42,10 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 - [Dashboards] The resource table widget now requires an Open Ticket rule when ticket management is enabled.
 - [LDAP] LDAP contact groups are now removed during synchronization when deleted from the server or excluded by filter changes.
 - [Performance Graphs] Curve thickness set in the curve settings now applies to the on-screen graph, matching the PNG export.
-- [Unattended] Pin stable plugin repositories for debian unattended installation.
+- [Unattended] Prioritize stable plugin repositories for debian unattended installation.
 - [Upgrade] Upgrades no longer enable flapping detection or disable service checks on down hosts, so your engine settings are preserved.
 - [Web] Fixed an issue where some actions would fail when Centreon is accessed through a server with a short name.
-- [Web] Fixes connection failures when the database uses a custom port, which was ignored in favor of the default port 3306.
+- [Web] Fixed connection failures when the database uses a custom port, which was ignored in favor of the default port 3306.
 
 </details>
 
@@ -79,7 +79,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed an issue where inherited downtimes were not properly propagated to 'worst'-type Business Activities.
+- [BA] Fixed an issue where inherited downtimes were not properly propagated to 'worst'-type Business Activities.
 - [Broker] Fixed an issue causing broker to hang on stop with certain database and output configurations.
 
 </details>
@@ -99,7 +99,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- Fixed an issue where icons configured for Business Activities were not showing up properly.
+- [BA] Fixed an issue where icons configured for Business Activities were not showing up properly.
 
 </details>
 
