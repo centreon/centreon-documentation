@@ -55,7 +55,7 @@ mysql_upgrade
     mysql mysql < repair_mysql_upgrade.sql
     ```
 
-    Download the following file: [repair_mysql_upgrade.sql](https://docs.centreon.com/assets/files/repair_mysql_upgrade-6a98ee17c4823471a8a24a06bf18f9ec.sql)
+    Download the following file: [repair_mysql_upgrade.sql](../assets/reporting/administrate/repair_mysql_upgrade.sql)
 
 > Be sure to copy the the custom report & resources you designed to your
 > new reporting server in the same folders.
