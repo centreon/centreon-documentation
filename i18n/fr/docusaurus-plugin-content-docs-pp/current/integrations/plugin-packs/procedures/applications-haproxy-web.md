@@ -123,6 +123,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ## Prérequis
 
+> _**Il faut que la version de Haproxy soit >= 2.0, cf [Changelog | HAProxy Enterprise 2.0r1](https://www.haproxy.com/documentation/haproxy-configuration-manual/new/2-0r1/changelog/#undefined)**_
+
 Pour superviser les statistiques HAProxy via API vous devez activer l’interface des statistiques dans HAProxy.
 Dans votre fichier de configuration `haproxy.cfg`, ajoutez ou modifiez cette section :
 
