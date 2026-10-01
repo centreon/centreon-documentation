@@ -41,7 +41,7 @@ Le cycle de vie d'une version est divisé en 3 phases :
 2. Seconde phase : bugs et correction de sécurité de criticité major, critical et blocking seront traités par priorité.
 3. Troisième phase : bugs bloquants et correction de sécurité seront traités par priorité.
 
-> La priorisation des bugs est faite par l'équipe produit Centreon.
+> Les vulnérabilités sont traitées selon un [plan de remédiation CVSS v3](../security.md#notation-des-vulnérabilités).
 
 La première phase du cycle de vie commence le jour de la sortie de la version.
 
@@ -74,10 +74,9 @@ Jusqu'à la version 21.04 incluse, les versions étaient supportées pendant 18 
     blocking) et correction de sécurité seront traités par priorité
 2.  Seconde phase : bugs et correction de sécurité de criticité major,
     critical et blocking seront traités par priorité.
-3. Troisième phase : bugs et correction de sécurité de criticité blocking seront traités par priorité.
+3. Troisième phase : bugs bloquants et corrections de sécurité seront traités par priorité.
 
-> La priorisation des bugs est faite par l'équipe produit
-> Centreon.
+> Les vulnérabilités sont traitées selon un [plan de remédiation CVSS v3](../security.md#notation-des-vulnérabilités).
 
 La première phase du cycle de vie commence le jour de la sortie de la version.
 
