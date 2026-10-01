@@ -103,7 +103,7 @@ Since version 21.10, versions are supported for two years. The lifecycle of a ve
 2.  Second phase: Major, critical bugs and blockers, or security issues are
     fixed according to their priority.
 
-> Vulnerabilities follow a [CVSS v3 remediation plan)(../security.md#vulnerability-scoring).
+> Vulnerabilities follow a [CVSS v3 remediation plan](../security.md#vulnerability-scoring).
 
 ### Version lifecycle diagram
 
