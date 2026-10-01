@@ -42,7 +42,7 @@ The lifecycle of a version is divided into three phases:
     fixed according to their priority.
 3.  Third phase: Blockers or security issues are fixed according to their priority.
 
-> The prioritization is determined by Centreon’s Product team.
+> Vulnerabilities follow a [CVSS v3 remediation plan](../security.md#vulnerability-scoring).
 
 The first phase of the lifecycle begins on the day of a version release.
 
@@ -103,7 +103,7 @@ Since version 21.10, versions are supported for two years. The lifecycle of a ve
 2.  Second phase: Major, critical bugs and blockers, or security issues are
     fixed according to their priority.
 
-> Vulnerabilities follow a [CVSS v3 remediation plan](../security.md#vulnerability-scoring).
+> The prioritization is determined by Centreon’s Product team.
 
 ### Version lifecycle diagram
 
