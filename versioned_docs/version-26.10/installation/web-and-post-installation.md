@@ -3,6 +3,8 @@ id: web-and-post-installation
 title: Web And Post Installation
 description: "Complete the web setup wizard and initialize your monitoring"
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Web installation
 
