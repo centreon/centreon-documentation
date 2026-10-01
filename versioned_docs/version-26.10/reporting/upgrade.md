@@ -26,13 +26,9 @@ The upgrade of Centreon MBI consists of four steps:
 
 See [Introduction to upgrade](../upgrade/introduction.md).
 
-### Update the RPM signing key
-
-On EL8, for security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
-
 ## Step 1: Update the repository
 
-When you upgrade from a previous major version to 25.10.x, you first need to update the repository on your Central & Reporting servers.
+When you upgrade from a previous major version to 26.10.x, you first need to update the repository on your Central & Reporting servers.
 
 You will find the new "Business" repository on the "Repositories" page in your [Centreon Support account](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
@@ -41,14 +37,6 @@ You will find the new "Business" repository on the "Repositories" page in your [
 1. Update the package, run the following commands:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf clean all
-dnf update centreon-bi-server
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -57,7 +45,7 @@ dnf update centreon-bi-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt clean
@@ -76,7 +64,7 @@ Update button to update the extension and the widgets.
 
 ### Java version requirement
   
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  > Ensure a version of Java 25 is installed before you start the procedure.
   
   - If you need to check the Java version, enter the following command:
   
@@ -84,9 +72,9 @@ Update button to update the extension and the widgets.
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+  - If you need to upgrade the Java installation to Java 25, go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java25) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 25 version:
   
   ```shell
   sudo update-alternatives --config java
@@ -111,15 +99,6 @@ Now you can start the upgrade process:
 2. Then run the following commands:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf clean all
-dnf update centreon-bi\*
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -129,7 +108,7 @@ dnf update centreon-bi\*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt clean
