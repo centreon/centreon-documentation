@@ -30,7 +30,22 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 ### Centreon MAP 24.10.23
 
-No functional changes for this module in this version.
+<details open>
+  <summary>Enhancements</summary>
+
+- Improved MAP status calculation to reduce engine startup time, lower memory and CPU consumption, and make the MAP engine server ready faster. This improvement requires enabling a feature flag.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue in Centreon MAP where hovering over a host inside a host group resource caused an error and failed to display host information when the host was not directly added to the map.
+- Fixed an issue where a Flyway migration failure could prevent the Centreon MAP server from starting.
+- Fixed an issue where error messages were displayed when an authentication token expired.
+- Fixed an issue where the Geoview widget was not displaying resources when viewed through a public playlist.
+
+</details>
 
 ### Centreon BAM 24.10.19
 
@@ -52,11 +67,21 @@ No functional changes for this module in this version.
 
 ### Centreon License Manager 24.10.13
 
-No functional changes for this module in this version.
+<details open>
+  <summary>Enhancements</summary>
+
+- [License] It is now possible to migrate your online Centreon license to another platform autonomously.
+
+</details>
 
 ### Centreon IT Edition Extensions 24.10.17
 
-No functional changes for this module in this version.
+<details>
+  <summary>Bug fixes</summary>
+
+- [Dashboards] Playlists now play dashboards in the order defined in the playlist, instead of falling back to alphabetical order.
+
+</details>
 
 ## September 10, 2026
 
