@@ -4,9 +4,9 @@ title: Jetons d'API
 description: "Générer et gérer les jetons d'API pour les applications tierces"
 ---
 
-Un jeton d'API (un type de [jeton d'authentification](./authentication_tokens.md)) est nécessaire pour vous authentifier auprès des API Centreon. Pour en générer un, rendez-vous à la page **Administration > Jetons d'authentification**.
+Un jeton d'API (un type de [jeton d'authentification](./authentication-tokens.md)) est nécessaire pour vous authentifier auprès des API Centreon. Pour en générer un, rendez-vous à la page **Administration > Jetons d'authentification**.
 
-Un jeton est lié à un [utilisateur Centreon](../users/users.md) et a une durée de validité. Les appels API seront exécutés en fonction des [droits assignés à cet utilisateur](../users/users.md#rôles-des-utilisateurs). Un même utilisateur peut avoir plusieurs jetons.
+Un jeton est lié à un [utilisateur Centreon](../monitoring/basic-objects/contacts.md) et a une durée de validité. Les appels API seront exécutés en fonction des [droits assignés à cet utilisateur](../administration/access-control-lists.md). Un même utilisateur peut avoir plusieurs jetons.
 
 ## Qui peut créer des jetons d'API ?
 
