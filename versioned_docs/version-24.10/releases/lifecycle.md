@@ -40,7 +40,7 @@ The lifecycle of a version is divided into three phases:
     and security issues are fixed according to their priority. Functional enhancements are added.
 2.  Second phase: Major, critical bugs and blockers, and security issues are
     fixed according to their priority.
-3.  Third phase: Blockers and security issues are fixed according to their priority. A vulnerability whose remediation deadline falls after the version's end of support is not fixed on that version.
+3.  Third phase: Blockers and security issues are fixed according to their priority. A vulnerability whose remediation deadline falls after the version's end of support is not fixed on that version: upgrade to a supported version to get the fix.
 
 > Vulnerabilities follow a [CVSS v3 remediation plan](../security.md#vulnerability-scoring). Bugs are prioritized by Centreon's product team.
 
