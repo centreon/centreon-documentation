@@ -74,9 +74,9 @@ Jusqu'à la version 21.04 incluse, les versions étaient supportées pendant 18 
     blocking) et correction de sécurité seront traités par priorité
 2.  Seconde phase : bugs et correction de sécurité de criticité major,
     critical et blocking seront traités par priorité.
-3. Troisième phase : bugs bloquants et corrections de sécurité seront traités par priorité.
+3. Troisième phase : bogues et correction de sécurité de criticité blocking seront traités par priorité.
 
-> Les vulnérabilités sont traitées selon un [plan de remédiation CVSS v3](../security.md#notation-des-vulnérabilités).
+> La priorisation des bogues est faite par l'équipe produit
 
 La première phase du cycle de vie commence le jour de la sortie de la version.
 
