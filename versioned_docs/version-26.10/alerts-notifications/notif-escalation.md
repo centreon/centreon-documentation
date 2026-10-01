@@ -14,7 +14,7 @@ An escalation of notifications is used to contact various groups of
 contacts during the notifications process or to change the means of
 notification (replace mails by an SMS). The definition of a notification
 escalation to a host, a host group, a service, a service group or a
-meta-service overwrites the normal configuration of notifications for
+metaservice overwrites the normal configuration of notifications for
 this object.
 
 Example: a service A is set to send notifications to a group of contacts
@@ -95,6 +95,6 @@ To add a notification escalation, go into the menu:
 
 To select the various objects that will be concerned by this escalation,
 the **Hosts Escalation**, **Services Escalation**, **Hostgroups
-Escalation**, **Meta Service Escalation** and **Servicegroups
+Escalation**, **Metaservice Escalation** and **Servicegroups
 Escalation** tabs are used to choose the objects to which the escalations
 are applied.

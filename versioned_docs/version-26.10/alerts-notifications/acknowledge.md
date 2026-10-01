@@ -39,7 +39,7 @@ of disk.
 > If you are using the **Business Activity Monitoring** module, acknowledgments apply only to the specific object (BA or KPI).
 
 Acknowledgements apply to Business Activities (BAs) as follows:
-- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or meta-services).
+- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or metaservices).
 - Acknowledging a KPI does not acknowledge the BA that depends on it.
 
 ### Practice
