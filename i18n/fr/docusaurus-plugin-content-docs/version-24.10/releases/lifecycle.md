@@ -39,7 +39,7 @@ Le cycle de vie d'une version est divisé en 3 phases :
 
 1. Première phase : bugs de toute criticité (minor, major, critical, blocking) et correction de sécurité seront traités par priorité. Des améliorations fonctionnelles seront ajoutées.
 2. Seconde phase : bugs et correction de sécurité de criticité major, critical et blocking seront traités par priorité.
-3. Troisième phase : bugs bloquants et correction de sécurité seront traités par priorité. Une vulnérabilité dont le délai de remédiation dépasse la date de fin de support de la version n'est pas corrigée sur cette version.
+3. Troisième phase : bugs bloquants et correction de sécurité seront traités par priorité. Une vulnérabilité dont le délai de remédiation dépasse la date de fin de support de la version n'est pas corrigée sur cette version: passez à une version supportée pour bénéficier du correctif.
 
 > Les vulnérabilités sont traitées selon un [plan de remédiation CVSS v3](../security.md#notation-des-vulnérabilités). Les bugs sont priorisés par l'équipe Produit Centreon.
 
