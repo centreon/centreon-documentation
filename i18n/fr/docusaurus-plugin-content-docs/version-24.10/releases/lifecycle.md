@@ -97,7 +97,8 @@ troisième phase de Centreon 20.04 et la deuxième phase de Centreon 20.10.
 2.  Seconde phase : bugs et correction de sécurité de criticité major,
     critical et blocking seront traités par priorité.
 
-> Les vulnérabilités sont traitées selon un [plan de remédiation CVSS v3](../security.md#notation-des-vulnérabilités).
+> La priorisation des bogues est faite par l'équipe produit
+> Centreon.
 
 ### Schéma
 
