@@ -1,14 +1,12 @@
 ---
-id: upgrade-centreon-ha-from-22-04
-title: Upgrade Centreon HA from Centreon 22.04
-description: "Upgrade a Centreon HA cluster from version 22.04 to 25.10"
+id: upgrade-centreon-ha-from-25-10
+title: Upgrade Centreon HA from Centreon 25.10
+description: "Upgrade a Centreon HA cluster from version 25.10 to 26.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon HA platform from version 22.04 to version 25.10.
-
-> If you were using Debian 11, you cannot upgrade your platform directly to version 25.10. You need to [migrate your platform to Debian 12](migrate/migrate-from-debian-to-debian.md) first, then reinstall HA. Contact your Centreon sales representative to discuss any migration with HA.
+This chapter describes how to upgrade your Centreon HA platform from version 24.04 to version 26.10. Please refer to the [upgrade matrix](../upgrade-matrix.mdx) to know whether your OS is still supported. If not, you will need to migrate your platform: contact your Centreon sales representative to discuss any migration with HA.
 
 ## Prerequisites
 
@@ -30,11 +28,11 @@ Be sure that you have fully backed up your environment for the following servers
 ### Update the RPM signing key
 
 For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021.
-When upgrading from an older version, you need to go through the [key rotation procedure](../../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
+When upgrading from an older version, you need to go through the [key rotation procedure](https://docs.centreon.com/docs/security/key-rotation/#existing-installation), to remove the old key and install the new one.
 
 ### Update the centreon_central_sync script (MBI only)
 
-This step is only necessary if you use [MBI](../../reporting/introduction.md). Update the script `/usr/share/centreon-ha/bin/centreon_central_sync` at the following lines:
+This step is only necessary if you use [MBI](https://docs.centreon.com/docs/reporting/introduction.md). Update the script `/usr/share/centreon-ha/bin/centreon_central_sync` at the following lines:
 
 ```shell
 rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
@@ -58,12 +56,12 @@ systemctl stop cbd-sql
 
 Now, to perform the upgrade:
 
-> For the **active central node** and **active database node if needed** please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Upgrade MariaDB" step included**.
+> For the **active central node** and **active database node if needed** please [follow the official documentation](https://docs.centreon.com/docs/upgrade/upgrade-from-25-10.md) **until the "Upgrade MariaDB" step included**.
 
-> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](../../upgrade/upgrade-from-22-04.md) **until the "Update your customized Apache configuration" step included**. Then, skip to the "Upgrade MariaDB" step and follow its instructions. **Do not follow "Finalizing the upgrade" and "Post-upgrade actions"**.
+> For the **passive central node** and **passive database node if needed**, please [follow the official documentation](https://docs.centreon.com/docs/upgrade/upgrade-from-25-10.md) **until the "Update your customized Apache configuration" step included**. Then, skip to the "Upgrade MariaDB" step and follow its instructions. **Do not follow "Finalizing the upgrade" and "Post-upgrade actions"**.
 
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 Then on the **two central nodes**, restore the file `/etc/centreon-ha/centreon_central_sync.pm`:
 
@@ -94,7 +92,7 @@ rm -f /etc/cron.d/centreon-ha-mysql
 and restart the cron daemon:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 ```bash
 systemctl restart crond
@@ -129,9 +127,6 @@ Since Centreon 22.04, The mariaDB Replication is now based on [GTID](https://mar
 
 However, some changes must always be done.
 
-<Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
-
 ### Backup the configuration
 
 Perform a backup of the cluster on central master node using:
@@ -162,9 +157,6 @@ pcs resource group remove centreon cbd_central_broker
 pcs resource group add centreon cbd_central_broker --before gorgone
 ```
 
-</TabItem>
-</Tabs>
-
 ### Clean broker memory files
 
 > **WARNING:** perform this command only the **passive central node**.
@@ -182,28 +174,29 @@ rm -f /var/lib/centreon-broker/central-broker-master.unprocessed*
 <Tabs groupId="sync">
 <TabItem value="HA 2 Nodes" label="HA 2 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 First extract all contraint IDs:
 
 ```bash
-pcs constraint config --full | grep "id:" | awk -F "id:" '{print $2}' | sed 's/.$//'
+pcs constraint config --full
 ```
 
 You should have a similar result:
 
 ```text
-order-centreon-ms_mysql-clone-mandatory
-colocation-ms_mysql-clone-centreon-INFINITY
-colocation-centreon-ms_mysql-clone-INFINITY
+Colocation Constraints:
+  Promoted resource 'centreon' with Started resource 'ms_mysql-clone' (id: colocation-centreon-ms_mysql-clone-INFINITY)
+    score=INFINITY
+  Promoted resource 'ms_mysql-clone' with Started resource 'centreon' (id: colocation-ms_mysql-clone-centreon-INFINITY)
+    score=INFINITY
 ```
 
 and delete **all** constraints, **adapt IDs with your own**
 
 ```bash
-pcs constraint delete order-centreon-ms_mysql-clone-mandatory
-pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 pcs constraint delete colocation-centreon-ms_mysql-clone-INFINITY
+pcs constraint delete colocation-ms_mysql-clone-centreon-INFINITY
 ```
 
 Verify if all constraint are well deleted:
@@ -233,7 +226,7 @@ pcs constraint colocation add master "centreon" with "ms_mysql-clone"
 </TabItem>
 <TabItem value="HA 4 Nodes" label="HA 4 Nodes">
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 First extract all contraint IDs:
 
@@ -296,7 +289,7 @@ pcs constraint colocation add master "ms_mysql-clone" with "vip_mysql"
 Then recreate the Constraint that prevent Centreon Processes to run on Database nodes and vice-et-versa:
 
 <Tabs groupId="sync">
-<TabItem value="RHEL8 / Alma Linux 8 / Oracle Linux 8" label="RHEL8 / Alma Linux 8 / Oracle Linux 8">
+<TabItem value="RHEL9 / Alma Linux 9 / Oracle Linux 9" label="RHEL9 / Alma Linux 9 / Oracle Linux 9">
 
 ```bash
 pcs constraint location centreon avoids @DATABASE_MASTER_NAME@=INFINITY @DATABASE_SLAVE_NAME@=INFINITY

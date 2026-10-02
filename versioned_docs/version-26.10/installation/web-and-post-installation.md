@@ -3,10 +3,12 @@ id: web-and-post-installation
 title: Web And Post Installation
 description: "Complete the web setup wizard and initialize your monitoring"
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Web installation
 
-Log in to Centreon web interface via the URL `http://<IP>/centreon`.
+Log in to Centreon web interface via the URL `http(s)://<IP>/centreon`.
 
 ### Step 1: Welcome to Centreon setup
 
@@ -41,7 +43,7 @@ Then click **Next**.
 
 ### Step 5: Admin information
 
-Define the information needed to create the default admin account. This is the account you will use to log in to Centreon for the first time. The password must comply with the default password security policy: at least 12 characters, lower and upper case letters, numbers and special characters. You can change this policy later.
+Define the information needed to create the default admin account. This is the account you will use to log in to Centreon for the first time. The password must comply with the default password security policy: at least 12 characters, lower and upper case letters, numbers and special characters (at least one of these: @$!%*?&). You can change this policy later.
 
 ![image](../assets/installation/aadmininfo.png)
 
@@ -53,8 +55,8 @@ Provide the information needed to connect to the database instance.
 
 - **Database Host Address**: If you are using a local database, leave the field blank (the default value is **localhost**). Otherwise, enter the IP address of your remote database.
 - **Root user/password**: this is the account that will be used to install the databases.
-   - if this is the default account (**root**), the root password of the database is the password [you have defined](installation-of-a-central-server/using-packages.md#secure-the-database) when executing `mysql_secure_installation`.
-   - if you have defined a custom user with root privileges on all databases (e.g. during the process of installing a [remote database](../installation/installation-of-a-central-server/using-packages.md#step-2-installation)), use this one. This user can be deleted once the web installation process is finished.
+   - if this is the default account (**root**), the root password of the database is the password [you have defined](installation-of-a-central-server/using-packages.md#step-2-install-the-central-server-and-the-database) when executing `mysql_secure_installation` or `mariadb_secure_installation`.
+   - if you have defined a custom user with root privileges on all databases (e.g. during the process of installing a [remote database](../installation/installation-of-a-central-server/using-packages.md#step-2-install-the-central-server-and-the-database)), use this one. This user can be deleted once the web installation process is finished.
 
 - **Database user name/password**: the credentials of the account that will be used to interact with the Centreon databases. The account will be created when the database is installed.
 
@@ -94,6 +96,35 @@ The installation is complete. Click **Finish**.
 You can now log in using the **admin** account and [initialize the monitoring](#initialization-of-the-monitoring).
 
 ## Initialization of the monitoring
+
+Apply the following permissions:
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+usermod -a -G centreon-broker www-data
+usermod -a -G www-data centreon-broker
+```
+
+</TabItem>
+</Tabs>
 
 To start the monitoring processes:
 

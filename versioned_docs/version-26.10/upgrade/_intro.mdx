@@ -1,0 +1,67 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+This chapter describes how to upgrade your Centreon platform from version {props.oldCentreonVersion} to version 26.10.
+
+Upgrading is only possible if your current OS is RHEL/Oracle/AlmaLinux 9. [Other OSs are no longer supported](upgrade-matrix.mdx): use a [migration procedure](../migrate/introduction.md) to switch to a supported OS. If your Centreon platform has HA, please contact your Centreon sales representative to discuss any migration scenario.
+
+* When you upgrade your central server, make sure you also upgrade all your remote servers and your pollers.
+* All servers in your architecture must have the same version of Centreon.
+* In addition, all servers must use the same [version of the BBDO protocol](../developer/developer-broker-bbdo-switch-versions.md).
+
+{props.showMapLegacyWarning && (
+<>
+
+<blockquote>Business edition users: MAP Legacy is no longer available in Centreon 26.10. If you are still using MAP Legacy, you will need to migrate to MAP. See [MAP Legacy end of life](https://docs.centreon.com/docs/24.10/graph-views/map-legacy-eol/).</blockquote>
+
+</>
+)}
+
+{props.showVmwareWarning && (
+<>
+<blockquote>
+<p>Warning: If you were using the following monitoring connectors, from version 24.10 you must declare all of their configurations using <a href="/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration">the <strong>Configuration &gt; Additional connector configurations</strong> page</a> before deploying the configuration of the corresponding poller:</p>
+<ul>
+<li><a href="https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/">VMware ESX</a></li>
+<li><a href="https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-generic/">VMware vCenter</a></li>
+<li><a href="https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vm/">VMware VM</a></li>
+<li><a href="https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-4/">VMware vCenter v4</a></li>
+<li><a href="https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-5/">VMware vCenter v5</a></li>
+<li><a href="https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-6/">VMware vCenter v6</a></li>
+</ul>
+</blockquote>
+</>
+)}
+
+## Components other than Centreon that need upgrading
+
+| Component | Version in {props.oldCentreonVersion} | Version in 26.10 |
+| --- | --- | --- |
+| PHP | {props.oldPhpVersion} | 8.4 |
+| Database | <ul><li>{props.oldMariadbVersion}</li><li>{props.oldMysqlVersion}</li></ul> | <ul><li>MariaDB 11.8</li><li>MySQL 8.4</li></ul> |
+
+## Prerequisites
+
+### Perform a backup
+
+Be sure that you have fully backed up your environment for the following
+servers:
+
+- Central server
+- Database server
+
+### Check the repositories
+
+Before upgrading your Centreon platform, make sure the following package repositories are enabled:
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, if you are using Centreon Business Edition.
+
+</TabItem>
+</Tabs>

@@ -14,24 +14,9 @@ Suivez cette procédure pour mettre à jour la version de MAP :
   sudo systemctl stop centreon-map-engine
   ```
 
-2. Mettez à jour les paquets en exécutant la commande suivante sur la ou les machines hébergeant le service du central et le service Centreon MAP :
+2. Mettez à jour les paquets en exécutant les commandes suivantes sur les machines hébergeant le service du central et le service Centreon MAP :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
- - Sur le serveur central :
- 
- ``` shell
- sudo dnf update centreon-map-web-client
- ```
- 
- - Sur le serveur MAP :
- 
- ``` shell
- sudo dnf update centreon-map-engine
- ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
  - Sur le serveur central :
@@ -47,55 +32,34 @@ Suivez cette procédure pour mettre à jour la version de MAP :
  ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
- - Si MAP seul est installé :
+ - Sur le serveur central :
  
- Sur le serveur central :
-
  ``` shell
- sudo apt install centreon-map-web-client
+ sudo dnf update centreon-map-web-client
+ ```
+ 
+ - Sur le serveur MAP :
+ 
+ ``` shell
+ sudo dnf update centreon-map-engine
  ```
 
- Sur le serveur MAP :
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+ - Sur le serveur central :
 
  ``` shell
- sudo apt install centreon-map-engine
+ sudo apt install --only-upgrade centreon-map-web-client
  ```
-  
- - Si MAP et MAP Legacy sont installés sur le même serveur :
-   
-   - Faites une sauvegarde du fichier **map.cnf** :
-    
-    ```shell
-    cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
-    ```
 
-   - Mettez les paquets de **centreon-map-engine** à jour :
+ - Sur le serveur MAP :
 
-   Sur le serveur central :
-   
-   ``` shell
-   sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-web-client
-   ```
-   
-   Sur le serveur MAP :
-   
-   ``` shell
-   sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-engine
-   ```
-  
-   - Récupérez la sauvegarde du fichier de configuration :
-   
-    ```shell
-    cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
-    ```
-
-   - Répondez **Y**. Ensuite redémarrez MySQL :
-   
-    ```shell
-    systemctl restart mariadb
-    ```
+ ``` shell
+ sudo apt install --only-upgrade centreon-map-engine
+ ```
 
 </TabItem>
 </Tabs>
@@ -103,6 +67,8 @@ Suivez cette procédure pour mettre à jour la version de MAP :
 3. Videz le cache de votre navigateur.
 
 4. Finalisez la mise à jour du module et du widget dans l'interface Centreon **Administration > Extensions > Gestionnaire**.
+
+ > Un bouton de mise à jour s'affiche lorsqu'une mise à jour est disponible. Cliquez dessus pour mettre à jour le module, puis faites de même pour le widget.
 
 5. Redémarrez le service **centreon-map-engine** en exécutant la commande suivante :
  

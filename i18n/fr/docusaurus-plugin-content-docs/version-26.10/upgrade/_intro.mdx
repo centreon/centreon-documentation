@@ -1,0 +1,67 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+Ce chapitre décrit comment monter votre plateforme Centreon de la version {props.oldCentreonVersion} à la version 26.10.
+
+La montée de version n'est possible que si votre OS actuel est RHEL/Oracle/AlmaLinux 9. [Les autres OS ne sont plus supportés](upgrade-matrix.mdx) : suivez une [procédure de migration](../migrate/introduction.md) pour passer à un OS supporté. Si votre plateforme Centreon utilise la HA, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
+
+* Lorsque vous montez de version votre serveur central, veillez à monter également de version tous vos serveurs distants et tous vos collecteurs.
+* Tous les serveurs de votre architecture doivent utiliser la même version de Centreon.
+* De plus, tous les serveurs doivent utiliser la même [version du protocole BBDO](../developer/developer-broker-bbdo-switch-versions.md).
+
+{props.showMapLegacyWarning && (
+<>
+
+<blockquote>Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 26.10. Si vous utilisez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/24.10/graph-views/map-legacy-eol/).</blockquote>
+
+</>
+)}
+
+{props.showVmwareWarning && (
+<>
+<blockquote>
+<p>Attention : si vous utilisiez les connecteurs de supervision suivants, à partir de la version 24.10 vous devez déclarer toutes leurs configurations depuis <a href="/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration">la page <strong>Configuration &gt; Configurations de connecteurs additionnels</strong></a> avant de déployer la configuration du collecteur correspondant :</p>
+<ul>
+<li><a href="https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx/">VMware ESX</a></li>
+<li><a href="https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-generic/">VMware vCenter</a></li>
+<li><a href="https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vm/">VMware VM</a></li>
+<li><a href="https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-4/">VMware vCenter v4</a></li>
+<li><a href="https://docs.centreon.com/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-5/">VMware vCenter v5</a></li>
+<li><a href="https://docs.centreon.com/pp/integrations/plugin-packs/procedures/virtualization-vmware2-vcenter-6/">VMware vCenter v6</a></li>
+</ul>
+</blockquote>
+</>
+)}
+
+## Composants autres que Centreon à monter de version
+
+| Composant | Version dans {props.oldCentreonVersion} | Version dans 26.10 |
+| --- | --- | --- |
+| PHP | {props.oldPhpVersion} | 8.4 |
+| Base de données | <ul><li>{props.oldMariadbVersion}</li><li>{props.oldMysqlVersion}</li></ul> | <ul><li>MariaDB 11.8</li><li>MySQL 8.4</li></ul> |
+
+## Prérequis
+
+### Réaliser une sauvegarde
+
+Assurez-vous d'avoir réalisé une sauvegarde complète de votre environnement pour les
+serveurs suivants :
+
+- Serveur central
+- Serveur de base de données
+
+### Vérifier les dépôts
+
+Avant de monter de version votre plateforme Centreon, assurez-vous que les dépôts de paquets suivants sont activés :
+
+<Tabs groupId="sync">
+<TabItem value="EL" label="EL">
+
+* EPEL
+* BaseOS
+* AppStream
+* centreon
+* centreon-modules, si vous utilisez Centreon Business Edition.
+
+</TabItem>
+</Tabs>

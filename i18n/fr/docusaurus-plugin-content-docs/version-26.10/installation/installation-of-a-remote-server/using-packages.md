@@ -1,6 +1,6 @@
 ---
 id: using-packages
-title: À partir des paquets
+title: À partir des paquets (serveur distant)
 description: "Installer et enregistrer un serveur distant à partir des paquets RPM ou DEB"
 ---
 import Tabs from '@theme/Tabs';
@@ -9,419 +9,88 @@ import DatabaseRepository from '../_database-repository.mdx';
 import DatabaseLocalInstall from '../_database-local-install.mdx';
 import DatabaseRemoteInstall from '../_database-remote-install.mdx';
 import DatabaseEnableRestart from '../_database-enable-restart.mdx';
+import DatabaseTlsConf from '../_database-tls-conf.mdx';
+import InstallCommon from '../_install-common.mdx';
+import TlsCertificates from '../_tls-certificates.mdx';
+import InterfaceTlsConf from '../_interface-tls-conf.mdx';
+import CentreonRepository from '../_centreon-repository.mdx';
+import DependenciesRepository from '../_dependencies-repository.mdx';
 
-Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
-Centreon Open Source disponible gratuitement sur notre dépôt.
+Vous devez exécuter la procédure d'installation en tant qu'utilisateur privilégié.
 
-Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9, et Debian 12.
+> Lorsque vous exécutez une commande, vérifiez ce qu'elle affiche. En cas de message d'erreur, arrêtez la procédure et corrigez le problème.
 
-L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
+Nous vous recommandons de chiffrer les communications du serveur web comme celles de la base de données, même si ces étapes ne sont pas nécessaires au fonctionnement de Centreon. La procédure ci-dessous met en place ce chiffrement. Dans certains cas (par exemple pour réaliser des tests rapides), vous pouvez préférer une installation non sécurisée : il vous suffit alors d'ignorer l'[étape 3 : Mettre en place la configuration TLS](#étape-3--mettre-en-place-la-configuration-tls).
 
-> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+<InstallCommon />
 
-## Prérequis
+#### Dépendances
 
-Après avoir installé votre serveur, réalisez la mise à jour de votre système
-d'exploitation via la commande :
+<DependenciesRepository />
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update
-```
-
-### Configuration spécifique
-
-Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-dnf install glibc-langpack-de
-```
-
-Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
-
-```shell
-locale -a
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf update
-```
-
-### Configuration spécifique
-
-Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-dnf install glibc-langpack-de
-```
-
-Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
-
-```shell
-locale -a
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-``` shell
-apt update && apt upgrade
-```
-
-</TabItem>
-</Tabs>
-
-> Acceptez toutes les clés GPG proposées et redémarrez votre serveur
-> si une mise à jour du noyau est proposée.
-
-## Étape 1 : Pré-installation
-
-### Désactiver SELinux
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
-**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
-exécutez la commande suivante :
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Redémarrez votre système d'exploitation pour prendre en compte le changement.
-
-```shell
-reboot
-```
-
-Après le redémarrage, une vérification rapide permet de confirmer le statut de
-SELinux :
-
-```shell
-$ getenforce
-Disabled
-```
-
-> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
-**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
-exécutez la commande suivante :
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Redémarrez votre système d'exploitation pour prendre en compte le changement.
-
-```shell
-reboot
-```
-
-Après le redémarrage, une vérification rapide permet de confirmer le statut de
-SELinux :
-
-```shell
-$ getenforce
-Disabled
-```
-
-> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-SELinux n'est pas installé sur Debian 12, continuez.
-
-</TabItem>
-</Tabs>
-
-### Configurer ou désactiver le pare-feu
-
-Si votre pare-feu système est actif, [paramétrez-le](../../administration/secure-platform.md#activer-firewalld).
-Vous pouvez également le désactiver le temps de l'installation :
-
-```shell
-systemctl stop firewalld
-systemctl disable firewalld
-```
-
-> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#activer-firewalld)
-> pour configurer le pare-feu.
-
-### Installer les dépôts
-
-<Tabs groupId="sync">
-<TabItem value="Alma 8" label="Alma 8">
-
-Exécutez les commandes suivantes :
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf config-manager --set-enabled 'powertools'
-```
-
-Activez PHP 8.2 en utilisant les commandes suivantes :
-
-```shell
-dnf module reset php
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="RHEL 8" label="RHEL 8">
-
-#### Dépôt CodeReady Builder
-
-Afin d'installer les logiciels Centreon, le dépôt **CodeReady Builder** doit être installé.
-
-Exécutez les commandes suivantes :
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
-
-```shell
-dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
-```
-
-Activez PHP 8.2 en utilisant les commandes suivantes :
-
-```shell
-dnf module reset php
-dnf module install php:8.2
-```
-
-</TabItem>
-
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
-#### Dépôt CodeReady Builder
-
-Afin d'installer les logiciels Centreon, le dépôt **CodeReady Builder** doit être installé.
-
-Exécutez les commandes suivantes :
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf config-manager --set-enabled ol8_codeready_builder
-```
-
-Activez PHP 8.2 en utilisant les commandes suivantes :
-
-```shell
-dnf module reset php
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="Alma 9" label="Alma 9">
-
-Exécutez les commandes suivantes :
-
-```shell
-dnf install dnf-plugins-core
-dnf install epel-release
-dnf config-manager --set-enabled crb
-```
-
-Activez PHP 8.2 avec la commande suivante :
-
-```shell
-dnf module reset php
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
-
-Exécutez les commandes suivantes :
-
-```shell
-dnf install -y dnf-plugins-core
-dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
-```
-
-S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
-
-```shell
-dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
-```
-
-Activez PHP 8.2 avec la commande suivante :
-
-```shell
-dnf module reset php
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="Oracle Linux 9" label="Oracle Linux 9">
-
-Exécutez les commandes suivantes :
-
-```shell
-dnf install dnf-plugins-core
-dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-dnf config-manager --set-enabled ol9_codeready_builder
-```
-
-Activez PHP 8.2 avec la commande suivante :
-
-```shell
-dnf module reset php
-dnf module install php:8.2
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-#### Installer les dépendances
-
-Installez les dépendances suivantes :
-
-```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
-```
-
-#### Installer le dépôt Sury APT pour PHP 8.2
-
-Pour installer le dépôt Sury, exécutez la commande suivante :
-
-```shell
-echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/sury-php.list
-```
-
-Puis importez la clé du dépôt :
-
-```shell
-wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
-```
-
-</TabItem>
-</Tabs>
-
-#### Dépôt de base données
+#### Dépôt de base de données
 
 <DatabaseRepository />
 
 #### Dépôt Centreon
 
-Afin d'installer les logiciels Centreon à partir des dépôts, vous devez au
-préalable installer le fichier lié au dépôt.
+<CentreonRepository />
 
-Exécutez la commande suivante :
+## Étape 2 : Installer le serveur
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+Cette section décrit comment installer un serveur distant Centreon.
 
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-```
-
-Ensuite, importez la clé du dépôt :
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-apt update
-```
-
-</TabItem>
-</Tabs>
-
-## Étape 2 : Installation
-
-Ce chapitre décrit l'installation d'un serveur Centreon Remote Server.
-
-Il est possible d'installer ce serveur avec une base de données locale au
-serveur, ou déportée sur un serveur dédié.
+Vous pouvez installer ce serveur avec une base de données locale au serveur, ou
+avec une base de données distante sur un serveur dédié.
 
 <Tabs groupId="sync">
-  <TabItem value="With a local database" label="With a local database">
+  <TabItem value="Avec une base de données locale" label="Avec une base de données locale">
     <DatabaseLocalInstall />
 
-Passez maintenant à [l'étape suivante](#étape-3--configuration).
+Vous pouvez maintenant passer à l'[étape suivante](#étape-3--mettre-en-place-la-configuration-tls).
 
   </TabItem>
-  <TabItem value="With a remote database" label="With a remote database">
+  <TabItem value="Avec une base de données distante" label="Avec une base de données distante">
     <DatabaseRemoteInstall />
   </TabItem>
 </Tabs>
 
-## Étape 3 : Configuration
+## Étape 3 : Mettre en place la configuration TLS
+
+### Générer les certificats
+
+<TlsCertificates />
+
+### Pour la base de données
+
+<DatabaseTlsConf />
+
+### Pour l'interface web
+
+Cette section décrit comment mettre en place une connexion TLS entre le serveur distant et son interface web.
+
+<InterfaceTlsConf />
+
+## Étape 4 : Configuration
 
 ### Nom du serveur
 
-Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
-
+Si vous souhaitez changer le nom du serveur, utilisez la commande suivante :
 ```shell
 hostnamectl set-hostname new-server-name
 ```
 
 Remplacez **new-server-name** par le nom de votre choix. Exemple :
-
 ```shell
 hostnamectl set-hostname remote1
 ```
 
-### Gérer le lancement des services au démarrage
+### Démarrage des services au démarrage du système
 
-Pour activer le lancement automatique des services au démarrage, exécutez la
-commande suivante sur le serveur Central :
+Pour que les services démarrent automatiquement au démarrage du système, exécutez les commandes suivantes
+sur le serveur distant :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-systemctl enable php-fpm httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
-systemctl enable crond
-systemctl start crond
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -431,58 +100,34 @@ systemctl start crond
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-systemctl enable php8.2-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
+systemctl enable php-fpm httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
+systemctl enable crond
+systemctl start crond
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+systemctl enable php8.4-fpm apache2 centreon cbd centengine gorgoned centreontrapd snmpd snmptrapd
 ```
 
 </TabItem>
 </Tabs>
 
-Puis exécutez la commande suivante (sur le serveur distant si vous utilisez une base de données locale, sinon sur le serveur de base de données déporté):
+Exécutez ensuite la commande suivante (sur le serveur distant si vous utilisez une base de données locale, ou sur votre serveur de base de données dédié) :
 
 <DatabaseEnableRestart />
 
-### Sécuriser la base de données
+## Étape 5 : Installation web
 
-Il est obligatoire de sécuriser l'accès en root à la base avant d'installer Centreon. Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central :
-
-<Tabs groupId="sync">
-<TabItem value="MariaDB" label="MariaDB"> 
-
-```shell
-mariadb-secure-installation
-```
-
-</TabItem>
-<TabItem value="MySQL" label="MySQL"> 
-
-```shell
-mysql_secure_installation
-```
-
-</TabItem>
-</Tabs>
-
-* Répondez oui à toute question sauf à "Disallow root login remotely?".
-* Définissez obligatoirement un mot de passe pour l'utilisateur **root** de la base de données.
-Ce mot de passe vous sera demandé lors de l'[installation web](../web-and-post-installation.md).
-
-> Pour plus d'informations, consultez la [documentation officielle MariaDB](https://mariadb.com/kb/en/mysql_secure_installation/).
-
-## Étape 4 : Installation web
-
-Avant de démarrer l'installation web, démarrez le serveur Apache avec la commande suivante :
+1. Démarrez le serveur Apache avec la
+commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-systemctl start httpd
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -490,7 +135,14 @@ systemctl start httpd
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+systemctl start httpd
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 systemctl start apache2
@@ -499,23 +151,20 @@ systemctl start apache2
 </TabItem>
 </Tabs>
 
+2. Pour terminer l'installation, suivez la
+procédure d'[installation web](../web-and-post-installation.md#installation-web).
 
-Terminez l'installation en réalisant les
-[étapes de l'installation web](../web-and-post-installation.md#installation-web).
+> Pendant l'installation web, il n'est pas nécessaire d'installer le module Autodiscovery.
 
-> Pendant l'installation web, il n'est pas nécessaire d'installer le module
-> Autodiscovery.
+> À l'étape **Initialisation de la supervision**, seules les actions 6 à 8 sont nécessaires.
 
-> A l'étape d'**Initialisation de la supervision**, seules les actions 6 à 8
-> doivent être faites.
+<!-- ## Étape 5 : Enregistrer le serveur
 
-## Étape 5 : Enregistrer le Remote Server
-
-Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur Central, exécutez la commande suivante sur le futur serveur distant :
+Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur central ou sur un autre serveur distant, exécutez la commande suivante sur le futur serveur distant :
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
--t remote -h <IP_TARGET_NODE> -n <REMOTE_SERVER_NAME>
+-t remote -h <IP_TARGET_NODE> -n<REMOTE_SERVER_NAME>
 ```
 
 Si vous utilisez une [URI personnalisée](../../administration/secure-platform.md#uri-personnalisée), ajoutez-la à la fin de la commande, au format suivant : **/uri_personnalisée**.
@@ -526,36 +175,35 @@ Exemple (avec une URI personnalisée) :
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t remote -h 192.168.0.1 -n remote-1 /monitoring
 ```
 
-> Remplacez **\<IP_TARGET_NODE\>** par l'adresse IP du serveur Central auquel vous voulez rattacher le serveur distant (adresse IP vue par le serveur distant).
+> Remplacez **\<IP_TARGET_NODE\>** par l'adresse IP du serveur central, telle que vue par le serveur distant.
 
-> Le compte **\<API_ACCOUNT\>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin**.
+> Le compte **\<API_ACCOUNT\>** doit avoir accès à l'API de configuration. Vous pouvez utiliser le compte **admin** par défaut.
 
-> Pour changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
-> `HTTPS://<IP_TARGET_NODE>:PORT`
+> Si vous devez changer la méthode HTTP ou le port, utilisez le format suivant pour l'option **-h** :
+> `HTTPS:/<IP_TARGET_NODE>:PORT`
 
-Suivre ensuite les instructions
-
-1. Saisir le mot de passe :
+Suivez ensuite les instructions :
+1. Saisissez votre mot de passe :
 
     ``` shell
-    192.168.0.1: please enter your password
+    192.168.0.1: please enter your password:
     ```
 
-2. Sélectionner l'adresse IP si plusieurs interfaces réseau existent:
+2. Sélectionnez l'adresse IP si plusieurs interfaces réseau existent :
 
     ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
+    Which IP do you want to use as CURRENT NODE IP?
     1) 192.168.0.2
     2) 192.168.0.3
     1
     ```
 
-3. Valider les informations:
+3. Validez ensuite les informations :
 
     ``` shell
-    Summary of the informations that will be send:
+    Summary of the information that will be sent:
 
-    Api Connection:
+    API connection:
     username: admin
     password: ******
     target server: 192.168.0.1
@@ -565,30 +213,31 @@ Suivre ensuite les instructions
     type: remote
     address: 192.168.0.2
 
-    Do you want to register this server with those informations ? (y/n)y
+    Do you want to register this server with the previous information? (y/n)y
     ```
 
-4. Ajouter les informations nécessaires pour permettre de futures communications entre votre Remote Server et son Central
+4. Ajoutez les informations complémentaires permettant les futures communications entre votre serveur distant et son serveur central :
+renseignez les informations demandées pour convertir votre plateforme en serveur distant :
+
+  ```shell
+  <CURRENT_NODE_ADDRESS>: Please enter your username:
+  admin
+  <CURRENT_NODE_ADDRESS>: Please enter your password:
+
+  <CURRENT_NODE_ADDRESS>: Protocol [http]:
+  <CURRENT_NODE_ADDRESS>: Port [80]:
+  <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
+  ```
+
+5. Si vous utilisez un proxy, renseignez les identifiants correspondants :
 
     ```shell
-    <CURRENT_NODE_ADDRESS> : Please enter your username:
-    admin
-    <CURRENT_NODE_ADDRESS> : Please enter your password:
-
-    <CURRENT_NODE_ADDRESS> : Protocol [http]:
-    <CURRENT_NODE_ADDRESS> : Port [80]:
-    <CURRENT_NODE_ADDRESS> : centreon root folder [centreon]:
-    ```
-
-5. Définir les accès au proxy du serveur Centreon du Central :
-
-    ```shell
-    Are you using a proxy ? (y/n)
+    Are you using a proxy? (y/n)
     y
     enter your proxy Host:
     myproxy.example.com
     enter your proxy Port [3128]:
-    Are you using a username/password ? (y/n)
+    Are you using a username/password? (y/n)
     y
     enter your username:
     my_proxy_username
@@ -596,7 +245,7 @@ Suivre ensuite les instructions
 
     ```
 
-Vous recevrez la validation du serveur Centreon Central :
+Vous recevrez la validation du serveur central Centreon :
 
 ``` shell
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'remote: 'remote-1@192.168.0.2' has been converted and registered successfully.
@@ -617,28 +266,27 @@ Vous recevrez la validation du serveur Centreon Central :
 > L'utilisateur **\<API_ACCOUNT\>** n'a pas accès à l'API de configuration.
 
 ``` shell
-Failed connect to 192.168.0.1:444; Connection refused
+Couldn't connect to 192.168.0.1:444; Connection refused
 ```
 
-> Impossible d'accéder à l'API. Contrôler les valeurs **\<IP_TARGET_NODE\>**, méthode et port.
+> Impossible d'accéder à l'API. Contrôlez les valeurs **\<IP_TARGET_NODE\>**, la méthode et le port.
 
 ``` shell
 2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
 ```
 
-> L'URL d'accès n'est pas complète ou invalide. Utilisez l'option **-root** pour définir le chemin de l'URL de l'API.
-> Par exemple : **--root monitoring**.
+> L'URL d'accès n'est pas complète ou n'est pas valide. Utilisez l'option **--root** pour définir le chemin de l'URL de l'API. Par exemple : **--root monitoring**.
 
 ``` shell
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 25.10.
+> La version Centreon du serveur cible n'est pas valide. Elle doit être supérieure ou égale à 26.10. -->
 
 ## Étape 6 : Étendre les droits du SGBD local
 
-Enfin, il est nécessaire d'ajouter des droits à l'utilisateur de base de données **centreon** pour qu'il puisse
-utiliser la commande **LOAD DATA INFILE** :
+Enfin, ajoutez à l'utilisateur de base de données **centreon** les droits nécessaires pour utiliser la commande
+**LOAD DATA INFILE** :
 
 ```sql
 mysql -u root -p
@@ -647,12 +295,12 @@ SET GLOBAL local_infile=1;
 exit
 ```
 
-## Étape 7 : Ajouter le Remote Server à la configuration
+## Étape 7 : Rattacher le serveur distant au serveur central
 
 Rendez-vous au chapitre
-[Ajouter un Remote Server à la configuration](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
+[Rattacher un serveur distant à un serveur central](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
 ## Étape 8 : Sécuriser votre plateforme
 
-Sécurisez votre plateforme Centreon en suivant nos
+N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
 [recommandations](../../administration/secure-platform.md).

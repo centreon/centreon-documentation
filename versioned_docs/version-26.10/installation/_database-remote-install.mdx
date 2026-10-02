@@ -5,16 +5,9 @@ import DatabaseConfiguration from './_database-configuration.mdx';
 > If installing the database on a dedicated server, this server should also have
 > the prerequisite repositories.
 
-Run the following command on the Central server:
+Run the following command on the central server:
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-central
-```
-
-</TabItem>
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -22,7 +15,14 @@ dnf install -y centreon-central
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-central
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
@@ -34,19 +34,10 @@ apt install -y centreon-central
 
 Then run the following commands on the dedicated server for your database:
 
-<Tabs groupId="sync">
+<Tabs groupId="db">
 <TabItem value="MariaDB" label="MariaDB">
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-mariadb
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -56,7 +47,16 @@ systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
@@ -71,18 +71,7 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
-dnf config-manager --enable mysql-8.4-lts-community
-dnf module disable mysql
-dnf install mysql-community-server
-systemctl start mysqld
-```
-
-</TabItem>
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -99,13 +88,28 @@ sudo systemctl status mysqld
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y mysql-server mysql
+dnf install -y centreon-mysql centreon
+systemctl enable --now mysqld
+echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
+systemctl daemon-reload
+systemctl restart mysqld
+systemctl list-units --type=service | grep -i mysql
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo systemctl start mysqld
+sudo systemctl status mysqld
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
 apt install -y centreon-mysql
-apt install -y centreon
-# Selectionner "Use Legacy Authentication Method"
+# Sélectionner "Use Legacy Authentication Method"
 systemctl daemon-reload
 systemctl restart mysql
 ```
