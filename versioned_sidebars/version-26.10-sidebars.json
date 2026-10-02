@@ -1107,6 +1107,10 @@
         },
         {
           "type": "doc",
+          "id": "api/authentication-tokens"
+        },
+        {
+          "type": "doc",
           "id": "administration/customize-centreon"
         },
         {
