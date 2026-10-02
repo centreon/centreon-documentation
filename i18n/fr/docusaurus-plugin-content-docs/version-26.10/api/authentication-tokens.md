@@ -17,7 +17,7 @@ Sur la page **Administration > Jeton d'authentification**, vous pouvez filtrer l
 
 ## Qui peut créer des jetons d'API ?
 
-[Les utilisateurs ayant un rôle **Administrator**](../users/users.md#rôles-des-utilisateurs) ont accès à la page **Administration > Jetons d'authentification** et peuvent :
+[Les utilisateurs ayant un rôle **Administrator**](../administration/access-control-lists.md#donner-des-droits-à-un-utilisateur) ont accès à la page **Administration > Jetons d'authentification** et peuvent :
 
 * créer des jetons d'API pour leur propre usage.
 * voir la liste des jetons créés par d'autres utilisateurs.

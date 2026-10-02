@@ -17,7 +17,7 @@ On the **Administration > Authentication tokens** page, you can filter the list 
 
 ## Who can create authentication tokens?
 
-[Users with an **Administrator** role](../users/users.md#user-roles) can access the **Administration > Authentication tokens** page and can:
+[Users with an **Administrator** role](../administration/access-control-lists.md#granting-rights-to-a-user) can access the **Administration > Authentication tokens** page and can:
 
 * create tokens for themselves.
 * see the list of tokens created by other users.
