@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
-Cette procédure ne s'applique que si vous souhaitez migrer de Debian vers une version plus récente de Debian, sur des serveurs différents.
+Cette procédure ne s'applique que si vous souhaitez migrer de Debian vers une version plus récente de Debian, sur des serveurs différents. La procédure de migration de Debian 12 vers Debian 13 sur le même serveur (migration in-place) sera bientôt disponible sur notre plateforme communautaire The Watch.
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
 
