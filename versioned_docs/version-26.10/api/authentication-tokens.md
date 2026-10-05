@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 There are several types of authentication tokens:
 
-* [API tokens](api-tokens.md): used to authenticate requests made to the Centreon API, allowing external tools or scripts to interact with the platform programmatically.
+* API tokens: used to authenticate requests made to the Centreon API, allowing external tools or scripts to interact with the platform programmatically.
 * [CMA](../cma/cma.md) tokens: used to secure communication between the CMA agent and the poller — the agent includes it in its requests, and the monitoring engine checks that it's present and valid before accepting the connection.
 * Poller tokens: used to authenticate a poller when registering it to a central server, in PullWSS mode. It ensures that only authorized pollers can connect and send data to the central server.
 
