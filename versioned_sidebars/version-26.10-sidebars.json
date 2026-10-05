@@ -1598,9 +1598,20 @@
           "id": "api/map-api"
         },
         {
-          "type": "doc",
-          "id": "api/api-tokens"
-        }
+          "type": "link",
+          "href": "https://docs-api.centreon.com/api/centreon-map/26.10/",
+          "label": "MAP API"
+        },
+        {
+          "type": "link",
+          "href": "https://docs-api.centreon.com/api/centreon-bam",
+          "label": "BAM API"
+        },
+        {
+          "type": "link",
+          "href": "https://docs-api.centreon.com/api/centreon-autodiscovery",
+          "label": "Autodiscovery API"
+        },
       ]
     },
     {

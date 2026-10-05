@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 Il existe plusieurs types de jetons d'authentification :
 
-* Les [jetons d'API](api_tokens.md) : utilisés pour authentifier les requêtes adressées à l'API Centreon, permettant ainsi à des outils ou scripts externes d'interagir avec la plateforme programmatiquement.
+* Les [jetons d'API](api-tokens.md) : utilisés pour authentifier les requêtes adressées à l'API Centreon, permettant ainsi à des outils ou scripts externes d'interagir avec la plateforme programmatiquement.
 * Les [jetons CMA](../cma/cma.md) : utilisés pour sécuriser la communication entre l'agent CMA et le collecteur — l'agent l'inclut dans ses requêtes, et le moteur de surveillance vérifie qu'il est présent et valide avant d'accepter la connexion.
 * Les jetons de collecteurs : utilisé pour authentifier un collecteur lors de son enregistrement sur un serveur central, en mode PullWSS. Il garantit que seuls les collecteurs autorisés peuvent se connecter et envoyer des données au serveur central.
 
