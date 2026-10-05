@@ -6,7 +6,7 @@ description: "Upgrade a Centreon HA cluster from version 24.10 to 26.10"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to upgrade your Centreon HA platform from version 24.04 to version 26.10. Please refer to the [upgrade matrix](../upgrade-matrix.mdx) to know whether your OS is still supported. If not, you will need to migrate your platform: contact your Centreon sales representative to discuss any migration with HA.
+This chapter describes how to upgrade your Centreon HA platform from version 24.10 to version 26.10. Please refer to the [upgrade matrix](../upgrade-matrix.mdx) to know whether your OS is still supported. If not, you will need to migrate your platform: contact your Centreon sales representative to discuss any migration with HA.
 
 ## Prerequisites
 
