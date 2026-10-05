@@ -1611,7 +1611,7 @@
           "type": "link",
           "href": "https://docs-api.centreon.com/api/centreon-autodiscovery",
           "label": "Autodiscovery API"
-        },
+        }
       ]
     },
     {
