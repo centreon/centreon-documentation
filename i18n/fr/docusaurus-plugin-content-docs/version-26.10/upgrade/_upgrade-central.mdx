@@ -224,66 +224,62 @@ commande suivante :
 
 2. Finalisez le processus de montée de version :
 
-<Tabs groupId="sync">
-<TabItem value="Avec l'assistant" label="Avec l'assistant">
+   <Tabs groupId="sync">
+   <TabItem value="Avec l'assistant" label="Avec l'assistant">
 
-1. Connectez-vous à l'interface web de Centreon pour poursuivre le processus de mise à jour. Cliquez sur **Next** :
+   1. Connectez-vous à l'interface web de Centreon pour poursuivre le processus de mise à jour. Cliquez sur **Next** :
 
-   ![image](../assets/upgrade/web_update_1.png)
+      ![image](../assets/upgrade/web_update_1.png)
 
-2. Cliquez sur **Next** :
+   2. Cliquez sur **Next** :
 
-   ![image](../assets/upgrade/web_update_2.png)
+      ![image](../assets/upgrade/web_update_2.png)
 
-3. Les notes de version décrivent les principaux changements. Cliquez sur **Next** :
+   3. Les notes de version décrivent les principaux changements. Cliquez sur **Next** :
 
-   ![image](../assets/upgrade/web_update_3.png)
+      ![image](../assets/upgrade/web_update_3.png)
 
-4. Ce processus réalise les différentes mises à jour. Cliquez sur **Next** :
+   4. Ce processus réalise les différentes mises à jour. Cliquez sur **Next** :
 
-   ![image](../assets/upgrade/web_update_4.png)
+      ![image](../assets/upgrade/web_update_4.png)
 
-5. Votre serveur Centreon est maintenant à jour. Cliquez sur **Finish** pour accéder à la page
-de connexion :
+   5. Votre serveur Centreon est maintenant à jour. Cliquez sur **Finish** pour accéder à la page
+   de connexion :
 
-   ![image](../assets/upgrade/web_update_5.png)
+      ![image](../assets/upgrade/web_update_5.png)
 
-6. [Déployez la configuration du serveur central depuis l'interface web de Centreon](../monitoring/monitoring-servers/deploying-a-configuration.md).
+   6. [Déployez la configuration du serveur central depuis l'interface web de Centreon](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-</TabItem>
-<TabItem value="Avec un point de terminaison d'API dédié" label="Avec un point de terminaison d'API dédié">
+   </TabItem>
+   <TabItem value="Avec un point de terminaison d'API dédié" label="Avec un point de terminaison d'API dédié">
 
-1. Rendez-vous à la page **Administration > Jetons d'authentification**, puis cliquez sur **Ajouter**.
+   1. Dans votre terminal, saisissez cette requête en utilisant l'adresse IP de votre plateforme et en remplaçant **mytoken** par votre jeton (comme précisé dans les prérequis) :
 
-3. Copiez le jeton afin de l'utiliser dans la requête suivante. Conservez-le précieusement : il ne sera pas affiché une seconde fois.
+   ```shell
+   curl --location --request POST 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
+   --header 'X-AUTH-TOKEN: mytoken' \
+   --header 'Content-Type: application/json' \
+   --data '{
+         "components": [
+            {
+               "name": "centreon-web"
+            }
+         ]
+   }'
+   ```
 
-4. Dans votre terminal, saisissez cette requête en utilisant l'adresse IP de votre plateforme et en remplaçant **mytoken** par votre jeton :
+   2. Cette requête ne renvoie aucun résultat. Pour vérifier que la mise à jour a bien été appliquée, consultez le numéro de version affiché sur la page de connexion de l'interface web de Centreon.
 
-  ```shell
-  curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
-  --header 'X-AUTH-TOKEN: mytoken' \
-  --header 'Content-Type: application/json' \
-  --data '{
-      "components": [
-          {
-              "name": "centreon-web"
-          }
-      ]
-  }'
-  ```
+   </TabItem>
+   </Tabs>
 
-5. Cette requête ne renvoie aucun résultat. Pour vérifier que la mise à jour a bien été appliquée, consultez le numéro de version affiché sur la page de connexion de l'interface web de Centreon.
-
-</TabItem>
-</Tabs>
-
-6. Enfin, redémarrez Broker, Engine et Gorgone sur le serveur central à l'aide de cette commande :
+3. Enfin, redémarrez Broker, Engine et Gorgone sur le serveur central à l'aide de cette commande :
 
    ```shell
    systemctl restart cbd centengine gorgoned
    ```
 
-7. Mettez à jour les permissions sur les fichiers de configuration de centreon-broker.
+4. Mettez à jour les permissions sur les fichiers de configuration de centreon-broker.
 
    <Tabs groupId="sync">
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -296,7 +292,7 @@ de connexion :
    </TabItem>
    </Tabs>
 
-8. Consultez les procédures dédiées à [Centreon MBI](../reporting/update.md) et à [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
+5. Consultez les procédures dédiées à [Centreon MBI](../reporting/update.md) et à [Centreon MAP](../graph-views/map-web-upgrade.md) pour mettre à jour ces modules.
 
 ### Étape 8 : Actions post montée de version
 
