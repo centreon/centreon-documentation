@@ -167,6 +167,9 @@ No functional changes for this module in this version.
   <summary>Bug fixes</summary>
 
 - After deployment and the end of a downtime period, a service and its resource are still marked as acknowledged even though the downtime has ended.
+- [Broker] Fixed a thread-safety issue in LUA curl global initialization by protecting it with a mutex.
+- [Broker] Fixed a deadlock in mysql_connection::stop() caused by a race condition between the failover and run threads.
+- [Engine] Fixed missing error handling when pidfd_open fails, masking the real cause of process failures.
 
 </details>
 
