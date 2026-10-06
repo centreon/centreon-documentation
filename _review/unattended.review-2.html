@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editorial review</title>
+<style>
+  :root {
+    --plain:    #2563eb;   /* Plain language   */
+    --idiom:    #7c3aed;   /* Idiomaticity     */
+    --spelling: #dc2626;   /* Spelling         */
+    --style:    #d97706;   /* Style/terminology*/
+    --links:    #059669;   /* Links & anchors  */
+    --ink: #1f2328; --muted: #57606a; --line: #d0d7de; --bg: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink); background: #f6f8fa; margin: 0; padding: 2rem 1rem;
+  }
+  main { max-width: 840px; margin: 0 auto; background: var(--bg);
+         border: 1px solid var(--line); border-radius: 10px; padding: 2rem 2.5rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.6rem; }
+  .meta { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+  nav { position: sticky; top: 0; background: var(--bg); padding: .6rem 0;
+        border-bottom: 1px solid var(--line); margin-bottom: 1.5rem; font-size: .85rem; }
+  nav a { margin-right: 1rem; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--ink); }
+  section { margin: 2rem 0; }
+  h2 { font-size: 1.2rem; padding-left: .6rem; border-left: 4px solid var(--line); }
+  section#plain    h2 { border-color: var(--plain); }
+  section#idiom    h2 { border-color: var(--idiom); }
+  section#spelling h2 { border-color: var(--spelling); }
+  section#style    h2 { border-color: var(--style); }
+  section#links    h2 { border-color: var(--links); }
+
+  blockquote.src {
+    margin: .8rem 0 .2rem; padding: .5rem .8rem; background: #f6f8fa;
+    border-left: 3px solid var(--line); color: var(--muted); font-style: italic;
+  }
+  .note { margin: 0 0 1.2rem; padding: .7rem .9rem; border-radius: 6px;
+          border-left: 4px solid var(--line); }
+  .note .badge { display: inline-block; font-size: .72rem; font-weight: 600;
+                 text-transform: uppercase; letter-spacing: .03em; color: #fff;
+                 padding: .12rem .5rem; border-radius: 999px; margin-right: .5rem; }
+  .note.plain    { background: #eff4ff; border-color: var(--plain); }
+  .note.plain    .badge { background: var(--plain); }
+  .note.idiom    { background: #f5f0ff; border-color: var(--idiom); }
+  .note.idiom    .badge { background: var(--idiom); }
+  .note.spelling { background: #fef2f2; border-color: var(--spelling); }
+  .note.spelling .badge { background: var(--spelling); }
+  .note.style    { background: #fff8ef; border-color: var(--style); }
+  .note.style    .badge { background: var(--style); }
+  .clean { color: var(--muted); font-style: italic; }
+
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .92rem; }
+  th, td { border: 1px solid var(--line); padding: .5rem .7rem; text-align: left; vertical-align: top; }
+  thead th { background: #f0f3f6; }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  tbody tr.total, tbody tr.total:nth-child(even) { background: #fff3cd; font-weight: 600; }
+  tbody tr.total td { border-top: 2px solid var(--line); }
+  .wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Editorial review</h1>
+  <p class="meta">Source: <code>versioned_docs/version-26.10/installation/installation-of-a-central-server/unattended.md</code> — reviewed 2026-08-27. Language: English (US). Product glossary: <code>infra-monitoring.csv</code> + <code>common.csv</code>.</p>
+
+  <nav>
+    <a href="#plain">Plain language</a>
+    <a href="#idiom">Idiomaticity</a>
+    <a href="#spelling">Spelling</a>
+    <a href="#style">Style &amp; terminology</a>
+    <a href="#links">Links &amp; anchors</a>
+    <a href="#summary">Summary</a>
+  </nav>
+
+  <section id="plain">
+    <h2>1 · Plain language</h2>
+
+    <blockquote class="src">The script uses those values to complete the installation on its own, so the process is quick and requires little effort. (l. 10)</blockquote>
+    <div class="note plain">
+      <span class="badge">Plain language</span>
+      Suggested rewrite: "The script then completes the installation without any further input from you."
+      Why: "the process is quick and requires little effort" is unmeasurable filler — the reader already knows why they chose an unattended install. Saying <em>what</em> the script does (no further input needed) is the actual useful fact.
+    </div>
+
+    <blockquote class="src">This is useful when you need to install several central servers with identical settings, when you install from a deployment tool or CI pipeline, or when you have no interactive access to the target machine. (l. 12 — 35 words)</blockquote>
+    <div class="note plain">
+      <span class="badge">Plain language</span>
+      Suggested rewrite: convert to a bulleted list — "Use an unattended installation when:" followed by three bullets ("you install several central servers with identical settings", "you install from a deployment tool or a CI/CD pipeline", "you have no interactive access to the target machine").
+      Why: a 35-word sentence with three parallel "when" clauses is a list in disguise. Bullets make the three cases scannable, which is how readers use an intro block.
+    </div>
+
+    <blockquote class="src">…when you install from a deployment tool or CI pipeline… (l. 12)</blockquote>
+    <div class="note plain">
+      <span class="badge">Plain language</span>
+      Suggested rewrite: "from a deployment tool or a CI/CD pipeline".
+      Why: "CI" is an unexpanded abbreviation. It appears nowhere else on the page, so a reader who does not already know it gets no help. "CI/CD pipeline" is the form used across the rest of the documentation and is self-explanatory enough in context.
+    </div>
+
+    <blockquote class="src">A full log, including any errors, will be written to <code>/var/log/centreon-unattended-&lt;date&gt;.log</code>. (l. 74)</blockquote>
+    <div class="note plain">
+      <span class="badge">Plain language</span>
+      Suggested rewrite: "The script writes a full log, including any errors, to <code>/var/log/centreon-unattended-&lt;date&gt;.log</code>."
+      Why: actor-obscuring passive plus future tense. The active present tense names the agent (the script) and matches the tense used in the Options table ("the script installs MariaDB", "the script generates a password").
+    </div>
+
+    <blockquote class="src">Installs the central server in TLS mode: the connections to the web interface and to the database are encrypted. Without this option, the central server is installed without TLS. (l. 127)</blockquote>
+    <div class="note plain">
+      <span class="badge">Plain language</span>
+      Suggested rewrite: "Installs the central server in TLS mode: the script encrypts the connections to the web interface and to the database. Omit this option to install without TLS."
+      Why: two passives in two sentences ("are encrypted", "is installed"). Naming the script as the actor in the first clause and using the imperative "Omit this option" in the second removes both and shortens the cell.
+    </div>
+  </section>
+
+  <section id="idiom">
+    <h2>2 · Idiomaticity</h2>
+
+    <blockquote class="src">The main options are the following: (l. 121)</blockquote>
+    <div class="note idiom">
+      <span class="badge">Idiomaticity</span>
+      Suggested rewrite: "The main options are:" or "Here are the main options:".
+      Why: "are the following" is a literal rendering of « sont les suivantes ». It is grammatical but reads translated; native technical English drops the placeholder noun before a table.
+    </div>
+
+    <blockquote class="src">Replace <strong>my_username</strong> and <strong>my_password</strong> with the credentials of your RedHat account. (l. 29, l. 47)</blockquote>
+    <div class="note idiom">
+      <span class="badge">Idiomaticity</span>
+      Suggested rewrite: "Replace <strong>my_username</strong> and <strong>my_password</strong> with your Red Hat account credentials."
+      Why: "the credentials of your X account" is an of-genitive calque of « les identifiants de votre compte X ». English prefers the attributive form. (See also the Spelling section for "RedHat".)
+    </div>
+
+    <blockquote class="src">Level of detail of the log file: <code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> or <code>ERROR</code>. (l. 130)</blockquote>
+    <div class="note idiom">
+      <span class="badge">Idiomaticity</span>
+      Suggested rewrite: "Verbosity level of the log file: …" or "Log level: …".
+      Why: the stacked "Level of detail of the log file" reads awkwardly, and "log level" / "verbosity level" is the established collocation in this domain — it is also what the reader will see in the script's own <code>-h</code> output.
+    </div>
+
+    <blockquote class="src">Go to <code>http://&lt;SERVER_IP&gt;/centreon</code>, where <code>&lt;SERVER_IP&gt;</code> is your server's IP address, and log in. (l. 108)</blockquote>
+    <div class="note idiom">
+      <span class="badge">Idiomaticity</span>
+      Suggested rewrite: "Go to <code>http://&lt;SERVER_IP&gt;/centreon</code> (where <code>&lt;SERVER_IP&gt;</code> is your server's IP address) and log in."
+      Why: the comma-delimited relative clause strands "and log in" so far from "Go to" that the sentence has to be re-parsed. Parentheses keep the two imperatives adjacent.
+    </div>
+
+    <blockquote class="src">Start using Centreon: follow our <em>Getting started</em> guide to start monitoring your resources. (l. 111)</blockquote>
+    <div class="note idiom">
+      <span class="badge">Idiomaticity</span>
+      Suggested rewrite: "Start using Centreon: follow our <em>Getting started</em> guide to begin monitoring your resources."
+      Why: "Start … start" in one short sentence is an unintentional echo. Swapping the second verb for "begin" (or cutting it: "…guide to monitor your resources") removes it.
+    </div>
+  </section>
+
+  <section id="spelling">
+    <h2>3 · Spelling</h2>
+
+    <blockquote class="src">…with the credentials of your <strong>RedHat</strong> account. (l. 29 and l. 47)</blockquote>
+    <div class="note spelling">
+      <span class="badge">Spelling</span>
+      Correction: <strong>Red Hat</strong> (two words, both capitalized) — the vendor's own trademark spelling.
+      Why: "RedHat" is a misspelling of a proper noun. Note for the wider fix: the repository currently contains 12 occurrences of "RedHat" against 1 of "Red Hat", so the error is inherited from the older pages rather than introduced here — worth a repo-wide correction rather than a fix limited to this file.
+    </div>
+
+    <p class="clean">US/UK spelling: no issues found. The script's <code>center/centre</code> hit is a false positive — the only match is the string <code>centreon</code> inside the download URL (l. 69). No other misspellings or typos found ("autogenerated", "unattended", "MariaDB", "MySQL" are all correct).</p>
+  </section>
+
+  <section id="style">
+    <h2>4 · Style &amp; terminology</h2>
+
+    <blockquote class="src">Commands: <code>--tls=enabled</code> (l. 97, 98, 102, 103) — Options table: <code>--tls enabled</code> (l. 127)</blockquote>
+    <div class="note style">
+      <span class="badge">Style &amp; terminology</span>
+      Correction: use one form in both places — <code>--tls=enabled</code>, matching the copy-pasteable commands.
+      Why: the same option is documented two ways on one page. This is not only a consistency nit: a reader who copies the syntax from the Options table may run a command the script does not accept. Confirm with the script which separator is valid, then align both.
+    </div>
+
+    <blockquote class="src">Commands: <code>-d mysql</code> (l. 92, 93, 102, 103) — Options table: "use <code>-d MySQL</code> to install MySQL instead" (l. 126)</blockquote>
+    <div class="note style">
+      <span class="badge">Style &amp; terminology</span>
+      Correction: use lowercase <code>-d mysql</code> in the Options table to match the commands.
+      Why: same problem as above — the value's casing differs between the two tables. Keep the product name capitalized in prose ("to install MySQL instead") but the literal option value lowercase.
+    </div>
+
+    <blockquote class="src">"Command with autogenerated <strong>admin DB password</strong>" / "Command with custom <strong>admin DB password</strong>" (l. 80–81) vs. "Password of the default <strong>admin</strong> database account" (l. 128)</blockquote>
+    <div class="note style">
+      <span class="badge">Style &amp; terminology</span>
+      Correction: (a) spell out "database" rather than "DB" in the column headers, and (b) verify what <code>-p</code> actually sets.
+      Why: "DB" is an abbreviation used nowhere else on the page — "admin database password" is only a few characters longer in a header that already runs long. More importantly, the 25.10 version of this page documented the same option as "the password for the default <strong>admin</strong> account", i.e. the Centreon web interface account, not a database account. One of the two pages is wrong about a credential, and the reader cannot tell which. This needs a technical check before publication.
+    </div>
+
+    <blockquote class="src">Installation section step numbering: <code>1.</code> (l. 74) → <code>4.</code> (l. 108) → <code>5.</code> (l. 111)</blockquote>
+    <div class="note style">
+      <span class="badge">Style &amp; terminology</span>
+      Correction: renumber to <code>1.</code>, <code>2.</code>, <code>3.</code>.
+      Why: leftover numbering from the reorganization that moved the "update your system" and "download the script" steps into <strong>Prerequisites</strong>. Docusaurus renumbers ordered lists on render, so the published page looks fine — but the source misleads the next editor, and the 2/3 gap invites the reader of the raw file to think two steps were lost. While renumbering, also align the indentation of the raw <code>&lt;table&gt;</code> block (l. 76–106, 4 spaces) with the 3-space continuation indent used in the <strong>Prerequisites</strong> steps.
+    </div>
+
+    <blockquote class="src">Row "Using MariaDB and no TLS": <code>bash /tmp/unattended.sh install -t central -v 26.10</code> (l. 87–88)</blockquote>
+    <div class="note style">
+      <span class="badge">Style &amp; terminology</span>
+      Correction: add <code>-s</code>, as in the other three rows.
+      Why: this is the only one of the four rows without <code>-s</code>, and <code>-s</code> is defined on the same page as "the script does not prompt you for anything". On a page whose subject is unattended installation, the default MariaDB command is the one that still prompts — almost certainly an omission rather than an intentional difference, and it is the row most readers will copy.
+    </div>
+
+    <blockquote class="src">Options table descriptions: "Type of server to install." / "Database to install." / "Password of the default admin database account." / "Silent installation:" / "Level of detail of the log file:" — vs. "<strong>Installs</strong> the central server in TLS mode:" (l. 125–130)</blockquote>
+    <div class="note style">
+      <span class="badge">Style &amp; terminology</span>
+      Correction: recast the <code>--tls</code> description as a noun phrase, e.g. "TLS mode: the script encrypts the connections to the web interface and to the database. Omit this option to install without TLS."
+      Why: five of the six rows open with a noun phrase; only <code>--tls</code> opens with a finite verb. Parallel grammatical form across a reference table lets the reader scan the column instead of reading it.
+    </div>
+
+    <blockquote class="src"><code>DEBUG</code>, <code>INFO</code>, <code>WARN</code> or <code>ERROR</code>. (l. 130)</blockquote>
+    <div class="note style">
+      <span class="badge">Style &amp; terminology</span>
+      Correction: "<code>DEBUG</code>, <code>INFO</code>, <code>WARN</code>, or <code>ERROR</code>."
+      Why: missing serial (Oxford) comma, which US-English technical style — the register this documentation uses — applies before the final item in a list.
+    </div>
+
+    <blockquote class="src">Table column header: "Settings" (l. 79)</blockquote>
+    <div class="note style">
+      <span class="badge">Style &amp; terminology</span>
+      Correction: "Configuration" or "Database and TLS options".
+      Why: the column holds four database/TLS combinations, not settings the reader enters. "Settings" also collides with the intro's use of the word for the option values passed to the script (l. 10, l. 12), so one term names two different things on the same page.
+    </div>
+
+    <p class="clean">Glossary conformity (<code>common.csv</code> + <code>infra-monitoring.csv</code>): no deviations. "central server", "database", "TLS", "web interface" and "Centreon" are used consistently and match the approved source terms. Voice is consistently second person ("you"), and blockquote notes (<code>&gt;</code>) match the convention of the surrounding installation pages — no <code>:::note</code> admonitions are used anywhere in <code>version-26.10/installation/</code>, so the <code>&gt;</code> on l. 14 is correct here.</p>
+  </section>
+
+  <section id="links">
+    <h2>5 · Links &amp; anchors</h2>
+    <div class="wrap">
+      <table>
+        <thead>
+          <tr><th>Reference</th><th>Type</th><th>Status</th><th>Detail</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>using-packages.md</code> (l. 14)</td>
+            <td>relative</td>
+            <td>OK</td>
+            <td>Target exists: <code>version-26.10/installation/installation-of-a-central-server/using-packages.md</code></td>
+          </tr>
+          <tr>
+            <td><code>../web-and-post-installation.md#initialization-of-the-monitoring</code> (l. 109)</td>
+            <td>relative + anchor</td>
+            <td>OK</td>
+            <td>Target file exists; heading "## Initialization of the monitoring" found at l. 96, so the anchor resolves</td>
+          </tr>
+          <tr>
+            <td><code>../../getting-started/welcome.md</code> (l. 111)</td>
+            <td>relative</td>
+            <td>OK</td>
+            <td>Target exists: <code>version-26.10/getting-started/welcome.md</code></td>
+          </tr>
+          <tr>
+            <td><code>https://download.centreon.com/26.10/unattended.sh</code> (l. 69)</td>
+            <td>URL in code block</td>
+            <td>not checked</td>
+            <td>Inside a <code>shell</code> code block, so not a document link — <code>extract_refs.py</code> reports 0 external URLs. Worth a manual <code>curl -I</code> before publication to confirm the 26.10 artifact is published.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="clean">No broken internal anchors and no external document links. No issues found in this criterion.</p>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th>Criterion</th><th>Issues</th><th>Takeaway</th></tr></thead>
+        <tbody>
+          <tr><td>Plain language</td><td>5</td><td>Two passives hiding the script as actor, one 35-word sentence that should be a bulleted list, one unexpanded "CI", and one filler clause</td></tr>
+          <tr><td>Idiomaticity</td><td>5</td><td>Reads slightly translated in places: "are the following", "the credentials of your … account", "Level of detail of the log file"</td></tr>
+          <tr><td>Spelling</td><td>1</td><td>"RedHat" → "Red Hat" (×2); US/UK spelling clean, the <em>centre</em> hit is a false positive</td></tr>
+          <tr><td>Style &amp; terminology</td><td>8</td><td>Command syntax contradicts the Options table (<code>--tls</code>, <code>-d</code>); missing <code>-s</code> in the first command; "admin DB password" may name the wrong account; step numbering jumps 1 → 4 → 5</td></tr>
+          <tr><td>Links &amp; anchors</td><td>0</td><td>No issues found — all three relative links and the one anchor resolve</td></tr>
+          <tr class="total"><td>Total</td><td>19</td><td>Three items need a technical decision, not just an edit: the <code>--tls</code> separator, the missing <code>-s</code>, and what <code>-p</code> actually sets</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+</body>
+</html>

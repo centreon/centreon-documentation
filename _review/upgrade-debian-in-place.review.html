@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editorial review</title>
+<style>
+  :root {
+    --plain:    #2563eb;   /* Plain language   */
+    --idiom:    #7c3aed;   /* Idiomaticity     */
+    --spelling: #dc2626;   /* Spelling         */
+    --style:    #d97706;   /* Style/terminology*/
+    --links:    #059669;   /* Links & anchors  */
+    --ink: #1f2328; --muted: #57606a; --line: #d0d7de; --bg: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink); background: #f6f8fa; margin: 0; padding: 2rem 1rem;
+  }
+  main { max-width: 840px; margin: 0 auto; background: var(--bg);
+         border: 1px solid var(--line); border-radius: 10px; padding: 2rem 2.5rem; }
+  h1 { margin: 0 0 .25rem; font-size: 1.6rem; }
+  .meta { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+  nav { position: sticky; top: 0; background: var(--bg); padding: .6rem 0;
+        border-bottom: 1px solid var(--line); margin-bottom: 1.5rem; font-size: .85rem; }
+  nav a { margin-right: 1rem; text-decoration: none; color: var(--muted); }
+  nav a:hover { color: var(--ink); }
+  section { margin: 2rem 0; }
+  h2 { font-size: 1.2rem; padding-left: .6rem; border-left: 4px solid var(--line); }
+  section#plain    h2 { border-color: var(--plain); }
+  section#idiom    h2 { border-color: var(--idiom); }
+  section#spelling h2 { border-color: var(--spelling); }
+  section#style    h2 { border-color: var(--style); }
+  section#links    h2 { border-color: var(--links); }
+
+  blockquote.src {
+    margin: .8rem 0 .2rem; padding: .5rem .8rem; background: #f6f8fa;
+    border-left: 3px solid var(--line); color: var(--muted); font-style: italic;
+  }
+  .note { margin: 0 0 1.2rem; padding: .7rem .9rem; border-radius: 6px;
+          border-left: 4px solid var(--line); }
+  .note .badge { display: inline-block; font-size: .72rem; font-weight: 600;
+                 text-transform: uppercase; letter-spacing: .03em; color: #fff;
+                 padding: .12rem .5rem; border-radius: 999px; margin-right: .5rem; }
+  .note.plain    { background: #eff4ff; border-color: var(--plain); }
+  .note.plain    .badge { background: var(--plain); }
+  .note.idiom    { background: #f5f0ff; border-color: var(--idiom); }
+  .note.idiom    .badge { background: var(--idiom); }
+  .note.spelling { background: #fef2f2; border-color: var(--spelling); }
+  .note.spelling .badge { background: var(--spelling); }
+  .note.style    { background: #fff8ef; border-color: var(--style); }
+  .note.style    .badge { background: var(--style); }
+  .clean { color: var(--muted); font-style: italic; }
+
+  table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: .92rem; }
+  th, td { border: 1px solid var(--line); padding: .5rem .7rem; text-align: left; vertical-align: top; }
+  thead th { background: #f0f3f6; }
+  tbody tr:nth-child(even) { background: #fafbfc; }
+  tbody tr.total, tbody tr.total:nth-child(even) { background: #fff3cd; font-weight: 600; }
+  tbody tr.total td { border-top: 2px solid var(--line); }
+  .wrap { overflow-x: auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Editorial review</h1>
+  <p class="meta">versioned_docs/version-26.10/migrate/upgrade-debian-in-place.md · 2026-10-06</p>
+
+  <nav>
+    <a href="#plain">Plain language</a>
+    <a href="#idiom">Idiomaticity</a>
+    <a href="#spelling">Spelling</a>
+    <a href="#style">Style &amp; terminology</a>
+    <a href="#links">Links &amp; anchors</a>
+    <a href="#summary">Summary</a>
+  </nav>
+
+  <section id="plain">
+    <h2>1 · Plain language</h2>
+    <blockquote class="src">Snapshots let you quickly roll back a whole server, but they are not a substitute for backups: they usually share the same storage as the VM, capture databases in a crash-consistent state only, and cannot restore a single database or file. (L49)</blockquote>
+    <div class="note plain"><span class="badge">Plain language</span>41 words. Suggested: "Snapshots let you roll back a whole server quickly, but they do not replace backups. They usually share the VM's storage, capture databases only in a crash-consistent state, and cannot restore a single database or file."</div>
+
+    <blockquote class="src">apt-get update   # no error (a broken repository blocks the major) … cat /etc/debian_version   # 12.latest (L70, L134)</blockquote>
+    <div class="note plain"><span class="badge">Plain language</span>Jargon/shorthand: "the major", "12.latest". Suggested: "# no error (a broken repository blocks the upgrade to Debian 13)" and "# latest 12.x version".</div>
+
+    <blockquote class="src">The commands edit the existing files (deb822 /etc/apt/sources.list.d/*.sources, written by recent Debian 12 installs, or one-line *.list); never add a new file next to an old one (25.10 and 26.10 would mix). (L206–207)</blockquote>
+    <div class="note plain"><span class="badge">Plain language</span>Dense parentheticals. Suggested: "The commands edit your existing repository files (either deb822 *.sources files or one-line *.list files). Do not add a new file next to an old one: the 25.10 and 26.10 repositories would mix."</div>
+
+    <blockquote class="src">This is because the 26.10 packages restart the services (and cron if it was upgraded) while the schema is still 25.10 until the wizard; Gorgone then logs … every 15 s. (L323–325)</blockquote>
+    <div class="note plain"><span class="badge">Plain language</span>Long, elliptical ("until the wizard"). Suggested: "The 26.10 packages restart the services (and cron, if it was upgraded), but the database schema stays at 25.10 until you run the update wizard in step 8. Until then, Gorgone logs … every 15 seconds."</div>
+
+    <blockquote class="src">On the central with a local engine, on a remote database, on MAP or MBI. (L255)</blockquote>
+    <div class="note plain"><span class="badge">Plain language</span>Verbless fragment; "local engine" is unclear. Suggested: "Run this on every server that hosts a database: the central server (if the database is local), the remote database server, and the MAP or MBI server."</div>
+
+    <blockquote class="src">Known issues table: "1.4: install/enable cron", "dpkg --configure -a, all ii", "Pollers on latest 25.10 first; upgrade them soon" (L586–606)</blockquote>
+    <div class="note plain"><span class="badge">Plain language</span>Note-style shorthand throughout the table. Write full imperative sentences, e.g. "Install and enable cron (see step 1).", "Run dpkg --configure -a, then check that all packages show ii."</div>
+  </section>
+
+  <section id="idiom">
+    <h2>2 · Idiomaticity</h2>
+    <blockquote class="src">It is the only fast rollback. (L47)</blockquote>
+    <div class="note idiom"><span class="badge">Idiomaticity</span>Suggested: "It is the only way to roll back quickly."</div>
+
+    <blockquote class="src">You can do the servers in any order, central or database server first. (L143)</blockquote>
+    <div class="note idiom"><span class="badge">Idiomaticity</span>Suggested: "You can update the servers in any order (central server or database server first)."</div>
+
+    <blockquote class="src">On the reporting server, work outside an ETL run. (L529)</blockquote>
+    <div class="note idiom"><span class="badge">Idiomaticity</span>Suggested: "On the reporting server, make sure no ETL run is in progress: check with …"</div>
+  </section>
+
+  <section id="spelling">
+    <h2>3 · Spelling</h2>
+    <blockquote class="src">I your database is on a separate server… (L364)</blockquote>
+    <div class="note spelling"><span class="badge">Spelling</span>"I" → "If".</div>
+
+    <blockquote class="src">## Step 8: Finalize the upgrade on he central server (L380)</blockquote>
+    <div class="note spelling"><span class="badge">Spelling</span>"he" → "the".</div>
+
+    <blockquote class="src">centreontrapd is inactive, wth exit 0/SUCCESS (L473)</blockquote>
+    <div class="note spelling"><span class="badge">Spelling</span>"wth" → "with".</div>
+    <p class="clean">US/UK: the script's "centre" hit is a false positive (substring of "Centreon"); US spelling is used throughout.</p>
+  </section>
+
+  <section id="style">
+    <h2>4 · Style &amp; terminology</h2>
+    <blockquote class="src">"steps 5.1, 5.2 and 5.3", "step 5.4", "7.1 to 7.4", "4b", "7.5", "section 11", "step 1.2", "**5.2 Centreon**" (L163–164, 229, 334, 487, 494, 586–605)</blockquote>
+    <div class="note style"><span class="badge">Style</span>Sub-step numbers are referenced everywhere, but the headings are not numbered (Step 5 has "On your Debian OS / On Centreon / On the database server / Check and simulate"). "4b" and "7.5" don't exist at all, and "**5.2 Centreon**" is a leftover label. Either number the H3 headings (5.1–5.4, 7.1–7.5) or replace every reference with a heading name + link.</div>
+
+    <blockquote class="src">[MAP], [MySQL], [local DB] tags in code comments and tables (L56, L141, L285, L329, L439…)</blockquote>
+    <div class="note style"><span class="badge">Style</span>These tags are only defined in the commented-out "Find your case" section, so readers never see the legend. Add a short legend near the top, or use tabs/admonitions instead.</div>
+
+    <blockquote class="src">"as it did on the database servers we tested" (L378), "On both test platforms" (L390), "seen 0.8.36 → 0.8.40" (L141), Known issues rows "MBI doc | Java 17 required…" and "Official doc | No Debian 12 → 13 path… | This document" (L596–597)</blockquote>
+    <div class="note style"><span class="badge">Style</span>Internal test notes and meta-comments about other docs. Remove them from published content (and fix the MBI doc itself instead).</div>
+
+    <blockquote class="src">"Apache merge (step 2)" (L357), "Steps 2, 7 (custom Apache) … Apache merge" (L599), "Steps 2, 8 (wizard)" (L591)</blockquote>
+    <div class="note style"><span class="badge">Style</span>The Apache merge procedure and the step 2 wizard notes are inside an HTML comment (L92–125), so these references point to invisible content. Restore the procedure or drop the references.</div>
+
+    <blockquote class="src">"Restart all" (L421) vs "Restart" (L497); "**Update all**" (L390) vs "_Update all_" (L590); "(See step 1.4.)" (L474)</blockquote>
+    <div class="note style"><span class="badge">Style</span>Use the exact UI label consistently, always in bold; lowercase "see" mid-sentence.</div>
+
+    <blockquote class="src">Indentation of L81–83 (paragraph at 3/2 spaces under list item 4) and the code block after "2. After the reboot…" (L453, not indented); mix of "*" and "-" list markers.</blockquote>
+    <div class="note style"><span class="badge">Style</span>Mis-indented continuation content breaks the numbered lists when rendered. Indent continuation blocks by 4 spaces and pick one bullet marker.</div>
+
+    <blockquote class="src">"the central" / "central server" / "central"; "remote database" / "remote DB" / "database server"; "Centreon Monitoring Agent" / "Monitoring Agent"</blockquote>
+    <div class="note style"><span class="badge">Terminology</span>Pick one term for each and use it everywhere ("central server", "database server", "Centreon Monitoring Agent" per the infra-monitoring glossary).</div>
+  </section>
+
+  <section id="links">
+    <h2>5 · Links &amp; anchors</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th>Reference</th><th>Type</th><th>Status</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>#step-4-stop-centreon (L376)</td><td>anchor</td><td>broken</td><td>No such heading. Target is the step 4 troubleshooting table: use <code>#troubleshooting</code>.</td></tr>
+          <tr><td>../../version-25.10/update/update-centreon-platform.md (L88)</td><td>relative</td><td>wrong target</td><td>Labelled "24.10" but points to the 25.10 docs. Use <code>../../version-24.10/update/update-centreon-platform.md</code> (exists).</td></tr>
+          <tr><td>../update/update-centreon-platform.md</td><td>relative</td><td>OK</td><td>File exists.</td></tr>
+          <tr><td>../reporting/backup-restore.md</td><td>relative</td><td>OK</td><td>File exists.</td></tr>
+          <tr><td>https://archives-docs.centreon.com/24.04/docs/update/update-centreon-platform/</td><td>external</td><td>OK (200)</td><td>check_links.sh reported 000 (sandbox); a direct curl returned 200.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="summary">
+    <h2>Summary</h2>
+    <div class="wrap">
+      <table>
+        <thead><tr><th>Criterion</th><th>Issues</th><th>Takeaway</th></tr></thead>
+        <tbody>
+          <tr><td>Plain language</td><td>6</td><td>Long sentences, shorthand and jargon ("the major", "until the wizard"), terse known-issues table</td></tr>
+          <tr><td>Idiomaticity</td><td>3</td><td>A few literal phrasings ("the only fast rollback", "do the servers")</td></tr>
+          <tr><td>Spelling</td><td>3</td><td>Typos "I your", "he central", "wth"; US spelling OK</td></tr>
+          <tr><td>Style &amp; terminology</td><td>7</td><td>Phantom sub-step numbers, undefined tags, internal test notes, references to commented-out content</td></tr>
+          <tr><td>Links &amp; anchors</td><td>2</td><td>One broken anchor, 24.10 link points to 25.10 docs</td></tr>
+          <tr class="total"><td>Total</td><td>21</td><td>Sum of all issues flagged</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+</body>
+</html>

@@ -5,6 +5,7 @@ description: "Mettre à niveau un cluster Centreon HA depuis la version 24.04 ve
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
 Ce chapitre décrit comment mettre à niveau votre plateforme Centreon HA de la version 24.04 vers la version 26.10. Veuillez consulter la [matrice des montées de version](../upgrade-matrix.mdx) pour savoir si votre OS est encore pris en charge. Si ce n'est pas le cas, vous devrez migrer votre plateforme : contactez votre représentant commercial Centreon pour discuter de toute migration avec HA.
 
