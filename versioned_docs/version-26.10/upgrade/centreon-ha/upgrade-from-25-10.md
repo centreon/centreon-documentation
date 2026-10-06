@@ -27,7 +27,7 @@ Be sure that you have fully backed up your environment for the following servers
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on December 2, 2025.
 When upgrading from an older version, you need to go through the [key rotation procedure](https://docs.centreon.com/docs/security/key-rotation/#existing-installation), to remove the old key and install the new one.
 
 ### Update the centreon_central_sync script (MBI only)
