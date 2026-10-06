@@ -95,7 +95,7 @@ logrotate -d /etc/logrotate.conf 2>&1 | grep -E "^error|Ignoring"     # nothing
 
 ## Step 2: Update your Centreon version to the latest minor
 
-Follow the update procedures for your version ([24.04](https://archives-docs.centreon.com/24.04/docs/update/update-centreon-platform/), [24.10](../../version-24.10/update/update-centreon-platform.md) or [25.10](../update/update-centreon-platform.md)). Update your central server, your pollers and your remote servers.
+Follow the update procedures for your version ([24.04](https://archives-docs.centreon.com/24.04/docs/update/update-centreon-platform/), [24.10](https://docs.centreon.com/docs/24.10/update/update-centreon-platform/) or [25.10](../update/update-centreon-platform.md)). Update your central server, your pollers and your remote servers.
 
 <!-- ```bash
 apt update
