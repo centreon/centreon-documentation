@@ -41,14 +41,14 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                | Modèle de service                        | Description                                                                                             |
-|:---------------------|:-----------------------------------------|:--------------------------------------------------------------------------------------------------------|
-| Backup-Age           | App-DB-MSSQL-Backup-Age-custom           | Contrôle permettant de vérifier les sauvegardes des bases données MSSQL                                 |
+| Alias                | Modèle de service                        | Description                                                                                           |
+|:---------------------|:-----------------------------------------|:------------------------------------------------------------------------------------------------------|
+| Backup-Age           | App-DB-MSSQL-Backup-Age-custom           | Contrôle permettant de vérifier les sauvegardes des bases données MSSQL                               |
 | Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio-custom       | Contrôle permettant de vérifier le "Data Buffer Cache Hit Ratio" du serveur. Aucune alerte par défaut |
-| Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Contrôle permettant de vérifier le nombre de "locks-waits" par seconde du serveur                       |
-| Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Contrôle permettant de vérifier le "Page Life Expectancy" du serveur. Aucune alerte par défaut         |
-| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique             |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaîne de caractères         |
+| Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Contrôle permettant de vérifier le nombre de "locks-waits" par seconde du serveur                     |
+| Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Contrôle permettant de vérifier le "Page Life Expectancy" du serveur. Aucune alerte par défaut        |
+| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique           |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaîne de caractères       |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -551,6 +551,11 @@ OK: total transactions: 52806/s All databases are ok | 'databases.transactions.p
 ```
 
 ### Diagnostic des erreurs communes
+
+> Assurez vous de disposer de la dernière version de `freetds` pour éviter 
+toute erreur notamment conduisant à des coredump sur certains services (SQL queries not fetching integers stored in database).
+
+> Sur Debian, le paquet `freetds` n’existe pas, il faut donc installer `freetds-bin` sur cette distribution. 
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
 pour le diagnostic des erreurs communes des plugins Centreon.
