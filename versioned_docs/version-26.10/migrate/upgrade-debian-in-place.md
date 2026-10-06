@@ -380,7 +380,7 @@ mariadb -e "SHOW DATABASES" | grep -E "^centreon(_storage|_map)?$"
 journalctl -u mariadb --since "-1h" | grep -iE "error|warning" | tail -n 20   # [MySQL] tail /var/log/mysql/error.log
 ```
 
-* If MariaDB isn't active, or the version query shows read_only = 1 (the database refuses writes), use [the troubleshooting table from step 4](#troubleshooting).
+* If MariaDB isn't active, or the version query shows read_only = 1 (the database refuses writes), use [the troubleshooting table from step 4](#45-troubleshooting).
 * If the check prints "run: mariadb-upgrade", run mariadb-upgrade. It takes its login details from /root/.my.cnf. When it works, it finishes with return code 0 after 8 phases, and running the check again reports that no upgrade is needed.
    Why this happens: the MariaDB package normally updates the database's internal system tables during the upgrade. It can't do this if the MariaDB root account has a password, and it won't warn you. MariaDB 11.8 then runs on system tables still in the 10.11 format. If root logs in through unix_socket (no password), the package does it by itself, as it did on the database servers we tested.
 
