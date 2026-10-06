@@ -1,93 +1,67 @@
 ---
 id: commands
 title: Commands
-description: "Configure commands, whitelists, and connectors used to run monitoring checks"
+description: "How to create custom check commands, manage the command whitelist, and use SSH and Perl optimization connectors"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Definition
 
-A command is the definition of a command line that uses a script or an application to perform an action. It is
-possible to execute this command by specifying arguments.
+Check commands are used by the monitoring engine to check the status of a host or service. Check commands execute [plugins](../../resources/glossary.md#plugin). A check command is used in a host template or a service template. If these templates are applied to a host or service, the script called by the command is executed when the host or service is checked, with the options you have defined.
 
-There are four types of command:
+Most commands are provided by the Monitoring Connectors you have installed and are ready to use. However, if these commands do not meet your needs (e.g. they have too many or too few arguments) you can create new ones (custom commands). You need to create one command per plugin and per [mode](../../resources/glossary.md#mode). Custom commands are an advanced feature.
 
-* **Verification** commands are used by the schedulers to verify the status of a host or service.
-* **Notification** commands are used by the schedulers to alert the contacts (via mail, SMS, etc.).
-* **Discovery** commands are used by the schedulers to discover.
-* **Miscellaneous** commands are used by the additional modules (to perform certain actions), by the scheduler for
-  data processing, etc.
+Commands can be configured in the following menu: **Configuration > Commands > Commands**.
 
-All the commands can be configured in the following menu: **Configuration > Commands**.
+> By default, only custom commands (i.e. user-created commands) are displayed. All commands provided by Monitoring Connectors are read-only ("locked") and hidden. Check the "Locked elements" box to show these commands.
 
-![image](../../assets/configuration/04commandlist.png)
+## Creating a custom check command
 
-> By default, locked commands are hidden. Check the "Locked elements" box to list all commands.
+1. Go to **Configuration > Commands > Commands**.
+2. Click **Add**.
+3. Fill in the following fields:
 
-## Adding a command
+   * **Name**: This name will appear in the list of commands in the host and service template creation forms.
+   * **Command Line**: the actual command that will be executed when a check is made. The syntax is that of Nagios. Use the lists on the left to insert variables quickly and/or type your own contents. You need to specify:
 
-1. Go to the **Configuration > Commands** menu
-2. Click **Add**
+      * A macro that represents the path to the script executed by the command (with no filename). For Centreon or Nagios plugins, use a variable so that Centreon can find the path to the plugins folder on any OS (the variable is defined on the **Configuration > Pollers > Global macros** page). If you are using your own plugins, specify the path where you have stored the plugins. Default values appear in **Poller global macros**, but you can also type the path to your own plugin you have stored somewhere else.
 
-![image](../../assets/configuration/04command.png)
+      Examples:
 
-> The configuration fields of a command are the same regardless of the type of command chosen.
+         * $CENTREONPLUGINS$ if the plugin you are using is in the same place as Centreon plugins (like centreon_linux_snmp.pl)
+         * $USER1$ if the plugin you are using is in the same place as Nagios plugins (like check_icmp)
+         * /custom/path/ if the plugin you are using is in a custom location
+         * create the global macro $MYPLUGINS$  if the path is /custom/path/ on one poller and /alt/path/ on another one. This way you may use the same command for the same plugin found in various places depending on the poller.
 
-## Configuration fields
+      * The name of the plugin you want to use (stored in the path specified in the poller global macro). **Installed plugins** allows you to select Nagios plugins. Examples: `centreon_linux_snmp.pl`, `check_icmp`...
+      * Any option you want to pass to the plugin in this [mode](../../resources/glossary.md#mode). For Centreon plugins, refer to the documentation of the plugin in the [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction) section. Examples: `--community=public`, `--warning=1`, `--verbose`...
+      * Instead of hardcoding an option value, you can use [macros](macros.md) (host macros or service macros) to make your command more generic, but it is not compulsory. The macros's name will appear in the configuration form for the host or service so that you can give it a specific value for each host or service you use it with. You can use [**Standard macros**](./macros.md#standard-macros), or create you own [custom macros](./macros.md#custom-macros). Exampls: `--hostname='$HOSTADDRESS$'`, `--warning='$_SERVICEWARNING$'`, `--community='$_HOSTSNMPCOMMUNITY$'`...
 
-* The **Command Name** field defines the name of the command.
-* The **Command Type** field allows us to choose the type of command.
-* The **Command Line** field indicates the application or script used with the command.
-* The **Enable shell** box allows us to enable functions that are specific to a shell, such as the pipe, etc.
-* The **Argument Example** field defines examples of arguments (each argument starts with a ”!”)
-* The **Describe arguments** button is used to add a description to “$ARGn$”-type arguments. This description
-  will be visible when using the command in a host or service form.
-* The **Clear arguments** button deletes the description of arguments defined
-* The **Describe macros** button is used to add a description to all macros. This description will be visible when
-  using the command in a host or service form.
-* The **Connectors** selectlist is used to link a Connector to the command. For more information on Connectors, refer to the
-  chapters entitled *[Perl Connector](#perl-connector)* and *[SSH Connector](#ssh-connector)*.
-* The **Graph template** field is used to link the command to a graph template.
-* The **Comment** field can be used to make a comment on the command.
+   * **Enable shell syntax**: check this box if your command uses shell functions (pipes, redirects, wildcards...). Note that commands requiring the shell slow down the monitoring server.
 
-## Arguments and macros
+   * **Optimization connectors**: use the **[Perl Connector](#perl-connector)** or the **[SSH Connector](#ssh-connector)** to reduce the consumption of resources of the plugin. The Perl connector can be used with all commands provided by Centreon that use Perl plugins (.pl). It is not compatible with commands that use **check_icmp** and **check_nrpe**.
 
-In the **Command Line** field, it is possible to use *[macros](macros.md)* and arguments.
+4. Click **Save**. The command now appears in the **Check command** list in the host or service template configuration pages.
 
-The macros are used to pass various settings to the scripts called up by the commands. During execution
-of the command by the scheduler, all of the arguments and macros are replaced by their respective values.
-Each macro appears in the form **$value$**:
+## Using a custom check command
 
-```shell
-$CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=cpu \
---hostname=$HOSTADDRESS$ --snmp-version='$_HOSTSNMPVERSION$' \
---snmp-community='$_HOSTSNMPCOMMUNITY$' $_HOSTSNMPEXTRAOPTIONS$ \
---warning-average='$_SERVICEWARNING$' \
---critical-average='$_SERVICECRITICAL$' $_SERVICEEXTRAOPTIONS$
-```
+Once you have created your custom check command:
 
-> Good practice requires replacing the arguments by *[custom macros](macros.md#custom-macros)*.
+1. Link the command to the host or service template you want: use the **Check command** field in the host or service template configuration form.
+2. Link this host or service template to the host or service you want: in the configuration form for the host or service, select the template you have linked the command to.
+3. Fill in the correct values for any macros in the configuration form for the host or service.
+3. [Deploy the configuration](../monitoring-servers/deploying-a-configuration.md). The host or service appears in the **Resources Status** page. You can see your custom command in the details panel of the host or service, with the correct values for the macros. Once the check has been executed, you can see the output of the command here too.
+4. Add the command to the [command whitelist](#command-whitelist) of the poller that will run the check.
 
-## Testing a command
+## Command whitelist
 
-To make sure that a command works, you can test it in the command line on your poller.
-
-1. On your central server, on the **Resource status** page, select the host or service whose check command you want to test.
-2. Copy the check command at the bottom of the **Details** panel.
-3. Log in to your poller as user **centreon-engine** (`su - centreon-engine`).
-4. Run the command you copied (for password macros, replace *** with the actual password).
-
-The command returns the same information as the **Information column** in the **Resource status** page (i.e., output, metrics and extended output provided by stdout), plus the messages for the error output (stderr). The solution to any problem is likely to be indicated there.
-
-## Command whitelists
-
-Centreon allows you to create whitelists that define which commands are allowed to be executed by the monitoring engine of each poller. By default, no whitelists exist and all commands are allowed. However, if you include one command in a whitelist file, all other commands will be blocked. In that case, remember to allow all commands from Centreon plugins (see below). Also, if you create custom plugins with your own custom commands in it, or are using a community plugin, you will have to add their commands to the command whitelist of the poller that will run the plugin.
+For security reasons, you can restrict which commands the monitoring engine of a poller (and the Centreon Monitoring Agent) is allowed to execute by defining a command whitelist. By default, Centreon does not apply any whitelist: all commands are allowed.
 
 ### Add a command to the whitelist
 
-1. Log in as **root** on the poller that will run the commmand.
-2. Create the following directory and file: **/etc/centreon-engine-whitelist/my-whitelist.yml**. (You can create as many whitelist files as you want in this directory.)
+1. Log in as **root** to the poller that will run the commmand.
+2. Edit (or create) the following file: **/etc/centreon-engine-whitelist/my-whitelist.yml**. (You can create as many whitelist files as you want in this directory.)
 3. Make sure the correct access rights are defined on all whitelist files:
 
    ```yaml
@@ -99,14 +73,14 @@ Centreon allows you to create whitelists that define which commands are allowed 
 
 4. Use a regex to define which commands to authorize. Example:
 
-   ```text
-   whitelist:
+  ```text
+  whitelist:
       regex:
 		 - \/usr\/lib(64)?\/nagios\/plugins\/.*
 		 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
          - \/opt\/my_plugins\/my_custom_plugin\.py .*
-   cma-whitelist:
-   default:
+  cma-whitelist:
+  default:
     regex:
       - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
       - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
@@ -114,15 +88,9 @@ Centreon allows you to create whitelists that define which commands are allowed 
       - ^\{\s*"check":".*\}$
       - \/usr\/bin\/echo\s+Host\s+alive
       - cmd\.exe\s+\/C\s+echo\s+.*
-   ```
+  ```
 
-5. Reload the **centengine** service:
-
-   ```text
-   systemctl reload centengine
-   ```
-
-The **whitelist** block defines the commands that can be executed by the poller.
+The **whitelist** block defines the commands that can be executed by the poller. 
 
 > The first two lines must always be present in the “whitelist” block; they correspond to Centreon commands.
 
@@ -160,27 +128,20 @@ Use `.*` to include all arguments in the regex. The `.*`  at the end of the rege
 
 > If you have not authorized your custom command in a whitelist, it will say so in the **Information** column of the **Resources Status** page.
 
-## Connectors
+## Optimization connectors
 
 ### SSH connector
 
-Centreon SSH Connector is free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
-It speeds up execution checks over SSH when used with Centreon Engine.
+The Centreon SSH Connector is free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
+It speeds up the execution and saves resources consumption by checks over SSH when used with Centreon Engine by avoiding to perform all the authentication transactions at every check.
 
 #### Installation
 
-Centreon recommends using its official packages. Most of Centreon’s endorsed software is available as RPM packages.
+Centreon recommends using its official packages. Most of Centreon’s endorsed software is available as RPM and DEB packages.
 
 Run the following commands as a privileged user:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-connector-ssh
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -188,7 +149,14 @@ dnf install centreon-connector-ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-connector-ssh
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt install centreon-connector-ssh
@@ -199,23 +167,16 @@ apt install centreon-connector-ssh
 
 ### Perl connector
 
-Centreon Perl Connector is free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
-It speeds up execution of Perl scripts when used with Centreon Engine.
+The Centreon Perl Connector is free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
+It speeds up execution of Perl scripts when used with Centreon Engine by avoiding compiling the Perl code at every check.
 
 #### Installation
 
-Centreon recommends using its official packages. Most of Centreon’ endorsed software are available as RPM packages.
+Centreon recommends using its official packages. Most of Centreon’ endorsed software are available as RPM and DEB packages.
 
 Run the following commands as a privileged user:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-connector-perl
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -223,7 +184,14 @@ dnf install centreon-connector-perl
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-connector-perl
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt install centreon-connector-perl

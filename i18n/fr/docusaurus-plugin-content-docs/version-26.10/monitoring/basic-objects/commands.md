@@ -1,97 +1,66 @@
 ---
 id: commands
 title: Les commandes
-description: "Configurer les commandes, listes blanches et connecteurs utilisés pour les contrôles de supervision"
+description: "Comment créer des commandes de contrôle personnalisées, gérer la liste blanche de commandes, et utiliser les connecteurs d'optimisation SSH et Perl"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 ## Définition
 
-Une commande est la définition d’une ligne de commande qui utilise un script ou une application afin de réaliser une
-action. Il est possible d’exécuter cette commande en précisant des arguments.
+Les commandes de contrôle sont utilisées par le moteur de supervision pour contrôler le statut d'un hôte ou d'un service. Les commandes de contrôle exécutent des [plugins](../../resources/glossary.md#plugin). Une commande de contrôle est utilisée dans un modèle d'hôte ou de service. Si ces modèles sont appliqués à un hôte ou un service, le script appelé par la commande est exécuté quand l'hôte ou le service est contrôlé, avec les options que vous avez définies.
 
-Il existe quatre types de commandes :
+Le plupart des commandes sont fournies par les connecteurs de supervision installés, et sont prêtes à l'emploi. Cependant si ces commandes ne répondent pas à vos besoins (par exemple, si elles ont trop ou pas assez d'arguments), vous pouvez en créer de nouvelles (commandes personnalisées). Vous devez créer une commande par plugin et par [mode](../../resources/glossary.md#mode). Les commandes personnalisées sont une fonctionnalité avancée.
 
-* **Verification** sont utilisées par les ordonnanceurs afin de vérifier le statut d’un hôte ou d’un service
-* **Notification** sont utilisées par les ordonnanceurs pour alerter les contacts (via mail, SMS...).
-* **Discovery** sont utilisées par les règles de découverte.
-* **Miscellaneous** sont utilisées par les modules complémentaires (pour effectuer certaines actions), par
-  l’ordonnanceur pour le traitement des données...
+Les commandes peuvent être configurées à la page **Configuration > Commandes > Commandes**.
 
-Toutes les commandes peuvent être configurées au sein du menu : **Configuration > Commands**.
+> Par défaut, seules les commandes personnalisées (c'est-à-dire créées par l'utilisateur) sont affichées. Toutes les commandes fournies par les connecteurs de supervision sont en lecture seule ("verrouillées") et sont masquées. Cochez la case "éléments verrouillés" pour afficher ces commandes.
 
-![image](../../assets/configuration/04commandlist.png)
+## Créer une commande personnalisée
 
-> Par défaut, les commandes verrouillées sont masquées. Cocher la case "Eléments verrouillés" pour les afficher toutes.
+1. Allez à la page **Configuration > Commandes > Commandes**.
+2. Cliquez sur **Ajouter**.
+3. Remplissez les champs suivants :
 
-## Ajouter une commande
+   * **Nom** : nom de la commande tel qu'il apparaîtra dans la liste des commandes dans les formulaires de création de modèles d'hôtes ou de services.
+   * **Ligne de commande** : la commande qui sera exécutée quand un contrôle sera effectué. La syntaxe est celle de Nagios. Utilisez les listes à gauche pour insérer rapidement des variables et/ou saisissez votre propre contenu. Spécifiez :
 
-1. Rendez-vous dans le menu **Configuration > Commands**
-2. Cliquez sur le bouton **Add**
+      * Une macro représentant le chemin de l'application ou du script exécuté par la commande (sans le nom de fichier). Pour des plugins Centreon ou Nagios, utilisez une variable afin que Centreon trouve le chemin du répertoire des pugins quel que soit l'OS (la variable est définie à la page **Configuration > Collecteurs > Macros globales**). Si vous utilisez vos propres plugins, spécifiez le chemin du répertoire où vous avez placé les plugins. Les valeurs par défaut apparaissent dans **Macros globales des collecteurs**, mais vous pouvez également saisir le chemin d'accès à votre propre plugin que vous avez enregistré ailleurs.
 
-![image](../../assets/configuration/04command.png)
+      Exemples :
+         * $CENTREONPLUGINS$ si le plugin que vous utilisez se trouve au même emplacement que les plugins Centreon (comme centreon_linux_snmp.pl)
+         * $USER1$ si le plugin que vous utilisez se trouve au même emplacement que les plugins Nagios (comme check_icmp)
+         * /custom/path/ si le plugin que vous utilisez se trouve dans un emplacement personnalisé
+         * créez la macro globale $MYPLUGINS$  si le chemin est /custom/path/ sur un poller et /alt/path/ sur un autre. De cette façon, vous pouvez utiliser la même commande pour le même plugin situé à différents emplacements selon le poller.
 
-> Les champs de configuration d’une commande sont les mêmes qu’importe le type de commande choisi.
+      * Le nom du plugin que vous souhaitez utiliser (stocké dans le chemin spécifié dans la macro globale des collecteurs). **Plugins installés** vous permet de sélectionner des plugins Nagios. Exemples : `centreon_linux_snmp.pl`, `check_icmp`...
+      * Toute option que vous souhaitez passer au plugin dans ce [mode](../../resources/glossary.md#mode). Pour les plugins Centreon, reportez-vous à la documentation du plugin dans la section [Connecteurs de surveillance](/pp/integrations/plugin-packs/getting-started/introduction). Exemples : `--community=public`, `--warning=1`, `--verbose`...
+      * Au lieu de coder en dur la valeur d'une option, vous pouvez utiliser des [macros](macros.md) (macros d'hôte ou macros de service) pour rendre votre commande plus générique, mais ce n'est pas obligatoire. Le nom de la macro apparaîtra dans le formulaire de configuration de l'hôte ou du service, ce qui vous permettra de lui attribuer une valeur spécifique pour chaque hôte ou service avec lequel vous l'utilisez. Vous pouvez utiliser les [**macros standard**](./macros.md#les-macros-standard) ou créer vos propres [macros personnalisées](./macros.md#les-macros-personnalisées). Exampls: `--hostname='$HOSTADDRESS$'`, `--warning='$_SERVICEWARNING$'`, `--community='$_HOSTSNMPCOMMUNITY$'`...
 
-## Les champs de configuration
+    * **Activer la syntaxe du shell** : cochez cette case si votre commande utilise des fonctions du shell (pipes, redirections, caractères génériques...). Notez que les commandes nécessitant le shell ralentissent le serveur de supervision.
 
-* Le champ **command Name** définit le nom de la commande.
-* Le champ **Command Type** permet de choisir le type de commande.
-* Le champ **Command Line** indique l’application ou le script utilisé avec la commande.
-* La case **Enable shell**  permet d’activer des fonctions propres à un shell tel que le pipe...
-* Le champ **Argument Example** définir des exemples d'arguments (chaque argument commence par un "!")
-* Le bouton **Describe arguments** permet d’ajouter une description aux arguments de type “$ARGn$”. Cette description
-  sera visible lors de l’utilisation de la commande dans un formulaire d’hôte ou de service.
-* Le bouton **Clear arguments** efface la description des arguments définie
-* Le bouton **Describe macros** permet d’ajouter une description aux macros personalisées. Ces descriptions seront
-  visibles lors de l’ajout de la commande sur un host ou un service.
+   * **Connecteurs**: utilisez le **[connecteur Perl](#connecteur-perl)** ou le **[connecteur SSH](#connecteur-ssh)** afin de réduire la consommation de ressources du plugin. Le connecteur Perl peut être utilisé avec toutes les commandes fournies par Centreon qui utilisent des plugins Perl (.pl).  Il n'est pas compatible avec les commandes qui utilisent **check_icmp** et **check_nrpe**.
 
-* La liste de sélection **Connectors** permet de lier un connecteur à la commande. Pour davantage d’informations sur
-  les connecteurs reportez-vous au chapitre [les connecteurs](#les-connecteurs).
-* Le champ **Graph template** permet de lier la commande à un modèle de graphique.
-* Le champ **Comment** permet de commenter la commande.
+4. Cliquez sur **Sauvegarder**. La commande apparaît maintenant dans la liste **Commande de vérification** dans les formulaires de configuration de modèles d'hôtes ou de services.
 
-## Arguments et macros
+## Utiliser des commandes personnalisées
 
-Au sein du champ **Command Line** il est possible de faire appel à des
-*[macros](macros.md)* ainsi qu’à des arguments.
+Une fois votre commande personnalisée créée :
 
-Les arguments sont utilisés afin de pouvoir passer différents paramètres aux scripts appelés par les commandes. Lors de
-l’exécution de la commande par l’ordonnanceur, chacun des arguments et macros sont remplacés par leur valeur respective.
-Chaque macro se présente sous la forme **$valeur$** :
+1. Liez la commande au modèle d'hôte ou de service désiré : utilisez le champ **Commande de vérification** dans les formulaires de configuration de modèles d'hôtes ou de services.
+2. Liez ce modèle d'hôte ou de service à l'hôte ou au service désiré : dans le formulaire de configuration de l'hôte ou du service, sélectionnez le modèle auquel vous avez lié la commande.
+3. Renseignez les valeurs correctes pour les macros dans le formulaire de configuration de l'hôte ou du service.
+3. [Déployez la configuration](../monitoring-servers/deploying-a-configuration.md). L'hôte ou le service apparaît à la page **Statut des ressources**. Vous pouvez voir la commande personnalisée dans le panneau de détails de l'hôte ou du service, avec les valeurs correctes pour les macros. Une fois le contrôle exécuté, vous pouvez également voir le message de sortie à cet endroit.
+4. Ajoutez la commande à la [liste blanche de commandes](#liste-blanche-de-commandes) du poller qui exécutera le contrôle.
 
-```shell
-$CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=cpu \
---hostname=$HOSTADDRESS$ --snmp-version='$_HOSTSNMPVERSION$' \
---snmp-community='$_HOSTSNMPCOMMUNITY$' $_HOSTSNMPEXTRAOPTIONS$ \
---warning-average='$_SERVICEWARNING$' \
---critical-average='$_SERVICECRITICAL$' $_SERVICEEXTRAOPTIONS$
-```
+## Liste blanche de commandes
 
-> La bonne pratique veut que nous remplacions les arguments par des
-*[macros personnalisées](macros.md#les-macros-personnalisées)*.
-
-## Tester une commande
-
-Pour vous assurer qu'une commande fonctionne, vous pouvez la tester en ligne de commande sur votre collecteur.
-
-1. Sur votre serveur central, dans la page **Statut des ressources**, sélectionnez l'hôte ou le service dont vous souhaitez tester la commande de contrôle.
-2. Copiez la commande de contrôle située en bas du panneau **Détails**.
-3. Connectez-vous à votre collecteur en tant que l'utilisateur **centreon-engine** (`su - centreon-engine`).
-4. Exécutez la commande que vous avez copiée (pour les macros de mot de passe, remplacez *** par le mot de passe réel).
-
-La commande renvoie les mêmes informations que la colonne **Informations** de la page **Statut des ressources** (c'est-à-dire la sortie, les métriques et la sortie étendue fournies par stdout), ainsi que les messages d'erreur (stderr). La solution à tout problème est susceptible d'y être indiquée.
-
-## Listes blanches de commandes
-
-Centreon vous permet de créer des listes blanches, qui définissent quelles commandes sont autorisées à être exécutées par le moteur de supervision de chaque collecteur. Par défaut, aucune liste blanche n'est définie et toutes les commandes sont autorisées. Cependant, à partir du moment où vous insérez une commande dans un fichier de liste blanche, toutes les autres commandes seront bloquées. Dans ce cas, assurez-vous d'autoriser toutes les commandes des plugins Centreon (voir ci-dessous). Aussi, si vous créez des plugins personnalisés avec vos propres commandes personnalisées, ou bien si vous utilisez un plugin de la communauté, vous devrez ajouter les commandes utilisées par ceux-ci à la liste blanche de commandes du collecteur qui exécutera le plugin.
+Pour des raisons de sécurité, vous pouvez restreindre les commandes que le moteur de supervision d'un collecteur (et l'agent de supervision Centreon) est autorisé à exécuter, en définissant une liste blanche de commandes. Par défaut, Centreon n'applique aucune liste blanche : toutes les commandes sont autorisées.
 
 ### Ajouter une commande à la liste blanche
 
 1. Connectez-vous en **root** au collecteur qui exécutera la commande.
-2. Créez le répertoire et le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de liste blanche que vous souhaitez dans ce répertoire.)
+2. Éditez (ou créez) le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de whitelists que vous souhaitez dans ce répertoire.)
 3. Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
 
    ```yaml
@@ -103,14 +72,14 @@ Centreon vous permet de créer des listes blanches, qui définissent quelles com
    
 4. Utilisez une regex pour définir les commandes autorisées. Exemple : 
 
-   ```text
-   whitelist:
+  ```text
+  whitelist:
       regex:
 		 - \/usr\/lib(64)?\/nagios\/plugins\/.*
 		 - \/usr\/lib(64)?\/nagios\/plugins\/.check_.*
          - \/opt\/my_plugins\/my_custom_plugin\.py .*
-   cma-whitelist:
-   default:
+  cma-whitelist:
+  default:
     regex:
       - \/usr\/lib(?:64)?\/nagios\/plugins\/.*
       - \/usr\/lib(?:64)?\/centreon\/plugins\/check_centreon_bam.*
@@ -118,21 +87,15 @@ Centreon vous permet de créer des listes blanches, qui définissent quelles com
       - ^\{\s*"check":".*\}$
       - \/usr\/bin\/echo\s+Host\s+alive
       - cmd\.exe\s+\/C\s+echo\s+.*
-   ```
+  ```
+   
+Le bloc "whitelist" définit les commandes pouvant être exécutées par le Collecteur.
 
-5. Rechargez le service **centengine** :
+> les deux premières lignes doivent toujours être présentes dans le bloc "whitelist", elles correspondent aux commandes Centreon.
 
-   ```text
-   systemctl reload centengine
-   ```
+Le bloc "cma-whitelist" définit les commandes pouvant être exécutées par l'agent CMA.
 
-Le bloc "whitelist" définit les commandes pouvant être exécutées par le collecteur.
-
-> Les deux premières lignes doivent toujours être présentes dans le bloc **whitelist** : elles correspondent aux commandes Centreon.
-
-Le bloc **cma-whitelist** définit les commandes pouvant être exécutées par l'agent CMA.
-
-Dans le bloc **cma-whitelist**, vous pouvez au besoin spécifier des liste blanches par hôte. La syntaxe sera la suivante :
+Dans le bloc "cma-whitelist", vous pouvez au besoin spécifier des liste blanches par hôte, la syntaxe sera : 
 
 
 ```text
@@ -163,44 +126,12 @@ cma-whitelist:
 Utilisez `.*` afin d'inclure tous les arguments dans la regex.
 Le `.*` à la fin de la regex lui permet de gérer tout argument qu'elle contiendrait. Attention, le format doit être strictement identique à celui ci-dessus (cela inclut les indentations).
 
+
 > Si vous n'avez pas autorisé votre commande dans la liste blanche du collecteur, cela vous sera signalé dans la colonne **Informations** de la page **Statut des ressources**.
 
-## Les connecteurs
+## Connecteurs d'optimisation
 
-### Connecteur SSH
-
-Le connecteur Centreon SSH Connector est un logiciel Centreon gratuit, disponible sous licence Apache Software License version 2 (ASL 2.0).
-Utilisé avec Centreon Engine, il accélère l'exécution des contrôles faits via SSH.
-
-#### Installation
-
-Exécutez la commande suivante en tant qu'utilisateur privilégié :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-connector-ssh
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-``` shell
-dnf install centreon-connector-ssh
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-``` shell
-apt install centreon-connector-ssh
-```
-
-</TabItem>
-</Tabs>
-
-### Perl connector
+### Connecteur Perl
 
 Le connecteur Centreon Perl Connector est un logiciel Centreon gratuit, disponible sous licence Apache Software License version 2 (ASL 2.0).
 Utilisé avec Centreon Engine, il accélère l'exécution des scripts Perl.
@@ -210,13 +141,6 @@ Utilisé avec Centreon Engine, il accélère l'exécution des scripts Perl.
 Exécutez la commande suivante en tant qu'utilisateur privilégié :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-connector-perl
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -224,7 +148,14 @@ dnf install centreon-connector-perl
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-connector-perl
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt install centreon-connector-perl
@@ -271,3 +202,36 @@ Il est également possible de surcharger la limite de réutilisation pour une co
 ```shell
 /usr/lib/nagios/plugins/check_something.pl --child-max-reuse-script 5 --arg1 valeur1
 ```
+
+### Connecteur SSH
+
+Le connecteur Centreon SSH Connector est un logiciel Centreon gratuit, disponible sous licence Apache Software License version 2 (ASL 2.0).
+Utilisé avec Centreon Engine, il accélère l'exécution des contrôles faits via SSH.
+
+#### Installation
+
+Exécutez la commande suivante en tant qu'utilisateur privilégié :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-connector-ssh
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-connector-ssh
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+``` shell
+apt install centreon-connector-ssh
+```
+
+</TabItem>
+</Tabs>
