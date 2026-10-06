@@ -1254,6 +1254,10 @@
             {
               "type": "doc",
               "id": "migrate/migrate-from-debian-to-debian"
+            },
+            {
+              "type": "doc",
+              "id": "migrate/upgrade-debian-in-place"
             }
           ]
         }
