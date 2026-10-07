@@ -32,7 +32,7 @@ and runs an installer script on the target container host. The script generates 
 * A Linux host with **Docker Engine** and the **Docker Compose v2** plugin
   installed (`docker compose version` must succeed).
 * You must have created a poller-type authentication token.
-* Outbound network access from this host to your Centreon central server.
+* Outbound network access from this host to your Centreon central server: web port (443 for HTTPS, 80 for HTTP) and TCP port 5669 (Centreon Broker).
 * If you plan to receive SNMP traps on this poller, UDP port 162 must be
   reachable on this host.
 * If you plan to monitor VMware infrastructure from this poller, the
@@ -71,6 +71,8 @@ and runs an installer script on the target container host. The script generates 
 
 1. Run the copied command as a user who is allowed to use containers on the target
 host.
+
+   > If your central server uses HTTPS, the container host must trust its certificate. If you are using a self-signed certificate, use curl's `-k` (`--insecure`) option to allow insecure connections.
 
    <details>
    <summary>What the script does</summary>
@@ -167,3 +169,5 @@ Add the following flags to the install command to include additional features:
 If you already ran the install command without these flags, you can also add
 the corresponding service(s) by hand to the generated `docker-compose.yaml`
 and `.env` files, then run `docker compose up -d` again.
+
+> Running the installation command again regenerates `.env` and `docker-compose.yaml` without warning: any manual change (SMTP settings, custom plugins, CMA, etc.) is lost. Back up these files before running the command again.

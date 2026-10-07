@@ -20,19 +20,20 @@ Depending on your setup, you can [configure your old pollers to use port 443 (re
 
 1. Enable the central server to receive pullwss traffic from your pollers in containers, as described in [Pollers in containers prerequisites](./pollers-containers-prerequisites.md).
 2. Update all your pollers to version 26.10.
-3. On the poller, change the target port number to 443 in **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** in the **pullwss** module configuration.
+3. On the poller, edit the **pullwss** module configuration in **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**: set the port to 443 and add the `central_uri` key, so that the poller reaches Gorgone through Apache (adapt `/centreon` in `central_uri` if your central server uses another base URI).
 
-```json
-modules:
-    - name: pullwss
-      package: "gorgone::modules::core::pullwss::hooks"
-      enable: true
-      ssl: true
-      port: 443
-      token: "secret_token"
-      address: <your-central-address-here>
-      ping: 1
-```
+    ```yaml
+    gorgone:
+      modules:
+        - name: pullwss
+          package: "gorgone::modules::core::pullwss::hooks"
+          enable: true
+          ssl: true
+          port: 443
+          token: "secret_token"
+          address: <your-central-address-here>
+          central_uri: "/centreon/gorgone/pullwss/websocket"
+    ```
 
 ## Redirect traffic to Gorgone (not recommended)
 

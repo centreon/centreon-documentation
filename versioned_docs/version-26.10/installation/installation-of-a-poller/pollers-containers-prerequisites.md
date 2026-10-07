@@ -33,6 +33,8 @@ The recomended and secure way is to use HTTPS. This means that certificates are 
 
 * If not already done, configure HTTPS on your central server. This can be done as part of the [installation procedure](../installation-of-a-central-server/using-packages.md#step-3-set-up-the-tls-configuration), or [separately](../../administration/secure-platform.md#activating-https-mode-on-your-web-server).
 
+   Once HTTPS is enabled, also update the Gorgone API URL: in **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** on the central server, set `base_url` to `https://<central_fqdn>/centreon/api/latest/`, then restart Gorgone (`systemctl restart gorgoned`). Otherwise, the central server rejects every poller in a container with an `invalid token` error.
+
 * The poller must be able to reach the central server.
 
 ## Step 1: Configure Gorgone on the central server
@@ -44,10 +46,7 @@ In previous versions of Centreon, Gorgone could listen for pullwss connections d
   ```yaml
   gorgone:
     modules:
-      - name: nodes
-        package: "gorgone::modules::core::nodes::hooks"
-        enable: true
-        
+       
       - name: proxy
         package: "gorgone::modules::core::proxy::hooks"
         enable: true
@@ -134,7 +133,7 @@ systemctl restart apache2
 
 2. Add the correct contents to the Apache virtual host:
 
-   * Centreon offers an example configuration file to enable HTTPS and serve Gorgone as a reverse proxy, available at: `/usr/share/centreon/examples/centreon.apache.https.conf`. You can copy and paste the contents.
+   * Centreon offers an example configuration file to enable HTTPS and serve Gorgone as a reverse proxy, available at: `/usr/share/centreon/examples/centreon-apache-https.conf`. You can copy and paste the contents.
    * However, if you have a custom configuration and cannot just copy and paste the example file, this is the required configuration to add inside your Apache virtual host:
 
     ```apache
@@ -177,12 +176,13 @@ If in the future you should delete all your pollers in containers, do not forget
 
 If your installation does not work, there are multiple things you can check:
 
-### Can the poller reach the central server on port 443?
+### Can the poller reach the central server?
 
-You can check from the poller with the following command:
+The poller must reach the central server on the web port (443 for an `https://` address, 80 for an `http://` address, or the port given in the address) and on TCP port 5669 (Centreon Broker). You can check from the poller with the following commands:
 
 ```shell
 nc -zv <central_hostname> 443
+nc -zv <central_hostname> 5669
 ```
 
 ### Is Gorgone correctly listening on port 8087?
@@ -218,3 +218,7 @@ The expected output is:
 ```
 
 If you see an HTML page indicating `You need to enable JavaScript to run this app`, the Apache reverse proxy is not configured correctly, and the traffic is redirected to the Centreon web interface instead of to Gorgone. Check your Apache configuration and restart Apache after any change.
+
+### Is the poller rejected with an `invalid token` error?
+
+If the Gorgone logs of the poller (`docker compose logs gorgone`) show `{"code":500,"message":"invalid token"}`, check that the token is a valid poller-type token. If your web server redirects HTTP to HTTPS, also check that `base_url` in **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** on the central server uses `https://`, then restart Gorgone.

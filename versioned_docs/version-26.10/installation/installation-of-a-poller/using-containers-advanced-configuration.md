@@ -97,11 +97,11 @@ $CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::pl
 > in Centreon Engine's configuration. Use a token scoped to a dedicated,
 > low-privilege account rather than an administrator's.
 
-If you'd rather not hardcode the relay in the command, define `$SMTPADDRESS$`,
-`$SMTPPORT$` and `$SMTPFROMADDRESS$` as poller resource macros in the
-Centreon UI (**Configuration > Pollers > Resources**), then use them in the
-command instead: `--smtp-address='$SMTPADDRESS$' --smtp-port='$SMTPPORT$'
---from-address='$SMTPFROMADDRESS$'`.
+These options can also use the `$SMTPADDRESS$`, `$SMTPPORT$` and `$SMTPFROMADDRESS$`
+poller resource macros. In a container, these macros are overwritten at each
+container start with the values of the `SMTP_HOST`, `SMTP_PORT` and `SMTP_FROM`
+variables (see Option 1): set these variables rather than defining the macros in
+the Centreon interface.
 
 ## Allow the poller to use custom plugins for monitoring
 
@@ -144,10 +144,10 @@ own image on top of the official one and install everything at build time: -->
 ```dockerfile
 FROM ghcr.io/centreon/centreon-engine:26.10
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
       snmp \
       jq \
-    && rm -rf /var/lib/apt/lists/*
+    && sudo apt-get clean
 ```
 
 Build it, then reference it as `ENGINE_TAG` (or override the `image:` value
