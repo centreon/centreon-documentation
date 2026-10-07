@@ -33,6 +33,8 @@ La méthode recommandée et sécurisée consiste à utiliser HTTPS. Des certific
 
 * Si ce n'est pas déjà fait, configurez le HTTPS sur votre serveur central. Cela peut être fait dans le cadre de la [procédure d'installation](../installation-of-a-central-server/using-packages.md#étape-3--mettre-en-place-la-configuration-tls), ou [séparément](../../administration/secure-platform.md#activer-le-mode-https-sur-le-serveur-web).
 
+   Une fois HTTPS activé, mettez également à jour l'URL de l'API Gorgone : dans **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** sur le serveur central, définissez `base_url` sur `https://<central_fqdn>/centreon/api/latest/`, puis redémarrez Gorgone (`systemctl restart gorgoned`). Sinon, le serveur central rejettera chaque collecteur exécuté dans un conteneur avec une erreur `invalid token`.
+
 * Le collecteur doit pouvoir joindre le serveur central.
 
 ## Étape 1 : Configurer Gorgone sur le serveur central
@@ -44,10 +46,7 @@ Dans les versions précédentes de Centreon, Gorgone pouvait écouter directemen
   ```yaml
   gorgone:
     modules:
-      - name: nodes
-        package: "gorgone::modules::core::nodes::hooks"
-        enable: true
-        
+
       - name: proxy
         package: "gorgone::modules::core::proxy::hooks"
         enable: true
@@ -134,7 +133,7 @@ systemctl restart apache2
 
 2. Ajoutez le contenu adéquat au VirtualHost Apache :
 
-   * Centreon fournit un exemple de fichier de configuration permettant d'activer HTTPS et d'exposer Gorgone derrière un reverse proxy, disponible ici : `/usr/share/centreon/examples/centreon.apache.https.conf`. Vous pouvez en copier-coller le contenu.
+   * Centreon fournit un exemple de fichier de configuration permettant d'activer HTTPS et d'exposer Gorgone derrière un reverse proxy, disponible ici : `/usr/share/centreon/examples/centreon-apache-https.conf`. Vous pouvez en copier-coller le contenu.
    * Cependant, si vous disposez d'une configuration personnalisée et que vous ne pouvez pas copier-coller le fichier d'exemple tel quel, voici la configuration à ajouter dans votre VirtualHost Apache :
 
     ```apache
@@ -176,12 +175,13 @@ Si vous veniez à supprimer à l'avenir tous vos collecteurs en conteneur, n'oub
 
 Si votre installation ne fonctionne pas, plusieurs points sont à vérifier :
 
-### Le collecteur peut-il joindre le serveur central sur le port 443 ?
+### Le collecteur peut-il joindre le serveur central ?
 
-Vous pouvez le vérifier depuis le collecteur avec la commande suivante :
+Le collecteur doit pouvoir joindre le serveur central sur le port web (443 pour une adresse `https://`, 80 pour une adresse `http://`, ou le port indiqué dans l'adresse) et sur le port TCP 5669 (utilisé par Centreon Broker). Pour vérifier la connectivité, exécutez ces commandes sur le collecteur :
 
 ```shell
 nc -zv <central_hostname> 443
+nc -zv <central_hostname> 5669
 ```
 
 ### Gorgone écoute-t-il bien sur le port 8087 ?
@@ -217,3 +217,7 @@ La sortie attendue est la suivante :
 ```
 
 Si vous obtenez une page HTML indiquant `You need to enable JavaScript to run this app`, le reverse proxy Apache n'est pas configuré correctement : le trafic est redirigé vers l'interface web Centreon au lieu de Gorgone. Vérifiez votre configuration Apache et redémarrez Apache après chaque modification.
+
+### Le collecteur est-il rejeté avec une erreur `invalid token` ?
+
+Si les logs Gorgone du collecteur (`docker compose logs gorgone`) affichent `{"code":500,"message":"invalid token"}`, vérifiez que le jeton est bien un jeton de type collecteur valide. Si votre serveur web redirige HTTP vers HTTPS, vérifiez également que `base_url` dans **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** sur le serveur central utilise `https://`, puis redémarrez Gorgone.

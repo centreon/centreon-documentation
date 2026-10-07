@@ -97,11 +97,11 @@ $CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::pl
 > dans la configuration de Centreon Engine. Utilisez un jeton associé à un compte dédié
 > disposant de droits limités plutôt qu'à un compte administrateur.
 
-Si vous préférez ne pas coder en dur les paramètres du relais dans la commande, définissez
-`$SMTPADDRESS$`, `$SMTPPORT$` et `$SMTPFROMADDRESS$` comme macros de ressources du collecteur
-dans l'interface Centreon (**Configuration > Collecteurs > Ressources**), puis utilisez-les
-dans la commande : `--smtp-address='$SMTPADDRESS$' --smtp-port='$SMTPPORT$'
---from-address='$SMTPFROMADDRESS$'`.
+Ces options peuvent également utiliser les macros de ressources du collecteur
+`$SMTPADDRESS$`, `$SMTPPORT$` et `$SMTPFROMADDRESS$`. Dans un conteneur, ces
+macros sont écrasées à chaque démarrage du conteneur par les valeurs des
+variables `SMTP_HOST`, `SMTP_PORT` et `SMTP_FROM` (voir l'option 1) : définissez
+ces variables plutôt que de définir les macros dans l'interface de Centreon.
 
 ## Permettre au collecteur d'utiliser des plugins personnalisés pour la supervision
 
@@ -143,10 +143,10 @@ votre propre image basée sur l'image officielle et tout installer au moment de 
 ```dockerfile
 FROM ghcr.io/centreon/centreon-engine:26.10
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
       snmp \
       jq \
-    && rm -rf /var/lib/apt/lists/*
+    && sudo apt-get clean
 ```
 
 Construisez-la, puis référencez-la dans `ENGINE_TAG` (ou remplacez directement la valeur

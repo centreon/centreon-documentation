@@ -32,7 +32,7 @@ fichiers `.env` et `docker-compose.yaml`, puis démarre l'ensemble des services.
 * Un hôte Linux sur lequel **Docker Engine** et le plugin **Docker Compose v2** sont
   installés (la commande `docker compose version` doit aboutir).
 * Vous devez avoir créé un jeton d'authentification de type collecteur.
-* Un accès réseau sortant depuis cet hôte vers votre serveur central Centreon.
+* Un accès réseau sortant depuis cet hôte vers votre serveur central Centreon : port web (443 pour HTTPS, 80 pour HTTP) et port TCP 5669 (Centreon Broker).
 * Si vous prévoyez de recevoir des traps SNMP sur ce collecteur, le port UDP 162 doit être
   accessible sur cet hôte.
 * Si vous prévoyez de superviser une infrastructure VMware depuis ce collecteur, l'image
@@ -71,6 +71,8 @@ fichiers `.env` et `docker-compose.yaml`, puis démarre l'ensemble des services.
 
 1. Exécutez la commande copiée en tant qu'utilisateur autorisé à utiliser des conteneurs sur
 l'hôte cible.
+
+   > Si votre serveur central utilise HTTPS, l'hôte du conteneur doit faire confiance à son certificat. Si vous utilisez un certificat auto-signé, utilisez l'option `-k` (`--insecure`) de curl pour autoriser les connexions non sécurisées.
 
    <details>
    <summary>Ce que fait le script</summary>
@@ -168,3 +170,5 @@ Ajoutez les options suivantes à la commande d'installation pour inclure des fon
 Si vous avez déjà exécuté la commande d'installation sans ces options, vous pouvez également
 ajouter le ou les services correspondants à la main dans les fichiers `docker-compose.yaml`
 et `.env` générés, puis exécuter de nouveau `docker compose up -d`.
+
+> Exécuter à nouveau la commande d'installation régénère les fichiers `.env` et `docker-compose.yaml` sans avertissement : toute modification manuelle (paramètres SMTP, plugins personnalisés, CMA, etc.) est perdue. Sauvegardez ces fichiers avant de relancer la commande.

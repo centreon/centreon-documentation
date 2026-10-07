@@ -20,19 +20,20 @@ Selon votre installation, vous pouvez [configurer vos anciens collecteurs pour q
 
 1. Configurez le serveur central pour qu'il puisse recevoir le trafic pullwss de vos collecteurs en conteneur, comme décrit dans la page [Prérequis pour les collecteurs en conteneur](./pollers-containers-prerequisites.md).
 2. Mettez à jour tous vos collecteurs en version 26.10.
-3. Sur le collecteur, remplacez le numéro de port cible par 443 dans le fichier **/etc/centreon-gorgone/config.d/40-gorgoned.yaml**, au niveau de la configuration du module **pullwss**.
+3. Sur le collecteur, modifiez la configuration du module **pullwss** dans **/etc/centreon-gorgone/config.d/40-gorgoned.yaml** : définissez le port sur 443 et ajoutez la clé `central_uri`, afin que le poller accède à Gorgone via Apache (adaptez `/centreon` dans `central_uri` si votre serveur central utilise un autre URI de base).
 
-```json
-modules:
-    - name: pullwss
-      package: "gorgone::modules::core::pullwss::hooks"
-      enable: true
-      ssl: true
-      port: 443
-      token: "secret_token"
-      address: <your-central-address-here>
-      ping: 1
-```
+    ```yaml
+    gorgone:
+      modules:
+        - name: pullwss
+          package: "gorgone::modules::core::pullwss::hooks"
+          enable: true
+          ssl: true
+          port: 443
+          token: "secret_token"
+          address: <your-central-address-here>
+          central_uri: "/centreon/gorgone/pullwss/websocket"
+    ```
 
 ## Rediriger le trafic vers Gorgone (non recommandé)
 
