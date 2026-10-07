@@ -1411,6 +1411,10 @@
             },
             {
               "type": "doc",
+              "id": "integrations/data-analytics/sc-graphite-metrics"
+            },
+            {
+              "type": "doc",
               "id": "integrations/data-analytics/sc-elastic-metrics"
             },
             {
