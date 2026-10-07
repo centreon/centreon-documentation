@@ -9,6 +9,28 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+### October
+
+<Tabs groupId="sync">
+<TabItem value="New Stream connector" label="New Stream connector">
+
+- [**Graphite Metrics**](data-analytics/sc-graphite-metrics.md) - Initial release of Graphite Metrics.
+
+</TabItem>
+<TabItem value="Enhancement" label="Enhancement">
+
+- [**All stream connectors**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/docs/how_to_use_triggers.md) - Added triggers: with the new **trigger_file** parameter, you can run your own Lua code at specific points of a stream connector's lifecycle (initialization, event queuing, payload sending success or failure, storage operations) without editing the stream connector or the library. Your customizations are kept when the stream connector or the library is updated. For more technical information, see [PR 389](https://github.com/centreon/centreon-stream-connector-scripts/pull/389).
+- [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added the **drop_events_on_send_failure** parameter (disabled by default). When enabled, if the stream connector cannot send data to the target tool, the events are dropped and the error is logged instead of being kept in Broker retention. For more technical information, see [PR 388](https://github.com/centreon/centreon-stream-connector-scripts/pull/388).
+- [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - The values of parameters whose name contains **token** or **secret** are now hidden in the log file, in addition to those containing **pass** or **key**. For more technical information, see [PR 380](https://github.com/centreon/centreon-stream-connector-scripts/pull/380).
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Fixed an error that occurred when a downtime event was received for a host or service that was not present in the Broker cache. For more technical information, see [PR 393](https://github.com/centreon/centreon-stream-connector-scripts/pull/393).
+
+</TabItem>
+</Tabs>
+
 ### August
 
 <Tabs groupId="sync">
