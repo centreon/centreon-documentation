@@ -36,7 +36,7 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/e
 
 ### Step 2: Start upgrading the Centreon solution
 
-1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure.
+1. Make sure all users are logged out from the Centreon web interface before starting the upgrade procedure. Consider your platform as in maintenance until the end of step 7.
 
 2. If you have installed Business extensions, delete the configuration of the {props.oldCentreonVersion} repository:
 
@@ -275,7 +275,7 @@ AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javasc
 3. Finally, restart Broker, Engine and Gorgone on the central server by running this command:
 
    ```shell
-   systemctl restart cbd centengine gorgoned
+   systemctl restart cbd centengine gorgoned centreontrapd
    ```
 
 4. Update the permissions on the centreon-broker configuration files.
