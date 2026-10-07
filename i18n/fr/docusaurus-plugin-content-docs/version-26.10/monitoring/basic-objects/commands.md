@@ -60,7 +60,7 @@ Pour des raisons de sécurité, vous pouvez restreindre les commandes que le mot
 ### Ajouter une commande à la liste blanche
 
 1. Connectez-vous en **root** au collecteur qui exécutera la commande.
-2. Éditez (ou créez) le fichier suivant : **/etc/centreon-engine-whitelist/my-whitelist.yml**. (Vous pouvez créer autant de fichiers de whitelists que vous souhaitez dans ce répertoire.)
+2. Éditez (ou créez ``vim /etc/centreon-engine-whitelist/my-whitelist.yml``) le fichier **my-whitelist.yml**. (Vous pouvez créer autant de fichiers de whitelists que vous souhaitez dans ce répertoire.)
 3. Assurez-vous que les droits d'accès corrects sont définis sur tous les fichiers de liste blanche :
 
    ```yaml

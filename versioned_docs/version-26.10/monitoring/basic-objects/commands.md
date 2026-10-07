@@ -61,7 +61,7 @@ For security reasons, you can restrict which commands the monitoring engine of a
 ### Add a command to the whitelist
 
 1. Log in as **root** to the poller that will run the commmand.
-2. Edit (or create) the following file: **/etc/centreon-engine-whitelist/my-whitelist.yml**. (You can create as many whitelist files as you want in this directory.)
+2. Edit (or create ``vim /etc/centreon-engine-whitelist/my-whitelist.yml``) the **my-whitelist.yml** file. (You can create as many whitelist files as you want in this directory.)
 3. Make sure the correct access rights are defined on all whitelist files:
 
    ```yaml
