@@ -65,7 +65,7 @@ restarts system services, as root privileges are generally required to perform t
 Ideally you should evaluate the types of event handlers you will be implementing and grant just enough permissions to
 the Centreon Engine user to execute the necessary system commands. You might want to try using sudo to accomplish this.
 
-Follow [this procedure to create a command](./basic-objects/commands.md#adding-a-command).
+Follow [this procedure to create a command](./basic-objects/commands.md#creating-a-custom-check-command).
 
 > Use **Misc** for the command type to classify your commands.
 

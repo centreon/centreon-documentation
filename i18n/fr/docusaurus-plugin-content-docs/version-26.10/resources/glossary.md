@@ -169,6 +169,10 @@ Vous pouvez voir les métriques associées à un service dans le panneau de dét
 
 **Voir aussi** : [Comprendre les métriques](../monitoring/metrics.md).
 
+## Mode
+
+Les modes sont utilisés par les [plugins](#plugin). Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
+
 ## Mode flux Broker inversé
 
 Configuration avancée de Centreon [Broker](#broker), inversant le sens de connexion de la communication Broker par interversion des rôles "client" et "serveur" afin de s'adapter à des configurations réseau particulières. Ce mode est notamment utilisé par Centreon MAP pour s'abonner au flux temps réel des évènements Broker.
