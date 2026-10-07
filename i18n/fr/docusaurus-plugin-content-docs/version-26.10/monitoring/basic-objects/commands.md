@@ -12,6 +12,14 @@ Les commandes de contrôle sont utilisées par le moteur de supervision pour con
 
 Le plupart des commandes sont fournies par les connecteurs de supervision installés, et sont prêtes à l'emploi. Cependant si ces commandes ne répondent pas à vos besoins (par exemple, si elles ont trop ou pas assez d'arguments), vous pouvez en créer de nouvelles (commandes personnalisées). Vous devez créer une commande par plugin et par [mode](../../resources/glossary.md#mode). Les commandes personnalisées sont une fonctionnalité avancée.
 
+Il existe quatre types de commandes :
+
+* **Notification** sont utilisées par les ordonnanceurs pour alerter les contacts (via mail, SMS...).
+* **Contrôle** sont utilisées par les ordonnanceurs afin de vérifier le statut d’un hôte ou d’un service.
+* **Divers** sont utilisées par les modules complémentaires (pour effectuer certaines actions), par
+  l’ordonnanceur pour le traitement des données...
+* **Découverte** sont utilisées par les règles de découverte.
+
 Les commandes peuvent être configurées à la page **Configuration > Commandes > Commandes**.
 
 > Par défaut, seules les commandes personnalisées (c'est-à-dire créées par l'utilisateur) sont affichées. Toutes les commandes fournies par les connecteurs de supervision sont en lecture seule ("verrouillées") et sont masquées. Cochez la case "éléments verrouillés" pour afficher ces commandes.
@@ -23,17 +31,17 @@ Les commandes peuvent être configurées à la page **Configuration > Commandes 
 3. Remplissez les champs suivants :
 
    * **Nom** : nom de la commande tel qu'il apparaîtra dans la liste des commandes dans les formulaires de création de modèles d'hôtes ou de services.
-   * **Ligne de commande** : la commande qui sera exécutée quand un contrôle sera effectué. La syntaxe est celle de Nagios. Utilisez les listes à gauche pour insérer rapidement des variables et/ou saisissez votre propre contenu. Spécifiez :
+   * **Ligne de commande** : la commande qui sera exécutée quand un contrôle sera effectué. Utilisez les listes à gauche pour insérer rapidement des variables et/ou saisissez votre propre contenu. Spécifiez :
 
-      * Une macro représentant le chemin de l'application ou du script exécuté par la commande (sans le nom de fichier). Pour des plugins Centreon ou Nagios, utilisez une variable afin que Centreon trouve le chemin du répertoire des pugins quel que soit l'OS (la variable est définie à la page **Configuration > Collecteurs > Macros globales**). Si vous utilisez vos propres plugins, spécifiez le chemin du répertoire où vous avez placé les plugins. Les valeurs par défaut apparaissent dans **Macros globales des collecteurs**, mais vous pouvez également saisir le chemin d'accès à votre propre plugin que vous avez enregistré ailleurs.
+      * Une macro représentant le chemin de l'application ou du script exécuté par la commande (sans le nom de fichier). Pour Centreon, utilisez une variable afin que Centreon trouve le chemin du répertoire des pugins quel que soit l'OS (la variable est définie à la page **Configuration > Collecteurs > Macros globales**). Si vous utilisez vos propres plugins, spécifiez le chemin du répertoire où vous avez placé les plugins. Les valeurs par défaut apparaissent dans **Macros globales des collecteurs**, mais vous pouvez également saisir le chemin d'accès à votre propre plugin que vous avez enregistré ailleurs.
 
       Exemples :
-         * $CENTREONPLUGINS$ si le plugin que vous utilisez se trouve au même emplacement que les plugins Centreon (comme centreon_linux_snmp.pl)
-         * $USER1$ si le plugin que vous utilisez se trouve au même emplacement que les plugins Nagios (comme check_icmp)
-         * /custom/path/ si le plugin que vous utilisez se trouve dans un emplacement personnalisé
+         * $CENTREONPLUGINS$ si le plugin que vous utilisez se trouve au même emplacement que les plugins Centreon (comme centreon_linux_snmp.pl).
+         * $USERn$ (où n peut être un nombre entre 1 et 256) est un système de macros obsolète qui devrait être remplacé par des macros personnalisées telles que $_HOSTxxx$ et $_SERVICExxx$.
+         * /custom/path/ si le plugin que vous utilisez se trouve dans un emplacement personnalisé.
          * créez la macro globale $MYPLUGINS$  si le chemin est /custom/path/ sur un poller et /alt/path/ sur un autre. De cette façon, vous pouvez utiliser la même commande pour le même plugin situé à différents emplacements selon le poller.
 
-      * Le nom du plugin que vous souhaitez utiliser (stocké dans le chemin spécifié dans la macro globale des collecteurs). **Plugins installés** vous permet de sélectionner des plugins Nagios. Exemples : `centreon_linux_snmp.pl`, `check_icmp`...
+      * Le nom du plugin que vous souhaitez utiliser (stocké dans le chemin spécifié dans la macro globale des collecteurs). Exemples : `centreon_linux_snmp.pl`, `check_icmp`...
       * Toute option que vous souhaitez passer au plugin dans ce [mode](../../resources/glossary.md#mode). Pour les plugins Centreon, reportez-vous à la documentation du plugin dans la section [Connecteurs de surveillance](/pp/integrations/plugin-packs/getting-started/introduction). Exemples : `--community=public`, `--warning=1`, `--verbose`...
       * Au lieu de coder en dur la valeur d'une option, vous pouvez utiliser des [macros](macros.md) (macros d'hôte ou macros de service) pour rendre votre commande plus générique, mais ce n'est pas obligatoire. Le nom de la macro apparaîtra dans le formulaire de configuration de l'hôte ou du service, ce qui vous permettra de lui attribuer une valeur spécifique pour chaque hôte ou service avec lequel vous l'utilisez. Vous pouvez utiliser les [**macros standard**](./macros.md#les-macros-standards) ou créer vos propres [macros personnalisées](./macros.md#les-macros-personnalisées). Exampls: `--hostname='$HOSTADDRESS$'`, `--warning='$_SERVICEWARNING$'`, `--community='$_HOSTSNMPCOMMUNITY$'`...
 

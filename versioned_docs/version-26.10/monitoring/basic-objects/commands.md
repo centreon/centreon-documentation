@@ -12,6 +12,14 @@ Check commands are used by the monitoring engine to check the status of a host o
 
 Most commands are provided by the Monitoring Connectors you have installed and are ready to use. However, if these commands do not meet your needs (e.g. they have too many or too few arguments) you can create new ones (custom commands). You need to create one command per plugin and per [mode](../../resources/glossary.md#mode). Custom commands are an advanced feature.
 
+There are four types of command:
+
+* **Notification** commands are used by the schedulers to alert the contacts (via mail, SMS, etc.).
+* **Check** commands are used by the schedulers to verify the status of a host or service.
+* **Miscellaneous** commands are used by the additional modules (to perform certain actions), by the scheduler for
+  data processing, etc.
+* **Discovery** commands are used by the schedulers to discover.
+
 Commands can be configured in the following menu: **Configuration > Commands > Commands**.
 
 > By default, only custom commands (i.e. user-created commands) are displayed. All commands provided by Monitoring Connectors are read-only ("locked") and hidden. Check the "Locked elements" box to show these commands.
@@ -23,18 +31,18 @@ Commands can be configured in the following menu: **Configuration > Commands > C
 3. Fill in the following fields:
 
    * **Name**: This name will appear in the list of commands in the host and service template creation forms.
-   * **Command Line**: the actual command that will be executed when a check is made. The syntax is that of Nagios. Use the lists on the left to insert variables quickly and/or type your own contents. You need to specify:
+   * **Command Line**: the actual command that will be executed when a check is made. Use the lists on the left to insert variables quickly and/or type your own contents. You need to specify:
 
-      * A macro that represents the path to the script executed by the command (with no filename). For Centreon or Nagios plugins, use a variable so that Centreon can find the path to the plugins folder on any OS (the variable is defined on the **Configuration > Pollers > Global macros** page). If you are using your own plugins, specify the path where you have stored the plugins. Default values appear in **Poller global macros**, but you can also type the path to your own plugin you have stored somewhere else.
+      * A macro that represents the path to the script executed by the command (with no filename). For Centreon, use a variable so that Centreon can find the path to the plugins folder on any OS (the variable is defined on the **Configuration > Pollers > Global macros** page). If you are using your own plugins, specify the path where you have stored the plugins. Default values appear in **Poller global macros**, but you can also type the path to your own plugin you have stored somewhere else.
 
       Examples:
 
-         * $CENTREONPLUGINS$ if the plugin you are using is in the same place as Centreon plugins (like centreon_linux_snmp.pl)
-         * $USER1$ if the plugin you are using is in the same place as Nagios plugins (like check_icmp)
-         * /custom/path/ if the plugin you are using is in a custom location
+         * $CENTREONPLUGINS$ if the plugin you are using is in the same place as Centreon plugins (like centreon_linux_snmp.pl).
+         * $USERn$ (where n can be any number from 1 to 256) is an obsolete macro system that should be replaced with custom macros such as $_HOSTxxx$ and $_SERVICExxx$.
+         * /custom/path/ if the plugin you are using is in a custom location.
          * create the global macro $MYPLUGINS$  if the path is /custom/path/ on one poller and /alt/path/ on another one. This way you may use the same command for the same plugin found in various places depending on the poller.
 
-      * The name of the plugin you want to use (stored in the path specified in the poller global macro). **Installed plugins** allows you to select Nagios plugins. Examples: `centreon_linux_snmp.pl`, `check_icmp`...
+      * The name of the plugin you want to use (stored in the path specified in the poller global macro). Examples: `centreon_linux_snmp.pl`, `check_icmp`...
       * Any option you want to pass to the plugin in this [mode](../../resources/glossary.md#mode). For Centreon plugins, refer to the documentation of the plugin in the [Monitoring Connectors](/pp/integrations/plugin-packs/getting-started/introduction) section. Examples: `--community=public`, `--warning=1`, `--verbose`...
       * Instead of hardcoding an option value, you can use [macros](macros.md) (host macros or service macros) to make your command more generic, but it is not compulsory. The macros's name will appear in the configuration form for the host or service so that you can give it a specific value for each host or service you use it with. You can use [**Standard macros**](./macros.md#standard-macros), or create you own [custom macros](./macros.md#custom-macros). Exampls: `--hostname='$HOSTADDRESS$'`, `--warning='$_SERVICEWARNING$'`, `--community='$_HOSTSNMPCOMMUNITY$'`...
 
