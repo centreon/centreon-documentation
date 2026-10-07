@@ -25,6 +25,10 @@ module.exports = {
             },
             {
               type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/rust-collections'
+            },
+            {
+              type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
             },
             {
@@ -62,25 +66,8 @@ module.exports = {
           id: 'integrations/plugin-packs/releases/release-notes'
         },
         {
-          type: 'category',
-          label: 'Developers Center',
-          link: {
-            type: 'generated-index'
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/introduction'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
-            }
-          ]
+        type: 'doc',
+          id: 'integrations/plugin-packs/getting-started/develop-plugin'
         }
       ]
     },
@@ -193,6 +180,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-mssql'
         },
         {
@@ -201,11 +192,11 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-nsclient-05-nrpe'
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-cma'
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-cma'
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-nsclient-05-nrpe'
         },
         {
           type: 'doc',
@@ -554,6 +545,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-pvx-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-quadstor-cma'
         },
         {
           type: 'doc',
@@ -2332,6 +2327,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-linux-snmp-rs'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-linux-snmpv3'
         },
         {
@@ -2373,6 +2372,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp-rs'
         },
         {
           type: 'doc',
@@ -2423,6 +2426,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp-rs'
         },
         {
           type: 'doc',
@@ -3104,6 +3111,23 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-proxmox-ve-restapi'
+        },
+
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-host-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-vm-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-pool-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-xenorchestra-restapi'
         },
         {
           type: 'doc',

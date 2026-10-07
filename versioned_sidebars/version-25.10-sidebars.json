@@ -573,19 +573,54 @@
           ]
         },
         {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing-install"
+            },
+         {
           "type": "category",
           "label": "Managing tickets",
           "link": {
-            "type": "generated-index"
+            "type": "doc",
+            "id": "alerts-notifications/ticketing-overview"
           },
           "items": [
             {
               "type": "doc",
-              "id": "alerts-notifications/ticketing-install"
+              "id": "alerts-notifications/ticketing"
+            },
+            {
+              "type": "category",
+              "label": "Customizing tickets",
+              "link": {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-body"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/glossary"
+                }
+              ]
             },
             {
               "type": "doc",
-              "id": "alerts-notifications/ticketing"
+              "id": "alerts-notifications/ticketing-use"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing/ticketing-advanced-architecture"
             }
           ]
         }
@@ -1300,8 +1335,21 @@
                   "id": "cma/cma-setup"
                 },
                 {
-                  "type": "doc",
-                  "id": "cma/cma-certificates"
+                  "type": "category",
+                  "label": "Manual setup (advanced)",
+                  "link": {
+                    "type": "generated-index"
+                  },
+                  "items": [
+                    {
+                      "type": "doc",
+                      "id": "cma/cma-setup-manual"
+                    },
+                    {
+                      "type": "doc",
+                      "id": "cma/cma-certificates"
+                    }
+                  ]
                 },
                 {
                   "type": "doc",
@@ -1429,7 +1477,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-bmc-footprints"
+              "id": "integrations/itsm/ot-bmc-footprints-11"
             },
             {
               "type": "doc",
@@ -1457,6 +1505,10 @@
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/ot-ivanti"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-jira"
             },
             {
@@ -1469,15 +1521,19 @@
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-request-tracker-restapi"
+              "id": "integrations/itsm/ot-request-tracker-2"
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-serena"
+              "id": "integrations/itsm/ot-serena-itsm"
             },
             {
               "type": "doc",
               "id": "integrations/itsm/ot-servicenow"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-simple"
             }
           ]
         },

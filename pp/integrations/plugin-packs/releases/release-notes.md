@@ -9,6 +9,92 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+> **Warning, important information**: We have fixed an issue affecting all plugins that was causing empty `OK`: outputs. These will now return the correct value, `UNKNOWN`.
+
+### September
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Generic SNMP (Rust)**](../procedures/applications-protocol-snmp-rs.md) - Initial release (experimental).
+- [**Linux SNMP (Rust)**](../procedures/operatingsystems-linux-snmp-rs.md) - Initial release (experimental).
+- [**Vates Pool REST API**](../procedures/applications-virtualization-vates-pool-restapi.md) - Initial release.
+- [**Vates VM REST API**](../procedures/applications-virtualization-vates-vm-restapi.md) - Initial release.
+- [**Vates XCPng Host REST API**](../procedures/applications-virtualization-vates-host-restapi.md) - Initial release.
+- [**Vates Xen Orchestra REST API**](../procedures/applications-virtualization-vates-xenorchestra-restapi.md) - Initial release.
+- [**Windows SNMP (Rust)**](../procedures/operatingsystems-windows-snmp-rs.md) - Initial release (experimental).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Azure Load Balancer**](../procedures/cloud-azure-network-loadbalancer.md) - Added `tags` attribute to **host discovery**.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added new **pod-usage** mode and the associated service discovery rule.
+- [**Qnap SNMP**](../procedures/hardware-storage-qnap-snmp.md) - Enhanced the error message dipslayed when OIDs return `undef` in **hardware** mode. 
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Aviat Networks SNMP**](../procedures/network-aviat-snmp.md) - Fixed connector referencing a plugin version that doesn't exist on Debian 13.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [**HP Ilo Rest API**](../procedures/hardware-servers-hp-ilo-restapi.md) - Removed perl warnings displayed when running the command in some modes.
+
+</TabItem>
+</Tabs>
+
+### August
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Dynamics AX CMA**](../procedures/applications-dynamics-ax-cma.md) - Initial release.
+- [**Quadstor CMA**](../procedures/applications-quadstor-cma.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**AIX SNMP**](../procedures/operatingsystems-aix-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Call Manager SNMP**](../procedures/network-cisco-callmanager-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Firepower SNMP**](../procedures/network-cisco-firepower-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco IronPort SNMP**](../procedures/network-cisco-ironport-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Telepresence System SNMP**](../procedures/hardware-devices-cisco-cts-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco UCS SNMP**](../procedures/hardware-servers-cisco-ucs-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Umbrella SNMP**](../procedures/network-cisco-umbrella-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Voice Gateway SNMP**](../procedures/network-cisco-voice-gateway-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Waas SNMP**](../procedures/network-cisco-waas-snmp.md) - Added native SNMP v3 host macro.
+- [**Cisco Wap SNMP**](../procedures/network-cisco-wap-snmp.md) - Added native SNMP v3 host macro.
+- [**Docker rest API**](../procedures/applications-docker-restapi.md) - Enhanced services monitoring & added discovery for Docker Swarm.
+- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added native SNMP v3 host macro.
+- [**Huawei Standard SNMP**](../procedures/network-huawei-snmp.md) - Added native SNMP v3 host macro.
+- [**OneAccess SNMP**](../procedures/network-oneaccess-snmp.md) - Added native SNMP v3 host macro.
+- [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Added native SNMP v3 host macro.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Added new **sensors** mode, from a community contribution ([PR 6293](https://github.com/centreon/centreon-plugins/pull/6293)).
+- [**Solaris SNMP**](../procedures/operatingsystems-solaris-snmp.md) - Added native SNMP v3 host macro.
+- [**Stormshield SNMP**](../procedures/network-stormshield-snmp.md) - Added new **uptime**, **licenses**, **ha-cluster** and **auto-update** modes. Enhanced **connections** mode , based on community contributions: [PR 6113](https://github.com/centreon/centreon-plugins/pull/6113), [PR 6179](https://github.com/centreon/centreon-plugins/pull/6179) and [PR 6258](https://github.com/centreon/centreon-plugins/pull/6258).
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Centreon SQL Metrics**](../procedures/applications-monitoring-centreon-sql-metrics.md) - Fixed hardcoded `centreon_storage` database name.
+- [**Cisco DNA Center Rest API**](../procedures/applications-cisco-dnac-restapi.md) - Fixed percentage metrics in **network-devices** mode.
+- [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Fixed typo in **api** custom mode.
+- [**Dynamics365 CMA**](../procedures/applications-dynamics-365-cma.md) - Fixed missing command for **New Orders** service.
+- [**HP OneView Rest API**](../procedures/hardware-servers-hp-oneview-restapi.md) - Added API pagination.
+- [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed AS400 daemon CVEs related to Log4j and Undertow.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed empty output for mssql **database-size** mode.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Fixed an issue where internal PostgreSQL lock types (virtualxid, transactionid) incorrectly counted as exclusive locks.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Fixed `job-type` and `session` values in **job-status** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Fixed `job-type` and `session` values in **job-status** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Fixed `job-type` and `session` values in **job-status** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Fixed `job-type` and `session` values in **job-status** mode.
+
+</TabItem>
+</Tabs>
+
 ### July
 
 <Tabs groupId="sync">

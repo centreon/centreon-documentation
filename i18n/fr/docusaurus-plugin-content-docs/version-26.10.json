@@ -99,6 +99,10 @@
     "message": "Gérer des tickets",
     "description": "The label for category Managing tickets in sidebar docs"
   },
+  "sidebar.docs.category.Customizing tickets": {
+    "message": "Personnaliser les tickets",
+    "description": "The label for category Customizing tickets in sidebar docs"
+  },
   "sidebar.docs.category.Performance graphs": {
     "message": "Graphiques de performance",
     "description": "The label for category Performance graphs in sidebar docs"
@@ -342,5 +346,9 @@
   "sidebar.docs.category.Using MBI": {
     "message": "Utiliser MBI",
     "description": "The label for category Using MBI in sidebar docs"
-  }      
+  },
+  "sidebar.docs.category.Manual setup (advanced)": {
+    "message": "Installation manuelle",
+    "description": "The label for category Manual setup (advanced) in sidebar docs"
+  }
 }

@@ -66,6 +66,7 @@ module.exports = {
       },
       items: [
         { type: 'doc', id: 'installation/installation-checklist' },
+        { type: 'doc', id: 'installation/tokens' },
         { type: 'doc', id: 'configuration/manage-users-and-rights' },
       ],
     },
@@ -156,7 +157,6 @@ module.exports = {
     { type: 'doc', id: 'performance-analysis/network-tab-indicators' },
     { type: 'doc', id: 'how-to-articles/performing-load-tests' },
     { type: 'doc', id: 'performance-analysis/dashboards' },
-
     { type: 'doc', id: 'release-notes' },
     {
       collapsed: true,
