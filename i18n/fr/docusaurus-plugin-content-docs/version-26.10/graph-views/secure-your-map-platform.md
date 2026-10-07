@@ -1,6 +1,6 @@
 ---
 id: secure-your-map-platform
-title: Sécurisez votre plateforme MAP
+title: Sécuriser votre plateforme MAP
 description: "Sécuriser Centreon MAP avec HTTPS/TLS et des connexions chiffrées à la base de données"
 ---
 import Tabs from '@theme/Tabs';

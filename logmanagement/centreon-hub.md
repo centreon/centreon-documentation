@@ -7,7 +7,7 @@ description: Manage organizations, user accounts, and access via Centreon Hub
 Centreon Hub is a module that:
 
 - allows you to access all your Centreon applications.
-- allows your administrator to manage your organizations, manage all Centreon user accounts and user groups for an organization, and manage the way users will log in to Centreon Log Management.
+- allows your administrator to manage your organizations, manage all Centreon [user accounts](user-rights.md) and user groups for an organization, and manage the way users will log in to Centreon Log Management.
 
 An organization covers a scope of resources you want to receive logs from. For instance, you may want to have an organization called Europe and an organization called Asia. Organizations are independent from each other. According to your needs, you may have one or several organizations. Each organization has its own applications, including its own Centreon Log Management platform.
 
@@ -23,8 +23,10 @@ An organization covers a scope of resources you want to receive logs from. For i
 ### Inviting users into the organization
 
 1. Go to **Users**, and then click **Invite user**.
-2. Fill in the email(s).
+2. Fill in the email(s) and select [the role the users will have in Centreon Hub and in Centreon Log Management](./user-rights.md#user-roles).
 3. Click **Invite**. They will receive an email with the following subject line: **You've been invited to join `<organization>`'s Centreon account**. Your email address will be visible in the invitation email.
+
+   As long as it hasn't been accepted, you can cancel an invitation or resend it through the **Users > Invitations** page.
 
 ## I am a Centreon user
 

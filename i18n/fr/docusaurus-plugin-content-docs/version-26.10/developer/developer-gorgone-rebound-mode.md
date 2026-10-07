@@ -72,18 +72,6 @@ Assurez-vous d'avoir un [OS supporté](../installation/compatibility.md#système
 Installez le démon Gorgone en utilisant les commandes suivantes :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
-dnf clean all --enablerepo=*
-dnf update
-dnf install centreon-gorgone
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -95,7 +83,19 @@ dnf install centreon-gorgone
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
+dnf clean all --enablerepo=*
+dnf update
+dnf install centreon-gorgone
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 Pour installer le dépôt Centreon, exécutez la commande suivante :
 

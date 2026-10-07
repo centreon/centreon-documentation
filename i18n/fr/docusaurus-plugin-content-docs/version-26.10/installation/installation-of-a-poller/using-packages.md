@@ -1,231 +1,37 @@
 ---
 id: using-packages
-title: À partir des paquets
+title: À partir des paquets (collecteur)
 description: "Installer et enregistrer un collecteur à partir des paquets RPM ou DEB"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import InstallCommon from '../_install-common.mdx';
 
-Centreon fournit des paquets RPM et DEB pour ses produits au travers de la solution
-Centreon Open Sources disponible gratuitement sur notre dépôt.
+Vous devez exécuter la procédure d'installation en tant qu'utilisateur privilégié.
 
-Les paquets peuvent être installés sur Alma/RHEL/Oracle Linux 8 et 9 ou Debian 12.
+> Lorsque vous exécutez une commande, vérifiez ce qu'elle affiche. En cas de message d'erreur, arrêtez la procédure et corrigez le problème.
 
-L'ensemble de la procédure d'installation doit être faite en tant qu'utilisateur privilégié.
+<InstallCommon />
 
-> Lorsque vous lancez une commande, vérifiez les messagez obtenus. En cas de message d'erreur, arrêtez la procédure et dépannez les problèmes.
+<!-- ### Nom du serveur
 
-## Prérequis
-
-Après avoir installé votre serveur, réalisez la mise à jour de votre système
-d'exploitation via la commande :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update
-```
-
-### Configuration spécifique
-
-Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-dnf install glibc-langpack-de
-```
-
-Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
-
-```shell
-locale -a
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf update
-```
-
-### Configuration spécifique
-
-Pour utiliser Centreon en français, espagnol, portugais ou allemand, installez les paquets correspondants :
-
-```shell
-dnf install glibc-langpack-fr
-dnf install glibc-langpack-es
-dnf install glibc-langpack-pt
-dnf install glibc-langpack-de
-```
-
-Utilisez la commande suivante pour vérifier quelles langues sont installées sur votre système :
-
-```shell
-locale -a
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt update && apt upgrade
-```
-
-</TabItem>
-</Tabs>
-
-> Acceptez toutes les clés GPG proposées et redémarrez votre serveur
-> si une mise à jour du noyau est proposée.
-
-## Étape 1 : Pré-installation
-
-### Désactiver SELinux
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
-**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
-exécutez la commande suivante :
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Redémarrez votre système d'exploitation pour prendre en compte le changement.
-
-```shell
-reboot
-```
-
-Après le redémarrage, une vérification rapide permet de confirmer le statut de
-SELinux :
-
-```shell
-$ getenforce
-Disabled
-```
-
-> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Pendant l'installation, SELinux doit être désactivé. Éditez le fichier
-**/etc/selinux/config** et remplacez **enforcing** par **disabled**, ou bien
-exécutez la commande suivante :
-
-```shell
-sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
-```
-
-Redémarrez votre système d'exploitation pour prendre en compte le changement.
-
-```shell
-reboot
-```
-
-Après le redémarrage, une vérification rapide permet de confirmer le statut de
-SELinux :
-
-```shell
-$ getenforce
-Disabled
-```
-
-> **Notez que cette désactivation doit être temporaire.** SELinux doit être [réactivé après l'installation](../../administration/secure-platform.md#activer-selinux-1) pour des raisons de sécurité.
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-SELinux n'est pas installé sur Debian 12, continuez.
-
-</TabItem>
-</Tabs>
-
-### Configurer ou désactiver le pare-feu
-
-Paramétrez le pare-feu système ou désactivez ce dernier. Pour désactiver ce
-dernier exécutez les commandes suivantes :
-
-```shell
-systemctl stop firewalld
-systemctl disable firewalld
-```
-
-> Vous pouvez trouver des instructions [ici](../../administration/secure-platform.md#activer-firewalld)
-> pour configurer le pare-feu.
-
-### Nom du serveur
-
-Si vous le souhaitez, vous pouvez changer le nom du serveur à l'aide de la commande suivante:
+Si vous souhaitez changer le nom du serveur, utilisez la commande suivante :
 ```shell
 hostnamectl set-hostname new-server-name
 ```
 
-Remplacez **new-server-name** par le nom de votre choix. Exemple:
+Remplacez **new-server-name** par le nom de votre choix. Exemple :
 ```shell
 hostnamectl set-hostname poller1
-```
+``` -->
 
 ### Installer les dépôts
 
+#### Dépendances
+
 <Tabs groupId="sync">
-<TabItem value="RHEL 8" label="RHEL 8">
-
-#### Dépôt Redhat CodeReady Builder
-
-Pour installer Centreon, vous devez installer le dépôt **CodeReady Builder**.
-
-```shell
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
-
-```shell
-dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
-```
-
-</TabItem>
-<TabItem value="Alma 8" label="Alma 8">
-
-#### Dépôt PowerTools de Red Hat
-
-Afin d'installer les logiciels Centreon, le dépôt PowerTools de Red Hat doit être
-activé.
-
-Exécutez les commandes suivantes :
-
-```shell
-dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled powertools
-```
-
-</TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
-#### Dépôt CodeReady Builder de Oracle
-
-Afin d'installer les logiciels Centreon, le dépôt CodeReady Builder de Oracle
-doit être activé.
-
-Exécutez les commandes suivantes :
-
-```shell
-dnf -y install dnf-plugins-core oracle-epel-release-el8
-dnf config-manager --set-enabled ol8_codeready_builder
-```
-
-</TabItem>
 <TabItem value="Alma 9" label="Alma 9">
 
-Exécutez les commandes suivantes :
 
 ```shell
 dnf install dnf-plugins-core
@@ -236,15 +42,13 @@ dnf config-manager --set-enabled crb
 </TabItem>
 <TabItem value="RHEL 9" label="RHEL 9">
 
-Exécutez les commandes suivantes :
-
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 ```
 
-S'il s'agit d'une instance Cloud RHEL, vous devrez exécuter la commande suivante :
+Si votre serveur est une instance RHEL dans le cloud, vous devez exécuter la commande suivante :
 
 ```shell
 dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
@@ -253,18 +57,47 @@ dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 </TabItem>
 <TabItem value="Oracle Linux 9" label="Oracle Linux 9">
 
-Exécutez les commandes suivantes :
-
 ```shell
-dnf install dnf-plugins-core
-dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma Linux 10" label="Alma Linux 10">
 
-Installez les dépendances suivantes :
+```shell
+dnf install dnf-plugins-core -y
+dnf config-manager --set-enabled crb
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="RHEL Linux 10" label="RHEL Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
+```
+
+Si votre serveur est une instance RHEL dans le cloud, vous devez exécuter la commande suivante :
+
+```shell
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 10" label="Oracle Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+dnf config-manager --set-enabled ol10_codeready_builder
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
@@ -275,23 +108,7 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 
 #### Dépôt Centreon
 
-Afin d’installer les logiciels Centreon à partir des dépôts, vous devez au
-préalable installer le fichier lié au dépôt.
-
-Exécutez la commande suivante à partir d’un utilisateur possédant les droits
-suffisants :
-
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -302,16 +119,24 @@ dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-Pour installer le dépôt Centreon, exécutez la commande suivante :
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
-Puis importez la clé du dépôt :
+Importez ensuite la clé du dépôt :
 
 ```shell
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
@@ -321,18 +146,11 @@ apt update
 </TabItem>
 </Tabs>
 
-## Étape 2 : Installation
+## Étape 2 : Installer le serveur
 
-Pour installer le moteur de supervision, exécutez la commande :
+Pour installer le moteur de supervision, exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-poller
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -340,7 +158,14 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-poller
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install -y --no-install-recommends centreon-poller
@@ -349,10 +174,10 @@ apt install -y --no-install-recommends centreon-poller
 </TabItem>
 </Tabs>
 
-Pour activer le démarrage automatique des services de supervision au démarrage
-du serveur, exécuter la commande suivante :
+Pour que les services démarrent automatiquement au démarrage du système, exécutez la
+commande suivante :
 
-```shell
+``` shell
 systemctl enable centreon centengine centreontrapd snmptrapd gorgoned
 ```
 
@@ -368,52 +193,49 @@ Redémarrez Centreon Engine :
 systemctl restart centengine
 ```
 
-## Étape 3 : Enregistrer le serveur
+<!-- ## Étape 3 : Enregistrer le collecteur
 
 Pour transformer le serveur en collecteur et l'enregistrer sur le serveur central ou un serveur distant, exécutez la commande suivante sur le futur collecteur :
 
 ``` shell
-/usr/share/centreon/bin/registerServerTopology.sh -u <API_ACCOUNT> \
+/usr/share/centreon/bin/registerServerTopology.sh -u admin \
 -t poller -h <IP_TARGET_NODE> -n <POLLER_NAME>
 ```
 
-Exemple:
+Exemple :
 
 ``` shell
 /usr/share/centreon/bin/registerServerTopology.sh -u admin -t poller -h 192.168.0.1 -n poller-1
 ```
 
-> Remplacez **\<IP_TARGET_NODE\>** par l'adresse IP du serveur Central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le
-> collecteur).
+> Remplacez **\<IP_TARGET_NODE\>** par l'adresse IP du serveur central ou du serveur distant auquel vous voulez rattacher le collecteur (adresse IP vue par le collecteur).
 
-> Vous devez utiliser le compte **admin** pour le paramètre **\<API_ACCOUNT\>**.
-
-> Vous pouvez changer le port et la méthode HTTP, le format de l'option **-h** est le suivant :
+> Si vous devez changer la méthode HTTP ou le port, utilisez le format suivant pour l'option **-h** :
 > `HTTPS://<IP_TARGET_NODE>:PORT`
 
-Suivre ensuite les instructions
+Suivez ensuite les instructions :
 
-1. Saisir le mot de passe :
+1. Saisissez votre mot de passe :
 
     ``` shell
-    Please enter the password of 192.168.0.1:
+    please enter the password for 192.168.0.1:
     ```
 
-2. Sélectionner l'adresse IP si plusieurs interfaces réseau existent:
+2. Sélectionnez l'adresse IP si plusieurs interfaces réseau existent :
 
     ```shell
-    Which IP do you want to use as CURRENT NODE IP ?
+    Which IP do you want to use as CURRENT NODE IP?
     1) 192.168.0.2
     2) 192.168.0.3
     1
     ```
 
-3. Valider les informations:
+3. Validez ensuite les informations :
 
     ``` shell
-    Summary of the informations that will be send:
+    Summary of the information that will be sent:
     
-    Api Connection:
+    API connection:
     username: admin
     password: ******
     target server: 192.168.0.1
@@ -423,10 +245,10 @@ Suivre ensuite les instructions
     type: poller
     address: 192.168.0.2
     
-    Do you want to register this server with those information? (y/n): y
+    Do you want to register this server with the previous information? (y/n)y
     ```
 
-Vous recevrez la validation du serveur Centreon central ou du serveur Remote Server :
+Vous recevrez la validation du serveur central Centreon ou du serveur distant :
 
 ``` shell
 2020-10-16T17:19:37+02:00 [INFO]: The CURRENT NODE 'poller': 'poller-1@192.168.0.2' linked to TARGET NODE: '192.168.0.1' has been added
@@ -435,41 +257,40 @@ Vous recevrez la validation du serveur Centreon central ou du serveur Remote Ser
 ### Principaux messages d'erreur
 
 ``` shell
-2020-10-20T10:23:15+02:00 [ERROR]: Invalid credentials
+2023-05-20T10:23:15+02:00 [ERROR]: Invalid credentials
 ```
 
 > Vos informations d'identification sont incorrectes pour le compte **\<API_ACCOUNT\>**.
 
 ``` shell
-2020-10-20T10:24:59+02:00 [ERROR]: Access Denied.
+2023-05-20T10:24:59+02:00 [ERROR]: Access Denied.
 ```
 
 > L'utilisateur **\<API_ACCOUNT\>** n'a pas accès à l'API de configuration.
 
 ``` shell
-Failed connect to 192.168.0.1:444; Connection refused
+Couldn't connect to 192.168.0.1:444; Connection refused
 ```
 
-> Impossible d'accéder à l'API. Contrôler les valeurs **\<IP_TARGET_NODE\>**, méthode et port.
+> Impossible d'accéder à l'API. Contrôlez les valeurs **\<IP_TARGET_NODE\>**, la méthode et le port.
 
 ``` shell
-2020-10-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
+2023-05-20T10:39:30+02:00 [ERROR]: Can’t connect to the API using: https://192.168.0.1:443/centreon/api/latest/login
 ```
 
-> L'URL d'accès n'est pas complète ou invalide. Utilisez l'option **--root** pour définir le chemin de l'URL de l'API.
-> Par exemple : **--root monitoring**.
+> L'URL d'accès n'est pas complète ou n'est pas valide. Utilisez l'option **--root** pour définir le chemin de l'URL de l'API. Par exemple : **--root monitoring**.
 
 ``` shell
-2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
+2023-05-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur distant est invalide. Elle doit être supérieure ou égale à 26.10.
+> La version Centreon du serveur cible n'est pas valide. Elle doit être supérieure ou égale à 26.10. -->
 
-## Étape 4 : Ajouter le Poller à la configuration
+## Étape 3 : Rattacher le collecteur à un serveur central ou distant
 
-Rendez-vous au chapitre [Ajouter un Poller à la configuration](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
+Rendez-vous au chapitre [Rattacher un collecteur à un serveur central ou distant](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 
-## Étape 5 : Sécuriser votre plateforme
+## Étape 4 : Sécuriser votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
-[recommandations](../../administration/secure-platform.md)
+[recommandations](../../administration/secure-platform.md).

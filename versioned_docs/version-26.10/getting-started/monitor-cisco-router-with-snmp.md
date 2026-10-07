@@ -33,13 +33,6 @@ The target device must be reachable from the Centreon Poller on the UDP/161 SNMP
 Connect to your poller using SSH and install the Cisco standard plugin (see the [monitoring procedure for the **Cisco standard** Monitoring Connector](/pp/integrations/plugin-packs/procedures/network-cisco-standard-snmp) for more information):
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-plugin-Network-Cisco-Standard-Snmp
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -47,7 +40,14 @@ dnf install centreon-plugin-Network-Cisco-Standard-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-plugin-Network-Cisco-Standard-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-plugin-network-cisco-standard-snmp

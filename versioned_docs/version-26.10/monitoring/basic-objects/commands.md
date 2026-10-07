@@ -174,13 +174,6 @@ Centreon recommends using its official packages. Most of Centreon’s endorsed s
 Run the following commands as a privileged user:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-connector-ssh
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -188,7 +181,14 @@ dnf install centreon-connector-ssh
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-connector-ssh
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt install centreon-connector-ssh
@@ -209,13 +209,6 @@ Centreon recommends using its official packages. Most of Centreon’ endorsed so
 Run the following commands as a privileged user:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-connector-perl
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -223,7 +216,14 @@ dnf install centreon-connector-perl
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-connector-perl
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt install centreon-connector-perl

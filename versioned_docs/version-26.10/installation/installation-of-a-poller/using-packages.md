@@ -13,7 +13,7 @@ You must run the installation procedure as a privileged user.
 
 <InstallCommon />
 
-### Server name
+<!-- ### Server name
 
 If you want to change the server's name, use the following command:
 ```shell
@@ -23,69 +23,15 @@ hostnamectl set-hostname new-server-name
 Replace **new-server-name** with the name of your choice. Example:
 ```shell
 hostnamectl set-hostname poller1
-```
+``` -->
 
 ### Install the repositories
 
+#### Dependencies
+
 <Tabs groupId="sync">
-<TabItem value="Alma 8" label="Alma 8">
-
-#### Redhat PowerTools repository
-
-To install Centreon, you will need to enable the official PowerTools repository
-supported by Redhat.
-
-Enable the PowerTools repository using these commands:
-
-```shell
-dnf -y install dnf-plugins-core epel-release
-dnf config-manager --set-enabled powertools
-```
-
-</TabItem>
-<TabItem value="RHEL 8" label="RHEL 8">
-
-#### Redhat CodeReady Builder repository
-
-To install Centreon, you will need to enable the official CodeReady Builder
-supported by Redhat.
-
-Enable the CodeReady Builder repository using these commands:
-
-```shell
-dnf -y install dnf-plugins-core https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-If your server is a Cloud RHEL instance, you will have to execute the following command:
-
-```shell
-dnf config-manager --set-enabled codeready-builder-for-rhel-8-rhui-rpms
-```
-
-</TabItem>
-
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
-#### Oracle CodeReady Builder repository
-
-To install Centreon, you will need to enable the official Oracle CodeReady
-Builder repository supported by Oracle.
-
-Enable the repository using these commands:
-
-```shell
-dnf install dnf-plugins-core
-dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf config-manager --set-enabled ol8_codeready_builder
-```
-
-</TabItem>
 <TabItem value="Alma 9" label="Alma 9">
 
-To install Centreon you will need to install the **CodeReady Builder** repository.
-
-Run the following commands:
 
 ```shell
 dnf install dnf-plugins-core
@@ -95,10 +41,6 @@ dnf config-manager --set-enabled crb
 
 </TabItem>
 <TabItem value="RHEL 9" label="RHEL 9">
-
-To install Centreon you will need to install the **CodeReady Builder** repository.
-
-Run the following commands:
 
 ```shell
 dnf install -y dnf-plugins-core
@@ -115,21 +57,47 @@ dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
 </TabItem>
 <TabItem value="Oracle Linux 9" label="Oracle Linux 9">
 
-To install Centreon you will need to install the **CodeReady Builder** repository.
-
-Run the following commands:
-
 ```shell
 dnf install -y dnf-plugins-core
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf config-manager --set-enabled ol9_codeready_builder
-dnf install -y epel-release
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma Linux 10" label="Alma Linux 10">
 
-Install the following dependencies:
+```shell
+dnf install dnf-plugins-core -y
+dnf config-manager --set-enabled crb
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+```
+
+</TabItem>
+<TabItem value="RHEL Linux 10" label="RHEL Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 10" label="Oracle Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+dnf config-manager --set-enabled ol10_codeready_builder
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
@@ -139,10 +107,6 @@ apt update && apt install lsb-release ca-certificates apt-transport-https softwa
 </Tabs>
 
 #### Centreon repository
-
-To install Centreon software, you should first install the Centreon repository.
-
-Install the Centreon repository using this command:
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -167,8 +131,6 @@ dnf update
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
 
-To install the Centreon repository, execute the following command line:
-
 ```shell
 echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
@@ -184,18 +146,11 @@ apt update
 </TabItem>
 </Tabs>
 
-## Step 2: Installation
+## Step 2: Install the server
 
 To install the monitoring engine, run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-poller
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -203,7 +158,14 @@ dnf install -y centreon-poller
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-poller
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install -y --no-install-recommends centreon-poller
@@ -231,7 +193,7 @@ Restart Centreon Engine:
 systemctl restart centengine
 ```
 
-## Step 3: Register the poller
+<!-- ## Step 3: Register the poller
 
 To turn the server into a poller and to register it to the central server or a remote server, execute the following command on the future poller:
 
@@ -322,13 +284,13 @@ Couldn't connect to 192.168.0.1:444; Connection refused
 2023-05-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater than or equal to 26.10.
+> Your Centreon target version is invalid. It should be greater than or equal to 26.10. -->
 
-## Step 4: Attach the poller to a central or remote server
+## Step 3: Attach the poller to a central or remote server
 
 Go to [Attach a poller to a central or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
 
-## Step 5: Secure your platform
+## Step 4: Secure your platform
 
 Remember to secure your Centreon platform following our
 [recommendations](../../administration/secure-platform.md).

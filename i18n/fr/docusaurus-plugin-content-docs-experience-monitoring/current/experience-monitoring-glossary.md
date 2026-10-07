@@ -30,7 +30,7 @@ Le Largest Contentful Paint (LCP) est la métrique du temps de rendu du plus gra
 
 ## Test de charge
 
-Les [tests de charge](https://docs.centreon.com/experience-monitoring/getting-started/load-tests/) sont un module d'Experience Monitoring.
+Les [tests de charge](./getting-started/load-tests.md) sont un module d'Experience Monitoring.
 Le test consiste à simuler un trafic important sur votre site afin d'évaluer son comportement dans ces conditions et d'identifier les goulots d'étranglement.
 Les utilisateurs sont simulés par Experience Monitoring, mais cela génère du trafic réel sur votre site.
 
@@ -41,11 +41,11 @@ L'OnLoad est la métrique du temps nécessaire pour que tous les éléments de l
 ## Ping
 
 Un ping est un test réseau. Une requête est envoyée à un serveur pour vérifier qu'il répond et mesurer le temps nécessaire pour recevoir cette réponse.
-Experience Monitoring utilise les protocoles [TCP et ICMP](https://docs.centreon.com/experience-monitoring/performance-analysis/network-tab-indicators/#difference-between-tcp-ping-and-icmp-ping) pour ses tests.
+Experience Monitoring utilise les protocoles [TCP et ICMP](./performance-analysis/network-tab-indicators.md#différence-entre-tcp-ping-et-icmp-ping) pour ses tests.
 
 ## Real User Monitoring
 
-Le [Real User Monitoring (ou RUM)](https://docs.centreon.com/experience-monitoring/getting-started/real-user-monitoring/) est un module d'Experience Monitoring.
+Le [Real User Monitoring (ou RUM)](./getting-started/real-user-monitoring.md) est un module d'Experience Monitoring.
 Grâce à une balise HTML insérée dans le code de votre site, Experience Monitoring peut mesurer les temps de chargement expérimentés par les utilisateurs réels.
 La balise est chargée séparément afin d'éviter qu'elle n'influence les données.
 
