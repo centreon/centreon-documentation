@@ -156,6 +156,10 @@
             {
               "type": "doc",
               "id": "installation/installation-of-a-poller/unattended-install-poller"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/using-docker-poller"
             }
           ]
         },
@@ -202,6 +206,10 @@
             {
               "type": "doc",
               "id": "monitoring/monitoring-servers/advanced-configuration"
+            },
+            {
+              "type": "doc",
+              "id": "monitoring/monitoring-servers/docker-advanced-configuration"
             }
           ]
         },
