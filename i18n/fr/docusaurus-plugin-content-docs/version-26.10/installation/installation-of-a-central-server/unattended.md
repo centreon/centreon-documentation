@@ -38,6 +38,8 @@ C'est utile lorsque vous devez installer plusieurs serveurs centraux avec des pa
    </TabItem>
    <TabItem value="RHEL 10" label="RHEL 10">
 
+   > Pour récupérer la version de PHP requise par Centreon 26.10 lors de l'installation, votre version de RHEL doit être au minimum 10.2.
+
    ```shell
    dnf update
    subscription-manager register --username my_username --password my_password --auto-attach --force
@@ -48,6 +50,8 @@ C'est utile lorsque vous devez installer plusieurs serveurs centraux avec des pa
 
    </TabItem>
    <TabItem value="Alma / Oracle Linux 10" label="Alma / Oracle Linux 10">
+
+   > Pour récupérer la version de PHP requise par Centreon 26.10 lors de l'installation, votre version d'Alma/Oracle Linux doit être au minimum 10.2.
 
    ```shell
    dnf update

@@ -1,17 +1,12 @@
 ---
-id: unattended-install-central
-title: Unattended installation of a central server
-description: "Install a central server quickly using an unattended script"
+id: unattended-install-remote
+title: Unattended installation of a remote server
+description: "Install a remote server quickly using an unattended script"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 
-An unattended installation lets you install a central server by passing all the required settings as options when you run the installation script. The script uses those values to complete the installation on its own, so the process is quick and requires little effort.
-
-This is useful when you need to install several central servers with identical settings, when you install from a deployment tool or CI pipeline, or when you have no interactive access to the target machine.
-
-> An unattended installation always sets up the central server with a local database. To use a remote database, [install the central server from packages](using-packages.md).
+To install a remote server quicker, you can use a script. This will perform all installation steps. You must then register the remote server and attach it to the central server.
 
 ## Prerequisites
 
@@ -38,8 +33,6 @@ This is useful when you need to install several central servers with identical s
    </TabItem>
    <TabItem value="RHEL 10" label="RHEL 10">
 
-   > To get the PHP version required by Centreon 26.10 during installation, your RHEL version must be at least 10.2.
-
    ```shell
    dnf update
    subscription-manager register --username my_username --password my_password --auto-attach --force
@@ -50,8 +43,6 @@ This is useful when you need to install several central servers with identical s
 
    </TabItem>
    <TabItem value="Alma / Oracle Linux 10" label="Alma / Oracle Linux 10">
-
-   > To get the PHP version required by Centreon 26.10 during installation, your Alma/Oracle Linux version must be at least 10.2.
 
    ```shell
    dnf update
@@ -101,6 +92,9 @@ This is useful when you need to install several central servers with identical s
 
 2. Go to http(s)://\<SERVER_IP\>/centreon (where \<SERVER_IP\> is your server's IP address) and log in. Then follow the
    [initialization of the monitoring](../web-and-post-installation.md#initialization-of-the-monitoring) steps.
+
+   4. Once the script has run, carry out [steps 4 to 8 of the standard installation procedure for a remote server](./using-packages.md#step-5-register-the-server).
+
 
 3. Start using Centreon: follow our [Getting started](../../getting-started/welcome.md) guide to start monitoring your resources.
 

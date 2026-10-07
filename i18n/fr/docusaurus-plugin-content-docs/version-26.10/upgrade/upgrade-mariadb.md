@@ -63,55 +63,18 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
     systemctl stop mariadb
     ```
 
-2. Désinstallez la version actuelle :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
+2. Exécutez la commande suivante :
 
 ```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+dnf module reset mariadb -y
 ```
-
-</TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
-
-```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
-```
-
-</TabItem>
-</Tabs>
-
-> Pendant cette étape de désinstallation, vous pouvez rencontrer une erreur parce qu'un ou plusieurs paquets MariaDB sont manquants. Dans ce cas, vous devez exécuter la commande de désinstallation sans inclure le paquet manquant.
->
->Par exemple, vous obtenez le message d'erreur suivant :
->
->   `package MariaDB-compat is not installed`
->
->   Comme le paquet **MariaDB-compat** est manquant, vous devez exécuter la même commande sans citer **MariaDB-compat** :
->
->   `rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common`
-
-> Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](https://mariadb.com/kb/en/mariadb-package-repository-setup-and-usage/) avant de poursuivre la procédure.
 
 3. Installez la version 10.11 :
 
-<Tabs groupId="sync">
-<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
-
 ```shell
-dnf install mariadb-server-10.11\* mariadb-10.11\*
+dnf module enable -y mariadb:11.8
+dnf install mariadb-server-11.8\* mariadb-11.8\*
 ```
-
-</TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
-
-```shell
-dnf install mariadb-server-10.11\* mariadb-10.11\*
-```
-
-</TabItem>
-</Tabs>
 
 4. Démarrer le service mariadb :
 
@@ -144,6 +107,18 @@ dnf install mariadb-server-10.11\* mariadb-10.11\*
 
     ```shell
     systemctl enable mariadb
+    ```
+
+7. Avant de finir la montée de version de votre plateforme Centreon, exécutez la commande suivante sur le serveur central :
+
+    ```shell
+    systemctl restart php-fpm httpd
+    ```
+
+8. Vérifiez que MariaDB tourne à l'aide de la commande `systemctl status mariadb`. Si ce n'est pas le cas, démarrez le service :
+
+    ```shell
+    systemctl start mariadb
     ```
 
 ### Montée de version de 10.1 à une version plus récente

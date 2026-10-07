@@ -5,8 +5,9 @@ description: "Upgrade a Centreon HA cluster from version 25.10 to 26.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import Link from '@docusaurus/Link';
 
-This chapter describes how to upgrade your Centreon HA platform from version 24.04 to version 26.10. Please refer to the [upgrade matrix](../upgrade-matrix.mdx) to know whether your OS is still supported. If not, you will need to migrate your platform: contact your Centreon sales representative to discuss any migration with HA.
+This chapter describes how to upgrade your Centreon HA platform from version 25.10 to version 26.10. Please refer to the [upgrade matrix](../upgrade-matrix.mdx) to know whether your OS is still supported. If not, you will need to migrate your platform: contact your Centreon sales representative to discuss any migration with HA.
 
 ## Prerequisites
 
@@ -27,7 +28,7 @@ Be sure that you have fully backed up your environment for the following servers
 
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on December 2, 2025.
 When upgrading from an older version, you need to go through the [key rotation procedure](https://docs.centreon.com/docs/security/key-rotation/#existing-installation), to remove the old key and install the new one.
 
 ### Update the centreon_central_sync script (MBI only)

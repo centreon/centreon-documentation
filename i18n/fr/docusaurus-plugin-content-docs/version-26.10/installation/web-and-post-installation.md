@@ -3,10 +3,12 @@ id: web-and-post-installation
 title: Installation Web
 description: "Terminer l'assistant d'installation web et initialiser la supervision"
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Installation web
 
-Connectez-vous à l'interface web via `http://<IP>/centreon`.
+Connectez-vous à l'interface web via `http(s)://<IP>/centreon`.
 
 ### Étape 1 : Welcome to Centreon setup
 
@@ -98,6 +100,35 @@ L’installation est terminée, cliquez sur **Finish**.
 Vous pouvez maintenant vous connecter en utilisant le compte **admin**, et [initialiser la supervision](#initialisation-de-la-supervision).
 
 ## Initialisation de la supervision
+
+Appliquez les permissions suivantes :
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+usermod -a -G centreon-broker www-data
+usermod -a -G www-data centreon-broker
+```
+
+</TabItem>
+</Tabs>
 
 Pour démarrer les processus de supervision :
 

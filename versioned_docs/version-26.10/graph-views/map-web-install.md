@@ -410,16 +410,12 @@ dnf module enable -y mariadb:10.11
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-<!-- TODO(Sam): EL10 ne propose plus les flux de modules DNF : vérifier comment installer MariaDB 10.11 (ou la version cible) sur EL10. -->
-
 ```shell
 dnf module enable -y mariadb:10.11
 ```
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
-
-<!-- TODO(Sam): vérifier que le script mariadb_repo_setup prend en charge Debian 13 (--os-version=13) avec MariaDB 10.11. -->
 
 ```shell
 curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=13 --mariadb-server-version="mariadb-10.11"
@@ -508,8 +504,6 @@ dnf install https://dev.mysql.com/get/mysql84-community-release-el10-1.noarch.rp
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
 
-<!-- TODO(Sam): vérifier que mysql-apt-config 0.8.32 prend en charge Debian 13, sinon mettre à jour la version du paquet. -->
-
 ```shell
 wget https://dev.mysql.com/get/mysql-apt-config_0.8.32-1_all.deb
 dpkg -i mysql-apt-config_0.8.32-1_all.deb
@@ -543,8 +537,6 @@ sudo systemctl status mysqld
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-<!-- TODO(Sam): vérifier la version de MySQL fournie par EL10 (8.4 ?) : l'option default-authentication-plugin n'existe plus en 8.4. -->
 
 ```shell
 dnf install -y mysql-server mysql
@@ -728,10 +720,6 @@ This procedure is to ensure that the configuration file can be used for both MAP
 When installing Centreon MAP Engine server, it will automatically install java
 (OpenJDK 25) if needed.
 
-<!-- TODO(Sam): cette note et son ancre visent une section Alma Linux 8, plus supportée en 26.10. À supprimer ou à mettre à jour avec map-web-troubleshooting.md. -->
-
-> Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-engine from being installed](./map-web-troubleshooting.md#centreon-map-engine-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
-
 #### Java requirement
   > Ensure a version of Java 25 is installed before you start the procedure.
   
@@ -741,7 +729,6 @@ When installing Centreon MAP Engine server, it will automatically install java
   java -version
   ```
   
-  <!-- TODO(Sam): vérifier que l'ancre #java25 existe sur la page de téléchargement Oracle. -->
 
   - If you need to upgrade the Java installation to Java 25, go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java25) page.
 
@@ -848,9 +835,6 @@ This procedure is to ensure that the configuration file can be used for both MAP
 When installing Centreon MAP Engine server, it will automatically install java
 (OpenJDK 25) if needed.
 
-<!-- TODO(Sam): cette note et son ancre visent une section Alma Linux 8, plus supportée en 26.10. À supprimer ou à mettre à jour avec map-web-troubleshooting.md. -->
-
-> Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-engine from being installed](./map-web-troubleshooting.md#centreon-map-engine-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
 
 #### Java requirement
   > Ensure a version of Java 25 is installed before you start the procedure.
@@ -860,8 +844,7 @@ When installing Centreon MAP Engine server, it will automatically install java
   ```shell
   java -version
   ```
-  
-  <!-- TODO(Sam): vérifier que l'ancre #java25 existe sur la page de téléchargement Oracle. -->
+    
 
   - If you need to upgrade the Java installation to Java 25, go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java25) page.
 
