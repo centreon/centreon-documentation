@@ -3,6 +3,8 @@ id: web-and-post-installation
 title: Web And Post Installation
 description: "Complete the web setup wizard and initialize your monitoring"
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## Web installation
 
@@ -94,6 +96,35 @@ The installation is complete. Click **Finish**.
 You can now log in using the **admin** account and [initialize the monitoring](#initialization-of-the-monitoring).
 
 ## Initialization of the monitoring
+
+Apply the following permissions:
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+usermod -a -G centreon-broker apache
+usermod -a -G apache centreon-broker
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+usermod -a -G centreon-broker www-data
+usermod -a -G www-data centreon-broker
+```
+
+</TabItem>
+</Tabs>
 
 To start the monitoring processes:
 

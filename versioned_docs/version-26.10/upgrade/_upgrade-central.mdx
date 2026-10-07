@@ -1,6 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
+import Link from '@docusaurus/Link';
 
 ## Upgrade the Centreon Central server
 
@@ -74,7 +75,9 @@ You need to install the Remi repo and the switch the PHP stream from version {pr
 
 ```shell
 dnf install -y https://rpms.remirepo.net/enterprise/remi-release-9.rpm
-dnf module switch-to php:remi-8.4/common -y
+rpm -e --nodeps php-sourceguardian-loader
+dnf module reset php -y
+dnf module enable php:remi-8.4 -y
 ```
 
 </TabItem>
@@ -104,7 +107,8 @@ dnf clean all --enablerepo=*
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf update centreon\* php-pecl-gnupg
+rpm -e --nodeps php-pecl-gnupg
+dnf update -y "centreon*" --exclude=php-pecl-gnupg
 ```
 
 </TabItem>
@@ -195,10 +199,17 @@ Add the following code to your Apache configuration file, in both the `<VirtualH
 AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
 ```
 
-### Step 6: Finalize the upgrade
+### Step 6: Upgrade the database
 
-1. Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the
-following command:
+<ul>
+  <li>If you were using MariaDB {props.oldMariadbVersion}, [upgrade it](upgrade-mariadb.md) to version 11.8.</li>
+  {props.showSecondPoint && <li>If you were using MySQL 8.0, <Link to="../upgrade-mysql">upgrade it to version 8.4</Link>.</li>}
+  {props.showThirdPoint && <li>If you were already using MySQL 8.4, you don't need to do anything.</li>}
+</ul>
+
+### Step 7: Finalize the upgrade
+
+1. Before starting the web upgrade process, upgrade the [Centreon BAM module](../service-mapping/upgrade.md) and reload the Apache server with the following command:
 
    <Tabs groupId="sync">
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -212,66 +223,62 @@ following command:
 
 2. Finalize the upgrade process:
 
-<Tabs groupId="sync">
-<TabItem value="Using the wizard" label="Using the wizard">
+   <Tabs groupId="sync">
+   <TabItem value="Using the wizard" label="Using the wizard">
 
-1. Log on to the Centreon web interface to continue the update process. Click **Next**:
+   1. Log on to the Centreon web interface to continue the update process. Click **Next**:
 
-   ![image](../assets/upgrade/web_update_1.png)
+      ![image](../assets/upgrade/web_update_1.png)
 
-2. Click **Next**:
+   2. Click **Next**:
 
-   ![image](../assets/upgrade/web_update_2.png)
+      ![image](../assets/upgrade/web_update_2.png)
 
-3. The release notes describe the main changes. Click **Next**:
+   3. The release notes describe the main changes. Click **Next**:
 
-   ![image](../assets/upgrade/web_update_3.png)
+      ![image](../assets/upgrade/web_update_3.png)
 
-4. This process performs the various upgrades. Click **Next**:
+   4. This process performs the various upgrades. Click **Next**:
 
-   ![image](../assets/upgrade/web_update_4.png)
+      ![image](../assets/upgrade/web_update_4.png)
 
-5. Your Centreon server is now up to date. Click **Finish** to access the login
-page:
+   5. Your Centreon server is now up to date. Click **Finish** to access the login
+   page:
 
-   ![image](../assets/upgrade/web_update_5.png)
+      ![image](../assets/upgrade/web_update_5.png)
 
-6. [Deploy the central's configuration from the Centreon web UI](../monitoring/monitoring-servers/deploying-a-configuration.md).
+   6. [Deploy the central's configuration from the Centreon web UI](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-</TabItem>
-<TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
+   </TabItem>
+   <TabItem value="Using a dedicated API endpoint" label="Using a dedicated API endpoint">
 
-1. Go to **Administration > Authentication tokens**, then click **Add**.
+   1. In your terminal, enter this request, using the correct IP address for your platform, and replacing **mytoken** with your actual token (as described in the prerequisites):
 
-3. Copy the token to use it in the next request. Store it carefully, as it will not be displayed twice.
+   ```shell
+   curl --location --request POST 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
+   --header 'X-AUTH-TOKEN: mytoken' \
+   --header 'Content-Type: application/json' \
+   --data '{
+         "components": [
+            {
+               "name": "centreon-web"
+            }
+         ]
+   }'
+   ```
 
-4. In your terminal, enter this request, using the correct IP address for your platform, and replacing **mytoken** with your actual token:
+   2. This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
 
-  ```shell
-  curl --location --request PATCH 'http://10.25.XX.XX:80/centreon/api/latest/platform/updates' \
-  --header 'X-AUTH-TOKEN: mytoken' \
-  --header 'Content-Type: application/json' \
-  --data '{
-      "components": [
-          {
-              "name": "centreon-web"
-          }
-      ]
-  }'
-  ```
+   </TabItem>
+   </Tabs>
 
-5. This request does not return any result. To check if the update has been successfully applied, read the version number displayed on the Centreon web interface login page.
-
-</TabItem>
-</Tabs>
-
-6. Finally, restart Broker, Engine and Gorgone on the central server by running this command:
+3. Finally, restart Broker, Engine and Gorgone on the central server by running this command:
 
    ```shell
    systemctl restart cbd centengine gorgoned
    ```
 
-7. Update the permissions on the centreon-broker configuration files.
+4. Update the permissions on the centreon-broker configuration files.
 
    <Tabs groupId="sync">
    <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
@@ -284,9 +291,9 @@ page:
    </TabItem>
    </Tabs>
 
-8. Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
+5. Refer to the [Centreon MBI](../reporting/update.md) and [Centreon MAP](../graph-views/map-web-upgrade.md) dedicated procedures to update these modules.
 
-### Step 7: Post-upgrade actions
+### Step 8: Post-upgrade actions
 
 1. Upgrade extensions. From **Administration > Extensions > Manager**, upgrade all extensions, starting
 with the following:
@@ -315,11 +322,3 @@ with the following:
     ``` shell
     systemctl restart cbd centengine centreontrapd gorgoned
     ```
-
-### Step 8: Upgrade the database
-
-<ul>
-  <li>If you were using MariaDB {props.oldMariadbVersion}, [upgrade it](upgrade-mariadb.md) to version 11.8.</li>
-  {props.showSecondPoint && <li>If you were using MySQL 8.0, [upgrade it to version 8.4](upgrade-mysql.md).</li>}
-  {props.showThirdPoint && <li>If you were already using MySQL 8.4, you don't need to do anything.</li>}
-</ul>

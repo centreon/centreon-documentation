@@ -195,7 +195,7 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-And ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` (`/etc/php/8.2/fpm/conf.d/50-centreon.ini` for Debian) is set to at least 256mb. If it isn't, insert it manually.
+And ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` (`/etc/php/8.2/fpm/conf.d/50-centreon.ini` for Debian) is set to at least 256M. If it isn't, insert it manually.
 
 7. Clean the cache:
 

@@ -38,6 +38,8 @@ This is useful when you need to install several central servers with identical s
    </TabItem>
    <TabItem value="RHEL 10" label="RHEL 10">
 
+   > To get the PHP version required by Centreon 26.10 during installation, your RHEL version must be at least 10.2.
+
    ```shell
    dnf update
    subscription-manager register --username my_username --password my_password --auto-attach --force
@@ -48,6 +50,8 @@ This is useful when you need to install several central servers with identical s
 
    </TabItem>
    <TabItem value="Alma / Oracle Linux 10" label="Alma / Oracle Linux 10">
+
+   > To get the PHP version required by Centreon 26.10 during installation, your Alma/Oracle Linux version must be at least 10.2.
 
    ```shell
    dnf update

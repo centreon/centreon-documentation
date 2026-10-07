@@ -12,7 +12,7 @@ Vous pouvez potentiellement avoir plusieurs bases MariaDB dans votre architectur
 
 Lorsque vous passez d'une version majeure de Centreon à une autre, vous devez :
 
-1. Upgrader Centreon (paquets, installation web, déploiement de la configuration).
+1. Upgrader Centreon (paquets, installation web, déploiement de la configuration). NOtez que vous ne pouvez upgrader Centreon [qu'à partir d'un OS encore supporté](upgrade-matrix.mdx).
 2. Upgrader MariaDB.
 
 > Référez vous à la documentation officielle de MariaDB pour en savoir davantage sur le processus de mise à jour :
@@ -28,43 +28,19 @@ Lorsque vous passez d'une version majeure de Centreon à une autre, vous devez :
 | 24.04    | 10.11   |
 | 23.10    | 10.5    |
 | 23.04    | 10.5    |
-| 22.10    | 10.5    |
-| 22.04    | 10.5    |
-| 21.10    | 10.5    |
-| 21.04    | 10.5    |
-| 20.10    | 10.3.x  |
-| 20.04    | 10.3.x  |
-| 19.10    | 10.1.x  |
 
 ## Connaître la version de MariaDB
 
 Pour connaître la version de MariaDB installée sur une machine, tapez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-rpm -qa |grep MariaDB
-```
-
-Le résultat doit ressembler à ça :
-
-```shell
-MariaDB-client-10.5.8-1.el8.centos.x86_64
-MariaDB-server-10.5.8-1.el8.centos.x86_64
-MariaDB-common-10.5.8-1.el8.centos.x86_64
-MariaDB-shared-10.5.8-1.el8.centos.x86_64
-MariaDB-compat-10.5.8-1.el8.centos.x86_64
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 rpm -qa |grep MariaDB
 ```
 
-Le résultat doit ressembler à ça :
+Le résultat pourra ressembler à cet exemple :
 
 ```shell
 MariaDB-client-10.5.8-1.el9.centos.x86_64
@@ -72,27 +48,6 @@ MariaDB-server-10.5.8-1.el9.centos.x86_64
 MariaDB-common-10.5.8-1.el9.centos.x86_64
 MariaDB-shared-10.5.8-1.el9.centos.x86_64
 MariaDB-compat-10.5.8-1.el9.centos.x86_64
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-dpkg -l |grep MariaDB
-```
-
-Le résultat doit ressembler à ça :
-
-```shell
-ii  libdbd-mysql-perl:amd64                4.050-3+b1                                                                 amd64        Perl5 database interface to the MariaDB/MySQL database
-ii  libmariadb3:amd64                      1:10.5.17+maria~deb11      amd64        MariaDB database client library
-ii  mariadb-client-10.5                    1:10.5.17+maria~deb11      amd64        MariaDB database client binaries
-ii  mariadb-client-core-10.5               1:10.5.17+maria~deb11      amd64        MariaDB database core client binaries
-ii  mariadb-common                         1:10.5.17+maria~deb11      all          MariaDB common configuration files
-ii  mariadb-server                         1:10.5.17+maria~deb11      all          MariaDB database server (metapackage depending on the latest version)
-ii  mariadb-server-10.5                    1:10.5.17+maria~deb11      amd64        MariaDB database server binaries
-ii  mariadb-server-core-10.5               1:10.5.17+maria~deb11      amd64        MariaDB database core server files
-ii  mysql-common                           1:10.5.17+maria~deb11      all          MariaDB database common files (e.g. /etc/mysql/my.cnf)
 ```
 
 </TabItem>
@@ -108,117 +63,18 @@ Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de ve
     systemctl stop mariadb
     ```
 
-2. Désinstallez la version actuelle :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
+2. Exécutez la commande suivante :
 
 ```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
+dnf module reset mariadb -y
 ```
-
-</TabItem>
-<TabItem value="RHEL 8" label="RHEL 8">
-
-```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
-```
-
-</TabItem>
-<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
-
-```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-compat MariaDB-common
-```
-
-</TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
-
-```shell
-rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-Lors de l'étape **[Connaître la version de MariaDB](#connaître-la-version-de-mariadb)**, la commande **grep** vous a renvoyé la version précise de votre MariaDB.
-
-* Si votre résultat incluait l'indication de version “10.5”, votre commande de désinstallation doit inclure celle-ci, comme dans l’exemple ci-dessous :
-
-```shell
-dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server-10.5 mariadb-client mariadb-client-10.5 mariadb-client-core-10.5 mariadb-common mariadb-server-core-10.5 mysql-common
-```
-
-* Si votre résultat n’incluait pas l'indication de version “10.5”, utilisez la commande suivante :
-
-```shell
-dpkg -r --ignore-depends=mariadb-server,mariadb-client,mariadb-shared,mariadb-compat,mariadb-common mariadb-server mariadb-server mariadb-client mariadb-client mariadb-client-core mariadb-common mariadb-server-core mysql-common
-```
-
-</TabItem>
-</Tabs>
-
-> Pendant cette étape de désinstallation, vous pouvez rencontrer une erreur parce qu'un ou plusieurs paquets MariaDB sont manquants. Dans ce cas, vous devez exécuter la commande de désinstallation sans inclure le paquet manquant.
->
->Par exemple, vous obtenez le message d'erreur suivant :
->
->   `package MariaDB-compat is not installed`
->
->   Comme le paquet **MariaDB-compat** est manquant, vous devez exécuter la même commande sans citer **MariaDB-compat** :
->
->   `rpm --erase --nodeps --verbose MariaDB-server MariaDB-client MariaDB-shared MariaDB-common`
-
-> Assurez-vous d'avoir [installé le dépôt officiel de MariaDB](https://mariadb.com/kb/en/mariadb-package-repository-setup-and-usage/) avant de poursuivre la procédure.
 
 3. Installez la version 10.11 :
 
-<Tabs groupId="sync">
-<TabItem value="Alma / Oracle Linux 8" label="Alma / Oracle Linux 8">
-
 ```shell
-dnf install mariadb-server-10.11\* mariadb-10.11\*
+dnf module enable -y mariadb:11.8
+dnf install mariadb-server-11.8\* mariadb-11.8\*
 ```
-
-</TabItem>
-<TabItem value="RHEL 8" label="RHEL 8">
-
-```shell
-dnf install mariadb-server-10.11\* mariadb-10.11\*
-```
-
-</TabItem>
-<TabItem value="Alma / Oracle Linux 9" label="Alma / Oracle Linux 9">
-
-```shell
-dnf install mariadb-server-10.11\* mariadb-10.11\*
-```
-
-</TabItem>
-<TabItem value="RHEL 9" label="RHEL 9">
-
-```shell
-dnf install mariadb-server-10.11\* mariadb-10.11\*
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
-```
-
-```shell
-sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common
-```
-
-Si vous obtenez un message d’erreur indiquant qu’un ou plusieurs paquets MariaDB sont manquants, il faudra modifier la commande afin d’intégrer ces paquets manquants, comme dans l’exemple ci-dessous :
-
-```shell
-sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-backup mariadb-common PAQUET-MANQUANT_A PAQUET-MANQUANT_B
-```
-
-</TabItem>
-</Tabs>
 
 4. Démarrer le service mariadb :
 
@@ -251,6 +107,18 @@ sudo apt-get install mariadb-server galera-4 mariadb-client libmariadb3 mariadb-
 
     ```shell
     systemctl enable mariadb
+    ```
+
+7. Avant de finir la montée de version de votre plateforme Centreon, exécutez la commande suivante sur le serveur central :
+
+    ```shell
+    systemctl restart php-fpm httpd
+    ```
+
+8. Vérifiez que MariaDB tourne à l'aide de la commande `systemctl status mariadb`. Si ce n'est pas le cas, démarrez le service :
+
+    ```shell
+    systemctl start mariadb
     ```
 
 ### Montée de version de 10.1 à une version plus récente
@@ -291,24 +159,10 @@ Suivez ces étapes pour changer de version mineure de MariaDB (par exemple, pour
 1. Mettez à jour MariaDB :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf update MariaDB-*
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf update MariaDB-*
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt update MariaDB-*
 ```
 
 </TabItem>

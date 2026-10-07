@@ -27,13 +27,6 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 Remove the debuginfo packages before the procedure unless you have a particular use for them.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-  ```shell
-  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
-  ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
@@ -41,7 +34,14 @@ Remove the debuginfo packages before the procedure unless you have a particular 
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+  ```shell
+  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
+  ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
   ```shell
  apt remove $(dpkg -l | awk '/^ii/ && $2 ~ /^centreon.*debuginfo/ { print $2 }')
@@ -64,9 +64,9 @@ Before upgrading your Centreon platform, make sure the following package reposit
 * centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
-* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* trixie, trixie-updates, trixie-backports and trixie security
 * centreon
 * centreon-modules, if you are using Centreon Business Edition.
 
@@ -80,21 +80,6 @@ Before upgrading your Centreon platform, make sure the following package reposit
 Make sure all users are logged out from the Centreon web interface before starting the update procedure.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Clean the cache:
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-Then upgrade all the components with the following command:
-
-  ```shell
- dnf update centreon\*
-  ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Clean the cache:
@@ -110,7 +95,22 @@ Then upgrade all the components with the following command:
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Clean the cache:
+
+  ```shell
+  dnf clean all --enablerepo=*
+  ```
+
+Then upgrade all the components with the following command:
+
+  ```shell
+ dnf update centreon\*
+  ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 Clean the cache:
 
@@ -236,21 +236,6 @@ This procedure is the same as to update a Centreon central server.
 ## Update the Pollers
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-1. Clean the cache:
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-2. Then upgrade all the components with the following command:
-
-  ```shell
-  dnf update centreon\* --exclude=centreon-plugin*
-  ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Clean the cache:
@@ -266,7 +251,22 @@ This procedure is the same as to update a Centreon central server.
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+1. Clean the cache:
+
+  ```shell
+  dnf clean all --enablerepo=*
+  ```
+
+2. Then upgrade all the components with the following command:
+
+  ```shell
+  dnf update centreon\* --exclude=centreon-plugin*
+  ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 1. Clean the cache:
 
@@ -299,17 +299,17 @@ and choose the **Restart** method for the Engine process.
 5. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Nothing to do for this OS.
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Nothing to do for this OS.
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Nothing to do for this OS.
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
   ```shell
   apt-mark unhold centreon-plugin*
