@@ -17,14 +17,6 @@ Un index template adapté est créé automatiquement par le stream connector afi
 Faites l'installation en tant que `root` sur le serveur qui enverra les données vers Elasticsearch (serveur central, serveur distant, collecteur).
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-elasticsearch
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -33,7 +25,15 @@ dnf install centreon-stream-connector-elasticsearch
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-elasticsearch
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-elasticsearch

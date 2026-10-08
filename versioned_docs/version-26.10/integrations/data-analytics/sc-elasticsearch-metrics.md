@@ -22,14 +22,6 @@ Perform the installation as `root` on the server that will send data to Elastics
 1. Install dependencies:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install luarocks make gcc lua-curl lua-devel wget
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -38,7 +30,15 @@ dnf install luarocks make gcc lua-curl lua-devel wget
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install luarocks make gcc lua-curl lua-devel wget
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install luarocks make gcc lua-curl lua-devel wget
@@ -50,14 +50,6 @@ apt install luarocks make gcc lua-curl lua-devel wget
 2. Install the Centreon Lua libraries for stream connectors:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-luarocks install centreon-stream-connectors-lib
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -66,7 +58,15 @@ luarocks install centreon-stream-connectors-lib
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+luarocks install centreon-stream-connectors-lib
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 luarocks install centreon-stream-connectors-lib
@@ -78,18 +78,6 @@ luarocks install centreon-stream-connectors-lib
 3. Install the stream connector:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-wget -O /usr/share/centreon-broker/lua/elastic-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connectorscripts/develop/centreon-certified/elasticsearch/elastic-metrics-apiv2.lua
-```
-
-```shell
-chmod 644 /usr/share/centreon-broker/lua/elastic-events-apiv2.lua
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -102,7 +90,19 @@ chmod 644 /usr/share/centreon-broker/lua/elastic-events-apiv2.lua
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+wget -O /usr/share/centreon-broker/lua/elastic-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connectorscripts/develop/centreon-certified/elasticsearch/elastic-metrics-apiv2.lua
+```
+
+```shell
+chmod 644 /usr/share/centreon-broker/lua/elastic-events-apiv2.lua
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 wget -O /usr/share/centreon-broker/lua/elastic-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connectorscripts/develop/centreon-certified/elasticsearch/elastic-metrics-apiv2.lua
