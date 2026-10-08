@@ -1182,7 +1182,7 @@ Vous pouvez maintenant accéder à votre plateforme via votre navigateur en mode
 9. Configuration API de Gorgone
 
 Éditez le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** en remplaçant **127.0.0.1** 
-par le FQDN de votre serveur central :
+par le FQDN de votre serveur central, comme dans l'exemple suivant :
 
 ```text
 gorgone:
@@ -1190,10 +1190,10 @@ gorgone:
     - name: centreonv2
       base_url: "https://centreon7.localdomain/centreon/api/latest/"
       username: "centreon-gorgone"
-      password: "bpltc4aY"
+      password: "XXXXX"
     - name: clapi
       username: "centreon-gorgone"
-      password: "bpltc4aY"
+      password: "XXXXX"
 ```
 
 Redémarrez le daemon Gorgone :
@@ -1208,42 +1208,43 @@ Puis vérifiez le statut :
 systemctl status gorgoned
 ```
 
-Si tout est correct, vous devriez avoir quelque chose comme :
+Si tout est correct, vous devriez avoir quelque chose comme cet exemple :
 
 ```shell
 ● gorgoned.service - Centreon Gorgone
-   Loaded: loaded (/etc/systemd/system/gorgoned.service; enabled; vendor preset: disabled)
-   Active: active (running) since Mon 2023-03-06 15:58:10 CET; 27min ago
- Main PID: 1791096 (perl)
-    Tasks: 124 (limit: 23040)
-   Memory: 595.3M
-   CGroup: /system.slice/gorgoned.service
-           ├─1791096 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=info
-           ├─1791109 gorgone-statistics
-           ├─1791112 gorgone-legacycmd
-           ├─1791117 gorgone-engine
-           ├─1791118 gorgone-audit
-           ├─1791125 gorgone-nodes
-           ├─1791138 gorgone-action
-           ├─1791151 gorgone-cron
-           ├─1791158 gorgone-dbcleaner
-           ├─1791159 gorgone-autodiscovery
-           ├─1791166 gorgone-httpserver
-           ├─1791180 gorgone-proxy
-           ├─1791181 gorgone-proxy
-           ├─1791182 gorgone-proxy
-           ├─1791189 gorgone-proxy
-           └─1791190 gorgone-proxy
+     Loaded: loaded (/usr/lib/systemd/system/gorgoned.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-10-08 09:27:46 UTC; 4h 10min ago
+ Invocation: 40225788460245609d05c9db103f1ff3
+   Main PID: 807 (perl)
+      Tasks: 51 (limit: 4618)
+     Memory: 176.2M (peak: 241.4M)
+        CPU: 9.461s
+     CGroup: /system.slice/gorgoned.service
+             ├─ 807 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=error
+             ├─1073 gorgone-proxy
+             ├─1075 gorgone-proxy
+             ├─1076 gorgone-proxy
+             ├─1077 gorgone-proxy
+             ├─1080 gorgone-proxy
+             ├─1086 gorgone-engine
+             ├─1089 gorgone-audit
+             ├─1097 gorgone-legacycmd
+             ├─1098 gorgone-httpserver
+             ├─1100 gorgone-nodes
+             ├─1107 gorgone-statistics
+             ├─1108 gorgone-cron
+             ├─1113 gorgone-anomalydetection
+             ├─1125 gorgone-autodiscovery
+             ├─1133 gorgone-action
+             └─1137 gorgone-dbcleaner
 
-mars 06 15:58:10 ito-central systemd[1]: gorgoned.service: Succeeded.
-mars 06 15:58:10 ito-central systemd[1]: Stopped Centreon Gorgone.
-mars 06 15:58:10 ito-central systemd[1]: Started Centreon Gorgone.
+Oct 08 09:27:46 doc-central systemd[1]: Started gorgoned.service - Centreon Gorgone.
 ```
 
 Vous devriez voir la ligne suivante dans les logs de Gorgone **/var/log/centreon-gorgone/gorgoned.log** :
 
 ```text
-2023-03-06 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started
+2026-10-08 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started
 ```
 
 ## URI personnalisée

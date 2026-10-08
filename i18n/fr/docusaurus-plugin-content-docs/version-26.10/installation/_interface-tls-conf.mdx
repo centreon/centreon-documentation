@@ -96,3 +96,73 @@ a2ensite 00-centreon-tls
 
 </TabItem>
 </Tabs>
+
+> Une fois que votre serveur web est configuré en mode HTTPS et si vous avez un serveur MAP sur votre plateforme, vous devez définir l'adresse `centreon.url=https://<server-address>` dans le fichier **/etc/centreon-map/map-config.properties** pour utiliser HTTPS au lieu de HTTP. Sinon, les navigateurs web récents peuvent bloquer la communication entre les deux serveurs. Voir la procédure détaillée [ici](../graph-views/secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map).
+
+9. Configuration API de Gorgone
+
+Éditez le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** en remplaçant **127.0.0.1** 
+par le FQDN de votre serveur central, comme dans l'exemple suivant :
+
+```text
+gorgone:
+  tpapi:
+    - name: centreonv2
+      base_url: "https://centreon7.localdomain/centreon/api/latest/"
+      username: "centreon-gorgone"
+      password: "XXXXX"
+    - name: clapi
+      username: "centreon-gorgone"
+      password: "XXXXX"
+```
+
+Redémarrez le daemon Gorgone :
+
+```shell
+systemctl restart gorgoned
+```
+
+Puis vérifiez le statut :
+
+```shell
+systemctl status gorgoned
+```
+
+Si tout est correct, vous devriez avoir quelque chose comme cet exemple :
+
+```shell
+● gorgoned.service - Centreon Gorgone
+     Loaded: loaded (/usr/lib/systemd/system/gorgoned.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-10-08 09:27:46 UTC; 4h 10min ago
+ Invocation: 40225788460245609d05c9db103f1ff3
+   Main PID: 807 (perl)
+      Tasks: 51 (limit: 4618)
+     Memory: 176.2M (peak: 241.4M)
+        CPU: 9.461s
+     CGroup: /system.slice/gorgoned.service
+             ├─ 807 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=error
+             ├─1073 gorgone-proxy
+             ├─1075 gorgone-proxy
+             ├─1076 gorgone-proxy
+             ├─1077 gorgone-proxy
+             ├─1080 gorgone-proxy
+             ├─1086 gorgone-engine
+             ├─1089 gorgone-audit
+             ├─1097 gorgone-legacycmd
+             ├─1098 gorgone-httpserver
+             ├─1100 gorgone-nodes
+             ├─1107 gorgone-statistics
+             ├─1108 gorgone-cron
+             ├─1113 gorgone-anomalydetection
+             ├─1125 gorgone-autodiscovery
+             ├─1133 gorgone-action
+             └─1137 gorgone-dbcleaner
+
+Oct 08 09:27:46 doc-central systemd[1]: Started gorgoned.service - Centreon Gorgone.
+```
+
+Vous devriez voir la ligne suivante dans les logs de Gorgone **/var/log/centreon-gorgone/gorgoned.log** :
+
+```text
+2026-10-08 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started
+```
