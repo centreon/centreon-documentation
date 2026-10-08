@@ -330,7 +330,7 @@ log_bin_trust_function_creators=1
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
 
-Dans le fichier `/etc/mysql/mysql.cnf`, ajoutez:
+Créez un fichier dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`) et ajoutez :
 
 ```shell
 [mysqld]
@@ -555,7 +555,7 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-Si vous utilisez la réplication MySQL pour vos bases de données de supervision, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier my.cnf du serveur esclave ou mysql.cnf sur Debian 13.
+Si vous utilisez la réplication MySQL pour vos bases de données de supervision, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier my.cnf du serveur esclave. Sur Debian 13, ajoutez-la dans la section **[mysqld]** d'un fichier situé dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`).
 
 ```shell
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
@@ -573,13 +573,14 @@ mysql centreon < /tmp/view_creation.sql
 
 #### Configuration spécifique à Debian 13
 
-MySQL doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant ::
+MySQL doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Ajoutez les lignes suivantes dans un fichier situé dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`) :
 
 ```shell
-/etc/mysql/mysql.conf.d/mysqld.cnf
+[mysqld]
+bind-address=0.0.0.0
 ```
 
-Donnez au paramètre **bind-address** la valeur **0.0.0.0** et redémarrez **mysql**.
+Puis redémarrez **mysql**.
 
 ```shell
 systemctl restart mysql
@@ -664,8 +665,19 @@ dnf update
 Installez les paquets prérequis :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt update && apt install -y lsb-release ca-certificates apt-transport-https wget gnupg2 curl cron
+systemctl enable --now cron
+```
+
+Installez les dépôts Centreon :
+
+```shell
+install -d /etc/apt/keyrings
+wget -O /etc/apt/keyrings/centreon.asc https://apt-key.centreon.com
+
+echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee /etc/apt/sources.list.d/centreon-26.10-stable.list
+echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt update
 ```
 
 Ensuite, importez la clé du dépôt :
@@ -847,7 +859,6 @@ sudo systemctl status mysqld
 ```shell
 apt update
 apt install -y centreon-mysql
-# Sélectionner "Use Legacy Authentication Method"
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -934,7 +945,7 @@ Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette opti
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl enable mariadb
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimer les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à nouveau MariaDB :
@@ -962,7 +973,10 @@ systemctl restart mariadb
 Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl enable mariadb
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimer les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à nouveau MariaDB :
@@ -1006,7 +1020,7 @@ Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette opti
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl enable mariadb
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrez à nouveau MariaDB :
@@ -1041,7 +1055,7 @@ Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette opti
 mkdir -p  /etc/systemd/system/mysql.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl enable mysql
 ```
 
 Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
@@ -1072,7 +1086,7 @@ Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette opti
 mkdir -p  /etc/systemd/system/mysql.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl enable mysql
 ```
 
 Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
@@ -1092,7 +1106,7 @@ socket=$PATH_TO_SOCKET$
 <TabItem value="Debian 13" label="Debian 13">
 
 Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf)
-de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mysql.conf.d/`.
+de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/conf.d/`.
 
 Renommez le fichier en `80-centreon.cnf`:
 
@@ -1100,25 +1114,26 @@ Renommez le fichier en `80-centreon.cnf`:
 mv centreon.cnf 80-centreon.cnf
 ```
 
-MySQL doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut. Éditez le fichier suivant :
+MySQL doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut. Ajoutez les lignes suivantes dans un fichier situé dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`) :
 
 ```shell
-/etc/mysql/mysql.conf.d/mysqld.cnf
+[mysqld]
+bind-address=0.0.0.0
 ```
 
-Définissez le paramètre **bind-address** à **0.0.0.0** et redémarrez mysql.
+Puis redémarrez mysql.
 
 ```shell
 systemctl restart mysql
 ```
 
-Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/mysql/mysql.cnf` NE fonctionnera PAS.
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
 
 ```shell
 mkdir -p  /etc/systemd/system/mysql.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl enable mysql
 ```
 
 Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
@@ -1128,7 +1143,7 @@ rm -f /var/lib/mysql/ib_logfile*
 systemctl start mysql
 ```
 
-Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/mysql/mysql.cnf` et dans la section [client], ajoutez :
+Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
 
 ```shell
 socket=$PATH_TO_SOCKET$
@@ -1234,8 +1249,7 @@ Centreon MBI intègre un ETL qui permet de :
   données statistiques
 - Contrôler la rétention des données sur le serveur de reporting
 
-<!--Avant de passer aux étapes suivantes, il est nécessaire de lire le chapitre des bonnes pratiques afin de
-vous assurer que la configuration des objets dans Centreon (groupes, catégories...) est conforme aux attentes de Centreon MBI.-->
+#### Configuration générale de l'ETL
 
 Dans le menu `Rapports > Monitoring Business Intelligence > Options générales > Options de l'ETL`, spécifiez les options
 suivantes :

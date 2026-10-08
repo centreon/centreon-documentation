@@ -330,7 +330,7 @@ log_bin_trust_function_creators=1
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
 
-In the `/etc/mysql/mysql.cnf` file, add:
+Create a file inside `/etc/mysql/conf.d/` (for example `/etc/mysql/conf.d/centreon.cnf`) and add:
 
 ```shell
 [mysqld]
@@ -554,7 +554,7 @@ systemctl restart mariadb
 If you use MySQL replication for your **monitoring databases**, some views
 are created during the installation of Centreon MBI.
 You must exclude them from replication by adding the following line to the **my.cnf**
-file of the slave server or mysql.cnf on Debian 13.
+file of the slave server. On Debian 13, add it to the **[mysqld]** section of a file inside `/etc/mysql/conf.d/` (for example `/etc/mysql/conf.d/centreon.cnf`).
 
 ```shell
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
@@ -572,13 +572,14 @@ mysql centreon < /tmp/view_creation.sql
 
 #### Debian 13 specific configuration
 
-MySQL must listen on all interfaces instead of listening on localhost/127.0.0.1 (default value). Edit the following file:
+MySQL must listen on all interfaces instead of listening on localhost/127.0.0.1 (default value). Add the following lines to a file inside `/etc/mysql/conf.d/` (for example `/etc/mysql/conf.d/centreon.cnf`):
 
 ```shell
-/etc/mysql/mysql.conf.d/mysqld.cnf
+[mysqld]
+bind-address=0.0.0.0
 ```
 
-Set **bind-address** to **0.0.0.0** and restart **mysql**.
+Then restart **mysql**.
 
 ```shell
 systemctl restart mysql
@@ -665,14 +666,19 @@ dnf update
 Install the required packages:
 
 ```shell
-apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2
+apt update && apt install -y lsb-release ca-certificates apt-transport-https wget gnupg2 curl cron
+systemctl enable --now cron
 ```
 
 Install the Centreon repositories:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+install -d /etc/apt/keyrings
+wget -O /etc/apt/keyrings/centreon.asc https://apt-key.centreon.com
+
+echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee /etc/apt/sources.list.d/centreon-26.10-stable.list
+echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt update
 ```
 
 Then import the repository key:
@@ -855,7 +861,6 @@ sudo systemctl status mysqld
 ```shell
 apt update
 apt install -y centreon-mysql
-# Sélectionner "Use Legacy Authentication Method"
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -944,7 +949,7 @@ option in `/etc/my.cnf` will NOT work.
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl enable mariadb
 ```
 
 If the MariaDB service fails to start, remove the *ib_logfile* files
@@ -979,7 +984,7 @@ option in `/etc/my.cnf` will NOT work.
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
+systemctl enable mariadb
 ```
 
 If the MariaDB service fails to start, remove the *ib_logfile* files
@@ -1028,7 +1033,7 @@ It is necessary to change the **LimitNOFILE** limitation. Changing this option i
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mariadb
+systemctl enable mariadb
 ```
 
 If the MariaDB service fails at the time of starting, remove the files *ib_logfile*
@@ -1065,7 +1070,7 @@ You must modify the **LimitNOFILE** limitation. Changing this option in `/etc/my
 mkdir -p  /etc/systemd/system/mysql.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl enable mysql
 ```
 
 If the MySQL service fails to start, delete the *ib_logfile* files (MySQL MUST be stopped) and then restart MySQL again:
@@ -1097,7 +1102,7 @@ You must modify the **LimitNOFILE** limitation. Changing this option in `/etc/my
 mkdir -p  /etc/systemd/system/mysql.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl enable mysql
 ```
 
 If the MySQL service fails to start, delete the *ib_logfile* files (MySQL MUST be stopped) and then restart MySQL again:
@@ -1116,7 +1121,7 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
 
-Ensure that the [optimized configuration file](../assets/reporting/installation/centreon.cnf) provided in the prerequisites is present in `/etc/mysql/mysql.conf.d/`.
+Ensure that the [optimized configuration file](../assets/reporting/installation/centreon.cnf) provided in the prerequisites is present in `/etc/mysql/conf.d/`.
 
 Rename the file as `80-centreon.cnf`:
 
@@ -1124,13 +1129,14 @@ Rename the file as `80-centreon.cnf`:
 mv centreon.cnf 80-centreon.cnf
 ```
 
-MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Edit the following file:
+MySQL must listen to all interfaces instead of localhost/127.0.0.1, which is the default value. Add the following lines to a file inside `/etc/mysql/conf.d/` (for example `/etc/mysql/conf.d/centreon.cnf`):
 
 ```shell
-/etc/mysql/mysql.conf.d/mysqld.cnf
+[mysqld]
+bind-address=0.0.0.0
 ```
 
-Set the **bind-address** parameter to **0.0.0.0** and restart mysql.
+Then restart mysql.
 
 ```shell
 systemctl restart mysql
@@ -1142,7 +1148,7 @@ You must modify the **LimitNOFILE** limitation. Changing this option in `/etc/my
 mkdir -p  /etc/systemd/system/mysql.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl enable mysql
 ```
 
 If the MySQL service fails to start, delete the *ib_logfile* files (MySQL MUST be stopped) and then restart MySQL again:
