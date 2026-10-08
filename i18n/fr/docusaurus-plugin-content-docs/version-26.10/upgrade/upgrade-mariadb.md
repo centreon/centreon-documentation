@@ -10,10 +10,9 @@ Vous pouvez potentiellement avoir plusieurs bases MariaDB dans votre architectur
 
 ## Processus de mise à jour
 
-Lorsque vous passez d'une version majeure de Centreon à une autre, vous devez :
+Passer d'une version majeure de Centreon à une autre implique une série d'étapes que vous devez effectuer dans le bon ordre. Ces étapes comprennent notamment la mise à jour de MariaDB et celle de Centreon (paquets, installation web, déploiement de la configuration), mais leur ordre exact dépend de votre version actuelle et de la version cible. Suivez toujours la procédure de mise à jour correspondant à votre version.
 
-1. Upgrader Centreon (paquets, installation web, déploiement de la configuration). NOtez que vous ne pouvez upgrader Centreon [qu'à partir d'un OS encore supporté](upgrade-matrix.mdx).
-2. Upgrader MariaDB.
+Vous ne pouvez mettre à jour Centreon que [depuis un OS supporté](upgrade-matrix.mdx).
 
 > Référez vous à la documentation officielle de MariaDB pour en savoir davantage sur le processus de mise à jour :
 > - https://mariadb.com/kb/en/upgrading-between-major-mariadb-versions/
@@ -37,7 +36,7 @@ Pour connaître la version de MariaDB installée sur une machine, tapez la comma
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-rpm -qa |grep MariaDB
+rpm -qa |grep -i mariadb
 ```
 
 Le résultat pourra ressembler à cet exemple :
@@ -55,7 +54,7 @@ MariaDB-compat-10.5.8-1.el9.centos.x86_64
 
 ## Changer de version majeure de MariaDB
 
-Il est nécessaire de désinstaller puis réinstaller MariaDB pour changer de version majeure (par exemple pour passer d'une version 10.5 à une version 10.11).
+Dans cet exemple, nous passons de la version 10.11 à la version 11.8. Adaptez la procédure si vous effectuez la mise à jour depuis une autre version.
 
 1. Arrêtez le service mariadb :
 
@@ -73,7 +72,7 @@ dnf module reset mariadb -y
 
 ```shell
 dnf module enable -y mariadb:11.8
-dnf install mariadb-server-11.8\* mariadb-11.8\*
+dnf install -y mariadb-server-11.8\* mariadb-11.8\*
 ```
 
 4. Démarrer le service mariadb :
@@ -85,19 +84,19 @@ dnf install mariadb-server-11.8\* mariadb-11.8\*
 5. Lancez le processus de mise à jour MariaDB :
 
     ```shell
-    mysql_upgrade
+    mariadb-upgrade
     ```
 
     Si votre base de données est protégée par mot de passe, entrez :
 
    ```shell
-    mysql_upgrade -u <utilisateur_admin_bdd> -p
+    mariadb-upgrade -u <utilisateur_admin_bdd> -p
     ```
 
     Exemple : si votre utilisateur_admin_bdd est `root`, entrez:
 
     ```
-    mysql_upgrade -u root -p
+    mariadb-upgrade -u root -p
     ```
 
     > Référez vous à la [documentation officielle](https://mariadb.com/kb/en/mysql_upgrade/)
@@ -162,7 +161,7 @@ Suivez ces étapes pour changer de version mineure de MariaDB (par exemple, pour
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf update MariaDB-*
+dnf update mariadb-*
 ```
 
 </TabItem>

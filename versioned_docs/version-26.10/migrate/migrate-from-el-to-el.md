@@ -92,14 +92,20 @@ dnf update
 
 >If you are using a remote database, ignore this step and move on to [Step 4](#step-4-synchronize-the-plugins)
 
-1. On the old server, create a dump of the databases:
+1. Stop the Centreon processes:
 
    ```shell
-   mysqldump -u root -p centreon > /tmp/centreon.sql
-   mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
+   systemctl stop cbd centengine gorgoned centreontrapd snmpd
    ```
 
-2. On the old server, stop the database:
+2. On the old server, create a dump of the databases:
+
+   ```shell
+   mysqldump -u root -p --single-transaction centreon > /tmp/centreon.sql
+   mysqldump -u root -p --single-transaction centreon_storage > /tmp/centreon_storage.sql
+   ```
+
+3. On the old server, stop the database:
 
    <Tabs groupId="db">
    <TabItem value="MariaDB" label="MariaDB">
@@ -112,13 +118,13 @@ dnf update
    <TabItem value="MySQL" label="MySQL">
 
    ```shell
-   systemctl stop mysql
+   systemctl stop mysqld
    ```
 
    </TabItem>
    </Tabs>
 
-3. On the old server, export the dumps to the new Centreon database server (make sure you
+4. On the old server, export the dumps to the new Centreon database server (make sure you
 have enough space for large database dumps):
 
    ```shell
@@ -126,7 +132,7 @@ have enough space for large database dumps):
    rsync -avz /tmp/centreon_storage.sql root@<IP_NEW_CENTREON>:/tmp/
    ```
 
-4. On the new database server, drop the original databases and
+5. On the new database server, drop the original databases and
 create them again:
 
    ```shell
@@ -141,17 +147,17 @@ create them again:
    exit
    ```
 
-5. On the new database server, import the previously transferred dumps into the database:
+6. On the new database server, import the previously transferred dumps into the database:
 
    ```shell
    mysql -u root centreon -p </tmp/centreon.sql
    mysql -u root centreon_storage -p </tmp/centreon_storage.sql
    ```
 
-6. Upgrade the tables:
+7. If you are using MariaDB, upgrade the tables (this step is automatic with MySQL):
 
    ```shell
-   mysql_upgrade
+   mariadb-upgrade
    ```
 
    If your database is password-protected, enter:
@@ -166,20 +172,20 @@ create them again:
    mysql_upgrade -u root -p
    ```
 
-7. Start the database process on the new server:
+8. Restart the database process on the new server:
 
    <Tabs groupId="db">
    <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
-   systemctl start mariadb
+   systemctl restart mariadb
    ```
 
    </TabItem>
    <TabItem value="MySQL" label="MySQL">
 
    ```shell
-   systemctl start mysql
+   systemctl restart mysqld
    ```
 
    </TabItem>
@@ -235,7 +241,7 @@ the **/usr/share/centreon/www/install** directory (**x** is the target version n
 
    1. Edit the **/etc/centreon/centreon.conf.php** file,
    2. Edit the **/etc/centreon/conf.pm** file,
-   3. Edit the Centreon Broker central configuration using the Centreon web interface and change the password for the **unfied-sql** output,
+   3. Edit the Centreon Broker central configuration using the Centreon web interface and change the password for the **unified-sql** output,
    4. Edit the **/etc/centreon/config.d/10-database.yaml** file.
 
 5. If the IP address of your Centreon server has changed:
@@ -245,7 +251,7 @@ configuration](../monitoring/monitoring-servers/advanced-configuration.md#tcp-ou
 chapter for more information.
    - The fingerprint of your platform has changed too: [contact Centreon](mailto:support@centreon.com) to obtain a new license.
 
-6. The credentials of the newly created **centreon-gorgone** user need to be updated to match those of the **centreon-gorgone** user on the old server. Edit `etc/centreon-gorgone/config.d/31-centreon-api.yaml` and enter the credentials of the old user. Example:
+6. The credentials of the newly created **centreon-gorgone** user need to be updated to match those of the **centreon-gorgone** user on the old server. Edit `/etc/centreon-gorgone/config.d/31-centreon-api.yaml` and enter the credentials of the old user. Example:
 
    ```shell
    gorgone:
@@ -274,11 +280,13 @@ chapter for more information.
 
 10. Go to **Configuration > Connectors > Monitoring Connectors**, then [update all the Monitoring Connectors](../monitoring/pluginpacks.md#updating-one-packall-packs).
 
+Once you are satisfied your Centreon works, you can delete the database dumps you stored in the **/tmp** directory.
+
 <!-- ### Step 6 (older versions only): Migrate to Gorgone
 
 If you are migrating from a Centreon version 18.10, 19.04 or 19.10, [migrate from Centcore to Gorgone](../developer/developer-gorgone-migrate-from-centcore.md). -->
 
-### Step 7: Upgrade the modules
+### Step 6: Upgrade the modules
 
 To upgrade the modules, go to **Administration > Extensions > Manager** and click **Update all**.
 If you have a MAP server or an MBI server, follow the corresponding migration procedures:
@@ -286,7 +294,7 @@ If you have a MAP server or an MBI server, follow the corresponding migration pr
 - Migration procedure for [MAP](../graph-views/map-web-migrate.md),
 - Migration procedure for [MBI](../reporting/migrate.md).
 
-### Step 8: Migrating your other servers (distributed architecture)
+### Step 7: Migrating your other servers (distributed architecture)
 
 #### Migrating a remote server
 

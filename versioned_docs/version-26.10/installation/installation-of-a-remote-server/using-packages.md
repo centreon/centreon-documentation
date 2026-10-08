@@ -289,7 +289,7 @@ Finally, add rights for the **centreon** database user to use **LOAD DATA INFILE
 command:
 
 ```sql
-mysql -u root -p
+mariadb -u root -p
 GRANT FILE on *.* to 'centreon'@'localhost';
 SET GLOBAL local_infile=1;
 exit
