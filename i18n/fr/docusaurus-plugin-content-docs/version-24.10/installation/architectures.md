@@ -14,7 +14,7 @@ Si vous ne supervisez qu'un petit nombre d'hôtes et de services, un serveur cen
 
 ### Serveur central seul
 
-Si vous ne supervisez que peu d'hôtes, vous n'aurez besoin que d'un serveur central. Le serveur central effectuera toute la supervision lui-même.
+Si vous ne supervisez que peu d'hôtes, vous n'aurez besoin que d'un serveur central. Le serveur central effectuera toute la supervision lui-même. Consultez notre [guide de dimensionnement](./prerequisites.md#architecture-et-dimensionnement-du-serveur-central-et-de-la-base-de-données) pour déterminer l'architecture qui correspond à votre cas.
 
 ### Architecture distribuée
 
