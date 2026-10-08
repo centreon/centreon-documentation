@@ -50,6 +50,8 @@ Set a password for the root user of the database by executing the following comm
 mariadb-secure-installation
 ```
 
+Answer **yes** to all the questions except "Disallow root login remotely?".
+
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
@@ -58,10 +60,9 @@ mariadb-secure-installation
 
 ```shell
 dnf install -y mysql-server mysql
-dnf install -y centreon-mysql centreon
+dnf install -y centreon-mysql
 systemctl enable --now mysqld
-echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
-sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
+sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
 systemctl daemon-reload
 systemctl restart mysqld
 ```
@@ -89,11 +90,19 @@ systemctl restart mysql
 </Tabs>
 
 
-Set a password for the root user of the database by executing the following command:
+It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). It must have at least 8 characaters, upper and lower case, a digit and a special character. Retrieve the temporary password created by MySQL:
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Then change it when prompted by the following command:
 
 ```shell
 mysql_secure_installation
 ```
+
+Answer **yes** to all the questions except "Disallow root login remotely?".
 
 </TabItem>
 </Tabs>

@@ -159,7 +159,6 @@ systemctl start crond
 ```shell
 systemctl enable php-fpm httpd centreon cbd centengine gorgoned snmptrapd centreontrapd snmpd
 systemctl enable --now crond
-systemctl start crond
 ```
 
 </TabItem>

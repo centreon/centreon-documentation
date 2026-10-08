@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 import DatabaseConfiguration from './_database-configuration.mdx';
 
 > If installing the database on a dedicated server, this server should also have
-> the prerequisite repositories.
+> the [prerequisite repositories](installation-of-a-central-server/using-packages.md#database-repository).
 
 Run the following command on the central server:
 
@@ -76,13 +76,12 @@ systemctl restart mariadb
 
 ```shell
 dnf install -y mysql-server mysql
-dnf install -y centreon-mysql centreon
+dnf install -y centreon-mysql
 systemctl enable --now mysqld
-echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
 systemctl daemon-reload
 systemctl restart mysqld
 systemctl list-units --type=service | grep -i mysql
-sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
 sudo systemctl start mysqld
 sudo systemctl status mysqld
 ```
@@ -92,13 +91,13 @@ sudo systemctl status mysqld
 
 ```shell
 dnf install -y mysql-server mysql
-dnf install -y centreon-mysql centreon
+dnf install -y centreon-mysql
 systemctl enable --now mysqld
 echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
 systemctl daemon-reload
 systemctl restart mysqld
 systemctl list-units --type=service | grep -i mysql
-sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
+sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
 sudo systemctl start mysqld
 sudo systemctl status mysqld
 ```

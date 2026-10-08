@@ -37,7 +37,7 @@ To find out which version of MariaDB is installed on your machine, enter the fol
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-rpm -qa |grep MariaDB
+rpm -qa |grep -i mariadb
 ```
 
 The results may look like this example:
@@ -189,7 +189,7 @@ Follow these steps to upgrade between minor versions of MariaDB (for example, to
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf update MariaDB-*
+dnf update mariadb-*
 ```
 
 </TabItem>

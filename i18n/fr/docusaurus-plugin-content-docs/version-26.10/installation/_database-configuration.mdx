@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 > Il est obligatoire de définir un mot de passe pour l'utilisateur root de la base de données.
 
-Définissez un mot de passe pour l'utilisateur root de la base de données en exécutant la commande suivante :
+Vous devez obligatoirement définir un mot de passe pour l'utilisateur root de la base de données (vous aurez besoin de ce mot de passe lors de l'[installation web](../web-and-post-installation.md)).
 
 <Tabs groupId="sync">
 <TabItem value="MariaDB" label="MariaDB"> 
@@ -12,12 +12,24 @@ Définissez un mot de passe pour l'utilisateur root de la base de données en ex
 mariadb-secure-installation
 ```
 
+Répondez **yes** à toutes les questions sauf à "Disallow root login remotely?".
+
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
+
+Récupérez le mot de passe temporaire créé par MySQL :
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Modifiez-le ensuite lorsque la commande suivante vous y invite (le mot de passe doit comporter au moins 8 caractères, dont des majuscules, des minuscules, un chiffre et un caractère spécial) :
 
 ```shell
 mysql_secure_installation
 ```
+
+Répondez **yes** à toutes les questions sauf à "Disallow root login remotely?".
 
 </TabItem>
 </Tabs>
@@ -34,7 +46,7 @@ FLUSH PRIVILEGES;
 
 Exemple :
 
-```shell
+```SQL
 CREATE USER 'dbadmin'@'<IP_SERVEUR_CENTRAL>' IDENTIFIED BY '<MOT_DE_PASSE_DBADMIN>';
 GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<IP_SERVEUR_CENTRAL>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;

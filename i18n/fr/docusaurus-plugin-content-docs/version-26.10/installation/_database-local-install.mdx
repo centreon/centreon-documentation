@@ -50,6 +50,8 @@ Définissez un mot de passe pour l'utilisateur root de la base de données en ex
 mariadb-secure-installation
 ```
 
+Répondez **yes** à toutes les questions sauf à "Disallow root login remotely?".
+
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
@@ -58,10 +60,9 @@ mariadb-secure-installation
 
 ```shell
 dnf install -y mysql-server mysql
-dnf install -y centreon-mysql centreon
+dnf install -y centreon-mysql
 systemctl enable --now mysqld
-echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
-sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
+sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
 systemctl daemon-reload
 systemctl restart mysqld
 ```
@@ -88,12 +89,19 @@ systemctl restart mysql
 </TabItem>
 </Tabs>
 
+Vous devez obligatoirement définir un mot de passe pour l'utilisateur root de la base de données (vous aurez besoin de ce mot de passe lors de l'[installation web](web-and-post-installation.md)). Il doit comporter au moins 8 caractères, dont des majuscules, des minuscules, un chiffre et un caractère spécial. Récupérez le mot de passe temporaire créé par MySQL :
 
-Définissez un mot de passe pour l'utilisateur root de la base de données en exécutant la commande suivante :
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Modifiez-le ensuite lorsque la commande suivante vous y invite :
 
 ```shell
 mysql_secure_installation
 ```
+
+Répondez **yes** à toutes les questions sauf à "Disallow root login remotely?".
 
 </TabItem>
 </Tabs>

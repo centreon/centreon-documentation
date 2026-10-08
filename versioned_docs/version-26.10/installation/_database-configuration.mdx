@@ -3,7 +3,7 @@ import TabItem from '@theme/TabItem';
 
 > It is mandatory to set a password for the root user of the database.
 
-Set a password for the root user of the database by executing the following command:
+It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](../web-and-post-installation.md)). 
 
 <Tabs groupId="sync">
 <TabItem value="MariaDB" label="MariaDB"> 
@@ -12,17 +12,29 @@ Set a password for the root user of the database by executing the following comm
 mariadb-secure-installation
 ```
 
+Answer **yes** to all the questions except "Disallow root login remotely?".
+
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
+
+Retrieve the temporary password created by MySQL:
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Then change it when prompted by the following command (the password must have at least 8 characaters, upper and lower case, a digit and a special character):
 
 ```shell
 mysql_secure_installation
 ```
 
+Answer **yes** to all the questions except "Disallow root login remotely?".
+
 </TabItem>
 </Tabs>
 
-Then, in the remote dabatase, create a user with **root** privileges. You will have to enter this user during the 
+Then, in the remote database, create a user with **root** privileges. You will have to enter this user during the 
 web installation process (at [step 6](./web-and-post-installation.md#step-6-database-information),
 in the **Root user** and **Root password** fields).
 
@@ -34,7 +46,7 @@ FLUSH PRIVILEGES;
 
 Example:
 
-```shell
+```SQL
 CREATE USER 'dbadmin'@'<CENTRAL_SERVER_IP>' IDENTIFIED BY '<DBADMIN_PASSWORD>';
 GRANT ALL PRIVILEGES ON *.* TO 'dbadmin'@'<CENTRAL_SERVER_IP>' WITH GRANT OPTION;
 FLUSH PRIVILEGES;

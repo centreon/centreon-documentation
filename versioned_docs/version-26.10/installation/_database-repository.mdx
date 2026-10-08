@@ -41,9 +41,6 @@ curl -fsSL https://repo.mysql.com/RPM-GPG-KEY-mysql-2025 -o /etc/pki/rpm-gpg/RPM
 old_mysql_key=$(rpm -q gpg-pubkey 2>/dev/null | grep -i a8d3785c || true)
 if [ -n "$old_mysql_key" ]; then rpm -e $old_mysql_key 2>/dev/null || true; fi
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
-# install_weak_deps=False: the distro mariadb stack is only a Recommends here; without it dnf
-# pulls mariadb alongside Oracle MySQL and they collide on /usr/bin/mysql.
-dnf install -y --setopt=install_weak_deps=False mysql-server
 ```
 
 </TabItem>
@@ -55,9 +52,6 @@ curl -fsSL https://repo.mysql.com/RPM-GPG-KEY-mysql-2025 -o /etc/pki/rpm-gpg/RPM
 old_mysql_key=$(rpm -q gpg-pubkey 2>/dev/null | grep -i a8d3785c || true)
 if [ -n "$old_mysql_key" ]; then rpm -e $old_mysql_key 2>/dev/null || true; fi
 rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
-# install_weak_deps=False: the distro mariadb stack is only a Recommends here; without it dnf
-# pulls mariadb alongside Oracle MySQL and they collide on /usr/bin/mysql.
-dnf install -y --setopt=install_weak_deps=False mysql-server
 ```
 
 </TabItem>
