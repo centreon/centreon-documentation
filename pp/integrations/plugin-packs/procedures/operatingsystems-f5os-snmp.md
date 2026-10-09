@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-f5os-snmp
 title: F5OS SNMP
-description: "Monitor F5OS systems via SNMP: track CPU usage, hardware temperature and fan speed, and memory utilization."
+description: "Monitor F5OS systems via SNMP: track CPU usage, disk usage and I/O, hardware temperature and fan speed, and memory utilization."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -34,6 +34,17 @@ The connector brings the following service templates (sorted by the host templat
 > The services listed above are created automatically when the **OS-F5OS-SNMP-custom** host template is used.
 
 </TabItem>
+<TabItem value="Not attached to a host template" label="Not attached to a host template">
+
+| Service Alias | Service Template          | Service Description        | Discovery |
+|:--------------|:--------------------------|:---------------------------|:---------:|
+| Disks         | OS-F5OS-Disks-SNMP-custom | Check disks usage and I/O. |     X     |
+
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+
+</TabItem>
 </Tabs>
 
 ### Discovery rules
@@ -45,6 +56,15 @@ The connector brings the following service templates (sorted by the host templat
 | SNMP Agents | Discover your resources through an SNMP subnet scan. You need to install the [Generic SNMP](./applications-protocol-snmp.md) connector to get the discovery rule and create a template mapper for the **OS-F5OS-SNMP-custom** host template. |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+
+#### Service discovery
+
+| Rule name              | Description                                                 |
+|:-----------------------|:------------------------------------------------------------|
+| OS-F5OS-SNMP-Disk-Name | Discover the disks in order to monitor their usage and I/O. |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
@@ -60,6 +80,22 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *cpu_core*#cpu.core.usage.avg.5s.percent  | %    |
 | *cpu_core*#cpu.core.usage.avg.1m.percent  | %    |
 | *cpu_core*#cpu.core.usage.avg.5m.percent  | %    |
+
+</TabItem>
+<TabItem value="Disks" label="Disks">
+
+| Name                                           | Unit |
+|:-----------------------------------------------|:-----|
+| *disk_name*#disk.space.usage.percentage        | %    |
+| *disk_name*#disk.io.read.usage.iops            | iops |
+| *disk_name*#disk.io.write.usage.iops           | iops |
+| *disk_name*#disk.io.read.usage.bytespersecond  | B/s  |
+| *disk_name*#disk.io.write.usage.bytespersecond | B/s  |
+| *disk_name*#disk.io.read.latency.milliseconds  | ms   |
+| *disk_name*#disk.io.write.latency.milliseconds | ms   |
+
+> The I/O metrics (IOPS, throughput and latency) are computed from the
+> difference between two checks: they appear from the second check onwards.
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
@@ -229,6 +265,29 @@ yum install centreon-plugin-Operatingsystems-F5os-Snmp
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
+<TabItem value="Disks" label="Disks">
+
+| Macro                     | Description                                                                                                                            | Default value | Mandatory |
+|:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| INCLUDE_NAME              | Filter disks by name (can be a regexp)                                                                                                 |               |           |
+| EXCLUDE_NAME              | Exclude disks by name (can be a regexp)                                                                                                |               |           |
+| WARNING_SPACE_USAGE_PRCT  | Threshold in percentage                                                                                                                | 80            |           |
+| CRITICAL_SPACE_USAGE_PRCT | Threshold in percentage                                                                                                                | 90            |           |
+| WARNING_READ_IOPS         | Threshold in operations per second                                                                                                     |               |           |
+| CRITICAL_READ_IOPS        | Threshold in operations per second                                                                                                     |               |           |
+| WARNING_WRITE_IOPS        | Threshold in operations per second                                                                                                     |               |           |
+| CRITICAL_WRITE_IOPS       | Threshold in operations per second                                                                                                     |               |           |
+| WARNING_READ_USAGE        | Threshold in bytes per second                                                                                                          |               |           |
+| CRITICAL_READ_USAGE       | Threshold in bytes per second                                                                                                          |               |           |
+| WARNING_WRITE_USAGE       | Threshold in bytes per second                                                                                                          |               |           |
+| CRITICAL_WRITE_USAGE      | Threshold in bytes per second                                                                                                          |               |           |
+| WARNING_READ_LATENCY      | Threshold in milliseconds (average latency per read operation)                                                                         |               |           |
+| CRITICAL_READ_LATENCY     | Threshold in milliseconds (average latency per read operation)                                                                         |               |           |
+| WARNING_WRITE_LATENCY     | Threshold in milliseconds (average latency per write operation)                                                                        |               |           |
+| CRITICAL_WRITE_LATENCY    | Threshold in milliseconds (average latency per write operation)                                                                        |               |           |
+| EXTRA_OPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+
+</TabItem>
 <TabItem value="Hardware" label="Hardware">
 
 | Macro                      | Description                                                                                                                                      | Default value | Mandatory |
@@ -325,6 +384,7 @@ The plugin brings the following modes:
 | Mode                                                                                                            | Linked service template       |
 |:----------------------------------------------------------------------------------------------------------------|:------------------------------|
 | cpu-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/cpuusage.pm)] | OS-F5OS-Cpu-Usage-SNMP-custom |
+| disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/disks.pm)]        | OS-F5OS-Disks-SNMP-custom     |
 | hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/hardware.pm)]  | OS-F5OS-Hardware-SNMP-custom  |
 | memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/memory.pm)]      | OS-F5OS-Memory-SNMP-custom    |
 
@@ -421,6 +481,30 @@ All available options for each service template are listed below:
 | --critical-core-avg-1m  | Threshold in percentage.                                                                                                                                   |
 | --warning-core-avg-5m   | Threshold in percentage.                                                                                                                                   |
 | --critical-core-avg-5m  | Threshold in percentage.                                                                                                                                   |
+
+</TabItem>
+<TabItem value="Disks" label="Disks">
+
+| Option                      | Description                                                           |
+|:----------------------------|:----------------------------------------------------------------------|
+| --include-name              | Filter disks by name (can be a regexp).                               |
+| --exclude-name              | Exclude disks by name (can be a regexp).                              |
+| --reload-cache-time         | Time in minutes before reloading the disks cache file (default: 180). |
+| --show-cache                | Display the content of the disks cache file.                          |
+| --warning-space-usage-prct  | Threshold in percentage.                                              |
+| --critical-space-usage-prct | Threshold in percentage.                                              |
+| --warning-read-iops         | Threshold in operations per second.                                   |
+| --critical-read-iops        | Threshold in operations per second.                                   |
+| --warning-write-iops        | Threshold in operations per second.                                   |
+| --critical-write-iops       | Threshold in operations per second.                                   |
+| --warning-read-usage        | Threshold in bytes per second.                                        |
+| --critical-read-usage       | Threshold in bytes per second.                                        |
+| --warning-write-usage       | Threshold in bytes per second.                                        |
+| --critical-write-usage      | Threshold in bytes per second.                                        |
+| --warning-read-latency      | Threshold in milliseconds (average latency per read operation).       |
+| --critical-read-latency     | Threshold in milliseconds (average latency per read operation).       |
+| --warning-write-latency     | Threshold in milliseconds (average latency per write operation).      |
+| --critical-write-latency    | Threshold in milliseconds (average latency per write operation).      |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
