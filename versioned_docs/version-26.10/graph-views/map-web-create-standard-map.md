@@ -94,7 +94,7 @@ Use **Media** elements to add:
 Use **Link** elements to make connections between items (with anchor points):
 - **Link:** is a simple arrow link element to connect two items.
 - **Status link:** use this link between two items and configure a resource to monitor from it. Then this link will display the color status of the resource you specified.
-- **Metric link:** use this link between two items and configure a service and its metrics from it. Then this link will display the metrics of the service you specified. 
+- **Metric link:** use this link between two items and configure a service or metaservice and its metrics from it. Then this link will display the metrics of the service or metaservice you specified. 
 
 #### Centreon elements
 
@@ -103,7 +103,7 @@ Use **Link** elements to make connections between items (with anchor points):
   - Host
   - Service
   - Service group
-  - Meta service
+  - Metaservice
 
 - **MAP** element:
   - ### Container
@@ -132,7 +132,7 @@ The **Format** panel allows you to apply formatting options depending on the typ
 In edition mode, you can add several resources to your view in a single action.
 
 1. Click in the **Search a resource** bar above the view.
-2. In the dropdown list, select the resources you want in **Host groups, Hosts, Service groups, Services, Meta services and Business Activities**.
+2. In the dropdown list, select the resources you want in **Host groups, Hosts, Service groups, Services, Metaservices and Business Activities**.
 3. Then click the **Add to map** button.
 
 The resources you have selected are now added to the view!

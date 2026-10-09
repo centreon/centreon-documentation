@@ -97,6 +97,6 @@ Pour ajouter une escalade de notification, rendez-vous dans le menu
 
 Pour sélectionner les différents objets qui seront concernés par cette
 escalade, les onglets **Hosts Escalation**, **Services Escalation**,
-**Hostgroups Escalation**, **Meta Service Escalation** et
+**Hostgroups Escalation**, **Métaservice Escalation** et
 **Servicegroups Escalation** permettent de choisir les objets sur
 lesquels les escalades sont appliquées.

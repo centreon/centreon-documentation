@@ -1749,11 +1749,11 @@ message KpiStatus {
 }
 ```
 
-### Meta service status event
+### Metaservice status event
 
-This event was designed to send meta service's status changes.
+This event was designed to send metaservice's status changes.
 
-At the moment meta services are not managed by Centreon Broker, so this
+At the moment metaservices are not managed by Centreon Broker, so this
 event is not used.
 
 <Tabs groupId="sync">
@@ -1769,8 +1769,8 @@ The content of this message is serialized as follows:
 
 | Property          | Type             | Description                     |
 | ----------------- | ---------------- | ------------------------------- |
-| meta\_service\_id | unsigned integer | The id of the meta service.     |
-| value             | real             | The value of the meta service.  |
+| meta\_service\_id | unsigned integer | The id of the metaservice.     |
+| value             | real             | The value of the metaservice.  |
 | state\_changed    | boolean          | True if the state just changed. |
 
 </TabItem>
@@ -1948,8 +1948,8 @@ message DimensionKpiEvent {
     string service_description = 7;  // Description of the service associated with this KPI for service KPI.
     uint32 kpi_ba_id = 8;            // Id of the BA associated with this KPI for BA KPI.
     string kpi_ba_name = 9;          // Name of the BA associated with this KPI for BA KPI.
-    uint32 meta_service_id = 10;     // Id of the meta-service associated with this KPI for meta-service KPI.
-    string meta_service_name = 11;   // Name of the meta-service associated with this KPI for meta-service KPI.
+    uint32 meta_service_id = 10;     // Id of the metaservice associated with this KPI for metaservice KPI.
+    string meta_service_name = 11;   // Name of the metaservice associated with this KPI for metaservice KPI.
     uint32 boolean_id = 12;          // Id of the boolean expression associated with this KPI for boolean KPI.
     string boolean_name = 13;        // Name of the boolean expression associated with this KPI for boolean KPI.
     double impact_warning = 14;      // Impact of a warning state for this KPI.

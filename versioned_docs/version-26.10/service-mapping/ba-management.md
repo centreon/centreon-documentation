@@ -146,7 +146,7 @@ The type of indicators you can use are :
 - Other business activities: it is really important to understand
   that you can create “infinite” multi-level BAs to model simple to
   highly complex IT services or apps.
-- Meta services
+- Metaservices
 - Boolean rules: a combination of services with AND/OR/XOR rules
 - [Anomaly detection services](../monitoring/anomaly-detection.md).
 
@@ -277,7 +277,7 @@ BA. A BA may have multiple indicators and sub-indicators. There are five
 types of indicator:
 
 - Service (Service by hostgroups are **NOT** usable as indicators)
-- Meta service
+- Metaservice
 - Boolean
 - Another business activity
 - [Anomaly Detection services](../monitoring/anomaly-detection.md)
@@ -307,7 +307,7 @@ Indicators can be configured in two different ways:
 | Column          | Description                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Indicator (KPI) | Indicator or Key Performance Indicator: Name of the indicator based on the object used                               |
-| Type            | Indicator type (service, meta service, BA, boolean rule)                                                           |
+| Type            | Indicator type (service, metaservice, BA, boolean rule)                                                           |
 | Warning Impact  | Impact weight in the event of a *Warning* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
 | Critical Impact | Impact weight in the event of a *Critical* condition, in real-time monitoring                                        |
 | Unknown Impact  | Impact weight in the event of an *Unknown* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
@@ -348,7 +348,7 @@ To be able to manually define an impact.
 | Column          | Description                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------- |
 | Configuration Mode        | Configuration mode: regular or advanced                                       |
-| KPI Type                  | KPI type (service, meta service, boolean rule or a BA)                        |
+| KPI Type                  | KPI type (service, metaservice, boolean rule or a BA)                        |
 | Key Performance Indicator | Choice of KPI based on the objects in Centreon                                |
 | Warning Business Impact   | Impact weight in the event of a *Warning* condition, in real-time monitoring  |
 | Critical Business Impact  | Impact weight in the event of a *Critical* condition, in real-time monitoring |
@@ -414,7 +414,7 @@ Logical expression:
 > Acknowledgments apply only to the specific object (BA or KPI).
 
 Acknowledgements apply to Business Activities (BAs) as follows:
-- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or meta-services).
+- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or metaservices).
 - Acknowledging a KPI does not acknowledge the BA that depends on it.
 
 ## Business View (BV)

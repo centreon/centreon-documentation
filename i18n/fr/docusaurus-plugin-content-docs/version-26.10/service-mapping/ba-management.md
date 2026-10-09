@@ -141,7 +141,7 @@ Vous pouvez lier ces types d'indicateurs à une activité métier:
 
 - Services
 - D'autres activités métier
-- Meta-services
+- Métaservices
 - Règles booléennes
 - Services de type [Anomaly Detection](../monitoring/anomaly-detection.md)
 
@@ -270,7 +270,7 @@ et ces indicateurs peuvent être de cinq types :
 
 - Indicateurs "Service" (les services déployés par groupes **ne sont
     pas** disponibles)
-- Indicateurs "Meta Service"
+- Indicateurs "Métaservice"
 - Indicateurs "Booléen"
 - Indicateurs "Activité métier"
 - Indicateurs basés sur des services de type [Anomaly Detection](../monitoring/anomaly-detection.md)
@@ -303,7 +303,7 @@ La gestion des indicateurs peut être réalisée de deux manières:
 | Colonne                   | Description                                                                         |
 |---------------------------|-------------------------------------------------------------------------------------|
 | Key Performance indicator | Nom de l'indicateur (basé sur l'objet utilisé)                                      |
-| Type                      | type de resource associée (Service, Meta Service, BA)                               |
+| Type                      | type de resource associée (Service, Métaservice, BA)                               |
 | Impact dégradé            | Poids d'impact en cas d'état "Warning" ou dégradé, dans la supervision temps réel   |
 | Impact critique           | Poids d'impact en cas d'état "Critical" ou critique, dans la supervision temps réel |
 | Impact inconnu            | Poids d'impact en cas d'état "Unknown" ou inconnu, dans la supervision temps réel   |
@@ -350,7 +350,7 @@ Il permet de saisir la valeur des impacts manuellement.
 | Paramètre                             | Description                                                                         |
 |---------------------------------------|-------------------------------------------------------------------------------------|
 | Mode de configuration                 | Mode de configuration standard ou avancé                                            |
-| Type de KPI                           | Type de KPI (Service, Meta service, booléen ou une BA)                              |
+| Type de KPI                           | Type de KPI (Service, Métaservice, booléen ou une BA)                              |
 | Key Performance Indicator             | Choix du KPI sur la base des objets présents dans **Centreon**                      |
 | Impact métier pour le statut warning  | Poids d'impact en cas d'état "Warning" ou dégradé, dans la supervision temps réel   |
 | Impact métier pour le statut critique | Poids d'impact en cas d'état "Critical" ou critique, dans la supervision temps réel |
