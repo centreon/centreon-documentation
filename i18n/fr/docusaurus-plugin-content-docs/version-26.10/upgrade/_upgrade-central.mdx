@@ -116,6 +116,23 @@ dnf update -y "centreon*" --exclude=php-pecl-gnupg
 
 > Acceptez les nouvelles clés GPG des dépôts si elles vous sont proposées.
 
+Les paquets RPM peuvent marquer certains fichiers de configuration pour qu'ils ne soient jamais écrasés lors d'une mise à jour. Si vous avez modifié l'un de ces fichiers et que le nouveau paquet en fournit une version différente, dnf conserve votre fichier et écrit la version du paquet à côté, avec l'extension .rpmnew. Par exemple, vous conservez centengine.cfg et obtenez aussi centengine.cfg.rpmnew. Aucune fusion n'est faite automatiquement. Comparez les deux fichiers et choisissez ce que vous voulez reporter :
+
+Voici les fichiers susceptibles d'être concernés. Vous n'aurez pas forcément un fichier .rpmnew pour chacun d'eux : seuls les fichiers que vous avez modifiés et dont le paquet fournit une nouvelle version en génèrent un.
+
+```shell
+/etc/logrotate.d/centreon
+/etc/httpd/conf.d/10-centreon.conf
+/etc/php.d/50-centreon.ini
+/etc/php/${PHP_MIN_VERSION}/mods-available/centreon.ini
+/etc/php-fpm.d/centreon.conf
+/etc/php/${PHP_MIN_VERSION}/fpm/pool.d/centreon.conf
+/etc/systemd/system/php-fpm.service.d/centreon.conf
+/lib/systemd/system/php${PHP_MIN_VERSION}-fpm.service.d/centreon.conf
+/usr/share/centreon/.env
+/usr/share/centreon/.env.local.php
+```
+
 ### Étape 5 : Mettre à jour votre configuration Apache personnalisée
 
 Cette section s'applique uniquement si vous avez personnalisé votre configuration Apache.
