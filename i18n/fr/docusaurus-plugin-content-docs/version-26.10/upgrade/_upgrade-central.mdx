@@ -19,7 +19,7 @@ import Link from '@docusaurus/Link';
 2. Supprimez les fichiers des dépôts :
 
    <CodeBlock language="shell">
-   {`rm /etc/yum.repos.d/centreon-${props.oldCentreonVersion}.repo\nrm /etc/yum.repos.d/centreon.repo`}
+   {`rm -f /etc/yum.repos.d/centreon-${props.oldCentreonVersion}.repo\nrm -f /etc/yum.repos.d/centreon.repo`}
    </CodeBlock>
 
 3. Installez le nouveau dépôt :
