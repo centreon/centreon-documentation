@@ -16,7 +16,7 @@ All servers (central, remote and pollers) in your architecture must have the sam
 
 ### Standalone central server
 
-If you are not monitoring many hosts, you may only need one central server. The central server will do all of the monitoring itself.
+If you are not monitoring many hosts, you may only need one central server. The central server will do all of the monitoring itself. Check our [sizing guide](./prerequisites.md#architecture-and-centraldatabase-sizing) to figure out the right architecture for you.
 
 ### Distributed architecture
 

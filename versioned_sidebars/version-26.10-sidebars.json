@@ -154,12 +154,33 @@
               "id": "installation/installation-of-a-poller/unattended-install-poller"
             },
             {
-              "type": "doc",
-              "id": "installation/installation-of-a-poller/using-packages"
+              "type": "category",
+              "label": "Pollers in containers",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/using-containers"
+                },
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/pollers-containers-prerequisites"
+                },
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/using-containers-advanced-configuration"
+                },
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/adapt-legacy-pullwss"
+                }
+              ]
             },
             {
               "type": "doc",
-              "id": "installation/installation-of-a-poller/using-containers"
+              "id": "installation/installation-of-a-poller/using-packages"
             }
           ]
         },
@@ -173,7 +194,7 @@
             {
               "type": "doc",
               "id": "installation/installation-of-a-remote-server/unattended-install-remote"
-            },            
+            },
             {
               "type": "doc",
               "id": "installation/installation-of-a-remote-server/using-packages"
@@ -581,19 +602,54 @@
           ]
         },
         {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing-install"
+            },
+         {
           "type": "category",
           "label": "Managing tickets",
           "link": {
-            "type": "generated-index"
+            "type": "doc",
+            "id": "alerts-notifications/ticketing-overview"
           },
           "items": [
             {
               "type": "doc",
-              "id": "alerts-notifications/ticketing-install"
+              "id": "alerts-notifications/ticketing"
+            },
+            {
+              "type": "category",
+              "label": "Customizing tickets",
+              "link": {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-body"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/glossary"
+                }
+              ]
             },
             {
               "type": "doc",
-              "id": "alerts-notifications/ticketing"
+              "id": "alerts-notifications/ticketing-use"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing/ticketing-advanced-architecture"
             }
           ]
         }
@@ -1197,7 +1253,7 @@
             {
               "type": "doc",
               "id": "upgrade/introduction"
-            },            
+            },
             {
               "type": "doc",
               "id": "upgrade/upgrade-matrix"
@@ -1738,10 +1794,10 @@
         {
           "type": "category",
           "label": "Release notes for Centreon 26.10",
-          "link": { 
+          "link": {
             "type": "doc",
             "id": "releases/introduction"
-          }, 
+          },
           "items": [
             {
               "type": "doc",
