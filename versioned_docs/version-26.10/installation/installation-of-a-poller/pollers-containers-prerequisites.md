@@ -31,7 +31,7 @@ The recomended and secure way is to use HTTPS. This means that certificates are 
 
 * Ensure the central server and Gorgone are already installed and up to date with the latest major version.
 
-* If not already done, configure HTTPS on your central server. This can be done as part of the [installation procedure](../installation-of-a-central-server/using-packages.md#step-3-set-up-the-tls-configuration), or [separately](../../administration/secure-platform.md#activating-https-mode-on-your-web-server).
+* If not already done, configure HTTPS on your central server. This can be done as part of the [installation procedure](../installation-of-a-central-server/using-packages.md#step-3-set-up-the-tls-configuration), or separately.
 
    Once HTTPS is enabled, also update the Gorgone API URL: in **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** on the central server, set `base_url` to `https://<central_fqdn>/centreon/api/latest/`, then restart Gorgone (`systemctl restart gorgoned`). Otherwise, the central server rejects every poller in a container with an `invalid token` error.
 

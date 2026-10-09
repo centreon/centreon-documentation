@@ -31,7 +31,7 @@ La méthode recommandée et sécurisée consiste à utiliser HTTPS. Des certific
 
 * Assurez-vous que le serveur central et Gorgone sont déjà installés et à jour dans la dernière version majeure.
 
-* Si ce n'est pas déjà fait, configurez le HTTPS sur votre serveur central. Cela peut être fait dans le cadre de la [procédure d'installation](../installation-of-a-central-server/using-packages.md#étape-3--mettre-en-place-la-configuration-tls), ou [séparément](../../administration/secure-platform.md#activer-le-mode-https-sur-le-serveur-web).
+* Si ce n'est pas déjà fait, configurez le HTTPS sur votre serveur central. Cela peut être fait dans le cadre de la [procédure d'installation](../installation-of-a-central-server/using-packages.md#étape-3--mettre-en-place-la-configuration-tls), ou séparément.
 
    Une fois HTTPS activé, mettez également à jour l'URL de l'API Gorgone : dans **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** sur le serveur central, définissez `base_url` sur `https://<central_fqdn>/centreon/api/latest/`, puis redémarrez Gorgone (`systemctl restart gorgoned`). Sinon, le serveur central rejettera chaque collecteur exécuté dans un conteneur avec une erreur `invalid token`.
 
