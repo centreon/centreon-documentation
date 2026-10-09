@@ -404,21 +404,21 @@ First you need to add the MariaDB repository:
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf module enable -y mariadb:10.11
+dnf module enable -y mariadb:11.8
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-dnf module enable -y mariadb:10.11
+dnf module enable -y mariadb:11.8
 ```
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=13 --mariadb-server-version="mariadb-10.11"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=13 --mariadb-server-version="mariadb-11.8"
 ```
 
 </TabItem>
@@ -1073,11 +1073,10 @@ Install the Centreon Business repository. You can find this on the
 By default, the MAP module is not enabled. Perform the following procedure to enable it.
 
 1. Log on to the Centreon interface and go to **Administration > Extensions > Map > Options**.
-  ![image](../assets/graph-views/ng/switch-map-engine.png)
 
-2. In the **Connection information** section, set **Map Engine server** to **Yes**.
+2. In the **Connection information** section, enter the IP address of your MAP server in the **MAP Engine server address** field. This is the address your web browser uses to connect to MAP.
 
-3. Enter the IP address of your MAP server in the **Map Engine server address** field. If you installed MAP on the central server, this is the IP address of the central server. Use its full IP address, not the localhost. The default port is 8081 (for instance: ``http://10.25.xxx:8081``).
+3. Then fill in the **MAP server address as seen by Central** field. This is the address that the Centreon central server uses to connect to MAP. If MAP is installed on the central server itself, enter the central server's IP address.
 
 4. Click the **Test connection to server** button to test the connection. This test should return the **Connection test successful** message.
 

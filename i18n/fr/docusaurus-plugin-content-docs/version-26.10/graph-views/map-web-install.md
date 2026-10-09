@@ -396,21 +396,21 @@ Vous devez d'abord ajouter le dépôt MariaDB :
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf module enable -y mariadb:10.11
+dnf module enable -y mariadb:11.8
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-dnf module enable -y mariadb:10.11
+dnf module enable -y mariadb:11.8
 ```
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=13 --mariadb-server-version="mariadb-10.11"
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=13 --mariadb-server-version="mariadb-11.8"
 ```
 
 </TabItem>
@@ -1059,9 +1059,9 @@ Par défaut, le module MAP n'est pas activé. Suivez cette procédure pour l'act
 1. Connectez-vous à l'interface Centreon et allez à la page **Administration > Extensions > Map > Options**.
   ![image](../assets/graph-views/ng/switch-map-engine.png)
 
-2. Dans la section **Informations de connexion**, définissez **Serveur Map Engine** sur **Oui**.
+2. Dans la section **Informations de connexion**, saisissez l'adresse IP de votre serveur MAP dans le champ **Adresse du serveur Map Engine**. C'est l'adresse qu'utilise votre navigateur web pour joindre MAP.
 
-3. Saisissez l'adresse IP de votre serveur MAP dans le champ **Adresse du serveur Map Engine**. Si vous avez installé MAP sur le serveur central, il s'agit de l'adresse IP du serveur central. Utilisez son adresse IP complète, et non l'adresse locale (localhost). Le port par défaut est 8081. Par exemple : ``http://10.25.xxx:8081``.
+3. Renseignez ensuite le champ **Adresse du serveur MAP vue par le central**. C'est l'adresse qu'utilise le serveur central Centreon pour joindre MAP. Si MAP est installé sur le serveur central lui-même, saisir l'adresse IP du serveur central. 
 
 4. Cliquez sur le bouton **Test de connexion au serveur** pour tester la connexion. Ce test doit retourner le message **Test de connexion réussi**.
 
