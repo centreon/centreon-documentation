@@ -1,12 +1,12 @@
 ---
 id: update-centreon-platform
-title: Update a Centreon 25.10 platform
-description: "Steps to update between minor versions of Centreon 25.10"
+title: Update a Centreon 26.10 platform
+description: "Steps to update between minor versions of Centreon 26.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This chapter describes how to update your Centreon 25.10 platform (i.e. switch from version 25.10.x to version 25.10.y).
+This chapter describes how to update your Centreon 26.10 platform (i.e. switch from version 26.10.x to version 26.10.y).
 
 >After updating your central server, make sure you also update all your remote servers and your pollers.
 >
@@ -27,13 +27,6 @@ If you use Open Ticket providers with custom configurations, [make a backup of t
 Remove the debuginfo packages before the procedure unless you have a particular use for them.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-  ```shell
-  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
-  ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
@@ -41,7 +34,14 @@ Remove the debuginfo packages before the procedure unless you have a particular 
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+  ```shell
+  dnf remove $(rpm -qa --qf "%{NAME}\n" | grep '^centreon.*debuginfo')
+  ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
   ```shell
  apt remove $(dpkg -l | awk '/^ii/ && $2 ~ /^centreon.*debuginfo/ { print $2 }')
@@ -64,9 +64,9 @@ Before upgrading your Centreon platform, make sure the following package reposit
 * centreon-modules, if you are using Centreon Business Edition.
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
-* bookworm, bookworm-updates, bookworm-backports and bookworm security
+* trixie, trixie-updates, trixie-backports and trixie security
 * centreon
 * centreon-modules, if you are using Centreon Business Edition.
 
@@ -80,21 +80,6 @@ Before upgrading your Centreon platform, make sure the following package reposit
 Make sure all users are logged out from the Centreon web interface before starting the update procedure.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Clean the cache:
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-Then upgrade all the components with the following command:
-
-  ```shell
- dnf update centreon\*
-  ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Clean the cache:
@@ -110,7 +95,22 @@ Then upgrade all the components with the following command:
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Clean the cache:
+
+  ```shell
+  dnf clean all --enablerepo=*
+  ```
+
+Then upgrade all the components with the following command:
+
+  ```shell
+ dnf update centreon\*
+  ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 Clean the cache:
 
@@ -122,7 +122,7 @@ Clean the cache:
 Then upgrade all the components with the following command:
 
   ```shell
-  apt install --only-upgrade centreon
+  apt install --only-upgrade "centreon*"
   ```
 
 </TabItem>
@@ -169,14 +169,14 @@ procedure](../monitoring/monitoring-servers/deploying-a-configuration.md).
   In our case, we have the configuration described below (you need to adapt the procedure to your configuration).
    - address: 10.25.XX.XX
    -  port: 80
-   -  version: 25.10
+   -  version: 26.10
    -  login: Admin
    -  password: xxxxx
 
 2. Enter the following request:
 
   ```shell
-  curl --location --request POST '10.25.XX.XX:80/centreon/api/v25.10/login' \
+  curl --location --request POST '10.25.XX.XX:80/centreon/api/v26.10/login' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --data '{
@@ -236,21 +236,6 @@ This procedure is the same as to update a Centreon central server.
 ## Update the Pollers
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-1. Clean the cache:
-
-  ```shell
-  dnf clean all --enablerepo=*
-  ```
-
-2. Then upgrade all the components with the following command:
-
-  ```shell
-  dnf update centreon\* --exclude=centreon-plugin*
-  ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Clean the cache:
@@ -266,7 +251,22 @@ This procedure is the same as to update a Centreon central server.
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+1. Clean the cache:
+
+  ```shell
+  dnf clean all --enablerepo=*
+  ```
+
+2. Then upgrade all the components with the following command:
+
+  ```shell
+  dnf update centreon\* --exclude=centreon-plugin*
+  ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 1. Clean the cache:
 
@@ -299,17 +299,17 @@ and choose the **Restart** method for the Engine process.
 5. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Nothing to do for this OS.
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Nothing to do for this OS.
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Nothing to do for this OS.
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
   ```shell
   apt-mark unhold centreon-plugin*
@@ -325,7 +325,7 @@ You can perform an unattended update of your platform using the **unattended.sh*
 1. Download the script using the following command:
 
 ```shell
-curl -L https://download.centreon.com/25.10/unattended.sh -O /tmp/unattended
+curl -L https://download.centreon.com/26.10/unattended.sh -O /tmp/unattended
 ```
 
 2. Run the script:
@@ -333,17 +333,17 @@ curl -L https://download.centreon.com/25.10/unattended.sh -O /tmp/unattended
 * For a central server:
 
 ```shell
-bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 26.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * For a remote server:
 
 ```shell
-bash unattended.sh update -t central -v 25.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t central -v 26.10 -r stable -s -p<my_admin_password> -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```
 
 * For a poller:
 
 ```shell
-bash unattended.sh update -t poller -v 25.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
+bash unattended.sh update -t poller -v 26.10 -r stable -l DEBUG  2>&1 |tee -a /tmp/unattended-$(date +"%m-%d-%Y-%H%M%S").log
 ```

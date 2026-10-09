@@ -14,9 +14,22 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
+### Check your operating system
+
+Make sure that the central server and the MAP server run an [operating system supported by this version](../installation/compatibility.md#operating-systems).
+
+If one of your servers runs an operating system that is no longer supported, you cannot upgrade it directly. First migrate your platform to a supported operating system:
+
+- For the central server, see [Migrating a platform](../migrate/introduction.md).
+- For the MAP server, see [Migrating the extension](map-web-migrate.md).
+
+### Check your database version
+
+Make sure that your database uses a [DBMS version supported by this version](../installation/compatibility.md#dbms). If it does not, upgrade it before you upgrade MAP. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md) or [Upgrading MySQL](../upgrade/upgrade-mysql.md).
+
 ### Update the RPM signing key
 
-For security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation), to remove the old key and install the new one.
+For security reasons, the keys used to sign Centreon RPMs are rotated regularly. If your platform still uses a previous key, go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
 
 ## Update the package
 
@@ -26,24 +39,9 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
   sudo systemctl stop centreon-map-engine
   ```
 
-2. In order to update the Centreon MAP module, execute the
-following commands:
+2. To update the Centreon MAP module, run the following commands:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
- - On the central server:
- 
- ``` shell
- sudo dnf update centreon-map-web-client
- ```
- 
- - On the MAP server:
- ``` shell
- sudo dnf update centreon-map-engine
- ```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
  - On the central server:
@@ -53,60 +51,40 @@ following commands:
  ```
  
  - On the MAP server:
+
  ``` shell
  sudo dnf update centreon-map-engine
  ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
- - If MAP only is installed:
+ - On the central server:
  
- On the central server:
+ ``` shell
+ sudo dnf update centreon-map-web-client
+ ```
+ 
+ - On the MAP server:
+
+ ``` shell
+ sudo dnf update centreon-map-engine
+ ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+ - On the central server:
 
  ``` shell
  sudo apt install --only-upgrade centreon-map-web-client
  ```
   
- On the MAP server:
+ - On the MAP server:
  
  ``` shell
  sudo apt install --only-upgrade centreon-map-engine
  ```
- 
- - If MAP and MAP Legacy are installed on the same server:
-   
-   - Make a backup of the **map.cnf** file:
-    
-    ```shell
-    cp /etc/my.cnf.d/map.cnf /etc/my.cnf.d/map.cnf.bk
-    ```
-
-   - Update the centreon-map-engine package
-    
-    On the central server:
-    
-    ``` shell
-    sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-web-client
-    ```
-    
-    On the MAP server:
-    
-    ``` shell
-    sudo apt install -o Dpkg::Options::="--force-overwrite" centreon-map-engine
-    ```
-    
-   - Retrieve the configuration file backup:
-   
-    ```shell
-    cp /etc/my.cnf.d/map.cnf.bk /etc/my.cnf.d/map.cnf
-    ```
-
-   - Answer **Y** when prompted. Then restart MySQL:
-   
-    ```shell
-    systemctl restart mariadb
-    ```
 
 </TabItem>
 </Tabs>
@@ -115,12 +93,10 @@ following commands:
 
 4. Finalize the update of the module and the widget in the Centreon interface **Administration > Extensions > Manager**.
 
- > An orange update button is visible, indicating that an update is available. Click on it to update the module, and do the same for the widget.
+ > An update button is displayed when an update is available. Click it to update the module, then do the same for the widget.
 
 5. Restart the **centreon-map-engine** service using the following command:
  
   ```shell
   sudo systemctl start centreon-map-engine
   ```
-
-6. When upgrading to version 24.04 and above, you have to upgrade MariaDB to version 10.11. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).

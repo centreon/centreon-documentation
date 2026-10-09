@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 Cette procédure ne s'applique que dans les conditions suivantes :
 
-- Vous souhaitez migrer d'un OS de type EL 64-bits vers un autre OS de type EL 64-bits supporté. Par exemple, vous souhaitez migrer d'un CentOS 7 à un Alma 8 ou 9.
+- Vous souhaitez migrer d'un OS de type EL 64-bits vers un autre OS de type EL 64-bits supporté. Par exemple, vous souhaitez migrer d'un CentOS 7 à un Alma 9.
 - Votre version de Centreon est 18.10 ou plus récente.
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
@@ -90,27 +90,46 @@ dnf update
 
 >Si vous utilisez une base de données distante, ignorez cette étape et passez directement à l'[étape 4](#étape-4--synchroniser-les-plugins).
 
-1. Sur l'ancien serveur, faitez un dump des bases de données :
+1. Arrêtez les processus Centreon :
 
    ```shell
-   mysqldump -u root -p centreon > /tmp/centreon.sql
-   mysqldump -u root -p centreon_storage > /tmp/centreon_storage.sql
+   systemctl stop cbd centengine gorgoned centreontrapd snmpd
    ```
 
-2. Sur l'ancien serveur, arrêtez MariaDB :
+2. Sur l'ancien serveur, faitez un dump des bases de données :
+
+   ```shell
+   mysqldump -u root -p --single-transaction centreon > /tmp/centreon.sql
+   mysqldump -u root -p --single-transaction centreon_storage > /tmp/centreon_storage.sql
+   ```
+
+3. Sur l'ancien serveur, arrêtez la base de données :
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
    systemctl stop mariadb
    ```
 
-3. Depuis l'ancien serveur, exportez les dumps vers le nouveau serveur de base de données (assurez-vous d'avoir assez d'espace):
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl stop mysqld
+   ```
+
+   </TabItem>
+   </Tabs>
+
+4. Depuis l'ancien serveur, exportez les dumps vers le nouveau serveur de base de données (assurez-vous d'avoir assez d'espace):
 
    ```shell
    rsync -avz /tmp/centreon.sql root@\<IP_NOUVEAU_CENTREON\>:/tmp/
    rsync -avz /tmp/centreon_storage.sql root@\<IP_NOUVEAU_CENTREON\>:/tmp/
    ```
 
-4. Sur le nouveau serveur de base de données, supprimez les bases de
+5. Sur le nouveau serveur de base de données, supprimez les bases de
    données vierges et recréez-les :
 
    ```shell
@@ -124,17 +143,17 @@ dnf update
    CREATE DATABASE centreon_storage;
    ```
 
-5. Sur le nouveau serveur de bases de données, importez dans la base les dumps précédemment transférés :
+6. Sur le nouveau serveur de bases de données, importez dans la base les dumps précédemment transférés :
 
    ```shell
    mysql -u root centreon -p </tmp/centreon.sql
    mysql -u root centreon_storage -p </tmp/centreon_storage.sql
    ```
 
-6. Exécutez l'upgrade des tables :
+7. Si vous utilisez MariaDB, exécutez l'upgrade des tables (cette étape est automatique avec MySQL) :
 
    ```shell
-   mysql_upgrade
+   mariadb_upgrade
    ```
 
    Si votre base de données est protégée par mot de passe, entrez :
@@ -149,11 +168,24 @@ dnf update
    mysql_upgrade -u root -p
    ```
 
-7. Démarrez le processus **mariadb** sur le nouveau serveur :
+8. Redémarrez le processus de base de données sur le nouveau serveur :
+
+   <Tabs groupId="db">
+   <TabItem value="MariaDB" label="MariaDB">
 
    ```shell
-   systemctl start mariadb
+   systemctl restart mariadb
    ```
+
+   </TabItem>
+   <TabItem value="MySQL" label="MySQL">
+
+   ```shell
+   systemctl restart mysqld
+   ```
+
+   </TabItem>
+   </Tabs>
 
 > Remplacez **\<IP_NOUVEAU_CENTREON\>** par l'adresse IP de votre nouveau serveur
 > Centreon.
@@ -197,12 +229,12 @@ rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/c
 ### Étape 5 : Montée de version de la solution Centreon
 
 1. Sur le nouveau serveur, forcez la montée de version en déplacant le contenu du répertoire
-   **/var/lib/centreon/installs/install-25.10.x-YYYYMMDD_HHMMSS** dans le
+   **/var/lib/centreon/installs/install-26.10.x-YYYYMMDD_HHMMSS** dans le
    répertoire **/usr/share/centreon/www/install** (**x** est le numéro de version cible pour votre machine migrée):
 
    ```shell
    cd /var/lib/centreon/installs/
-   mv install-25.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
+   mv install-26.10.x-YYYYMMDD_HHMMSS/ /usr/share/centreon/www/install/
    ```
 
 2. Si vous utilisez la meme adresse IP ou le même nom DNS entre l'ancien serveur
@@ -220,7 +252,7 @@ rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/c
    1. Modifiez le fichier **/etc/centreon/centreon.conf.php**,
    2. Modifiez le fichier **/etc/centreon/conf.pm**,
    3. Éditez la configuration du Centreon Broker central, via l'interface web
-      Centreon et modifiez le mot de passe pour l'output **unfied-sql**,
+      Centreon et modifiez le mot de passe pour l'output **unified-sql**,
    4. Modifiez le fichier **/etc/centreon/config.d/10-database.yaml**.
 
 5. Si l'adresse IP de votre serveur Centreon a changé :
@@ -231,7 +263,7 @@ rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/c
    pour plus d'information.
    - L'empreinte de votre plateforme a également changé : [contactez Centreon](mailto:support@centreon.com) pour obtenir une nouvelle licence.
 
-6. Les informations de connexion de l'utilisateur **centreon-gorgone** nouvellement créé doivent être les mêmes que celles de l'utilisateur **centreon-gorgone** sur l'ancien serveur. Éditez le fichier `etc/centreon-gorgone/config.d/31-centreon-api.yaml` et entrez les information de connexion de l'ancien utilisateur. Exemple :
+6. Les informations de connexion de l'utilisateur **centreon-gorgone** nouvellement créé doivent être les mêmes que celles de l'utilisateur **centreon-gorgone** sur l'ancien serveur. Éditez le fichier `/etc/centreon-gorgone/config.d/31-centreon-api.yaml` et entrez les information de connexion de l'ancien utilisateur. Exemple :
 
    ```shell
    gorgone:
@@ -260,11 +292,13 @@ rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/c
 
 10. Allez à la page **Configuration > Connecteurs > Connecteurs de supervision**, puis [mettez à jour tous les connecteurs de supervision](../monitoring/pluginpacks.md#mettre-à-jour-un-ou-plusieurs-packs).
 
-### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
+Une fois que vous avez vérifié que votre plateforme Centreon fonctionne correctement, vous pouvez supprimer les dumps de la base de données que vous avez stockés dans le répertoire **/tmp**.
 
-Si vous migrez depuis un Centreon 18.10, 19.04 ou 19.10, vous devez également [migrer de Centcore à Gorgone](../developer/developer-gorgone-migrate-from-centcore.md).
+<!-- ### Étape 6 (anciennes versions uniquement): Migrer vers Gorgone
 
-### Étape 7: Mettre à jour les modules
+Si vous migrez depuis un Centreon 18.10, 19.04 ou 19.10, vous devez également [migrer de Centcore à Gorgone](../developer/developer-gorgone-migrate-from-centcore.md). -->
+
+### Étape 6: Mettre à jour les modules
 
 Pour mettre à jour les modules, allez à la page **Administration > Extensions > Gestionnaire** et cliquez sur **Update all**.
 Si vous avez un serveur MAP ou MBI, suivez les procédures de migration correspondantes :
@@ -272,7 +306,7 @@ Si vous avez un serveur MAP ou MBI, suivez les procédures de migration correspo
 - Procédure de migration pour [MAP](../graph-views/map-web-migrate.md),
 - Procédure de migration pour [MBI](../reporting/migrate.md).
 
-### Étape 8: Migrer vos autres serveurs (architecture distribuée)
+### Étape 7: Migrer vos autres serveurs (architecture distribuée)
 
 #### Migrer un serveur distant
 

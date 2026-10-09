@@ -1,33 +1,42 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-<Tabs groupId="database-sync">
+<Tabs groupId="db">
 <TabItem value="MariaDB" label="MariaDB">
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y centreon-mariadb centreon
-systemctl daemon-reload
-systemctl restart mariadb
-```
-
-</TabItem>
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install -y centreon-mariadb centreon
+```
+
+```shell
 systemctl daemon-reload
 systemctl restart mariadb
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-mariadb centreon
+```
+
+```shell
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
 apt install -y centreon-mariadb centreon
+```
+
+```shell
 systemctl daemon-reload
 systemctl restart mariadb
 ```
@@ -35,41 +44,44 @@ systemctl restart mariadb
 </TabItem>
 </Tabs>
 
+Set a password for the root user of the database by executing the following command:
+
+```shell
+mariadb-secure-installation
+```
+
+Answer **yes** to all the questions except "Disallow root login remotely?".
+
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y mysql-server mysql
-dnf install -y centreon-mysql centreon
-systemctl enable --now mysqld
-echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
-sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
-systemctl daemon-reload
-systemctl restart mysqld
-```
-
-</TabItem>
+<Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install -y mysql-server mysql
-dnf install -y centreon-mysql centreon
+dnf install -y centreon-mysql
+grep -q '^!includedir /etc/my.cnf.d' /etc/my.cnf || echo '!includedir /etc/my.cnf.d' >> /etc/my.cnf
 systemctl enable --now mysqld
-echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysql-server.cnf
-sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/$mysql_service_name.service
+sed -Ei 's/LimitNOFILE\s\=\s[0-9]{1,}/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
 systemctl daemon-reload
 systemctl restart mysqld
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-mysql centreon
+grep -q '^!includedir /etc/my.cnf.d' /etc/my.cnf || echo '!includedir /etc/my.cnf.d' >> /etc/my.cnf
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
-apt install -y centreon-mysql
+apt install -y centreon-mysql mysql-common
 apt install -y centreon
 # Select "Use Legacy Authentication Method"
 systemctl daemon-reload
@@ -78,6 +90,21 @@ systemctl restart mysql
 
 </TabItem>
 </Tabs>
+
+
+It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). It must have at least 8 characaters, upper and lower case, a digit and a special character. Retrieve the temporary password created by MySQL:
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Then change it when prompted by the following command:
+
+```shell
+mysql_secure_installation
+```
+
+Answer **yes** to all the questions except "Disallow root login remotely?".
 
 </TabItem>
 </Tabs>

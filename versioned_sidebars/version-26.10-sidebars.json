@@ -126,11 +126,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "installation/installation-of-a-central-server/using-packages"
+              "id": "installation/installation-of-a-central-server/unattended-install-central"
             },
             {
               "type": "doc",
-              "id": "installation/installation-of-a-central-server/unattended-install-central"
+              "id": "installation/installation-of-a-central-server/using-packages"
             },
             {
               "type": "doc",
@@ -151,11 +151,36 @@
           "items": [
             {
               "type": "doc",
-              "id": "installation/installation-of-a-poller/using-packages"
+              "id": "installation/installation-of-a-poller/unattended-install-poller"
+            },
+            {
+              "type": "category",
+              "label": "Pollers in containers",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/using-containers"
+                },
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/pollers-containers-prerequisites"
+                },
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/using-containers-advanced-configuration"
+                },
+                {
+                  "type": "doc",
+                  "id": "installation/installation-of-a-poller/adapt-legacy-pullwss"
+                }
+              ]
             },
             {
               "type": "doc",
-              "id": "installation/installation-of-a-poller/unattended-install-poller"
+              "id": "installation/installation-of-a-poller/using-packages"
             }
           ]
         },
@@ -168,11 +193,11 @@
           "items": [
             {
               "type": "doc",
-              "id": "installation/installation-of-a-remote-server/using-packages"
+              "id": "installation/installation-of-a-remote-server/unattended-install-remote"
             },
             {
               "type": "doc",
-              "id": "installation/installation-of-a-remote-server/unattended-install-remote"
+              "id": "installation/installation-of-a-remote-server/using-packages"
             }
           ]
         },
@@ -229,6 +254,10 @@
         {
           "type": "doc",
           "id": "reporting/secure-your-mbi-platform"
+        },
+        {
+          "type": "doc",
+          "id": "administration/self-signed-certificate"
         }
       ]
     },
@@ -1227,6 +1256,14 @@
             },
             {
               "type": "doc",
+              "id": "upgrade/upgrade-matrix"
+            },
+            {
+              "type": "doc",
+              "id": "upgrade/upgrade-from-25-10"
+            },
+            {
+              "type": "doc",
               "id": "upgrade/upgrade-from-24-10"
             },
             {
@@ -1240,26 +1277,6 @@
             {
               "type": "doc",
               "id": "upgrade/upgrade-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-21-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-21-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/upgrade-from-20-10"
             },
             {
               "type": "doc",
@@ -1296,19 +1313,7 @@
             },
             {
               "type": "doc",
-              "id": "migrate/migrate-from-3-4"
-            },
-            {
-              "type": "doc",
-              "id": "migrate/nagios-to-centreon"
-            },
-            {
-              "type": "doc",
-              "id": "migrate/poller-display-to-remote-server"
-            },
-            {
-              "type": "doc",
-              "id": "developer/developer-gorgone-migrate-from-centcore"
+              "id": "migrate/upgrade-debian-in-place"
             }
           ]
         }
@@ -1757,6 +1762,10 @@
           "items": [
             {
               "type": "doc",
+              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-25-10"
+            },
+            {
+              "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
             },
             {
@@ -1770,22 +1779,6 @@
             {
               "type": "doc",
               "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-            {
-              "type": "doc",
-              "id": "upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
             }
           ]
         }
@@ -1801,10 +1794,10 @@
         {
           "type": "category",
           "label": "Release notes for Centreon 26.10",
-          "link": { 
+          "link": {
             "type": "doc",
             "id": "releases/introduction"
-          }, 
+          },
           "items": [
             {
               "type": "doc",

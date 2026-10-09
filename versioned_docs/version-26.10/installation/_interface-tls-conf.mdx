@@ -1,0 +1,167 @@
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+1. Configure Apache TLS:
+
+```shell
+dnf install -y mod_ssl
+echo 'Listen 443 https' > /etc/httpd/conf.d/ssl.conf
+```
+
+2. Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
+
+```shell
+sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
+    -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/server-key.pem|g' \
+    /usr/share/centreon/examples/centreon-apache-https.conf \
+    > /etc/httpd/conf.d/00-centreon-tls.conf
+```
+
+3. Enable and restart Centreon services:
+
+```shell
+systemctl daemon-reload
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+1. Configure Apache TLS:
+
+```shell
+dnf install -y mod_ssl
+echo 'Listen 443 https' > /etc/httpd/conf.d/ssl.conf
+```
+
+2. Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
+
+```shell
+sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
+    -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/server-key.pem|g' \
+    /usr/share/centreon/examples/centreon-apache-https.conf \
+    > /etc/httpd/conf.d/00-centreon-tls.conf
+```
+
+3. Enable and restart Centreon services:
+
+```shell
+systemctl daemon-reload
+```
+
+<Tabs groupId="db">
+
+<TabItem value="MariaDB" label="MariaDB">
+
+```shell
+systemctl restart mariadb
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+```shell
+systemctl restart mysqld
+```
+
+</TabItem>
+</Tabs>
+
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+Enable every module the official Centreon HTTPS references:
+
+```shell
+a2enmod ssl proxy proxy_fcgi headers deflate rewrite
+```
+
+Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
+
+```shell
+sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/server.pem|g' \
+    -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/server-key.pem|g' \
+    /usr/share/centreon/examples/centreon-apache-https.conf \
+    > /etc/apache2/sites-available/00-centreon-tls.conf
+```
+
+Enable the configuration you just applied.
+
+```shell
+a2ensite 00-centreon-tls
+```
+
+</TabItem>
+</Tabs>
+
+> Once your web server is set to HTTPS mode, if you have a MAP server on your platform, you must set the `centreon.url=https://<server-address>` inside the **/etc/centreon-map/map-config.properties** file to use HTTPS instead of HTTP. Otherwise recent web browsers may block communication between the two servers. The procedure is detailed [here](../graph-views/secure-your-map-platform.md#configure-httpstls-on-the-map-server).
+
+4. Gorgone API configuration
+
+Replace **127.0.0.1** with the FQDN of your central server in the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file, like in this example:
+
+```text
+gorgone:
+  tpapi:
+    - name: centreonv2
+      base_url: "https://centreon7.localdomain/centreon/api/latest/"
+      username: "centreon-gorgone"
+      password: "XXXXX"
+    - name: clapi
+      username: "centreon-gorgone"
+      password: "XXXXX"
+```
+
+Then restart the Gorgone daemon:
+
+```shell
+systemctl restart gorgoned
+```
+
+Then check its status:
+
+```shell
+systemctl status gorgoned
+```
+
+If everything is ok, you should have something like this (example on Debian):
+
+```shell
+● gorgoned.service - Centreon Gorgone
+     Loaded: loaded (/usr/lib/systemd/system/gorgoned.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-10-08 09:27:46 UTC; 4h 10min ago
+ Invocation: 40225788460245609d05c9db103f1ff3
+   Main PID: 807 (perl)
+      Tasks: 51 (limit: 4618)
+     Memory: 176.2M (peak: 241.4M)
+        CPU: 9.461s
+     CGroup: /system.slice/gorgoned.service
+             ├─ 807 /usr/bin/perl /usr/bin/gorgoned --config=/etc/centreon-gorgone/config.yaml --logfile=/var/log/centreon-gorgone/gorgoned.log --severity=error
+             ├─1073 gorgone-proxy
+             ├─1075 gorgone-proxy
+             ├─1076 gorgone-proxy
+             ├─1077 gorgone-proxy
+             ├─1080 gorgone-proxy
+             ├─1086 gorgone-engine
+             ├─1089 gorgone-audit
+             ├─1097 gorgone-legacycmd
+             ├─1098 gorgone-httpserver
+             ├─1100 gorgone-nodes
+             ├─1107 gorgone-statistics
+             ├─1108 gorgone-cron
+             ├─1113 gorgone-anomalydetection
+             ├─1125 gorgone-autodiscovery
+             ├─1133 gorgone-action
+             └─1137 gorgone-dbcleaner
+
+Oct 08 09:27:46 doc-central systemd[1]: Started gorgoned.service - Centreon Gorgone.
+```
+
+You should see the following line in the Gorgone daemon log file **/var/log/centreon-gorgone/gorgoned.log**:
+
+```text
+2026-10-08 15:58:12 - INFO - [autodiscovery] -class- host discovery - sync started
+```
