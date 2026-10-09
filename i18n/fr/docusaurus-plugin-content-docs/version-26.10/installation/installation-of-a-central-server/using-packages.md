@@ -178,28 +178,28 @@ Exécutez ensuite la commande suivante (sur le serveur central si vous utilisez 
 
 ## Étape 5 : Installation web
 
-1. Démarrez le serveur Apache avec la
+1. Redémarrez le serveur Apache avec la
 commande suivante :
 
 <Tabs groupId="os">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-systemctl start httpd
+systemctl restart httpd
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-systemctl start httpd
+systemctl restart httpd
 ```
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-systemctl start apache2
+systemctl restart apache2
 ```
 
 </TabItem>

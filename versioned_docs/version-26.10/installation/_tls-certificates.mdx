@@ -5,7 +5,7 @@ Use a certificate issued by a trusted authority. Self-signed certificates may be
 
 * If you already have a certificate validated by an authority, you can proceed to the next step.
 * If you do not have a certificate validated by an authority, you can generate one on platforms such as [Let's Encrypt](https://letsencrypt.org/).
-* If, for test purposes, you want to use a self-signed certificate, follow [this procedure](../administration/self-signed-certificate.md).
+- If, for test purposes, you want to use a self-signed certificate, follow [this procedure](./self-signed-certificate.md) before activating HTTPS mode on your server. Note that you will have to import the CA certificate into your browser.
 
 Let's say you have the following files in **/etc/pki/centreon-tls/**:
 
@@ -37,6 +37,7 @@ Let's say you have the following files in **/etc/pki/centreon-tls/**:
 
    ```shell
    cp /etc/pki/centreon-tls/rootCA.pem /usr/local/share/ca-certificates/centreon-dev.crt
+   update-ca-certificates
    ```
 
    </TabItem>

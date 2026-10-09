@@ -192,9 +192,10 @@ cat > /etc/mysql/conf.d/centreon-tls-client.cnf <<'EOF'
 [client]
 ssl-ca=/etc/mysql/centreon-tls/rootCA.pem
 ssl-verify-server-cert
+EOF
 ```
 
-4. Start MySQL.
+4. Start MariaDB.
 
 ```shell
 systemctl daemon-reload
