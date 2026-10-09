@@ -4,9 +4,9 @@ title: API tokens
 description: "Generate and manage API tokens for third-party application access"
 ---
 
-Using an API token, a third-party application can call the Centreon API to perform actions in Centreon (webhooks).
+You need an API Token (a type of [authentication token](./authentication_tokens.md)) to authenticate with the Centreon APIs. To generate one, go to **Administration > Authentication tokens**.
 
-A token is linked to one [Centreon user](../monitoring/basic-objects/contacts.md) and is valid only for a certain period of time. API calls will be executed according to the [rights assigned to this user](../administration/access-control-lists.md#granting-rights-to-a-user). A specific user can have several tokens.
+An API token is linked to one [Centreon user](../users/users.md) and is valid only for a certain period of time. API calls will be executed according to the [rights assigned to this user](../users/users.md#user-roles). A specific user can have several tokens.
 
 ## Who can create API tokens?
 

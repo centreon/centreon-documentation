@@ -58,7 +58,7 @@ rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2023
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-mysql_apt_config="mysql-apt-config_0.8.34-1_all.deb"
+mysql_apt_config="mysql-apt-config_0.8.36-1_all.deb"
 curl -fJLO "https://dev.mysql.com/get/$mysql_apt_config"
 echo "mysql-apt-config mysql-apt-config/select-server select mysql-8.4-lts" | debconf-set-selections
 export DEBIAN_FRONTEND="noninteractive"
