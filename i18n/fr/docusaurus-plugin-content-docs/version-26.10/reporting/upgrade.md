@@ -63,28 +63,42 @@ apt install --only-upgrade centreon-bi-server
 ## Étape 3 : Mettre à jour le serveur de reporting
 
 ### Prérequis de la version Java
-  
-  > Assurez-vous qu'une version de Java 25 est installée avant de commencer la procédure.
-  
-  - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-  
-  ```shell
-  java -version
-  ```
-  
-  - Pour une mise à jour de Java en version 25, allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java25).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 25 :
-  
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  Puis redémarrez le service :
+En version 26.10, le service **cbis** exécute Java 25 via un chemin codé en dur : **/usr/lib/jvm/java-25-openjdk/bin/java**. Il n'utilise pas la commande `java` par défaut : une version de Java installée ailleurs (par exemple, téléchargée depuis le site d'Oracle) ou sélectionnée avec `update-alternatives` n'est donc pas utilisée par **cbis**.
 
-  ```shell
-  systemctl restart cbis
-  ```
+Avant de commencer la procédure, assurez-vous qu'OpenJDK 25 est installé à cet emplacement :
+
+1. Vérifiez la version de Java à cet emplacement :
+
+   ```shell
+   /usr/lib/jvm/java-25-openjdk/bin/java -version
+   ```
+
+2. Si la commande échoue, installez OpenJDK 25 depuis les dépôts de votre distribution :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y java-25-openjdk-headless
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+apt update
+apt install -y openjdk-25-jre-headless
+```
+
+</TabItem>
+</Tabs>
+
+Une fois le serveur de reporting mis à jour, vous pouvez vérifier quel binaire Java est utilisé par **cbis** avec la commande suivante :
+
+```shell
+systemctl cat cbis | grep ExecStart
+```
 
 ### Procédure de montée de version
 
@@ -104,7 +118,7 @@ Vous pouvez maintenant procéder à la montée de version :
 ```shell
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf clean all
-dnf update centreon-bi\*
+dnf update -y centreon-bi\* centreon-mariadb centreon-perl-libs-common
 ```
 
 </TabItem>
@@ -112,7 +126,8 @@ dnf update centreon-bi\*
 
 ```shell
 apt clean
-apt install --only-upgrade centreon-bi-reporting-server
+apt update
+apt install -y --only-upgrade centreon-bi-reporting-server centreon-mariadb centreon-perl-libs-common
 ```
 
 </TabItem>

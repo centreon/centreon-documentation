@@ -63,28 +63,42 @@ Update button to update the extension and the widgets.
 ## Step 3: Upgrade the reporting server
 
 ### Java version requirement
-  
-  > Ensure a version of Java 25 is installed before you start the procedure.
-  
-  - If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-  - If you need to upgrade the Java installation to Java 25, go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java25) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 25 version:
-  
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  Then restart the service:
-  
-  ```shell
-  systemctl restart cbis
-  ```
+In version 26.10, the **cbis** service runs Java 25 through a hard-coded path: **/usr/lib/jvm/java-25-openjdk/bin/java**. It does not use the default `java` command, so a Java version installed elsewhere (for example, downloaded from the Oracle website) or selected with `update-alternatives` is not used by **cbis**.
+
+Before you start the procedure, make sure that OpenJDK 25 is installed at this location:
+
+1. Check the Java version at this path:
+
+   ```shell
+   /usr/lib/jvm/java-25-openjdk/bin/java -version
+   ```
+
+2. If the command fails, install OpenJDK 25 from your distribution's repositories:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y java-25-openjdk-headless
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+apt update
+apt install -y openjdk-25-jre-headless
+```
+
+</TabItem>
+</Tabs>
+
+Once the reporting server is upgraded, you can check which Java binary **cbis** uses with the following command:
+
+```shell
+systemctl cat cbis | grep ExecStart
+```
 
 ### Upgrade procedure
 
@@ -104,7 +118,7 @@ Now you can start the upgrade process:
 ```shell
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf clean all
-dnf update centreon-bi\*
+dnf update -y centreon-bi\* centreon-mariadb centreon-perl-libs-common
 ```
 
 </TabItem>
@@ -112,7 +126,8 @@ dnf update centreon-bi\*
 
 ```shell
 apt clean
-apt install --only-upgrade centreon-bi-reporting-server
+apt update
+apt install -y --only-upgrade centreon-bi-reporting-server centreon-mariadb centreon-perl-libs-common
 ```
 
 </TabItem>
