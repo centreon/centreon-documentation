@@ -478,10 +478,13 @@ MBI, menu **Rapports > Monitoring Business Intelligence > Paramètres globaux** 
 | Onglet                                                                                 | Option                     | Value                                                                                |
 |----------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------|
 | Options de  l'ordonnanceur                                                             | Hôte de CBIS               | Adresse IP du serveur de reporting                                                   |
-| Options de l'ETL | Une base de données MySQL dédiée au reporting a été mise en place | Oui                        |                                                                                      |
+| Options de l'ETL                                                                       | Une base de données MySQL dédiée au reporting a été mise en place | Oui                                           |
 | Widgets de reporting*                                                                  | Reporting MySQL database | Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting) |
+| Widgets de reporting*                                                                  | Mot de passe             | Mot de passe de l'utilisateur de base de données **centreonbi** sur le serveur de reporting |
 
-\* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation*
+\* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation.*
+
+> Le champ **Mot de passe** de l'onglet **Widgets de reporting** est prérempli avec **centreonbi**. Ce n'est pas le mot de passe que les scripts d'installation (**centreonMysqlRights.pl** et **install.sh**) définissent pour l'utilisateur **centreonbi**. Si vous conservez la valeur par défaut, les widgets ne peuvent pas se connecter à la base de reporting, et le test de connexion échoue avec l'erreur suivante : `Access denied for user 'centreonbi'@'<IP_CENTRAL>'`.
 
 ### Accès à la base de données centrale
 
@@ -934,46 +937,7 @@ apt install centreon-bi-reporting-server
 </TabItem>
 </Tabs>
 
-Ensuite, assurez-vous que Java 25 est installé à l'emplacement attendu par le service **cbis**. Le service **cbis** n'utilise pas la commande `java` par défaut : son fichier d'unité appelle le binaire Java via un chemin codé en dur (**/usr/lib/jvm/java-25-openjdk/bin/java**). Une version de Java installée ailleurs (par exemple, téléchargée depuis le site d'Oracle) ou sélectionnée avec `update-alternatives` n'est pas utilisée par **cbis**.
-
-1. Affichez le binaire Java utilisé par **cbis** :
-
-   ```shell
-   systemctl cat cbis | grep ExecStart
-   ```
-
-2. Vérifiez que ce binaire existe et qu'il est en version 25 (si le chemin affiché à l'étape précédente est différent, utilisez ce chemin) :
-
-   ```shell
-   /usr/lib/jvm/java-25-openjdk/bin/java -version
-   ```
-
-3. Si la commande échoue, installez OpenJDK 25 depuis les dépôts de votre distribution :
-
-<Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y java-25-openjdk-headless
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-```shell
-dnf install -y java-25-openjdk-headless
-```
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-```shell
-apt update
-apt install -y openjdk-25-jre-headless
-```
-
-</TabItem>
-</Tabs>
+Lors de l'installation des paquets MBI, java (OpenJDK 25) sera automatiquement installé en tant que dépendance, si nécessaire. Le service **cbis** utilise toujours **/usr/lib/jvm/java-25-openjdk**.
 
 #### Activer les services
 

@@ -479,10 +479,13 @@ menu, *Reports > Monitoring Business Intelligence > General Options*:
 | Tabs                                                                                   | Option                     | Value                                                                                |
 |----------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------|
 | Scheduler options                                                                      | CBIS Host                  | IP address of the reporting server                                                   |
-| ETL options | Reporting engine uses a dedicated MySQL server                | Yes                        |                                                                                      |
-| Reporting widgets                                                                      | Reporting MariaDB database | IP address of the reporting base (default = IP address of the reporting server)      |
+| ETL options                                                                            | Reporting engine uses a dedicated MySQL server | Yes                                                                  |
+| Reporting widgets*                                                                     | Reporting MariaDB database | IP address of the reporting base (default = IP address of the reporting server)      |
+| Reporting widgets*                                                                     | Password                   | Password of the **centreonbi** database user on the reporting server                 |
 
-\**The connection test will not work at this point in the installation*.
+\* *The connection test will not work at this point in the installation.*
+
+> The **Password** field of the **Reporting widgets** tab is prefilled with **centreonbi**. This is not the password that the installation scripts (**centreonMysqlRights.pl** and **install.sh**) set for the **centreonbi** user. If you keep the default value, the widgets cannot connect to the reporting database, and the connection test fails with the following error: `Access denied for user 'centreonbi'@'<IP_CENTRAL>'`.
 
 ### Access to the Central database
 
@@ -937,46 +940,7 @@ apt install centreon-bi-reporting-server
 </TabItem>
 </Tabs>
 
-Then, make sure that Java 25 is installed where the **cbis** service expects it. The **cbis** service does not use the default `java` command: its unit file calls the Java binary through a hard-coded path (**/usr/lib/jvm/java-25-openjdk/bin/java**). A Java version installed elsewhere (for example, downloaded from the Oracle website) or selected with `update-alternatives` is not used by **cbis**.
-
-1. Display the Java binary used by **cbis**:
-
-   ```shell
-   systemctl cat cbis | grep ExecStart
-   ```
-
-2. Check that this binary exists and is version 25 (if the path displayed in the previous step is different, use that path):
-
-   ```shell
-   /usr/lib/jvm/java-25-openjdk/bin/java -version
-   ```
-
-3. If the command fails, install OpenJDK 25 from your distribution's repositories:
-
-<Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y java-25-openjdk-headless
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-```shell
-dnf install -y java-25-openjdk-headless
-```
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-```shell
-apt update
-apt install -y openjdk-25-jre-headless
-```
-
-</TabItem>
-</Tabs>
+When installing the MBI packages, java (OpenJDK 25) is automatically installed as a dependency, if needed. The **cbis** service always uses **/usr/lib/jvm/java-25-openjdk**.
 
 #### Enable services
 

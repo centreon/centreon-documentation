@@ -64,41 +64,7 @@ apt install --only-upgrade centreon-bi-server
 
 ### Prérequis de la version Java
 
-En version 26.10, le service **cbis** exécute Java 25 via un chemin codé en dur : **/usr/lib/jvm/java-25-openjdk/bin/java**. Il n'utilise pas la commande `java` par défaut : une version de Java installée ailleurs (par exemple, téléchargée depuis le site d'Oracle) ou sélectionnée avec `update-alternatives` n'est donc pas utilisée par **cbis**.
-
-Avant de commencer la procédure, assurez-vous qu'OpenJDK 25 est installé à cet emplacement :
-
-1. Vérifiez la version de Java à cet emplacement :
-
-   ```shell
-   /usr/lib/jvm/java-25-openjdk/bin/java -version
-   ```
-
-2. Si la commande échoue, installez OpenJDK 25 depuis les dépôts de votre distribution :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install -y java-25-openjdk-headless
-```
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-```shell
-apt update
-apt install -y openjdk-25-jre-headless
-```
-
-</TabItem>
-</Tabs>
-
-Une fois le serveur de reporting mis à jour, vous pouvez vérifier quel binaire Java est utilisé par **cbis** avec la commande suivante :
-
-```shell
-systemctl cat cbis | grep ExecStart
-```
+La version 26.10 nécessite Java 25. Lors de la mise à jour des paquets MBI, java (OpenJDK 25) sera automatiquement installé en tant que dépendance, si nécessaire. Le service **cbis** utilise toujours **/usr/lib/jvm/java-25-openjdk**.
 
 ### Procédure de montée de version
 
