@@ -104,7 +104,7 @@ Utilisez les éléments de la section **Liens** pour établir des liens entre le
   - Host
   - Service
   - Service group
-  - Meta service
+  - Métaservice
 
 - Elément de la section **Centreon MAP** :
   - ### Conteneur
@@ -133,7 +133,7 @@ Le panneau **Format** vous permet d'appliquer des options de formatage en foncti
 En mode édition, vous pouvez ajouter plusieurs ressources à votre vue en une seule action.
 
 1. Cliquez dans la barre **Rechercher une ressource** au-dessus de la vue.
-2. Dans la liste déroulante, sélectionnez les ressources que vous souhaitez dans **Groupes d'hôtes, Hôtes, Groupes de services, Services, Méta-services et Activités métier**.
+2. Dans la liste déroulante, sélectionnez les ressources que vous souhaitez dans **Groupes d'hôtes, Hôtes, Groupes de services, Services, Métaservices et Activités métier**.
 3. Cliquez ensuite sur le bouton **Ajouter à la carte**.
 
 Les ressources que vous avez sélectionnées sont maintenant ajoutées à la vue !

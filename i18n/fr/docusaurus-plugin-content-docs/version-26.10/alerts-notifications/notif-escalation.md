@@ -15,7 +15,7 @@ Une escalade de notifications permet de contacter différents groupes de
 contacts au fil des notifications envoyées ou de changer le moyen de
 notification (remplacer les mails par un SMS). La définition d'une
 escalade de notification pour un hôte, un groupe d'hôte, un service, un
-groupe de services ou un méta-service écrase la configuration classique
+groupe de services ou un métaservice écrase la configuration classique
 des notifications pour cet objet.
 
 Exemple : Un service A est paramétré pour envoyer des notifications à un
