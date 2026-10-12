@@ -20,109 +20,24 @@ Ci-dessous la liste des widgets de reporting disponibles :
 
 > Dans le cas d'une mise à jour des ACLs, cliquez sur **Update Resources ACL** dans les options générales de Centreon MBI, onglet **Paramètre des rapports**
 
-
 ## Disponibilité et événements
 
-### Hostgroup availability by host categories by month
+### Hostgroup availability history
 
 #### Description
 
-Ce widget affiche la disponibilité des hôtes appartenant à un groupe
-d'hôtes en les répartissant par catégorie, par mois.
+Ce widget vous permet de visualiser la disponibilité d'un groupe d'hôtes triée par ses hôtes, ses catégories d'hôtes ou encore ses groupes d'hôtes.
 
-![image](../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month.png)
+![image](../assets/reporting/guide/mbi-hg-availability-history.png)
 
 #### Paramètres
 
 **Description**
 
--   Select the group : Sélectionner le groupe d'hôtes pour lequel
-    afficher les statistiques
--   Type the name of host categories to filter on : taper le nom d'une
-    ou plusieurs catégories d'hôtes. Séparer les catégories par des
-    virgules
--   Type the name the reporting period you want to use (has to be
-    calculated by Centreon BI) : Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
--   Chart type : Type de graphique à utiliser
--   Min value for graph (let empty for self-adjustement) : Valeur
-    minimum de l'axe des ordonnées
--   Max value for graph (let empty for self-adjustement) : Valeur
-    maximum de l'axe des ordonnées
--   Refresh Interval (seconds) : rafraichissement automatique du widgets
-
-**Exemple**
-
-![image](../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month_param.png)
-
-### Hostgroup availability by host by day
-
-#### Description
-
-Ce widget affiche la disponibililté des hôtes appartenant à un groupe
-d'hôtes , par jour.
-
-![image](../assets/reporting/guide/mbi-hg-availability-by-host-graph-day.png)
-
-#### Paramètres
-
-**Description**
-
--   Select the group : Sélectionner le groupe d'hôtes pour lequel
-    afficher les statistiques
--   Type the name of host categories to filter on : taper le nom d'une
-    ou plusieurs catégories d'hôtes. Séparer les catégories par des
-    virgules
--   Type the name the reporting period you want to use (has to be
-    calculated by Centreon BI) : Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
--   Select the reporting period : sélectionner la période de reporting
-    relative
--   Chart type : Type de graphique à utiliser
--   Min value for graph (let empty for self-adjustement) : Valeur
-    minimum de l'axe des ordonnées
--   Max value for graph (let empty for self-adjustement) : Valeur
-    maximum de l'axe des ordonnées
--   Refresh Interval (seconds) : rafraichissement automatique du widgets
-
-**Exemple**
-
-![image](../assets/reporting/guide/mbi-hg-availability-by-host-graph-day_param.png)
-
-### Hostgroups availability by hostgroups by month
-
-#### Description
-
-Ce widget affiche la disponibililté des hôtes appartenant à un groupe
-d'hôtes , par mois.
-
-![image](../assets/reporting/guide/mbi-hgs-availability-by-hg-graph-month.png)
-
-#### Paramètres
-
-**Description**
-
--   Select the group : Sélectionner le groupe d'hôtes pour lequel
-    afficher les statistiques
--   Type the name of host categories to filter on : taper le nom d'une
-    ou plusieurs catégories d'hôtes. Séparer les catégories par des
-    virgules
--   Type the name the reporting period you want to use (has to be
-    calculated by Centreon BI) : Taper le nom de la plage horaire de
-    reporting à utiliser. Cette plage horaire doit être présente dans la
-    configuration de Centreon MBI
--   Chart type : Type de graphique à utiliser
--   Min value for graph (let empty for self-adjustement) : Valeur
-    minimum de l'axe des ordonnées
--   Max value for graph (let empty for self-adjustement) : Valeur
-    maximum de l'axe des ordonnées
--   Refresh Interval (seconds) : rafraichissement automatique du widgets
-
-**Exemple**
-
-![image](../assets/reporting/guide/mbi-hgs-availability-by-hg-graph-month_param.png)
+- Calculations based on time period : Sélectionnez la [période temporelle](../monitoring/basic-objects/timeperiods.md) qu isera utilisée pour les calculs.
+- Display with this resource type : Choisissez d'afficher les données pour des groupes d'hôtes, catégories d'hôtes ou des hôtes.
+- Thresholds : Activez ou désactivez les seuils et configurez leur valeurs.
+- Refresh interval : Configurez la fréquence de mise à jour des données affichées.
 
 ### MTBF and MTRS par hôte
 
