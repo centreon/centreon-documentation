@@ -68,7 +68,7 @@ Dans cet exemple, nous passons de la version 10.11 à la version 11.8. Adaptez l
 dnf module reset mariadb -y
 ```
 
-3. Installez la version 10.11 :
+3. Installez la version 11.8 :
 
 ```shell
 dnf module enable -y mariadb:11.8
