@@ -68,6 +68,20 @@ systemctl daemon-reload
 systemctl restart mysqld
 ```
 
+It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). It must have at least 8 characaters, upper and lower case, a digit and a special character. Retrieve the temporary password created by MySQL:
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Then change it when prompted by the following command:
+
+```shell
+mysql_secure_installation
+```
+
+Answer **yes** to all the questions except "Disallow root login remotely?".
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
@@ -75,6 +89,20 @@ systemctl restart mysqld
 dnf install -y centreon-mysql centreon
 grep -q '^!includedir /etc/my.cnf.d' /etc/my.cnf || echo '!includedir /etc/my.cnf.d' >> /etc/my.cnf
 ```
+
+It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). It must have at least 8 characaters, upper and lower case, a digit and a special character. Retrieve the temporary password created by MySQL:
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Then change it when prompted by the following command:
+
+```shell
+mysql_secure_installation
+```
+
+Answer **yes** to all the questions except "Disallow root login remotely?".
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">

@@ -68,6 +68,20 @@ systemctl daemon-reload
 systemctl restart mysqld
 ```
 
+Vous devez obligatoirement définir un mot de passe pour l'utilisateur root de la base de données (vous aurez besoin de ce mot de passe lors de l'[installation web](web-and-post-installation.md)). Il doit comporter au moins 8 caractères, dont des majuscules, des minuscules, un chiffre et un caractère spécial. Récupérez le mot de passe temporaire créé par MySQL :
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Modifiez-le ensuite lorsque la commande suivante vous y invite :
+
+```shell
+mysql_secure_installation
+```
+
+Répondez **yes** à toutes les questions sauf à "Disallow root login remotely?".
+
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
@@ -75,6 +89,20 @@ systemctl restart mysqld
 dnf install -y centreon-mysql centreon
 grep -q '^!includedir /etc/my.cnf.d' /etc/my.cnf || echo '!includedir /etc/my.cnf.d' >> /etc/my.cnf
 ```
+
+Vous devez obligatoirement définir un mot de passe pour l'utilisateur root de la base de données (vous aurez besoin de ce mot de passe lors de l'[installation web](web-and-post-installation.md)). Il doit comporter au moins 8 caractères, dont des majuscules, des minuscules, un chiffre et un caractère spécial. Récupérez le mot de passe temporaire créé par MySQL :
+
+```shell
+grep 'temporary password' /var/log/mysqld.log
+```
+
+Modifiez-le ensuite lorsque la commande suivante vous y invite :
+
+```shell
+mysql_secure_installation
+```
+
+Répondez **yes** à toutes les questions sauf à "Disallow root login remotely?".
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
