@@ -88,6 +88,7 @@ Répondez **yes** à toutes les questions sauf à "Disallow root login remotely?
 ```shell
 dnf install -y centreon-mysql centreon
 grep -q '^!includedir /etc/my.cnf.d' /etc/my.cnf || echo '!includedir /etc/my.cnf.d' >> /etc/my.cnf
+systemctl start mysqld
 ```
 
 Vous devez obligatoirement définir un mot de passe pour l'utilisateur root de la base de données (vous aurez besoin de ce mot de passe lors de l'[installation web](web-and-post-installation.md)). Il doit comporter au moins 8 caractères, dont des majuscules, des minuscules, un chiffre et un caractère spécial. Récupérez le mot de passe temporaire créé par MySQL :
