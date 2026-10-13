@@ -137,12 +137,10 @@ C'est cette étape qui produit le certificat du serveur utilisable : l'autorité
 
 Créez d'abord un fichier qui définit les extensions du certificat. Les entrées `subjectAltName` doivent correspondre aux noms et adresses IP que les clients utilisent pour joindre le serveur. Sinon, la connexion est refusée.
 
-Remplacez **centreon.example.com** et **192.168.1.10** par le FQDN et l'adresse IP que les utilisateurs et Gorgone utilisent pour accéder à l'interface web :
-
 <Tabs groupId="sync">
 <TabItem value="Certificat du serveur web" label="Certificat du serveur web">
 
-Remplacez **db.example.com** et **192.168.1.20** par le FQDN et l'adresse IP que le serveur central utilise pour se connecter à la base de données. Avec une base de données locale, le serveur central se connecte via **localhost** : conservez donc les entrées `localhost` et `127.0.0.1` :
+Remplacez **centreon.example.com** et **192.168.1.10** par le FQDN et l'adresse IP que les utilisateurs et Gorgone utilisent pour accéder à l'interface web :
 
 ```shell
 sudo tee /out/web/web.ext > /dev/null <<'EOF'
