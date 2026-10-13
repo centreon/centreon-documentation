@@ -18,12 +18,12 @@ Cette procédure vous permet de créer l'ensemble de fichiers suivant, qui suffi
 | web.pem | Sur le serveur central/distant à sécuriser | Le certificat signé qui sera envoyé automatiquement à tout client tentant de se connecter au serveur central/distant sécurisé. |
 | db-key.pem | Sur le serveur de base de données à sécuriser | Clé privée de **db.pem** : reste secrète sur le serveur sécurisé. Sert à prouver l'identité du serveur. |
 | db.pem | Sur le serveur de base de données à sécuriser | Le certificat signé qui sera envoyé automatiquement à tout client tentant de se connecter au serveur de base de données sécurisé. |
-| rootCA.pem | Sur le client (navigateur, OS...) | Certificat auto-signé de l'autorité de certification racine. Il s'agit d'un fichier public, qui sert à valider le certificat **web.pem** ou **db.pem** reçu par le client. **rootCA.pem** devra être copié sur toutes les machines qui interagiront avec la machine sécurisée (celle qui a envoyé **web.pem** ou **db.pem**). |
-| rootCA.key | À conserver en lieu sûr, afin de pouvoir renouveler les certificats. | Clé privée de l'autorité de certification racine. Sert à signer **web.pem** et **db.pem**, ainsi qu'à signer de nouveaux certificats lorsqu'ils expirent (au bout de 397 jours). Ne la copiez jamais sur une autre machine. Si vous la perdez, vous devrez créer une nouvelle CA et redéployer **rootCA.pem** partout. |
+| rootCA.pem | Sur le client (navigateur, OS...) | Certificat auto-signé de l'autorité de certification racine. Il s'agit d'un fichier public, qui sert à valider le certificat **web.pem** ou **db.pem** reçu par le client. **rootCA.pem** devra être copié sur toutes les machines qui se connecteront à la machine sécurisée (celle qui a envoyé **web.pem** ou **db.pem**). |
+| rootCA.key | À conserver en lieu sûr, afin de pouvoir renouveler les certificats. | Clé privée de l'autorité de certification racine. Sert à signer **web.pem** et **db.pem**, ainsi qu'à signer de nouveaux certificats lorsqu'ils expirent (au bout de 397 jours). Ne la copiez jamais sur une autre machine. Si vous la perdez, vous devrez créer une nouvelle autorité de certification et redéployer **rootCA.pem** partout. |
 
 ## Ce que fait cette procédure
 
-La procédure crée les fichiers nécessaires à la mise en place d'une connexion TLS, dans des dossiers temporaires. Lorsque vous configurez HTTPS sur un serveur, vous devez déployer les fichiers nécessaires au bon emplacement (la dernière étape explique où les copier).
+La procédure crée les fichiers nécessaires à la mise en place d'une connexion TLS, dans des répertoires temporaires. Lorsque vous configurez HTTPS sur un serveur, vous devez déployer les fichiers nécessaires au bon emplacement (la dernière étape explique où les copier).
 
 La procédure peut être exécutée sur une plateforme Centreon disposant d'une base de données locale ou distante.
 
@@ -32,7 +32,7 @@ La procédure peut être exécutée sur une plateforme Centreon disposant d'une 
 
 ## Étape 1 : Créer les répertoires de sortie
 
-Créez des dossiers pour organiser les fichiers : un pour les fichiers propres à l'autorité de certification, un pour les fichiers destinés au service web ou au service de base de données.
+Créez des répertoires pour organiser les fichiers : un pour les fichiers propres à l'autorité de certification, un pour les fichiers destinés au service web ou au service de base de données.
 
 Pour l'autorité de certification :
 
@@ -85,7 +85,7 @@ sudo openssl req -x509 -new -key /out/CA/rootCA.key \
   -out /out/CA/rootCA.pem
 ```
 
-## Étape 4 : Générer la clé privée du serveur final (RSA 2048 bits)
+## Étape 4 : Générer la clé privée du serveur (RSA 2048 bits)
 
 Il s'agit de la clé privée du serveur lui-même (du serveur central/distant ou de la base de données). Elle est distincte de la clé de l'autorité de certification : le serveur ne doit jamais partager une clé avec l'autorité de certification.
 
@@ -108,7 +108,7 @@ sudo openssl genrsa -out /out/db/db-key.pem 2048
 
 ## Étape 5 : Générer une demande de signature de certificat
 
-Une CSR (Certificate Signing Request) est une demande générée à partir de la clé privée du serveur. Elle signifie : « Voici mon identité, merci de me signer ». Elle n'a aucun effet par elle-même. Ce fichier intermédiaire sert uniquement à l'étape 7 (vous pouvez le supprimer ensuite si vous le souhaitez).
+Une CSR (Certificate Signing Request) est une demande générée à partir de la clé privée du serveur. Elle signifie : « Voici mon identité, merci de me signer ». Elle n'a aucun effet par elle-même. Ce fichier intermédiaire sert uniquement à l'étape 6 (vous pouvez le supprimer ensuite si vous le souhaitez).
 
 Remplacez **centreon.example.com** ou **db.example.com** par le FQDN de votre serveur. Utilisez le même nom que la première entrée DNS du fichier **.ext** à l'étape 6.
 
@@ -131,9 +131,9 @@ sudo openssl req -new -key /out/db/db-key.pem -out /out/db/db.csr \
 </TabItem>
 </Tabs>
 
-## Étape 6 : Signer le certificat final avec l'autorité de certification racine (validité de 397 jours)
+## Étape 6 : Signer le certificat du serveur avec l'autorité de certification racine (validité de 397 jours)
 
-C'est cette étape qui produit le certificat serveur utilisable : l'autorité de certification (son certificat et sa clé privée, créés aux étapes 2 et 3) signe la CSR de l'étape 5.
+C'est cette étape qui produit le certificat du serveur utilisable : l'autorité de certification (son certificat et sa clé privée, créés aux étapes 2 et 3) signe la CSR de l'étape 5.
 
 Créez d'abord un fichier qui définit les extensions du certificat. Les entrées `subjectAltName` doivent correspondre aux noms et adresses IP que les clients utilisent pour joindre le serveur. Sinon, la connexion est refusée.
 
@@ -142,13 +142,7 @@ Remplacez **centreon.example.com** et **192.168.1.10** par le FQDN et l'adresse 
 <Tabs groupId="sync">
 <TabItem value="Certificat du serveur web" label="Certificat du serveur web">
 
-```shell
-sudo openssl x509 -req -in /out/web/server.csr \
-  -CA /out/CA/rootCA.pem -CAkey /out/CA/rootCA.key \
-  -CAserial /out/CA/rootCA.srl -CAcreateserial \
-  -out /out/web/server.pem -days 397 -sha256 \
-  -extfile /out/cert.ext -extensions v3_req
-```
+Remplacez **db.example.com** et **192.168.1.20** par le FQDN et l'adresse IP que le serveur central utilise pour se connecter à la base de données. Avec une base de données locale, le serveur central se connecte via **localhost** : conservez donc les entrées `localhost` et `127.0.0.1` :
 
 ```shell
 sudo tee /out/web/web.ext > /dev/null <<'EOF'
