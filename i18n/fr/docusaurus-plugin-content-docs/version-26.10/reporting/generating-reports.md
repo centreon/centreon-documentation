@@ -11,9 +11,9 @@ Les rapports MBI sont créés en utilisant des tâches planifiées (ou "jobs"). 
 ## Étape 1 : Créer une nouvelle tâche
 
 1. Assurez-vous d'avoir [préparé vos données](preparing-data.md) selon les prérequis MBI.
-2. Allez à la page **Rapports > Monitoring Business Intelligence > Jobs**.
-3. Cliquez sur **Add** pour créer une nouvelle tâche.
-4. Dans l'onglet **Job parameters**, dans le champ **Modèle de rapport**, sélectionnez le modèle de rapport que vous souhaitez utiliser. Chaque modèle de rapport contient des données spécifiques : consultez notre [catalogue des rapports disponibles](available-reports/available-reports.md) pour choisir un modèle adapté à vos besoins. (Une fois que vous avez choisi un modèle de rapport, le contenu de [l'onglet **Paramètres du rapport**](#définir-des-paramètres-spécifiques-au-rapport) se met à jour).
+2. Allez à la page **Rapports > Monitoring Business Intelligence > Tâches**.
+3. Cliquez sur **Ajouter** pour créer une nouvelle tâche.
+4. Dans l'onglet **Paramètres de la tâche**, dans le champ **Modèle de rapport**, sélectionnez le modèle de rapport que vous souhaitez utiliser. Chaque modèle de rapport contient des données spécifiques : consultez notre [catalogue des rapports disponibles](available-reports/available-reports.md) pour choisir un modèle adapté à vos besoins. (Une fois que vous avez choisi un modèle de rapport, le contenu de [l'onglet **Contenu du rapport**](#définir-des-paramètres-spécifiques-au-rapport) se met à jour).
 
 ## Étape 2 : Configurer la tâche
 
@@ -45,7 +45,7 @@ Dans la section **Planification** de l'onglet **Paramètres de la tâche** :
 
 ### Définir des paramètres spécifiques au rapport
 
-Allez dans l'onglet **Contenu du rapport** de la page de configuration de tâche. Le contenu de cette page varie en fonction du modèle de rapport que vous avez choisi dans [l'onglet **Configuration**](#configuration-des-paramètres-principaux) (la page sera vide si vous n'avez pas encore choisi un modèle de rapport). Généralement, les champs vous permettront de définir les groupes d'hôtes, les catégories d'hôtes et les catégories de services à inclure dans le rapport.
+Allez dans l'onglet **Contenu du rapport** de la page de configuration de tâche. Le contenu de cette page varie en fonction du modèle de rapport que vous avez choisi dans [l'onglet **Paramètres de la tâche**](#configuration-des-paramètres-principaux) (la page sera vide si vous n'avez pas encore choisi un modèle de rapport). Généralement, les champs vous permettront de définir les groupes d'hôtes, les catégories d'hôtes et les catégories de services à inclure dans le rapport.
 
 ### Choisir des règles de publication pour partager le rapport généré (facultatif)
 
@@ -60,7 +60,7 @@ Sélectionnez les [**Règles de publication**](reports-publication-rule.md) souh
 
 Une fois que la tâche est configurée comme vous le souhaitez, sauvegardez-la.
 
-* La tâche apparaît dans la liste des tâches de la page **Reporting > Monitoring Business Intelligence > Tâches**. Une icône à gauche montre le statut actuel de la tâche (**Ordonnancer, en cours, en échec, arrêté, terminé**). 
-* Une fois générés, les rapports sont disponibles dans la page **Reporting > Monitoring Business Intelligence > Visualisation des rapports**. Cliquez sur les icônes des formats de sortie pour les télécharger.
+* La tâche apparaît dans la liste des tâches de la page **Rapports > Monitoring Business Intelligence > Tâches**. Une icône à gauche montre le statut actuel de la tâche (**Ordonnancer, en cours, en échec, arrêté, terminé**). 
+* Une fois générés, les rapports sont disponibles dans la page **Rapports > Monitoring Business Intelligence > Visualisation des rapports**. Cliquez sur les icônes des formats de sortie pour les télécharger.
 
 Vous rencontrez des problèmes ? [Dépannez](troubleshooting.md) votre configuration.
