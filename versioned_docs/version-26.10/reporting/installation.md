@@ -777,13 +777,13 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Install the **epel** repository:
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-Enable the **powertools** repository:
+Enable the **crb** repository:
 
 ```shell
-dnf config-manager --set-enabled 'powertools'
+dnf config-manager --set-enabled 'crb'
 ```
 </TabItem>
 <TabItem value="RHEL 10" label="RHEL 10">
@@ -791,13 +791,13 @@ dnf config-manager --set-enabled 'powertools'
 Install the **epel** repository:
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
 Enable the **codeready-builder** repositories:
 
 ```shell
-subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
 ```
 
 </TabItem>
@@ -806,13 +806,13 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 Install the **epel** repository:
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
 Enable the **codeready-builder** repositories:
 
 ```shell
-dnf config-manager --set-enabled ol9_codeready_builder
+dnf config-manager --set-enabled ol10_codeready_builder
 ```
 </TabItem>
 <TabItem value="Alma 10" label="Alma 10">
@@ -820,7 +820,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 Install the **epel** repository:
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
 Run the following command:

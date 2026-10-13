@@ -775,13 +775,13 @@ dnf config-manager --set-enabled ol8_codeready_builder
 Installez le dépôt **epel** :
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-Activez les dépôts powertools :
+Activez les dépôts **crb** :
 
 ```shell
-dnf config-manager --set-enabled 'powertools'
+dnf config-manager --set-enabled 'crb'
 ```
 </TabItem>
 <TabItem value="RHEL 10" label="RHEL 10">
@@ -789,13 +789,13 @@ dnf config-manager --set-enabled 'powertools'
 Installez le dépôt **epel** :
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
 Activer les dépôts **codeready-builder** :
 
 ```shell
-subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
 ```
 
 </TabItem>
@@ -804,13 +804,13 @@ subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 Installez le dépôt **epel** :
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
 Activez les dépôts **codeready-builder** :
 
 ```shell
-dnf config-manager --set-enabled ol9_codeready_builder
+dnf config-manager --set-enabled ol10_codeready_builder
 ```
 </TabItem>
 <TabItem value="Alma 10" label="Alma 10">
@@ -818,7 +818,7 @@ dnf config-manager --set-enabled ol9_codeready_builder
 Installez le dépôt **epel** :
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
 Exécutez la commande suivante :
@@ -889,9 +889,6 @@ echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysq
 systemctl daemon-reload
 systemctl restart mysqld
 systemctl list-units --type=service | grep -i mysql
-sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
-sudo systemctl start mysqld
-sudo systemctl status mysqld
 ```
 
 </TabItem>
