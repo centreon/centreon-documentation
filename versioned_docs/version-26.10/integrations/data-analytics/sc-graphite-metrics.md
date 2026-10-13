@@ -119,7 +119,7 @@ Each optional parameter has a default value, that is indicated in the correspond
 
 * The Graphite Metrics stream connector also provides a set of dedicated parameters to tune which data you send and how it is sent
 
-> Beware, options listed in the below table that add data to a metric are all disabled by default. Keep in mind that enabling them will increase the data volume sent to Graphite because it will either: 
+> Note that options listed in the table below that add data to a metric are all disabled by default. Keep in mind that enabling them will increase the data volume sent to Graphite because it will either: 
 > - Add new tags to a metric
 > - Generate up to 5 additional metric events per metric plus tags (hostgroups being sent only through tags)
 > The Test commands in the [Test commands section](#test-commands-testing-the-stream-connector) are examples with every option set to 1 or "as_metric".
@@ -136,7 +136,7 @@ Each optional parameter has a default value, that is indicated in the correspond
 
 ## Event bulking
 
-This stream connector is compatible with event bulking. Meaning that it is able to send more than one event in each call to Graphite.
+This stream connector is compatible with event bulking. This means that it is able to send more than one event in each call to Graphite.
 
 To use this feature you must add the following parameter in your stream connector configuration.
 
@@ -216,7 +216,7 @@ Where:
 
 - seriesByTag() function and parameters are used to filter the metric we want.
 - aliasByTags() function and parameters are used to avoid displaying an unnecessarily long metric name (by default it displays all tags).
-- The first query is used to display the metric value evolution overtime.
+- The first query is used to display the metric value evolution over time.
 - The second query is used to display the warning threshold curve on the graph.
 
 The table below lists every usable tags:
@@ -226,7 +226,7 @@ The table below lists every usable tags:
 | poller                    | no       | the name of the poller monitoring the host                                                                       |
 | host                      | no       | the name of the host                                                                                             |
 | type                      | no       | can be `metric_[value\|state\| min\|max\|warning_threshold\|critical_threshold]`                                 |
-| service                   | yes      | only for services events, the name of the service                                                                |
+| service                   | yes      | only for service events, the name of the service                                                                |
 | hostgroups                | yes      | only if the parameter "add_hostgroups" is set to "1" and there is at least one hostgroup linked to the host      |
 | metric_instance           | yes      | only if the Centreon metric modern format contains one                                                           |
 | metric_subinstances       | yes      | only if the Centreon metric modern format contains at least one                                                  |
