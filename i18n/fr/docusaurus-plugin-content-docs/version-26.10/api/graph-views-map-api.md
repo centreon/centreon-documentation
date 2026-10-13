@@ -1,6 +1,6 @@
 ---
 id: map-api
-title: Automatiser MAP via APi
+title: Automatiser MAP via l'API
 description: "Automatiser la création et la maintenance des cartes standard via l'API"
 ---
 
@@ -164,7 +164,7 @@ Body: {
 
 ### Avec une authentification déléguée
 
-Un utilisateur peut utiliser les APIs de MAP en utilisant un [jeton d'authentication](./authentication-tokens.md), comme ci-dessous dans le header :
+Un utilisateur peut utiliser les APIs de MAP en utilisant un [jeton d'authentification](./authentication-tokens.md), comme ci-dessous dans le header :
 
 ```
 Headers {

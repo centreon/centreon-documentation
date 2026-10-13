@@ -4,9 +4,6 @@ title: Authentication tokens
 description: "Overview of API and CMA authentication tokens, who can create them, and how to generate, disable, or delete them"
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 There are several types of authentication tokens:
 
 * API tokens: used to authenticate requests made to the Centreon API, allowing external tools or scripts to interact with the platform programmatically.
@@ -17,11 +14,12 @@ On the **Administration > Authentication tokens** page, you can filter the list 
 
 ## Who can create authentication tokens?
 
-[Users with an **Administrator** role](../administration/access-control-lists.md#granting-rights-to-a-user) can access the **Administration > Authentication tokens** page and can:
+[Users](../administration/access-control-lists.md#granting-rights-to-a-user) who can access the **Administration > Authentication tokens** page can create tokens for themselves.
 
-* create tokens for themselves.
+Administrators, as well as users with the **Manage API tokens** permission in [action ACLs](../administration/access-control-lists.md#access-filters-on-actions), can also:
+
 * see the list of tokens created by other users.
-* create tokens for other users, and can disable or delete them.
+* create tokens for other users, and disable or delete them.
 
 ## Creating an authentication token
 
@@ -37,7 +35,7 @@ On the **Administration > Authentication tokens** page, you can filter the list 
 
 The list of tokens shows the status of each token in the far left column (enabled, valid but disabled, expired). <!-- The date when the token was last used is also shown. -->
 
-Users with the **Administrator** role can:
+Administrators and users with the **Manage API tokens** permission can:
 
 * Disable a valid authentication token using the **Enabled/Disabled** switch to the right of the line. The token can still be reenabled later.
 * Delete a token using the **Delete** button.
