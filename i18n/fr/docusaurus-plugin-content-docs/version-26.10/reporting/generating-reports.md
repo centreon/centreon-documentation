@@ -25,7 +25,7 @@ Allez sur l'onglet **Paramètres de la tâche** de la page de création de tâch
 * Sélectionnez le [**groupe de tâches liés**](concepts.md#groupes-de-tâches) que vous voulez afin de [partager le rapport avec d'autres utilisateurs non-administrateurs](share.md) :
    * Ils pourront modifier la tâche (s'ils ont le droit d'accéder à la page **Reporting > Monitoring Business Intelligence > Tâches**).
    * Ils pourront voir le rapport généré à la page **Rapports > Monitoring Business Intelligence > Visualisation des rapports** (s'ils ont les bons ACL pour accéder à cette page).
-   * Attention, partager le rapport est différent de [publier le rapport pour d'autres utilisateurs](reports-publication-rule.md) : cette dernière action se fait depuis la section **Publication**.
+   * Attention, partager le rapport est différent de [publier le rapport pour d'autres utilisateurs](reports-publication-rule.md) : cette dernière action se fait depuis la section **Publication** et permet d'envoyer le rapport directement à quelqu'un.
 
 * Sélectionnez la langue du rapport : vous pouvez générer des rapports en français ou en anglais (ignorez le bouton **Rafraîchir** à côté de la liste).
 * Sélectionnez les **Formats de sortie** que vous voulez pour ce rapport : attention, tous les formats de sortie en sont pas supportés par tous les modèles de rapport. Consultez le [catalogue des modèles disponibles](available-reports/available-reports.md) pour confirmer les formats de sortie supportés par le rapport que vous avez choisi.
@@ -33,14 +33,14 @@ Allez sur l'onglet **Paramètres de la tâche** de la page de création de tâch
 
 ### Planifier l'exécution d'une tâche
 
-Dans la section **Ordonnancement** de l'onglet **Paramètres de la tâche** :
+Dans la section **Planification** de l'onglet **Paramètres de la tâche** :
 
-* Sélectionnez un **Mode d'exécution** :
+* Sélectionnez une planification :
 
-   - **Immédiate** : spécifiez la période de temps couverte par le rapport. Le rapport sera généré lorsque vous cliquerez sur le bouton **Enregistrer** une fois que vous aurez terminé de configurer la tâche. (Notez que si vous décochez la case **Périodes**, le rapport sera vide.)
-   - **Exécution planifiée** : **Unique** : s'exécute une seule fois au jour et à l'heure prévue. Vous devez spécifier la période de temps couverte par le rapport. (Notez que si vous décochez la case **Périodes**, le rapport sera vide.)
+   - **Immédiate** : spécifiez la période de temps couverte par le rapport. Le rapport sera généré lorsque vous cliquerez sur le bouton **Enregistrer** une fois que vous aurez terminé de configurer la tâche.
+   - **Planifiée** : **Unique** : s'exécute une seule fois au jour et à l'heure prévue. Vous devez spécifier la période de temps couverte par le rapport.
    choisissez entre :
-   - **Cyclique** : s'exécute à intervalles définis (quotidiennement, hebdomadairement ou mensuellement) et utilise son propre intervalle comme période de reporting. Par exemple, les rapports hebdomadaires contiennent des informations sur la semaine écoulée.
+   - **Récurrente** : s'exécute à intervalles définis (quotidiennement, hebdomadairement ou mensuellement) et utilise son propre intervalle comme période de reporting. Par exemple, les rapports hebdomadaires contiennent des informations sur la semaine écoulée.
    
 
 ### Définir des paramètres spécifiques au rapport

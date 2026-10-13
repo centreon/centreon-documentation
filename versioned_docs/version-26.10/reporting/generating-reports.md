@@ -25,7 +25,7 @@ Go to the **Job parameters** tab of the job creation page.
 * Select the [**job groups**](concepts.md#job-groups) you want so as to [share your report with other non-admin users](share.md):
    * They will be able to edit the job (if they have the correct ACL to access the **Reporting > Monitoring Business Intelligence > Jobs** page).
    * They will be able to see the generated report in the **Reporting > Monitoring Business Intelligence > Report view** page (if they have the correct ACL to access this page).
-   * This is not the same as [publishing your report for other users](reports-publication-rule.md), which is done using the **Publication** section.
+   * This is not the same as [publishing your report for other users](reports-publication-rule.md), which is done using the **Publication** section and allows you to directly send the report to someone.
 
 * Select the **Language** of the report: you can generate reports in French or English (ignore the refresh icon next to the list).
 * Select the **Output formats** you want for this report: bear in mind that not all report designs support all formats. Refer to the [catalog of available reports](available-reports/available-reports.md) to find out which outputs are supported for the report design you selected.  
@@ -34,12 +34,12 @@ Go to the **Job parameters** tab of the job creation page.
 - **Enable administrator notification** for administrators to be alerted whenever this report is generated. This option must be enabled in the **Reporting > Monitoring Business Intelligence > General Options** page, under **Notification options**.
 
 ### Schedule job execution
-
+tu 
 In the **Scheduling** section of the **Job parameters** tab:
 
 * Select an execution mode:
-   - **Immediate**: specify the reporting period (i.e. the time range) covered by the report. The report will be generated when you click the **Save** button once you have finished configuring the job. (Note that if you uncheck the **Periods** box, the report will be blank.)
-   - **Scheduled**: Executes once at the scheduled time. You need to specify the reporting period (i.e. the time range) covered by the report. (Note that if you uncheck the **Periods** box, the report will be blank.)
+   - **Immediate**: specify the reporting period (i.e. the time range) covered by the report. The report will be generated when you click the **Save** button once you have finished configuring the job.
+   - **Scheduled**: Executes once at the scheduled time. You need to specify the reporting period (i.e. the time range) covered by the report.
    - **Recurring**: Executes at defined intervals (daily, weekly or monthly) and uses its own interval as the reporting period i.e. weekly reports contain information about the past week.
 
 ### Define report-specific parameters
