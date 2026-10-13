@@ -1,7 +1,6 @@
 ---
 id: applications-databases-oracle
 title: Oracle Database
-description: "Supervisez Oracle Database via des requêtes SQL : utilisation des tablespaces, sauvegardes RMAN, groupes de disques ASM, sessions et connexions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -27,17 +26,19 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-DB-Oracle-custom" label="App-DB-Oracle-custom">
 
-| Alias                   | Modèle de service                            | Description                                                                                             | Découverte |
-|:------------------------|:---------------------------------------------|:--------------------------------------------------------------------------------------------------------|:----------:|
-| Connection-Number       | App-DB-Oracle-Connection-Number-custom       | Contrôle permettant de vérifier le nombre de connexions au serveur Oracle                               |            |
-| Connection-Time         | App-DB-Oracle-Connection-Time-custom         | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes        |            |
-| Corrupted-Blocks        | App-DB-Oracle-Corrupted-Blocks-custom        | Contrôle permettant de vérifier le nombre de blocks corrompus du serveur.                               |            |
-| Datacache-Hitratio      | App-DB-Oracle-Datacache-Hitratio-custom      | Contrôle permettant de vérifier le 'Data Buffer Cache Hit Ratio' du serveur. Aucunes alertes par défaut |            |
-| Process-Usage           | App-DB-Oracle-Process-Usage-custom           | Contrôle permettant de vérifier l'utilisation des 'process' Oracle                                      |            |
-| Rman-Backup-Problems    | App-DB-Oracle-Rman-Backup-Problems-custom    | Contrôle permettant de vérifier les erreurs de sauvegarde 'RMAN' du serveur durant les 3 derniers jours |            |
-| Session-Usage           | App-DB-Oracle-Session-Usage-custom           | Contrôle permettant de vérifier l'utilisation des sessions                                              |            |
-| Tablespace-Usage-Global | App-DB-Oracle-Tablespace-Usage-Global-custom | Contrôle permettant de vérifier l'utilisation des 'tablespaces' du serveur                              |     X      |
-| Tnsping                 | App-DB-Oracle-Tnsping-custom                 | Contrôle permettant de vérifier la connexion à un 'listener' distant                                    |            |
+| Alias                   | Modèle de service                            | Description                                                                                                                 | Découverte |
+|:------------------------|:---------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|:----------:|
+| Connection-Number       | App-DB-Oracle-Connection-Number-custom       | Contrôle permettant de vérifier le nombre de connexions au serveur Oracle                                                   |            |
+| Connection-Time         | App-DB-Oracle-Connection-Time-custom         | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                            |            |
+| Connection-Time         | App-DB-Rman-Catalog-Connection-Time-custom   | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                            |            |
+| Corrupted-Blocks        | App-DB-Oracle-Corrupted-Blocks-custom        | Contrôle permettant de vérifier le nombre de blocks corrompus du serveur.                                                   |            |
+| Datacache-Hitratio      | App-DB-Oracle-Datacache-Hitratio-custom      | Contrôle permettant de vérifier le 'Data Buffer Cache Hit Ratio' du serveur. Aucunes alertes par défaut                     |            |
+| Process-Usage           | App-DB-Oracle-Process-Usage-custom           | Contrôle permettant de vérifier l'utilisation des 'process' Oracle                                                          |            |
+| Rman-Backup-Problems    | App-DB-Oracle-Rman-Backup-Problems-custom    | Contrôle permettant de vérifier les erreurs de sauvegarde 'RMAN' du serveur durant les 3 derniers jours                     |            |
+| Rman-Backup-Problems    | App-DB-Rman-Catalog-Backup-Problems-custom   | Contrôle permettant de vérifier les erreurs de sauvegarde RMAN du serveur durant les 3 derniers jours via un catalogue RMAN |            |
+| Session-Usage           | App-DB-Oracle-Session-Usage-custom           | Contrôle permettant de vérifier l'utilisation des sessions                                                                  |            |
+| Tablespace-Usage-Global | App-DB-Oracle-Tablespace-Usage-Global-custom | Contrôle permettant de vérifier l'utilisation des 'tablespaces' du serveur                                                  |     X      |
+| Tnsping                 | App-DB-Oracle-Tnsping-custom                 | Contrôle permettant de vérifier la connexion à un 'listener' distant                                                        |            |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-DB-Oracle-custom** est utilisé.
 
@@ -48,14 +49,16 @@ Le connecteur apporte les modèles de service suivants
 
 | Alias                | Modèle de service                          | Description                                                                                                                 |
 |:---------------------|:-------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
+| Connection-Time      | App-DB-Oracle-Connection-Time-custom       | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                            |
 | Connection-Time      | App-DB-Rman-Catalog-Connection-Time-custom | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                            |
-| Rman-Backup-Age      | App-DB-Rman-Catalog-Backup-Age-custom      | Contrôle permettant de vérifier l'ancienneté des sauvegardes RMAN via un catalogue RMAN                              |
+| Rman-Backup-Age      | App-DB-Rman-Catalog-Backup-Age-custom      | Contrôle permettant de vérifier l'ancienneté des sauvegardes RMAN via un Recovery Catalog RMAN                              |
+| Rman-Backup-Age      | App-DB-Oracle-Rman-Backup-Age-custom       | Contrôle permettant de vérifier l'ancienneté des sauvegardes 'RMAN'                                                         |
+| Rman-Backup-Problems | App-DB-Oracle-Rman-Backup-Problems-custom  | Contrôle permettant de vérifier les erreurs de sauvegarde 'RMAN' du serveur durant les 3 derniers jours                     |
 | Rman-Backup-Problems | App-DB-Rman-Catalog-Backup-Problems-custom | Contrôle permettant de vérifier les erreurs de sauvegarde RMAN du serveur durant les 3 derniers jours via un catalogue RMAN |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-DB-Rman-Catalog-custom** est utilisé.
 
 </TabItem>
-
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
 | Alias                            | Modèle de service                                     | Description                                                                                                 | Découverte |
@@ -70,6 +73,7 @@ Le connecteur apporte les modèles de service suivants
 | Library-Cache-Usage              | App-DB-Oracle-Library-Cache-Usage-custom              | Contrôle permettant de vérifier le 'library cache'                                                          |            |
 | Long-Queries                     | App-DB-Oracle-Long-Queries-custom                     | Contrôle permettant de vérifier les longues requêtes.                                                       |            |
 | Redolog-Usage                    | App-DB-Oracle-Redolog-Usage-custom                    | Contrôle permettant de vérifier le 'redo log'                                                               |            |
+| Rman-Backup-Age                  | App-DB-Rman-Catalog-Backup-Age-custom                 | Contrôle permettant de vérifier l'ancienneté des sauvegardes RMAN via un Recovery Catalog RMAN              |            |
 | Rman-Backup-Age                  | App-DB-Oracle-Rman-Backup-Age-custom                  | Contrôle permettant de vérifier l'ancienneté des sauvegardes 'RMAN'                                         |            |
 | Rman-Backup-Online-Age           | App-DB-Oracle-Rman-Backup-Online-Age-custom           | Contrôle permettant de vérifier l'ancienneté des sauvegardes 'RMAN' en mode online                          |            |
 | Rollback-Segment-Usage           | App-DB-Oracle-Rollback-Segment-Usage-custom           | Contrôle permettant de vérifier l'utilisation des 'rollback segment'.                                       |            |
@@ -87,10 +91,10 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                        | Description                                                                                    |
-|:---------------------------------------|:-----------------------------------------------------------------------------------------------|
-| App-DB-Oracle-ASM-Diskgroup-Usage-Name | Découvre les disques ASM du serveur Oracle et supervise leur statut ainsi que leur utilisation |
-| App-DB-Oracle-Tablespaces-Usage-Name   | Découvre les 'tablespaces' du serveur Oracle et permet de les superviser                       |
+| Nom de la règle                        | Description                                                                         |
+|:---------------------------------------|:------------------------------------------------------------------------------------|
+| App-DB-Oracle-ASM-Diskgroup-Usage-Name | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
+| App-DB-Oracle-Tablespaces-Usage-Name   | Découvre les 'tablespaces' du serveur Oracle et permet de les superviser            |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -102,12 +106,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="ASM-Diskgroup-Usage-*" label="ASM-Diskgroup-Usage-*">
 
-| Nom           | Unité |
-|:--------------|:------|
-| status        | N/A   |
-| offline-disks | N/A   |
-| usage         | N/A   |
-| usage-failure | N/A   |
+| Nom                | Unité |
+|:-------------------|:------|
+| status             | N/A   |
+| offline-disks      | N/A   |
+| *dg*#usage         | N/A   |
+| *dg*#usage-failure | N/A   |
 
 > Concerne les modèles de service suivants : ASM-Diskgroup-Usage-Generic-Name, ASM-Diskgroup-Usage-Global
 
@@ -118,21 +122,23 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Nom             | Unité |
 |:----------------|:------|
-| connected_users | count |
+| connected_users | N/A   |
 
 </TabItem>
-<TabItem value="Connection-Time" label="Connection-Time">
+<TabItem value="Connection-Time*" label="Connection-Time*">
 
 | Nom                          | Unité |
 |:-----------------------------|:------|
 | connection.time.milliseconds | ms    |
+
+> Concerne les modèles de service suivants : Connection-Time, Connection-Time
 
 </TabItem>
 <TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
 
 | Nom              | Unité |
 |:-----------------|:------|
-| corrupted_blocks | count |
+| corrupted_blocks | N/A   |
 
 </TabItem>
 <TabItem value="Data-Files-Status" label="Data-Files-Status">
@@ -228,7 +234,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | redolog.traffic.io.bytespersecond | B/s   |
 
 </TabItem>
-<TabItem value="Rman-Backup-Age" label="Rman-Backup-Age">
+<TabItem value="Rman-Backup-Age*" label="Rman-Backup-Age*">
 
 | Nom    | Unité |
 |:-------|:------|
@@ -242,7 +248,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | status | N/A   |
 
 </TabItem>
-<TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
+<TabItem value="Rman-Backup-Problems*" label="Rman-Backup-Problems*">
 
 | Nom                                        | Unité |
 |:-------------------------------------------|:------|
@@ -250,6 +256,8 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | rman.backups.failed.count                  | count |
 | rman.backups.completed_with_warnings.count | count |
 | rman.backups.completed_with_errors.count   | count |
+
+> Concerne les modèles de service suivants : Rman-Backup-Problems, Rman-Backup-Problems
 
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">
@@ -326,10 +334,6 @@ apt install wget gcc make unzip libaio1 libdbi-perl
 
 </TabItem>
 </Tabs>
-
-###  Oracle instant client
-
-## Prérequis
 
 ### Oracle Instant Client
 
@@ -553,7 +557,6 @@ Ce compte utilisateur doit avoir la permission de lecture/READ (Oracle 12+) ou d
   - v_$tempfile
   - v_$event\_name
   - v_$waitstat
-  
 
 ## Installer le connecteur de supervision
 
@@ -586,6 +589,13 @@ dnf install centreon-pack-applications-databases-oracle
 
 ```bash
 apt install centreon-pack-applications-databases-oracle
+```
+
+</TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-pack-applications-databases-oracle
 ```
 
 </TabItem>
@@ -627,6 +637,13 @@ apt install centreon-plugin-applications-databases-oracle
 ```
 
 </TabItem>
+<TabItem value="CentOS 7" label="CentOS 7">
+
+```bash
+yum install centreon-plugin-Applications-Databases-Oracle
+```
+
+</TabItem>
 </Tabs>
 
 ## Utiliser le connecteur de supervision
@@ -659,13 +676,13 @@ apt install centreon-plugin-applications-databases-oracle
 3. Appliquez le modèle d'hôte **App-DB-Rman-Catalog-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro             | Description           | Valeur par défaut | Obligatoire |
-|:------------------|:----------------------|:------------------|:-----------:|
-| RMAN_USERNAME     | User name used to connect to the RMAN catalog                 | USERNAME          |             |
-| RMAN_PASSWORD     | Password for the defined RMAN catalog                         | PASSWORD          |             |
-| RMAN_PORT         | RMAN used to connect to the RMAN catalog  | 1521              |             |
-| RMAN_SERVICE_NAME | Service Name of the RMAN catalog database  |                   |             |
-| RMAN_SID          | SID of the RMAN catalog database | SID               |             |
+| Macro             | Description                                   | Valeur par défaut | Obligatoire |
+|:------------------|:----------------------------------------------|:------------------|:-----------:|
+| RMAN_USERNAME     | User name used to connect to the RMAN catalog | USERNAME          |             |
+| RMAN_PASSWORD     | Password for the defined RMAN catalog         | PASSWORD          |             |
+| RMAN_PORT         | RMAN used to connect to the RMAN catalog      | 1521              |             |
+| RMAN_SERVICE_NAME | Service Name of the RMAN catalog database     |                   |             |
+| RMAN_SID          | SID of the RMAN catalog database              | SID               |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -704,32 +721,31 @@ apt install centreon-plugin-applications-databases-oracle
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MODE         | Mode used in the plugin code                                                                                                             | connected-users   |             |
-| WARNING      | Warning threshold                                                                                                                        | 50                |             |
-| CRITICAL     | Critical threshold                                                                                                                       | 100               |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MODE         | Define the mode in which you want the plugin to be executed (see --list-mode)                                                                    | connected-users   |             |
+| WARNING      | Warning threshold                                                                                                                                | 50                |             |
+| CRITICAL     | Critical threshold                                                                                                                               | 100               |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Connection-Time" label="Connection-Time">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MODE         | Mode used in the plugin code                                                                                                             | connection-time   |             |
-| WARNING      | Warning threshold in milliseconds                                                                                                        | 1000              |             |
-| CRITICAL     | Critical threshold in milliseconds                                                                                                       | 5000              |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro         | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| WARNING       | Warning threshold in milliseconds                                                                                                                | 1000              |             |
+| CRITICAL      | Critical threshold in milliseconds                                                                                                               | 5000              |             |
+| EXTRA_OPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
 
-| Macro        | Description                                                                                                                              | Valeur par défaut | Obligatoire |
-|:-------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| MODE         | Mode used in the plugin code                                                                                                             | corrupted-blocks  |             |
-| WARNING      | Warning threshold                                                                                                                        | 1                 |             |
-| CRITICAL     | Critical threshold                                                                                                                       | 10                |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+| Macro        | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| MODE         | Define the mode in which you want the plugin to be executed (see --list-mode)                                                                    | corrupted-blocks  |             |
+| WARNING      | Warning threshold                                                                                                                                | 1                 |             |
+| CRITICAL     | Critical threshold                                                                                                                               | 10                |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Data-Files-Status" label="Data-Files-Status">
@@ -858,14 +874,14 @@ apt install centreon-plugin-applications-databases-oracle
 
 | Macro               | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:--------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| WARNINGARCHIVELOG   | Threshold                                                                                                                                        |                   |             |
-| CRITICALARCHIVELOG  | Threshold                                                                                                                                        |                   |             |
-| WARNINGCONTROLFILE  | Threshold                                                                                                                                        |                   |             |
-| CRITICALCONTROLFILE | Threshold                                                                                                                                        |                   |             |
-| WARNINGDBFULL       | Threshold                                                                                                                                        |                   |             |
-| CRITICALDBFULL      | Threshold                                                                                                                                        |                   |             |
-| WARNINGDBINCR       | Threshold                                                                                                                                        |                   |             |
-| CRITICALDBINCR      | Threshold                                                                                                                                        |                   |             |
+| WARNINGARCHIVELOG   | Warning threshold in seconds                                                                                                                     |                   |             |
+| CRITICALARCHIVELOG  | Critical threshold in seconds                                                                                                                    |                   |             |
+| WARNINGCONTROLFILE  | Warning threshold in seconds                                                                                                                     |                   |             |
+| CRITICALCONTROLFILE | Critical threshold in seconds                                                                                                                    |                   |             |
+| WARNINGDBFULL       | Warning threshold in seconds                                                                                                                     |                   |             |
+| CRITICALDBFULL      | Critical threshold in seconds                                                                                                                    |                   |             |
+| WARNINGDBINCR       | Warning threshold in seconds                                                                                                                     |                   |             |
+| CRITICALDBINCR      | Critical threshold in seconds                                                                                                                    |                   |             |
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
@@ -880,18 +896,18 @@ apt install centreon-plugin-applications-databases-oracle
 </TabItem>
 <TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
-| Macro                     | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
-|:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| RETENTION                 | Retention in days                                                                                                                                | 3                 |             |
-| WARNINGCOMPLETED          | Threshold                                                                                                                                        |                   |             |
-| CRITICALCOMPLETED         | Threshold                                                                                                                                        |                   |             |
-| WARNINGCOMPLETEDERRORS    | Threshold                                                                                                                                        |                   |             |
-| CRITICALCOMPLETEDERRORS   | Threshold                                                                                                                                        |                   |             |
-| WARNINGCOMPLETEDWARNINGS  | Threshold                                                                                                                                        |                   |             |
-| CRITICALCOMPLETEDWARNINGS | Threshold                                                                                                                                        |                   |             |
-| WARNINGFAILED             | Threshold                                                                                                                                        |                   |             |
-| CRITICALFAILED            | Threshold                                                                                                                                        |                   |             |
-| EXTRAOPTIONS              | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+| Macro                       | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
+|:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| RETENTION                   | Retention in days                                                                                                                                | 3                 |             |
+| WARNING_COMPLETED           | Threshold                                                                                                                                        |                   |             |
+| CRITICAL_COMPLETED          | Threshold                                                                                                                                        |                   |             |
+| WARNING_COMPLETED_ERRORS    | Threshold                                                                                                                                        |                   |             |
+| CRITICAL_COMPLETED_ERRORS   | Threshold                                                                                                                                        |                   |             |
+| WARNING_COMPLETED_WARNINGS  | Threshold                                                                                                                                        |                   |             |
+| CRITICAL_COMPLETED_WARNINGS | Threshold                                                                                                                                        |                   |             |
+| WARNING_FAILED              | Threshold                                                                                                                                        |                   |             |
+| CRITICAL_FAILED             | Threshold                                                                                                                                        |                   |             |
+| EXTRA_OPTIONS               | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">
@@ -979,23 +995,18 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--servicename='' \
 	--username='USERNAME' \
 	--password='PASSWORD' \
-	--mode=rollback-segment-usage \
-	--warning-extends='' \
-	--critical-extends='' \
-	--warning-wraps='' \
-	--critical-wraps='' \
-	--warning-hit-ratio='' \
-	--critical-hit-ratio='' \
-	--warning-block-contention='' \
-	--critical-block-contention=''  \
-	--warning-header-contention='' \
-	--critical-header-contention='' 
+	--mode='tablespace-usage' \
+	--warning-tablespace='90' \
+	--critical-tablespace='98' \
+	--filter-tablespace='^(?!(SYSTEM|SYSAUX))' \
+	--verbose \
+	--notemp
 ```
 
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: Extends : 7/s Wraps : 21/s Header Contention :  88 % Block Contention :  27 % gets/waits Ratio :  85 % | 'extends'=7/s;;;0;'wraps'=21/s;;;0;'header-contention'=88%;;;0;100'block-contention'=27%;;;0;100'hit-ratio'=85%;;;0;100
+OK: All tablespaces are OK | 'tablespace1#tablespace'=4106B;90;98;; 'tablespace2#tablespace'=16123B;90;98;; 
 ```
 
 ### Diagnostic des erreurs communes
@@ -1025,9 +1036,9 @@ Le plugin apporte les modes suivants :
 |:---------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------------------------------------------------------------|
 | asm-diskgroup-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/asmdiskgroupusage.pm)]        | App-DB-Oracle-ASM-Diskgroup-Usage-Generic-Name-custom<br />App-DB-Oracle-ASM-Diskgroup-Usage-Global-custom |
 | collection [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/collection.pm)]          | Non utilisé dans ce connecteur de supervision                                                              |
-| connected-users [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/connectedusers.pm)]               |  App-DB-Oracle-Connection-Number-custom                                                                    |
-| connection-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/connectiontime.pm)] | App-DB-Oracle-Connection-Time-custom                                                              |
-| corrupted-blocks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/corruptedblocks.pm)]             | App-DB-Oracle-Corrupted-Blocks-custom                                                              |
+| connected-users [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/connectedusers.pm)]               | App-DB-Oracle-Connection-Number-custom                                                                     |
+| connection-time [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/centreon/common/protocols/sql/mode/connectiontime.pm)] | App-DB-Oracle-Connection-Time-custom<br />App-DB-Rman-Catalog-Connection-Time-custom                       |
+| corrupted-blocks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/corruptedblocks.pm)]             | App-DB-Oracle-Corrupted-Blocks-custom                                                                      |
 | data-files-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/datafilesstatus.pm)]            | App-DB-Oracle-Data-Files-Status-custom                                                                     |
 | datacache-hitratio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/datacachehitratio.pm)]         | App-DB-Oracle-Datacache-Hitratio-custom                                                                    |
 | dataguard [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/dataguard.pm)]                          | Non utilisé dans ce connecteur de supervision                                                              |
@@ -1042,8 +1053,8 @@ Le plugin apporte les modes suivants :
 | password-expiration [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/passwordexpiration.pm)]       | Non utilisé dans ce connecteur de supervision                                                              |
 | process-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/processusage.pm)]                   | App-DB-Oracle-Process-Usage-custom                                                                         |
 | redolog-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/redologusage.pm)]                   | App-DB-Oracle-Redolog-Usage-custom                                                                         |
-| rman-backup-age [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/rmanbackupage.pm)]                | App-DB-Oracle-Rman-Backup-Age-custom                                                                       |
-| rman-backup-problems [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/rmanbackupproblems.pm)]      | App-DB-Oracle-Rman-Backup-Problems-custom                                                                  |
+| rman-backup-age [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/rmanbackupage.pm)]                | App-DB-Rman-Catalog-Backup-Age-custom<br />App-DB-Oracle-Rman-Backup-Age-custom                            |
+| rman-backup-problems [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/rmanbackupproblems.pm)]      | App-DB-Oracle-Rman-Backup-Problems-custom<br />App-DB-Rman-Catalog-Backup-Problems-custom                  |
 | rman-online-backup-age [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/rmanonlinebackupage.pm)]   | App-DB-Oracle-Rman-Backup-Online-Age-custom                                                                |
 | rollback-segment-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/rollbacksegmentusage.pm)]  | App-DB-Oracle-Rollback-Segment-Usage-custom                                                                |
 | session-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/database/oracle/mode/sessionusage.pm)]                   | App-DB-Oracle-Session-Usage-custom                                                                         |
@@ -1065,12 +1076,13 @@ Les options génériques sont listées ci-dessous :
 | --list-mode                                | List all available modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --mode-version                             | Check minimal version of mode. If not, unknown error.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --version                                  | Return the version of the plugin.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --sqlmode                                  | This plugin offers several ways to query the database (default: dbi). See --list-sqlmode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| --list-sqlmode                             | List all available sql modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --sqlmode                                  | This plugin offers several ways to query the database (default: DBI). See --list-sqlmode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| --list-sqlmode                             | List all available SQL modes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --multiple                                 | Enable connecting to multiple databases (required by some specific modes such as replication).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --pass-manager                             | Define the password manager you want to use. Supported managers are: environment, file, keepass, hashicorpvault and teampass.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --verbose                                  | Display extended status information (long output).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --debug                                    | Display debug messages.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| --show-password                            | By default, sensitive information in command lines is hidden in debug output and replaced with `***` (however, debug logs may still display sensitive information). Using the C option will display the passwords in plain text.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --filter-perfdata                          | Filter perfdata that match the regexp. Example: adding --filter-perfdata='avg' will remove all metrics that do not contain 'avg' from performance data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --filter-perfdata-adv                      | Filter perfdata based on a "if" condition using the following variables: label, value, unit, warning, critical, min, max. Variables must be written either %\{variable\} or %(variable). Example: adding --filter-perfdata-adv='not (%(value) == 0 and %(max) eq "")' will remove all metrics whose value equals 0 and that don't have a maximum value.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --explode-perfdata-max                     | Create a new metric for each metric that comes with a maximum limit. The new metric will be named identically with a '\_max' suffix. Example: it will split 'used\_prct'=26.93%;0:80;0:90;0;100 into 'used\_prct'=26.93%;0:80;0:90;0;100 'used\_prct\_max'=100%;;;;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -1078,9 +1090,9 @@ Les options génériques sont listées ci-dessous :
 | --change-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --extend-perfdata                          | Change or extend perfdata. Syntax: --extend-perfdata=searchlabel,newlabel,target\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\]  Common examples:  onvert storage free perfdata into used: --change-perfdata='free,used,invert()'  Convert storage free perfdata into used: --change-perfdata='used,free,invert()'  Scale traffic values automatically: --change-perfdata='traffic,,scale(auto)'  Scale traffic values in Mbps: --change-perfdata='traffic\_in,,scale(Mbps),mbps'  Change traffic values in percent: --change-perfdata='traffic\_in,,percent()'  =back                                                                                                                                                                                                                                                                                                                                                                                                       |
 | --extend-perfdata-group                    | Add new aggregated metrics (min, max, average or sum) for groups of metrics defined by a regex match on the metrics' names. Syntax: --extend-perfdata-group=regex,\<names-of-new-metrics\>,calculation\[,\[\<new-unit-of-mesure\>\],\[min\],\[max\]\] regex: regular expression \<names-of-new-metrics\>: how the new metrics' names are composed (can use $1, $2... for groups defined by () in regex). calculation: how the values of the new metrics should be calculated \<new-unit-of-mesure\> (optional): unit of measure for the new metrics min (optional): lowest value the metrics can reach max (optional): highest value the metrics can reach  Common examples:  um wrong packets from all interfaces (with interface need  --units-errors=absolute): --extend-perfdata-group=',packets\_wrong,sum(packets\_(discard\|error)\_(in\|out))'  Sum traffic by interface: --extend-perfdata-group='traffic\_in\_(.*),traffic\_$1,sum(traffic\_(in\|out)\_$1)'  =back |
-| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK\~Up\~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-short-output --change-long-output | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-short-output                      | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --change-long-output                       | Modify the short/long output that is returned by the plugin. Syntax: --change-short-output=pattern~replacement~modifier Most commonly used modifiers are i (case insensitive) and g (replace all occurrences). Example: adding --change-short-output='OK~Up~gi' will replace all occurrences of 'OK', 'ok', 'Ok' or 'oK' with 'Up'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --change-exit                              | Replace an exit code with one of your choice. Example: adding --change-exit=unknown=critical will result in a CRITICAL state instead of an UNKNOWN state.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --change-output-adv                        | Replace short output and exit code based on a "if" condition using the following variables: short\_output, exit\_code. Variables must be written either %\{variable\} or %(variable). Example: adding --change-output-adv='%(short\_ouput) =~ /UNKNOWN: No daemon/,OK: No daemon,OK' will change the following specific UNKNOWN result to an OK result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | --range-perfdata                           | Rewrite the ranges displayed in the perfdata. Accepted values: 0: nothing is changed. 1: if the lower value of the range is equal to 0, it is removed. 2: remove the thresholds from the perfdata.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -1100,7 +1112,7 @@ Les options génériques sont listées ci-dessous :
 | --port                                     | Database Server Port.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --sid                                      | Database SID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --servicename                              | Database Service Name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --component-type                           | Define the component to monitor. Can be `database` or `rman_catalog` (default: `database`). This enables the use of `rman-backup-problems` and `rman-backup-age` modes when an external RMAN catalog is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| --component-type                           | Define the component to monitor. Can be `database` or `rman\_catalog` (default: `database`). This enables the use of `rman-backup-problems` and `rman-backup-age` modes when an external RMAN catalog is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --container                                | Change container (does an alter session set container command).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 #### Options des modes
@@ -1112,7 +1124,6 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option                   | Description                                                                                                                                                                                                                                        |
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                          |
 | --warning-usage          | Warning threshold.                                                                                                                                                                                                                                 |
 | --critical-usage         | Critical threshold.                                                                                                                                                                                                                                |
 | --warning-usage-failure  | Warning threshold.                                                                                                                                                                                                                                 |
@@ -1129,26 +1140,26 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Option     | Description            |
-|:-----------|:-----------------------|
-| --warning  | Warning threshold.     |
-| --critical | Critical threshold.    |
+| Option     | Description         |
+|:-----------|:--------------------|
+| --warning  | Warning threshold.  |
+| --critical | Critical threshold. |
 
 </TabItem>
-<TabItem value="Connection-Time" label="Connection-Time">
+<TabItem value="Connection-Time*" label="Connection-Time*">
 
-| Option     | Description                            |
-|:-----------|:---------------------------------------|
-| --warning  | Warning threshold in milliseconds.     |
-| --critical | Critical threshold in milliseconds.    |
+| Option     | Description                         |
+|:-----------|:------------------------------------|
+| --warning  | Warning threshold in milliseconds.  |
+| --critical | Critical threshold in milliseconds. |
 
 </TabItem>
 <TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
 
-| Option     | Description            |
-|:-----------|:-----------------------|
-| --warning  | Warning threshold.     |
-| --critical | Critical threshold.    |
+| Option     | Description         |
+|:-----------|:--------------------|
+| --warning  | Warning threshold.  |
+| --critical | Critical threshold. |
 
 </TabItem>
 <TabItem value="Data-Files-Status" label="Data-Files-Status">
@@ -1167,31 +1178,28 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Datacache-Hitratio" label="Datacache-Hitratio">
 
-| Option            | Description                                                                                                               |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-usage   | Warning threshold.                                                                                                        |
-| --critical-usage  | Critical threshold.                                                                                                       |
+| Option           | Description         |
+|:-----------------|:--------------------|
+| --warning-usage  | Warning threshold.  |
+| --critical-usage | Critical threshold. |
 
 </TabItem>
 <TabItem value="Dictionary-Cache-Usage" label="Dictionary-Cache-Usage">
 
-| Option                   | Description                                                                                                               |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-* --critical-* | Thresholds. Can be: 'get-hits'.                                                                                           |
+| Option                   | Description                     |
+|:-------------------------|:--------------------------------|
+| --warning-* --critical-* | Thresholds. Can be: 'get-hits'. |
 
 </TabItem>
 <TabItem value="Event-Waits-Usage" label="Event-Waits-Usage">
 
-| Option            | Description                                                                                                               |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-*       | Warning threshold. Can be: 'total-waits-sec', 'total-waits-time', 'event-count'.                                          |
-| --critical-*      | Critical threshold. Can be: 'total-waits-sec', 'total-waits-time', 'event-count'.                                         |
-| --filter-name     | Filter by event name. Can be a regex.                                                                                     |
-| --wait-time-min   | Time in ms above which we count an event as waiting                                                                       |
-| --show-details    | Print details of waiting events (user, query, ...) in long output                                                         |
+| Option          | Description                                                                       |
+|:----------------|:----------------------------------------------------------------------------------|
+| --warning-*     | Warning threshold. Can be: 'total-waits-sec', 'total-waits-time', 'event-count'.  |
+| --critical-*    | Critical threshold. Can be: 'total-waits-sec', 'total-waits-time', 'event-count'. |
+| --filter-name   | Filter by event name. Can be a regex.                                             |
+| --wait-time-min | Time in ms above which we count an event as waiting                               |
+| --show-details  | Print details of waiting events (user, query, ...) in long output                 |
 
 </TabItem>
 <TabItem value="Fra-Usage" label="Fra-Usage">
@@ -1216,17 +1224,15 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Library-Cache-Usage" label="Library-Cache-Usage">
 
-| Option                   | Description                                                                                                               |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-* --critical-* | Thresholds. Can be: 'get-hits', 'pin-hits', 'reloads', 'invalid'.                                                         |
+| Option                   | Description                                                       |
+|:-------------------------|:------------------------------------------------------------------|
+| --warning-* --critical-* | Thresholds. Can be: 'get-hits', 'pin-hits', 'reloads', 'invalid'. |
 
 </TabItem>
 <TabItem value="Long-Queries" label="Long-Queries">
 
 | Option                 | Description                                                                                                                                                                                                                                 |
 |:-----------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters      | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                                                                   |
 | --memcached            | Memcached server to use (only one server).                                                                                                                                                                                                  |
 | --redis-server         | Redis server to use (only one server). Syntax: address\[:port\]                                                                                                                                                                             |
 | --redis-attribute      | Set Redis Options (--redis-attribute="cnx\_timeout=5").                                                                                                                                                                                     |
@@ -1255,23 +1261,31 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Redolog-Usage" label="Redolog-Usage">
 
-| Option                   | Description                                                                                                               |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-* --critical-* | Thresholds. Can be: 'retry-ratio', 'traffic-io'.                                                                          |
+| Option                   | Description                                      |
+|:-------------------------|:-------------------------------------------------|
+| --warning-* --critical-* | Thresholds. Can be: 'retry-ratio', 'traffic-io'. |
 
 </TabItem>
-<TabItem value="Rman-Backup-Age" label="Rman-Backup-Age">
+<TabItem value="Rman-Backup-Age*" label="Rman-Backup-Age*">
 
-| Option              | Description                                                                               |
-|:--------------------|:------------------------------------------------------------------------------------------|
-| --warning-*         | Warning threshold in seconds. Can be: 'db-incr', 'db-full', 'archivelog', 'controlfile'.  |
-| --critical-*        | Critical threshold in seconds. Can be: 'db-incr', 'db-full', 'archivelog', 'controlfile'. |
-| --no-*              |                                                                                           |
-| --filter-type       | Filter backup type. (type can be : 'DB INCR', 'DB FULL', 'ARCHIVELOG')                    |
-| --skip-no-backup    | Return ok if no backup found.                                                             |
-| --timezone          | Timezone of oracle server (if not set, we use current server execution timezone).         |
-| --incremental-level | Please use the following option if your using incremental level 0 for full backup.        |
+| Option                 | Description                                                                        |
+|:-----------------------|:-----------------------------------------------------------------------------------|
+| --warning-db-incr      | Warning threshold in seconds.                                                      |
+| --critical-db-incr     | Critical threshold in seconds.                                                     |
+| --warning-db-full      | Warning threshold in seconds.                                                      |
+| --critical-db-full     | Critical threshold in seconds.                                                     |
+| --warning-archivelog   | Warning threshold in seconds.                                                      |
+| --critical-archivelog  | Critical threshold in seconds.                                                     |
+| --warning-controlfile  | Warning threshold in seconds.                                                      |
+| --critical-controlfile | Critical threshold in seconds.                                                     |
+| --no-db-incr           | Skip error if never executed.                                                      |
+| --no-db-full           | Skip error if never executed.                                                      |
+| --no-archivelog        | Skip error if never executed.                                                      |
+| --no-controlfile       | Skip error if never executed.                                                      |
+| --filter-type          | Filter backup type. (type can be : `DB INCR`, `DB FULL`, `ARCHIVELOG`)             |
+| --skip-no-backup       | Return ok if no backup found.                                                      |
+| --timezone             | Timezone of oracle server (if not set, we use current server execution timezone).  |
+| --incremental-level    | Please use the following option if your using incremental level 0 for full backup. |
 
 </TabItem>
 <TabItem value="Rman-Backup-Online-Age" label="Rman-Backup-Online-Age">
@@ -1283,22 +1297,27 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --timezone | Timezone of oracle server (if not set, we use current server execution timezone) |
 
 </TabItem>
-<TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
+<TabItem value="Rman-Backup-Problems*" label="Rman-Backup-Problems*">
 
-| Option                   | Description                                                                                                               |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --retention              | Retention in days (default: 3).                                                                                           |
-| --warning-* --critical-* | Thresholds. Can be: 'completed', 'failed', 'completed-warnings', 'completed-errors'.                                      |
+| Option                        | Description                     |
+|:------------------------------|:--------------------------------|
+| --retention                   | Retention in days (default: 3). |
+| --warning-completed           | Threshold.                      |
+| --critical-completed          | Threshold.                      |
+| --warning-completed-errors    | Threshold.                      |
+| --critical-completed-errors   | Threshold.                      |
+| --warning-completed-warnings  | Threshold.                      |
+| --critical-completed-warnings | Threshold.                      |
+| --warning-failed              | Threshold.                      |
+| --critical-failed             | Threshold.                      |
 
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">
 
-| Option            | Description                                                                                                               |
-|:------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-*       | Warning threshold. Can be: 'header-contention', 'block-contention', 'hit-ratio', 'extends', 'wraps'.                      |
-| --critical-*      | Critical threshold. Can be: 'header-contention', 'block-contention', 'hit-ratio', 'extends', 'wraps'.                     |
+| Option       | Description                                                                                           |
+|:-------------|:------------------------------------------------------------------------------------------------------|
+| --warning-*  | Warning threshold. Can be: 'header-contention', 'block-contention', 'hit-ratio', 'extends', 'wraps'.  |
+| --critical-* | Critical threshold. Can be: 'header-contention', 'block-contention', 'hit-ratio', 'extends', 'wraps'. |
 
 </TabItem>
 <TabItem value="Session-Usage" label="Session-Usage">
@@ -1311,23 +1330,21 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Sql" label="Sql">
 
-| Option                   | Description                                                                                                               |
-|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters        | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --sql-statement          | SQL statement that returns a number.                                                                                      |
-| --format                 | Output format (default: 'SQL statement result : %i.').                                                                    |
-| --perfdata-unit          | Perfdata unit in perfdata output (default: '')                                                                            |
-| --perfdata-name          | Perfdata name in perfdata output (default: 'value')                                                                       |
-| --perfdata-min           | Minimum value to add in perfdata output (default: '')                                                                     |
-| --perfdata-max           | Maximum value to add in perfdata output (default: '')                                                                     |
-| --warning-* --critical-* | Thresholds. Can be: 'value', 'execution-time'.                                                                            |
+| Option                   | Description                                            |
+|:-------------------------|:-------------------------------------------------------|
+| --sql-statement          | SQL statement that returns a number.                   |
+| --format                 | Output format (default: 'SQL statement result : %i.'). |
+| --perfdata-unit          | Perfdata unit in perfdata output (default: '')         |
+| --perfdata-name          | Perfdata name in perfdata output (default: 'value')    |
+| --perfdata-min           | Minimum value to add in perfdata output (default: '')  |
+| --perfdata-max           | Maximum value to add in perfdata output (default: '')  |
+| --warning-* --critical-* | Thresholds. Can be: 'value', 'execution-time'.         |
 
 </TabItem>
 <TabItem value="Sql-String" label="Sql-String">
 
 | Option             | Description                                                                                                                                                                                           |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters  | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$'                                                                             |
 | --sql-statement    | SQL statement that returns a string.                                                                                                                                                                  |
 | --key-column       | Key column (must be one of the selected field). NOT mandatory if you select only one field                                                                                                            |
 | --value-column     | Value column (must be one of the selected field). MANDATORY                                                                                                                                           |
@@ -1341,17 +1358,16 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 <TabItem value="Tablespace-Usage-Global" label="Tablespace-Usage-Global">
 
-| Option                | Description                                                                                                               |
-|:----------------------|:--------------------------------------------------------------------------------------------------------------------------|
-| --filter-counters     | Only display some counters (regexp can be used). Example to check SSL connections only : --filter-counters='^xxxx\|yyyy$' |
-| --warning-tablespace  | Warning threshold.                                                                                                        |
-| --critical-tablespace | Critical threshold.                                                                                                       |
-| --filter-tablespace   | Filter tablespaces by name. Can be a regex                                                                                |
-| --units               | Default is '%', can be 'B'                                                                                                |
-| --free                | Perfdata show free space                                                                                                  |
-| --notemp              | skip temporary or undo tablespaces.                                                                                       |
-| --add-container       | Add tablespaces of container databases.                                                                                   |
-| --skip                | Skip offline tablespaces.                                                                                                 |
+| Option                | Description                                |
+|:----------------------|:-------------------------------------------|
+| --warning-tablespace  | Warning threshold.                         |
+| --critical-tablespace | Critical threshold.                        |
+| --filter-tablespace   | Filter tablespaces by name. Can be a regex |
+| --units               | Default is '%', can be 'B'                 |
+| --free                | Perfdata show free space                   |
+| --notemp              | skip temporary or undo tablespaces.        |
+| --add-container       | Add tablespaces of container databases.    |
+| --skip                | Skip offline tablespaces.                  |
 
 </TabItem>
 </Tabs>
