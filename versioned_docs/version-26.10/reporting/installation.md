@@ -892,10 +892,6 @@ echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysq
 systemctl daemon-reload
 systemctl restart mysqld
 systemctl list-units --type=service | grep -i mysql
-sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
-sudo systemctl start mysqld
-sudo systemctl status mysqld
-```
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
@@ -1115,17 +1111,8 @@ Copy the [optimized configuration file](../assets/reporting/installation/centreo
 
 
 ```shell
-systemctl restart mysql
-```
+Copy the [optimized configuration file](../assets/reporting/installation/centreon-mysql.cnf) provided in the prerequisites to `/etc/my.cnf.d/85-centreon-bi.cnf`, then restart the MySQL service:
 
-You must modify the **LimitNOFILE** limitation. Changing this option in `/etc/my.cnf` will NOT work.
-
-```shell
-mkdir -p  /etc/systemd/system/mysql.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
-systemctl daemon-reload
-systemctl enable mysql
-```
 
 If the MySQL service fails to start, delete the *ib_logfile* files (MySQL MUST be stopped) and then restart MySQL again:
 
