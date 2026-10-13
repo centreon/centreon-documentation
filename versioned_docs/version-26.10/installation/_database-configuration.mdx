@@ -1,9 +1,7 @@
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> It is mandatory to set a password for the root user of the database.
-
-It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). 
+> It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). 
 
 <Tabs groupId="sync">
 <TabItem value="MariaDB" label="MariaDB"> 
@@ -23,7 +21,7 @@ Retrieve the temporary password created by MySQL:
 grep 'temporary password' /var/log/mysqld.log
 ```
 
-Then change it when prompted by the following command (the password must have at least 8 characaters, upper and lower case, a digit and a special character):
+Then change it when prompted by the following command (the password must have at least 8 characters, upper and lower case, a digit and a special character):
 
 ```shell
 mysql_secure_installation

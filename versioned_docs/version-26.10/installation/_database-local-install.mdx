@@ -68,7 +68,7 @@ systemctl daemon-reload
 systemctl restart mysqld
 ```
 
-It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). It must have at least 8 characaters, upper and lower case, a digit and a special character. Retrieve the temporary password created by MySQL:
+It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). It must have at least 8 characters, upper and lower case, a digit and a special character. Retrieve the temporary password created by MySQL:
 
 ```shell
 grep 'temporary password' /var/log/mysqld.log
@@ -91,7 +91,7 @@ grep -q '^!includedir /etc/my.cnf.d' /etc/my.cnf || echo '!includedir /etc/my.cn
 systemctl start mysqld
 ```
 
-It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). It must have at least 8 characaters, upper and lower case, a digit and a special character. Retrieve the temporary password created by MySQL:
+It is mandatory to set a password for the root user of the database (you will need this password during the [web installation](web-and-post-installation.md)). It must have at least 8 characters, upper and lower case, a digit and a special character. Retrieve the temporary password created by MySQL:
 
 ```shell
 grep 'temporary password' /var/log/mysqld.log

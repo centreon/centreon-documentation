@@ -16,8 +16,8 @@ Cette section décrit comment mettre en place une connexion TLS entre le serveur
 cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
 [mariadb]
 ssl_ca   = /etc/pki/centreon-tls/rootCA.pem
-ssl_cert = /etc/pki/centreon-tls/server.pem
-ssl_key  = /etc/pki/centreon-tls/server-key.pem
+ssl_cert = /etc/pki/centreon-tls/db.pem
+ssl_key  = /etc/pki/centreon-tls/db-key.pem
 require_secure_transport = OFF
 tls_version = TLSv1.2,TLSv1.3
 EOF
@@ -26,8 +26,8 @@ EOF
 2. Attribuez les permissions suivantes à la clé afin qu'elle soit lisible uniquement par l'utilisateur **mysql** :
 
 ```shell
-chown root:mysql /etc/pki/centreon-tls/server-key.pem
-chmod 0640      /etc/pki/centreon-tls/server-key.pem
+chown root:mysql /etc/pki/centreon-tls/db-key.pem
+chmod 0640      /etc/pki/centreon-tls/db-key.pem
 ```
 
 3. Configurez le client MariaDB en ligne de commande pour qu'il utilise TLS (vous en aurez besoin par la suite).
@@ -88,8 +88,8 @@ done
 cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
 [mariadb]
 ssl_ca   = /etc/pki/centreon-tls/rootCA.pem
-ssl_cert = /etc/pki/centreon-tls/server.pem
-ssl_key  = /etc/pki/centreon-tls/server-key.pem
+ssl_cert = /etc/pki/centreon-tls/db.pem
+ssl_key  = /etc/pki/centreon-tls/db-key.pem
 require_secure_transport = OFF
 tls_version = TLSv1.2,TLSv1.3
 EOF
@@ -98,8 +98,8 @@ EOF
 2. Attribuez les permissions suivantes à la clé afin qu'elle soit lisible uniquement par l'utilisateur **mysql** :
 
 ```shell
-chown root:mysql /etc/pki/centreon-tls/server-key.pem
-chmod 0640      /etc/pki/centreon-tls/server-key.pem
+chown root:mysql /etc/pki/centreon-tls/db-key.pem
+chmod 0640      /etc/pki/centreon-tls/db-key.pem
 ```
 
 3. Configurez le client MariaDB en ligne de commande pour qu'il utilise TLS (vous en aurez besoin par la suite).
@@ -120,13 +120,7 @@ systemctl enable --now mariadb
 systemctl restart mariadb
 ```
 
-5. Sécurisez l'installation :
-
-```shell
-mariadb-secure-installation
-```
-
-6. Vérifiez que le serveur utilise bien les certificats que vous avez définis, et non ceux qu'il génère automatiquement à son démarrage.
+5. Vérifiez que le serveur utilise bien les certificats que vous avez définis, et non ceux qu'il génère automatiquement à son démarrage.
 
 ```shell
 mariadb -e "SHOW GLOBAL VARIABLES WHERE Variable_name IN ('have_ssl','ssl_ca','ssl_cert','ssl_key');"
@@ -138,7 +132,7 @@ Le résultat attendu est le suivant :
 have_ssl YES and ssl_ca /etc/pki/centreon-tls/rootCA.pem
 ```
 
-7. Définissez les variables d'environnement que PHP utilisera pour communiquer avec la base de données en mode TLS.
+6. Définissez les variables d'environnement que PHP utilisera pour communiquer avec la base de données en mode TLS.
 
 ```shell
 for f in /etc/centreon/.env /usr/share/centreon/.env; do
@@ -159,11 +153,11 @@ done
 ```shell
 install -d -o root -g mysql -m 0750 /etc/mysql/centreon-tls
 cp /etc/pki/centreon-tls/rootCA.pem     /etc/mysql/centreon-tls/rootCA.pem
-cp /etc/pki/centreon-tls/server.pem     /etc/mysql/centreon-tls/server.pem
-cp /etc/pki/centreon-tls/server-key.pem /etc/mysql/centreon-tls/server-key.pem
+cp /etc/pki/centreon-tls/db.pem     /etc/mysql/centreon-tls/db.pem
+cp /etc/pki/centreon-tls/db-key.pem /etc/mysql/centreon-tls/db-key.pem
 chown root:mysql /etc/mysql/centreon-tls/*.pem
-chmod 0644 /etc/mysql/centreon-tls/rootCA.pem /etc/mysql/centreon-tls/server.pem
-chmod 0640 /etc/mysql/centreon-tls/server-key.pem
+chmod 0644 /etc/mysql/centreon-tls/rootCA.pem /etc/mysql/centreon-tls/db.pem
+chmod 0640 /etc/mysql/centreon-tls/db-key.pem
 ```
 
 2. Configurez le service de base de données pour qu'il démarre en mode TLS et indiquez l'emplacement des certificats.
@@ -176,8 +170,8 @@ for d in "${inc[@]}"; do
   cat > "$d/99-centreon-tls.cnf" <<'EOF'
 [mysqld]
 ssl_ca   = /etc/mysql/centreon-tls/rootCA.pem
-ssl_cert = /etc/mysql/centreon-tls/server.pem
-ssl_key  = /etc/mysql/centreon-tls/server-key.pem
+ssl_cert = /etc/mysql/centreon-tls/db.pem
+ssl_key  = /etc/mysql/centreon-tls/db-key.pem
 require_secure_transport = OFF
 tls_version = TLSv1.2,TLSv1.3
 EOF
@@ -245,8 +239,8 @@ done
 cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
 [mysqld]
 ssl_ca   = /etc/pki/centreon-tls/rootCA.pem
-ssl_cert = /etc/pki/centreon-tls/server.pem
-ssl_key  = /etc/pki/centreon-tls/server-key.pem
+ssl_cert = /etc/pki/centreon-tls/db.pem
+ssl_key  = /etc/pki/centreon-tls/db-key.pem
 require_secure_transport = OFF
 tls_version = TLSv1.2,TLSv1.3
 EOF
@@ -255,8 +249,8 @@ EOF
 2. Attribuez les permissions suivantes à la clé afin qu'elle soit lisible uniquement par l'utilisateur **mysql** :
 
 ```shell
-chown root:mysql /etc/pki/centreon-tls/server-key.pem
-chmod 0640      /etc/pki/centreon-tls/server-key.pem
+chown root:mysql /etc/pki/centreon-tls/db-key.pem
+chmod 0640      /etc/pki/centreon-tls/db-key.pem
 ```
 
 3. Configurez le client MySQL en ligne de commande pour qu'il utilise TLS (vous en aurez besoin par la suite).
@@ -294,7 +288,7 @@ Current_tls_ca  /etc/pki/centreon-tls/rootCA.pem
 6. Sécurisez l'installation (dans la commande suivante, remplacez **my_password** par votre propre mot de passe). Définissez le mot de passe de votre choix :
 
 ```shell
-db_root_password='ChangeMeStrong#2026'
+db_root_password='my_password'
 mysql_root_auth=(--ssl-mode=DISABLED -u root)
 if ! mysql --ssl-mode=DISABLED -u root -e "SELECT 1" >/dev/null 2>&1; then
   mysql_temp_pw=$(grep 'temporary password is generated for root@localhost' /var/log/mysqld.log \
@@ -370,8 +364,8 @@ done
 cat > /etc/my.cnf.d/centreon-tls.cnf <<'EOF'
 [mysqld]
 ssl_ca   = /etc/pki/centreon-tls/rootCA.pem
-ssl_cert = /etc/pki/centreon-tls/server.pem
-ssl_key  = /etc/pki/centreon-tls/server-key.pem
+ssl_cert = /etc/pki/centreon-tls/db.pem
+ssl_key  = /etc/pki/centreon-tls/db-key.pem
 require_secure_transport = OFF
 tls_version = TLSv1.2,TLSv1.3
 EOF
@@ -380,8 +374,8 @@ EOF
 2. Attribuez les permissions suivantes à la clé afin qu'elle soit lisible uniquement par l'utilisateur **mysql** :
 
 ```shell
-chown root:mysql /etc/pki/centreon-tls/server-key.pem
-chmod 0640      /etc/pki/centreon-tls/server-key.pem
+chown root:mysql /etc/pki/centreon-tls/db-key.pem
+chmod 0640      /etc/pki/centreon-tls/db-key.pem
 ```
 
 3. Configurez le client MySQL en ligne de commande pour qu'il utilise TLS (vous en aurez besoin par la suite).
@@ -494,11 +488,11 @@ done
 ```shell
 install -d -o root -g mysql -m 0750 /etc/mysql/centreon-tls
 cp /etc/pki/centreon-tls/rootCA.pem     /etc/mysql/centreon-tls/rootCA.pem
-cp /etc/pki/centreon-tls/server.pem     /etc/mysql/centreon-tls/server.pem
-cp /etc/pki/centreon-tls/server-key.pem /etc/mysql/centreon-tls/server-key.pem
+cp /etc/pki/centreon-tls/db.pem     /etc/mysql/centreon-tls/db.pem
+cp /etc/pki/centreon-tls/db-key.pem /etc/mysql/centreon-tls/db-key.pem
 chown root:mysql /etc/mysql/centreon-tls/*.pem
-chmod 0644 /etc/mysql/centreon-tls/rootCA.pem /etc/mysql/centreon-tls/server.pem
-chmod 0640 /etc/mysql/centreon-tls/server-key.pem
+chmod 0644 /etc/mysql/centreon-tls/rootCA.pem /etc/mysql/centreon-tls/db.pem
+chmod 0640 /etc/mysql/centreon-tls/db-key.pem
 ```
 
 2. Configurez le service de base de données pour qu'il démarre en mode TLS et indiquez l'emplacement des certificats.
@@ -511,8 +505,8 @@ for d in "${inc[@]}"; do
   cat > "$d/99-centreon-tls.cnf" <<'EOF'
 [mysqld]
 ssl_ca   = /etc/mysql/centreon-tls/rootCA.pem
-ssl_cert = /etc/mysql/centreon-tls/server.pem
-ssl_key  = /etc/mysql/centreon-tls/server-key.pem
+ssl_cert = /etc/mysql/centreon-tls/db.pem
+ssl_key  = /etc/mysql/centreon-tls/db-key.pem
 require_secure_transport = OFF
 tls_version = TLSv1.2,TLSv1.3
 EOF
