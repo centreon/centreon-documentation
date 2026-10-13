@@ -260,8 +260,8 @@ Le tableau ci-dessous liste tous les tags utilisables :
 | type                      | non       | peut être `metric_[value\|state\| min\|max\|warning_threshold\|critical_threshold]`                                          |
 | service                   | oui       | uniquement pour les évènements de services, le nom du service                                                                |
 | hostgroups                | oui       | uniquement si le paramètre "add_hostgroups" est défini à "1" et qu'au moins un groupe d'hôtes est lié à l'hôte               |
-| metric_instance           | oui       | uniquement si le format moderne de la métrique Centreon en contient une                                                      |
-| metric_subinstances       | oui       | uniquement si le format moderne de la métrique Centreon en contient au moins une                                             |
+| metric_instance           | oui       | uniquement si le format moderne de la métrique Centreon contient une instance                                                    |
+| metric_subinstances       | oui       | uniquement si le format moderne de la métrique Centreon contient au moins une sous-instance                                            |
 | metric_min                | oui       | uniquement si le paramètre "add_min_max_mode" est défini à "as_tag" et qu'une valeur min est disponible                      |
 | metric_max                | oui       | uniquement si le paramètre "add_min_max_mode" est défini à "as_tag" et qu'une valeur max est disponible                      |
 | metric_warning_threshold  | oui       | uniquement si le paramètre "add_thresholds_mode" est défini à "as_tag" et qu'une valeur de seuil warning est disponible      |
