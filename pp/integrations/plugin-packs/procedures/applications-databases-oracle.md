@@ -119,9 +119,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Connection-Number" label="Connection-Number">
 
-| Name            | Unit |
-|:----------------|:-----|
-| connected_users | N/A  |
+| Name            | Unit  |
+|:----------------|:------|
+| connected_users | count |
 
 </TabItem>
 <TabItem value="Connection-Time*" label="Connection-Time*">
@@ -135,9 +135,9 @@ Here is the list of services for this connector, detailing all metrics and statu
 </TabItem>
 <TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
 
-| Name             | Unit |
-|:-----------------|:-----|
-| corrupted_blocks | N/A  |
+| Name             | Unit  |
+|:-----------------|:------|
+| corrupted_blocks | count |
 
 </TabItem>
 <TabItem value="Data-Files-Status" label="Data-Files-Status">
@@ -595,13 +595,6 @@ apt install centreon-pack-applications-databases-oracle
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-databases-oracle
-```
-
-</TabItem>
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Oracle Database** connector through
@@ -639,13 +632,6 @@ dnf install centreon-plugin-Applications-Databases-Oracle
 
 ```bash
 apt install centreon-plugin-applications-databases-oracle
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Databases-Oracle
 ```
 
 </TabItem>

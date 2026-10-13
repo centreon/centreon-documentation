@@ -1,6 +1,7 @@
 ---
 id: applications-databases-oracle
 title: Oracle Database
+description: "Supervisez Oracle Database via des requêtes SQL : utilisation des tablespaces, sauvegardes RMAN, groupes de disques ASM, sessions et connexions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -91,10 +92,10 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                        | Description                                                                         |
-|:---------------------------------------|:------------------------------------------------------------------------------------|
-| App-DB-Oracle-ASM-Diskgroup-Usage-Name | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
-| App-DB-Oracle-Tablespaces-Usage-Name   | Découvre les 'tablespaces' du serveur Oracle et permet de les superviser            |
+| Nom de la règle                        | Description                                                                                    |
+|:---------------------------------------|:-----------------------------------------------------------------------------------------------|
+| App-DB-Oracle-ASM-Diskgroup-Usage-Name | Découvre les disques ASM du serveur Oracle et supervise leur statut ainsi que leur utilisation |
+| App-DB-Oracle-Tablespaces-Usage-Name   | Découvre les 'tablespaces' du serveur Oracle et permet de les superviser                       |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -122,7 +123,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Nom             | Unité |
 |:----------------|:------|
-| connected_users | N/A   |
+| connected_users | count |
 
 </TabItem>
 <TabItem value="Connection-Time*" label="Connection-Time*">
@@ -138,7 +139,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 | Nom              | Unité |
 |:-----------------|:------|
-| corrupted_blocks | N/A   |
+| corrupted_blocks | count |
 
 </TabItem>
 <TabItem value="Data-Files-Status" label="Data-Files-Status">
@@ -592,13 +593,6 @@ apt install centreon-pack-applications-databases-oracle
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-databases-oracle
-```
-
-</TabItem>
 </Tabs>
 
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Oracle Database**
@@ -634,13 +628,6 @@ dnf install centreon-plugin-Applications-Databases-Oracle
 
 ```bash
 apt install centreon-plugin-applications-databases-oracle
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Databases-Oracle
 ```
 
 </TabItem>
