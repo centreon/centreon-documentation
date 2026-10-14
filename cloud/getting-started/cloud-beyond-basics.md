@@ -11,6 +11,7 @@ This list of features allows you to extend the experience!
 ## Organize your monitoring
 
 Optimize your monitoring by grouping your resources strategically. Follow our [recommendations](../monitoring/groups.md) to better organize your hosts and services.
+toto tata
 
 ## Get an email when an alert occurs
 
