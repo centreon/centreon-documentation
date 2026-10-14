@@ -429,7 +429,7 @@ dnf install mariadb-server
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
-dnf install mariadb-server
+dnf install -y mariadb11.8-server
 ```
 
 </TabItem>
