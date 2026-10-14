@@ -37,9 +37,9 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias | Modèle de service         | Description                                                | Découverte |
-|:------|:--------------------------|:-----------------------------------------------------------|:----------:|
-| Disks | OS-F5OS-Disks-SNMP-custom | Contrôle l'utilisation et les entrées/sorties des disques. |     X      |
+| Alias       | Modèle de service               | Description                                                | Découverte |
+|:------------|:--------------------------------|:-----------------------------------------------------------|:----------:|
+| Disk-Global | OS-F5OS-Disk-Global-SNMP-custom | Contrôle l'utilisation et les entrées/sorties des disques. |     X      |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -83,7 +83,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | *cpu_core*#cpu.core.usage.avg.5m.percent  | %     |
 
 </TabItem>
-<TabItem value="Disks" label="Disks">
+<TabItem value="Disk-Global" label="Disk-Global">
 
 | Nom                                            | Unité |
 |:-----------------------------------------------|:------|
@@ -265,7 +265,7 @@ yum install centreon-plugin-Operatingsystems-F5os-Snmp
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
-<TabItem value="Disks" label="Disks">
+<TabItem value="Disk-Global" label="Disk-Global">
 
 | Macro                     | Description                                                                                                                                      | Valeur par défaut | Obligatoire |
 |:--------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
@@ -383,12 +383,12 @@ Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
 
 Le plugin apporte les modes suivants :
 
-| Mode                                                                                                            | Modèle de service associé     |
-|:----------------------------------------------------------------------------------------------------------------|:------------------------------|
-| cpu-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/cpuusage.pm)] | OS-F5OS-Cpu-Usage-SNMP-custom |
-| disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/disks.pm)]        | OS-F5OS-Disks-SNMP-custom     |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/hardware.pm)]  | OS-F5OS-Hardware-SNMP-custom  |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/memory.pm)]      | OS-F5OS-Memory-SNMP-custom    |
+| Mode                                                                                                            | Modèle de service associé       |
+|:----------------------------------------------------------------------------------------------------------------|:--------------------------------|
+| cpu-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/cpuusage.pm)] | OS-F5OS-Cpu-Usage-SNMP-custom   |
+| disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/disks.pm)]        | OS-F5OS-Disk-Global-SNMP-custom |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/hardware.pm)]  | OS-F5OS-Hardware-SNMP-custom    |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/memory.pm)]      | OS-F5OS-Memory-SNMP-custom      |
 
 ### Options disponibles
 
@@ -485,7 +485,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --critical-core-avg-5m  | Threshold in percentage.                                                                                                                                   |
 
 </TabItem>
-<TabItem value="Disks" label="Disks">
+<TabItem value="Disk-Global" label="Disk-Global">
 
 | Option                      | Description                                                           |
 |:----------------------------|:----------------------------------------------------------------------|

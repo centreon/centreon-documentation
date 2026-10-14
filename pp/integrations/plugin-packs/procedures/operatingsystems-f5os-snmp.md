@@ -36,9 +36,9 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias | Service Template          | Service Description        | Discovery |
-|:--------------|:--------------------------|:---------------------------|:---------:|
-| Disks         | OS-F5OS-Disks-SNMP-custom | Check disks usage and I/O. |     X     |
+| Service Alias | Service Template                | Service Description        | Discovery |
+|:--------------|:--------------------------------|:---------------------------|:---------:|
+| Disk-Global   | OS-F5OS-Disk-Global-SNMP-custom | Check disks usage and I/O. |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -82,7 +82,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | *cpu_core*#cpu.core.usage.avg.5m.percent  | %    |
 
 </TabItem>
-<TabItem value="Disks" label="Disks">
+<TabItem value="Disk-Global" label="Disk-Global">
 
 | Name                                           | Unit |
 |:-----------------------------------------------|:-----|
@@ -265,7 +265,7 @@ yum install centreon-plugin-Operatingsystems-F5os-Snmp
 | EXTRAOPTIONS        | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |               |           |
 
 </TabItem>
-<TabItem value="Disks" label="Disks">
+<TabItem value="Disk-Global" label="Disk-Global">
 
 | Macro                     | Description                                                                                                                            | Default value | Mandatory |
 |:--------------------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
@@ -381,12 +381,12 @@ the command:
 
 The plugin brings the following modes:
 
-| Mode                                                                                                            | Linked service template       |
-|:----------------------------------------------------------------------------------------------------------------|:------------------------------|
-| cpu-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/cpuusage.pm)] | OS-F5OS-Cpu-Usage-SNMP-custom |
-| disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/disks.pm)]        | OS-F5OS-Disks-SNMP-custom     |
-| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/hardware.pm)]  | OS-F5OS-Hardware-SNMP-custom  |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/memory.pm)]      | OS-F5OS-Memory-SNMP-custom    |
+| Mode                                                                                                            | Linked service template         |
+|:----------------------------------------------------------------------------------------------------------------|:--------------------------------|
+| cpu-usage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/cpuusage.pm)] | OS-F5OS-Cpu-Usage-SNMP-custom   |
+| disks [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/disks.pm)]        | OS-F5OS-Disk-Global-SNMP-custom |
+| hardware [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/hardware.pm)]  | OS-F5OS-Hardware-SNMP-custom    |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/f5os/snmp/mode/memory.pm)]      | OS-F5OS-Memory-SNMP-custom      |
 
 ### Available options
 
@@ -483,7 +483,7 @@ All available options for each service template are listed below:
 | --critical-core-avg-5m  | Threshold in percentage.                                                                                                                                   |
 
 </TabItem>
-<TabItem value="Disks" label="Disks">
+<TabItem value="Disk-Global" label="Disk-Global">
 
 | Option                      | Description                                                           |
 |:----------------------------|:----------------------------------------------------------------------|
