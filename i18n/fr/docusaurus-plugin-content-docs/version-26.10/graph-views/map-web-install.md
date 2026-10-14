@@ -395,16 +395,12 @@ Vous devez d'abord ajouter le dépôt MariaDB :
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-```shell
-dnf module enable -y mariadb:11.8
-```
+Il n'y a pas de module à activer sur Alma / RHEL / Oracle Linux 10 : MariaDB 11.8 est fourni par le paquet `mariadb11.8-server`. Passez à l'étape suivante.
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-```shell
-dnf module enable -y mariadb:11.8
-```
+Il n'y a pas de module à activer sur Alma / RHEL / Oracle Linux 10 : MariaDB 11.8 est fourni par le paquet `mariadb11.8-server`. Passez à l'étape suivante.
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
