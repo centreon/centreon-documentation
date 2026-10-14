@@ -1098,15 +1098,6 @@ Copiez le [fichier de configuration optimisé](../assets/reporting/installation/
 systemctl restart mysql
 ```
 
-Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
-
-```shell
-mkdir -p  /etc/systemd/system/mysql.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
-systemctl daemon-reload
-systemctl enable mysql
-```
-
 Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
 
 ```shell

@@ -1109,10 +1109,9 @@ socket=$PATH_TO_SOCKET$
 
 Copy the [optimized configuration file](../assets/reporting/installation/centreon-mysql.cnf) provided in the prerequisites to `/etc/my.cnf.d/85-centreon-bi.cnf`, then restart the MySQL service:
 
-
 ```shell
-Copy the [optimized configuration file](../assets/reporting/installation/centreon-mysql.cnf) provided in the prerequisites to `/etc/my.cnf.d/85-centreon-bi.cnf`, then restart the MySQL service:
-
+systemctl restart mysql
+```
 
 If the MySQL service fails to start, delete the *ib_logfile* files (MySQL MUST be stopped) and then restart MySQL again:
 
