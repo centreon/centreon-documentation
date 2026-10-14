@@ -285,7 +285,7 @@ yum install centreon-plugin-Operatingsystems-F5os-Snmp
 | CRITICAL_READ_LATENCY     | Threshold in milliseconds (average latency per read operation)                                                                         |               |           |
 | WARNING_WRITE_LATENCY     | Threshold in milliseconds (average latency per write operation)                                                                        |               |           |
 | CRITICAL_WRITE_LATENCY    | Threshold in milliseconds (average latency per write operation)                                                                        |               |           |
-| EXTRA_OPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |               |           |
+| EXTRA_OPTIONS             | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose     |           |
 
 </TabItem>
 <TabItem value="Hardware" label="Hardware">
