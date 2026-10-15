@@ -41,7 +41,25 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-La liste des métriques varie d'un modèle à l'autre.
+La liste des métriques varie d'un modèle à l'autre. Mais voici la liste des composants possibles :
+
+| Nom                    | Unité | 
+|:-----------------------|:------|
+| battery.status         | N/A   |
+| bios.status            | N/A   |
+| cpu.status             | N/A   |
+| controller.status      | N/A   |
+| drive.enclosure.status | N/A   |
+| fan.status             | N/A   |
+| fan.speed.unit         | UNIT  |
+| logical.drive.status   | N/A   |
+| memory.status          | N/A   |
+| nic.status             | N/A   |
+| physical.drive.status  | N/A   |
+| power.supply.status    | N/A   |
+| temperature.status     | N/A   |
+| temperature.unit       | UNIT  |
+| vrm.status             | N/A   |
 
 </TabItem>
 </Tabs>
