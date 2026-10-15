@@ -154,6 +154,10 @@
               "id": "installation/installation-of-a-poller/unattended-install-poller"
             },
             {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/from-interface"
+            },
+            {
               "type": "category",
               "label": "Pollers in containers",
               "link": {

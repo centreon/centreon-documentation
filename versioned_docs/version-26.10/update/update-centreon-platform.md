@@ -233,7 +233,7 @@ This procedure is the same as to update a Centreon central server.
 > At the end of the update, the configuration should be deployed from the central
 > server.
 
-## Update the Pollers 
+## Update the Pollers
 
 <Tabs groupId="sync">
 <TabItem value="Using the installation command" label="Using the installation command">
