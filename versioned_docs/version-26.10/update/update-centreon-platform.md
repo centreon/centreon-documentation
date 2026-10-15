@@ -236,6 +236,16 @@ This procedure is the same as to update a Centreon central server.
 ## Update the Pollers
 
 <Tabs groupId="sync">
+<TabItem value="From the central server interface label="From the central server interface>
+You can obtain the command installation for an existing poller from the central server interface.
+Executing the installation command of an existing poller will udpate it.
+
+1. Go to the pollers list in **Configuration > Pollers > Pollers**.
+
+2. In the **Actions** column, click on the **Copy installation command** button.
+
+3. Execute the copied command on your poller to update it.
+</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Clean the cache:
