@@ -236,7 +236,7 @@ This procedure is the same as to update a Centreon central server.
 ## Update the Pollers
 
 <Tabs groupId="sync">
-<TabItem value="From the central server interface label="From the central server interface>
+<TabItem value="Using the installation command" label="Using the installation command">
 You can obtain the command installation for an existing poller from the central server interface.
 Executing the installation command of an existing poller will udpate it.
 
