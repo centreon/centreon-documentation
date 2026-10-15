@@ -153,6 +153,10 @@
               "type": "doc",
               "id": "installation/installation-of-a-poller/unattended-install-poller"
             },
+{
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/physical-vm-poller.md"
+            },
             {
               "type": "category",
               "label": "Pollers in containers",
