@@ -251,6 +251,8 @@ Exécuter la commande d'installation d'un collecteur existant le met à jour.
 
 3. Exécutez cette commande sur le collecteur pour le mettre à jour.
 </TabItem>
+<TabItem value="Mise à jour manuelle" label="Mise à jour manuelle">
+<Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Videz le cache :
@@ -331,6 +333,7 @@ Rien à faire pour cet OS.
   ```
 
 </TabItem>
+</Tabs>
 </Tabs>
 
 ## Mise à jour silencieuse

@@ -246,6 +246,8 @@ Executing the installation command of an existing poller will udpate it.
 
 3. Execute the copied command on your poller to update it.
 </TabItem>
+<TabItem value="Manually" label="Manually">
+<Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Clean the cache:
@@ -326,6 +328,7 @@ Nothing to do for this OS.
   ```
 
 </TabItem>
+</Tabs>
 </Tabs>
 
 ## Unattended update
