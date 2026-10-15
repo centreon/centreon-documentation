@@ -82,8 +82,8 @@ systemctl restart mysqld
 2. Enter the correct certificate paths in Centreon's Apache HTTPS configuration:
 
     ```shell
-    sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/pki/centreon-tls/web.pem|g' \
-        -e 's|/etc/pki/tls/private/ca.key|/etc/pki/centreon-tls/web-key.pem|g' \
+    sed -e 's|/etc/pki/tls/certs/ca.crt|/etc/ssl/certs/centreon-tls/web.pem|g' \
+        -e 's|/etc/pki/tls/private/ca.key|/etc/ssl/certs/centreon-tls/web-key.pem|g' \
         /usr/share/centreon/examples/centreon-apache-https.conf \
         > /etc/apache2/sites-available/00-centreon-tls.conf
     ```

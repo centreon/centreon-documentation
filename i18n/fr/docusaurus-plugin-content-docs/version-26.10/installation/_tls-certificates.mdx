@@ -7,12 +7,13 @@ Utilisez un certificat délivré par une autorité de confiance. Les certificats
 * Si vous ne disposez pas d'un certificat validé par une autorité, vous pouvez en générer un sur des plateformes telles que [Let's Encrypt](https://letsencrypt.org/).
 * Si, à des fins de test, vous souhaitez utiliser un certificat auto-signé, [vous pouvez suivre cett procédure pour en créer un](../administration/self-signed-certificate.md) avant d'activer le mode HTTPS sur votre serveur. Attention, vous devrez importer le certificat de l'autorité de certification (CA) dans votre navigateur.
 
-Supposons que vous disposiez des fichiers suivants (dans notre exemple, dans **/etc/pki/centreon-tls/**) :
+Supposons que vous disposiez des fichiers suivants (dans notre exemple, dans **/etc/pki/centreon-tls/** sur EL 9 or 10, ou **/etc/ssl/certs/centreon-tls** sur Debian 13) :
 
-      * rootCA.pem            (public - non nécessaire si vous utilisez un certificat reconnu)
-      * server.pem            (certificat du serveur)
-      * server-key.pem        (clé privée du serveur)
-      * CA/rootCA.\{key,pem\}   (définissez les permissions suivantes : root:root, mode 0400)
+      * rootCA.pem         (public - non nécessaire si vous utilisez un certificat reconnu)
+      * web.pem            (certificat du serveur web)
+      * web-key.pem        (clé privée du serveur web)
+      * db.pem             (certificat du serveur de base de données)
+      * db-key.pem         (clé privée du serveur de base de données)
 
 1. Installez l'autorité de certification racine dans le trust store du système d'exploitation de la machine hébergeant le serveur central :
 
@@ -36,7 +37,7 @@ Supposons que vous disposiez des fichiers suivants (dans notre exemple, dans **/
    <TabItem value="Debian 13" label="Debian 13">
 
    ```shell
-   cp /etc/pki/centreon-tls/rootCA.pem /usr/local/share/ca-certificates/centreon-dev.crt
+   cp /etc/ssl/certs/centreon-tls/rootCA.pem /usr/local/share/ca-certificates/centreon-dev.crt
    update-ca-certificates
    ```
 

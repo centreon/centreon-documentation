@@ -238,51 +238,161 @@ sudo chmod 0644 /out/db/db.pem
 sudo chmod 0640 /out/db/db-key.pem
 ```
 
-Vous disposez maintenant des fichiers nécessaires dans votre dossier **/out**. Vous pouvez les copier aux bons emplacements sur vos serveurs (par ex. **/etc/pki/centreon-tls/** sur EL 9 ou 10 comme dans l'exemple ci-dessous, ou **/etc/ssl/certs/centreon-tls** sur Debian 13).
+## Étape 8 : Copier les fichiers
 
-Sur le serveur central/distant :
+Vous disposez maintenant des fichiers nécessaires dans votre dossier **/out**. Vous pouvez les copier aux emplacements appropriés sur vos serveurs (par exemple **/etc/pki/centreon-tls/** sur EL 9 ou 10 comme dans l'exemple ci-dessous, ou **/etc/ssl/certs/centreon-tls** sur Debian 13).
 
-```shell
-sudo mkdir -p /etc/pki/centreon-tls
-sudo cp /out/CA/rootCA.pem /out/web/web.pem /out/web/web-key.pem /etc/pki/centreon-tls/
-```
+1. Déplacez **rootCA.key** dans un endroit sûr, puis supprimez-le de votre répertoire **/out**.
 
-Pour la base de données :
+2. Sur le serveur central/distant :
+
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+  ```shell
+  sudo mkdir -p /etc/pki/centreon-tls
+  sudo cp /out/CA/rootCA.pem /out/web/web.pem /out/web/web-key.pem /etc/pki/centreon-tls/
+  ```
+
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+  ```shell
+  sudo mkdir -p /etc/pki/centreon-tls
+  sudo cp /out/CA/rootCA.pem /out/web/web.pem /out/web/web-key.pem /etc/pki/centreon-tls/
+  ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo mkdir -p /etc/ssl/certs/centreon-tls/
+  sudo cp /out/CA/rootCA.pem /out/web/web.pem /out/web/web-key.pem /etc/ssl/certs/centreon-tls/
+  ```
+
+  </TabItem>
+  </Tabs>
+
+3. Pour la base de données :
 
 * Si votre base de données est locale, exécutez ces commandes sur le serveur central :
+
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
   sudo mkdir -p /etc/pki/centreon-tls
   sudo cp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem /etc/pki/centreon-tls/
   ```
 
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+  ```shell
+  sudo mkdir -p /etc/pki/centreon-tls
+  sudo cp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem /etc/pki/centreon-tls/
+  ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo mkdir -p /etc/ssl/certs/centreon-tls/
+  sudo cp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem /etc/ssl/certs/centreon-tls/
+  ```
+
+  </TabItem>
+  </Tabs>
+
 * Si votre base de données est distante, créez le dossier sur le serveur de base de données :
+
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
   sudo mkdir -p /etc/pki/centreon-tls
   ```
 
-  Ensuite, sur le serveur central, copiez les fichiers sur le serveur de base de données à l'aide d'une méthode sécurisée, car **db-key.pem** est une clé privée. Remplacez **db.example.com** par l'adresse de votre serveur de base de données :
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+  ```shell
+  sudo mkdir -p /etc/pki/centreon-tls
+  ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo mkdir -p /etc/ssl/certs/centreon-tls/
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  Ensuite, sur le serveur central, copiez les fichiers vers le serveur de base de données à l'aide d'une méthode sécurisée, car **db-key.pem** est une clé privée. Remplacez **db.example.com** par l'adresse de votre serveur de base de données :
+
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
   sudo scp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem root@db.example.com:/etc/pki/centreon-tls/
   ```
 
-  Si root ne peut pas se connecter en SSH sur le serveur de base de données, copiez les fichiers dans le dossier personnel d'un utilisateur qui le peut (remplacez **user**) :
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+  
+  ```shell
+  sudo scp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem root@db.example.com:/etc/pki/centreon-tls/
+  ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo scp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem root@db.example.com:/etc/ssl/certs/centreon-tls/
+  ```
+
+  </TabItem>
+  </Tabs>
+
+  Si l'utilisateur root ne peut pas se connecter en SSH au serveur de base de données, copiez les fichiers dans le dossier personnel d'un utilisateur qui le peut (remplacez **user**) :
 
   ```shell
   sudo scp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem user@db.example.com:~/
   ```
 
-  Ensuite, sur le serveur de base de données, déplacez-les dans le bon dossier :
+  Puis, sur le serveur de base de données, déplacez-les dans le bon dossier :
+
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
   sudo mv ~/rootCA.pem ~/db.pem ~/db-key.pem /etc/pki/centreon-tls/
   sudo chown root:root /etc/pki/centreon-tls/*.pem
   ```
 
-  Supprimez ensuite la clé privée du serveur central :
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
   ```shell
-  sudo rm /out/db/db-key.pem
+  sudo mv ~/rootCA.pem ~/db.pem ~/db-key.pem /etc/pki/centreon-tls/
+  sudo chown root:root /etc/pki/centreon-tls/*.pem
   ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo mv ~/rootCA.pem ~/db.pem ~/db-key.pem /etc/ssl/certs/centreon-tls/
+  sudo chown root:root /etc/ssl/certs/centreon-tls/*.pem
+  ```
+
+  </TabItem>
+  </Tabs>
+
+4. Supprimez les clés privées du dossier **/out**, puisqu'elles se trouvent désormais à leur emplacement définitif :
+
+    ```shell
+    sudo rm /out/web/web-key.pem /out/db/db-key.pem
+    ```

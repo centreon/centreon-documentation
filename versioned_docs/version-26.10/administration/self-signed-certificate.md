@@ -238,35 +238,123 @@ sudo chmod 0644 /out/db/db.pem
 sudo chmod 0640 /out/db/db-key.pem
 ```
 
+## Step 8: Copy the files
+
 You now have the files you need in your **/out** folder. You can copy them to the correct locations on your servers (e.g. **/etc/pki/centreon-tls/** on EL 9 or 10 like in the example below, or **/etc/ssl/certs/centreon-tls** on Debian 13).
 
-On the central/remote server:
+1. Move **rootCA.key** to a safe place, then delete it from your **/out** directory.
 
-```shell
-sudo mkdir -p /etc/pki/centreon-tls
-sudo cp /out/CA/rootCA.pem /out/web/web.pem /out/web/web-key.pem /etc/pki/centreon-tls/
-```
+2. On the central/remote server:
 
-For the database:
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+  ```shell
+  sudo mkdir -p /etc/pki/centreon-tls
+  sudo cp /out/CA/rootCA.pem /out/web/web.pem /out/web/web-key.pem /etc/pki/centreon-tls/
+  ```
+
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+  ```shell
+  sudo mkdir -p /etc/pki/centreon-tls
+  sudo cp /out/CA/rootCA.pem /out/web/web.pem /out/web/web-key.pem /etc/pki/centreon-tls/
+  ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo mkdir -p /etc/ssl/certs/centreon-tls/
+  sudo cp /out/CA/rootCA.pem /out/web/web.pem /out/web/web-key.pem /etc/ssl/certs/centreon-tls/
+  ```
+
+  </TabItem>
+  </Tabs>
+
+3. For the database:
 
 * If your database is local, run these commands on the central server:
+
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
   sudo mkdir -p /etc/pki/centreon-tls
   sudo cp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem /etc/pki/centreon-tls/
   ```
 
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+  ```shell
+  sudo mkdir -p /etc/pki/centreon-tls
+  sudo cp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem /etc/pki/centreon-tls/
+  ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo mkdir -p /etc/ssl/certs/centreon-tls/
+  sudo cp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem /etc/ssl/certs/centreon-tls/
+  ```
+
+  </TabItem>
+  </Tabs>
+
 * If your database is remote, create the folder on the database server:
+
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
   sudo mkdir -p /etc/pki/centreon-tls
   ```
 
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+  ```shell
+  sudo mkdir -p /etc/pki/centreon-tls
+  ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo mkdir -p /etc/ssl/certs/centreon-tls/
+  ```
+
+  </TabItem>
+  </Tabs>
+
   Then, on the central server, copy the files to the database server using a secure method, as **db-key.pem** is a private key. Replace **db.example.com** with the address of your database server:
+
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
   ```shell
   sudo scp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem root@db.example.com:/etc/pki/centreon-tls/
   ```
+
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+  
+  ```shell
+  sudo scp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem root@db.example.com:/etc/pki/centreon-tls/
+  ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo scp /out/CA/rootCA.pem /out/db/db.pem /out/db/db-key.pem root@db.example.com:/etc/ssl/certs/centreon-tls/
+  ```
+
+  </TabItem>
+  </Tabs>
 
   If root cannot log in through SSH on the database server, copy the files to the home folder of a user who can (replace **user**):
 
@@ -276,13 +364,35 @@ For the database:
 
   Then, on the database server, move them to the right folder:
 
+  <Tabs groupId="os">
+  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
   ```shell
   sudo mv ~/rootCA.pem ~/db.pem ~/db-key.pem /etc/pki/centreon-tls/
   sudo chown root:root /etc/pki/centreon-tls/*.pem
   ```
 
-  Then delete the private key from the central server:
+  </TabItem>
+  <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
   ```shell
-  sudo rm /out/db/db-key.pem
+  sudo mv ~/rootCA.pem ~/db.pem ~/db-key.pem /etc/pki/centreon-tls/
+  sudo chown root:root /etc/pki/centreon-tls/*.pem
   ```
+
+  </TabItem>
+  <TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  sudo mv ~/rootCA.pem ~/db.pem ~/db-key.pem /etc/ssl/certs/centreon-tls/
+  sudo chown root:root /etc/ssl/certs/centreon-tls/*.pem
+  ```
+
+  </TabItem>
+  </Tabs>
+
+4. Delete the private keys from the **/out** folder, as they are now in their final locations:
+
+    ```shell
+    sudo rm /out/web/web-key.pem /out/db/db-key.pem
+    ```

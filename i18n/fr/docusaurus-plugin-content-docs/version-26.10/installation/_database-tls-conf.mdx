@@ -152,9 +152,9 @@ done
 
 ```shell
 install -d -o root -g mysql -m 0750 /etc/mysql/centreon-tls
-cp /etc/pki/centreon-tls/rootCA.pem     /etc/mysql/centreon-tls/rootCA.pem
-cp /etc/pki/centreon-tls/db.pem     /etc/mysql/centreon-tls/db.pem
-cp /etc/pki/centreon-tls/db-key.pem /etc/mysql/centreon-tls/db-key.pem
+cp /etc/ssl/certs/centreon-tls/rootCA.pem     /etc/mysql/centreon-tls/rootCA.pem
+cp /etc/ssl/certs/centreon-tls/db.pem     /etc/mysql/centreon-tls/db.pem
+cp /etc/ssl/certs/centreon-tls/db-key.pem /etc/mysql/centreon-tls/db-key.pem
 chown root:mysql /etc/mysql/centreon-tls/*.pem
 chmod 0644 /etc/mysql/centreon-tls/rootCA.pem /etc/mysql/centreon-tls/db.pem
 chmod 0640 /etc/mysql/centreon-tls/db-key.pem
@@ -487,9 +487,9 @@ done
 
 ```shell
 install -d -o root -g mysql -m 0750 /etc/mysql/centreon-tls
-cp /etc/pki/centreon-tls/rootCA.pem     /etc/mysql/centreon-tls/rootCA.pem
-cp /etc/pki/centreon-tls/db.pem     /etc/mysql/centreon-tls/db.pem
-cp /etc/pki/centreon-tls/db-key.pem /etc/mysql/centreon-tls/db-key.pem
+cp /etc/ssl/certs/centreon-tls/rootCA.pem     /etc/mysql/centreon-tls/rootCA.pem
+cp /etc/ssl/certs/centreon-tls/db.pem     /etc/mysql/centreon-tls/db.pem
+cp /etc/ssl/certs/centreon-tls/db-key.pem /etc/mysql/centreon-tls/db-key.pem
 chown root:mysql /etc/mysql/centreon-tls/*.pem
 chmod 0644 /etc/mysql/centreon-tls/rootCA.pem /etc/mysql/centreon-tls/db.pem
 chmod 0640 /etc/mysql/centreon-tls/db-key.pem
