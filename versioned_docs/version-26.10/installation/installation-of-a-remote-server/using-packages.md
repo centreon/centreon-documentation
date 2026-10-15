@@ -158,7 +158,7 @@ systemctl start apache2
 
 > In the step **Initialization of the monitoring**, only actions 6 to 8 need to be done.
 
-<!-- ## Step 5: Register the server
+## Step 6: Register the server
 
 To transform the server into a Remote Server and to register it to the Central server or another Remote server, execute the following command on the future remote server:
 
@@ -281,9 +281,9 @@ Couldn't connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> Your Centreon target version is invalid. It should be greater than or equal to 26.10. -->
+> Your Centreon target version is invalid. It should be greater than or equal to 26.10.
 
-## Step 6: Extend local DBMS rights
+## Step 7: Extend local DBMS rights
 
 Finally, add rights for the **centreon** database user to use **LOAD DATA INFILE**
 command:
@@ -295,12 +295,12 @@ SET GLOBAL local_infile=1;
 exit
 ```
 
-## Step 7: Attach the remote server to the central server
+## Step 8: Attach the remote server to the central server
 
 Go to
 [Attach a remote server to a central server](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
-## Step 8: Secure your platform
+## Step 9: Secure your platform
 
 Remember to secure your Centreon platform following our
 [recommendations](../../administration/secure-platform.md).

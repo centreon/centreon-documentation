@@ -158,7 +158,7 @@ procédure d'[installation web](../web-and-post-installation.md#installation-web
 
 > À l'étape **Initialisation de la supervision**, seules les actions 6 à 8 sont nécessaires.
 
-<!-- ## Étape 5 : Enregistrer le serveur
+## Étape 6 : Enregistrer le serveur
 
 Pour transformer le serveur en serveur distant et l'enregistrer sur le serveur central ou sur un autre serveur distant, exécutez la commande suivante sur le futur serveur distant :
 
@@ -281,9 +281,9 @@ Couldn't connect to 192.168.0.1:444; Connection refused
 2020-10-20T10:42:23+02:00 [ERROR]: No route found for “POST /centreon/api/latest/platform/topology”
 ```
 
-> La version Centreon du serveur cible n'est pas valide. Elle doit être supérieure ou égale à 26.10. -->
+> La version Centreon du serveur cible n'est pas valide. Elle doit être supérieure ou égale à 26.10.
 
-## Étape 6 : Étendre les droits du SGBD local
+## Étape 7 : Étendre les droits du SGBD local
 
 Enfin, ajoutez à l'utilisateur de base de données **centreon** les droits nécessaires pour utiliser la commande
 **LOAD DATA INFILE** :
@@ -295,12 +295,12 @@ SET GLOBAL local_infile=1;
 exit
 ```
 
-## Étape 7 : Rattacher le serveur distant au serveur central
+## Étape 8 : Rattacher le serveur distant au serveur central
 
 Rendez-vous au chapitre
 [Rattacher un serveur distant à un serveur central](../../monitoring/monitoring-servers/add-a-remote-server-to-configuration.md).
 
-## Étape 8 : Sécuriser votre plateforme
+## Étape 9 : Sécuriser votre plateforme
 
 N'oubliez pas de sécuriser votre plateforme Centreon en suivant nos
 [recommandations](../../administration/secure-platform.md).
