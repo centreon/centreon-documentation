@@ -241,6 +241,16 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 ## Mise à jour des collecteurs
 
 <Tabs groupId="sync">
+<TabItem value="From the Centreon interface label="From the Centreon interface>
+Il est possible d'obtenir la commande d'installation d'un collecteur depuis l'interface de votre serveur central.
+Exécuter la commande d'installation d'un collecteur le met à jour.
+
+1. Allez dans la liste des collecteurs dans **Configuration > Collecteurs > Collecteurs**.
+
+2. Dans la colonne **Actions**, cliquez le bouton **Copier la commande d'installation**
+
+3. Exécutez cette commande sur le collecteur pour le mettre à jour.
+</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Videz le cache :
