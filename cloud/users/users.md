@@ -24,7 +24,7 @@ There are three roles for users in Centreon Cloud, each with a specific set of r
   * use custom views, performance graphs and dashboards.
 
 * **Editor**. **Editors** can do the same things as **Users**, but they also can:
-  * create hosts and services, meta-services, templates, categories, etc.
+  * create hosts and services, metaservices, templates, categories, etc.
   * disacknowledge an acknowledgement, submit a result, etc.
   * view the list of pollers, export the configuration and access the poller installation command.
   * install Monitoring Connectors.
