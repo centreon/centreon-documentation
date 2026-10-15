@@ -241,9 +241,9 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 ## Mise à jour des collecteurs
 
 <Tabs groupId="sync">
-<TabItem value="From the Centreon interface label="From the Centreon interface>
-Il est possible d'obtenir la commande d'installation d'un collecteur depuis l'interface de votre serveur central.
-Exécuter la commande d'installation d'un collecteur le met à jour.
+<TabItem value="Avec la commande d'installation" label="Avec la commande d'installation">
+Il est possible d'obtenir la commande d'installation d'un collecteur existant depuis l'interface de votre serveur central.
+Exécuter la commande d'installation d'un collecteur existant le met à jour.
 
 1. Allez dans la liste des collecteurs dans **Configuration > Collecteurs > Collecteurs**.
 
