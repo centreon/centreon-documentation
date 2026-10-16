@@ -240,8 +240,9 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 
 ## Mise à jour des collecteurs
 
-<Tabs groupId="sync">
+<Tabs groupId="poller-update">
 <TabItem value="Avec la commande d'installation" label="Avec la commande d'installation">
+
 Il est possible d'obtenir la commande d'installation d'un collecteur existant depuis l'interface de votre serveur central.
 Exécuter la commande d'installation d'un collecteur existant le met à jour.
 
@@ -250,8 +251,10 @@ Exécuter la commande d'installation d'un collecteur existant le met à jour.
 2. Dans la colonne **Actions**, cliquez le bouton **Copier la commande d'installation**
 
 3. Exécutez cette commande sur le collecteur pour le mettre à jour.
+
 </TabItem>
 <TabItem value="Mise à jour manuelle" label="Mise à jour manuelle">
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -334,6 +337,8 @@ Rien à faire pour cet OS.
 
 </TabItem>
 </Tabs>
+
+</TabItem>
 </Tabs>
 
 ## Mise à jour silencieuse

@@ -335,17 +335,6 @@ First you need to install an EPEL repository:
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
-The command should return results as follows:
-
-<!-- TODO(Sam): vérifier la sortie exacte de la commande EPEL sur EL10 (nom de build). -->
-
-```shell
-Installed:
-  epel-release-10-<build>.el10.noarch
-
-Complete!
-```
-
 Then install the Centreon repository:
 
 ```shell
@@ -491,8 +480,6 @@ dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-<!-- TODO(Sam): vérifier que le RPM mysql84-community-release existe pour el10 et son numéro de release. -->
-
 ```shell
 dnf install https://dev.mysql.com/get/mysql84-community-release-el10-1.noarch.rpm -y
 ```
@@ -501,8 +488,8 @@ dnf install https://dev.mysql.com/get/mysql84-community-release-el10-1.noarch.rp
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.32-1_all.deb
-dpkg -i mysql-apt-config_0.8.32-1_all.deb
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.36-1_all.deb
+dpkg -i mysql-apt-config_0.8.36-1_all.deb
 apt update
 ```
 
