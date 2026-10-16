@@ -403,7 +403,9 @@ First you need to add the MariaDB repository:
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-There is no module stream to enable on Alma / RHEL / Oracle Linux 10: MariaDB 11.8 is provided by the `mariadb11.8-server` package. Go to the next step.
+```shell
+dnf module enable -y mariadb:11.8
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
