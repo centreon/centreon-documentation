@@ -42,11 +42,14 @@ export default defineConfig({
     default: '26.10',
     versions: ['26.10', '25.10'],
   },
+  siteOrigin: 'https://docs.centreon.com',
   plugins: [pluginLastUpdatedFromSource(join(__dirname, 'docs'), join(__dirname, '..'))],
-  // SSG disabled: rspress v2 beta SSG doesn't support relative image paths (../assets/...)
-  // from MDX files. Dev mode works fine. To re-enable, images must be moved to public/
-  // or served via absolute URLs.
-  ssg: false,
+  // Render ~6,000 pages (en/fr x 2 versions) in worker threads.
+  ssg: { experimentalWorker: true },
+  route: {
+    // Extension-less URLs, like docs.centreon.com.
+    cleanUrls: true,
+  },
   markdown: {
     link: {
       checkDeadLinks: false,

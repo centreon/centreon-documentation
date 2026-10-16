@@ -82,7 +82,9 @@ jobs:
         # under Cloudflare Pages' 25 MiB per-file limit (preview only).
         env:
           PREVIEW_BUILD: 'true'
-        run: pnpm --filter centreon-documentation-rspress build
+        # SSG renders in one worker per visible CPU; pinning to 2 CPUs keeps the
+        # peak memory (~15 GB measured) under the runner's 16 GB.
+        run: taskset -c 0-1 pnpm --filter centreon-documentation-rspress build
         shell: bash
 
       - name: Reduce preview search index to headings
