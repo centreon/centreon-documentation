@@ -47,7 +47,7 @@ fichiers `.env` et `docker-compose.yaml`, puis démarre l'ensemble des services.
 
 2. Renseignez les informations concernant le collecteur :
 
-   * **Nom du collecteur** : un nom unique pour ce collecteur. Il apparaîtra dans la liste des collecteurs.
+   * **Nom du collecteur** : un nom unique pour ce collecteur. Il apparaîtra dans la liste des collecteurs. Le nom ne doit contenir ni espaces ni caractères spéciaux, et le premier caractère doit être alphanumérique.
    * **Adresse du collecteur** : l'adresse de la machine hôte sur laquelle vous allez installer le collecteur.
       > L'adresse du collecteur n'a aucune incidence sur la connectivité : Gorgone
       > utilise PullWSS, c'est donc toujours le collecteur qui initie la connexion vers le
