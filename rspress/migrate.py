@@ -510,13 +510,17 @@ def _resolve_link(target: str, md: Path, lang_root: Path, section_root: Path) ->
     if path.startswith("/docs/"):
         # Docusaurus serves the latest core version under /docs/.
         path = f"/{VERSIONS[0]}/{path[len('/docs/'):]}"
+    is_file_link = bool(re.search(r"\.mdx?$", path))
     path = re.sub(r"\.mdx?$", "", path.rstrip("/"))
     if path.startswith("/"):
-        # rspress strips a leading version segment from absolute links, so make
-        # them relative; other absolute links already resolve.
-        if path.split("/")[1] not in VERSIONS:
+        if path.split("/")[1] in VERSIONS:
+            # rspress strips a leading version segment from absolute links.
+            bases = [lang_root / path.lstrip("/")]
+        elif is_file_link:
+            # Docusaurus resolves absolute file links from the plugin content root.
+            bases = [section_root / path.lstrip("/")]
+        else:
             return None
-        bases = [lang_root / path.lstrip("/")]
     else:
         # Docusaurus falls back to the plugin content root for relative links.
         bases = [md.parent / path, section_root / path]
