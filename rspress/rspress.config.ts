@@ -4,6 +4,7 @@ import { defineConfig } from '@rspress/core';
 import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 import { pluginImageCompress } from '@rsbuild/plugin-image-compress';
 import { pluginLastUpdatedFromSource } from './src/plugins/lastUpdatedFromSource';
+import { rehypeLazyImages } from './src/plugins/rehypeLazyImages';
 import { sidebar } from './src/sidebar';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -81,6 +82,7 @@ export default defineConfig({
       // staging/production to catch broken image references before deploy.
       checkDeadImages: process.env.PREVIEW_BUILD !== 'true',
     },
+    rehypePlugins: [rehypeLazyImages],
     // The docs are English/French only (no CJK), so skip CJK emphasis handling.
     cjkFriendlyEmphasis: false,
     // Code highlighting themes matching the Docusaurus site (Prism github / dracula).
