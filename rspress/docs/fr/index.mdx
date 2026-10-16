@@ -1,0 +1,58 @@
+---
+title: Documentation Centreon
+pageType: custom
+---
+
+import { HomePage } from '../../src/components/HomePage';
+
+<HomePage
+  heading="Bienvenue dans la Documentation Centreon !"
+  subheading="Utilisez l'icône en haut à droite pour changer de documentation produit à tout moment."
+  cards={[
+    {
+      title: "Infra Monitoring",
+      href: "/fr/26.10/getting-started/welcome",
+      links: [
+        { label: "Infra Monitoring OnPrem", href: "/fr/26.10/getting-started/welcome" },
+        { label: "Infra Monitoring Cloud", href: "/fr/cloud/getting-started/welcome" },
+        { label: "Connecteurs de supervision", href: "/fr/pp/integrations/plugin-packs/getting-started/introduction" },
+      ],
+    },
+    {
+      title: "Experience Monitoring",
+      href: "/fr/experience-monitoring/getting-started/welcome",
+      links: [
+        { label: "Démarrer avec Centreon Experience Monitoring", href: "/fr/experience-monitoring/getting-started/welcome" },
+        { label: "Le Monitoring Synthétique (STM)", href: "/fr/experience-monitoring/getting-started/synthetic-monitoring" },
+        { label: "Le Real User Monitoring (RUM)", href: "/fr/experience-monitoring/getting-started/real-user-monitoring" },
+        { label: "Sobriété numérique", href: "/fr/experience-monitoring/digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety" },
+        { label: "Notes de release Experience Monitoring", href: "/fr/experience-monitoring/release-notes" },
+      ],
+    },
+    {
+      title: "Log Management",
+      href: "/fr/logmanagement/getting-started/welcome",
+      isBeta: true,
+      links: [
+        { label: "S'inscrire au programme BETA", href: "/fr/logmanagement/getting-started/beta" },
+        { label: "Bases de Centreon Log Management", href: "/fr/logmanagement/getting-started/concepts" },
+        { label: "Configurer un collecteur OpenTelemetry", href: "/fr/logmanagement/collector/opentelemetry-collector" },
+        { label: "Explorer et analyser les logs", href: "/fr/logmanagement/explore-analyze" },
+      ],
+    },
+  ]}
+  banner={{
+    version: "25.10",
+    label: "Nouvelle version logicielle disponible",
+    link: "https://www.centreon.com/fr/centreon-annonce-la-version-25-10-de-centreon-infra-monitoring-pierre-angulaire-de-la-nouvelle-centreon-observability-platform/",
+  }}
+  community={{
+    badge: "Une communauté solide",
+    joinLabel: "Rejoignez la communauté",
+  }}
+  opensource={{
+    badge: "UN CŒUR OPEN SOURCE",
+    description: "Plébiscité par des centaines de milliers de professionnels de l'IT à travers le monde avec 6 000 téléchargements mensuels, Centreon Infra Monitoring est devenu le numéro 1 de la supervision open source en Europe.",
+    contributeLabel: "Contribuer au projet Open Source",
+  }}
+/>
