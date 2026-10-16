@@ -108,7 +108,7 @@ dnf install centreon-pack-applications-virtualization-vates-host-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-pack-applications-virtualization-vates-host-restapi
@@ -148,7 +148,7 @@ dnf install centreon-plugin-Virtualization-Vates-XCPng-Host-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-plugin-virtualization-vates-xcpng-host-restapi

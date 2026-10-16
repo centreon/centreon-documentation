@@ -97,7 +97,7 @@ dnf install centreon-pack-applications-virtualization-vates-pool-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-pack-applications-virtualization-vates-pool-restapi
@@ -137,7 +137,7 @@ dnf install centreon-plugin-Virtualization-Vates-Pool-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-plugin-virtualization-vates-pool-restapi
