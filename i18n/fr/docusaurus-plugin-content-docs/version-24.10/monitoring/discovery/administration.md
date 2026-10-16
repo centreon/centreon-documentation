@@ -205,6 +205,8 @@ gorgone:
       password: PYNM5kcc
 ```
 
+> Si vous avez [personnalisé l'URI de Centreon](../../administration/secure-platform.md#uri-personnalisée), remplacez **/centreon** par votre chemin personnalisé dans la valeur **base_url**.
+
 L'accès à l'API Rest, représenté par *centreonv2*, nécessite les identifiants
 d'un utilisateur ayant accès à l'API de configuration. Il est utilisé
 pour la découverte d'hôtes.

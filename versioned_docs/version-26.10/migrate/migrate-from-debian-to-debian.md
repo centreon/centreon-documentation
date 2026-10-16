@@ -242,6 +242,8 @@ chapter for more information.
          password: "@GORGONE_PASSWORD@"
    ```
 
+      > If you have [customized the Centreon URI](../administration/secure-platform.md#custom-uri), replace **/centreon** with your custom path in the **base_url** value.
+
 7. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
 
 8. Restart the following processes:

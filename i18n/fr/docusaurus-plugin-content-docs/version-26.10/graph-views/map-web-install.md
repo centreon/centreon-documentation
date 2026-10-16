@@ -351,10 +351,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/e
 
 Installez les dépendances suivantes :
 
-<!-- TODO(Sam): vérifier que software-properties-common est toujours disponible sur Debian 13. -->
-
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+apt update && apt install lsb-release ca-certificates apt-transport-https wget gnupg2 curl
 ```
 
 Pour installer le dépôt Centreon, exécutez la commande suivante :
@@ -395,7 +393,9 @@ Vous devez d'abord ajouter le dépôt MariaDB :
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Il n'y a pas de module à activer sur Alma / RHEL / Oracle Linux 10 : MariaDB 11.8 est fourni par le paquet `mariadb11.8-server`. Passez à l'étape suivante.
+```shell
+dnf module enable -y mariadb:11.8
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
