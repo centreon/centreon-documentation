@@ -25,8 +25,8 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="Virt-Vates-Pool-Restapi-custom" label="Virt-Vates-Pool-Restapi-custom">
 
-| Service Alias  | Service Template                               | Service Description                                                                                                                         |
-|:---------------|:-----------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------|
+| Service Alias  | Service Template                              | Service Description                                                                                                                                                         |
+|:---------------|:----------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Cpu-Overcommit | Virt-Vates-Pool-CPU-Overcommit-Restapi-custom | Monitors the ratio of the number of CPUs assigned to all virtual machines against the number of CPUs available in the pool. This value is a percentage that can exceed 100. |
 
 > The services listed above are created automatically when the **Virt-Vates-Pool-Restapi-custom** host template is used.
@@ -38,9 +38,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Host discovery
 
-| Rule name                | Description                                                                                            |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------|
-| Vates Pool Xen Orchestra | Discover Vates Xcp-ng/Xen orchestra virtual machines by requesting Xen Orchestra server using Rest API |
+| Rule name                | Description                                                                                 |
+|:-------------------------|:--------------------------------------------------------------------------------------------|
+| Vates Pool Xen Orchestra | Discover Vates Xcp-ng/Xen orchestra pools by requesting Xen Orchestra server using Rest API |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
@@ -104,13 +104,6 @@ apt install centreon-pack-applications-virtualization-vates-pool-restapi
 ```
 
 </TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-virtualization-vates-pool-restapi
-```
-
-</TabItem>
 </Tabs>
 
 2. Whatever the license type (*online* or *offline*), install the **Vates Pool REST API** connector through
@@ -148,13 +141,6 @@ dnf install centreon-plugin-Virtualization-Vates-Pool-Restapi
 
 ```bash
 apt install centreon-plugin-virtualization-vates-pool-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Virtualization-Vates-Pool-Restapi
 ```
 
 </TabItem>
