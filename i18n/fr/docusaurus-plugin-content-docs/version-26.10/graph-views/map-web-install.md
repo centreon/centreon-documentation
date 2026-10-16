@@ -351,10 +351,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/e
 
 Installez les dépendances suivantes :
 
-<!-- TODO(Sam): vérifier que software-properties-common est toujours disponible sur Debian 13. -->
-
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+apt update && apt install lsb-release ca-certificates apt-transport-https wget gnupg2 curl
 ```
 
 Pour installer le dépôt Centreon, exécutez la commande suivante :
