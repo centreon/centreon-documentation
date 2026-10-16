@@ -5,11 +5,14 @@
  */
 
 /* ---- Fonts ---------------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700&display=swap');
+/* Self-hosted Red Hat Display (no render-blocking third-party request). */
+@import '@fontsource/red-hat-display/400.css';
+@import '@fontsource/red-hat-display/500.css';
+@import '@fontsource/red-hat-display/700.css';
 
 @font-face {
   font-family: 'Esphimere';
-  src: url('./fonts/esphimere/Esphimere_Bold.otf') format('opentype');
+  src: url('./fonts/esphimere/Esphimere_Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -17,7 +20,7 @@
 
 @font-face {
   font-family: 'Esphimere';
-  src: url('./fonts/esphimere/Esphimere_Semi_Bold.otf') format('opentype');
+  src: url('./fonts/esphimere/Esphimere_Semi_Bold.woff2') format('woff2');
   font-weight: 600;
   font-style: normal;
   font-display: swap;

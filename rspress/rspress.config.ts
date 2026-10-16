@@ -5,12 +5,18 @@ import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 import { pluginImageCompress } from '@rsbuild/plugin-image-compress';
 import { pluginLastUpdatedFromSource } from './src/plugins/lastUpdatedFromSource';
 import { rehypeLazyImages } from './src/plugins/rehypeLazyImages';
+import { pluginSlimPageData } from './src/plugins/slimPageData';
 import { sidebar } from './src/sidebar';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // Keep in sync with DOWNLOAD_EXTENSIONS in migrate.py.
 const DOWNLOAD_LINK = /\.(sql|pdf|cnf)$/;
+
+// Each locale only ships its own sections: rspress copies the sidebar into
+// every locale and keeps themeConfig.sidebar too, all in the main bundle.
+const localeSidebar = (lang: 'en' | 'fr') =>
+  Object.fromEntries(Object.entries(sidebar).filter(([path]) => path.startsWith('/fr/') === (lang === 'fr')));
 
 // Links already broken in the Docusaurus sources (or Docusaurus-only features).
 // Fix them there, re-run migrate.py, then drop them from this list.
@@ -59,7 +65,10 @@ export default defineConfig({
     versions: ['26.10', '25.10'],
   },
   siteOrigin: 'https://docs.centreon.com',
-  plugins: [pluginLastUpdatedFromSource(join(__dirname, 'docs'), join(__dirname, '..'))],
+  plugins: [
+    pluginLastUpdatedFromSource(join(__dirname, 'docs'), join(__dirname, '..')),
+    pluginSlimPageData(),
+  ],
   // Pre-render ~6,000 pages (en/fr x 2 versions) in worker threads (one per
   // CPU, ~15 GB peak with 2 CPUs). PR previews stay client-rendered: SSG does
   // not fit in the 16 GB GitHub-hosted runner.
@@ -160,7 +169,6 @@ export default defineConfig({
     },
   },
   themeConfig: {
-    sidebar,
     enableScrollToTop: true,
     lastUpdated: true,
     footer: {
@@ -171,6 +179,7 @@ export default defineConfig({
       {
         lang: 'en',
         label: 'English',
+        sidebar: localeSidebar('en'),
         // Nav items are rendered by the custom VersionAwareNav component in theme/index.tsx
         // so that "Infra Monitoring OnPrem" adapts to the current version.
         nav: [],
@@ -185,6 +194,7 @@ export default defineConfig({
       {
         lang: 'fr',
         label: 'Français',
+        sidebar: localeSidebar('fr'),
         nav: [],
         outlineTitle: 'Sur cette page',
         prevPageText: 'Précédent',

@@ -56,6 +56,9 @@ importers:
 
   rspress:
     dependencies:
+      '@fontsource/red-hat-display':
+        specifier: 5.3.0
+        version: 5.3.0
       '@rspress/core':
         specifier: ~2.0.23
         version: 2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.48.0)(micromark-util-types@2.0.2)(micromark@4.0.2)
@@ -1527,6 +1530,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/red-hat-display@5.3.0':
+    resolution: {integrity: sha512-fD3uZkhdZMHzpSdHMa000GQSVPQNuYr4AMu3Dx9UhrM35ynBIC4w3fe824d7aO6wHyR2e7pSrUhYvTBp3VRg4g==}
 
   '@hapi/hoek@9.3.0':
     resolution: {integrity: sha512-/c6rf4UJlmHlC9b5BaNvzAcFv7HZ2QHaV0D4/HNlBdvFnvQq8RI4kYdhyPCl7Xj+oWvTWQ8ujhqS53LIgAe6KQ==}
@@ -9811,6 +9817,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.28.2':
     optional: true
+
+  '@fontsource/red-hat-display@5.3.0': {}
 
   '@hapi/hoek@9.3.0': {}
 
