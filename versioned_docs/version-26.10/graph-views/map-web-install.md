@@ -491,8 +491,6 @@ dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-<!-- TODO(Sam): vérifier que le RPM mysql84-community-release existe pour el10 et son numéro de release. -->
-
 ```shell
 dnf install https://dev.mysql.com/get/mysql84-community-release-el10-1.noarch.rpm -y
 ```
