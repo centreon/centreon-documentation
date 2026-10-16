@@ -41,9 +41,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle        | Description                                                                                            |
-|:-----------------------|:-------------------------------------------------------------------------------------------------------|
-| Vates VM Xen Orchestra | Discover Vates Xcp-ng/Xen orchestra virtual machines by requesting Xen Orchestra server using the Rest API |
+| Nom de la règle        | Description                                                                                                     |
+|:-----------------------|:----------------------------------------------------------------------------------------------------------------|
+| Vates VM Xen Orchestra | Découvre les machines virtuelles Vates Xcp-ng/Xen orchestra en requêtant le serveur  Xen Orchestra via Rest API |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -109,17 +109,10 @@ dnf install centreon-pack-applications-virtualization-vates-vm-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-pack-applications-virtualization-vates-vm-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-virtualization-vates-vm-restapi
 ```
 
 </TabItem>
@@ -154,17 +147,10 @@ dnf install centreon-plugin-Virtualization-Vates-Vm-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-plugin-virtualization-vates-vm-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Virtualization-Vates-Vm-Restapi
 ```
 
 </TabItem>
@@ -249,7 +235,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 La commande devrait retourner un message de sortie similaire à :
 
 ```bash
-OK: CPU usage is 31496 % | 'vm.cpu.usage.percentage'=31496%;;;0;100 
+OK: CPU usage is 31 % | 'vm.cpu.usage.percentage'=31%;;;0;100 
 ```
 
 ### Diagnostic des erreurs communes
