@@ -129,14 +129,14 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
   - interactive_timeout
 
   Cette recommandation concerne uniquement la base de données de supervision. Le [fichier de configuration optimisé](#optimiser-la-base-de-données) de la base de données de reporting définit volontairement ces variables à 28800 secondes.
-- Lors de la création de l'utilisateur CentreonBI, éxecutez la commande suivante : `adduser centreonBI --force-badname`
+- Lors de la création de l'utilisateur CentreonBI, éxecutez la commande suivante : `adduser centreonBI --allow-bad-names`
 
 #### Utilisateurs et groupes
 
 | Utilisateur          | Groupe                       |
 |----------------------|------------------------------|
 | centreonBI (nouveau) | www-data,centreon,centreonBI |
-| apache (existant)    | centreonBI                   |
+| www-data (existant)  | centreonBI                   |
 
 </TabItem>
 </Tabs>
@@ -325,67 +325,6 @@ Assurez-vous que le dossier **tmp** soit créé dans la même partition que **/v
 
 > Ne définissez pas ces optimisations MariaDB/MySQL sur votre serveur de supervision.
 
-Si vous utilisez MySQL :
-
-1. Effectuez l'action suivante :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
-
-```shell
-log_bin_trust_function_creators=1
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
-
-```shell
-log_bin_trust_function_creators=1
-```
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-Créez un fichier dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`) et ajoutez :
-
-```shell
-[mysqld]
-log_bin_trust_function_creators=1
-```
-
-Assurez-vous que le logging binaire est activé :
-
-```shell
-printf '[mysqld]\nlog_bin_trust_function_creators=1\n' > /etc/mysql/conf.d/90-centreon-bi.cnf
-systemctl restart mysql
-mysql -e "show global variables like 'log_bin_trust_function_creators'"   # expected: ON
-```
-
-</TabItem>
-</Tabs>
-
-2. Redémarrez MySQL.
-
-3. Vérifiez que la base de données que la variable suivante est appliquée :
-
-```shell
-show global variables like 'log_bin_trust_function_creators';
-+---------------------------------+-------+
-| Variable_name                   | Value |
-+---------------------------------+-------+
-| log_bin_trust_function_creators | ON    |
-```
-
-Si la variable n'est pas appliquée, activez-la manuellement : 
-
-```shell
-mysql> SET GLOBAL log_bin_trust_function_creators = 1;
-```
-
 Utilisateurs et groupes :
 
 | Utilisateur | Groupe     |
@@ -463,6 +402,61 @@ Dans la base de données du central, donnez des droits trigger à l'utilisateur 
 
    Remplacez **&lt;host&gt;** par la valeur renvoyée par la requête précédente (par exemple, `localhost` si la base de données est locale au serveur central, ou `%` ou une adresse IP si elle est distante). Si la requête renvoie plusieurs hôtes, exécutez ces commandes pour chacun d'entre eux.
 
+### Autoriser la création de fonctions (MySQL uniquement)
+
+Si la base de données du central utilise MySQL, effectuez les actions suivantes sur le serveur qui l'héberge avant d'activer l'extension. Sinon, l'installation échoue avec l'erreur `ERROR 1419` : l'extension apparaît comme installée, mais son menu et ses options sont absents.
+
+1. Effectuez l'action suivante :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+Créez le fichier `/etc/mysql/conf.d/90-centreon-bi.cnf` et ajoutez :
+
+```shell
+[mysqld]
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+</Tabs>
+
+2. Redémarrez MySQL.
+
+3. Vérifiez que la base de données que la variable suivante est appliquée :
+
+```shell
+show global variables like 'log_bin_trust_function_creators';
++---------------------------------+-------+
+| Variable_name                   | Value |
++---------------------------------+-------+
+| log_bin_trust_function_creators | ON    |
+```
+
+Si la variable n'est pas appliquée, activez-la manuellement : 
+
+```shell
+mysql> SET GLOBAL log_bin_trust_function_creators = 1;
+```
+
 ### Activer l'extension
 
 Le menu **Administration > Extension > Gestionnaire** vous permet
@@ -486,9 +480,9 @@ MBI, menu **Rapports > Monitoring Business Intelligence > Paramètres globaux** 
 
 > Le champ **Mot de passe** de l'onglet **Widgets de reporting** est prérempli avec **centreonbi**. Ce n'est pas le mot de passe que les scripts d'installation (**centreonMysqlRights.pl** et **install.sh**) définissent pour l'utilisateur **centreonbi**. Si vous conservez la valeur par défaut, les widgets ne peuvent pas se connecter à la base de reporting, et le test de connexion échoue avec l'erreur suivante : `Access denied for user 'centreonbi'@'<IP_CENTRAL>'`.
 
-### Accès à la base de données centrale
+Le mot de passe peut être mis à jour dans **Rapports > Monitoring Business Intelligence > Paramètres globaux > Widgets de reporting**.
 
-Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
+### Accès à la base de données centrale
 
 <Tabs groupId="sync">
 <TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
@@ -501,10 +495,13 @@ La base de données de supervision MariaDB est hébergée sur le serveur de supe
 Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter aux bases de données du serveur de supervision. Utilisez l'option suivante :
 
 ```shell
-perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@MYSQLROOTPASSWORD@
 ```
 
-**@ROOTPWD@**: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
+Ce script retournera le mot de passe de l'utilisateur CentreonBI.
+Le mot de passe peut être mis à jour dans **Rapports > Monitoring Business Intelligence > Paramètres globaux > Widgets de reporting**.
+
+@MYSQLROOTPASSWORD@: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option root-password.
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
@@ -514,10 +511,13 @@ La base de données de supervision MySQL est hébergée sur le serveur de superv
 Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter aux bases de données du serveur de supervision. Utilisez l'option suivante :
 
 ```shell
-perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@MYSQLROOTPASSWORD@
 ```
 
-**@ROOTPWD@**: Mot de passe root de la base MySQL de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
+Ce script retournera le mot de passe de l'utilisateur CentreonBI.
+Le mot de passe peut être mis à jour dans **Rapports > Monitoring Business Intelligence > Paramètres globaux > Widgets de reporting**.
+
+@MYSQLROOTPASSWORD@: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option root-password.
 
 </TabItem>
 </Tabs>
@@ -710,6 +710,14 @@ apt update && apt install -y lsb-release ca-certificates apt-transport-https wge
 systemctl enable --now cron
 ```
 
+Vérifiez que le service **cron** est actif :
+
+```shell
+systemctl is-active cron
+```
+
+La commande doit renvoyer `active`.
+
 Installez les dépôts Centreon :
 
 ```shell
@@ -718,13 +726,6 @@ wget -O /etc/apt/keyrings/centreon.asc https://apt-key.centreon.com
 
 echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-apt update
-```
-
-Ensuite, importez la clé du dépôt :
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 apt update
 ```
 
@@ -745,13 +746,13 @@ apt update
 Installez le dépôt **epel** :
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
 Activer les dépôts **codeready-builder** :
 
 ```shell
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 ```
 
 </TabItem>
@@ -760,7 +761,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Installez le dépôt **epel** :
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
 Activer les dépôts **codeready-builder** :
@@ -934,7 +935,7 @@ apt install centreon-bi-reporting-server
 </TabItem>
 </Tabs>
 
-Lors de l'installation des paquets MBI, java (OpenJDK 25) sera automatiquement installé en tant que dépendance, si nécessaire. Le service **cbis** utilise toujours **/usr/lib/jvm/java-25-openjdk**.
+Lors de l'installation des paquets MBI, java (OpenJDK 25) sera automatiquement installé en tant que dépendance, si nécessaire. Le service **cbis** utilise toujours **/usr/lib/jvm/java-25-openjdk** sur Alma / RHEL / Oracle Linux et **/usr/lib/jvm/java-25-openjdk-amd64** sur Debian 13.
 
 #### Activer les services
 
@@ -969,7 +970,7 @@ Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette opti
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl enable mariadb
+systemctl restart mariadb
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimer les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à nouveau MariaDB :
@@ -1038,7 +1039,7 @@ Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette opti
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl enable mariadb
+systemctl restart mariadb
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrez à nouveau MariaDB :
@@ -1129,7 +1130,7 @@ Puis redémarrez mysql.
 systemctl restart mysql
 ```
 
-Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans les fichiers de configuration MySQL (`/etc/mysql/my.cnf` ou `/etc/mysql/conf.d/`) NE fonctionnera PAS.
 
 ```shell
 mkdir -p  /etc/systemd/system/mysql.service.d/
@@ -1145,7 +1146,7 @@ rm -f /var/lib/mysql/ib_logfile*
 systemctl start mysql
 ```
 
-Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
+Si vous utilisez un fichier de socket spécifique pour MySQL, ajoutez la ligne suivante dans la section [client] d'un fichier situé dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`) :
 
 ```shell
 socket=$PATH_TO_SOCKET$
@@ -1213,7 +1214,7 @@ Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely
 #### Commencer à configurer
 
 Vérifiez que la base de reporting est bien démarrée puis lancez les
-commandes ci dessous et répondez aux questions:
+commandes ci dessous et répondez aux questions. Pour la question "database type for reporting database", sélectionnez MySQL ou MariaDB, ne laissez pas l'option par défaut "Automatic Discovery", cela cause une erreur.
 
 ```shell
 /usr/share/centreon-bi/config/install.sh
@@ -1226,7 +1227,7 @@ Une fois l'installation terminée, poursuivez au chapitre suivant pour configure
 
 #### Problème avec l'échange de la clé SSH
 
-Dans quelques cas, l'échange de clés SSH échoue.
+Dans quelques cas, l'échange de clés SSH échoue, par exemple lorsque l'authentification par mot de passe est désactivée sur le serveur de supervision (`PasswordAuthentication no` dans `/etc/ssh/sshd_config`).
 Afin de résoudre le problème, procédez manuellement comme suit :
 
 Connectez-vous avec l'utilisateur `centreonBI` :
@@ -1249,10 +1250,10 @@ cat /home/centreonBI/.ssh/id_ed25519.pub
 
 Maintenant, **sur le serveur de supervision** :
 
-Créez un dossier `.ssh` dont `centreonBI` sera propriétaire, restreingez les droits sur ce fichier et collez dans le fichier `authorized_keys` le contenu de sa clé publique sur le serveur de reporting (affichée précédemment) :
+Créez un dossier `.ssh` dont `centreonBI` sera propriétaire, restreignez les droits sur ce dossier et sur le fichier `authorized_keys`, et collez dans le fichier `authorized_keys` le contenu de sa clé publique sur le serveur de reporting (affichée précédemment) :
 
 ```bash
-mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@contenu de la clé publique@" > /home/centreonBI/.ssh/authorized_keys
+mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@contenu de la clé publique@" > /home/centreonBI/.ssh/authorized_keys && chown centreonBI: /home/centreonBI/.ssh/authorized_keys && chmod 600 /home/centreonBI/.ssh/authorized_keys
 ```
 
 L'échange de clés doit enfin être validé par une première connexion qui acceptera la signature du serveur SSH.
@@ -1265,7 +1266,6 @@ ssh centreonBI@@MONITORING_SERVER@
 Vous pouvez maintenant quitter la session `centreonBI` avec `exit` ou `Ctrl-D`.
 
 Pour continuer, relancez le script d'installation (`/usr/share/centreon-bi/config/install.sh`) comme ci-dessus et répondez **Oui** lorsqu'on vous demande de procéder à l'échange de clés SSH.
-Vous aurez une erreur lors de la création de l'USER car il existe déjà. Ce n'est pas une étape bloquante.
 
 ## Étape 4 : Configurez l'ETL dans l'interface de Centreon
 
@@ -1453,7 +1453,7 @@ Vous pouvez l'exécuter en arrière-plan et rediriger la sortie du script vers u
 nohup /usr/share/centreon-bi//bin/centreonBIETL -r >> /var/log/centreon-bi/centreonBIETL.log 2>&1 &
 ```
 
-Regardez le fichier de log **/var/log/centreon-bi/centreonBIETL.log** : vous devriez voir des lignes avec les 4 parties suivantes :
+La sortie s'affiche dans votre terminal ou, si vous avez exécuté la commande en arrière-plan, dans le fichier de log **/var/log/centreon-bi/centreonBIETL.log** (par exemple, utilisez `tail -f /var/log/centreon-bi/centreonBIETL.log` pour la suivre). Vous devriez voir des lignes avec les 4 parties suivantes :
 
 ```shell
 2025-08-01 13:34:16 - INFO - [SCHEDULER] >>>>>>> start

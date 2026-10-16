@@ -32,6 +32,55 @@ When you upgrade from a previous major version to 26.10.x, you first need to upd
 
 You will find the new "Business" repository on the "Repositories" page in your [Centreon Support account](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
 
+On the reporting server, you also need to install the 26.10 standard repository:
+
+<Tabs groupId="os" queryString>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
+dnf clean all --enablerepo=*
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+> If your reporting server still runs Debian 12, do not use this procedure. Follow [Upgrading Centreon and Debian (12 to 13) on the same server](../migrate/upgrade-debian-in-place.md#step-11-upgrade-your-mbi-server-if-applicable) instead: it upgrades Debian and Centreon MBI together and switches the standard, business and plugins repositories to **trixie**.
+
+On Debian 13, the repositories must point to **trixie**. The standard repository line is:
+
+```text
+deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-standard/ trixie-26.10-stable main
+```
+
+The Business repository line you get from the support portal must also use **trixie**. Run the following commands to add the standard repository:
+
+```shell
+install -d /etc/apt/keyrings
+wget -O /etc/apt/keyrings/centreon.asc https://apt-key.centreon.com
+echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee /etc/apt/sources.list.d/centreon-26.10-stable.list
+apt update
+```
+
+Check that all Centreon repository lines use **trixie**:
+
+```shell
+grep -h "packages.centreon.com" /etc/apt/sources.list.d/*.list
+```
+
+</TabItem>
+</Tabs>
+
 ## Step 2: Upgrade the extension interface
 
 1. Update the package, run the following commands:
@@ -64,7 +113,7 @@ Update button to update the extension and the widgets.
 
 ### Java version requirement
 
-Version 26.10 requires Java 25. When upgrading the MBI packages, java (OpenJDK 25) is automatically installed as a dependency, if needed. The **cbis** service always uses **/usr/lib/jvm/java-25-openjdk**.
+Version 26.10 requires Java 25. When upgrading the MBI packages, java (OpenJDK 25) is automatically installed as a dependency, if needed. The **cbis** service always uses **/usr/lib/jvm/java-25-openjdk** on Alma / RHEL / Oracle Linux and **/usr/lib/jvm/java-25-openjdk-amd64** on Debian 13. Once the upgrade is complete, you can remove the Java 17 packages left over from version 25.10, if no other application on the server uses them.
 
 ### Upgrade procedure
 
@@ -84,7 +133,7 @@ Now you can start the upgrade process:
 ```shell
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf clean all
-dnf update -y centreon-bi\* centreon-mariadb centreon-perl-libs-common
+dnf update -y centreon-bi\* centreon-perl-libs-common
 ```
 
 </TabItem>
@@ -93,8 +142,18 @@ dnf update -y centreon-bi\* centreon-mariadb centreon-perl-libs-common
 ```shell
 apt clean
 apt update
-apt install -y --only-upgrade centreon-bi-reporting-server centreon-mariadb centreon-perl-libs-common
+apt install -y --only-upgrade centreon-bi-reporting-server centreon-perl-libs-common
 ```
+
+Make sure the **cron** service is installed, enabled and active (it may be missing on servers originally installed on Debian 12):
+
+```shell
+apt install -y cron
+systemctl enable --now cron
+systemctl is-active cron
+```
+
+The last command must return `active`.
 
 </TabItem>
 </Tabs>
@@ -121,7 +180,23 @@ apt install -y --only-upgrade centreon-bi-reporting-server centreon-mariadb cent
 
 2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
 
-3. Start the **cbis** service:
+    On Debian 13, if the package asks whether to replace `/etc/mysql/mariadb.conf.d/50-server.cnf`, keep your currently installed version (answer **N**). The package version sets `bind-address = 127.0.0.1`, and the central server would then no longer be able to reach the reporting database.
+
+3. Check that MariaDB is running:
+
+    ```shell
+    systemctl is-active mariadb
+    ```
+
+    The command must return `active`. On Debian 13, also check that MariaDB still listens on all interfaces:
+
+    ```shell
+    grep "^bind-address" /etc/mysql/mariadb.conf.d/50-server.cnf
+    ```
+
+    The value must be `0.0.0.0`. If it is `127.0.0.1`, set it back to `0.0.0.0` and restart MariaDB with `systemctl restart mariadb`.
+
+4. Start the **cbis** service:
 
     ```shell
     systemctl start cbis

@@ -38,6 +38,7 @@ dnf update centreon-bi-server
 
 ```shell
 apt clean
+apt update
 apt --only-upgrade install centreon-bi\*
 ```
 
@@ -85,6 +86,7 @@ dnf update centreon-bi\*
 
 ```shell
 apt clean
+apt update
 apt --only-upgrade install centreon-bi\*
 ```
 
@@ -111,6 +113,7 @@ dnf update centreon-gorgone\*
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
+apt update
 apt --only-upgrade install centreon-gorgone\*
 ```
 

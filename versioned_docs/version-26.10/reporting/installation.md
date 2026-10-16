@@ -131,14 +131,14 @@ considerations.
   - interactive_timeout
 
   This only applies to the monitoring database. The [optimized configuration file](#optimize-the-database) of the reporting database sets these variables to 28800 seconds on purpose.
-- When creating the CentreonBI user, you must execute the following command: `adduser centreonBI --force-badname`
+- When creating the CentreonBI user, you must execute the following command: `adduser centreonBI --allow-bad-names`
 
 #### Users and groups
 
 | User                 | Group                        |
 |----------------------|------------------------------|
 | centreonBI (new)     | www-data,centreon,centreonBI |
-| apache (existing)    | centreonBI                   |
+| www-data (existing)  | centreonBI                   |
   
 </TabItem>
 </Tabs>
@@ -326,67 +326,6 @@ Make sure a **tmp** folder is created inside the same partition as **/var/lib/my
 
 > Do not set these MariaDB optimizations on your monitoring server.
 
-If you are using MySQL:
-
-1. Perform the following action:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-In the `/etc/my.cnf.d/mysql-server.cnf` file, add: 
-
-```shell
-log_bin_trust_function_creators=1
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
-In the `/etc/my.cnf.d/mysql-server.cnf` file, add:
-
-```shell
-log_bin_trust_function_creators=1
-```
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-Create a file inside `/etc/mysql/conf.d/` (for example `/etc/mysql/conf.d/centreon.cnf`) and add:
-
-```shell
-[mysqld]
-log_bin_trust_function_creators=1
-```
-
-Ensure binary logging is turned on:
-
-```shell
-printf '[mysqld]\nlog_bin_trust_function_creators=1\n' > /etc/mysql/conf.d/90-centreon-bi.cnf
-systemctl restart mysql
-mysql -e "show global variables like 'log_bin_trust_function_creators'"   # expected: ON
-```
-
-</TabItem>
-</Tabs>
-
-2. Restart MySQL.
-
-3. Check the database to confirm this variable is applied:
-
-```shell
-show global variables like 'log_bin_trust_function_creators';
-+---------------------------------+-------+
-| Variable_name                   | Value |
-+---------------------------------+-------+
-| log_bin_trust_function_creators | ON   |
-```
-
-If the variable is not turned on, set it manually:
-
-```shell
-mysql> SET GLOBAL log_bin_trust_function_creators = 1;
-```
-
 Users and groups:
 
 | User        | Group      |
@@ -464,6 +403,61 @@ In the central database, grant trigger rights to the **centreon** user:
 
    Replace **&lt;host&gt;** with the value returned by the previous query (for example, `localhost` if the database is local to the central server, or `%` or an IP address if it is remote). If the query returns several hosts, run these commands for each of them.
 
+### Allow function creation (MySQL only)
+
+If the central database uses MySQL, perform the following actions on the server that hosts it before you enable the extension. Otherwise, the installation fails with `ERROR 1419`: the extension appears as installed, but its menu and options are missing.
+
+1. Perform the following action:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+In the `/etc/my.cnf.d/mysql-server.cnf` file, add: 
+
+```shell
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+In the `/etc/my.cnf.d/mysql-server.cnf` file, add:
+
+```shell
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+Create the `/etc/mysql/conf.d/90-centreon-bi.cnf` file and add:
+
+```shell
+[mysqld]
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+</Tabs>
+
+2. Restart MySQL.
+
+3. Check the database to confirm this variable is applied:
+
+```shell
+show global variables like 'log_bin_trust_function_creators';
++---------------------------------+-------+
+| Variable_name                   | Value |
++---------------------------------+-------+
+| log_bin_trust_function_creators | ON   |
+```
+
+If the variable is not turned on, set it manually:
+
+```shell
+mysql> SET GLOBAL log_bin_trust_function_creators = 1;
+```
+
 ### Enable the extension
 
 The **Administration > Extension > Manager** menu allows you to install the extensions detected by Centreon. Click the **Centreon MBI** tile to install.
@@ -487,9 +481,9 @@ menu, *Reports > Monitoring Business Intelligence > General Options*:
 
 > The **Password** field of the **Reporting widgets** tab is prefilled with **centreonbi**. This is not the password that the installation scripts (**centreonMysqlRights.pl** and **install.sh**) set for the **centreonbi** user. If you keep the default value, the widgets cannot connect to the reporting database, and the connection test fails with the following error: `Access denied for user 'centreonbi'@'<IP_CENTRAL>'`.
 
-### Access to the Central database
+The password can be updated in **Reporting > Monitoring Business Intelligence > General Options > Reporting widgets**.
 
-Download the license sent by the Centreon team to start configuring the general options.
+### Access to the Central database
 
 <Tabs groupId="sync">
 <TabItem value="Monitoring database on the central server" label="Monitoring database on the central server">
@@ -501,11 +495,15 @@ The MariaDB monitoring database is hosted on the central monitoring server.
 
 Run the command below to allow the reporting server to connect to the databases on the monitoring server.
 Use the following option:
+
 ```shell
-perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@MYSQLROOTPASSWORD@
 ```
-**@ROOTPWD@**: Root password of the MariaDB monitoring database.
-If there is no password for the "root" user, do not specify the **root-password** option.
+
+This script will return the password for the CentreonBI user.
+The password can be updated in **Reports > Monitoring Business Intelligence > General options > Reporting Widgets**.
+
+@MYSQLROOTPASSWORD@: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option root-password.
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
@@ -517,11 +515,13 @@ Run the command below to allow the reporting server to connect to the databases 
 Use the following option:
 
 ```shell
-perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@MYSQLROOTPASSWORD@
 ```
 
-**@ROOTPWD@**: Root password of the MySQL monitoring database.
-If there is no password for the "root" user, do not specify the **root-password** option.
+This script will return the password for the CentreonBI user.
+The password can be updated in **Reports > Monitoring Business Intelligence > General options > Reporting Widgets**.
+
+@MYSQLROOTPASSWORD@: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option root-password.
 
 </TabItem>
 </Tabs>
@@ -712,6 +712,14 @@ apt update && apt install -y lsb-release ca-certificates apt-transport-https wge
 systemctl enable --now cron
 ```
 
+Check that the **cron** service is active:
+
+```shell
+systemctl is-active cron
+```
+
+The command must return `active`.
+
 Install the Centreon repositories:
 
 ```shell
@@ -720,13 +728,6 @@ wget -O /etc/apt/keyrings/centreon.asc https://apt-key.centreon.com
 
 echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee /etc/apt/sources.list.d/centreon-26.10-stable.list
 echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-apt update
-```
-
-Then import the repository key:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
 apt update
 ```
 
@@ -747,13 +748,13 @@ apt update
 Install the **epel** repository:
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
 Enable the **codeready-builder** repositories:
 
 ```shell
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
 ```
 
 </TabItem>
@@ -762,7 +763,7 @@ subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
 Install the **epel** repository:
 
 ```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
 Enable the **codeready-builder** repositories:
@@ -892,6 +893,7 @@ echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysq
 systemctl daemon-reload
 systemctl restart mysqld
 systemctl list-units --type=service | grep -i mysql
+```
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
@@ -936,7 +938,7 @@ apt install centreon-bi-reporting-server
 </TabItem>
 </Tabs>
 
-When installing the MBI packages, java (OpenJDK 25) is automatically installed as a dependency, if needed. The **cbis** service always uses **/usr/lib/jvm/java-25-openjdk**.
+When installing the MBI packages, java (OpenJDK 25) is automatically installed as a dependency, if needed. The **cbis** service always uses **/usr/lib/jvm/java-25-openjdk** on Alma / RHEL / Oracle Linux and **/usr/lib/jvm/java-25-openjdk-amd64** on Debian 13.
 
 #### Enable services
 
@@ -973,7 +975,7 @@ option in `/etc/my.cnf` will NOT work.
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl enable mariadb
+systemctl restart mariadb
 ```
 
 If the MariaDB service fails to start, remove the *ib_logfile* files
@@ -1051,7 +1053,7 @@ It is necessary to change the **LimitNOFILE** limitation. Changing this option i
 mkdir -p  /etc/systemd/system/mariadb.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
 systemctl daemon-reload
-systemctl enable mariadb
+systemctl restart mariadb
 ```
 
 If the MariaDB service fails at the time of starting, remove the files *ib_logfile*
@@ -1144,7 +1146,7 @@ Then restart mysql.
 systemctl restart mysql
 ```
 
-You must modify the **LimitNOFILE** limitation. Changing this option in `/etc/my.cnf` will NOT work.
+You must modify the **LimitNOFILE** limitation. Changing this option in the MySQL configuration files (`/etc/mysql/my.cnf` or `/etc/mysql/conf.d/`) will NOT work.
 
 ```shell
 mkdir -p  /etc/systemd/system/mysql.service.d/
@@ -1160,7 +1162,7 @@ rm -f /var/lib/mysql/ib_logfile*
 systemctl start mysql
 ```
 
-If you are using a specific socket file for MySQL, edit the `/etc/my.cnf` file and add the following to the [client] section:
+If you are using a specific socket file for MySQL, add the following to the [client] section of a file inside `/etc/mysql/conf.d/` (for example `/etc/mysql/conf.d/centreon.cnf`):
 
 ```shell
 socket=$PATH_TO_SOCKET$
@@ -1229,7 +1231,7 @@ Answer **yes** to all questions except "Disallow root login remotely?"
 
 #### Start configuring
 
-Make sure the MariaDB reporting system is started and then run the commands below and answer the questions:
+Make sure the MariaDB reporting system is started and then run the commands below and answer the questions. For the "database type for reporting databse" select MySQL or MariaDB, do not leave the default option "Automatic Discovery" as this will result in an error.
 
 ```shell
 /usr/share/centreon-bi/config/install.sh
@@ -1242,7 +1244,7 @@ Once the installation is complete, continue to the next chapter to configure the
 
 #### Problem with the SSH exchange key
 
-In some cases, SSH key exchange fails.
+In some cases, SSH key exchange fails, for example when password authentication is disabled on the monitoring server (`PasswordAuthentication no` in `/etc/ssh/sshd_config`).
 To solve the problem, do the following manually:
 
 Switch to the `centreonBI` user:
@@ -1266,10 +1268,10 @@ cat /home/centreonBI/.ssh/id_ed25519.pub
 
 Now, **on the monitoring server**:
 
-Create a `.ssh` folder that `centreonBI` will own, restrict permissions on this folder and paste into the `authorized_keys` file the contents of its public key on the reporting server (shown earlier):
+Create a `.ssh` folder that `centreonBI` will own, restrict permissions on this folder and on the `authorized_keys` file, and paste into the `authorized_keys` file the contents of its public key on the reporting server (shown earlier):
 
 ```bash
-mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@reporting pub key content@" > /home/centreonBI/.ssh/authorized_keys
+mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@reporting pub key content@" > /home/centreonBI/.ssh/authorized_keys && chown centreonBI: /home/centreonBI/.ssh/authorized_keys && chmod 600 /home/centreonBI/.ssh/authorized_keys
 ```
 
 The key exchange must then be validated by a first connection that will accept the SSH server signature.
@@ -1282,7 +1284,6 @@ ssh centreonBI@@MONITORING_SERVER@
 Then exit the `centreonBI` session with `exit` or `Ctrl-D` on both servers.
 
 To continue, run the installation script (`/usr/share/centreon-bi/config/install.sh`) as above and answer **Yes** when asked to proceed with the SSH key exchange.
-You will get an error when creating the USER, because it already exists. This is not a blocking step.
 
 ## Step 4: Configure the ETL
 
@@ -1448,7 +1449,7 @@ You may want to run it in the background and redirect the script's output to a l
 nohup /usr/share/centreon-bi//bin/centreonBIETL -r >> /var/log/centreon-bi/centreonBIETL.log 2>&1 &
 ```
 
-Go to the **/var/log/centreon-bi/centreonBIETL.log** log file: you should see some lines appear with 4 parts like:
+The output is displayed in your terminal or, if you ran the command in the background, in the **/var/log/centreon-bi/centreonBIETL.log** log file (for example, use `tail -f /var/log/centreon-bi/centreonBIETL.log` to follow it). You should see some lines appear with 4 parts like:
 
 ```shell
 2025-08-01 13:34:16 - INFO - [SCHEDULER] >>>>>>> start
