@@ -8,6 +8,21 @@ import { sidebar } from './src/sidebar';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+// Keep in sync with DOWNLOAD_EXTENSIONS in migrate.py.
+const DOWNLOAD_LINK = /\.(sql|pdf|cnf)$/;
+
+// Links already broken in the Docusaurus sources (or Docusaurus-only features).
+// Fix them there, re-run migrate.py, then drop them from this list.
+const KNOWN_DEAD_LINKS = [
+  // Page does not exist.
+  '/pp/integrations/plugin-packs/getting-started/how-to-guides/additional-connector-configuration',
+  // Docusaurus generated category index pages, no source file.
+  '/docs/cma',
+  '/cloud/cma',
+  // English-only page, Docusaurus falls back to it from French.
+  '/docs/releases/centreon-os',
+];
+
 export default defineConfig({
   root: 'docs',
   lang: 'en',
@@ -52,7 +67,12 @@ export default defineConfig({
   },
   markdown: {
     link: {
-      checkDeadLinks: false,
+      // Downloadable files are served from docs/public/ (see migrate.py), not as routes.
+      checkDeadLinks: {
+        excludes: (url) => DOWNLOAD_LINK.test(url) || KNOWN_DEAD_LINKS.includes(url),
+      },
+      // No anchor check: rspress misses headings nested in JSX (Tabs), which
+      // would report false positives across the docs.
     },
     image: {
       // Skip dead-image verification on preview builds for speed; keep it on for
