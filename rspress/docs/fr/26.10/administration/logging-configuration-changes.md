@@ -9,7 +9,7 @@ Par défaut, Centreon conserve dans un journal toutes les actions utilisateurs
 concernant la modification de la configuration de la supervision. Pour accéder à
 ces informations, rendez-vous dans le menu **Administration > Logs**.
 
-![image](../assets/administration/fsearchlogs.png)
+![image](../assets/administration/fsearchlogs.webp)
 
 La barre de recherche grise vous permet de filtrer les informations présentées
 via les filtres :
@@ -74,7 +74,7 @@ Le tableau ci-dessous définit les colonnes du tableau de résultats :
 En cliquant sur le nom d'un objet, vous pouvez visualiser l'historique des
 modifications réalisées sur ce dernier.
 
-![image](../assets/administration/fobjectmodif.png)
+![image](../assets/administration/fobjectmodif.webp)
 
 Le tableau ci-dessous définit les colonnes du tableau des modifications :
 
@@ -121,4 +121,4 @@ Pour activer la journalisation des actions utilisateurs, rendez-vous dans le
 menu **Administration > Paramètres > Options** et cocher la case
 **Activer/Désactiver les journaux d'audit**:
 
-![image](../assets/administration/logs_audit_enable.png)
+![image](../assets/administration/logs_audit_enable.webp)

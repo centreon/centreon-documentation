@@ -28,7 +28,7 @@ Les avantages sont :
 Un service ou un modèle de service ne peut hériter que d’un seul modèle de
 service (héritage de type Père-Fils).
 
-![image](../../assets/configuration/09heritageservice.png)
+![image](../../assets/configuration/09heritageservice.webp)
 
 ### Configuration
 
@@ -61,7 +61,7 @@ modèles de services aux modèles d’hôtes :
 
 Exemple : Je créé l’hôte srvi-web-01 selon le modèle ci-dessous :
 
-![image](../../assets/configuration/09hostexemple.png)
+![image](../../assets/configuration/09hostexemple.webp)
 
 L’hôte srvi-web-01 possèdera automatiquement les services suivants :
 

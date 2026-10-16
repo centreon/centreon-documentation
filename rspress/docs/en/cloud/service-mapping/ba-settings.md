@@ -15,24 +15,24 @@ The following parameters correspond to the default values behind the *Weak*,
 *Minor*, *Major*, *Critical* and *Blocking* impact types when configuring
 indicators in *Regular* mode.
 
-![image](../assets/service-mapping/guide/list_impacts_basic.png)
+![image](../assets/service-mapping/guide/list_impacts_basic.webp)
 
 Impact types must be defined as a percentage.
 
-![image](../assets/service-mapping/guide/impacts_configuration.png)
+![image](../assets/service-mapping/guide/impacts_configuration.webp)
 
 ### Business Activity and Boolean rule impact settings
 
 These default parameters are used for prefilling the fields for **Business
 Activity** or **Boolean rule**-type indicators in *Advanced* mode.
 
-![image](../assets/service-mapping/guide/impacts_ba_boolean.png)
+![image](../assets/service-mapping/guide/impacts_ba_boolean.webp)
 
 ### Business Activity settings
 
 The default parameters below define values for BAs.
 
-![image](../assets/service-mapping/guide/default_ba_parameters.png)
+![image](../assets/service-mapping/guide/default_ba_parameters.webp)
 
 | Column                   | Description                                                                                           |
 | ------------------------ | ----------------------------------------------------------------------------------------------------- |
@@ -56,4 +56,4 @@ all authorized BAs. However, the user has the possibility to compose their
 own overview by adding the BAs of their choice, chosen from those that are
 authorized.
 
-![image](../assets/service-mapping/guide/user_custom.png)
+![image](../assets/service-mapping/guide/user_custom.webp)

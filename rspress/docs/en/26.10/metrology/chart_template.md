@@ -12,7 +12,7 @@ presentation settings, including the y-axis measurement, the width and height of
 
 Go to the **Monitoring \> Performances \> Templates** menu
 
-![image](../assets/metrology/02addgraph_template.png)
+![image](../assets/metrology/02addgraph_template.webp)
 
 * The **Template name** field represents the name for the graph model
 * The **Vertical label** field contains the legend for the y-axis (type of data measured).
@@ -40,4 +40,4 @@ Go to the **Monitoring \> Performances \> Templates** menu
 You can add this layout model when editing a service (or a service template) by going into the **Service Extended Info**
 tab in configuration form:
 
-![image](../assets/metrology/02linkgraph_template.png)
+![image](../assets/metrology/02linkgraph_template.webp)

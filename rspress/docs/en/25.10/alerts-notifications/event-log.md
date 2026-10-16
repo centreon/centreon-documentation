@@ -10,7 +10,7 @@ Use event logs to:
 
 To view the event logs, go to **Monitoring > Event logs**.
 
-![image](../assets/alerts/event_logs.png)
+![image](../assets/alerts/event_logs.webp)
 
 - In the upper menu, select the hosts and/or the services you want to
 view logs for. You can also filter by servicegroup or hostgroup.
@@ -24,4 +24,4 @@ view logs for. You can also filter by servicegroup or hostgroup.
 - You can export the result in CSV or XML format using the export
 buttons above the list, to the right:
 
-![image](../assets/alerts/event_logs_export.png)
+![image](../assets/alerts/event_logs_export.webp)

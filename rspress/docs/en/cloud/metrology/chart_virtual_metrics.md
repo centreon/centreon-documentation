@@ -27,7 +27,7 @@ bits into bytes) will be a set of points. The VDEF type enables us to extract th
 
 Go to the **Monitoring \> Performances \> Virtual Metrics** menu
 
-![image](../assets/metrology/02addvmetric.png)
+![image](../assets/metrology/02addvmetric.webp)
 
 * The **Metric name** field defines the name of the metric.
 * The **Host/Service Data Source** list can be used to define the service from which to work on the metrics.
@@ -47,8 +47,8 @@ Go to the **Monitoring \> Performances \> Virtual Metrics** menu
 
 Configuration:
 
-![image](../assets/metrology/02virtualmetric_conf.png)
+![image](../assets/metrology/02virtualmetric_conf.webp)
 
 Result:
 
-![image](../assets/metrology/02virtualmetric_example.png)
+![image](../assets/metrology/02virtualmetric_example.webp)

@@ -5,7 +5,7 @@ title: Le Monitoring Synthétique (ou “Parcours Utilisateurs”)
 
 Le Monitoring Synthétique consiste à naviguer à fréquence régulière sur un site cible en mesurant différents indicateurs de performance web.
 
-![image](../assets/getting-started/synthetic-monitoring-1.png)
+![image](../assets/getting-started/synthetic-monitoring-1.webp)
 
 L'outil permet en particulier :
 
@@ -20,7 +20,7 @@ La notion de “**parcours type**” est centrale dans l’utilisation du Monito
 
 Voici un exemple de parcours type, pour un site ecommerce :
 
-![image](../assets/getting-started/synthetic-monitoring-2.png)
+![image](../assets/getting-started/synthetic-monitoring-2.webp)
 
 Ces parcours peuvent être effectués dans plusieurs conditions différentes, par exemple :
 

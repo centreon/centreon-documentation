@@ -29,11 +29,11 @@ You can duplicate discovery jobs: hover over the job and then click **Duplicate*
 
 2. Click the correct provider for the resources you want to discover.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.webp)
 
     The search bar allows you to search for a specific provider:
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.webp)
 
 3. Click **Next**.
 
@@ -41,7 +41,7 @@ You can duplicate discovery jobs: hover over the job and then click **Duplicate*
 
 Define the monitoring server from which the discovery will be made.
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.webp)
 
 Some providers ask for other parameters, such as a proxy if the discovery is made
 on an online service, and/or credentials.
@@ -51,7 +51,7 @@ on an online service, and/or credentials.
 Some additional parameters might be needed to define the scope of the
 discovery:
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-3.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-3.webp)
 
 ### Step 4: Set mappers
 
@@ -62,7 +62,7 @@ hosts in the configuration. They can also be used to include/exclude hosts from 
 In the wizard, a real-time simulation on a set of example data (the table on the right) gives a preview of what the
 discovery results could look like:
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-4.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-4.webp)
 
 ### Step 5: Define analysis and update policies
 
@@ -81,7 +81,7 @@ discovery results could look like:
   - **Update existing hosts**: if you modify the mappers and run the job again, existing hosts will be updated (see [Edit a discovery job](#edit-a-discovery-job)).
   - **Do not discover hosts for which mappers apply no template**: if mappers don't apply any template to some hosts, these hosts will not be included in the discovery results. If the box is unchecked, the default template will be applied to these hosts and they will be discovered.
 
-  ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.webp)
 
   Read the [example](#dynamically-update-your-configuration) below to better
 understand the scope of the first 3 policies.
@@ -94,27 +94,27 @@ understand the scope of the first 3 policies.
 
   - Every year at defined days of defined months at a defined time
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.webp)
 
   - Every month at defined days of the month at a defined time
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.webp)
 
   - Every week at defined days of the week at a defined time
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.webp)
 
   - Every day at a defined time
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.webp)
 
   - Every x hours (at defined minutes)
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.webp)
 
   - Every x minutes
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.webp)
 
 Click **FINISH** to create the discovery job and to execute or schedule it. The job appears in the list of discovery jobs.
 See section [Analyze the results of a discovery job](#analyze-the-results-of-a-discovery-job).
@@ -124,17 +124,17 @@ See section [Analyze the results of a discovery job](#analyze-the-results-of-a-d
 Go to the **Configuration > Hosts > Discovery** page to access the list of
 discovery jobs.
 
-![image](../../assets/monitoring/discovery/host-discovery-job-listing.png)
+![image](../../assets/monitoring/discovery/host-discovery-job-listing.webp)
 
 The status of a job can be:
 
 | Icon                                                                    | State                          |
 |--------------------------------------------------------------------------|-------------------------------|
-| ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png) | **Scheduled**                 |
-| ![image](../../assets/monitoring/discovery/host-discovery-running.png)   | **Running**                  |
-| ![image](../../assets/monitoring/discovery/host-discovery-saving.png)    | **Saving** |
-| ![image](../../assets/monitoring/discovery/host-discovery-finished.png)  | **Finished**                   |
-| ![image](../../assets/monitoring/discovery/host-discovery-failed.png)    | **Failed**                    |
+| ![image](../../assets/monitoring/discovery/host-discovery-scheduled.webp) | **Scheduled**                 |
+| ![image](../../assets/monitoring/discovery/host-discovery-running.webp)   | **Running**                  |
+| ![image](../../assets/monitoring/discovery/host-discovery-saving.webp)    | **Saving** |
+| ![image](../../assets/monitoring/discovery/host-discovery-finished.webp)  | **Finished**                   |
+| ![image](../../assets/monitoring/discovery/host-discovery-failed.webp)    | **Failed**                    |
 
 - If a job is in a **Failed** status, hover over the icon to know the reason.
 
@@ -145,18 +145,18 @@ Several actions can be performed on jobs:
 
 | Icon                                                                            | Action                                                                                                      |
 |---------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
-| ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png)  | **Force execution**: re-execute a job                                                                       |
-| ![image](../../assets/monitoring/discovery/host-discovery-delete.png)           | Delete a job. Only the job will be deleted: the hosts you have added to the configuration will still exist. |
-| ![image](../../assets/monitoring/discovery/host-discovery-pause.png)            | Pause a scheduled job                                                                                       |
-| ![image](../../assets/monitoring/discovery/host-discovery-resume.png)           | Resume a paused job                                                                                         |
-| ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png)     | Access the results of the discovery task                                                                    |
+| ![image](../../assets/monitoring/discovery/host-discovery-force-execution.webp)  | **Force execution**: re-execute a job                                                                       |
+| ![image](../../assets/monitoring/discovery/host-discovery-delete.webp)           | Delete a job. Only the job will be deleted: the hosts you have added to the configuration will still exist. |
+| ![image](../../assets/monitoring/discovery/host-discovery-pause.webp)            | Pause a scheduled job                                                                                       |
+| ![image](../../assets/monitoring/discovery/host-discovery-resume.webp)           | Resume a paused job                                                                                         |
+| ![image](../../assets/monitoring/discovery/host-discovery-goto-results.webp)     | Access the results of the discovery task                                                                    |
 
 ## Analyze the results of a discovery job
 
-1. On the **Configuration > Hosts > Discovery** page, click the arrow ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png#thumbnail1)
+1. On the **Configuration > Hosts > Discovery** page, click the arrow ![image](../../assets/monitoring/discovery/host-discovery-goto-results.webp#thumbnail1)
 next to the status of a **Finished** job to view the results.
 
-  ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.webp)
 
   The results show the discovered hosts. Icons allow you to identify the action that will be performed on the host:
    
@@ -166,20 +166,20 @@ next to the status of a **Finished** job to view the results.
 
 2. Select the hosts you want to add to the list of monitored hosts and click the **Save** button. Then click the **Back** button to return to the **Discovery** page.
 
-3. If you want, you can edit the mappers linked to this job. Click the job to display its settings.  In the **Mappers** section, edit the mapper with its **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+3. If you want, you can edit the mappers linked to this job. Click the job to display its settings.  In the **Mappers** section, edit the mapper with its **Edit** icon: ![image](../../assets/monitoring/discovery/host-discovery-edit.webp#thumbnail1)
 
   The results will be updated automatically in the preview once you click the **Save** icon at the top right of the panel.
   
   If the job was set to **Automatic analysis** at step 5 of the wizard and **Update existing hosts** was selected, the hosts will be updated when you re-run the job (see [Edit a discovery job](#edit-a-discovery-job)).
 
 4. If your job was set to **Manual analysis** at step 5 of the wizard, select the hosts you want to add or update in the configuration and click the **Save**
-button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
+button: ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.webp#thumbnail1)
 
   The hosts are created as well as the services linked to their host templates.
 
 5. Go to the **Configuration > Hosts** page: the newly created hosts appear in the list.
 
-  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.webp)
 
   If the hosts you selected are not visible in the configuration, go back to the
 list of jobs and see if an error occurred during the saving task.
@@ -200,7 +200,7 @@ Some discovery jobs can be edited:
 
 1. On the **Configuration > Hosts > Discovery** page, click the discovery job you want. A panel appears on the right.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-edit-job.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-edit-job.webp)
 
 2. In this panel, edit the job settings.
 
@@ -217,7 +217,7 @@ Some discovery jobs can be edited:
 
   If the autodiscovery module discovers hosts whose names are already used by hosts that have previously been created manually on the **Configuration > Hosts > Hosts** page or with the API or CLAPI, those existing hosts will also be updated by the autodiscovery module.
 
-3. Click the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
+3. Click the **Save** icon at the top right of the panel: ![image](../../assets/monitoring/discovery/host-discovery-save.webp#thumbnail2)
 
 ## How to use mappers
 
@@ -245,7 +245,7 @@ For all those mappers, conditions can be applied to choose whether or not the
 mapping will actually occur. Operators can be: *is equal to*, *is different from*, *contains* and *does not
 contain*.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.webp)
 
 If you include several conditions inside a mapper, all the conditions must be fulfilled in
 order for the mapper to apply.
@@ -299,7 +299,7 @@ section, click the **More actions** icon, and then click **Duplicate**.
 The **Property** mapper is used to set common properties of a host, such as
 its name, alias, or IP address. Those three properties are mandatory.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-property.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-property.webp)
 
 The **Source** list allows you to choose between credentials, parameters, or
 discovery result attributes.
@@ -312,7 +312,7 @@ mapped.
 The **Macro** mapper is used to create custom macros to be defined on the
 host.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-macro.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-macro.webp)
 
 The **Source** list allows you to choose between credentials, parameters, or
 discovery result attributes.
@@ -330,7 +330,7 @@ The **Template** mapper is used to add a template to the host. You can add as ma
 As in the example below, you can define a template according to conditions
 (here, the OS-Linux-SNMP-custom template is applied to Linux hosts).
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-template.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-template.webp)
 
 The **Host template** list allows you to choose from among all host templates defined
 in the configuration.
@@ -342,13 +342,13 @@ are two ways of doing this.
 
 - Select an existing host group from the dropdown list.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.webp)
 
 - Create host groups on the fly: both custom strings and
 discovery attributes can be used and concatenated to compose the host group's
 name.
  
-  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.webp)
 
   In this example, when discovering Linux servers, the `os-linux` host group will
 be created.
@@ -363,13 +363,13 @@ categories. Again, there are two ways of doing this.
 
 - Select an existing host category from the dropdown list.
 
-  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.webp)
 
 - Create host categories on the fly: both custom strings
 and discovery attributes can be used and concatenated to compose the 
  name of the category.
 
-  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.webp)
 
   If a host category already exists with the same name, it won't be 
 created again; the host will simply be linked to it.
@@ -381,14 +381,14 @@ severities. Since severities are not just a simple label, but also have a
 numeric level, they can't be created on the fly, and can only be selected from the
 dropdown list.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-hostseverity-select.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostseverity-select.webp)
 
 ### Monitoring
 
 The **Monitoring** mapper is used to choose the monitoring server from which the host will
 be monitored.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-monitoring.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-monitoring.webp)
 
 The **Monitoring instance selector** radio buttons allow you to choose between the
 monitoring server defined in the job and the ones available on the
@@ -403,7 +403,7 @@ If no Monitoring mapper applies to the host (because you have defined excessivel
 The **Exclusion** mapper is used to exclude a subset of hosts from the results
 list. 
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-exclusion.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-exclusion.webp)
 
 The mapper uses the attributes of hosts as conditions to exclude them. In the example above, Windows hosts 
 will be excluded from the results list.
@@ -416,7 +416,7 @@ This means that **Inclusion** and **Exclusion** mappers must be defined in the r
 In the example below, let's say that all hosts have been excluded from the results list (with an 
  **Exclusion** *is different from 1* mapper, for example). This **Inclusion** mapper will include all Linux hosts in the results list.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.webp)
 
 The mapper uses the attributes of hosts as conditions to include them.
 
@@ -435,7 +435,7 @@ Example of advanced attribute describing a host: **cloud tags**. Your hosts are 
 
 - In the **tags** attribute, the **environment** key can have the following values: **production**, **preprod** or **test**. You only want to monitor production instances, i.e. those for which the value **production** matches the key **environment**. Use an **Exclusion** mapper and configure it as follows:
 
-    ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
+    ![image](../../assets/monitoring/discovery/advanced_attributes1.webp)
 
 - You want to sort hosts into host groups. In the example below, machines will be sorted into hostgroups according to their OS, e.g. all machines whose property **os** equals **Windows** will belong to the hostgroup **Windows**.
 
@@ -445,7 +445,7 @@ Example of advanced attribute describing a host: **cloud tags**. Your hosts are 
 
   The value of the property is displayed in a tooltip. Use **Shift+click** on the advanced attribute to edit its properties:
 
-  ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
+  ![image](../../assets/monitoring/discovery/advanced_attributes2.webp)
 
 ## Examples
 
@@ -487,7 +487,7 @@ Let's now define the mappers and the update policies to match our needs:
 This will first result in an **Exclusion** mapper with the following
 configuration:
 
-![image](../../assets/monitoring/discovery/host-discovery-exclude-powered-off.png)
+![image](../../assets/monitoring/discovery/host-discovery-exclude-powered-off.webp)
 
 This way, all powered-off virtual machines will not be part of the processed
 result. Those will not be added (2).
@@ -495,7 +495,7 @@ result. Those will not be added (2).
 In addition to this mapper, choose the automatic analysis with all the update
 policies as below:
 
-![image](../../assets/monitoring/discovery/host-discovery-automatic-analysis-all-options.png)
+![image](../../assets/monitoring/discovery/host-discovery-automatic-analysis-all-options.webp)
 
 With the first policy, the virtual machines part of the processed result will be
 added (1).

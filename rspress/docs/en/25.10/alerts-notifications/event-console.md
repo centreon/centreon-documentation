@@ -32,9 +32,9 @@ functions of these icons:
 
 | Icon                                   | Description                                              |
 |----------------------------------------|----------------------------------------------------------|
-| ![image](../assets/alerts/refresh.png) | Used to refresh the results manually.                  |
-| ![image](../assets/alerts/pause.png)   | Pauses automatic data refreshing. |
-| ![image](../assets/alerts/resume.png)  | Restarts automatic data refreshing.            |
+| ![image](../assets/alerts/refresh.webp) | Used to refresh the results manually.                  |
+| ![image](../assets/alerts/pause.webp)   | Pauses automatic data refreshing. |
+| ![image](../assets/alerts/resume.webp)  | Restarts automatic data refreshing.            |
 
 ## Hosts (deprecated)
 
@@ -44,18 +44,18 @@ functions of these icons:
 To view the status of hosts, go into the **Monitoring > Status Details > Hosts**
 menu
 
-![image](../assets/alerts/04unhandledproblems.png)
+![image](../assets/alerts/04unhandledproblems.webp)
 
 ### Columns description
 
 -   **S**: Displays the severity level of the host
 -   **Hosts**: Displays the name of the host
     -   The following icon indicates that the notifications for this
-        host are disabled: ![image](../assets/alerts/nonotifications.png)
+        host are disabled: ![image](../assets/alerts/nonotifications.webp)
     -   The following icon can be used to view all the performance
-        graphs for this host: ![image](../assets/alerts/graphperformances.png)
+        graphs for this host: ![image](../assets/alerts/graphperformances.webp)
     -   The following icon allows access to a predefined URL
-        configured: ![image](../assets/alerts/url_link.png)
+        configured: ![image](../assets/alerts/url_link.webp)
 -   **Status**: Used to view the status of the host
 -   **IP Address**: Indicates the IP address of the host
 -   **Last Check**: Displays the date and the time of the last check
@@ -96,7 +96,7 @@ You can filter the result presented via the following filters:
 To view the status of host groups, go into the `Monitoring > Status Details >
 Hostgroups Summary` menu
 
-![image](../assets/alerts/04hostgroup.png)
+![image](../assets/alerts/04hostgroup.webp)
 
 ### Columns description
 
@@ -129,7 +129,7 @@ the resource.
 -   **Host Information**: Host details
 -   **Comments**: Host comments available
 
-![image](../assets/alerts/04hostdetail.png)
+![image](../assets/alerts/04hostdetail.webp)
 
 ### Status details
 
@@ -191,7 +191,7 @@ linked to the host that will receive notifications.
 To view the service status, go into the `Monitoring > Status Details >
 Services` menu.
 
-![image](../assets/alerts/04servicelist.png)
+![image](../assets/alerts/04servicelist.webp)
 
 ### Columns description
 
@@ -199,11 +199,11 @@ Services` menu.
 -   **Host**: Displays the name of the host.
 -   **Services**: Displays the name of the service.
     -   The following icon indicates that the notifications for this
-        service are disabled: ![image](../assets/alerts/nonotifications.png)
+        service are disabled: ![image](../assets/alerts/nonotifications.webp)
     -   The following icon can be used to view the performance graph for
-        this service: ![image](../assets/alerts/graphperformances.png)
+        this service: ![image](../assets/alerts/graphperformances.webp)
     -   The following icon allows access to a configured predefined URL:
-        ![image](../assets/alerts/url_link.png)
+        ![image](../assets/alerts/url_link.webp)
 -   **Duration**: Displays the duration of the current status.
 -   **Hard State Duration**: Displays the duration of the validated
     non-ok status.
@@ -246,12 +246,12 @@ To view all services (short by host) in any status, go into the `Monitoring >
 Status Details > Services Grid` menu and choose **Details** for **Display**
 filter:
 
-![image](../assets/alerts/04servicelistbyhostdetail.png)
+![image](../assets/alerts/04servicelistbyhostdetail.webp)
 
 To view the number of services (short by host and by status), choose **Summary**
  **Display** filter:
 
-![image](../assets/alerts/04servicelistbyhost.png)
+![image](../assets/alerts/04servicelistbyhost.webp)
 
 ## Services by Hostgroup
 
@@ -259,12 +259,12 @@ To view the all services (short by host's groups) in any status, go into the
 `Monitoring > Status Details > Services by Hostgroup` menu and choose
 **Details** for the **Display** filter:
 
-![image](../assets/alerts/04servicelistbyhostgroupdetail.png)
+![image](../assets/alerts/04servicelistbyhostgroupdetail.webp)
 
 To view the number of services (short by host's groups), choose **Summary** for the
 **Display** filter:
 
-![image](../assets/alerts/04servicelistbyhostgroup.png)
+![image](../assets/alerts/04servicelistbyhostgroup.webp)
 
 ## Services by Servicegroup
 
@@ -272,12 +272,12 @@ To view all services (sorted by service groups), go into the **Monitoring >
 Status Details > Services by Servicegroup** menu and choose **Details** for the
 **Display** filter:
 
-![image](../assets/alerts/04servicelistbyservicegroupdetail.png)
+![image](../assets/alerts/04servicelistbyservicegroupdetail.webp)
 
 To view the number of services (short by services groups), choose **Summary**
 for the **Display** filter:
 
-![image](../assets/alerts/04servicelistbyservicegroup.png)
+![image](../assets/alerts/04servicelistbyservicegroup.webp)
 
 ## Service Details (deprecated)
 
@@ -286,7 +286,7 @@ for the **Display** filter:
 
 When you click on a service, the following screen appears:
 
-![image](../assets/alerts/04servicedetail.png)
+![image](../assets/alerts/04servicedetail.webp)
 
 ### Status details
 

@@ -27,7 +27,7 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 
 2. Enter a name for your discovery job, and then select the **Amazon AWS EC2** provider. Click **Next**.
 
-    ![image](../assets/getting-started/tutorials/aws-provider.png)
+    ![image](../assets/getting-started/tutorials/aws-provider.webp)
 
 3. Select the poller you want to monitor the EC2 instances with.
 
@@ -41,7 +41,7 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
     * Map `host.name` to the `discovery.results.name` attribute. The names of your hosts in Centreon will be the ones defined in this attribute (i.e. the hostname of the instance).
     * In our example, we will exclude instances whose hostname contains "test".
 
-    ![image](../assets/getting-started/tutorials/aws-mapper.png)
+    ![image](../assets/getting-started/tutorials/aws-mapper.webp)
 
     Click **Next**.
 
@@ -49,19 +49,19 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 
 9. Select **Execute immediately** and then click **Finish**. The discovery job appears in the list of jobs.
 
-  ![image](../assets/getting-started/tutorials/aws-listofjobs.png)
+  ![image](../assets/getting-started/tutorials/aws-listofjobs.webp)
 
 ## Step 3: Saving the hosts and monitoring them
 
 1. After a few seconds, refresh the page. There should be a green tick mark in the **Status** column.
 
-    ![image](../assets/getting-started/tutorials/aws-success.png)
+    ![image](../assets/getting-started/tutorials/aws-success.webp)
 
 2. Hover over the job that has just ended and then click **Display the job result** (the arrow icon). A list of hosts appears.
 
-    ![image](../assets/getting-started/tutorials/aws-results.png)
+    ![image](../assets/getting-started/tutorials/aws-results.webp)
 
-3. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../assets/getting-started/tutorials/aws-save.png)
+3. Select the hosts you want to add to the list of monitored hosts, and then click **Save**. ![image](../assets/getting-started/tutorials/aws-save.webp)
 
 4. Go to **Configuration > Hosts > Hosts (simplified)** and check that the hosts you selected at the previous step appear in the list. The hosts are added to the lists of hosts but they are not monitored yet.
 

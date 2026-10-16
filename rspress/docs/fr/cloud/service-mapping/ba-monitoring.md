@@ -21,7 +21,7 @@ informations essentielles concernant le status des BA en temps réel.
 Un utilisateur non administrateur verra uniquement les BA appartenant
 aux BV liées à son groupe d'accès.
 
-![image](../assets/service-mapping/guide/mon_ba_list.png)
+![image](../assets/service-mapping/guide/mon_ba_list.webp)
 
 | Colonne            | Description                                            |
 |--------------------|--------------------------------------------------------|
@@ -37,7 +37,7 @@ de la souris sur le nom ou la description de la BA, une fenêtre apparaît
 et présente les différents KPI de cette BA, accompagnés de leurs statuts
 actuels.
 
-![image](../assets/service-mapping/guide/mon_mouse_over.png)
+![image](../assets/service-mapping/guide/mon_mouse_over.webp)
 
 En cliquant sur le nom ou la description d'une BA, une nouvelle page se
 charge, cette dernière est une vue détaillée de la BA.
@@ -46,7 +46,7 @@ charge, cette dernière est une vue détaillée de la BA.
 
 La vue détaillée d'une BA est divisée en 6 parties.
 
-![image](../assets/service-mapping/guide/mon_detailed.png)
+![image](../assets/service-mapping/guide/mon_detailed.webp)
 
 - Liste déroulante **Activités métiers** pour sélectionner une autre activité métier.
 - Informations sur le statut du niveau de Santé actuelle de l'activité métier et les seuils d'alerte.

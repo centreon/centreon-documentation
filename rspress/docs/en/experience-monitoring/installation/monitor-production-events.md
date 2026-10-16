@@ -7,7 +7,7 @@ title: Track production deployment events
 
 You can automatically record your code deployments or system configuration changes in Experience Monitoring:
 
-![image](../assets/installation/monitor-prod-events-1.png)
+![image](../assets/installation/monitor-prod-events-1.webp)
 
 These events can be created **automatically** via our API. The best practice is to integrate a call to our API in your deployment scripts and in your configuration management tooling where appropriate.
 
@@ -27,7 +27,7 @@ Our API is triggered with a simple HTTP call to the URL *"https://app.quanta.io/
 
 You must also provide an API token to authenticate the request. This token can be generated from the "Integrations" section of your site settings in Experience Monitoring. You can also add a custom icon.
 
-![image](../assets/installation/monitor-prod-events-1.png)
+![image](../assets/installation/monitor-prod-events-1.webp)
 
 This token should be provided:
 

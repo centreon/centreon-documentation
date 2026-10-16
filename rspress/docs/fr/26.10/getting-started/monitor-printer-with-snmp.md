@@ -9,7 +9,7 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 
 Rendez-vous maintenant dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
 
-![image](../assets/getting-started/quick_start_printer_1.png)
+![image](../assets/getting-started/quick_start_printer_1.webp)
 
 Renseignez les informations suivantes :
 
@@ -25,16 +25,16 @@ Cliquez sur le bouton **Sauvegarder**.
 
 Votre équipement a été ajouté à la configuration de la supervision :
 
-![image](../assets/getting-started/quick_start_printer_2.png)
+![image](../assets/getting-started/quick_start_printer_2.webp)
 
 Rendez-vous dans le menu **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été déployé
 automatiquement :
 
-![image](../assets/getting-started/quick_start_printer_3.png)
+![image](../assets/getting-started/quick_start_printer_3.webp)
 
 Il est maintenant temps de [déployer la supervision](first-supervision.md#déployer-une-configuration).
 
 Rendez-vous ensuite dans le menu **Supervision > Détails des statuts > Regroupement par hôte** et sélectionnez la valeur **Tous** pour le
 filtre **Afficher les détails**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
 
-![image](../assets/getting-started/quick_start_printer_4.png)
+![image](../assets/getting-started/quick_start_printer_4.webp)

@@ -53,7 +53,7 @@ git clone https://github.com/centreon/centreon-plugins.git /usr/lib/centreon/plu
 3. Pour les hôtes désirés, dans l'onglet **Notification**, dans le champ **Linked contacts**, sélectionnez l'utilisateur dédié que vous venez de créer.
 4. [Déployez la configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md). Une notification sera maintenant envoyée par SMS au numéro configuré lorsque l'un des changements de statut configurés passeront à HARD.
 
-![image](../../assets/integrations/notifications/sms.png)
+![image](../../assets/integrations/notifications/sms.webp)
 
 > Le processus d'envoi de SMS n'est pas parallélisé. Cela signifie qu'aucun contrôle ne sera effectué tant que le dernier SMS n'aura pas été envoyé par le serveur.
 

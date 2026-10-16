@@ -14,4 +14,4 @@ When you first log into Experience Monitoring you land on the Overview page by d
 	
 - **a time range selector** (top-right) that lets you change the analyzed period at any time. This is useful to observe how a site's response times evolve over days, weeks, or months. By default Experience Monitoring shows the last 24 hours and refreshes every minute to surface the latest measurements in near real time.
 
-![image](../../assets/performance-analysis/basic-actions/navigate-1.png)
+![image](../../assets/performance-analysis/basic-actions/navigate-1.webp)

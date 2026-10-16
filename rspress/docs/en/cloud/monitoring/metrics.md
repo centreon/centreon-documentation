@@ -25,7 +25,7 @@ On the **Resource status** page, in the **Details** panel for a service, the **P
 
 Example: We are monitoring a Centreon poller (for this service, via the [Linux SNMP](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp/#collected-metrics--status) connector). In the following picture, we can see that the **Memory** service returns 6 metrics: **used**, **free**, **used_prct**, **buffer**, **cached** and **shared**.
 
-![image](../assets/monitoring/metrics.png)
+![image](../assets/monitoring/metrics.webp)
 
 You can also:
 

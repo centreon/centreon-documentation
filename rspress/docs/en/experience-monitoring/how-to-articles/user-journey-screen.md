@@ -7,7 +7,7 @@ On the "User Journey" page, you will find all the scenarios that have been creat
 
 This first page is an overview of all your scenarios. It allows you to quickly and efficiently analyze your site's performance.
 
-![Image](../assets/how-to-articles/user-journey-screen-1.png)
+![Image](../assets/how-to-articles/user-journey-screen-1.webp)
 
 First, you will find the **availability** (uptime, downtime) as well as the number of incidents per scenario for the selected period.
 

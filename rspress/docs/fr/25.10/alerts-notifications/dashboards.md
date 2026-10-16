@@ -5,7 +5,7 @@ title: Tableaux de bord
 
 Commencez par créer des tableaux de bord et ajoutez des widgets spécialement conçus pour optimiser votre expérience utilisateur. Bénéficiez ensuite d'options de visualisation de données pour afficher et suivre vos ressources en temps réel.
 
-![image](../assets/alerts/dashboard-view.png)
+![image](../assets/alerts/dashboard-view.webp)
 
 ## Activer la fonctionnalité Tableaux de bord
 
@@ -55,7 +55,7 @@ Votre tableau de bord est maintenant ajouté ! Vous pouvez directement commencer
 - S'il s'agit de votre tout premier widget, cliquez sur la zone **Ajouter widget**.
 - Sinon, cliquez sur le bouton **+ Ajouter widget** à droite de l'interface.
 
-![image](../assets/alerts/widget-view.png)
+![image](../assets/alerts/widget-view.webp)
 
 La majorité des widgets fonctionnent généralement selon les étapes suivantes : 
 

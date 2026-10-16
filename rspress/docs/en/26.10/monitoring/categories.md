@@ -22,7 +22,7 @@ Severities are assigned in the host categories and service categories configurat
 
 Go to the **Configuration > Hosts > Categories** menu and click **Add**.
 
-![image](../assets/configuration/08hostcategory.png)
+![image](../assets/configuration/08hostcategory.webp)
 
 * The **Host Category Name** and **Alias** fields contain the name and the alias of the category of host, respectively.
 * The **Linked hosts** list allows us to add hosts to the category.
@@ -36,7 +36,7 @@ Go to the **Configuration > Hosts > Categories** menu and click **Add**.
 
 Go to the **Configuration > Services > Categories** menu and click **Add**.
 
-![image](../assets/configuration/08servicecategory.png)
+![image](../assets/configuration/08servicecategory.webp)
 
 * The **Name** and **Description** fields define the name and the description of the category of service.
 * If a service template is added to the **Service Template Descriptions** list, all the services that inherit from this

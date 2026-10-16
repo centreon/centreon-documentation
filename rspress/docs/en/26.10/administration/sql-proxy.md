@@ -13,7 +13,7 @@ The aim is to relieve the real-time database (**centreon_storage**) and avoid Br
 
 The minimal use case consists in setting up database replication. To ensure proper routing, we will install an SQLproxy server between the Centreon platform and the databases.
 
-![image](../assets/administration/sql_proxy.png)
+![image](../assets/administration/sql_proxy.webp)
 
 Your architecture will contain the three following elements:
 

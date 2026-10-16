@@ -380,7 +380,7 @@ detected by centreon broker.
 
 Imagine we have made a configuration like this:
 
-![image](../assets/developer/broker_config.png)
+![image](../assets/developer/broker_config.webp)
 
 with two custom entries:
 

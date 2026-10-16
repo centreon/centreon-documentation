@@ -51,11 +51,11 @@ several host templates and if the same setting is defined on several templates,
 the host template situated above the other templates has priority over
 its ancestors.
 
-![image](../assets/configuration/09hostmodels.png)
+![image](../assets/configuration/09hostmodels.webp)
 
 The diagram below shows a host inheriting from multiple host templates.
 
-![image](../assets/configuration/09hostmodelsheritage.png)
+![image](../assets/configuration/09hostmodelsheritage.webp)
 
 ### Configuration
 
@@ -77,7 +77,7 @@ Go into the **Configuration > Hosts > Templates** menu and click **Add**
 A service or a service template can only inherit from a single service template
 (parent-child type inheritance).
 
-![image](../assets/configuration/09heritageservice.png)
+![image](../assets/configuration/09heritageservice.webp)
 
 ### Configuration
 
@@ -109,7 +109,7 @@ host templates:
 
 Example: We create the srvi-web-01 host according to the template below:
 
-![image](../assets/configuration/09hostexemple.png)
+![image](../assets/configuration/09hostexemple.webp)
 
 The host srvi-web-01 will automatically possess the following services:
 
@@ -135,7 +135,7 @@ The linking of service templates with host templates takes place in the
 
 A contact or a contact template can only inherit one contact template.
 
-![image](../assets/configuration/09contactmodel.png)
+![image](../assets/configuration/09contactmodel.webp)
 
 ### Configuration
 

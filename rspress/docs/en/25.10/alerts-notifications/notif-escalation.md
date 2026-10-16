@@ -69,7 +69,7 @@ the following operations:
 To add a notification escalation, go into the menu:
 `Configuration > Notifications > Escalations` and click **Add**
 
-![image](../assets/alerts/04notificationsescalation.png)
+![image](../assets/alerts/04notificationsescalation.webp)
 
 -   The **Escalation Name** and **Alias** fields are used to define a name
     and an alias for the notification escalation.

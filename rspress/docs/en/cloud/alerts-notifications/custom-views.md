@@ -13,15 +13,15 @@ Custom views are dashboards created with widgets. You can share views with other
 
 1. Go to **Home > Custom Views**.
 
-2. Click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png)
+2. Click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.webp)
     
     The control bar appears:
 
-    ![image](../assets/alerts/bar.png)
+    ![image](../assets/alerts/bar.webp)
 
 3. Click **Add view**: a pop-up window is displayed.
 
-    ![image](../assets/alerts/view_add.png)
+    ![image](../assets/alerts/view_add.webp)
 
 4. Select **Create new view**:
     - enter a name
@@ -36,17 +36,17 @@ Custom views are dashboards created with widgets. You can share views with other
 
 7. Click **Submit**. The widget appears. Some widgets require extra configuration (e.g., selecting a poller): click the wrench icon in the top right corner of the widget to [edit](#editing-a-widget) it.
 
-8. Once you have created the view and added all the widgets you want, click the **Show/Hide edit mode** icon again: ![image](../assets/alerts/no_edit_mode.png)
+8. Once you have created the view and added all the widgets you want, click the **Show/Hide edit mode** icon again: ![image](../assets/alerts/no_edit_mode.webp)
 
 ## Editing a custom view
 
-On the control bar, click **Edit view**. ![image](../assets/alerts/view_edit.png)
+On the control bar, click **Edit view**. ![image](../assets/alerts/view_edit.webp)
 
 You can rename the view, change the layout of the columns, and [share the view](#sharing-custom-views) in read-only mode with other users. You can also edit or move widgets.
 
 ### Editing a widget
 
-To edit a widget, click the wrench icon in the top right corner of the widget: ![image](../assets/alerts/widget_controls.png)
+To edit a widget, click the wrench icon in the top right corner of the widget: ![image](../assets/alerts/widget_controls.webp)
 
 ### Rearranging widgets
 
@@ -74,11 +74,11 @@ To share a view with "locked"/"unlocked users" :
 
 ## Displaying a custom view users have shared with you
 
-1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.png#thumbnail1)
+1. On the **Home > Custom Views** page, click the **Show/Hide edit mode** icon in the top right corner of the page: ![image](../assets/alerts/edit_mode.webp#thumbnail1)
 
     The control bar appears:
 
-    ![image](../assets/alerts/bar.png)
+    ![image](../assets/alerts/bar.webp)
 
 2. Click **Add view**, then select **Load from existing view**. A dropdown list shows all the views that other users have shared with you. 
 

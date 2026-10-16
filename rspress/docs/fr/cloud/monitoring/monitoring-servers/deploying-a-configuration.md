@@ -13,7 +13,7 @@ automatique. Pour que les modifications soient prises en compte, il est nécessa
 
 2. Sélectionnez le collecteur dont la configuration a changé.
 
-    ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
+    ![image](../../assets/monitoring/monitoring-servers/export_conf.webp)
 
 3. Cliquez sur **Exporter la configuration**.
 
@@ -27,7 +27,7 @@ automatique. Pour que les modifications soient prises en compte, il est nécessa
 
 5. Cliquez sur **Exporter**. Un log de l'export s'affiche.
 
-    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.png)
+    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.webp)
 
 6. Dans le log, vérifiez que l'export a bien fonctionné et qu'aucune erreur n'a été remontée.
 

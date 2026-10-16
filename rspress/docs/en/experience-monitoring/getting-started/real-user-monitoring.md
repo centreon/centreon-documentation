@@ -5,7 +5,7 @@ title: Real User Monitoring (RUM)
 
 Called “RUM” among insiders, Real User Monitoring consists of observing and analyzing the experience perceived by real users, directly from their browsers, regardless which one they use.
 
-![image](../assets/getting-started/rum-1.png)
+![image](../assets/getting-started/rum-1.webp)
 
 It's important to note that:
 
@@ -18,10 +18,10 @@ The **key benefits** provided by RUM are:
 
 - an **objective** view of performance because it is measured **by the users themselves**. Example: if the site is mostly visited by users on Safari and the site's code runs particularly poorly on that browser, it will be immediately visible that a problem **on that specific browser** impacts a large portion of the site's traffic.
 
-![image](../assets/getting-started/rum-2.png)
+![image](../assets/getting-started/rum-2.webp)
 
 - an **exhaustive** view of performance for **all pages** visited by users. This is a major difference compared to [Synthetic Monitoring](./synthetic-monitoring.md), which measures certain reference pages or journeys. Conversely, the RUM data collector will record performance metrics (TTFB, Speed Index, etc.) **every time a click is made** on the site. The result is the construction of a cross-cutting, real-time view of the most visited pages with their respective performance scores:
 
-![image](../assets/getting-started/rum-3.png)
+![image](../assets/getting-started/rum-3.webp)
 
 > Next: how to [Install Real User Monitoring](../installation/real-user-monitoring-installation.md).

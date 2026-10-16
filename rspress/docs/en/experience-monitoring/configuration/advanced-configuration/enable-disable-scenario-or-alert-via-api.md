@@ -115,7 +115,7 @@ qm3k_session="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 To obtain these values, open Chrome DevTools > Network while loading an Experience Monitoring UI page and look for the **csrf_token** and **qm3k_session** parameters in the browser's HTTP request, like in the screenshot below:
 
-![image](../../assets/configuration/advanced-config/scenario-or-alert-via-api-1.png)
+![image](../../assets/configuration/advanced-config/scenario-or-alert-via-api-1.webp)
 
 For security, we strongly recommend creating a dedicated Experience Monitoring user account for API usage.
 

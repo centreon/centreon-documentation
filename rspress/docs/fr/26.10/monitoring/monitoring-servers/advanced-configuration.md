@@ -23,7 +23,7 @@ Saisissez le nom de cette configuration, le port TCP pour le champ **Connection
 port** afin de se connecter au collecteur et l'adresse IP du collecteur pour le
 champ **Host to connect to**, puis cliquez sur **Save** :
 
-![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-1.png)
+![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-1.webp)
 
 Rendez-vous dans le menu **Configuration > Pollers > Broker configuration** et
 cliquez sur la configuration **Broker module** de votre collecteur.
@@ -34,7 +34,7 @@ Rendez-vous dans l'onglet **Output** et modifiez l'entrée **Output 1 -IPv4** :
 2.  Contrôlez le port TCP **Connection port**
 3.  Activer l'option **One peer retention**
 
-![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-2.png)
+![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-2.webp)
 
 Cliquez sur **Save**, générer et exporter la configuration des serveurs
 impactés.
@@ -78,7 +78,7 @@ paramètres suivants pour *central-broker-master-input*.
   - Public certificate = /etc/centreon-broker/central.crt
   - Trusted CA's certificate = /etc/centreon-broker/ca.crt
 
-![image](../../assets/monitoring/monitoring-servers/broker-certificates.png)
+![image](../../assets/monitoring/monitoring-servers/broker-certificates.webp)
 
 De manière similaire pour le poller, vous devez modifier les paramètres de la
 connexion TCP dans l'onglet Output.

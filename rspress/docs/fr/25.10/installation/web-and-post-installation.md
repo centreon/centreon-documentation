@@ -11,14 +11,14 @@ Connectez-vous à l'interface web via `http://<IP>/centreon`.
 
 L'assistant de configuration de Centreon s'affiche. Cliquez sur **Next**.
 
-![image](../assets/installation/acentreonwelcome.png)
+![image](../assets/installation/acentreonwelcome.webp)
 
 ### Étape 2 : Dependency check up
 
 Les modules et les prérequis nécessaires sont vérifiés. Ils doivent tous être satisfaits.
 Cliquez sur **Refresh** lorsque les actions correctrices nécessaires ont été effectuées.
 
-![image](../assets/installation/acentreoncheckmodules.png)
+![image](../assets/installation/acentreoncheckmodules.webp)
 
 Puis cliquez sur **Next**.
 
@@ -27,7 +27,7 @@ Puis cliquez sur **Next**.
 Definissez les chemins utilisés par le moteur de supervision. Nous recommandons
 d'utiliser ceux par défaut.
 
-![image](../assets/installation/amonitoringengine2.png)
+![image](../assets/installation/amonitoringengine2.webp)
 
 Puis cliquez sur **Next**.
 
@@ -36,7 +36,7 @@ Puis cliquez sur **Next**.
 Definissez les chemins utilisés par le multiplexeur. Nous recommandons
 d'utiliser ceux par défaut.
 
-![image](../assets/installation/abrokerinfo2.png)
+![image](../assets/installation/abrokerinfo2.webp)
 
 Puis cliquez sur **Next**.
 
@@ -44,7 +44,7 @@ Puis cliquez sur **Next**.
 
 Définissez les informations nécessaires pour la création de l'utilisateur par défaut, **admin**. Vous utiliserez ce compte pour vous connecter à Centreon la première fois. Le mot de passe doit être conforme à la politique de sécurité de mot de passe par défaut : 12 caractères minimum, lettres minuscules et majuscules, chiffres et caractères spéciaux. Vous pourrez changer cette politique par la suite.
 
-![image](../assets/installation/aadmininfo.png)
+![image](../assets/installation/aadmininfo.webp)
 
 Puis cliquez sur **Next**.
 
@@ -59,7 +59,7 @@ Fournissez les informations de connexion à l'instance de base de données.
 
 - **Database user name/password**: les identifiants du compte qui sera utilisé pour interagir avec les bases de données Centreon. Le compte sera créé pendant l'installation de la base.
 
-![image](../assets/installation/adbinfo.png)
+![image](../assets/installation/adbinfo.webp)
 
 Puis cliquez sur **Next**.
 
@@ -68,7 +68,7 @@ Puis cliquez sur **Next**.
 L'assistant de configuration crée les fichiers de configuration et les bases de
 données.
 
-![image](../assets/installation/adbconf.png)
+![image](../assets/installation/adbconf.webp)
 
 Quand le processus est terminé, cliquez sur **Next**.
 
@@ -78,11 +78,11 @@ Sélectionnez les modules et widgets disponibles à l'installation.
 
 Puis cliquez sur **Install**.
 
-![image](../assets/installation/module_installationa.png)
+![image](../assets/installation/module_installationa.webp)
 
 Une fois les modules installés, cliquez sur **Next**.
 
-![image](../assets/installation/module_installationb.png)
+![image](../assets/installation/module_installationb.webp)
 
 ### Étape 9 : Installation finished
 
@@ -90,7 +90,7 @@ Une fois les modules installés, cliquez sur **Next**.
 Centreon. Si votre plate-forme est connectée à Internet vous disposez des dernières
 informations. Sinon l’information présente dans cette version sera proposée.
 
-![image](../assets/installation/aendinstall.png)
+![image](../assets/installation/aendinstall.webp)
 
 L’installation est terminée, cliquez sur **Finish**.
 
@@ -142,7 +142,7 @@ Selon votre édition de Centreon, vous pouvez devoir [ajouter une licence](../ad
 Rendez-vous au menu **Administration > Extensions > Gestionnaire** et cliquez sur
 le bouton **Install all** :
 
-![image](../assets/installation/extensions-manager.png)
+![image](../assets/installation/extensions-manager.webp)
 
 ## Sécurisez votre plateforme
 

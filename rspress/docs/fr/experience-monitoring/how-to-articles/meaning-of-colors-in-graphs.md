@@ -9,7 +9,7 @@ Il peut vous arriver de constater, en naviguant sur vos graphes Experience Monit
 
 ## Barres supérieures
 
-![Image](../assets/how-to-articles/color-meaning-in-graphs-1.png)
+![Image](../assets/how-to-articles/color-meaning-in-graphs-1.webp)
 
 Au-dessus de la plupart des graphs, vous trouverez une barre supérieure de couleur verte, jaune, ou rouge. Chaque couleur a sa signification:
 
@@ -25,7 +25,7 @@ En passant votre souris sur les quartiers dans cette bande supérieure, Experien
 
 ### Barres rouges
 
-![Image](../assets/how-to-articles/color-meaning-in-graphs-2.png)
+![Image](../assets/how-to-articles/color-meaning-in-graphs-2.webp)
 
 Ces barres rouges qui peuvent s'afficher sur vos scénarios mettent en évidence des erreurs qui ont pu se produire lors de l'exécution de celui-ci.
 

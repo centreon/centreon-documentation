@@ -16,7 +16,7 @@ We highly recommend you read our documentation to avoid running into issues. You
 
 Centreon MBI runs [jobs](concepts.md#jobs) to generate reports. MBI has more than 30 different ready-to-use templates (report "designs").
 
-![image](../assets/reporting/first_page.png)
+![image](../assets/reporting/first_page.webp)
 
 Reports address:
 

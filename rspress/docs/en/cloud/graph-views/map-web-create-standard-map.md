@@ -45,7 +45,7 @@ Follow this procedure to open your map in editing mode:
 
 This is the MAP editor view:
 
-![image](../assets/graph-views/map-web-editor-description.png)
+![image](../assets/graph-views/map-web-editor-description.webp)
 
 **1. Breadcrumb:** allows you to know which elements of the map you have been through to reach the current view. 
 **2. Toolbar:** allows you to hide / display panels,  to undo / redo actions, and to fit / zoom in / zoom out on the drawing canvas space.

@@ -20,7 +20,7 @@ in charge of the Salary Management application, etc.
 
 Go to the **Configuration > Users > Contact Groups** menu and click **Add**
 
-![image](../../assets/configuration/07contactgroup.png)
+![image](../../assets/configuration/07contactgroup.webp)
 
 * The **Contact Group Name** and **Alias** fields define the name and the description of the contact group.
 * The **Linked Contacts** list allows us to add contacts to the contact group.

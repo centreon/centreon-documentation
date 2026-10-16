@@ -5,7 +5,7 @@ title: Synthetic Monitoring (or "User Journeys")
 
 Synthetic Monitoring consists of regularly browsing a target site and measuring various web performance indicators.
 
-![image](../assets/getting-started/synthetic-monitoring-1.png)
+![image](../assets/getting-started/synthetic-monitoring-1.webp)
 
 The application allows you to:
 
@@ -20,7 +20,7 @@ The concept of a "**typical journey**" is central to the use of Synthetic Monito
 
 Here is an example of a typical journey for an ecommerce site:
 
-![image](../assets/getting-started/synthetic-monitoring-2.png)
+![image](../assets/getting-started/synthetic-monitoring-2.webp)
 
 These journeys can be performed under several different conditions, for example:
 

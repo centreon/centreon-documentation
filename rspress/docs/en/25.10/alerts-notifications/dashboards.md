@@ -5,7 +5,7 @@ title: Dashboards
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.
 
-![image](../assets/alerts/dashboard-view.png)
+![image](../assets/alerts/dashboard-view.webp)
 
 ## Activating the Dashboards feature
 
@@ -54,7 +54,7 @@ Your dashboard is now added! You can directly start adding widgets.
 - If this is your very first widget, click the **Add a widget** area.
 - If not, click the **+ Add a widget** on the right of the interface.
 
-![image](../assets/alerts/widget-view.png)
+![image](../assets/alerts/widget-view.webp)
 
 Most of the widgets usually follow these steps: 
 

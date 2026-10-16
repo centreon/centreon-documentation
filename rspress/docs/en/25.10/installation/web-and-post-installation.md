@@ -11,14 +11,14 @@ Log in to Centreon web interface via the URL `http://<IP>/centreon`.
 
 The Centreon setup wizard is displayed. Click **Next**.
 
-![image](../assets/installation/acentreonwelcome.png)
+![image](../assets/installation/acentreonwelcome.webp)
 
 ### Step 2: Dependency check up
 
 The needed modules and prerequisites are checked. They must be all satisfied. Click **Refresh**
 once the necessary corrective actions have been applied.
 
-![image](../assets/installation/acentreoncheckmodules.png)
+![image](../assets/installation/acentreoncheckmodules.webp)
 
 Then click **Next**.
 
@@ -26,7 +26,7 @@ Then click **Next**.
 
 Define paths used by the monitoring engine. We recommend using the defaults.
 
-![image](../assets/installation/amonitoringengine2.png)
+![image](../assets/installation/amonitoringengine2.webp)
 
 Then click **Next**.
 
@@ -34,7 +34,7 @@ Then click **Next**.
 
 Define the paths used by the broker module. We recommend using the defaults.
 
-![image](../assets/installation/abrokerinfo2.png)
+![image](../assets/installation/abrokerinfo2.webp)
 
 Then click **Next**.
 
@@ -42,7 +42,7 @@ Then click **Next**.
 
 Define the information needed to create the default admin account. This is the account you will use to log in to Centreon for the first time. The password must comply with the default password security policy: at least 12 characters, lower and upper case letters, numbers and special characters. You can change this policy later.
 
-![image](../assets/installation/aadmininfo.png)
+![image](../assets/installation/aadmininfo.webp)
 
 Then click **Next**.
 
@@ -57,7 +57,7 @@ Provide the information needed to connect to the database instance.
 
 - **Database user name/password**: the credentials of the account that will be used to interact with the Centreon databases. The account will be created when the database is installed.
 
-![image](../assets/installation/adbinfo.png)
+![image](../assets/installation/adbinfo.webp)
 
 Then click **Next**.
 
@@ -65,7 +65,7 @@ Then click **Next**.
 
 The Centreon setup wizard creates a configuration file and database structure:
 
-![image](../assets/installation/adbconf.png)
+![image](../assets/installation/adbconf.webp)
 
 When done, click **Next**.
 
@@ -73,11 +73,11 @@ When done, click **Next**.
 
 Select the available modules and widgets to be installed. Then click **Install**.
 
-![image](../assets/installation/module_installationa.png)
+![image](../assets/installation/module_installationa.webp)
 
 Once the installation is complete, click **Next**.
 
-![image](../assets/installation/module_installationb.png)
+![image](../assets/installation/module_installationb.webp)
 
 ### Step 9: Installation finished
 
@@ -86,7 +86,7 @@ products. If your platform is connected to the internet, the information you rec
 will be up to date. If you are not online, only information on the current version will be
 displayed.
 
-![image](../assets/installation/aendinstall.png)
+![image](../assets/installation/aendinstall.webp)
 
 The installation is complete. Click **Finish**.
 
@@ -137,7 +137,7 @@ According to your Centreon edition, you may have to [add a license](../administr
 Go to **Administration > Extensions > Manager** and click
 **Install all**:
 
-![image](../assets/installation/extensions-manager.png)
+![image](../assets/installation/extensions-manager.webp)
 
 ## Secure your platform
 

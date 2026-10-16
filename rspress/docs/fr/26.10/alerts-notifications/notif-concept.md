@@ -52,4 +52,4 @@ Pour chaque contact associé au service (ou à l'hôte) :
 Le schéma ci-dessous résume la gestion des notifications au sein de
 Centreon :
 
-![image](../assets/alerts/hnotifications_schema.png)
+![image](../assets/alerts/hnotifications_schema.webp)

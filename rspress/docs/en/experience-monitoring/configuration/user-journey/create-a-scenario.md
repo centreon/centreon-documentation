@@ -4,11 +4,11 @@ title: Creation of a scenario ("User Journey")
 --- 
 
 > You can check that you have enough remaining steps on the Organization page:
-> ![image](../../assets/configuration/user-journey/create-scenario-1.png)
+> ![image](../../assets/configuration/user-journey/create-scenario-1.webp)
 
 You must have Owner or Administrator rights to edit your scenarios. You can check this on your Profile page:
 
-![image](../../assets/configuration/user-journey/create-scenario-2.png)
+![image](../../assets/configuration/user-journey/create-scenario-2.webp)
 
 To manage them, see:
 
@@ -22,7 +22,7 @@ The scenario edit mode lets you modify existing user journeys or create new ones
 
 If the site has no User Journey configured, this message will appear:
 
-![image](../../assets/configuration/user-journey/create-scenario-3.png)
+![image](../../assets/configuration/user-journey/create-scenario-3.webp)
 
 You can click **Configure your user journey now!** to enter edit mode.
 
@@ -30,7 +30,7 @@ You can click **Configure your user journey now!** to enter edit mode.
 
 If a journey exists, you will see a screen similar to this:
 
-![image](../../assets/configuration/user-journey/create-scenario-4.png)
+![image](../../assets/configuration/user-journey/create-scenario-4.webp)
 
 Click the three dots and choose **Configure** to enter edit/create mode.
 
@@ -40,7 +40,7 @@ Click the three dots and choose **Configure** to enter edit/create mode.
 
 At the bottom of the edit page, you'll find a button to create a new journey:
 
-![Action button in edit mode](../../assets/configuration/user-journey/create-scenario-5.png)
+![Action button in edit mode](../../assets/configuration/user-journey/create-scenario-5.webp)
 
 Experience Monitoring generates a new journey with a single step: navigating to the root of your domain.
 
@@ -48,11 +48,11 @@ Experience Monitoring generates a new journey with a single step: navigating to 
 
 To activate your journey, you must save it. Click the **Save** icon or the button at the bottom of your journey:
 
-![Options to save a user journey](../../assets/configuration/user-journey/create-scenario-6.png)
+![Options to save a user journey](../../assets/configuration/user-journey/create-scenario-6.webp)
 
 You will see a loading indicator in the top-right corner that means your journey is saved but the probe hasn't run since the last changes:
 
-![Indicator showing changes saved but not yet executed by the probe](../../assets/configuration/user-journey/create-scenario-7.png)
+![Indicator showing changes saved but not yet executed by the probe](../../assets/configuration/user-journey/create-scenario-7.webp)
 
 When the probe runs, the content is updated automatically. You will then see the screenshots.
 
@@ -215,7 +215,7 @@ Allows enabling/disabling TLS/SSL certificate validation.
 
 When a site is not secure, users may see a page similar to this:
 
-![Example of an SSL failure page](../../assets/configuration/user-journey/create-scenario-8.png)
+![Example of an SSL failure page](../../assets/configuration/user-journey/create-scenario-8.webp)
 
 By default, Experience Monitoring considers the journey failed in case of such a security issue. Disable this option to ignore these errors.
 

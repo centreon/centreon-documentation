@@ -13,7 +13,7 @@ In Experience Monitoring, you can belong to multiple organizations, and each org
 
 Example of cards from two sites in two different organizations:
 
-![image](../assets/getting-started/dashboards-1.png)
+![image](../assets/getting-started/dashboards-1.webp)
 
 In this example, the two cards come from two different sites in two different organizations. With dashboards you can keep an eye on all your sites at once!
 
@@ -23,7 +23,7 @@ Within your organization, different people will expect different information. Fo
 
 You can create dashboards and share them with your organization so everyone in your organization has access.
 
-![image](../assets/getting-started/dashboards-2.png)
+![image](../assets/getting-started/dashboards-2.webp)
 
 In your dashboard list, your private dashboards appear first. By clicking the lock icon you access sharing options to choose which organization to share it with.
 

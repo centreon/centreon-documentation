@@ -12,4 +12,4 @@ Based on this information, Experience Monitoring will estimate the CO<sub>2</sub
 
 To fill in these details, go to **Configuration > Site**.
 
-![image](../assets/configuration/config-digital-sobriety-1.png)
+![image](../assets/configuration/config-digital-sobriety-1.webp)

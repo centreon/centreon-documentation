@@ -13,15 +13,15 @@ Les vues personnalisées sont des tableaux de bord, créés à l'aide de widgets
  
 1. Allez à la page **Accueil > Vues personnalisées**.
 
-2. Cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page : ![image](../assets/alerts/edit_mode.png#thumbnail1)
+2. Cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page : ![image](../assets/alerts/edit_mode.webp#thumbnail1)
 
     La barre d'édition apparaît:
 
-    ![image](../assets/alerts/bar.png)
+    ![image](../assets/alerts/bar.webp)
 
 3. Cliquez sur **Ajouter une vue** : une pop-up apparaît.
 
-    ![image](../assets/alerts/view_add.png)
+    ![image](../assets/alerts/view_add.webp)
 
 4. Sélectionnez **Créer une nouvelle vue** :
     - entrez un nom
@@ -36,17 +36,17 @@ Les vues personnalisées sont des tableaux de bord, créés à l'aide de widgets
 
 7. Cliquez sur **Soumettre**. Le widget apparaît. Certains widgets demandent un paramétrage supplémentaire (par exemple, sélectionner un collecteur) : cliquez sur l'icône clé à molette en haut à droite du widget pour [l'éditer](#éditer-un-widget).
 
-8. Une fois la vue créée et tous les widgets ajoutés, cliquez à nouveau sur l'icône **Afficher/cacher le mode édition** : ![image](../assets/alerts/edit_mode.png#thumbnail1)
+8. Une fois la vue créée et tous les widgets ajoutés, cliquez à nouveau sur l'icône **Afficher/cacher le mode édition** : ![image](../assets/alerts/edit_mode.webp#thumbnail1)
 
 ## Éditer une vue personnalisée
 
-Dans la barre d'édition, cliquez sur le bouton **Éditer**. ![image](../assets/alerts/view_edit.png)
+Dans la barre d'édition, cliquez sur le bouton **Éditer**. ![image](../assets/alerts/view_edit.webp)
 
 Vous pouvez renommer la vue, changer la disposition en colonnes, et [partager la vue](#partager-une-vue-personnalisée) en lecture seule avec d'autres utilisateurs. Vous pouvez également éditer ou déplacer les widgets.
 
 ### Éditer un widget
 
-Pour éditer un widget, cliquez sur l'icône clé à molette en haut à droite du widget : ![image](../assets/alerts/widget_controls.png)
+Pour éditer un widget, cliquez sur l'icône clé à molette en haut à droite du widget : ![image](../assets/alerts/widget_controls.webp)
 
 ### Déplacer les widgets/rearranging widgets
 Pour déplacer un widget, cliquez sur la barre de titre du widget et faites un glisser-déposer jusqu'à la position désirée.
@@ -76,11 +76,11 @@ Pour partager une vue avec des "locked"/"unlocked users" :
 
 ## Afficher une vue personnalisée partagée avec vous
 
-1. À la page **Accueil > Vues personnalisées**, cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page ![image](../assets/alerts/edit_mode.png#thumbnail1)
+1. À la page **Accueil > Vues personnalisées**, cliquez sur l'icône **Afficher/cacher le mode édition** en haut à droite de la page ![image](../assets/alerts/edit_mode.webp#thumbnail1)
 
     La barre d'édition apparaît :
 
-    ![image](../assets/alerts/bar.png)
+    ![image](../assets/alerts/bar.webp)
 
 2. Cliquez sur **Ajouter une vue**, puis sélectionnez **À partir d'une vue existante**. Une liste déroulante propose toutes les vues partagées par d'autres utilisateurs.
 

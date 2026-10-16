@@ -22,7 +22,7 @@ Les criticités sont assignées depuis la page de configuration des catégories 
 
 Rendez-vous dans le menu **Configuration > Hôtes > Catégories** et cliquez sur **Ajouter**
 
-![image](../assets/configuration/08hostcategory.png)
+![image](../assets/configuration/08hostcategory.webp)
 
 * Les champs **Nom** et **Alias** contiennent respectivement le nom et l’alias de la catégorie d’hôte.
 * La liste **Hôtes liés** permet d’ajouter des hôtes à la catégorie.
@@ -36,7 +36,7 @@ Rendez-vous dans le menu **Configuration > Hôtes > Catégories** et cliquez sur
 
 Rendez-vous dans le menu **Configuration > Services > Catégories** et cliquez sur **Ajouter**
 
-![image](../assets/configuration/08servicecategory.png)
+![image](../assets/configuration/08servicecategory.webp)
 
 * Les champs **Nom** et **Description** définissent le nom et la description de la catégorie de service.
 * Si un modèle de service appartient à **Service Template Descriptions** alors tous les services appartenant à ce modèle

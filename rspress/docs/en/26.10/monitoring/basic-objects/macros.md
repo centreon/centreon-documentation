@@ -42,14 +42,14 @@ to be questioned, etc.
 
 When a host is defined, the following macros are created:
 
-![image](../../assets/configuration/01hostmacros.png)
+![image](../../assets/configuration/01hostmacros.webp)
 
 To retrieve these macros in a check command, you need to call it using the following variables: $_HOSTUSERLOGIN$,
 $_HOSTUSERPASSWORD$.
 
 When a service is defined, the following macros are created:
 
-![image](../../assets/configuration/01servicemacros.png)
+![image](../../assets/configuration/01servicemacros.webp)
 
 To retrieve these macros in a check command, you need to invoke them using the following variables: $_SERVICEPARTITION$,
 $_SERVICEWARNING$, $_SERVICECRITICAL$.
@@ -105,7 +105,7 @@ To add a global macro:
 * Go into the **Configuration \> Pollers \> Global macros** menu
 * Click **Add**
 
-![image](../../assets/configuration/01globalmacros.png)
+![image](../../assets/configuration/01globalmacros.webp)
 
 * The **Name** field defines the name of the macro, e.g.: $USER3$
 * The **Expression** field defines the value of the macro.

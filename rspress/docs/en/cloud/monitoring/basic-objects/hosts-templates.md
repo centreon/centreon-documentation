@@ -36,11 +36,11 @@ several host templates and if the same setting is defined on several templates,
 the host template situated above the other templates has priority over
 its ancestors.
 
-![image](../../assets/configuration/09hostmodels.png)
+![image](../../assets/configuration/09hostmodels.webp)
 
 The diagram below shows a host inheriting from multiple host templates.
 
-![image](../../assets/configuration/09hostmodelsheritage.png)
+![image](../../assets/configuration/09hostmodelsheritage.webp)
 
 ### Configuration
 

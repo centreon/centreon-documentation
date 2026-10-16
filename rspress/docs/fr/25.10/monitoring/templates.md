@@ -52,11 +52,11 @@ plusieurs modèles d’hôtes et si un même paramètre est défini sur plusieur
 modèles, alors le modèle d’hôte situé au-dessus des autres modèles est
 prioritaire par rapport à ses ascendants.
 
-![image](../assets/configuration/09hostmodels.png)
+![image](../assets/configuration/09hostmodels.webp)
 
 Le schéma ci-dessous présente un hôte héritant de plusieurs modèles d’hôtes.
 
-![image](../assets/configuration/09hostmodelsheritage.png)
+![image](../assets/configuration/09hostmodelsheritage.webp)
 
 ### Configuration
 
@@ -79,7 +79,7 @@ le bouton **Ajouter**
 Un service ou un modèle de service ne peut hériter que d’un seul modèle de
 service (héritage de type Père-Fils).
 
-![image](../assets/configuration/09heritageservice.png)
+![image](../assets/configuration/09heritageservice.webp)
 
 ### Configuration
 
@@ -112,7 +112,7 @@ modèles de services aux modèles d’hôtes :
 
 Exemple : Je créé l’hôte srvi-web-01 selon le modèle ci-dessous :
 
-![image](../assets/configuration/09hostexemple.png)
+![image](../assets/configuration/09hostexemple.webp)
 
 L’hôte srvi-web-01 possèdera automatiquement les services suivants :
 
@@ -139,7 +139,7 @@ La liaison des modèles de services avec les modèles d’hôtes a lieu dans l�
 
 Un contact ou un modèle de contact peut hériter d’un seul modèle de contact.
 
-![image](../assets/configuration/09contactmodel.png)
+![image](../assets/configuration/09contactmodel.webp)
 
 ### Configuration
 

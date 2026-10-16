@@ -13,18 +13,18 @@ To access the availability reports:
 - Go to **Reporting > Availability > Hosts**.
 - Select a host from the **Host** list in the upper left.
 
-![image](../assets/reporting/os-reporting/os-host-reporting.png)
+![image](../assets/reporting/os-reporting/os-host-reporting.webp)
 
 - The **Reporting Period** lets you select a predefined period or define it manually using **From** to **to** fields.
 - The **Host state** table displays the availability rates of objects.
 - The **State Breakdowns For Host Services** table displays the availability of linked objects.
 - The timeline provides a quick and intuitive overview of the status of the object.
 
-![image](../assets/reporting/os-reporting/os-host-timeline.png)
+![image](../assets/reporting/os-reporting/os-host-timeline.webp)
 
 Click a day in the timeline to obtain the report for that day:
 
-![image](../assets/reporting/os-reporting/os-host-tooltip.png)
+![image](../assets/reporting/os-reporting/os-host-tooltip.webp)
 
 It is also possible to view web reports:
 
@@ -33,6 +33,6 @@ It is also possible to view web reports:
 
 The CSV icon in the upper right corner is used to export data as a CSV file.
 
-![image](../assets/reporting/os-reporting/os-csv.png)
+![image](../assets/reporting/os-reporting/os-csv.webp)
 
 > You can also see the availability of a service by clicking the service name in the host or servicegroup report.

@@ -101,7 +101,7 @@ option.
 
 #### Reference
 
-![image](../assets/alerts/notif_contact_config.png)
+![image](../assets/alerts/notif_contact_config.webp)
 
 - **Host/Service Notification Options**: define in which cases the contact should receive a notification. If you select **None**, the contact will receive no notifications of any kind for hosts or services. 
 
@@ -135,7 +135,7 @@ A service called **Memory** has the following parent templates:  Memory < OS-Lin
 - Its grandparent template, **OS-Linux-Memory-SNMP**, has values defined for **Max check attempts**, **Normal Check Interval** and **Retry Check Interval**: these will be applied to **Memory**.
 - However, **OS-Linux-Memory-SNMP** has no values defined for **Check period**, **Active Checks Enabled**, **Passive Checks Enabled** and **Is volatile**. So we need to go up two levels: these values are defined on the template called **generic-active-service**.
 
-![image](../assets/alerts/template_inheritance.png)
+![image](../assets/alerts/template_inheritance.webp)
 
 ## Contacts & Contact groups method calculation
 

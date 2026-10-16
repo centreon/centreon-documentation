@@ -23,11 +23,11 @@ You can find CNIL's recommendations on [this page](https://www.cnil.fr/fr/cookie
 
 Real User Monitoring (RUM) requires installing a JavaScript tag. The tag is available in the application. To retrieve it, go to **Configuration > Integrations**:
 
-![image](../assets/installation/install-rum-1.png)
+![image](../assets/installation/install-rum-1.webp)
 
 You will then find the tag on that screen with a button to copy it easily:
 
-![image](../assets/installation/install-rum-2.png)
+![image](../assets/installation/install-rum-2.webp)
 
 This tag should be inserted into the site's HEAD section. The operation can be done manually by a developer, or alternatively **it can be added to a tag manager such as GTM by following the procedure below**.
 

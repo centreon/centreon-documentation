@@ -45,11 +45,11 @@ Les macros personnalisées commencent par \$_HOST pour les macros personnalisée
 
 Dans une commande de contrôle d'hôte, les macros suivantes sont utilisées : **$_HOSTUSERLOGIN$**, **$_HOSTUSERPASSWORD$**. Lorsqu'un hôte est configuré, les valeurs de ces macros sont définies :
 
-![image](../../assets/configuration/01hostmacros.png)
+![image](../../assets/configuration/01hostmacros.webp)
 
 Dans une commande de contrôle de service, les macros suivantes sont utilisées : **$_SERVICEPARTITION$**, **$_SERVICEWARNING$**, **$_SERVICECRITICAL$**. Lorsqu'un service est configuré, les valeurs de ces macros sont définies :
 
-![image](../../assets/configuration/01servicemacros.png)
+![image](../../assets/configuration/01servicemacros.webp)
 
 ### Cas particulier
 

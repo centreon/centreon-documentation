@@ -44,11 +44,11 @@ Custom macros start with $_HOST for custom host macros and $_SERVICE for custom 
 
 In a host check command, the following macros are used: **$_HOSTUSERLOGIN$**, **$_HOSTUSERPASSWORD$**. When a host is configured, the values for these macros are defined:
 
-![image](../../assets/configuration/01hostmacros.png)
+![image](../../assets/configuration/01hostmacros.webp)
 
 In a service check command, the following macros are used: **$_SERVICEPARTITION$**, **$_SERVICEWARNING$**, **$_SERVICECRITICAL$**. When a service is configured, the values for these macros are defined:
 
-![image](../../assets/configuration/01servicemacros.png)
+![image](../../assets/configuration/01servicemacros.webp)
 
 ### A special case
 

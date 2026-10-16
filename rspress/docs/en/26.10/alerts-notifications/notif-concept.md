@@ -46,4 +46,4 @@ For every contact associated with the service (or the host):
 
 The diagram below summarizes the notification management procedure in Centreon:
 
-![image](../assets/alerts/hnotifications_schema.png)
+![image](../assets/alerts/hnotifications_schema.webp)

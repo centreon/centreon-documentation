@@ -17,11 +17,11 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 Commencez par installer le connecteur de supervision **Base Pack** (s'il n'est pas déjà installé) en déplaçant votre curseur sur ce dernier et en cliquant sur
 l'icône **+** (il s'agit d'un pré-requis à l'installation de tout autre connecteur de supervision) :
 
-![image](../assets/getting-started/pp_base_generic_1.png)
+![image](../assets/getting-started/pp_base_generic_1.webp)
 
 Vous pouvez aussi cliquer sur le connecteur de supervision afin d'en connaître son contenu avant de l'installer :
 
-![image](../assets/getting-started/pp_base_generic_2.png)
+![image](../assets/getting-started/pp_base_generic_2.webp)
 
 Installez ensuite les connecteurs de supervision inclus gratuitement avec la solution, par exemple **Linux SNMP** et **Windows SNMP** :
 
@@ -37,7 +37,7 @@ Lorsque vous créerez des hôtes, vous devrez déployer la configuration pour qu
 2. Choisissez les collecteurs sur lesquels exporter la configuration.
 3. Cliquez sur **Exporter la configuration**.
 
-    ![image](../assets/monitoring/monitoring-servers/export_conf.png)
+    ![image](../assets/monitoring/monitoring-servers/export_conf.webp)
 
 4. Cochez les cases suivantes :
   - **Générer les fichiers de configuration**
@@ -47,6 +47,6 @@ Lorsque vous créerez des hôtes, vous devrez déployer la configuration pour qu
 
 5. Cliquez sur **Exporter**.
 
-    ![image](../assets/monitoring/monitoring-servers/export_conf_done.png)
+    ![image](../assets/monitoring/monitoring-servers/export_conf_done.webp)
 
 6. Vérifiez qu'aucune erreur n'apparaît lors de la génération.

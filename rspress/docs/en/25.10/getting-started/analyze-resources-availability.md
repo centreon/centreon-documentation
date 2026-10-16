@@ -49,11 +49,11 @@ In Centreon MBI, you configure a report by creating a scheduled job. Go
 to menu: Reporting → Business Intelligence → Configuration | Jobs / Add
 (for a new one):
 
-![image](../assets/getting-started/1_EN_createJob.png)
+![image](../assets/getting-started/1_EN_createJob.webp)
 
 The job creation form opens on the first tab:
 
-![image](../assets/getting-started/2_EN_createJob_FirstTab.png)
+![image](../assets/getting-started/2_EN_createJob_FirstTab.webp)
 
 First, under *Job Configuration*, create a name for the job. This will
 be the name of the report to be generated.
@@ -67,7 +67,7 @@ Then specify the following:
 -   Language: English
 -   Output format: PDF
 
-![image](../assets/getting-started/createJob_ListReport.png)
+![image](../assets/getting-started/createJob_ListReport.webp)
 
 You must also link the job to a job group. This is mandatory for
 managing user rights and profiles. In the Scheduling parameters, choose
@@ -76,14 +76,14 @@ scheduled execution. Select immediate execution. In this configuration,
 the report will be generated immediately, in English, in PDF format, and
 using the last month's statistics:
 
-![image](../assets/getting-started/3_EN_createJob_FirstTab_Filled.png)
+![image](../assets/getting-started/3_EN_createJob_FirstTab_Filled.webp)
 
 Once the Configuration form is filled out correctly, we can proceed to
 the "Report Parameters" tab, where we specify the conditions and scope
 of the report to be generated. We list the availability of hosts stored
 in the group "Routers" located in "Europe" (host category).
 
-![image](../assets/getting-started/4_EN_createJob_Parameter.png)
+![image](../assets/getting-started/4_EN_createJob_Parameter.webp)
 
 Note: For most report designs, you can select a time period for the
 report.
@@ -97,12 +97,12 @@ the "ETL Options" tab. Finally, we customize the report with our logo
 Click "Save" to schedule the report according to the selected mode:
 immediately.
 
-![image](../assets/getting-started/5_EN_generateJob.png)
+![image](../assets/getting-started/5_EN_generateJob.webp)
 
 If the job does not appear in the list, check that the filter applied to
 the page is set to "All" to display all the jobs.
 
-![image](../assets/getting-started/6_EN_generateJob_Filter.png)
+![image](../assets/getting-started/6_EN_generateJob_Filter.webp)
 
 ## Retrieve the generated report
 
@@ -110,12 +110,12 @@ Once the job is finished, go to *Report view*, which contains the list of
 all reports generated. To view your report, simply download it by
 clicking the "Output format" icon; in this case, PDF.
 
-![image](../assets/getting-started/7_EN_reportView.png)
+![image](../assets/getting-started/7_EN_reportView.webp)
 
 You now have access to the requested report displaying the availability
 of the routers in Europe:
 
-![image](../assets/getting-started/8_EN_availabilityReport.png)
+![image](../assets/getting-started/8_EN_availabilityReport.webp)
 
 Congratulations! You have extracted some basic statistics from the
 reporting base.

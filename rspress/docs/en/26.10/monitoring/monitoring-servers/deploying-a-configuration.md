@@ -14,7 +14,7 @@ server and of all pollers and remote servers linked to it: changes are shown in 
 
 2. Select the central server, the remote server or the poller whose configuration has changed. 
 
-   ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
+   ![image](../../assets/monitoring/monitoring-servers/export_conf.webp)
 
 3. Click on **Export configuration**.
 
@@ -30,7 +30,7 @@ server and of all pollers and remote servers linked to it: changes are shown in 
 
 5. Click **Export**. A log of the export is displayed.
 
-    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.png)
+    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.webp)
 
 6. Read the log to check that the export has worked normally and that no errors were returned.
 
@@ -68,6 +68,6 @@ To quickly export the configuration for all pollers:
 
 1. Click the **Pollers** menu at the top left of the screen, then click **Export configuration**.
 
-   ![image](../../assets/monitoring/monitoring-servers/export_all_pollers_button.png)
+   ![image](../../assets/monitoring/monitoring-servers/export_all_pollers_button.webp)
 
 2. Confirm the export in the pop-up that appears.

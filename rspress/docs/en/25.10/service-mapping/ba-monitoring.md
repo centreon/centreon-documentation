@@ -21,7 +21,7 @@ the live status and health level of the BAs.
 Non-admin users can only see the BAs associated with BVs linked to their
 access group:
 
-![image](../assets/service-mapping/guide/mon_ba_list.png)
+![image](../assets/service-mapping/guide/mon_ba_list.webp)
 
 | Column            | Description                               |
 | ----------------- | ----------------------------------------- |
@@ -35,7 +35,7 @@ You can view the evolution of BA health level by hovering your mouse over
 the name or description of the BA, and a pop-up appears displaying all the KPIs
 and status information.
 
-![image](../assets/service-mapping/guide/mon_mouse_over.png)
+![image](../assets/service-mapping/guide/mon_mouse_over.webp)
 
 Click on the name of the BA to bring up a detailed live view.
 
@@ -43,7 +43,7 @@ Click on the name of the BA to bring up a detailed live view.
 
 The detailed view is divided into six parts:
 
-![image](../assets/service-mapping/guide/mon_detailed.png)
+![image](../assets/service-mapping/guide/mon_detailed.webp)
 
 - Business Activity dropdown list to change the BA.
 - Status information on the BA Current health level and alert thresholds.

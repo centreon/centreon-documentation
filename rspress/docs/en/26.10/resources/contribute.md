@@ -26,33 +26,33 @@ Help us review your PRs more quickly by following these guidelines.
 
 1. The simplest way to suggest a change is to use the **Edit this page** link at the bottom of each page. This method is suitable when you only want to edit one file at a time.
 
-   ![image](../assets/resources/edit_this_page.png)
+   ![image](../assets/resources/edit_this_page.webp)
 
    (You can also navigate to the page you want on [GitHub](https://github.com/centreon/centreon-documentation) and click the **Edit** button.)
 
 2. The file can then be edited:
 
-   ![image](../assets/resources/editable_page.png)
+   ![image](../assets/resources/editable_page.webp)
 
 3. Make your changes, then scroll to the bottom of the page:
 
-   ![image](../assets/resources/propose_changes.png)
+   ![image](../assets/resources/propose_changes.webp)
 
 4. In the first field, enter a short description of your changes (e.g. “Fix typo”): this will be the title of your commit. You can add more information in the second field.
 5. Click **Propose changes**. A branch is created in a fork of the Centreon repository, and a commit is made and pushed to it. The page now shows your changes:
 
-   ![image](../assets/resources/propose_changes2.png)
+   ![image](../assets/resources/propose_changes2.webp)
 
 6. Click **Create pull request** and fill in the fields:
 
    * Enter a title that will make it easy to understand what your pull request is about.
    * Only put an x in the box for the versions that you have corrected.
 
-    ![image](../assets/resources/open_pr.png)
+    ![image](../assets/resources/open_pr.webp)
 
 7. The pull request is created. Note that the name of your branch appears here (format: `<name_of_the_fork>:<name_of_the_branch>`):
 
-    ![image](../assets/resources/pr_with_branch_name.png)
+    ![image](../assets/resources/pr_with_branch_name.webp)
 
 Your PR is done! The Centreon documentation team will:
 
@@ -63,11 +63,11 @@ Your PR is done! The Centreon documentation team will:
 
 1. To edit another file, go to your fork of our documentation repository on GitHub (**Your profile** > click the fork) and select your branch using the dropdown list in the top left corner of the screen.
 
-   ![image](../assets/resources/edit_branch.png)
+   ![image](../assets/resources/edit_branch.webp)
 
 2. Navigate to the file you want, make the changes you want, then scroll to the bottom of the page:
 
-   ![image](../assets/resources/commit_to_branch.png)
+   ![image](../assets/resources/commit_to_branch.webp)
 
 3. Click **Commit changes**. Your changes are committed, pushed and added to the list of commits for this pull request.
 
@@ -103,10 +103,10 @@ Your branch should be based on the branch called **staging**. From this branch y
    * remember to `git add` all the files you need (especially images).
 5. Commit your changes and push them.
 6. Go to [GitHub](https://github.com/centreon/centreon-documentation). You should see a message that looks like this:
-   ![image](../assets/resources/compare_and_pull_request1.png)
+   ![image](../assets/resources/compare_and_pull_request1.webp)
 
 7. Click **Compare & pull request**.
-   ![image](../assets/resources/compare_and_pull_request2.png)
+   ![image](../assets/resources/compare_and_pull_request2.webp)
 
    * Edit the name of the PR and add extra info if needed.
    * Select the versions to which you have made changes.

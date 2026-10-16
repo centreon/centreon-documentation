@@ -21,7 +21,7 @@ pourcentage de changement d'état **dépasse pour la première fois le seuil de 
 
 * À la page **Statut des ressources**, il est affiché sur fond vert.
 * À la page **Statut des ressources**, l'icône suivante est affichée dans son panneau **Détails** et dans la colonne **État** :
-    ![image](../assets/alerts/flapping_icon.png)
+    ![image](../assets/alerts/flapping_icon.webp)
 * Si les notifications de bagotement sont activées, une notification est envoyée lorsque la ressource commence à bagoter, et une autre est envoyée lorsqu'elle cesse de bagoter. Les notifications d'alerte et de récupération sont temporairement désactivées.
 
 Dans la page **Statut des ressources**, vous pouvez filtrer la vue pour n'afficher que les ressources bagotantes.
@@ -75,7 +75,7 @@ des états des 21 derniers contrôles. Les états OK sont affichés en vert,
 les états WARNING en jaune, les états CRITICAL en rouge et les états
 UNKNOWN en orange.
 
-![image](../assets/alerts/statetransitions.png)
+![image](../assets/alerts/statetransitions.webp)
 
 L'historique des résultats de la vérification du service sont examinés
 pour déterminer où se produisent les changements / transitions de
@@ -105,7 +105,7 @@ changements récents ont plus de poids que les changements plus anciens
 lors du calcul du changement de statut global ou total en pourcentage
 pour un service particulier.
 
-![image](../assets/alerts/statetransitions2.png)
+![image](../assets/alerts/statetransitions2.webp)
 
 À l'aide des images ci-dessus, calculons le pourcentage de changement de
 statut pour le service. Vous remarquerez qu'il y a un total de 7

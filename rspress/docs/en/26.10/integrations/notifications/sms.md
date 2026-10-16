@@ -53,7 +53,7 @@ git clone https://github.com/centreon/centreon-plugins.git /usr/lib/centreon/plu
 3. For the hosts you want, on the **Notification** tab, in the **Linked contacts** field, select the dedicated user you just created.
 4. [Deploy the configuration](../../monitoring/monitoring-servers/deploying-a-configuration.md). A notification SMS will now be sent to the number you defined when the status changes you have configured go to HARD.
 
-![image](../../assets/integrations/notifications/sms.png)
+![image](../../assets/integrations/notifications/sms.webp)
 
 > The sms process is not parallelized. This means that no check will processed until the last SMS is sent by the server.
 

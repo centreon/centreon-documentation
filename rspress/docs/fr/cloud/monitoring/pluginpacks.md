@@ -26,28 +26,28 @@ Critical (celles-ci sont modifiables par la suite).
 Certains connecteurs de supervision demandent des étapes de configuration supplémentaires. Consultez la procédure de supervision associée à chaque pack installé pour comprendre le contenu du pack ainsi
 que les prérequis nécessaires à son fonctionnement. Cliquez sur l'icône ``i`` de chaque pack pour accéder à la documentation associée :
 
-![image](../assets/configuration/pluginpacks/doc.png)
+![image](../assets/configuration/pluginpacks/doc.webp)
 
 ### Installer le pack
 
 Vous pouvez accéder au catalogue des connecteurs de supervision à la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
-![image](../assets/configuration/pluginpacks/pp_list.png)
+![image](../assets/configuration/pluginpacks/pp_list.webp)
 
 Pour installer un pack, cliquez sur le ``+``
 
-![image](../assets/configuration/pluginpacks/install_pp.png)
+![image](../assets/configuration/pluginpacks/install_pp.webp)
 
 Vous pouvez aussi cliquer sur le connecteur de supervision. Vous accéderez à sa description et un bouton ``+`` permettant
 de l’installer.
 
-![image](../assets/configuration/pluginpacks/install_pp_2.png)
+![image](../assets/configuration/pluginpacks/install_pp_2.webp)
 
 Une fois le pack installé, il apparaîtra avec un contour vert et une coche indiquant qu’il est installé.
 
 | **Avant installation**                                           | **Après installation**                                          |
 |------------------------------------------------------------------|-----------------------------------------------------------------|
-| ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
+| ![image](../assets/configuration/pluginpacks/before_install.webp) | ![image](../assets/configuration/pluginpacks/after_install.webp) |
 
 #### Gestion des dépendances
 

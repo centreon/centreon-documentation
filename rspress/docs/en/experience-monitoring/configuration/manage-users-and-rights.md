@@ -7,7 +7,7 @@ title: Manage users and their rights
 
 All actions described here are performed from the **Organization** menu. It is available in the top-right menu as shown:
 
-![Shortcut to the Organization menu](../assets/configuration/manage-users-and-rights-1.png)
+![Shortcut to the Organization menu](../assets/configuration/manage-users-and-rights-1.webp)
 
 ## Automatic password expiration
 
@@ -38,7 +38,7 @@ At the bottom of this screen you have the list of users who already have access 
 
 To add a user, click the icon next to the role you want to assign and enter the user's email address. If they don't yet have an Experience Monitoring account, they will be invited to create one automatically.
 
-![image](../assets/configuration/manage-users-and-rights-2.png)
+![image](../assets/configuration/manage-users-and-rights-2.webp)
 
 ## Change a user's permissions
 

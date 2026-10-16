@@ -17,7 +17,7 @@ The easiest way to monitor a host is to assign it a [template](hosts-templates.m
 
 1. To find out the name of the template for a specific Monitoring Connector, go to **Configuration > Connectors > Monitoring Connectors**. Search for the Monitoring Connector you want, and then click the "i" icon at the bottom left of the pack.
 
-    ![image](../../assets/configuration/pluginpacks/doc.png)
+    ![image](../../assets/configuration/pluginpacks/doc.webp)
 
     The documentation for the Monitoring Connector opens: it will give you the exact name of the template for this Monitoring Connector.
 

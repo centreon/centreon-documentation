@@ -11,13 +11,13 @@ Dans une plateforme Centreon, le composant qui transporte les informations entre
 
 Le schéma suivant explique le transfert des données collectées et leur insertion dans les stockages :
 
-![image](../assets/developer/lua/archi_broker_regular.png)
+![image](../assets/developer/lua/archi_broker_regular.webp)
 
 La fonctionnalité Stream Connector est un nouvel output de Centreon Broker qui récupère les données de Centreon Broker Master (également connu sous le nom de Centreon Broker SQL) pour les agréger et les transmettre à un stockage externe.
 
 Cet output charge un script Lua appelé un Stream Connector, dont la tâche consiste à traiter, agréger et enrichir les données avant de les transmettre au protocole défini :
 
-![image](../assets/developer/lua/archi_broker_lua_script.png)
+![image](../assets/developer/lua/archi_broker_lua_script.webp)
 
 Comme il s'agit d'un output de Centreon Broker, le principe de la création de fichiers de rétention lors de l'interruption de l'accès au stockage externe est conservé. De la même manière, il est possible de filtrer les entrées sur les catégories de flux à traiter.
 
@@ -160,11 +160,11 @@ chown centreon-engine:centreon-engine /usr/share/centreon-broker/lua/bbdo2file.l
 
 Ensuite, configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter** :
 
-![image](../assets/developer/lua/add_stream_connector.png)
+![image](../assets/developer/lua/add_stream_connector.webp)
 
 Définissez le nom de cet output et le chemin vers le connecteur Lua :
 
-![image](../assets/developer/lua/describe_output.png)
+![image](../assets/developer/lua/describe_output.webp)
 
 Cliquez ensuite sur **Sauvegarder** et générez la configuration, puis redémarrez **cbd**.
 
@@ -253,7 +253,7 @@ La fonction **init()** permet d'obtenir des paramètres et de les définir à pa
 
 Modifiez votre output Broker pour déclarer ce paramètre :
 
-![image](../assets/developer/lua/add_parameter.png)
+![image](../assets/developer/lua/add_parameter.webp)
 
 Il est important que le nom du paramètre dans l'interface web corresponde au nom de la clé dans la table **conf**. Il s’agit ici de *logFile*.
 
@@ -719,11 +719,11 @@ Le script complet peut être téléchargé [ici](https://github.com/centreon/cen
 
 Configurez le nouvel output dans l'interface Web Centreon dans **Configuration > Collecteurs > Configuration de Centreon Broker > Central Broker**. Dans l’onglet **Output**, sélectionnez **Generic – Stream connector**, puis cliquez sur **Ajouter** :
 
-![image](../assets/developer/lua/add_stream_connector.png)
+![image](../assets/developer/lua/add_stream_connector.webp)
 
 Définissez le nom de cet output et le chemin vers le connecteur Lua :
 
-![image](../assets/developer/lua/broker_influxdb_output.png)
+![image](../assets/developer/lua/broker_influxdb_output.webp)
 
 Cliquez ensuite sur **Sauvegarder** et générez la configuration, puis redémarrez **cbd**.
 
@@ -731,7 +731,7 @@ Cliquez ensuite sur **Sauvegarder** et générez la configuration, puis redémar
 
 Si vous installez le tableau de bord [Grafana](https://grafana.com/), vous pouvez visualiser les données stockées :
 
-![image](../assets/developer/lua/visualize_data_grafana.png)
+![image](../assets/developer/lua/visualize_data_grafana.webp)
 
 ## Découvrez d'autres Stream Connectors Centreon
 

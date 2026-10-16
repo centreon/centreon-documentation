@@ -60,7 +60,7 @@ Ce chapitre décrit la configuration de la sauvegarde.
 
 La fenêtre suivante est affichée :
 
-![image](../assets/administration/parameters-backup.png)
+![image](../assets/administration/parameters-backup.webp)
 
   - **Activer la sauvegarde** : Activer/Désactiver la sauvegarde
   - **Répertoire des sauvegardes** : Répertoire de stockage des sauvegardes

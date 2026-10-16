@@ -7,13 +7,13 @@ title: Utiliser les graphiques
 
 Les graphs Experience Monitoring sont interactifs. Zoomez facilement sur la période qui vous intéresse : en utilisant l’action « glisser/déplacer » de la gauche vers la droite sur le graphique (et inversement pour dézoomer).
 
-![Image](../assets/how-to-articles/using-charts-1.png)
+![Image](../assets/how-to-articles/using-charts-1.webp)
 
 ## Isoler et cacher les statistiques dans un graphique
 
 Un graphique peut être composé de plusieurs statistiques qui se cumule. Par exemple, ici, on retrouve les détails des temps réseaux du chargement d’une page:
 
-![Image](../assets/how-to-articles/using-charts-2.png)
+![Image](../assets/how-to-articles/using-charts-2.webp)
 
 Pour y voir plus clair, vous pouvez:
 
@@ -22,11 +22,11 @@ Pour y voir plus clair, vous pouvez:
 
 Pour se faire, cliquer sur la statistique que vous voulez isoler ou cacher dans la légende, ou sur le graphique.
 
-![Image](../assets/how-to-articles/using-charts-3.png)
+![Image](../assets/how-to-articles/using-charts-3.webp)
 
 Choisissez ce que vous souhaitez faire avec cette statistique. Dans cet exemple, si l’on isole la statistique, nous verrons:
 
-![Image](../assets/how-to-articles/using-charts-4.png)
+![Image](../assets/how-to-articles/using-charts-4.webp)
 
 Rendez-vous dans l'article suivant pour aller plus loin:
 

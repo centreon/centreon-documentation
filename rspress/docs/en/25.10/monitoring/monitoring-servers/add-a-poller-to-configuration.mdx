@@ -18,7 +18,7 @@ poller to the Centreon platform.
 
 2. Select **Add a Centreon poller** and click **Next**:
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-1.png)
+    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-1.webp)
 
 3. Select the option you want:
     - **Create new poller** if you haven't registered the poller yet on the central or remote server
@@ -29,7 +29,7 @@ If the poller your are adding will be used in reverse flow, you must now export 
 4. Type in the name, the address of the new poller (IP or FQDN), and the IP address of the central
 Server. Click **Next**:
 
-![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
+![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.webp)
 
  > The address of the poller is the IP address or the FQDN used to access this
  > poller from the central server.
@@ -41,7 +41,7 @@ Server. Click **Next**:
 
   - If you want to link the poller to the central Server, click **Apply**:
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
+    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.webp)
 
   - If you want to link the poller to an existing Remote Server, select one from the list, then click **Apply**.
 
@@ -53,7 +53,7 @@ Server. Click **Next**:
 
     In a few seconds the wizard will configure your new poller.
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq.png)
+    ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq.webp)
 
 ## Step 2: Enable communication
 
@@ -70,7 +70,7 @@ SSH protocol.
     connection protocol**. Define the suitable **port** (port **5556** is
     recommended).
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.png)
+    ![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.webp)
 
     Click **Save**.
 
@@ -82,12 +82,12 @@ SSH protocol.
 2. Copy the Gorgone configuration:
 
     From the poller list, click the **Display Gorgone configuration** action
-    icon on the line corresponding to your poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
+    icon on the line corresponding to your poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.webp#thumbnail1)
 
     A popin will show the configuration to copy into the **poller terminal**.
     Click **Copy to clipboard**.
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
+    ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.webp)
 
     Paste the content of the clipboard directly into the **poller terminal** as it
     contains the following content, and will fill the right file:
@@ -168,7 +168,7 @@ the following command from the **central server**:
     Edit the newly created poller configuration, and select **SSH** as **Gorgone
     connection protocol**. Define the suitable **port**.
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
+    ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.webp)
 
 2. Click **Save**.
 
@@ -238,11 +238,11 @@ configuration**.
 2. Then check the first four boxes, select the **Restart** method, and click
 **Export**:
 
-  ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.webp)
 
   The poller's engine will then start and connect to the Broker service of the central server or remote server (according to which one you have attached the poller to).
 
-  ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.webp)
 
 ## Getting started
 

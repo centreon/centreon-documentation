@@ -44,7 +44,7 @@ En plus de leur statut, les ressources peuvent avoir différents états :
 - [Flapping](notif-flapping.md) (bagotement) : indique que le pourcentage de
 changement de statut de la ressource est très élevé. Ce pourcentage est
 obtenu à partir de calculs effectués par le moteur de supervision. Dans la page **Statut des ressources**, les ressources dans un état de bagotement ont un fond vert, et l'icône suivante dans leur panneau **Détails** et dans la colonne **État** :
-    ![image](../assets/alerts/flapping_icon.png)
+    ![image](../assets/alerts/flapping_icon.webp)
 
     Si vous avez configuré des notifications de bagotement pour la ressource, une notification est envoyée lorsque la ressource commence à bagoter, et une autre est envoyée lorsqu'elle arrête de bagoter. Les notifications d'alerte et de reprise sont temporairement désactivées.
 
@@ -76,7 +76,7 @@ déclenchant le processus de notification.
 
 Exemple :
 
-![image](../assets/configuration/soft_hard_states.png)
+![image](../assets/configuration/soft_hard_states.webp)
 
 | Temps | Nombre de vérifications | Statut   | Type de statut | Changement d'état | Commentaire                                                                                                                                                                                                                                                                    |
 |-------|-------------------------|----------|------|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

@@ -21,14 +21,14 @@ la couleur du graphique permet de visualiser le statut de l'objet :
 
 Exemple de graphique de performances :
 
-![image](../assets/metrology/01perf_graph.png)
+![image](../assets/metrology/01perf_graph.webp)
 
 ## Graphiques de performances
 
 Il existe plusieurs manières de visualiser les graphiques de performances :
 
 * Visualiser le graphique dans la liste des services, depuis le menu **Monitoring \> Status Details \> Services**, en
-  survolant l'icône ![image](../assets/common/column-chart.png)
+  survolant l'icône ![image](../assets/common/column-chart.webp)
 * Visualiser les graphiques depuis la page de détails d'un hôte en cliquant sur l'icône  **View graphs for host**
 * Visualiser le graphique depuis la page de détails d'un service
 * Depuis le menu **Monitoring \> Performances \> Graphs** pour visualiser un à plusieurs graphiques
@@ -44,7 +44,7 @@ Comme pour les graphiques de performances, il existe différentes façons d'acc�
 
 Pour visualiser l'ensemble des graphiques, se rendre dans le menu **Monitoring \> Performances \> Graphs**.
 
-![image](../assets/metrology/01graph_list.png)
+![image](../assets/metrology/01graph_list.webp)
 
 Cette page propose plusieurs options de sélection ainsi que des options de filtrage :
 
@@ -60,19 +60,19 @@ Cette page propose plusieurs options de sélection ainsi que des options de filt
 
 Plusieurs actions sont possibles sur cette page :
 
-* Actualiser manuellement les données en cliquant sur l'icône ![image](../assets/common/refresh.png)
-* Actualiser automatiquement les données en cliquant sur l'icône ![image](../assets/common/timer-gray.png) et en sélectionnant
+* Actualiser manuellement les données en cliquant sur l'icône ![image](../assets/common/refresh.webp)
+* Actualiser automatiquement les données en cliquant sur l'icône ![image](../assets/common/timer-gray.webp) et en sélectionnant
   une période prédéfinie
-* Pour afficher des graphiques sur 1, 2 ou 3 colonnes en cliquant sur l'icône associée ![image](../assets/metrology/columns_selection.png)
+* Pour afficher des graphiques sur 1, 2 ou 3 colonnes en cliquant sur l'icône associée ![image](../assets/metrology/columns_selection.webp)
 
 Plusieurs actions sont possibles sur chaque graphique :
 
 * **Split chart**: sépare plusieurs courbes d'un graphique en plusieurs graphiques contenant chacun une courbe
 * **Display multiple periods**: affiche le graphique sur une période de 1 jour, 1 semaine, 1 mois, 1 an
-* Exporter le graphique au format CSV en cliquant sur l'icône ![image](../assets/common/csv.png) ou en PNG en cliquant sur
-  l'icône ![image](../assets/common/png.png)
-* Remonter dans le temps en cliquant sur l'icône ![image](../assets/metrology/right_arrow.png) ou avancer en cliquant sur
-  l'icône ![image](../assets/metrology/left_arrow.png)
+* Exporter le graphique au format CSV en cliquant sur l'icône ![image](../assets/common/csv.webp) ou en PNG en cliquant sur
+  l'icône ![image](../assets/common/png.webp)
+* Remonter dans le temps en cliquant sur l'icône ![image](../assets/metrology/right_arrow.webp) ou avancer en cliquant sur
+  l'icône ![image](../assets/metrology/left_arrow.webp)
 * Il est également possible de zoomer sur une période en cliquant sur le graphique puis en sélectionnant une fenêtre
   temporelle:
 

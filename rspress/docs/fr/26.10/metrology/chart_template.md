@@ -13,7 +13,7 @@ hauteur du graphique ou encore les différentes couleurs...
 
 Se rendre dans le menu **Monitoring \> Performances \> Templates**
 
-![image](../assets/metrology/02addgraph_template.png)
+![image](../assets/metrology/02addgraph_template.webp)
 
 * Le champ **Template name** permet de définir un nom pour le modèle de graphe
 * Le champ **Vertical label** contient la légende pour l'axe des ordonnées (type de données mesurées)
@@ -41,4 +41,4 @@ Se rendre dans le menu **Monitoring \> Performances \> Templates**
 Ajouter un modèlede graphe lors de l'édition d'un service (ou d'un modèle de service) en accédant à l'onglet
 **Service Extended Info** dans le formulaire de configuration :
 
-![image](../assets/metrology/02linkgraph_template.png)
+![image](../assets/metrology/02linkgraph_template.webp)

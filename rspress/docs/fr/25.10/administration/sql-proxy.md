@@ -13,7 +13,7 @@ L’objectif est de soulager la base de données temps-réel (**centreon_storage
 
 Le cas d’usage minimal consiste à mettre en place une réplication des bases de données. Pour assurer correctement ce routage, nous installerons entre la plateforme Centreon et les bases de données un serveur **ProxySQL**.
 
-![image](../assets/administration/sql_proxy.png)
+![image](../assets/administration/sql_proxy.webp)
 
 Votre architecture contiendra les 3 éléments suivants :
 

@@ -36,11 +36,11 @@ plusieurs modèles d’hôtes et si un même paramètre est défini sur plusieur
 modèles, alors le modèle d’hôte situé au-dessus des autres modèles est
 prioritaire par rapport à ses ascendants.
 
-![image](../../assets/configuration/09hostmodels.png)
+![image](../../assets/configuration/09hostmodels.webp)
 
 Le schéma ci-dessous présente un hôte héritant de plusieurs modèles d’hôtes.
 
-![image](../../assets/configuration/09hostmodelsheritage.png)
+![image](../../assets/configuration/09hostmodelsheritage.webp)
 
 ## Configuration
 

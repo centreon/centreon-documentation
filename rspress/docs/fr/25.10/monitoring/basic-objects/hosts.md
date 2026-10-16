@@ -25,7 +25,7 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
 
    Voici un exemple d’hôte avec 3 modèles appliqués.
 
-   ![image](../../assets/monitoring/template_priority_example.png)
+   ![image](../../assets/monitoring/template_priority_example.webp)
 
    * **App-DB-MySQL** applique une première configuration.
 
@@ -35,8 +35,8 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
 
    Changer l’ordre des templates modifie automatiquement les configurations selon ce nouvel ordre le cas échéant.
 
-- Ce bouton ![image](../../assets/configuration/common/move.png#thumbnail2) nous permet de changer l'ordre des modèles d'hôtes.
-- Ce bouton ![image](../../assets/configuration/common/delete.png#thumbnail2) sert à supprimer le modèle d'hôte.
+- Ce bouton ![image](../../assets/configuration/common/move.webp#thumbnail2) nous permet de changer l'ordre des modèles d'hôtes.
+- Ce bouton ![image](../../assets/configuration/common/delete.webp#thumbnail2) sert à supprimer le modèle d'hôte.
 
 * Si la case **Oui** est cochée pour **Créer aussi les services liés aux modèles**, Centreon génère automatiquement les
   services en se basant sur les [modèles](../templates.md) de services liés aux modèles d’hôtes définis au-dessus.
@@ -56,13 +56,13 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
    * Les champs **Nom** et **Valeur** établissent le nom et la valeur de la macro.
    * Cocher la case **Mot de passe** cache la valeur de la macro.
 
-   Pour réinitialiser la macro avec sa valeur par défaut définie par le modèle cliquez sur ![image](../../assets/configuration/common/undo.png#thumbnail2)
+   Pour réinitialiser la macro avec sa valeur par défaut définie par le modèle cliquez sur ![image](../../assets/configuration/common/undo.webp#thumbnail2)
 
-   Pour afficher la description de la macro, cliquez sur ![image](../../assets/configuration/common/description.png#thumbnail2)
+   Pour afficher la description de la macro, cliquez sur ![image](../../assets/configuration/common/description.webp#thumbnail2)
 
-   Pour supprimer la macro, cliquez sur ![image](../../assets/configuration/common/delete.png#thumbnail2)
+   Pour supprimer la macro, cliquez sur ![image](../../assets/configuration/common/delete.webp#thumbnail2)
 
-   Pour changer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.png#thumbnail2)
+   Pour changer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.webp#thumbnail2)
 
 ### Options d’ordonnancement
 

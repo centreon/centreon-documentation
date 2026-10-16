@@ -13,11 +13,11 @@ Lorsque les sondes Experience Monitoring détectent un incident sur votre scén
 
 Vous pouvez visualiser ce screenshot en cliquant sur le graph dans la zone rouge et en sélectionnant l'option "voir le screenshot".
 
-![image](../assets/performance-analysis/errors-and-unavailability-1.png)
+![image](../assets/performance-analysis/errors-and-unavailability-1.webp)
 
 Une fenêtre s'ouvre alors et vous montrera la page renvoyée lors de l'incident.
 
-![image](../assets/performance-analysis/errors-and-unavailability-2.png)
+![image](../assets/performance-analysis/errors-and-unavailability-2.webp)
 
 ## Pourquoi n’ai-je pas de screenshot dans les détails de l’un de mes incidents ?
 

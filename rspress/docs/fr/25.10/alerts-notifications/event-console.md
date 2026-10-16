@@ -32,9 +32,9 @@ les différentes fonctions de ces icônes :
 
 | Icon                                   | Description                                                           |
 |----------------------------------------|-----------------------------------------------------------------------|
-| ![image](../assets/alerts/refresh.png) | Permet de rafraîchir manuellement les résultats                       |
-| ![image](../assets/alerts/pause.png)   | Permet de mettre en pause le rafraîchissement automatique des données |
-| ![image](../assets/alerts/resume.png)  | Permet de reprendre le rafraîchissement automatique des données       |
+| ![image](../assets/alerts/refresh.webp) | Permet de rafraîchir manuellement les résultats                       |
+| ![image](../assets/alerts/pause.webp)   | Permet de mettre en pause le rafraîchissement automatique des données |
+| ![image](../assets/alerts/resume.webp)  | Permet de reprendre le rafraîchissement automatique des données       |
 
 ## Hôtes (dépréciée)
 
@@ -45,18 +45,18 @@ les différentes fonctions de ces icônes :
 Pour visualiser le statut des hôtes, rendez-vous dans le menu
 **Monitoring > Status Details > Hosts**.
 
-![image](../assets/alerts/04unhandledproblems.png)
+![image](../assets/alerts/04unhandledproblems.webp)
 
 ### Description des colonnes
 
 -   **S** : Affiche le niveau de criticité de l'hôte
 -   **Hosts** : Affiche le nom de l'hôte
     -   L'icône suivante indique que les notifications pour cet hôte
-        sont désactivées : ![image](../assets/alerts/nonotifications.png)
+        sont désactivées : ![image](../assets/alerts/nonotifications.webp)
     -   L'icône suivante peut être utilisée pour afficher tous les
-        graphiques de performances pour cet hôte : ![image](../assets/alerts/graphperformances.png)
+        graphiques de performances pour cet hôte : ![image](../assets/alerts/graphperformances.webp)
     -   L'icône suivante permet d'accéder à une URL prédéfinie
-        configurée : ![image](../assets/alerts/url_link.png)
+        configurée : ![image](../assets/alerts/url_link.webp)
 -   **Status** : Sert à visualiser le statut de l'hôte
 -   **IP Address** : Indique l'adresse IP de l'hôte
 -   **Last Check** : Affiche la date et l'heure de la dernière
@@ -101,7 +101,7 @@ Vous pouvez filtrer le résultat présenté via les filtres suivants :
 Pour visualiser le statut des groupes d'hôtes, rendez-vous dans le menu
 **Monitoring > Status Details > Hostgroups Summary**.
 
-![image](../assets/alerts/04hostgroup.png)
+![image](../assets/alerts/04hostgroup.webp)
 
 ### Description des colonnes
 
@@ -136,7 +136,7 @@ détails de la ressource.
 -   **Host Informations** : Détails sur l'hôte
 -   **Comments** : Commentaires de l'hôte disponibles
 
-![image](../assets/alerts/04hostdetail.png)
+![image](../assets/alerts/04hostdetail.webp)
 
 ### Détails du statut
 
@@ -200,7 +200,7 @@ contacts liés à l'hôte qui recevront notifications.
 Pour visualiser le statut des services, rendez-vous dans le menu
 **Monitoring > Status Details > Services**.
 
-![image](../assets/alerts/04servicelist.png)
+![image](../assets/alerts/04servicelist.webp)
 
 ### Description des colonnes
 
@@ -208,11 +208,11 @@ Pour visualiser le statut des services, rendez-vous dans le menu
 -   **Host** : Affiche le nom de l'hôtet.
 -   **Services** : Affiche le nom du service
     -   L'icône suivante indique que les notifications pour ce service
-        sont désactivées : ![image](../assets/alerts/nonotifications.png)
+        sont désactivées : ![image](../assets/alerts/nonotifications.webp)
     -   L'icône suivante peut être utilisée pour afficher le graphique
-        de performances de ce service : ![image](../assets/alerts/graphperformances.png)
+        de performances de ce service : ![image](../assets/alerts/graphperformances.webp)
     -   L'icône suivante permet d'accéder à une URL prédéfinie
-        configurée : ![image](../assets/alerts/url_link.png)
+        configurée : ![image](../assets/alerts/url_link.webp)
 -   **Duration** : Affiche la durée du statut réel.
 -   **Hard State Duration** : Affiche la durée du statut non-ok validé.
 -   **Last Check** : Affiche la date et l'heure de la dernière
@@ -261,12 +261,12 @@ Pour voir tous les services (regroupés par hôte) dans n'importe quel
 **Monitoring > Status Details > Services Grid** et choississez l'option
 **Details** pour le filtre **Display** :
 
-![image](../assets/alerts/04servicelistbyhostdetail.png)
+![image](../assets/alerts/04servicelistbyhostdetail.webp)
 
 Pour afficher le nombre de services (regroupés par hôte et par statut),
 choisissez l'option **Summary** pour le filtre **Display** :
 
-![image](../assets/alerts/04servicelistbyhost.png)
+![image](../assets/alerts/04servicelistbyhost.webp)
 
 ## Services by Hostgroup
 
@@ -275,12 +275,12 @@ n'importe quel état, rendez-vous dans le menu
 **Monitoring > Status Details > Services by Hostgroup** et choississez
 l'option **Details** pour le filtre **Display** :
 
-![image](../assets/alerts/04servicelistbyhostgroupdetail.png)
+![image](../assets/alerts/04servicelistbyhostgroupdetail.webp)
 
 Pour afficher le nombre de services (regroupés par groupe d'hôtes et par
 statut), choisissez l'option **Summary** pour le filtre **Display** :
 
-![image](../assets/alerts/04servicelistbyhostgroup.png)
+![image](../assets/alerts/04servicelistbyhostgroup.webp)
 
 ## Services by Servicegroup
 
@@ -289,12 +289,12 @@ n'importe quel état, rendez-vous dans le menu
 **Monitoring > Status Details > Services by Servicegroup** et choississez
 l'option **Details** pour le filtre **Display** :
 
-![image](../assets/alerts/04servicelistbyservicegroupdetail.png)
+![image](../assets/alerts/04servicelistbyservicegroupdetail.webp)
 
 Pour afficher le nombre de services (regroupés par groupe de services),
 choisissez l'option **Summary** pour le filtre **Display** :
 
-![image](../assets/alerts/04servicelistbyservicegroup.png)
+![image](../assets/alerts/04servicelistbyservicegroup.webp)
 
 ## Service Details (dépréciée)
 
@@ -304,7 +304,7 @@ choisissez l'option **Summary** pour le filtre **Display** :
 
 Lorsque vous cliquez sur un service, l'écran suivant apparaît:
 
-![image](../assets/alerts/04servicedetail.png)
+![image](../assets/alerts/04servicedetail.webp)
 
 ### Détails du statut
 

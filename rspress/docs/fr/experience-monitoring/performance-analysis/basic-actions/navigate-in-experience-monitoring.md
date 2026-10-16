@@ -12,4 +12,4 @@ En se loguant pour la 1ère fois dans Experience Monitoring, on va se retrouver 
 En cas d’utilisation d'Experience Monitoring en mode “multi-site”, il est également possible de comparer les données de performance en sélectionnant plusieurs sites en même temps, ou encore de construire un tableau de bord personnalisé regroupant des indicateurs de plusieurs sites.
 - **un sélecteur de période de temps** (en haut à droite), permettant de modifier à tout instant la période qui est analysée. Cette fonction est importante pour constater l’évolution des temps de réponse d’un site, parfois sur plusieurs semaines ou mois. Par défaut, Experience Monitoring montre les dernières 24h et actualise la page chaque minute afin de remonter les dernières mesures en temps réel.
 
-![image](../../assets/performance-analysis/basic-actions/navigate-1.png)
+![image](../../assets/performance-analysis/basic-actions/navigate-1.webp)

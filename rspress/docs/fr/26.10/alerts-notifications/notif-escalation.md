@@ -71,7 +71,7 @@ opérations suivantes :
 Pour ajouter une escalade de notification, rendez-vous dans le menu
 `Configuration > Notifications > Escalations` et cliquez sur **Add**
 
-![image](../assets/alerts/04notificationsescalation.png)
+![image](../assets/alerts/04notificationsescalation.webp)
 
 -   Les champs **Escalation Name** et **Alias** permettent de définir un
     nom et un alias à l'escalade de notifications.

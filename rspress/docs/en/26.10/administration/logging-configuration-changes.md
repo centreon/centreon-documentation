@@ -8,7 +8,7 @@ title: Logging configuration changes
 By default, Centreon records all user actions concerning changes to the
 configuration in a log. To access this data, go to **Administration > Logs**.
 
-![image](../assets/administration/fsearchlogs.png)
+![image](../assets/administration/fsearchlogs.webp)
 
 The gray search bar can be used to filter the information presented via filters:
 
@@ -71,7 +71,7 @@ The table below defines the columns in the results table:
 By clicking the name of an object, you can view the history of the changes
 applied to it.
 
-![image](../assets/administration/fobjectmodif.png)
+![image](../assets/administration/fobjectmodif.webp)
 
 The table below defines the columns of the changes table:
 
@@ -117,4 +117,4 @@ The table below defines the columns of the changes table:
 To enable user audit logs, go to **Administration > Parameters > Options** and
 check the **Enable/Disable audit logs** option:
 
-![image](../assets/administration/logs_audit_enable.png)
+![image](../assets/administration/logs_audit_enable.webp)

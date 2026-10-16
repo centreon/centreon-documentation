@@ -21,7 +21,7 @@ installing Centreon Map on your remote server.
 
 The diagram below summarizes the MAP architecture:
 
-![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
+![image](../assets/graph-views/ng/map-web-remote-server-schema.webp)
 
 ## Centreon Broker configuration
 
@@ -33,7 +33,7 @@ configuration** menu and edit the **remote server's** configuration.
 
 In the **Output** tab, create a new output with the following parameters:
 
-![image](../assets/graph-views/output_broker.png)
+![image](../assets/graph-views/output_broker.webp)
 
 To complete the installation process, generate and deploy the Centreon remote
 server configuration by selecting **Restart**.

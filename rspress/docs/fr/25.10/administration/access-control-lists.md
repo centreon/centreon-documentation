@@ -145,8 +145,8 @@ Pour créer un filtre d'accès aux actions :
 
 | Champ                                                           | Actions associées                                                                                 |
 | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| Afficher les statistiques des hôtes et services dans le bandeau | Affiche les statistiques de supervision sous forme de tableau présent dans le bandeau de Centreon <br/>![image](../assets/administration/acl-bandeau.png) |
-| Afficher les statistiques des collecteurs dans le bandeau       | Affiche les statistiques des collecteurs en haut à gauche<br/>![image](../assets/administration/acl-bandeau-poller.png) |
+| Afficher les statistiques des hôtes et services dans le bandeau | Affiche les statistiques de supervision sous forme de tableau présent dans le bandeau de Centreon <br/>![image](../assets/administration/acl-bandeau.webp) |
+| Afficher les statistiques des collecteurs dans le bandeau       | Affiche les statistiques des collecteurs en haut à gauche<br/>![image](../assets/administration/acl-bandeau-poller.webp) |
 | Afficher la liste des collecteurs                               | Permet de filtrer selon le collecteur à la page **Supervision > Détail des statuts > Hôtes** ou  **Supervision > Détail des statuts > Services** (pages dépréciées)  |
 
 #### Actions de configuration des collecteurs / Gestion des collecteurs

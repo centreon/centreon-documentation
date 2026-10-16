@@ -16,7 +16,7 @@ Nous vous recommandons vivement de lire notre documentation afin d'éviter tout 
 
 Centreon MBI exécute des [tâches](concepts.md#tâches) pour générer des rapports. MBI dispose de plus de 30 designs (des "modèles" de rapport) prêts à l'emploi.
 
-![image](../assets/reporting/first_page.png)
+![image](../assets/reporting/first_page.webp)
 
 Les rapports traitent :
 

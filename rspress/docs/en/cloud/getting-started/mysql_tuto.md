@@ -45,11 +45,11 @@ Go to **Configuration > Connectors > Monitoring Connectors** and install the **M
 
 3. Click the **+ Add New Entry** button for the **Templates** field and select the **App-DB-MySQL-custom** template:
 
-  ![image](../assets/getting-started/quick_start_mysql_1a.png)
+  ![image](../assets/getting-started/quick_start_mysql_1a.webp)
 
 4. A list of macros matching the template will appear:
 
-  ![image](../assets/getting-started/quick_start_mysql_1b.png)
+  ![image](../assets/getting-started/quick_start_mysql_1b.webp)
 
   Fill in the value of following macros:
 
@@ -59,11 +59,11 @@ Go to **Configuration > Connectors > Monitoring Connectors** and install the **M
 
 5. Click **Save**. Your device has been added to the list of hosts:
 
-  ![image](../assets/getting-started/quick_start_mysql_2.png)
+  ![image](../assets/getting-started/quick_start_mysql_2.webp)
 
 6. Go to **Configuration > Services > Services (simplified)**. A set of indicators has been deployed automatically:
 
-  ![image](../assets/getting-started/quick_start_mysql_3.png)
+  ![image](../assets/getting-started/quick_start_mysql_3.webp)
 
 7. [Deploy the supervision](../monitoring/monitoring-servers/deploying-a-configuration.md).
 

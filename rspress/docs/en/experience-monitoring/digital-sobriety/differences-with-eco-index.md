@@ -9,7 +9,7 @@ The distinction between Experience Monitoring's Digital Sobriety Score and the E
 
 Evaluation criteria: The Eco Index is based on three main criteria to assess a website's environmental footprint: DOM size, page weight, and number of HTTP requests. In the Eco Index formula these criteria are weighted 3, 1 and 2 respectively, giving particular emphasis to DOM size and to the number of HTTP requests:
 
-![Image](../assets/digital-sobriety/difference-score-and-eco-index-1.png)
+![Image](../assets/digital-sobriety/difference-score-and-eco-index-1.webp)
 
 Purpose: By focusing on these three criteria, the Eco Index encourages targeted technical improvements to reduce a website's environmental impact. This simplicity is a useful starting point for adopting eco-design practices during development, but it has limitations when it comes to assessing environmental impacts related to server usage and end-user devices.
 
@@ -19,7 +19,7 @@ Evaluation criteria: Experience Monitoring's Digital Sobriety Score covers a bro
 
 Here is the calculation algorithm for the Digital Sobriety Score showing the weighting of each evaluation criterion leading to the overall score:
 
-![Image](../assets/digital-sobriety/difference-score-and-eco-index-2.png)
+![Image](../assets/digital-sobriety/difference-score-and-eco-index-2.webp)
 
 Advantages: By valuing a wider spectrum of indicators and analyzing a representative panel of pages rather than a single URL, Experience Monitoring's Digital Sobriety Score provides a more comprehensive assessment of a site's environmental footprint. These indicators account for:
 

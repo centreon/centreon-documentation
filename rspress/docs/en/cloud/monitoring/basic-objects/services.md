@@ -20,10 +20,10 @@ To create a service manually, go to **Configuration > Services > Services by hos
 
    - The **macro name** and **macro value** fields allow us to define the name and value of the macro. The **Password** box
 can be used to hide the value of the macro.
-   - To reinitialize to the default value (defined in template) click ![image](../../assets/configuration/common/undo.png#thumbnail1)
-   - To view the description of the macro, click ![image](../../assets/configuration/common/description.png#thumbnail1)
-   - To delete the macro, click ![image](../../assets/configuration/common/delete.png#thumbnail1)
-   - To change the order of the macros, click ![image](../../assets/configuration/common/move.png#thumbnail1)
+   - To reinitialize to the default value (defined in template) click ![image](../../assets/configuration/common/undo.webp#thumbnail1)
+   - To view the description of the macro, click ![image](../../assets/configuration/common/description.webp#thumbnail1)
+   - To delete the macro, click ![image](../../assets/configuration/common/delete.webp#thumbnail1)
+   - To change the order of the macros, click ![image](../../assets/configuration/common/move.webp#thumbnail1)
 
 * The **Check Period** field defines the time period during which the scheduler checks the status of the service.
 

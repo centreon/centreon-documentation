@@ -7,13 +7,13 @@ title: Notifications Telegram
 
 Cette documentation vous est présentée par notre partenaire YPSI :
 
-![logo](../../assets/integrations/notifications/telegram/logo-YPSI.png)
+![logo](../../assets/integrations/notifications/telegram/logo-YPSI.webp)
 
 ## Comment ça marche
 
 Le connecteur de notification Telegram utilise le plugin Centreon perl pour envoyer des notifications via Telegram grâce à leur API REST.
 
-![architecture](../../assets/integrations/notifications/telegram/architecture-telegram.png)
+![architecture](../../assets/integrations/notifications/telegram/architecture-telegram.webp)
 
 ## Installation
 
@@ -32,18 +32,18 @@ git clone https://github.com/centreon/centreon-plugins.git
 
 Connectez-vous à votre compte sur https://web.telegram.org
 
-![login](../../assets/integrations/notifications/telegram/login-telegram.png)
+![login](../../assets/integrations/notifications/telegram/login-telegram.webp)
 
 Puis parlez au BotFather et donnez-lui la commande suivante :
 
 ```/newbot```
 
-![newbot](../../assets/integrations/notifications/telegram/newbot-telegram.png)
+![newbot](../../assets/integrations/notifications/telegram/newbot-telegram.webp)
 
 Le BotFather vous demandera un prénom et un nom d'utilisateur pour votre bot. Le nom d'utilisateur doit se terminer par "**_bot**".
 Il est possible d'utiliser le même nom pour les deux identifiants comme montré ci-dessous.
 
-![token](../../assets/integrations/notifications/telegram/token-telegram.png)
+![token](../../assets/integrations/notifications/telegram/token-telegram.webp)
 
 Comme vient de vous le dire le BotFather, il est très important que vous **reteniez votre token**, on en aura besoin pour envoyer les notifications plus tard.
 
@@ -61,7 +61,7 @@ Ajoutez votre bot au groupe que vous venez de créer.
 
 Allez sur l'application web de Telegram et cliquez sur le groupe que vous venez de créer pour obtenir le chat-id à partir de l'URL de la page.
 
-![chatid](../../assets/integrations/notifications/telegram/chatid-telegram.png)
+![chatid](../../assets/integrations/notifications/telegram/chatid-telegram.webp)
 
 Par exemple, si votre URL est la suivante : **https://web.telegram.org/#/im?p=g123456** votre chat-id est **123456**.
 
@@ -88,7 +88,7 @@ Selectionnez **Notification** pour le type de commande et copiez la commande sui
 --service-output='$SERVICEOUTPUT$'
 ``` 
 
-![commande pour service](../../assets/integrations/notifications/telegram/service-command-telegram.png)
+![commande pour service](../../assets/integrations/notifications/telegram/service-command-telegram.webp)
 
 #### Commande pour notification sur hôte
 
@@ -108,7 +108,7 @@ Selectionnez **Notification** pour le type de commande et copiez la commande sui
 --host-output='$HOSTOUTPUT$'
 ```
 
-![commande pour hôte](../../assets/integrations/notifications/telegram/host-command-telegram.png)
+![commande pour hôte](../../assets/integrations/notifications/telegram/host-command-telegram.webp)
 
 ## Exemple
 
@@ -125,7 +125,7 @@ Selectionnez **Notification** pour le type de commande et copiez la commande sui
 --service-output='highway to hell'
 ```
 
-![service notification](../../assets/integrations/notifications/telegram/service-notification-telegram.png)
+![service notification](../../assets/integrations/notifications/telegram/service-notification-telegram.webp)
 
 ```bash
 /usr/lib/centreon/git-plugins/centreon-plugins/src/centreon_plugins.pl \
@@ -139,7 +139,7 @@ Selectionnez **Notification** pour le type de commande et copiez la commande sui
 --host-output='let the sky fall'
 ```
 
-![host notification](../../assets/integrations/notifications/telegram/host-notification-telegram.png)
+![host notification](../../assets/integrations/notifications/telegram/host-notification-telegram.webp)
 
 ## Options de message
 

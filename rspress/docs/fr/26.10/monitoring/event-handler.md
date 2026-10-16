@@ -82,7 +82,7 @@ Engine sur lesquelles vous souhaitez activer le gestionnaire d'évènements.
 
 Dans l'onglet **Check Options**, activer l'option **Event Handler Option** :
 
-![image](../assets/configuration/enableeventhnadleronpoller.png)
+![image](../assets/configuration/enableeventhnadleronpoller.webp)
 
 ### Configurer les gestionnaires d'événements
 
@@ -94,7 +94,7 @@ souhaitez activer la correction automatique globale.
 
 Dans l'onglet **Check Options**, sélectionnez la commande pour les options **hosts and/or services event handler** :
 
-![image](../assets/configuration/enableglobaleventhnadleronpoller.png)
+![image](../assets/configuration/enableglobaleventhnadleronpoller.webp)
 
 Cliquer sur **Save**.
 
@@ -105,7 +105,7 @@ Cliquer sur **Save**.
 Se rendre dans le menu **Configuration > Hosts > Hosts** et éditer la configuration de votre hôte. Dans l'onglet
 **Data Processing** sélectionner la commande :
 
-![image](../assets/configuration/enableeventhnadleronresources.png)
+![image](../assets/configuration/enableeventhnadleronresources.webp)
 
 Cliquer sur **Save**.
 
@@ -116,7 +116,7 @@ Cliquer sur **Save**.
 Se rendre dans le menu **Configuration > Services > Services by host** et éditer la configuration de votre hôte. Dans l'onglet
 **Data Processing** sélectionner la commande :
 
-![image](../assets/configuration/enableeventhnadleronresources.png)
+![image](../assets/configuration/enableeventhnadleronresources.webp)
 
 Cliquer sur **Save**.
 

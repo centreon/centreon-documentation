@@ -20,14 +20,14 @@ view the status of the object:
 
 Example of performance graph:
 
-![image](../assets/metrology/01perf_graph.png)
+![image](../assets/metrology/01perf_graph.webp)
 
 ## Performance graphs
 
 There are several ways to view performance graphs:
 
 * Viewing the graph in the list of services, from **Monitoring \> Status Details \> Services** menu, by mouseover on the
-  icon ![image](../assets/common/column-chart.png)
+  icon ![image](../assets/common/column-chart.webp)
 * Viewing the graphs from the host' detail page by clicking **View graphs for host**
 * Viewing the graph from the service details page
 * From the **Monitoring \> Performances \> Graphs** menu to view multiple graphs
@@ -43,7 +43,7 @@ In the same way as for the performance graphs, there are several ways of accessi
 
 To view all graphs, go to the **Monitoring \> Performances \> Graphs** menu.
 
-![image](../assets/metrology/01graph_list.png)
+![image](../assets/metrology/01graph_list.webp)
 
 This page offers several selection options as well as filtering options:
 
@@ -59,19 +59,19 @@ This page offers several selection options as well as filtering options:
 
 Several actions are possible on the page:
 
-* To refresh the data manually by clicking the icon ![image](../assets/common/refresh.png)
-* To automatically refresh the data by clicking the icon ![image](../assets/common/timer-gray.png) and by selecting a
+* To refresh the data manually by clicking the icon ![image](../assets/common/refresh.webp)
+* To automatically refresh the data by clicking the icon ![image](../assets/common/timer-gray.webp) and by selecting a
   predefined period
-* To display charts on 1, 2 or 3 columns by clicking the associated icon ![image](../assets/metrology/columns_selection.png)
+* To display charts on 1, 2 or 3 columns by clicking the associated icon ![image](../assets/metrology/columns_selection.webp)
 
 Several actions are possible on each graph:
 
 * **Split chart**: separates multiple curves of a graph into multiple graphs, each containing one curve
 * **Display multiple periods**: displays the graph over a period of 1 day, 1 week, 1 month, 1 year
-* To export the graph in a CSV format by clicking the icon ![image](../assets/common/csv.png) or in PNG by clicking the
-  icon ![image](../assets/common/png.png)
-* To move forward in time by clicking the icon ![image](../assets/metrology/right_arrow.png) or backward by clicking the
-  icon ![image](../assets/metrology/left_arrow.png)
+* To export the graph in a CSV format by clicking the icon ![image](../assets/common/csv.webp) or in PNG by clicking the
+  icon ![image](../assets/common/png.webp)
+* To move forward in time by clicking the icon ![image](../assets/metrology/right_arrow.webp) or backward by clicking the
+  icon ![image](../assets/metrology/left_arrow.webp)
 * It is also possible to zoom in on a time period by clicking the graph and then selecting a time window:
 
 ![image](../assets/metrology/chart_zoom.gif)

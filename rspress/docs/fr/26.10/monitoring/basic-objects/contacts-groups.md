@@ -20,7 +20,7 @@ Responsable de l’application de gestion de la paie...
 
 Rendez-vous dans le menu **Configuration > Users > Contact Groups** et cliquez sur **Add**.
 
-![image](../../assets/configuration/07contactgroup.png)
+![image](../../assets/configuration/07contactgroup.webp)
 
 * Les champs **Contact Group Name** et **Alias** définissent le nom et la description du groupe de contacts.
 * La liste **Linked Contacts** permet d’ajouter les contacts au groupe de contacts.

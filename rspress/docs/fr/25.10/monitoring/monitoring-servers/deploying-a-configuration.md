@@ -15,7 +15,7 @@ Tout changement de configuration doit se faire et s'exporter via l'interface uti
 
 2.  Sélectionnez le serveur central, le serveur distant ou le collecteur dont la configuration a changé.
 
-    ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
+    ![image](../../assets/monitoring/monitoring-servers/export_conf.webp)
 
 3.  Cliquez sur **Exporter la configuration**.
 
@@ -29,7 +29,7 @@ Tout changement de configuration doit se faire et s'exporter via l'interface uti
 
 5.  Cliquez sur **Exporter**. Un log de l'export s'affiche.
 
-    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.png)
+    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.webp)
 
 6. Dans le log, vérifiez que l'export a bien fonctionné et qu'aucune erreur n'a été remontée.
 
@@ -66,6 +66,6 @@ Pour exporter rapidement la configuration de tous les collecteurs :
 
 1. Cliquez sur le menu **Collecteurs** en haut à gauche de l'écran, puis cliquez sur **Exporter la configuration**.
 
-    ![image](../../assets/monitoring/monitoring-servers/export_all_pollers_button.png)
+    ![image](../../assets/monitoring/monitoring-servers/export_all_pollers_button.webp)
 
 2. Dans la pop-up qui apparaît, confirmez l'export.

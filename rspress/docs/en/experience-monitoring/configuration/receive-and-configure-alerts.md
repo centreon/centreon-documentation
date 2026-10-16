@@ -13,7 +13,7 @@ Some licenses allow receiving alerts **by SMS, Slack, or webhooks** (Microsoft T
 
 Notifications are **personal**. For a user to receive emails, SMS, or Slack messages, simply configure the information on their profile page.
 
-![Profile page](../assets/configuration/receive-and-configure-alerts-1.png)
+![Profile page](../assets/configuration/receive-and-configure-alerts-1.webp)
 
 To send a notification to a Teams channel, Google Chat, or other messaging software, you can use webhooks in the alerts.
 
@@ -23,11 +23,11 @@ To send a notification to a Teams channel, Google Chat, or other messaging softw
 
 You can access the configuration screen by clicking the three dots above a user journey, then **Alerting**.
 
-![image](../assets/configuration/receive-and-configure-alerts-2.png)
+![image](../assets/configuration/receive-and-configure-alerts-2.webp)
 
 You can also access the configuration screen by clicking **Configuration** then **Alerting**.
 
-![Access to alerting from Configuration](../assets/configuration/receive-and-configure-alerts-3.png)
+![Access to alerting from Configuration](../assets/configuration/receive-and-configure-alerts-3.webp)
 
 ## Set up alerts
 
@@ -35,7 +35,7 @@ You can also access the configuration screen by clicking **Configuration** then 
 
 Users can define periods during which they do not receive alerts.
 
-![Example schedule](../assets/configuration/receive-and-configure-alerts-4.png)
+![Example schedule](../assets/configuration/receive-and-configure-alerts-4.webp)
 
 Additionally, each alert can be enabled/disabled for specific time ranges so it doesn't notify subscribed people regardless of their personal schedule.
 
@@ -45,22 +45,22 @@ Select how you want to be alerted (SMS/Email/Slack). Here are some example messa
 
 #### Email
 
-![Example email alert](../assets/configuration/receive-and-configure-alerts-5.png)
+![Example email alert](../assets/configuration/receive-and-configure-alerts-5.webp)
 
 #### SMS
 
-![Example SMS alert](../assets/configuration/receive-and-configure-alerts-6.png)
+![Example SMS alert](../assets/configuration/receive-and-configure-alerts-6.webp)
 
 #### Webhook
 
 In addition to email or SMS alerts, Experience Monitoring allows users to receive alerts via a **webhook**, giving greater flexibility for integrating with other tools and systems. When an incident is detected on a monitored web application, Experience Monitoring can send an **HTTP POST** request to a URL specified by the user. This URL can be protected by htaccess, and the user can also define **custom headers** if needed.
 You can configure this URL by clicking the word “Webhook” for a newly created or existing alert, then clicking the “**+**” icon (**Create a webhook**):
 
-![image](../assets/configuration/receive-and-configure-alerts-7.png)
+![image](../assets/configuration/receive-and-configure-alerts-7.webp)
 
 Then simply enter the URL of your choice and any htaccess credentials (if the API is protected by htaccess):
 
-![image](../assets/configuration/receive-and-configure-alerts-8.png)
+![image](../assets/configuration/receive-and-configure-alerts-8.webp)
 
 The body of the POST request that will be sent in case of an alert contains a **JSON payload** with detailed information about the alert, allowing automated processing of the data. Here is an example of the format sent:
 
@@ -170,4 +170,4 @@ There are no quotas for emails, webhooks, and Slack notifications, but there are
 
 To see your SMS credit, go to **Configuration**, then the **Site** tab. You will find your quota in the **Alerts & Reports** section.
 
-![image](../assets/configuration/receive-and-configure-alerts-9.png)
+![image](../assets/configuration/receive-and-configure-alerts-9.webp)

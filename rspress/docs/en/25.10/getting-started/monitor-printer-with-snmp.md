@@ -9,7 +9,7 @@ Go to the **Configuration \> Monitoring Connectors** menu and install the **Prin
 
 Go to the **Configuration \> Hosts \> Hosts** menu and click **Add**:
 
-![image](../assets/getting-started/quick_start_printer_1.png)
+![image](../assets/getting-started/quick_start_printer_1.webp)
 
 Input the following information:
 
@@ -25,15 +25,15 @@ Click **Save**.
 
 Your device has been added to the monitoring configuration:
 
-![image](../assets/getting-started/quick_start_printer_2.png)
+![image](../assets/getting-started/quick_start_printer_2.webp)
 
 Go to **Configuration \> Services \> Services by host**. A set of indicators has been automatically deployed:
 
-![image](../assets/getting-started/quick_start_printer_3.png)
+![image](../assets/getting-started/quick_start_printer_3.webp)
 
 It is now time to [deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 Then go to **Monitoring \> Status Details \> Services** and select the value **All** for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
-![image](../assets/getting-started/quick_start_printer_4.png)
+![image](../assets/getting-started/quick_start_printer_4.webp)

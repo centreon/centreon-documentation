@@ -14,7 +14,7 @@ ainsi que les informations complémentaires (moyenne, valeur totale...).
 
 Se rendre dans le menu **Monitoring \> Performances \> Curves**
 
-![image](../assets/metrology/02addcurve.png)
+![image](../assets/metrology/02addcurve.webp)
 
 * Le champ **Template Name** définit le nom du modèle
 * Le champ **Hosts/Service Data Source** définit le service pour lequel sera utilisée cette courbe. Si ces informations
@@ -53,12 +53,12 @@ Les attributs ci-dessous concernent les informations situées en dessous du grap
 
 Les courbes empilées :
 
-![image](../assets/metrology/02graphempile.png)
+![image](../assets/metrology/02graphempile.webp)
 
 Les courbes inversées :
 
-![image](../assets/metrology/02graphinverse.png)
+![image](../assets/metrology/02graphinverse.webp)
  
 Les courbes avec remplissage :
 
-![image](../assets/metrology/02graphremplissage.png)
+![image](../assets/metrology/02graphremplissage.webp)

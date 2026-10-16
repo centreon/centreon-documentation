@@ -25,7 +25,7 @@ If multiple templates modify the same field, the properties of the template plac
 
    Here is an example of a host with 3 templates applied to it.
 
-   ![image](../../assets/monitoring/template_priority_example.png)
+   ![image](../../assets/monitoring/template_priority_example.webp)
 
    * **App-DB-MySQL** applies its configuration.
 
@@ -35,8 +35,8 @@ If multiple templates modify the same field, the properties of the template plac
 
    Modifying the order of the templates automatically updates the applied configurations if necessary.
 
-- This button ![image](../../assets/configuration/common/move.png#thumbnail1) enables us to change the order of host templates.
-- This button ![image](../../assets/configuration/common/delete.png#thumbnail1) is used to delete the host template.
+- This button ![image](../../assets/configuration/common/move.webp#thumbnail1) enables us to change the order of host templates.
+- This button ![image](../../assets/configuration/common/delete.webp#thumbnail1) is used to delete the host template.
 
 * If the **Create Services linked to the Template too** field is defined as **Yes**, Centreon automatically generates
   the services according to the service [templates](../templates.md) of the host templates placed above the others.
@@ -55,13 +55,13 @@ If multiple templates modify the same field, the properties of the template plac
    * **Name** and **Value** define the name and value of the macro.
    * Checking the **Password** box hides the value of the macro.
 
-  To revert to the value defined by the template, click ![image](../../assets/configuration/common/undo.png#thumbnail1)
+  To revert to the value defined by the template, click ![image](../../assets/configuration/common/undo.webp#thumbnail1)
   
-  To view the description of the macro, click ![image](../../assets/configuration/common/description.png#thumbnail1)
+  To view the description of the macro, click ![image](../../assets/configuration/common/description.webp#thumbnail1)
 
-  To delete the macro, click ![image](../../assets/configuration/common/delete.png#thumbnail1)
+  To delete the macro, click ![image](../../assets/configuration/common/delete.webp#thumbnail1)
 
-  To change the order of the macros, click ![image](../../assets/configuration/common/move.png#thumbnail1)
+  To change the order of the macros, click ![image](../../assets/configuration/common/move.webp#thumbnail1)
 
 ### Scheduling options
 

@@ -7,7 +7,7 @@ Sur la page "Parcours utilisateurs" vous retrouvez tous les scénarios qui ont �
 
 Cette première page est une vue d'ensemble de tous vos scénarios. Elle vous permet d'analyser de manière rapide et efficace la performance de votre site.
 
-![Image](../assets/how-to-articles/user-journey-screen-1.png)
+![Image](../assets/how-to-articles/user-journey-screen-1.webp)
 
 Vous y trouverez d'abord, la **disponibilité** (uptime, downtime) ainsi que le nombre incidents par scénario sur la période que vous avez sélectionnée.
 

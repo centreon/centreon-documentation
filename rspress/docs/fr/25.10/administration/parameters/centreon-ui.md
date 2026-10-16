@@ -56,7 +56,7 @@ Improvement**
 
 La configuraiton du proxy est nécessaire pour bénéficier de l'offre Centreon IT Edition.
 
-![image](../../assets/administration/proxy_configuration.png)
+![image](../../assets/administration/proxy_configuration.webp)
 
 Renseigner les différents champs:
 

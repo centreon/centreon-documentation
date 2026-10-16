@@ -5,7 +5,7 @@ title: Suivre les événements de mise en production
 
 Vous pouvez renseigner automatiquement vos déploiements de code ou modifications de configuration système dans Experience Monitoring :
 
-![image](../assets/installation/monitor-prod-events-1.png)
+![image](../assets/installation/monitor-prod-events-1.webp)
 
 Ces évènements peuvent être créés **de manière automatisée** via notre API. La meilleure façon de les utiliser est d'intégrer un appel à notre API dans vos scripts de déploiement de code et dans votre outil de gestion de configuration s'il y a lieu.
 
@@ -25,7 +25,7 @@ Notre API s’enclenche via un simple appel HTTP sur l'URL *"https://app.quanta.
 
 Vous devrez également spécifier un token API pour authentifier la requête. Ce token peut être généré dans la section "Intégrations" des paramètres de votre site dans Experience Monitoring. Vous avez également la possibilité d'ajouter une icône personnalisée.
 
-![image](../assets/installation/monitor-prod-events-1.png)
+![image](../assets/installation/monitor-prod-events-1.webp)
 
 Ce token devra être au choix:
 

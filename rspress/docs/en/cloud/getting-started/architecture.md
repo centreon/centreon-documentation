@@ -5,7 +5,7 @@ title: Architecture of Centreon Cloud
 
 Centreon Cloud consists mainly of a SaaS platform provided by Centreon, and pollers that you install in your infrastructure. In addition, the [Centreon Hub](../users/centreon-hub.md) module allows you to manage organizations and users, and to log in to Centreon Cloud.
 
-![image](../assets/getting-started/infra3.png)
+![image](../assets/getting-started/infra3.webp)
 
 ## SaaS platform
 

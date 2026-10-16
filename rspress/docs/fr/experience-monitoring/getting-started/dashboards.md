@@ -13,7 +13,7 @@ Dans Experience Monitoring, vous pouvez appartenir à plusieurs organisations, e
 
 Exemple de cartes issues de 2 sites dans 2 organisations différentes :
 
-![image](../assets/getting-started/dashboards-1.png)
+![image](../assets/getting-started/dashboards-1.webp)
 
 Dans cet exemple, les 2 cartes viennent de 2 sites différents, dans 2 organisations différentes. Avec les tableaux de bord, vous pouvez donc garder la maitrise de l'ensemble de vos sites d'un seul coup d'oeil !
 
@@ -23,7 +23,7 @@ Au sein de votre organisation, certaines personnes vont attendre des information
 
 Vous pouvez créer des tableaux de bord et les partager avec votre organisation afin que tous ceux qui sont dans votre organisation y ai accès.
 
-![image](../assets/getting-started/dashboards-2.png)
+![image](../assets/getting-started/dashboards-2.webp)
 
 Dans la liste de vos tableaux de bord, vous verrez en premier vos tableaux de bord privés. En cliquant sur le cadenas, vous accédez aux options de partage pour choisir avec quelle organisation le partager.
 

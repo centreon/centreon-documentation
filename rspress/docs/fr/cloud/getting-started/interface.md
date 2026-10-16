@@ -11,11 +11,11 @@ Une URL Centreon Cloud a le format suivant : `https://<organization>.<region>.ce
 
 ## Menus
 
-![image](../assets/getting-started/menus.png)
+![image](../assets/getting-started/menus.webp)
 
 L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise (cliquez sur le logo Centreon en haut à gauche de l'écran pour afficher les libellés) :
 
-![image](../assets/getting-started/amenu.png)
+![image](../assets/getting-started/amenu.webp)
 
 * Le menu **Accueil** affiche les [vues personnalisées](create-custom-view.md). Votre espace de travail peut être vide pour l'instant. Une fois que vous aurez configuré les widgets
   personnalisables, vous verrez les données et les graphiques en fonction de votre personnalisation.
@@ -30,7 +30,7 @@ L'interface web de Centreon est composée de plusieurs menus, chaque menu a une 
 
 ### Section Collecteurs
 
-![image](../assets/getting-started/banner_pollers.png)
+![image](../assets/getting-started/banner_pollers.webp)
 
 La partie gauche du bandeau supérieur montre la santé de votre plateforme en temps réel :
 
@@ -41,7 +41,7 @@ Cliquez sur l'icône **collecteurs** pour développer le menu. Dans le menu, cli
 
 ### Section hôtes et services ("top counters")
 
-![image](../assets/getting-started/top_counters.png)
+![image](../assets/getting-started/top_counters.webp)
 
 Dans la partie de droite du bandeau supérieur, des statistiques indiquent le nombre de ressources supervisées, avec un statut spécifique :
 
@@ -65,17 +65,17 @@ Dans le bandeau supérieur, cliquez sur l'icône profil et utilisez le bouton po
 
 - Mode clair :
 
-![image](../assets/getting-started/light_mode_switch.png)
+![image](../assets/getting-started/light_mode_switch.webp)
 
 - Mode sombre :
 
-![image](../assets/getting-started/dark_mode_switch.png)
+![image](../assets/getting-started/dark_mode_switch.webp)
 
 ### Langue de l'interface utilisateur
 
 Dans le bandeau, cliquez sur l'icône profil, puis cliquez sur **Editer le profil**:
 
-![image](../assets/getting-started/change_language_1.png)
+![image](../assets/getting-started/change_language_1.webp)
 
 Dans la liste **Langue**, sélectionnez la vôtre.
 

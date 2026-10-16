@@ -40,7 +40,7 @@ Voici le processus de traitement d’un trap SNMP :
   les informations à un ordonnanceur distant) qui se charge de modifier le statut et les informations associées au
   service auquel est lié le trap SNMP.
 
-![image](../../assets/configuration/06_trap_centreon.png)
+![image](../../assets/configuration/06_trap_centreon.webp)
 
 ### Processus de traitement d’un trap par un collecteur
 
@@ -59,7 +59,7 @@ Voici le processus de traitement d’un trap SNMP :
 4. Le service ‘centreontrapd’ transmet les informations à l’ordonnanceur qui se charge de modifier le statut et les
   informations associées au service dont est lié le trap SNMP.
 
-![image](../../assets/configuration/06_trap_poller.png)
+![image](../../assets/configuration/06_trap_poller.webp)
 
 > Le processus Centreon Gorgone à la charge, comme pour l’export de configuration de la supervision, de copier la base SQLite
 > sur le collecteur distant..

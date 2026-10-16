@@ -99,7 +99,7 @@ title: Configurer les notifications
 
 #### Réference
 
-![image](../assets/alerts/notif_contact_config.png)
+![image](../assets/alerts/notif_contact_config.webp)
 
 - **Options de notification d'hôte/de service** : définissez dans quels cas le contact doit recevoir des notifications. Si vous sélectionnez **Aucune**, le contact ne recevra aucune notification d'aucun type pour les hôtes ou les services. 
 
@@ -133,7 +133,7 @@ Un service **Memory** a les modèles parents suivants : Memory < OS-Linux-Memory
 - Son modèle parent deux niveaux au-dessus, **OS-Linux-Memory-SNMP**, a des valeurs définies pour **Nombre de contrôles avant validation de l'état**, **Intervalle normal de contrôle** et **Intervalle non-régulier de contrôle** : celles-ci seront appliqués à **Memory**.
 - Cependant, le modèle **OS-Linux-Memory-SNMP** n'a aucune valeur définie pour **Période de contrôle**, **Contrôle actif activé**, **Contrôle passif activé** et **Est volatile**. Nous devons donc remonter de deux niveaux : ces valeurs sont définies sur le modèle **generic-active-service**.
 
-![image](../assets/alerts/template_inheritance.png)
+![image](../assets/alerts/template_inheritance.webp)
 
 ## Méthode de calcul pour les contacts et groupes de contacts
 

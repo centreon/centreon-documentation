@@ -9,7 +9,7 @@ Go to the **Configuration \> Monitoring Connectors** menu and install the **UPS 
 
 Go to the **Configuration \> Hosts \> Hosts** menu and click **Add**:
 
-![image](../assets/getting-started/quick_start_ups_1.png)
+![image](../assets/getting-started/quick_start_ups_1.webp)
 
 Input the following information:
 
@@ -25,15 +25,15 @@ Click **Save**.
 
 Your device has been added to the monitoring configuration:
 
-![image](../assets/getting-started/quick_start_ups_2.png)
+![image](../assets/getting-started/quick_start_ups_2.webp)
 
 Go to the **Configuration \> Services \> Services by host** menu. A set of indicators has been automatically deployed:
 
-![image](../assets/getting-started/quick_start_ups_3.png)
+![image](../assets/getting-started/quick_start_ups_3.webp)
 
 It is now time to [deploy the configuration](first-supervision.md#deploying-a-configuration).
 
 Then go to the **Monitoring \> Status Details \> Services** menu and select the value **All** for the **Service Status**
 filter. After a few minutes, the first results of the monitoring appear:
 
-![image](../assets/getting-started/quick_start_ups_4.png)
+![image](../assets/getting-started/quick_start_ups_4.webp)

@@ -7,7 +7,7 @@ title: Gérer les utilisateurs et leurs droits
 
 L’ensemble des manipulations présentées ici passe par le menu *Organisation*. Celui-ci est accessible dans le menu en haut à droite comme suit:
 
-![image](../assets/configuration/manage-users-and-rights-1.png)
+![image](../assets/configuration/manage-users-and-rights-1.webp)
 
 ## Expiration automatique des mots de passe
 
@@ -38,7 +38,7 @@ En bas de cet écran, vous aurez accès à la liste des différents utilisateurs
 
 Pour ajouter l'utilisateur, cliquez sur l’icône à côté du rôle auquel vous voulez l’ajouter et saisissez l'adresse mail de l'utilisateur. S'il n'a pas encore d'accès à Experience Monitoring, il sera automatiquement invité à se créer un compte.
 
-![image](../assets/configuration/manage-users-and-rights-2.png)
+![image](../assets/configuration/manage-users-and-rights-2.webp)
 
 ## **Changer les permissions d'un utilisateur**
 

@@ -11,11 +11,11 @@ Create, customize, and display your maps within a single web interface.
 
 You need first to create your logical views using the MAP editor:
 
-![image](../assets/graph-views/map-web-editor-view.png)
+![image](../assets/graph-views/map-web-editor-view.webp)
 
 Then you can display your map directly in view mode:
 
-![image](../assets/graph-views/map-web-global-view.png)
+![image](../assets/graph-views/map-web-global-view.webp)
 
 Your maps can be displayed in two ways in the interface:
 - In the **Monitoring > Map** page, in view mode.

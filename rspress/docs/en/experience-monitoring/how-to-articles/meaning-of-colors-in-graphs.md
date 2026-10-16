@@ -9,7 +9,7 @@ While browsing Experience Monitoring graphs you may sometimes see colored bars o
 
 ## Top summary bar
 
-![Image](../assets/how-to-articles/color-meaning-in-graphs-1.png)
+![Image](../assets/how-to-articles/color-meaning-in-graphs-1.webp)
 
 Above most graphs you’ll find a top summary bar colored green, yellow, or red. Each color has the following meaning:
 
@@ -25,7 +25,7 @@ Hovering over segments in this top bar highlights matching segments in the chart
 
 ### Red bars
 
-![Image](../assets/how-to-articles/color-meaning-in-graphs-2.png)
+![Image](../assets/how-to-articles/color-meaning-in-graphs-2.webp)
 
 Red vertical bars that appear on your scenarios highlight errors that occurred during execution.
 

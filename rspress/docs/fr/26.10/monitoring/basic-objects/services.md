@@ -22,13 +22,13 @@ Pour créer un service, allez à la page **Configuration > Services > Services p
    * Les champs **Nom** et **Valeur** permettent respectivement de définir le nom et la valeur de la macro.
    * La case **Mot de passe** permet de cacher la valeur de la macro.
 
-   Pour réinitialiser la macro avec sa valeur par défaut (définie dans le template) cliquez sur ![image](../../assets/configuration/common/undo.png#thumbnail1)
+   Pour réinitialiser la macro avec sa valeur par défaut (définie dans le template) cliquez sur ![image](../../assets/configuration/common/undo.webp#thumbnail1)
 
-   Pour afficher la description de la macro, cliquez sur ![image](../../assets/configuration/common/description.png#thumbnail1)
+   Pour afficher la description de la macro, cliquez sur ![image](../../assets/configuration/common/description.webp#thumbnail1)
 
-   Pour supprimer la macro, cliquez sur ![image](../../assets/configuration/common/delete.png#thumbnail1)
+   Pour supprimer la macro, cliquez sur ![image](../../assets/configuration/common/delete.webp#thumbnail1)
 
-   Pour déplacer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.png#thumbnail1)
+   Pour déplacer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.webp#thumbnail1)
 * Le tableau **Arguments** définit les arguments donnés à la commande de vérification (le nombre d’arguments varie en
   fonction de la commande de vérification choisie).
 

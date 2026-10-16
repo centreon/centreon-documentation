@@ -27,7 +27,7 @@ The configuration of a physical dependency takes place in the
 **Relations** tab of a configuration sheet of a host through the
 `Configuration > Hosts > Hosts` menu.
 
-![image](../assets/alerts/dep_host_config.png)
+![image](../assets/alerts/dep_host_config.webp)
 
 It is possible to define two settings:
 
@@ -62,7 +62,7 @@ To configure a logical dependency, go into the
 `Configuration > Notifications > Dependencies > Hosts` menu and click
 **Add**.
 
-![image](../assets/alerts/03hostdependance.png)
+![image](../assets/alerts/03hostdependance.webp)
 
 In this case, we have two types of host that come into play: one or more
 hosts (called master hosts) of which the status controls the execution
@@ -93,7 +93,7 @@ To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Services` menu and click
 **Add**.
 
-![image](../assets/alerts/03servicedependance.png)
+![image](../assets/alerts/03servicedependance.webp)
 
 In this case, we have two entities that come into play: the (“master”)
 services, which control the execution, and the notification of other
@@ -123,7 +123,7 @@ To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Host Groups` menu and
 click **Add**.
 
-![image](../assets/alerts/03hostgroupdependance.png)
+![image](../assets/alerts/03hostgroupdependance.webp)
 
 Two types of host group: a host group is called a master if it controls
 the execution and the notification of other (“dependent”) host groups.
@@ -151,7 +151,7 @@ To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Service Groups` menu and
 click **Add**.
 
-![image](../assets/alerts/03servicegroupdependance.png)
+![image](../assets/alerts/03servicegroupdependance.webp)
 
 Two types of service group: a service group is called a “master” if it
 controls the execution and the notification of other (“dependent”)
@@ -181,7 +181,7 @@ To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Meta Services` menu and
 click **Add**.
 
-![image](../assets/alerts/03metaservicedependance.png)
+![image](../assets/alerts/03metaservicedependance.webp)
 
 Two types of meta-service: a meta-service is called a “master” if it
 controls the execution and the notification of other (“dependent”)

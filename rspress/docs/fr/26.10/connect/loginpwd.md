@@ -17,7 +17,7 @@ pour générer une chaîne de caractères aléatoires basée sur la **politique 
 Les utilisateurs peuvent changer leur mot de passe en cliquant sur l'icône profil dans le coin supérieur droit de l'écran,
 puis en cliquant sur **Éditer le profil**. De plus, dans cet écran le délai d'expiration du mot de passe est affiché :
 
-![image](../assets/administration/password_expiration.png)
+![image](../assets/administration/password_expiration.webp)
 
 ## Configurer la politique de sécurité de mot de passe
 
@@ -28,7 +28,7 @@ et de bloquer les tentatives d'attaque de type force brute.
 
 Allez à la page **Administration > Authentification> Politique de sécurité de mot de passe** :
 
-![image](../assets/administration/local-configuration.png)
+![image](../assets/administration/local-configuration.webp)
 
 ### Politique de casse du mot de passe
 

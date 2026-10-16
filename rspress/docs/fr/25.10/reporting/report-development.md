@@ -25,7 +25,7 @@ BIRT est un outil de création de rapport. Il permet de :
 -   Extraire des données pertinentes à partir de ces sources
 -   Présenter visuellement ces données
 
-![image](../assets/reporting/dev-guide/1000000000000454000001517ADB9749.png)
+![image](../assets/reporting/dev-guide/1000000000000454000001517ADB9749.webp)
 
 BIRT vous permet de visualiser vos données métiers dans des tableaux ou
 des graphiques statistiques. Même si BIRT permet de connecter
@@ -64,7 +64,7 @@ exemple : JDBC et CSV).
 
 Configuration d'une source de données:
 
-![image](../assets/reporting/dev-guide/10000000000003DE000001E25067D84F.png)
+![image](../assets/reporting/dev-guide/10000000000003DE000001E25067D84F.webp)
 
 ### Les jeux de données "Data sets"
 
@@ -77,7 +77,7 @@ Les différents « data sets » propres à un rapport contiennent toutes les
 données nécessaires pour construire les éléments visuels du rapport
 (tableaux, graphiques,...).
 
-![image](../assets/reporting/dev-guide/100000000000053D00000175C278E199.png)
+![image](../assets/reporting/dev-guide/100000000000053D00000175C278E199.webp)
 
 ### Liens de données "Data binding"
 
@@ -93,13 +93,13 @@ pas nécessaire de copier la structure complète d'un « data set »,
 seules les colonnes nécessaires peuvent être copiées. Le lien de données
 est réalisé lors de l'ajout d'un nouveau composant :
 
-![image](../assets/reporting/dev-guide/1000000000000226000001CF01C06F25.png)
+![image](../assets/reporting/dev-guide/1000000000000226000001CF01C06F25.webp)
 
 Si la structure du « data set » est modifiée, il est nécessaire de
 mettre à jour manuellement la structure du composant graphique pour
 appliquer les modifications.
 
-![image](../assets/reporting/dev-guide/1000000000000350000001F5878A240B.png)
+![image](../assets/reporting/dev-guide/1000000000000350000001F5878A240B.webp)
 
 ### Paramètres du rapport
 
@@ -125,7 +125,7 @@ l'agencement des composants graphiques dans un rapport.
 Bonne pratique : placer chaque composant graphique du rapport dans une
 cellule d'une grille.
 
-![image](../assets/reporting/dev-guide/10000000000003560000017FAF18FEC1.png)
+![image](../assets/reporting/dev-guide/10000000000003560000017FAF18FEC1.webp)
 
 #### Tableau
 
@@ -137,7 +137,7 @@ lignes et colonnes.
 Le tableau nécessite une liaison de données avec un « data set »
 permettant ainsi l'affichage de contenu dynamique.
 
-![image](../assets/reporting/dev-guide/10000000000002D9000000636D5BE18A.png)
+![image](../assets/reporting/dev-guide/10000000000002D9000000636D5BE18A.webp)
 
 -   **En-tête (header row)** : affiche le titre de la colonne ou des
     statistiques calculées à partir du contenu listé dans les lignes de
@@ -163,7 +163,7 @@ fonctionnalités de groupage de données. Chaque groupe ajoutera 2 lignes
     sous-ensemble. Permet également de réaliser des calculs statistiques
     liés à ce sous-ensemble
 
-![image](../assets/reporting/dev-guide/10000000000005F2000001A26D1A36C8.png)
+![image](../assets/reporting/dev-guide/10000000000005F2000001A26D1A36C8.webp)
 
 ### Graphiques
 
@@ -171,7 +171,7 @@ La création d'un graphique (ou diagramme) se fait en 3 étapes:
 
 #### Choix du type de graphique
 
-![image](../assets/reporting/dev-guide/10000000000004390000025A137B95A5.png)
+![image](../assets/reporting/dev-guide/10000000000004390000025A137B95A5.webp)
 
 #### La liaison de données
 
@@ -182,7 +182,7 @@ Le « data binding » avec un diagramme peut être réalisé de deux manières
 -   Insérer le graphique dans une cellule de tableau permettant ainsi la
     liaison de données par héritage avec le « data set » du tableau »
 
-![image](../assets/reporting/dev-guide/10000000000003CF00000251408B7FE1.png)
+![image](../assets/reporting/dev-guide/10000000000003CF00000251408B7FE1.webp)
 
 L'héritage des données du composant parent est nécessaire lorsque l'on
 souhaite réutiliser les groupes et agrégations réalisées dans le
@@ -191,7 +191,7 @@ beaucoup plus limitées dans le composant graphique.
 
 #### Mise en forme
 
-![image](../assets/reporting/dev-guide/10000000000004190000025ABC2D698F.png)
+![image](../assets/reporting/dev-guide/10000000000004190000025ABC2D698F.webp)
 
 ### Les bibliothèques BIRT
 
@@ -223,7 +223,7 @@ Principe de fonctionnement :
 -   les composants importés des bibliothèques sont identifiés dans le
     rapport à l'aide d'une icône spécifique
 
-![image](../assets/reporting/dev-guide/10000000000003340000018F33DF4032.png)
+![image](../assets/reporting/dev-guide/10000000000003340000018F33DF4032.webp)
 
 ### Les modèles BIRT
 
@@ -272,12 +272,12 @@ rapport, un projet de type « BIRT project » doit être créé. Il doit
 Pour créer un projet BIRT, sélectionnez « File > New > Other projects
 », puis, dans l'assistant, sélectionnez « report project ».
 
-![image](../assets/reporting/dev-guide/100000000000030C0000029D554D9D2B.png)
+![image](../assets/reporting/dev-guide/100000000000030C0000029D554D9D2B.webp)
 
 Une fois le projet créé, ajoutez les deux dossiers principaux via un
 clic droit sur le projet dans l'onglet « navigator » :
 
-![image](../assets/reporting/dev-guide/1000000000000565000001F097833544.png)
+![image](../assets/reporting/dev-guide/1000000000000565000001F097833544.webp)
 
 Copier mainteant le contenu des répertoires reports
 *(/usr/share/centreon-bi/reports)* et resources
@@ -290,7 +290,7 @@ Pour chaque projet BIRT créé dans cet espace de travail, il sera
 nécessaire de définir dans les propriétés du projet la localisation du
 dossier « Resources » associé
 
-![image](../assets/reporting/dev-guide/10000000000003340000018F33DF4032.png)
+![image](../assets/reporting/dev-guide/10000000000003340000018F33DF4032.webp)
 
 La spécification de ce dossier dans les propriétés du projet permet
 l'accès aux composants partagés. Ces composants (data sources, data
@@ -313,7 +313,7 @@ puis cliquez sur « properties ». Définissez l'accès au dossier par :
 "`<Current Project Folder>/Resources/`". La variable "`<Current Project Folder>`" 
 est initialisée automatiquement par Eclipse en fonction du projet courant.
 
-![image](../assets/reporting/dev-guide/10000000000003600000025556C97DB4.png)
+![image](../assets/reporting/dev-guide/10000000000003600000025556C97DB4.webp)
 
 > Cette manipulation devra être réalisée à chaque fois :
 > 
@@ -368,27 +368,27 @@ profile récupérés dans votre poste de travail et édités.
 Pour cela, double cliquez sur la bibliothèque L2_datasource. Cette
 dernière s'ouvre dans l'espace de travail.
 
-![image](../assets/reporting/dev-guide/db_conn_1.png)
+![image](../assets/reporting/dev-guide/db_conn_1.webp)
 
-![image](../assets/reporting/dev-guide/db_conn_2.png)
+![image](../assets/reporting/dev-guide/db_conn_2.webp)
 
 Cliquez sur "outline", et dérouler les Data Sources
 
-![image](../assets/reporting/dev-guide/db_conn_3.png)
+![image](../assets/reporting/dev-guide/db_conn_3.webp)
 
 Il s'agit ici de tous les datasources utilisés dans les rapports
 standard MBI.*
 
 Double cliquez sur le data source Centreon, la pop-up suivante s'ouvre:
 
-![image](../assets/reporting/dev-guide/db_conn_4.png)
+![image](../assets/reporting/dev-guide/db_conn_4.webp)
 
 Dans "Connection Profile Store" Selectionnez le chemin du fichier
 report-profile.xml de votre poste de travail et validez.
 
 La popo-up suivante s'ouvre:
 
-![image](../assets/reporting/dev-guide/db_conn_5.png)
+![image](../assets/reporting/dev-guide/db_conn_5.webp)
 
 Dans la zone texte, l'ensemble des sources de données présentes dans le
 fichier sont listés.
@@ -397,7 +397,7 @@ Dans ce cas, 2 sources de données sont listées: - Censtorage - Centreon
 
 Selectionnez Centreon puis cliquez sur "BIRT JDBC Data Source"
 
-![image](../assets/reporting/dev-guide/db_conn_6.png)
+![image](../assets/reporting/dev-guide/db_conn_6.webp)
 
 Les informations présentes dans le fichier XML seront reprises.
 
@@ -406,14 +406,14 @@ centreon.
 
 Vous derriez avoir un message de connexion réussie:
 
-![image](../assets/reporting/dev-guide/db_conn_7.png)
+![image](../assets/reporting/dev-guide/db_conn_7.webp)
 
 > En cas de message d'erreur faisant réference au Driver manquant, pensez
 > à rajouter le driver MariaDB/MySQL (.jar) dans menu manage driver.
 
-![image](../assets/reporting/dev-guide/db_conn_8.png)
+![image](../assets/reporting/dev-guide/db_conn_8.webp)
 
-![image](../assets/reporting/dev-guide/db_conn_9.png)
+![image](../assets/reporting/dev-guide/db_conn_9.webp)
 
 Cette action est à effectuer une seule fois dans le projet.
 :::
@@ -433,21 +433,21 @@ Pour générer un rapport standard depuis l'environnement de
 développement, il suffit d'ouvrir le rapport en question en double
 cliquant dessus.
 
-![image](../assets/reporting/dev-guide/gen_report_1.png)
+![image](../assets/reporting/dev-guide/gen_report_1.webp)
 
 Maintenant que le rapport est ouvert, cliquez sur le button "View
 report" et selectionnez le format de sortie:
 
-![image](../assets/reporting/dev-guide/gen_report_2.png)
+![image](../assets/reporting/dev-guide/gen_report_2.webp)
 
 Une pop-up demandant de renseigner les paramètres du rapport
 
-![image](../assets/reporting/dev-guide/gen_report_3.png)
+![image](../assets/reporting/dev-guide/gen_report_3.webp)
 
 Le rapport sera donc généré sur le parimètre choisi (paramètres
 renseignés) au format de sortie selectionné.
 
-![image](../assets/reporting/dev-guide/gen_report_4.png)
+![image](../assets/reporting/dev-guide/gen_report_4.webp)
 
 ## Développez vos rapports en utilisant le modèle fourni par Centreon
 
@@ -469,7 +469,7 @@ Pour être en mesure d'utiliser ce modèle, vous devez :
 - Faire un clique droit sur ce fichier et cliquer sur "Register
   Template with New Report Wizard"
 
-  ![image](../assets/reporting/dev-guide/registerTemplate.png)
+  ![image](../assets/reporting/dev-guide/registerTemplate.webp)
 
 - Pour chaque nouveau rapport que vous créez, faites New->Report,
 choisissez un nom puis cliquez sur "Next" pour accéder à la
@@ -477,7 +477,7 @@ fenêtre des modèles
 - Sélectionnez alors le modèle appelé "Component Template" puis
 cliquez sur "Finish"
 
-  ![image](../assets/reporting/dev-guide/componentTemplate.png)
+  ![image](../assets/reporting/dev-guide/componentTemplate.webp)
 
 ### Définir la structure du projet
 

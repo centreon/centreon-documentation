@@ -21,7 +21,7 @@ Enter the **Name** of the configuration, the TCP **Connection port** for
 connecting to the poller, and the **Host to connect to**. Then **Save** your
 configuration.
 
-![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-1.png)
+![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-1.webp)
 
 Go to the **Configuration > Pollers > Broker configuration** menu and click 
 the **Broker module** of your poller.
@@ -32,7 +32,7 @@ On the **Output** tab panel, modify the **Output 1 - IPv4** form:
 2.  Check the **Connection port**.
 3.  Set **Yes** for the **One peer retention** option.
 
-![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-2.png)
+![image](../../assets/monitoring/monitoring-servers/on-peer-configuration-2.webp)
 
 Click **Save** and generate the configuration of the affected servers.
 
@@ -73,7 +73,7 @@ for *central-broker-master-input*:
   - Public certificate = /etc/centreon-broker/central.crt
   - Trusted CA's certificate = /etc/centreon-broker/ca.crt
 
-![image](../../assets/monitoring/monitoring-servers/broker-certificates.png)
+![image](../../assets/monitoring/monitoring-servers/broker-certificates.webp)
 
 As with the poller, you will have to modify the TCP output under the Output tab
 with the following parameters:

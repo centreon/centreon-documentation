@@ -27,33 +27,33 @@ Aidez-nous à relire vos PRs plus rapidement en suivant ces recommandations :
 
 1. La façon la plus simple de suggérer un changement est d'utiliser le lien **Éditer cette page** en bas de chaque page de documentation. Cette méthode est adaptée lorsque vous souhaitez éditer uniquement un fichier à la fois.
 
-   ![image](../assets/resources/edit_this_page.png)
+   ![image](../assets/resources/edit_this_page.webp)
 
    (Vous pouvez aussi naviguer jusqu'à la page désirée sur [GitHub](https://github.com/centreon/centreon-documentation) et cliquer sur le bouton **Edit**.)
 
 2. Le fichier peut maintenant être édité :
 
-   ![image](../assets/resources/editable_page.png)
+   ![image](../assets/resources/editable_page.webp)
 
 3. Faites vos modifications, puis rendez-vous en bas de la page :
 
-   ![image](../assets/resources/propose_changes.png)
+   ![image](../assets/resources/propose_changes.webp)
 
 4. Dans le premier champ, entrez une courte description de vos modifications (par exemple “Fix typo”) : cette description deviendra le titre de votre commit. Vous pouvez ajouter plus d'informations dans le second champ.
 5. Cliquez sur **Propose changes**. Une branche est créée dans un fork du dépôt Centreon, et un commit est pushé dans cette branche. La page montre maintenant vos modifications :
 
-   ![image](../assets/resources/propose_changes2.png)
+   ![image](../assets/resources/propose_changes2.webp)
 
 6. Cliquez sur **Create pull request** et remplissez les champs :
 
    * Entrez un titre indiquant clairement le sujet de la pull request.
    * Cochez les cases correspondant aux versions/sections que vous avez corrigées (et uniquement celles-ci).
 
-    ![image](../assets/resources/open_pr.png)
+    ![image](../assets/resources/open_pr.webp)
 
 7. La pull request est créée. Notez que le nom de votre branche apparaît ici (format : `<nom_du_fork>:<nom_de_la_branche>`) :
 
-    ![image](../assets/resources/pr_with_branch_name.png)
+    ![image](../assets/resources/pr_with_branch_name.webp)
 
 La PR est faite ! L'équipe documentation de Centreon :
 
@@ -64,11 +64,11 @@ La PR est faite ! L'équipe documentation de Centreon :
 
 1. Pour éditer un autre fichier, rendez-vous dans votre fork de notre dépôt de documentation sur GitHub (**Your profile** > cliquez sur le fork) puis sélectionnez votre branche en utilisant la liste déroulante en haut à gauche de l'écran.
 
-   ![image](../assets/resources/edit_branch.png)
+   ![image](../assets/resources/edit_branch.webp)
 
 2. Naviguez jusqu'au fichier désiré, faites vos modifications, puis rendez-vous au bas de la page :
 
-   ![image](../assets/resources/commit_to_branch.png)
+   ![image](../assets/resources/commit_to_branch.webp)
 
 3. Cliquez sur **Commit changes**. Vos modifications sont commitées, pushées et ajoutées à la liste des commits pour cette pull request.
 
@@ -104,10 +104,10 @@ Votre branche doit être basée sur la branche **staging**. Depuis cette branche
    * n'oubliez pas de faire `git add` sur tous les fichiers nécessaires (particulièrement les images).
 5. Commitez vos modifications et pushez-les.
 6. Allez sur [GitHub](https://github.com/centreon/centreon-documentation). Vous devriez voir un message tel que celui-ci :
-   ![image](../assets/resources/compare_and_pull_request1.png)
+   ![image](../assets/resources/compare_and_pull_request1.webp)
 
 7. Cliquez sur **Compare & pull request**.
-   ![image](../assets/resources/compare_and_pull_request2.png)
+   ![image](../assets/resources/compare_and_pull_request2.webp)
 
    * Éditez le nom de la PR et ajoutez des informations complémentaires si besoin.
    * Sélectionnez les versions dans lesquelles vous avez fait des modifications.

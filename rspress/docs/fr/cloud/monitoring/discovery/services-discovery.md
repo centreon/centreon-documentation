@@ -14,12 +14,12 @@ Manuelle**.
 Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et
 l’interface vous proposera de compléter automatiquement ce dernier :
 
-![image](../../assets/configuration/autodisco/manual_scan_select_host.png)
+![image](../../assets/configuration/autodisco/manual_scan_select_host.webp)
 
 Sélectionnez ensuite la commande de découverte à exécuter dans la liste
 déroulante qui vient d’apparaître :
 
-![image](../../assets/configuration/autodisco/manual_scan_select_command.png)
+![image](../../assets/configuration/autodisco/manual_scan_select_command.webp)
 
 > Si cette liste est vide, cela signifie que cet hôte n’appartient pas à un
 > modèle d’hôtes lié à une règle de découverte.
@@ -27,16 +27,16 @@ déroulante qui vient d’apparaître :
 Cliquez sur le bouton **Scan** et patientez durant l’analyse des éléments
 disponibles :
 
-![image](../../assets/configuration/autodisco/manual_scan_wait.png)
+![image](../../assets/configuration/autodisco/manual_scan_wait.webp)
 
 Le résultat s’affiche. Sélectionnez les éléments à intégrer à la supervision et
 cliquez sur le bouton **Save** :
 
-![image](../../assets/configuration/autodisco/manual_scan_result.png)
+![image](../../assets/configuration/autodisco/manual_scan_result.webp)
 
 Les éléments ont été ajoutés et il n’est plus possible de les sélectionner :
 
-![image](../../assets/configuration/autodisco/manual_scan_added.png)
+![image](../../assets/configuration/autodisco/manual_scan_added.webp)
 
 > Dans la liste de résultats de la découverte des éléments, il se peut que
 > certains éléments ne puissent être sélectionnés. Cela indique qu’ils font déjà
@@ -45,7 +45,7 @@ Les éléments ont été ajoutés et il n’est plus possible de les sélectionn
 Les services ont été ajoutés et sont visibles dans le menu `Configuration >
 Services > Services par hôte`:
 
-![image](../../assets/configuration/autodisco/manual_scan_services.png)
+![image](../../assets/configuration/autodisco/manual_scan_services.webp)
 
 ## Règles de découverte
 
@@ -60,11 +60,11 @@ etc.)
 Pour créer une règle de découverte, rendez-vous dans le menu `Configuration >
 Services > Règles` et cliquez sur **Ajouter** :
 
-![image](../../assets/configuration/autodisco/create_rule_1.png)
+![image](../../assets/configuration/autodisco/create_rule_1.webp)
 
 Saisissez les premiers champs :
 
-![image](../../assets/configuration/autodisco/create_rule_2.png)
+![image](../../assets/configuration/autodisco/create_rule_2.webp)
 
 Voici une description des premiers champs à saisir :
 
@@ -79,12 +79,12 @@ Voici une description des premiers champs à saisir :
 Rendez-vous dans le second onglet **Inclusions/Exclusions & Macros** tab. Vous
 devriez voir les attributs XML disponibles :
 
-![image](../../assets/configuration/autodisco/create_rule_3.png)
+![image](../../assets/configuration/autodisco/create_rule_3.webp)
 
 Revenez au premier onglet et définissez le nom des services qui seront créés ainsi
 que les autres champs disponibles :
 
-![image](../../assets/configuration/autodisco/create_rule_4.png)
+![image](../../assets/configuration/autodisco/create_rule_4.webp)
 
 Saisissez le nom du service qui sera créé via le champ **Service display name**.
 
@@ -121,7 +121,7 @@ Cliquer sur **Save** pour sauvegarder la règle de découverte.
 
 Les **Inclusions/Exclusions et Macro** fonctionnent de la manière suivante :
 
-![image](../../assets/configuration/autodisco/create_rule_5.png)
+![image](../../assets/configuration/autodisco/create_rule_5.webp)
 
 Les **Inclusions/Exclusions** permettent d’inclure ou d’exclure des éléments
 durant la découverte. Cette inclusion/exclusion concerne les attributs XML.
@@ -139,7 +139,7 @@ Les règles d’inclusion/exclusion sont définies à partir de l’algorithme s
     et la macro du modèle de service. Pour tous les services créés, les valeurs
     des macros seront remplacées par les valeurs des attributs.
 
-![image](../../assets/configuration/autodisco/create_rule_6.png)
+![image](../../assets/configuration/autodisco/create_rule_6.webp)
 
 > Sur cette image toutes les macros seront créées sur le nouveau service car
 > toutes les cases **Empty** sont sélectionnées. Pour ne pas créer ces macros,
@@ -154,7 +154,7 @@ Le dernier onglet **Advanced** permet d’appliquer des regexp sur le champ
 entry** pour ajouter une nouvelle entrée en définissant l’expression et le
 résultat attendu :
 
-![image](../../assets/configuration/autodisco/create_rule_7.png)
+![image](../../assets/configuration/autodisco/create_rule_7.webp)
 
 L’expression peut être appliquée sur :
 
@@ -202,7 +202,7 @@ Chaque sonde de découverte doit disposer de deux commandes :
   - La première pour récupérer la liste des attributs du flux XML
   - La seconde pour récupérer la liste des éléments découverts sur l’équipement
 
-![image](../../assets/configuration/autodisco/commands_list.png)
+![image](../../assets/configuration/autodisco/commands_list.webp)
 
 ### Commande pour récupérer la liste des attributs XML
 
@@ -220,7 +220,7 @@ Saisissez les champs suivants :
 > l’option **hostname**. Donc ajoutez l’option **--hostname=127.0.0.1** dans
 > votre commande.
 
-![image](../../assets/configuration/autodisco/command_attributes.png)
+![image](../../assets/configuration/autodisco/command_attributes.webp)
 
 Voici un exemple de ligne de commande exécutée dans un terminal :
 
@@ -254,7 +254,7 @@ Saisissez les champs suivants :
   - **Command Line**: saisir la ligne de commande pour exécuter la sonde et
     récupérer la liste des éléments disponibles
 
-![image](../../assets/configuration/autodisco/command_disco.png)
+![image](../../assets/configuration/autodisco/command_disco.webp)
 
 Voici un exemple de ligne de commande exécutée dans un terminal :
 

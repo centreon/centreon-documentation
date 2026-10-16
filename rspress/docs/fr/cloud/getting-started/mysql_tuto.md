@@ -46,11 +46,11 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 3. Cliquez sur le bouton **+ Ajouter une nouvelle entrée** à côté du champ **Modèles** puis sélectionnez le modèle
 **App-DB-MySQL-custom**.
 
-  ![image](../assets/getting-started/quick_start_mysql_1a.png)
+  ![image](../assets/getting-started/quick_start_mysql_1a.webp)
 
 4. Une liste de macros correspondant au modèle va alors apparaître :
 
-  ![image](../assets/getting-started/quick_start_mysql_1b.png)
+  ![image](../assets/getting-started/quick_start_mysql_1b.webp)
 
   Renseignez la valeur des macros suivantes :
 
@@ -60,11 +60,11 @@ Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervis
 
 5. Cliquez sur le bouton **Sauvegarder**. Votre équipement a été ajouté à la liste des hôtes :
 
-  ![image](../assets/getting-started/quick_start_mysql_2.png)
+  ![image](../assets/getting-started/quick_start_mysql_2.webp)
 
 6. Allez dans **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été créé automatiquement.
 
-  ![image](../assets/getting-started/quick_start_mysql_3.png)
+  ![image](../assets/getting-started/quick_start_mysql_3.webp)
 
 7. [Déployez la supervision](../monitoring/monitoring-servers/deploying-a-configuration.md).
 

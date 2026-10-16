@@ -14,7 +14,7 @@ events.
 The event list is a condensed and efficient view of all alerts and the status of all resources
 monitored by Centreon.
 
-![image](../assets/alerts/resources-status/resources-status-listing.png)
+![image](../assets/alerts/resources-status/resources-status-listing.webp)
 
 You can add or remove columns and sort by the column of your choice.
 
@@ -33,8 +33,8 @@ Use the **Display view** buttons above the list of resources to define how the l
 You can display the view in the mode that suits you best by changing the visual presentation of lines in tables.
 
 Click the dedicated button to improve the readability of the information in the tables:
-- Compact view mode ![image](../assets/alerts/resources-status/compact-icon.png)
-- Extended view mode ![image](../assets/alerts/resources-status/extended-icon.png)
+- Compact view mode ![image](../assets/alerts/resources-status/compact-icon.webp)
+- Extended view mode ![image](../assets/alerts/resources-status/extended-icon.webp)
 
 ### Export to CSV
 
@@ -134,7 +134,7 @@ The following rules apply:
 
 You can filter the list of resources according to a number of predefined criteria.
 
-1. Click the **Filter options** icon :![image](../assets/alerts/resources-status/search-options-icon.png)
+1. Click the **Filter options** icon :![image](../assets/alerts/resources-status/search-options-icon.webp)
 
     A pop-in window appears, listing the following criteria:
 
@@ -286,7 +286,7 @@ the panel and the header will be colored accordingly.
 
 The **Timeline** tab shows an antichronological list of events that occurred for this service or host (status alerts, notifications sent, scheduled downtime, comments). Use the **Event** list to display only the types of event you want.
 
-![image](../assets/alerts/resources-status/timeline.png)
+![image](../assets/alerts/resources-status/timeline.webp)
 
 You can export the full list of events in CSV format.
 
@@ -298,7 +298,7 @@ Hovering over the metric curves will display the precise time under the graph's 
 
 When the pointer is not hovering over curves, the legend displays Min, Max and Average values for each metric.
 
-![image](../assets/alerts/resources-status/resources-status-values.png)
+![image](../assets/alerts/resources-status/resources-status-values.webp)
 
 Use the legend to display or hide metrics:
 
@@ -336,11 +336,11 @@ By clicking the **Export** button, you can export a snapshot of the graph, which
 
 To see a bigger version of the graph, click **Go to performance page** in the top right corner of the graph.
 
-![image](../assets/alerts/resources-status/graph-open.png)
+![image](../assets/alerts/resources-status/graph-open.webp)
 
 The graph opens on the **Monitoring > Performances > Graphs** page, allowing you to filter the graph more precisely.
 
-![image](../assets/alerts/resources-status/graph-open2.png)
+![image](../assets/alerts/resources-status/graph-open2.webp)
 
 You can also export the data for the graph as a CSV file (this will include all metrics), or as a PNG file in various sizes.
 
@@ -350,4 +350,4 @@ The Notification tab shows whether notifications are enabled for the selected re
 
 To configure the recipients, click the **gear icon** in the **Contacts** or **Contact groups** section.
 
-![image](../assets/alerts/resources-status/notification_tab.png)
+![image](../assets/alerts/resources-status/notification_tab.webp)

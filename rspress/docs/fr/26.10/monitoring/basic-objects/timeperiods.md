@@ -41,7 +41,7 @@ Quelques exemples :
 * De 08h00 à 12h00 et de 14h00 à 18h45 les jours de semaine : 08:00-12:00,14:00-18:45 (à entrer au niveau des jours de semaine uniquement).
 * Pour ne pas superviser pendant une journée entière, laissez le champ correspondant vide.
 
-![image](../../assets/configuration/05timeperiod.png)
+![image](../../assets/configuration/05timeperiod.webp)
 
 ### Onglet Période d'exception
 

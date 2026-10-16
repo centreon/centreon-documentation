@@ -45,7 +45,7 @@ extension la diminution de la SLA.
 Ci-dessous un exemple de ce qu'il est possible de modéliser dans
 Centreon BAM.
 
-![image](../assets/service-mapping/example.png)
+![image](../assets/service-mapping/example.webp)
 
 ## Introduction
 
@@ -113,12 +113,12 @@ règle de calcul "Worst status". Voici un exemple avec le serveur (1)
 <Tabs groupId="sync">
 <Tab value="Concept" label="Concept">
 
-![image](../assets/service-mapping/frontend-1-concept.png)
+![image](../assets/service-mapping/frontend-1-concept.webp)
 
 </Tab>
 <Tab value="Configuration" label="Configuration">
 
-![image](../assets/service-mapping/frontend-1-conf.png)
+![image](../assets/service-mapping/frontend-1-conf.webp)
 
 </Tab>
 </Tabs>
@@ -130,12 +130,12 @@ passera en Critique lorsque plus de 80% des serveurs frontaux seront non-ok.
 <Tabs groupId="sync">
 <Tab value="Concept" label="Concept">
 
-![image](../assets/service-mapping/ratio.png)
+![image](../assets/service-mapping/ratio.webp)
 
 </Tab>
 <Tab value="Configuration" label="Configuration">
 
-![image](../assets/service-mapping/conf-ratio.png)
+![image](../assets/service-mapping/conf-ratio.webp)
 
 </Tab>
 </Tabs>
@@ -144,12 +144,12 @@ Pour rajouter de la pro-activité dans notre gestion et éviter que le cluster c
 nous pouvons également ajouter la règle suivant: à partir de 50% de serveurs frontaux non disponibles, nous voulons être
 avertis
 
-![image](../assets/service-mapping/conf-ratio-with-warn.png)
+![image](../assets/service-mapping/conf-ratio-with-warn.webp)
 
 Au final nous obtenons cette activité métier "Frontend Cluster" nous permettant de suivre l'état de fonctionnement
 général des serveurs frontaux. Il est également possible de ré-utiliser cette BA dans une autre, notamment une BA représentant le fonctionnement d'une application reposant sur ces serveurs.
 
- ![image](../assets/service-mapping/final-frontend.png)
+ ![image](../assets/service-mapping/final-frontend.webp)
 
 En suivant au quotidien l'état de la BA, il sera possible de faire des ajustements afin de rendre compte de plus 
 en plus précisemment de l'état du service ou de l'application représenté par la BA ou ses composants.

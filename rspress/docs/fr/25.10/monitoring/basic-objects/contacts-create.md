@@ -5,7 +5,7 @@ title: Créer des utilisateurs/contacts manuellement
 
 Pour ajouter un contact, allez à la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, puis cliquez sur **Add**.
 
-![image](../../assets/configuration/06useradd.png)
+![image](../../assets/configuration/06useradd.webp)
 
 Pour afficher la matrice de notification d’un contact, cliquez sur **View contact notifications** (à côté du menu
 **Add**).

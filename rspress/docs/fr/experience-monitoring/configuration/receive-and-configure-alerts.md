@@ -13,7 +13,7 @@ Certaines licences permettent de recevoir des alertes **par SMS, par Slack, ou p
 
 Les notifications sont **personnelles**. Pour qu’un utilisateur reçoive les emails, les SMS ou Slack, il suffit de configurer dans sa page profil les informations.
 
-![image](../assets/configuration/receive-and-configure-alerts-1.png)
+![image](../assets/configuration/receive-and-configure-alerts-1.webp)
 
 Page profil
 
@@ -25,11 +25,11 @@ Pour envoyer une notification dans un canal Teams, Google Chat, ou d’autres lo
 
 Vous pouvez accéder à l’écran de configuration en cliquant sur les trois petits points au-dessus d’un parcours utilisateur, puis sur *Alerting*.
 
-![image](../assets/configuration/receive-and-configure-alerts-2.png)
+![image](../assets/configuration/receive-and-configure-alerts-2.webp)
 
 Vous pouvez aussi accéder à l’écran de configuration soit en cliquant sur *Configuration* puis *Alerting*.
 
-![image](../assets/configuration/receive-and-configure-alerts-3.png)
+![image](../assets/configuration/receive-and-configure-alerts-3.webp)
 
 ## Mettre en place les alertes
 
@@ -37,7 +37,7 @@ Vous pouvez aussi accéder à l’écran de configuration soit en cliquant sur *
 
 Les utilisateurs peuvent définir les périodes pendant lesquelles ils ne reçoivent pas d’alertes.
 
-![image](../assets/configuration/receive-and-configure-alerts-4.png)
+![image](../assets/configuration/receive-and-configure-alerts-4.webp)
 
 Egalement, chaque alerte peut être activée/désactivée sur des plages horaires pour ne pas notifier les personnes abonnées à cette alerte, quelque soit leur propre planning.
 
@@ -47,22 +47,22 @@ Sélectionnez la façon dont vous souhaitez être alerté (SMS/Email/Slack). Voi
 
 #### Email
 
-![image](../assets/configuration/receive-and-configure-alerts-5.png)
+![image](../assets/configuration/receive-and-configure-alerts-5.webp)
 
 #### SMS
 
-![image](../assets/configuration/receive-and-configure-alerts-6.png)
+![image](../assets/configuration/receive-and-configure-alerts-6.webp)
 
 #### Webhook
 
 En complément des alertes par e-mail ou SMS, Experience Monitoring permet aux utilisateurs de recevoir leurs alertes via un **webhook**, offrant ainsi une plus grande flexibilité pour l'intégration avec d'autres outils et systèmes. Lorsqu'un incident est détecté sur une application web surveillée, Experience Monitoring peut envoyer une requête **HTTP POST** à une URL spécifiée par l'utilisateur. Cette URL peut être protégée par un accès **htaccess**, et l'utilisateur peut également définir des **headers spécifiques** si nécessaire.
 La configuration de cette URL est disponible en cliquant sur le mot “Webhook” d’une alerte nouvellement créée ou pré-existante, puis en cliquant sur l’icone “**+**” (**Créer un webhook**) :
 
-![image](../assets/configuration/receive-and-configure-alerts-7.png)
+![image](../assets/configuration/receive-and-configure-alerts-7.webp)
 
 Ensuite il suffit de rentrer l’URL de votre choix et les éventuels paramètres de connexion htaccess (si l’API est sécurisée par un Htaccess) :
 
-![image](../assets/configuration/receive-and-configure-alerts-8.png)
+![image](../assets/configuration/receive-and-configure-alerts-8.webp)
 
 Le corps de la requête POST qui sera envoyée en cas d’alerte contient un **payload JSON** avec des informations détaillées sur l'alerte, permettant une exploitation automatisée des données. Voici un exemple du format envoyé :
 
@@ -172,4 +172,4 @@ Il n’y a pas de quotas pour les emails, les webhooks et les notifications Slac
 
 Pour voir votre crédit de SMS, aller dans *Configuration*, puis dans l’onglet *Site*. Vous trouverez votre quota dans la partie *Alertes & Rapports*
 
-![image](../assets/configuration/receive-and-configure-alerts-9.png)
+![image](../assets/configuration/receive-and-configure-alerts-9.webp)

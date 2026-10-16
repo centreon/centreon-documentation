@@ -44,7 +44,7 @@ In addition to their status, resources can be in several states:
     percentage of the resource is very high. This percentage is obtained
     from calculations performed by the monitoring engine. In the **Resource Status** page, flapping resources have a green background and have the following icon in their **Details** panel and in the **State** column:
 
-    ![image](../assets/alerts/flapping_icon.png)
+    ![image](../assets/alerts/flapping_icon.webp)
 
     If you have configured flapping notifications for the resource, one notification is sent when the resource starts flapping, and another one is sent when it stops flapping. Alert and recovery notifications are temporarily disabled.
 
@@ -80,7 +80,7 @@ A service has the following check settings:
 
 Let us imagine the following scenario:
 
-![image](../assets/configuration/soft_hard_states.png)
+![image](../assets/configuration/soft_hard_states.webp)
 
 | Time | Check attempt | Status   | Status type | State change | Note                                                                                                                                                                                                          |
 |------|---------------|----------|-------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

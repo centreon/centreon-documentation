@@ -17,7 +17,7 @@ local password security policy.
 Users can change their password by clicking the profile icon in the top right corner of the page and then clicking **Edit profile**.
 On this screen, the password expiration time is displayed:
 
-![image](../assets/administration/password_expiration.png)
+![image](../assets/administration/password_expiration.webp)
 
 ## Configure a local password security policy
 
@@ -27,7 +27,7 @@ complex password, to give passwords a lifespan and to block brute force attempts
 
 Go to **Administration > Authentication> Password Security Policy**:
 
-![image](../assets/administration/local-configuration.png)
+![image](../assets/administration/local-configuration.webp)
 
 ### Password case policy
 

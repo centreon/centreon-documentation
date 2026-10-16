@@ -22,8 +22,8 @@ To create a host manually:
   In case of conflicts between settings present on multiple templates, the host template above overwrites the identical properties
 defined in the host templates below.
 
-  This button enables us to change the order of host templates ![image](../../assets/configuration/common/move.png#thumbnail1)
-  This button is used to delete the host template ![image](../../assets/configuration/common/delete.png#thumbnail1)
+  This button enables us to change the order of host templates ![image](../../assets/configuration/common/move.webp#thumbnail1)
+  This button is used to delete the host template ![image](../../assets/configuration/common/delete.webp#thumbnail1)
 
   The services associated with the host template will be created automatically.
 
@@ -38,13 +38,13 @@ defined in the host templates below.
    * The **Name** and **Value** field are used to define the name and value of the macro. Note that for security reasons, parameters formatted as `<protocol>://<ip-address>` are not accepted.
    * The **Password** box is used to hide the value of the macro.
 
-  To reinitialize to the default value (defined in the template), click ![image](../../assets/configuration/common/undo.png#thumbnail1)
+  To reinitialize to the default value (defined in the template), click ![image](../../assets/configuration/common/undo.webp#thumbnail1)
   
-  To view the description of the macro, click ![image](../../assets/configuration/common/description.png#thumbnail1)
+  To view the description of the macro, click ![image](../../assets/configuration/common/description.webp#thumbnail1)
 
-  To delete the macro, click ![image](../../assets/configuration/common/delete.png#thumbnail1)
+  To delete the macro, click ![image](../../assets/configuration/common/delete.webp#thumbnail1)
 
-  To change the order of the macros, click ![image](../../assets/configuration/common/move.png#thumbnail1)
+  To change the order of the macros, click ![image](../../assets/configuration/common/move.webp#thumbnail1)
 
 * The **Check Period** field defines the [time period](../basic-objects/timeperiods.md) during which the scheduler checks the status of the object.
 * The **Timezone** field indicates the location of the monitored hosts. The check period for this host will be based on this timezone.

@@ -24,7 +24,7 @@ The advantages are:
 A service or a service template can only inherit from a single service template
 (parent-child type inheritance).
 
-![image](../../assets/configuration/09heritageservice.png)
+![image](../../assets/configuration/09heritageservice.webp)
 
 ### Configuration
 
@@ -56,7 +56,7 @@ host templates:
 
 e.g.: We create the srvi-web-01 host according to the template below:
 
-![image](../../assets/configuration/09hostexemple.png)
+![image](../../assets/configuration/09hostexemple.webp)
 
 The host srvi-web-01 will automatically possess the following services:
 

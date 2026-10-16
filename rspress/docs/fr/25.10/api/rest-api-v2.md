@@ -15,7 +15,7 @@ elle fonctionne, il n'y a rien de plus pratique qu'une collection
 
 Depuis l'espace de travail, cliquer sur le bouton **Import**.
 
-![image](../assets/api/postman-import.png)
+![image](../assets/api/postman-import.webp)
 
 Aller dans l'onglet **Link** et entrer l'URL vers la définition OpenAPI de
 GitHub :
@@ -24,7 +24,7 @@ GitHub :
 https://raw.githubusercontent.com/centreon/centreon/refs/tags/25.10-latest/centreon/doc/API/centreon-api.yaml
 ```
 
-![image](../assets/api/postman-import-link.png)
+![image](../assets/api/postman-import-link.webp)
 
 Cliquer sur **Continue** et modifier quelques paramètres par défaut :
 
@@ -37,7 +37,7 @@ Cliquer sur **Continue** et modifier quelques paramètres par défaut :
 Cliquer ensuite sur **Import** et attendre quelques secondes que le processus
 aboutisse.
 
-![image](../assets/api/postman-import-feedback.png)
+![image](../assets/api/postman-import-feedback.webp)
 
 ### Ajouter un environnement
 
@@ -52,7 +52,7 @@ Depuis l'espace de travail, cliquer sur l'icone **Manage Environments**.
 Cliquer sur **Add** et definir les variables comme suit avec les informations
 de la plateforme :
 
-![image](../assets/api/postman-environment-add.png)
+![image](../assets/api/postman-environment-add.webp)
 
 Cliquer ensuite sur **Add**, et sélectionner l'environnement dans la liste des
 environnements.
@@ -61,7 +61,7 @@ environnements.
 > s'agit d'avantage d'une variable de la collection. Elle peut être changée
 > directement dans la collection en l'éditant.
 >
-> ![image](../assets/api/postman-collection-edit.png)
+> ![image](../assets/api/postman-collection-edit.webp)
 >
 > Dans l'onglet **Variables**, changer la valeur de *version* soit par
 > "latest", soit par votre numéro de version `v<majeure>.<mineure>`, par exemple "v25.10".
@@ -78,7 +78,7 @@ environnements.
 >   "fix": "0"
 > \}
 >
-> ![image](../assets/api/postman-collection-variables.png)
+> ![image](../assets/api/postman-collection-variables.webp)
 >
 > Les autres variables seront surchargées par les variables d'environnement.
 
@@ -94,7 +94,7 @@ Depuis la collection, sélectionner la requête *Login* du répertoire
 Dans l'onglet **Body**, changer les valeurs des paramètres *login* et *password*
 par les variables d'environnement `{{username}}` et `{{password}}` comme suit :
 
-![image](../assets/api/postman-login-body.png)
+![image](../assets/api/postman-login-body.webp)
 
 Dans l'onglet **Tests**, ajouter le code suivante :
 
@@ -112,7 +112,7 @@ pm.test("The response has all properties", () => {
 pm.environment.set("token", responseJson.security.token);
 ```
 
-![image](../assets/api/postman-login-test.png)
+![image](../assets/api/postman-login-test.webp)
 
 Cliquer ensuite sur **Save** ou utiliser le raccourci *Ctrl+S*.
 
@@ -121,21 +121,21 @@ Cliquer ensuite sur **Save** ou utiliser le raccourci *Ctrl+S*.
 Une fois sauvegardée, exécuter la requête d'authentification en cliquant sur
 **Send**.
 
-![image](../assets/api/postman-login-response.png)
+![image](../assets/api/postman-login-response.webp)
 
 Si réussie, cela va ajouter une nouvelle variable d'environnement *token* avec
 la valeur récupérée dans la réponse.
 
-![image](../assets/api/postman-environment-view.png)
+![image](../assets/api/postman-environment-view.webp)
 
 Pour l'utiliser dans toutes les requêtes, il faut éditer la collection.
 
-![image](../assets/api/postman-collection-edit.png)
+![image](../assets/api/postman-collection-edit.webp)
 
 Dans l'onglet **Authorization**, choisir le type *API Key* et remplir le champ
 *Key* avec `X-AUTH-TOKEN` et le champ *Value* avec `{{token}}`.
 
-![image](../assets/api/postman-collection-edit-authorization.png)
+![image](../assets/api/postman-collection-edit-authorization.webp)
 
 S'assurer de sélectionner *Header*.
 
@@ -149,7 +149,7 @@ sur les autres *endpoints*.
 Désélectionner les paramètres de requête non utilisés ou les remplir avec des
 valeurs, et cliquer sur **Send**.
 
-![image](../assets/api/postman-hosts-list-console.png)
+![image](../assets/api/postman-hosts-list-console.webp)
 
 Vous remarquerez le *token* ajouté dans les *headers*.
 

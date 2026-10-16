@@ -557,6 +557,36 @@ def fix_links() -> None:
     print(f"  links fixed in {count} files")
 
 
+_RE_PNG_REF = re.compile(r"[^\s\"'()<>{}\[\]]+\.png\b")
+
+
+def convert_png_to_webp() -> None:
+    """Convert PNG images to lossless WebP and point the pages at them."""
+    result = subprocess.run(
+        ["node", str(ROOT / "scripts" / "png-to-webp.mjs"), str(DOCS_ROOT)],
+        check=True, capture_output=True, text=True, cwd=ROOT,
+    )
+    print(result.stderr.rstrip())
+    converted = {(DOCS_ROOT / p).resolve() for p in json.loads(result.stdout)}
+    count = 0
+    for md in sorted(DOCS_ROOT.glob("[a-z][a-z]/**/*.md*")):
+        original = md.read_text(encoding="utf-8")
+
+        def repl(m: re.Match) -> str:
+            ref = m.group(0)
+            if ref.startswith(("/", "http:", "https:")):
+                return ref
+            if (md.parent / ref).resolve() in converted:
+                return ref[: -len(".png")] + ".webp"
+            return ref
+
+        content = _RE_PNG_REF.sub(repl, original)
+        if content != original:
+            md.write_text(content, encoding="utf-8")
+            count += 1
+    print(f"  webp: references updated in {count} files")
+
+
 def publish_downloads() -> None:
     """Copy linked downloadable files to public/ at the URL the relative link resolves to.
 
@@ -596,6 +626,8 @@ if __name__ == "__main__":
     fix_links()
     print("Publishing downloadable files…")
     publish_downloads()
+    print("Converting PNG images to WebP…")
+    convert_png_to_webp()
     print("Optimizing media (gif/video)…")
     optimize_media()
     print("Generating sidebar…")

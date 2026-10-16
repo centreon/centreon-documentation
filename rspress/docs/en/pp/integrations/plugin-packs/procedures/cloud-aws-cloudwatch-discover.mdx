@@ -202,7 +202,7 @@ yum install centreon-plugin-Cloud-Aws-Cloudwatch-Api
 Create a new discovery job and select **AWS Discover** as the provider. Click on *next* and set the authentication parameters
 as well as optional access parameters if needed:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-accessparameters.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-accessparameters.webp)
 
 - Select the **Centreon Poller** from where the discovery job will be launched
 - If necessary, add an entreprise **proxy URL and port** to use to reach the AWS API
@@ -211,7 +211,7 @@ as well as optional access parameters if needed:
 A new credentials profile has to be created the first time you need to use this authentification method. You can do so by clicking the '+' button and set the proper AWS
 authentication parameters:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-credentials.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-credentials.webp)
 
 Click on *confirm* then *next* to go to the next step of the wizard and adjust the discovery parameters.
 
@@ -219,7 +219,7 @@ Click on *confirm* then *next* to go to the next step of the wizard and adjust t
 
 Adjust the following settings:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-discoparameters.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-discoparameters.webp)
 
 > All the fields of this form are optional.
 
@@ -239,7 +239,7 @@ will help you to customize it if needed. Coming to step 6, just click on *finish
 Once the discovery job complete, you can display the results by clicking on *job results*. All the available Host Templates
 corresponding to the discovered AWS resources will be automatically set, like in the example below:
 
-![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-results.png)
+![image](../../../assets/integrations/plugin-packs/procedures/cloud-aws-cloudwatch-discover-results.webp)
 
 > Some discovered elements may come up without any predefined Host Template; this is usually due to one or several **mappers**
 > conditions that cannot be applied.

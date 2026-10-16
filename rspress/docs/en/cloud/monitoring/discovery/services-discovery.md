@@ -13,27 +13,27 @@ Go to the **Configuration > Services > Scan** menu.
 Start to write the name of the host and the web interface automatically completes the
 name:
 
-![image](../../assets/configuration/autodisco/manual_scan_select_host.png)
+![image](../../assets/configuration/autodisco/manual_scan_select_host.webp)
 
 Select the discovery command to run from the list that has just appeared:
 
-![image](../../assets/configuration/autodisco/manual_scan_select_command.png)
+![image](../../assets/configuration/autodisco/manual_scan_select_command.webp)
 
 > If the list is empty, it means that your host doesn't use a host template
 > linked to a discovery rule.
 
 Click the **Scan** button and wait during the discovery:
 
-![image](../../assets/configuration/autodisco/manual_scan_wait.png)
+![image](../../assets/configuration/autodisco/manual_scan_wait.webp)
 
 The result is displayed. Select items to add to the monitoring and click the
 **Save** button:
 
-![image](../../assets/configuration/autodisco/manual_scan_result.png)
+![image](../../assets/configuration/autodisco/manual_scan_result.webp)
 
 The items were added and it is no longer possible to select them:
 
-![image](../../assets/configuration/autodisco/manual_scan_added.png)
+![image](../../assets/configuration/autodisco/manual_scan_added.webp)
 
 > It is possible that some items in the list of results cannot be selected. This
 > indicates that they are already part of the configuration.
@@ -41,7 +41,7 @@ The items were added and it is no longer possible to select them:
 The services were added and can be displayed in the menu `Configuration >
 Services > Services by host`:
 
-![image](../../assets/configuration/autodisco/manual_scan_services.png)
+![image](../../assets/configuration/autodisco/manual_scan_services.webp)
 
 ## Discovery rules
 
@@ -55,11 +55,11 @@ used (inheritance, overloading and more).
 To create a rule, go to **Configuration > Services > Rules** and click the
 **Add** button:
 
-![image](../../assets/configuration/autodisco/create_rule_1.png)
+![image](../../assets/configuration/autodisco/create_rule_1.webp)
 
 Fill the first fields:
 
-![image](../../assets/configuration/autodisco/create_rule_2.png)
+![image](../../assets/configuration/autodisco/create_rule_2.webp)
 
 Here is the description of the firsts fields located inside the *General* tab:
 
@@ -74,12 +74,12 @@ Here is the description of the firsts fields located inside the *General* tab:
 Go to the second **Inclusions / Exclusions & Macros** tab. You should see
 available XML attributes:
 
-![image](../../assets/configuration/autodisco/create_rule_3.png)
+![image](../../assets/configuration/autodisco/create_rule_3.webp)
 
 Come back to the first **General** tab, define the **Service display name** and
 select values for the other fields:
 
-![image](../../assets/configuration/autodisco/create_rule_4.png)
+![image](../../assets/configuration/autodisco/create_rule_4.webp)
 
 Define the name of the service that will be created.
 
@@ -116,7 +116,7 @@ Click the **Save** button to save the discovery rule.
 
 The **Inclusions / Exclusions & Macros** tab works as follows:
 
-![image](../../assets/configuration/autodisco/create_rule_5.png)
+![image](../../assets/configuration/autodisco/create_rule_5.webp)
 
 The **Inclusions / Exclusions** part allows elements to be included or excluded
 during the discovery. This inclusion/exclusion is relative to an XML attribute.
@@ -134,7 +134,7 @@ The second part, **Macros**, is used to define matches between an XML attribute 
 a service's template macro. For all created services, the macros' values will be
 replaced by the attributes' values.
 
-![image](../../assets/configuration/autodisco/create_rule_6.png)
+![image](../../assets/configuration/autodisco/create_rule_6.webp)
 
 > In the image above, all macros will be created for the service because the
 > checkbox **Empty** is selected. To avoid creating them, do not check the
@@ -147,7 +147,7 @@ On the last **Advanced** tab, you can apply a regexp on the **Service display
 name**. Click the **Add a new entry** button and define the pattern and expression
 result:
 
-![image](../../assets/configuration/autodisco/create_rule_7.png)
+![image](../../assets/configuration/autodisco/create_rule_7.webp)
 
 The regexp can be applied on the **String** field for:
 
@@ -194,7 +194,7 @@ For each discovery plugin, you need to define two commands:
   - The first one to get the list of available XML attributes
   - The second one to discover items on a host
 
-![image](../../assets/configuration/autodisco/commands_list.png)
+![image](../../assets/configuration/autodisco/commands_list.webp)
 
 ### Command to list available XML attributes
 
@@ -210,7 +210,7 @@ Fill in the fields:
 > All commands using a Centreon Plugin project need to set the **hostname** option,
 > so add **--hostname=127.0.0.1** in your command line
 
-![image](../../assets/configuration/autodisco/command_attributes.png)
+![image](../../assets/configuration/autodisco/command_attributes.webp)
 
 This is an example of the command line executed in a shell:
 
@@ -243,7 +243,7 @@ Fill in the fields:
   - **Command type**: check **Discovery** option
   - **Command Line**: Define the command to get the list of items.
 
-![image](../../assets/configuration/autodisco/command_disco.png)
+![image](../../assets/configuration/autodisco/command_disco.webp)
 
 This is an example of the command line executed in a shell:
 

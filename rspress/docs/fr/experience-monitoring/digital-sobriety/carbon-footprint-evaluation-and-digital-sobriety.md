@@ -11,13 +11,13 @@ Pour respecter ces principes et fournir une mesure d’impact carbone la plus pr
 
 - Le Score de Sobriété Numérique pour le score d’éco-conception, représenté par un score par page sur un total de 100 points
     
-    ![Image](../assets/digital-sobriety/carbon-footprint-1.png)
+    ![Image](../assets/digital-sobriety/carbon-footprint-1.webp)
     
     Mesure du score d’éco-conception dans Experience Monitoring pour un parcours utilisateur donné.
     
 - La méthode [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) pour l’estimation du coût en CO<sub>2</sub>eq émis par le téléchargement d’une page sur le réseau.
     
-    ![Image](../assets/digital-sobriety/carbon-footprint-2.png)
+    ![Image](../assets/digital-sobriety/carbon-footprint-2.webp)
     
     Mesure de l’impact carbone, en CO<sub>2</sub>eq, réalisé via des requêtes synthétiques pour un parcours utilisateur donné.
     
@@ -25,7 +25,7 @@ Pour respecter ces principes et fournir une mesure d’impact carbone la plus pr
 
 Selon les fonctionnalités concernées, que cela soit pour la mesure d’impact carbone d’un parcours utilisateur donné sur le site, pour la mesure d’impact carbone de chacune des pages du site pondérées à leur fréquentation, ou encore l’affichage des pages ayant les plus gros leviers d’optimisations d’éco-conception à réaliser, Experience Monitoring va utiliser l’une ou l’autre de ces méthodes, et toujours de façon transparente.
 
-  ![Image](../assets/digital-sobriety/carbon-footprint-3.png)
+  ![Image](../assets/digital-sobriety/carbon-footprint-3.webp)
 
 Mesure globale d’un site Internet (score d’éco-conception et empreinte carbone) calculé sur la base du **trafic réel** dans le module Real User Monitoring d'Experience Monitoring.
 

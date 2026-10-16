@@ -23,7 +23,7 @@ configuration.
 
 2. Sélectionnez **Ajouter un collecteur Centreon** et cliquez sur **Suivant** :
 
-    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-1.png)
+    ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-1.webp)
 
 3. Sélectionnez l'option désirée :
     - **Create new Poller** si vous n'avez pas encore enregistré le collecteur sur le serveur central ou un serveur distant
@@ -34,7 +34,7 @@ Si le collecteur qui vous êtes en train d'ajouter sera en flux inversé, vous d
 4. Saisissez le nom, l'adresse du collecteur (IP ou FQDN) et celle du serveur central, puis
 cliquez sur **Suivant** :
 
-![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.png)
+![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-2.webp)
 
  > L'adresse du collecteur est l'adresse IP ou le FQDN pour accéder au
  > collecteur depuis le serveur central.
@@ -47,13 +47,13 @@ cliquez sur **Suivant** :
    - Si vous souhaitez lier ce collecteur au serveur Central, cliquez sur
 **Appliquer** :
 
-   ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.png)
+   ![image](../../assets/monitoring/monitoring-servers/wizard-add-poller-3.webp)
 
    - Si vous souhaitez lier ce collecteur à un serveur distant, sélectionnez celui-ci dans la liste et cliquez sur **Appliquer**.
 
     Patientez quelques secondes, l'assistant va configurer votre nouveau serveur.
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq.png)
+    ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq.webp)
 
 ## Étape 2 : Activer la communication
 
@@ -70,7 +70,7 @@ recommandé) ou en utilisant le protocole SSH.
     comme **Protocole de connexion utilisé par Gorgone**. Définissez le **port**
     adéquat (le port **5556** est recommandé).
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.png)
+    ![image](../../assets/monitoring/monitoring-servers/poller-edit-zmq.webp)
 
     Cliquez sur **Sauvegarder**.
 
@@ -82,12 +82,12 @@ recommandé) ou en utilisant le protocole SSH.
 2. Afficher la configuration de Gorgone :
 
     Depuis la liste des collecteurs, cliquez sur l'icône d'action **Gorgone
-    configuration** sur la ligne correspondant à votre collecteur : ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail2)
+    configuration** sur la ligne correspondant à votre collecteur : ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.webp#thumbnail2)
 
     Une pop-in affiche la configuration à copier dans le **terminal du collecteur**.
     Cliquez sur **Copy to clipboard**.
 
-    ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
+    ![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.webp)
 
     Collez le contenu du presse-papier directement dans le **terminal du collecteur**
     car celui-ci créera le fichier de configuration attendu :
@@ -169,7 +169,7 @@ la commande suivante depuis le **serveur Central** :
   Éditez la configuration du collecteur fraîchement créé, et sélectionnez **SSH**
 comme **Protocole de connexion utilisé par Gorgone**. Définissez le **port** adéquat.
 
-  ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-edit-ssh.webp)
 
  2. Cliquez sur **Sauvegarder**.
 
@@ -241,11 +241,11 @@ la configuration**.
 2. Cochez ensuite les quatre premières cases, sélectionnez la méthode **Redémarrer**
 puis cliquez sur **Exporter** :
 
-  ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-generate-config.webp)
 
   Le moteur de supervision du collecteur va alors démarrer et se connecter au Broker du serveur central ou du serveur distant (suivant le serveur auquel vous avez rattaché le collecteur).
 
-  ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.png)
+  ![image](../../assets/monitoring/monitoring-servers/poller-list-zmq-started.webp)
 
 ## Premiers pas
 

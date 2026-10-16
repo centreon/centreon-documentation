@@ -11,11 +11,11 @@ Créez, personnalisez et visualisez vos cartes au sein d'une unique interface we
 
 Vous devez d'abord créer vos vues logiques à l'aide de l'éditeur MAP :
 
-![image](../assets/graph-views/map-web-editor-view.png)
+![image](../assets/graph-views/map-web-editor-view.webp)
 
 Vous pouvez ensuite visualiser votre carte directement dans le mode de visualisation :
 
-![image](../assets/graph-views/map-web-global-view.png)
+![image](../assets/graph-views/map-web-global-view.webp)
 
 Vos cartes peuvent être affichées de deux façons dans l'interface :
 - Dans la page **Supervision > Map**, en mode visualisation.

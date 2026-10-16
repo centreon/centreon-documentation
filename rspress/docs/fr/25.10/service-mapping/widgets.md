@@ -12,7 +12,7 @@ title: Widgets
 Ce widget est utilisé dans les **Vues personnalisées**. Il permet d'afficher sur la page d'accueil de Centreon, sous
 forme de widget, l'état actuel de vos activités métier.
 
-![image](../assets/service-mapping/widget_bam-ba-listing.png)
+![image](../assets/service-mapping/widget_bam-ba-listing.webp)
 
 ## Paramètres
 
@@ -41,4 +41,4 @@ forme de widget, l'état actuel de vos activités métier.
 
 **Exemple**
 
-![image](../assets/service-mapping/widget_bam-ba-listing_param.png)
+![image](../assets/service-mapping/widget_bam-ba-listing_param.webp)

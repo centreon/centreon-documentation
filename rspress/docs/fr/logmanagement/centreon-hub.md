@@ -37,4 +37,4 @@ Votre administrateur vous a invité dans Centreon Hub : vous avez reçu un email
 
 Pour lancer Centreon Log Management, connectez-vous à Centreon Hub. À la page **Applications**, cliquez sur la vignette souhaitée :
 
-![image](./assets/ciam.png)
+![image](./assets/ciam.webp)

@@ -7,7 +7,7 @@ title: Utiliser des modèles de contacts
 
 Un contact ou un modèle de contact peut hériter d’un seul modèle de contact.
 
-![image](../../assets/configuration/09contactmodel.png)
+![image](../../assets/configuration/09contactmodel.webp)
 
 ### Configuration
 

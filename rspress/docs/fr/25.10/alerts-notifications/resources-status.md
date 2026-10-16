@@ -16,7 +16,7 @@ Le listing des évènements permet d'avoir une vue condensée des alertes en
 cours ou plus largement de l'état de toutes les ressources supervisées par
 la plateforme Centreon.
 
-![image](../assets/alerts/resources-status/resources-status-listing.png)
+![image](../assets/alerts/resources-status/resources-status-listing.webp)
 
 Il est possible d'ajouter ou de masquer des colonnes, ainsi que de choisir la colonne de tri afin d'ordonner le listing, par
 exemple par statut ou encore par sévérité.
@@ -36,8 +36,8 @@ Utilisez les boutons **Afficher la vue** au-dessus de la liste des ressources po
 Vous pouvez afficher la vue dans le mode qui vous convient le mieux, en modifiant la présentation visuelle des lignes dans les tableaux.
 
 Cliquez sur le bouton dédié pour faciliter la lecture des informations contenues dans les tableaux :
-- Mode vue "compact" ![image](../assets/alerts/resources-status/compact-icon.png)
-- Mode vue "extended" ![image](../assets/alerts/resources-status/extended-icon.png)
+- Mode vue "compact" ![image](../assets/alerts/resources-status/compact-icon.webp)
+- Mode vue "extended" ![image](../assets/alerts/resources-status/extended-icon.webp)
 
 ### Exporter au format CSV
 
@@ -136,7 +136,7 @@ Signification des filtres :
 
 Vous pouvez filtrer la liste des ressources selon un certain nombre de critères prédéfinis.
 
-1. Cliquez sur l'icône **Options de filtre** :![image](../assets/alerts/resources-status/search-options-icon.png)
+1. Cliquez sur l'icône **Options de filtre** :![image](../assets/alerts/resources-status/search-options-icon.webp)
 
     Une pop-in apparaît, listant les critères suivants :
 
@@ -299,7 +299,7 @@ seront visibles sur le panneau.
 
 L'onglet **Historique** montre une liste antichronologique des évènements survenus pour ce service ou cet hôte. Utilisez la liste **Évènement** pour afficher uniquement les types d'évènements désirés.
 
-![image](../assets/alerts/resources-status/timeline.png)
+![image](../assets/alerts/resources-status/timeline.webp)
 
 Vous pouvez exporter la liste complète des évènements au format CSV.
 
@@ -310,7 +310,7 @@ L'onglet **Graphique** vous permet d’afficher de manière visuelle l'évolutio
 Lorsque le curseur ne survole pas les courbes, la légende affiche les valeurs minimum, maximum et moyennes 
 pour chaque métrique.
 
-![image](../assets/alerts/resources-status/resources-status-values.png)
+![image](../assets/alerts/resources-status/resources-status-values.webp)
 
 Utilisez la légende pour afficher ou masquer des métriques.
 
@@ -351,11 +351,11 @@ En cliquant sur le bouton **Exporter**, vous pouvez exporter une capture du grap
 
 Pour voir une version plus grande du graphique, cliquez sur **Go to performance page** en haut à droite du graphique.
 
-![image](../assets/alerts/resources-status/graph-open.png)
+![image](../assets/alerts/resources-status/graph-open.webp)
 
 Le graphique s'ouvre dans la page **Supervision > Informations de performance > Graphiques**, vous permettant de filtrer celui-ci plus précisément.
 
-![image](../assets/alerts/resources-status/graph-open2.png)
+![image](../assets/alerts/resources-status/graph-open2.webp)
 
 Vous pouvez aussi exporter les données du graphique au format CSV (toutes les métriques seront incluses), ou bien au format PNG en différentes tailles.
 
@@ -365,4 +365,4 @@ L'onglet Notification affiche si les notifications sont activées pour la ressou
 
 Pour paramétrer les destinataires, cliquez sur l'icône "roue dentée" de la section **Contacts** ou **Contact groups**.
 
-![image](../assets/alerts/resources-status/notification_tab.png)
+![image](../assets/alerts/resources-status/notification_tab.webp)

@@ -27,7 +27,7 @@ yum install centreon-plugin-Cloud-Aws-Ec2-Api
 
 2. Entrez un nom pour votre tâche de découverte, puis sélectionnez le fournisseur **Amazon AWS EC2**. Cliquez sur **Suivant**.
 
-    ![image](../assets/getting-started/aws-provider.png)
+    ![image](../assets/getting-started/aws-provider.webp)
 
 3. Sélectionnez le collecteur qui supervisera vos instances EC2.
 
@@ -42,7 +42,7 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
     - Faites correspondre `host.name` à l'attribut `discovery.results.name`. Les noms de vos hôtes dans Centreon seront ceux définis dans cet attribut (c'est-à-dire le hostname de l'instance).
     - Dans notre exemple, nous allons exclure les instances dont le hostname contient "test".
 
-    ![image](../assets/getting-started/aws-mapper.png)
+    ![image](../assets/getting-started/aws-mapper.webp)
 
     Cliquez sur **Suivant**.
 
@@ -50,19 +50,19 @@ puis cliquez sur **Confirmer**. Cliquez sur **Suivant**.
 
 9. Sélectionnez **Exécuter immédiatement** puis cliquez sur **Finir**. La tâche de découverte apparaît dans la liste des tâches.
 
-  ![image](../assets/getting-started/aws-listofjobs.png)
+  ![image](../assets/getting-started/aws-listofjobs.webp)
 
 ## Étape 3 : Sauvegarder les hôtes et les mettre en supervision
 
 1. Après quelques secondes, rafraîchissez la page. Une coche verte devrait apparaître dans la colonne **Statut**.
 
-    ![image](../assets/getting-started/aws-success.png)
+    ![image](../assets/getting-started/aws-success.webp)
 
 2. Survolez la ligne correspondant à la tâche qui vient de se terminer puis cliquez sur **Display the job result** (l'icône flèche). Une liste d'hôtes apparaît.
 
-   ![image](../assets/getting-started/aws-results.png)
+   ![image](../assets/getting-started/aws-results.webp)
 
-3. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés, puis cliquez sur **Enregistrer**. ![image](../assets/getting-started/aws-save.png)
+3. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés, puis cliquez sur **Enregistrer**. ![image](../assets/getting-started/aws-save.webp)
 
 4. Allez à la page **Configuration > Hôtes > Hôtes (simplifiés)** et vérifiez que les hôtes que vous avez sélectionnés à l'étape précedente apparaissent bien dans la liste. Attention, les hôtes ont été ajoutés à la liste des hôtes mais ils ne sont pas encore supervisés.
 

@@ -9,7 +9,7 @@ La distinction entre le Score de Sobriété Numérique d'Experience Monitoring e
 
 **Critères d'Évaluation** : L'Eco Index se fonde sur trois critères principaux pour évaluer l'empreinte environnementale d'un site web : la taille du Document Object Model (DOM), le poids de la page, et le nombre de requêtes HTTP. Ces critères sont évalués dans la formule de l’Eco Index avec un poids respectif de 3, 1 et 2, donnant une importance prépondérante à la taille du DOM et au nombre de requêtes HTTP effectuées dans l'évaluation :
 
-![Image](../assets/digital-sobriety/difference-score-and-eco-index-1.png)
+![Image](../assets/digital-sobriety/difference-score-and-eco-index-1.webp)
 
 **Objectif** : En se concentrant sur ces trois critères, l'Eco Index vise à encourager des améliorations ciblées sur des aspects techniques précis des sites web pour réduire leur impact environnemental. Ce focus offre une simplicité d'approche, qui est un bon point de départ pour commencer à approcher l’éco-conception d’un site internet, mais qui montre aussi des limites pour évaluer les impacts environnementaux de l’usage des serveurs et des terminaux utilisateurs visitant le site.
 
@@ -19,7 +19,7 @@ La distinction entre le Score de Sobriété Numérique d'Experience Monitoring e
 
 Voici l’algorithme de calcul du Score de Sobriété Numérique avec ses poids sur chaque critère d’évaluation menant jusqu’à la note globale :
 
-![Image](../assets/digital-sobriety/difference-score-and-eco-index-2.png)
+![Image](../assets/digital-sobriety/difference-score-and-eco-index-2.webp)
 
 **Avantages** : En valorisant un spectre d'indicateurs plus large et en analysant un “panel représentatif de pages” plutôt qu’une seule URL, le Score de Sobriété Numérique d'Experience Monitoring permet une évaluation plus globale de l'empreinte environnementale d'un site. Ces indicateurs permettent une prise en compte :
 

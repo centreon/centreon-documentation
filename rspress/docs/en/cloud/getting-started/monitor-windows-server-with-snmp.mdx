@@ -32,7 +32,7 @@ There are several ways to enable SNMP: from the **Settings** menu or by using Po
 
 2. Click **Add a feature** and search for SNMP:
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_4.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_4.webp)
 
 3. Select **Simple Network Management Protocol** (SNMP) and click **Install**.
 
@@ -45,7 +45,7 @@ There are several ways to enable SNMP: from the **Settings** menu or by using Po
   Get-WindowsCapability  -Online -Name "SNMP*"
   ```
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_1.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_1.webp)
 
 2. To install the SNMP service from Microsoft's servers, run the following command:
 
@@ -53,7 +53,7 @@ There are several ways to enable SNMP: from the **Settings** menu or by using Po
   Add-WindowsCapability  -Online -Name "SNMP.Client~~~~0.0.1.0"
   ```
 
-   ![image](../assets/getting-started/quick_start_windows_snmp_2.png)
+   ![image](../assets/getting-started/quick_start_windows_snmp_2.webp)
 
 3. Check if the SNMP service has been installed successfully:
 
@@ -61,7 +61,7 @@ There are several ways to enable SNMP: from the **Settings** menu or by using Po
   Get-WindowsCapability  -Online -Name "SNMP*"
   ```
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_3.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_3.webp)
 
 </Tab>
 </Tabs>
@@ -74,20 +74,20 @@ After installing SNMP, you need to configure it.
 
 2. Look for the SNMP service in the list.
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_55.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_55.webp)
 
 3. On the **Agent** tab, fill in the **Contact** and **Location** parameters. Then, in the **Service** section, check the boxes for services from which you want to collect data for forwarding to the Centreon Poller that will monitor the host.
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_6.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_6.webp)
 
 4. On the **Security** tab, enter the SNMP community in the **Accepted community names** section and choose the **READ ONLY** option.
 Then select **Accept SNMP packets from these hosts** and add the IP address of the Centreon poller.
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_8.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_8.webp)
 
 5. Restart the SNMP Service:
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_5.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_5.webp)
 
 ### In the user interface
 
@@ -111,25 +111,25 @@ In the user interface, go to **Configuration > Connectors > Monitoring Connector
 
 3. Click **+ Add a new entry** in the **Templates** field (6), then select the **OS-Windows-SNMP-custom** template (7) from the list.
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_12.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_12.webp)
 
 4. Click **Save**. Your device has been added to the list of hosts:
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_13.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_13.webp)
 
 5. Go to **Configuration > Services > Services (simplified)**. A set of indicators has been automatically deployed:
 
-  ![image](../assets/getting-started/quick_start_windows_snmp_14.png)
+  ![image](../assets/getting-started/quick_start_windows_snmp_14.webp)
 
 6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
 7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
 
-   ![image](../assets/getting-started/quick_start_windows_snmp_15.png)
+   ![image](../assets/getting-started/quick_start_windows_snmp_15.webp)
 
    After a few minutes, the first results of the monitoring appear:
 
-   ![image](../assets/getting-started/quick_start_windows_snmp_16.png)
+   ![image](../assets/getting-started/quick_start_windows_snmp_16.webp)
 
    If not all services are in an OK state, check what is causing the error and fix the problem.
 
@@ -137,22 +137,22 @@ In the user interface, go to **Configuration > Connectors > Monitoring Connector
 
 The **Windows SNMP** Monitoring Connector provides several monitoring templates. Go to **Configuration > Services > Templates (simplified)** to see the complete list:
 
-   ![image](../assets/getting-started/quick_start_windows_snmp_18.png)
+   ![image](../assets/getting-started/quick_start_windows_snmp_18.webp)
 
 With **Centreon IT Edition** you can add the monitoring of your network cards, partitions, processes and services very quickly and very simply using the Service Discovery feature.
 
 1. Go to **Configuration > Services > Scan**. Start entering the name of the host and the web interface automatically completes the name:
 
-	![image](../assets/getting-started/quick_start_windows_snmp_19.png)
+	![image](../assets/getting-started/quick_start_windows_snmp_19.webp)
 
 2. Select the discovery command to run from the list that has just appeared below the **Rule** field. Then click the **Scan** button and wait during the discovery. The result is displayed. Select items to add to the monitoring and click the **Save** button:
 
-	![image](../assets/getting-started/quick_start_windows_snmp_20.png)
+	![image](../assets/getting-started/quick_start_windows_snmp_20.webp)
 
 The item was added. You can select another discovery command below **Rule** and repeat the process.
 
 3. The services are added and can be displayed in the **Configuration > Services > Services (simplified)** menu:
 
-	![image](../assets/getting-started/quick_start_windows_snmp_21.png)
+	![image](../assets/getting-started/quick_start_windows_snmp_21.webp)
 
 4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).

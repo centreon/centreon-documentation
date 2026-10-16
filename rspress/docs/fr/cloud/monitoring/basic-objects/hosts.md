@@ -22,8 +22,8 @@ Pour créer un hôte manuellement :
    En cas de conflits de paramètres présents sur plusieurs modèles, le modèle d’hôte au-dessus écrase les propriétés
 identiques définies dans modèles d’hôtes en dessous.
 
-   Ce bouton nous permet de changer l'ordre des modèles hôtes ![image](../../assets/configuration/common/move.png#thumbnail2)
-   Ce bouton sert à supprimer le modèle hôte ![image](../../assets/configuration/common/delete.png#thumbnail2)
+   Ce bouton nous permet de changer l'ordre des modèles hôtes ![image](../../assets/configuration/common/move.webp#thumbnail2)
+   Ce bouton sert à supprimer le modèle hôte ![image](../../assets/configuration/common/delete.webp#thumbnail2)
 
 * Le champ **Activer/désactiver la ressource** permet d’activer ou de désactiver l’hôte.
 
@@ -36,13 +36,13 @@ identiques définies dans modèles d’hôtes en dessous.
    * Les champs **Nom** et **Valeur** permettent respectivement de définir le nom et la valeur de la macro. Notez que pour des raisons de sécurité, les paramètres au format `<protocol>://<ip-address>` ne sont pas acceptés.
    * La case **Mot de passe** permet de cacher la valeur de la macro.
 
-   Pour réinitialiser la macro avec sa valeur par défaut (définie dans le template) cliquez sur ![image](../../assets/configuration/common/undo.png#thumbnail2)
+   Pour réinitialiser la macro avec sa valeur par défaut (définie dans le template) cliquez sur ![image](../../assets/configuration/common/undo.webp#thumbnail2)
 
-   Pour afficher la description de la macro, cliquez sur ![image](../../assets/configuration/common/description.png#thumbnail2)
+   Pour afficher la description de la macro, cliquez sur ![image](../../assets/configuration/common/description.webp#thumbnail2)
 
-   Pour supprimer la macro, cliquez sur ![image](../../assets/configuration/common/delete.png#thumbnail2)
+   Pour supprimer la macro, cliquez sur ![image](../../assets/configuration/common/delete.webp#thumbnail2)
 
-   Pour changer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.png#thumbnail2)
+   Pour changer l’ordre des macros, cliquez sur ![image](../../assets/configuration/common/move.webp#thumbnail2)
 
 * Le champ **Période de contrôle** définit la [période temporelle](../basic-objects/timeperiods.md) durant laquelle l’ordonnanceur vérifie le statut de l’objet.
 * Le champ **Fuseau horaire** indique l'emplacement du fuseau horaire des hôtes surveillés.

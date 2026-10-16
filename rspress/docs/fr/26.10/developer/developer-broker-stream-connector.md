@@ -291,7 +291,7 @@ Cette fonction ne doit **pas** être définie comme `local`, sinon elle ne sera 
 
 Prenons l’exemple de cette configuration :
 
-![image](../assets/developer/broker_config.png)
+![image](../assets/developer/broker_config.webp)
 
 avec deux entrées personnalisées :
 

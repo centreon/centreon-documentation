@@ -32,7 +32,7 @@ different data sources within the same report, we advise against it when
 performing heavy calculations or aggregations. Extract Transform Load
 (ETL) software is more suitable for that purpose.
 
-![1000000000000454000001517ADB9749.png](../assets/reporting/dev-guide/1000000000000454000001517ADB9749.png)
+![1000000000000454000001517ADB9749.png](../assets/reporting/dev-guide/1000000000000454000001517ADB9749.webp)
 
 This guide will only describe basic BIRT concepts and methods for
 designing reports (blue box in the above diagram).
@@ -60,7 +60,7 @@ types of data source in the same report project (e.g., JDBC and CSV).
 
 Configuration of a data source:
 
-![10000000000003DE000001E25067D84F_png](../assets/reporting/dev-guide/10000000000003DE000001E25067D84F.png)
+![10000000000003DE000001E25067D84F_png](../assets/reporting/dev-guide/10000000000003DE000001E25067D84F.webp)
 
 ### Data sets
 
@@ -72,7 +72,7 @@ The different data sets defined in a report will contain all the
 available data to build the visuals in the report (e.g., tables and
 charts).
 
-![100000000000053D00000175C278E199_png](../assets/reporting/dev-guide/100000000000053D00000175C278E199.png)\{width="18.401cm" height="5.117cm"\}
+![100000000000053D00000175C278E199_png](../assets/reporting/dev-guide/100000000000053D00000175C278E199.webp)\{width="18.401cm" height="5.117cm"\}
 
 ### Data binding
 
@@ -88,15 +88,15 @@ the required columns.
 
 Data binding is performed when you create a table or chart:
 
-![100000000000010E00000111F1CD232C_png](../assets/reporting/dev-guide/100000000000010E00000111F1CD232C.png)
-![1000000000000226000001CF01C06F25_png](../assets/reporting/dev-guide/1000000000000226000001CF01C06F25.png)
+![100000000000010E00000111F1CD232C_png](../assets/reporting/dev-guide/100000000000010E00000111F1CD232C.webp)
+![1000000000000226000001CF01C06F25_png](../assets/reporting/dev-guide/1000000000000226000001CF01C06F25.webp)
 
 If you modify the structure of the data set, you will need to manually
 edit the graphical component and apply this change (e.g., when
 extracting a new column from the data set to be used in a previously
 created chart):
 
-![1000000000000350000001F5878A240B_png](../assets/reporting/dev-guide/1000000000000350000001F5878A240B.png)
+![1000000000000350000001F5878A240B_png](../assets/reporting/dev-guide/1000000000000350000001F5878A240B.webp)
 
 ### Report parameters
 
@@ -121,7 +121,7 @@ groups and different reporting periods).
 The grid component is mainly used to organize graphical components on
 the report.
 
-![10000000000003560000017FAF18FEC1_png](../assets/reporting/dev-guide/10000000000003560000017FAF18FEC1.png)
+![10000000000003560000017FAF18FEC1_png](../assets/reporting/dev-guide/10000000000003560000017FAF18FEC1.webp)
 
 Best practice: Insert each report component (e.g., chart, table, label,
 text) into a grid cell.
@@ -134,7 +134,7 @@ binding.
 
 ##### Table structure
 
-> ![10000000000002D9000000636D5BE18A_png](../assets/reporting/dev-guide/10000000000002D9000000636D5BE18A.png)
+> ![10000000000002D9000000636D5BE18A_png](../assets/reporting/dev-guide/10000000000002D9000000636D5BE18A.webp)
 
 -   **Header:** Displays the column title or dynamic summary information
     calculated according to the listed values in the detail rows. The
@@ -158,7 +158,7 @@ rows to the table:
 -   **Group footer:** Delimits the end of each entry. Also allows the
     data group to be used for calculations.
 
-    ![10000000000005F2000001A26D1A36C8_png](../assets/reporting/dev-guide/10000000000005F2000001A26D1A36C8.png)
+    ![10000000000005F2000001A26D1A36C8_png](../assets/reporting/dev-guide/10000000000005F2000001A26D1A36C8.webp)
 
 #### Charts
 
@@ -166,7 +166,7 @@ A chart can be created in three steps:
 
 ##### Selecting the graph type
 
-![10000000000004390000025A137B95A5_png](../assets/reporting/dev-guide/10000000000004390000025A137B95A5.png)
+![10000000000004390000025A137B95A5_png](../assets/reporting/dev-guide/10000000000004390000025A137B95A5.webp)
 
 ##### Binding the data
 
@@ -179,11 +179,11 @@ There are two ways to "bind" data to a chart:
 Data inheritance from a parent component is required if you decide
 to reuse data groups and aggregated data in a chart.
 
-![10000000000003CF00000251408B7FE1_png](../assets/reporting/dev-guide/10000000000003CF00000251408B7FE1.png)
+![10000000000003CF00000251408B7FE1_png](../assets/reporting/dev-guide/10000000000003CF00000251408B7FE1.webp)
 
 ##### Formatting the chart
 
-![10000000000004190000025ABC2D698F_png](../assets/reporting/dev-guide/10000000000004190000025ABC2D698F.png)
+![10000000000004190000025ABC2D698F_png](../assets/reporting/dev-guide/10000000000004190000025ABC2D698F.webp)
 
 ### BIRT Libraries
 
@@ -212,7 +212,7 @@ Operating principle:
 -   Each component imported from a library is marked by a specific icon
     in the report.
 
-![10000000000003340000018F33DF4032_png](../assets/reporting/dev-guide/10000000000003340000018F33DF4032.png)
+![10000000000003340000018F33DF4032_png](../assets/reporting/dev-guide/10000000000003340000018F33DF4032.webp)
 
 ### BIRT Templates
 
@@ -258,12 +258,12 @@ you must create a BIRT project containing two main directories:
 To create a BIRT report project, select "File > New > Other
 projects", and then, in the wizard window, select "Report project":
 
-![image](../assets/reporting/dev-guide/100000000000030C0000029D554D9D2B.png)
+![image](../assets/reporting/dev-guide/100000000000030C0000029D554D9D2B.webp)
 
 After creating the project, add your two main folders with a right-click
 on the project displayed in the "Navigator" tab panel:
 
-![image](../assets/reporting/dev-guide/1000000000000565000001F097833544.png)
+![image](../assets/reporting/dev-guide/1000000000000565000001F097833544.webp)
 
 Now, copy the contents of the reports *(/usr/share/centreon-bi/reports)*
 and resources *(/usr/share/centreon-bi/Resources)* directories on the
@@ -280,7 +280,7 @@ report parameters and layout components from BIRT libraries, as well as
 BIRT report templates and image or flat files) to be referenced in
 reports through the "Resource Explorer" panel:
 
-![image](../assets/reporting/dev-guide/10000000000003340000018F33DF4032.png)
+![image](../assets/reporting/dev-guide/10000000000003340000018F33DF4032.webp)
 
 Each component imported from "Shared resources" into the report
 (.rptdesign file) will be referenced through a relative path. This will
@@ -300,7 +300,7 @@ Because the pattern "`<Current Project Folder>`"
 is a variable that will be set automatically by Eclipse, there is no
 need to write the project path explicitly.
 
-![image](../assets/reporting/dev-guide/10000000000003600000025556C97DB4.png)
+![image](../assets/reporting/dev-guide/10000000000003600000025556C97DB4.webp)
 
 > You will have to repeat this procedure every time:
 >
@@ -351,26 +351,26 @@ files on your workstation.
 To do so, double-click the library L2_datasource. The library opens
 in your workspace.
 
-![image](../assets/reporting/dev-guide/db_conn_1.png)
+![image](../assets/reporting/dev-guide/db_conn_1.webp)
 
-![image](../assets/reporting/dev-guide/db_conn_2.png)
+![image](../assets/reporting/dev-guide/db_conn_2.webp)
 
 Click "Outline" and expand the "Datasources".
 
-![image](../assets/reporting/dev-guide/db_conn_3.png)
+![image](../assets/reporting/dev-guide/db_conn_3.webp)
 
 The datasources used in Centreon MBI standard reports are listed.*
 
 Double-click the "Datasource" in Centreon, and the following pop-up opens:
 
-![image](../assets/reporting/dev-guide/db_conn_4.png)
+![image](../assets/reporting/dev-guide/db_conn_4.webp)
 
 In "Connection Profile Store" select the path to the
 report-profile.xml file on your workstation, and validate.
 
 The following pop-up opens:
 
-![image](../assets/reporting/dev-guide/db_conn_5.png)
+![image](../assets/reporting/dev-guide/db_conn_5.webp)
 
 All the datasources present in the file are listed.
 
@@ -378,21 +378,21 @@ In this example, two datasources are listed: - Censtorage - Centreon
 
 Select Centreon, and then click the "BIRT JDBC Datasource".
 
-![image](../assets/reporting/dev-guide/db_conn_6.png)
+![image](../assets/reporting/dev-guide/db_conn_6.webp)
 
 The information defined in the XML file is read.
 
 Click "Test Connection". A pop-up appears, displaying the message
 "Connection successful".
 
-![image](../assets/reporting/dev-guide/db_conn_7.png)
+![image](../assets/reporting/dev-guide/db_conn_7.webp)
 
 > In case of an error message indicating a missing driver, add the MariaDB/MySQL
 > driver ( .jar) from the "Manage drivers" menu.
 >
-> ![image](../assets/reporting/dev-guide/db_conn_8.png)
+> ![image](../assets/reporting/dev-guide/db_conn_8.webp)
 >
-> ![image](../assets/reporting/dev-guide/db_conn_9.png)
+> ![image](../assets/reporting/dev-guide/db_conn_9.webp)
 
 This operation should only be performed once for the project.
 :::
@@ -411,21 +411,21 @@ centreon_live et centreon_storage_live**.
 To generate a standard report from the interactive development
 environment, double-click the report to open it.
 
-![image](../assets/reporting/dev-guide/gen_report_1.png)
+![image](../assets/reporting/dev-guide/gen_report_1.webp)
 
 Once the report is open, click "View report" to select the output
 format:
 
-![image](../assets/reporting/dev-guide/gen_report_2.png)
+![image](../assets/reporting/dev-guide/gen_report_2.webp)
 
 A pop-up opens, asking for the report parameters to be filled in.
 
-![image](../assets/reporting/dev-guide/gen_report_3.png)
+![image](../assets/reporting/dev-guide/gen_report_3.webp)
 
 The report will be generated according to the parameter criteria
 selected, in the desired output format.
 
-![image](../assets/reporting/dev-guide/gen_report_4.png)
+![image](../assets/reporting/dev-guide/gen_report_4.webp)
 
 ## Developing your own reports
 
@@ -447,14 +447,14 @@ To use this template in your BIRT report:
 -   Right-click the template and select "Register Template with New
     Report Wizard".
 
-![image](../assets/reporting/dev-guide/registerTemplate.png)
+![image](../assets/reporting/dev-guide/registerTemplate.webp)
 
 -   For each new report you create, select the name and click *Next*
     to access the template window.
 -   Select the template called "Component template" and click
     "Finish".
 
-![image](../assets/reporting/dev-guide/componentTemplate.png)
+![image](../assets/reporting/dev-guide/componentTemplate.webp)
 
 ### Define the project structure
 

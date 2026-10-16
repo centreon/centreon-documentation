@@ -11,11 +11,11 @@ A Centreon Cloud URL looks like this: `https://<organization>.<region>.centreon.
 
 ## Menus
 
-![image](../assets/getting-started/menus.png)
+![image](../assets/getting-started/menus.webp)
 
 The Centreon web interface contains several menus, each with a specific function (click the Centreon logo at the top left of the screen to expand the menus):
 
-![image](../assets/getting-started/expand_menu.png)
+![image](../assets/getting-started/expand_menu.webp)
 
 * **Home** shows [custom views](create-custom-view.md).
   Your workspace may be blank for now. Once you configure customizable widgets, you will see data and charts according
@@ -30,7 +30,7 @@ The Centreon web interface contains several menus, each with a specific function
 
 ### Pollers section
 
-![image](../assets/getting-started/banner_pollers.png)
+![image](../assets/getting-started/banner_pollers.webp)
 
 The left part of the top banner shows the health of your platform in real time:
 
@@ -41,7 +41,7 @@ Click the **pollers** icon to expand the menu. On the menu, click **Configure po
 
 ### Hosts and services section (top counters)
 
-![image](../assets/getting-started/top_counters.png)
+![image](../assets/getting-started/top_counters.webp)
 
 To the right of the top banner, statistics show the number of resources that are being monitored, with a specific status:
 
@@ -66,17 +66,17 @@ The next time you connect to the interface, the mode you previously selected rem
 
 - Light mode:
 
-![image](../assets/getting-started/menu_light_mode.png)
+![image](../assets/getting-started/menu_light_mode.webp)
 
 - Dark mode:
 
-![image](../assets/getting-started/menu_dark_mode.png)
+![image](../assets/getting-started/menu_dark_mode.webp)
 
 ### Change the user interface language
 
 On the banner, click the profile icon, then click **Edit profile**:
 
-![image](../assets/getting-started/menu_edit_profile.png)
+![image](../assets/getting-started/menu_edit_profile.webp)
 
 In the **Language** list, choose your language.
 

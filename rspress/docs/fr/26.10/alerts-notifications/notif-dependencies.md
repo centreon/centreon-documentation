@@ -27,7 +27,7 @@ La configuration d'une dépendance physique se déroule au sein de
 l'onglet **Relations** d'une fiche de configuration d'un hôte via le
 menu **Configuration > Hosts > Hosts**.
 
-![image](../assets/alerts/dep_host_config.png)
+![image](../assets/alerts/dep_host_config.webp)
 
 Il est possible de définir deux paramètres :
 
@@ -64,7 +64,7 @@ Pour configurer une dépendance logique, rendez-vous dans le menu
 `Configuration > Notifications > Dependencies > Hosts` et cliquez sur
 **Add**.
 
-![image](../assets/alerts/03hostdependance.png)
+![image](../assets/alerts/03hostdependance.webp)
 
 Dans ce cas, nous avons deux types d'hôtes qui entrent en jeu : un ou des
 hôtes (appelé hôtes maîtres) dont le statut contrôle l'exécution et les
@@ -96,7 +96,7 @@ Pour ajouter une dépendance au niveau des services, rendez-vous dans le
 menu **Configuration > Notifications > Dependencies > Services** et
 cliquez sur **Add**.
 
-![image](../assets/alerts/03servicedependance.png)
+![image](../assets/alerts/03servicedependance.webp)
 
 Dans ce cas, nous avons deux entités qui entrent en jeu : les services
 (dits maîtres) qui contrôlent l'exécution et les notifications d'autres
@@ -127,7 +127,7 @@ Pour configurer une dépendance logique, rendez-vous dans le menu
 `Configuration > Notifications > Dependencies > Host Groups` et cliquez
 sur **Add**.
 
-![image](../assets/alerts/03hostgroupdependance.png)
+![image](../assets/alerts/03hostgroupdependance.webp)
 
 Deux types de groupes d'hôtes : Un groupe d'hôtes est dit maître s'il
 contrôle l'exécution et la notification d'autres groupes d'hôtes (dit
@@ -157,7 +157,7 @@ Pour configurer une dépendance logique, rendez-vous dans le menu
 `Configuration > Notifications > Dependencies > Service Groups` et
 cliquez sur **Add**.
 
-![image](../assets/alerts/03servicegroupdependance.png)
+![image](../assets/alerts/03servicegroupdependance.webp)
 
 Deux types de groupes de services : Un groupe de services est dit maître
 s'il contrôle l'exécution et la notification d'autres groupes de
@@ -187,7 +187,7 @@ Pour configurer une dépendance logique, rendez-vous dans le menu
 `Configuration > Notifications > Dependencies > Meta Services` et
 cliquez sur **Add**.
 
-![image](../assets/alerts/03metaservicedependance.png)
+![image](../assets/alerts/03metaservicedependance.webp)
 
 Deux types de méta-services : Un méta-service est dit maître s'il
 contrôle l'exécution et la notification d'autres méta-services (dit

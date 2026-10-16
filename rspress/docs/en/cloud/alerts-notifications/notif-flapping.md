@@ -23,7 +23,7 @@ percent state change first **exceeds a high flapping threshold**. When a host or
 
 * it has a green background in the **Resources status** page.
 * it has the following icon in its **Details** panel and in the **State** column:
-    ![image](../assets/alerts/flapping_icon.png)
+    ![image](../assets/alerts/flapping_icon.webp)
 * one notification is sent when the resource starts flapping, and another one is sent when it stops flapping. Alert and recovery notifications are temporarily disabled.
 
 In the **Resource status** page, you can filter the view to display only flapping resources.
@@ -49,7 +49,7 @@ The image below shows a chronological history of service states from the
 most recent 21 service checks. OK states are shown in green, WARNING
 states in yellow, CRITICAL states in red, and UNKNOWN states in orange.
 
-![image](../assets/alerts/statetransitions.png)
+![image](../assets/alerts/statetransitions.webp)
 
 The historical service check results are examined to determine where
 state changes/transitions occur. State changes occur when an archived
@@ -75,7 +75,7 @@ state changes are given more weight than older state changes when
 calculating the overall or total percent state change for a particular
 service.
 
-![image](../assets/alerts/statetransitions2.png)
+![image](../assets/alerts/statetransitions2.webp)
 
 Using the images above, let’s do a calculation of percent state change
 for the service. You will notice that there is a total of 12 state

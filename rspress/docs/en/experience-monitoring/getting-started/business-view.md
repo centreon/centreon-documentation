@@ -5,7 +5,7 @@ title: Business View
 
 This section enables analysis of the site's business-related metrics. To access it, open the main menu and select **Business Data**:
 
-![image](../assets/getting-started/business-view-1.png)
+![image](../assets/getting-started/business-view-1.webp)
 
 Prerequisites:
 

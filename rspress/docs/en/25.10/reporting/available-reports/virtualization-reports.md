@@ -21,49 +21,49 @@ in percentage and bytes, the last usage value for the selected period
 and allocated space for all datastores. The evolution of these three
 values is shown in comparison to the previous period.
 
-![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page1_1.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page1_1.webp)
 
 Next, the top five and a bottom five datastores used are presented. For
 each datastore, you can see the percentage of usage, the maximum value
 reached and allocated space.
 
-![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page1_2.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page1_2.webp)
 
 The report then displays the top five and bottom five datastores
 generating read and write IOPS (input/output per second).
 
-![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page1_3.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page1_3.webp)
 
 The second page shows average CPU consumption for all ESX clusters and
 the evolution from the previous period.
 
-![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_1_1.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_1_1.webp)
 
 ESXs using the most and the least CPU are highlighted, with the average
 consumption and the maximum value reached for each ESX.
 
-![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_1_2.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_1_2.webp)
 
 The report shows the average memory usage on all ESX clusters and the
 total memory allocated.
 
-![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_2_1.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_2_1.webp)
 
 The top and bottom five memory-consuming ESXs are highlighted along with
 average usage over time, the total memory available and the maximum
 value reached for each ESX.
 
-![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_2_2.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_2_2.webp)
 
 Finally, an overview of the average number of virtual machines on the
 cluster that have been powered on and powered off.
 
-![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_3_1.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_3_1.webp)
 
 The report provides details on the ESXs hosting the greatest and fewest
 number of virtual machines powered on and powered off:
 
-![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_3_2.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-Cluster-Performances-1-page2_3_2.webp)
 
 #### Parameters
 
@@ -140,18 +140,18 @@ and perform sorting.
 The first tab shows information on the reporting period, the live-service period
 selected and the report generation day and time.
 
-![image](../../assets/reporting/guide/available-reports/VMWare-VM-Performances-List_1.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-VM-Performances-List_1.webp)
 
 The second tab lists the virtual machines with vCPU usage (average, average
 formatted, max, max formatted) and memory usage (average, average formatted,
 max, max formatted, % of usage, % of usage formatted).
 
-![image](../../assets/reporting/guide/available-reports/VMWare-VM-Performances-List_2.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-VM-Performances-List_2.webp)
 
 The last tab lists the virtual machines by datastore and their read/write IOPS
 usage showing the average and the maximum reached.
 
-![image](../../assets/reporting/guide/available-reports/VMWare-VM-Performances-List_3.png)
+![image](../../assets/reporting/guide/available-reports/VMWare-VM-Performances-List_3.webp)
 
 #### Parameters
 

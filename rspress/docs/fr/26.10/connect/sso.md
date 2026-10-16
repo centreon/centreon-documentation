@@ -13,7 +13,7 @@ De nombreux modules Apache permettent l'authentification via les protocoles OIDC
 
 L'authentification se paramètre à la page **Administration > Authentication > Web SSO Configuration** :
 
-![image](../assets/administration/web-sso-configuration.png)
+![image](../assets/administration/web-sso-configuration.webp)
 
 ### Étape 1 : Activer l'authentification
 

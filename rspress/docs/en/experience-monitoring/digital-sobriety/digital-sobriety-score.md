@@ -5,7 +5,7 @@ title: Digital Sobriety Score
 
 Specifications v1.1 (April 2023)
 
-![Image](../assets/digital-sobriety/digital-sobriety-score-1.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-1.webp)
 
 ## Context: The purpose of the Digital Sobriety Score
 
@@ -13,7 +13,7 @@ At Centreon, we believe the ecological transition requires awareness and account
 
 Today, digital technologies account for roughly 4% of global greenhouse gas emissions and are growing at approximately **+8% per year**. At the same time, the Paris Agreement requires a global annual emissions reduction across sectors of **-7%**:
 
-![Image](../assets/digital-sobriety/digital-sobriety-score-2.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-2.webp)
 
 Although digital technologies can help decarbonize other industries, the digital sector itself cannot avoid a necessary reduction in its own emissions. To improve, however, we first need **reliable and shared measurements**.
 
@@ -29,7 +29,7 @@ Existing indicators for measuring the digital environmental footprint are often 
 
 The Digital Sobriety Score is therefore a **composite rating** that aggregates the environmental impacts associated with using a website or mobile application into a simplified score out of 100, also expressed as a grade from A to E, similar to food labeling:
 
-![Image](../assets/digital-sobriety/digital-sobriety-score-5.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-5.webp)
 
 For more precision, the numerical score should be consulted. The correspondence between numeric score and letter grade is:
 
@@ -96,7 +96,7 @@ Teams focused on CSR who still want an absolute carbon footprint of their site (
 
 ### Detailed algorithm for the Digital Sobriety Score (full audit method, version 1.1 - April 2023)
 
-![Image](../assets/digital-sobriety/digital-sobriety-score-3.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-3.webp)
 
 The Digital Sobriety Score is composed of multiple criteria with a tree-like weighting system that assigns importance to each in the overall score.
 
@@ -148,7 +148,7 @@ This score accounts for 50% of the Digital Sobriety Score. It is rated 0 to 100 
 
 Once all indicators are measured, a weighting is applied based on each criterion’s environmental importance:
 
-![Image](../assets/digital-sobriety/digital-sobriety-score-6.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-6.webp)
 
 To convert each sub-indicator into a score (for example: 28 points on the Eco-Design Score for 90 ms TTFB), mapping tables are used. These tables are publicly available so anyone can compute the Digital Sobriety Score end-to-end. Sources for these mapping tables include the [HTTP Archive](https://httparchive.org/) and the [Chrome UX Report](https://developer.chrome.com/docs/crux/). The method uses value quantiles (for instance, to get the full 30 points for TTFB, a site must be within the top 5% fastest sites for that metric).
 
@@ -174,7 +174,7 @@ Thanks to this method, the same web page accessed in France, Ireland, or the USA
 
 The resulting calculation, expressed in CO<sub>2</sub>eq, also allows distinguishing contributions from different scopes (datacenter, network, and end-user devices).
 
-![Image](../assets/digital-sobriety/digital-sobriety-score-7.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-7.webp)
 
 ### Average Carbon Footprint Per Click (Average CFPC)
 
@@ -228,7 +228,7 @@ The overall Numeric Digital Sobriety Score (out of 100) combines the two main su
 
 Each sub-indicator is weighted at 50% to balance low carbon footprints per click with good eco-design practices:
 
-![Image](../assets/digital-sobriety/digital-sobriety-score-8.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-8.webp)
 
 Note: While calculation methods and weightings are the same for simple and full audits, the simple audit considers only the site’s 10 main pages for Average EDS and Average CFPC. See the section "How is the Digital Sobriety Score calculated?" for more information.
 
@@ -236,7 +236,7 @@ Note: While calculation methods and weightings are the same for simple and full 
 
 Experience Monitoring can issue a certified Digital Sobriety Score with a summary visual suitable for use on the site or in communications. This certificate is accompanied by a detailed report containing the measurements behind the overall score.
 
-![Image](../assets/digital-sobriety/digital-sobriety-score-4.png)
+![Image](../assets/digital-sobriety/digital-sobriety-score-4.webp)
 
 The report both proves the origin of the measurement and guides digital and responsible teams on optimizations to improve the score.
 

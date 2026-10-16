@@ -11,17 +11,17 @@ To respect these principles and provide carbon impact estimates as close to real
 
 - The Digital Sobriety Score for eco-design scoring, represented as a per-page score out of 100:
     
-    ![Eco-design score measurement in Experience Monitoring for a given user journey](../assets/digital-sobriety/carbon-footprint-1.png)
+    ![Eco-design score measurement in Experience Monitoring for a given user journey](../assets/digital-sobriety/carbon-footprint-1.webp)
         
 - The [Sustainable Web Design](https://sustainablewebdesign.org/calculating-digital-emissions/) method to estimate CO<sub>2</sub>eq emissions for downloading a page over the network:
     
-    ![Carbon impact measurement (in CO<sub>2</sub>eq) performed via synthetic requests for a given user journey](../assets/digital-sobriety/carbon-footprint-2.png)
+    ![Carbon impact measurement (in CO<sub>2</sub>eq) performed via synthetic requests for a given user journey](../assets/digital-sobriety/carbon-footprint-2.webp)
 
 - The open-source Boavizta impact database for manufacturing and end-of-life impact calculations for servers (measurement to be published in Experience Monitoring in Q2 2023).
 
 Depending on the feature—whether it measures the carbon impact of a specific user journey, weights per-page carbon impact by page traffic, or highlights pages with the greatest eco-design optimization potential—Experience Monitoring will use one of these methods, always transparently.
 
-  ![Global site measurement (eco-design score and carbon footprint) calculated based on real traffic in Experience Monitoring's Real User Monitoring module](../assets/digital-sobriety/carbon-footprint-3.png)
+  ![Global site measurement (eco-design score and carbon footprint) calculated based on real traffic in Experience Monitoring's Real User Monitoring module](../assets/digital-sobriety/carbon-footprint-3.webp)
 
 Beyond using established methods, Experience Monitoring contributes to refining calculation methods through ongoing collaboration with industry professionals, notably:
 

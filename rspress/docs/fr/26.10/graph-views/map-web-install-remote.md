@@ -20,7 +20,7 @@ Après cela, vous devrez effectuer des étapes supplémentaires, expliquées ci-
 
 Le schéma ci-dessous décrit l'architecture de MAP avec un serveur distant :
 
-![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
+![image](../assets/graph-views/ng/map-web-remote-server-schema.webp)
 
 ## Configuration de Centreon Broker
 
@@ -30,7 +30,7 @@ Pour ce faire, vous devez vous connecter au serveur central et modifier la confi
 
 Dans l'onglet **Output**, créez une nouvelle sortie avec les paramètres suivants :
 
-![image](../assets/graph-views/output_broker.png)
+![image](../assets/graph-views/output_broker.webp)
 
 Pour finir l'installation, générez et déployez la configuration du serveur distant Centreon en sélectionnant le mode **Redémarrer**.
 

@@ -12,7 +12,7 @@ and of all pollers linked to it: changes are shown in the **Conf changed** colum
 
 2. Select the server or the poller whose configuration has changed.
 
-    ![image](../../assets/monitoring/monitoring-servers/export_conf.png)
+    ![image](../../assets/monitoring/monitoring-servers/export_conf.webp)
 
 3. Click on **Export configuration**.
 
@@ -28,7 +28,7 @@ and of all pollers linked to it: changes are shown in the **Conf changed** colum
 
 5. Click **Export**. A log of the export is displayed.
 
-    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.png)
+    ![image](../../assets/monitoring/monitoring-servers/export_conf_done.webp)
 
 6. Read the log to check that the export has worked normally and that no errors were returned.
 

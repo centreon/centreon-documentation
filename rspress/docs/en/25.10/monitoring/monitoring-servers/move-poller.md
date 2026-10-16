@@ -12,19 +12,19 @@ Go to the **Configuration > Pollers > Pollers** menu and edit your poller.
 
 Select the Remote Server from the **Attach to Master Remote Server** field:
 
-![image](../../assets/monitoring/monitoring-servers/move_poller_conf_1.png)
+![image](../../assets/monitoring/monitoring-servers/move_poller_conf_1.webp)
 
 Click **Save**.
 
 ## Update the Centreon Gorgone configuration
 
 From the poller list, click the **Display Gorgone configuration** action
-icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.png#thumbnail1)
+icon on the line corresponding to your Poller ![image](../../assets/monitoring/monitoring-servers/gorgone-configuration.webp#thumbnail1)
 
 A popin will show the configuration to copy into the **Poller terminal**.
 Click **Copy to clipboard**.
 
-![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.png)
+![image](../../assets/monitoring/monitoring-servers/poller-gorgone-display-config.webp)
 
 Paste the content of the clipboard directly into the **Poller terminal** as it
 contains the following content, and will fill the right file:
@@ -71,7 +71,7 @@ Go to the **Configuration > Pollers > Pollers** menu and edit the broker configu
 
 In the **Output** tab, add or edit the previous **TCP - IPv4** entry to connect to the new server:
 
-![image](../../assets/monitoring/monitoring-servers/move_poller_conf_2.png)
+![image](../../assets/monitoring/monitoring-servers/move_poller_conf_2.webp)
 
 Click **Save**
 

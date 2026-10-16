@@ -25,11 +25,11 @@ Le Real User Monitoring ou RUM, nécessite l’installation d’un tag javascrip
 
 Aller dans la configuration, puis dans *Intégrations* :
 
-![image](../assets/installation/install-rum-1.png)
+![image](../assets/installation/install-rum-1.webp)
 
 Vous trouverez ensuite le tag sur cet écran avec un bouton pour le copier facilement :
 
-![image](../assets/installation/install-rum-2.png)
+![image](../assets/installation/install-rum-2.webp)
 
 Ce tag est à insérer dans la section “HEAD” du site web. L’opération peut être effectuée manuellement par un développeur, ou alternativement **il peut être ajouté dans un tag manager comme GTM en suivant la procédure suivante** : 
 

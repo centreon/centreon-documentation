@@ -5,7 +5,7 @@ title: Architecture de Centreon Cloud
 
 Votre plateforme Centreon Cloud est constituée principalement d'une plateforme SaaS fournie par Centreon, et de collecteurs que vous installez dans votre infrastructure. De plus, le module [Centreon Hub](../users/centreon-hub.md) vous permet de gérer vos organisations et vos utilisateurs, et de vous connecter à Centreon Cloud.
 
-![image](../assets/getting-started/infra3.png)
+![image](../assets/getting-started/infra3.webp)
 
 * **Plateforme SaaS** :
   * La plateforme SaaS vous est fournie par Centreon, prête à l'emploi.

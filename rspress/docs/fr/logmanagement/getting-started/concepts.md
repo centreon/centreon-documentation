@@ -11,7 +11,7 @@ Centreon Log Management gère des logs. Les logs contiennent des informations d�
 
 Tous les logs reçus par Log Management sont listés à la page **Log explorer**, où vous pouvez les filtrer. Dans Log Management, chaque entrée de log a une [sévérité (c'est-à-dire un niveau de log)](../resources/glossary.md#sévérité), indiqué par une ligne colorée.
 
-![image](../assets/log_explorer.png)
+![image](../assets/log_explorer.webp)
 
 ## Que peut faire Centreon Log Management avec les logs ?
 

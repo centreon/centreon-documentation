@@ -11,9 +11,9 @@ de votre infrastructure IT en temps réel à vos équipes ITOM et à vos utilisa
 Avec Centreon MAP, vous pouvez de manière simple créer et partager des vues de supervision temps réel afin de
 superviser les performances de votre infrastructure IT, de votre réseau, vos applications et vos services.
 
-![image](../assets/graph-views/tuto_ex_1.png)
+![image](../assets/graph-views/tuto_ex_1.webp)
 
-![image](../assets/graph-views/tuto_ex_2.png)
+![image](../assets/graph-views/tuto_ex_2.webp)
 
 Exemple : Grâce à ces vues temps réel, les équipes ITOM et leurs managers peuvent visualiser instantanément la disponibilité
 de services et d'applications métier critiques. Cela garantit un meilleur temps de réaction en cas de panne et optimise le
@@ -44,7 +44,7 @@ Maintenant que les objectifs de la vue sont définis, voyons comment la réalise
 Connectez-vous au serveur Centreon MAP grâce au client desktop : l'espace de travail suivant apparaît.
 Voici une illustration. Par défaut aucune vue n'est ouverte.
 
-![image](../assets/graph-views/tuto_workspace.png)
+![image](../assets/graph-views/tuto_workspace.webp)
 
 L'interface est organisée de la manière suivante :
 
@@ -90,6 +90,6 @@ dans la section **Géographique**. (Si vous ne voyez pas le "+", cela signifie q
 Grâce à un mécanisme de contrôle d'accès basé sur les objets ACL Centreon, vous pouvez facilement partager les vues que vous voulez avec les équipes désirées. Dès qu'une vue est partagée avec un utilisateur, elle est accessible pour lui à la page
 **Supervision > Map**, ou même directement dans un tableau de bord en utilisant le widget Centreon Map (exemple ci-dessous).
 
-![image](../assets/graph-views/share_view.png)
+![image](../assets/graph-views/share_view.webp)
 
 Vous avez maintenant assez d'informations pour commencer à utiliser Centreon MAP.

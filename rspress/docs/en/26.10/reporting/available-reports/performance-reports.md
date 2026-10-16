@@ -10,7 +10,7 @@ title: Performance reports
 This report presents round-robin database (RRD) graphs for the evolution
 and performance of Centreon services over a defined period.
 
-![image](../../assets/reporting/guide/available-reports/Host-Graphs-V2_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Graphs-V2_png.webp)
 
 #### Parameters
 
@@ -31,7 +31,7 @@ Parameters required for the report:
 Go to **Reporting > Business Intelligence > General Options > Scheduler Options**
 and configure the following field:
 
-![image](../../assets/reporting/guide/available-reports/graph_url.png)
+![image](../../assets/reporting/guide/available-reports/graph_url.webp)
 
 In order to export RRD graphs using the Centreon API, the reporting
 server needs to access it using HTTP or HTTPS protocol. A curl command
@@ -85,7 +85,7 @@ curl http://centreon.enterprise.com/centreon/include/views/graphs/generateGraphs
 This report presents round-robin database (RRD) graphs for the evolution and
 performance of Centreon services for a given host group over a defined period.
 
-![image](../../assets/reporting/guide/available-reports/Host-Graphs-V2_png.png)
+![image](../../assets/reporting/guide/available-reports/Host-Graphs-V2_png.webp)
 
 #### Parameters
 
@@ -108,7 +108,7 @@ Parameters required for the report:
 Go to **Reporting > Business Intelligence > General Options > Scheduler Options** 
 and configure the following field:
 
-![image](../../assets/reporting/guide/available-reports/graph_url.png)
+![image](../../assets/reporting/guide/available-reports/graph_url.webp)
 
 In order to export RRD graphs using the Centreon API, the reporting
 server needs to access it using HTTP or HTTPS protocol. A curl command
@@ -169,7 +169,7 @@ Forecasts are calculated from the value of the metric during the reporting perio
 into the future. An additional table provides information about critical
 threshold and days before saturation.
 
-![image](../../assets/reporting/guide/available-reports/Hostgroup-Capacity-Planning-Linear-Regression.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Capacity-Planning-Linear-Regression.webp)
 
 #### Parameters
 
@@ -214,11 +214,11 @@ distribution.
 
 #### Summary page
 
-![image](../../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_1.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_1.webp)
 
 #### For each host group
 
-![image](../../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_2.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Rationalization-Of-Resources-1_2.webp)
 
 #### Parameters
 
@@ -263,7 +263,7 @@ thresholds for all service metrics selected.
 - If the maximum value not returned by the plugin, the Average, Max and Min
   columns are displayed in the metric's units.
 
-![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Metric-Performance-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroup-Service-Metric-Performance-List.webp)
 
 #### Parameters
 
@@ -294,7 +294,7 @@ minimum and maximum value reached over the time period.
 - If the maximum value is not returned by the plugin, the Average, Max
   and Min columns are displayed in the metric's units.
 
-![image](../../assets/reporting/guide/available-reports/Hostgroups-Categories-Performance-List.png)
+![image](../../assets/reporting/guide/available-reports/Hostgroups-Categories-Performance-List.webp)
 
 #### Parameters
 

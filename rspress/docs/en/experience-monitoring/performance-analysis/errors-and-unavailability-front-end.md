@@ -13,11 +13,11 @@ When Experience Monitoring probes detect an incident on your web scenario, they 
 
 You can view that screenshot by clicking the graph in the red area and selecting the "view screenshot" option.
 
-![image](../assets/performance-analysis/errors-and-unavailability-1.png)
+![image](../assets/performance-analysis/errors-and-unavailability-1.webp)
 
 A window will open and show you the page returned during the incident.
 
-![image](../assets/performance-analysis/errors-and-unavailability-2.png)
+![image](../assets/performance-analysis/errors-and-unavailability-2.webp)
 
 ## Why don't I have a screenshot for one of my incidents?
 

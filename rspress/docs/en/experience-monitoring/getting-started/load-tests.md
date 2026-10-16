@@ -7,7 +7,7 @@ This section allows analysis of how the platform hosting your web application be
 
 Performing a Load Test (often abbreviated “LT”) consists of launching a large number of web browsers in parallel directly from Experience Monitoring and having them interact with a website to deliberately "stress" the platform and the web application.
 
-![image](../assets/getting-started/load-tests-1.png)
+![image](../assets/getting-started/load-tests-1.webp)
 
 With just a few clicks, it's possible to reproduce the conditions of a day of **very high traffic** in order to intentionally analyze the site's behavior under those conditions.
 

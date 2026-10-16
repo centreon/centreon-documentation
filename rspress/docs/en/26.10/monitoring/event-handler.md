@@ -75,7 +75,7 @@ which you want to enable auto remediation.
 
 In the **Check Options** tab, enable the **Event Handler Option** option:
 
-![image](../assets/configuration/enableeventhnadleronpoller.png)
+![image](../assets/configuration/enableeventhnadleronpoller.webp)
 
 ### Configure Event Handlers
 
@@ -86,7 +86,7 @@ configuration** menu and edit all the Centreon Engine configurations on which yo
 
 In the **Check Options** tab, select a command for the hosts and/or services event handler:
 
-![image](../assets/configuration/enableglobaleventhnadleronpoller.png)
+![image](../assets/configuration/enableglobaleventhnadleronpoller.webp)
 
 Click **Save**.
 
@@ -96,7 +96,7 @@ Click **Save**.
 
 Go to the **Configuration > Hosts > Hosts** menu and edit your hosts. In the **Data Processing** tab, select the command:
 
-![image](../assets/configuration/enableeventhnadleronresources.png)
+![image](../assets/configuration/enableeventhnadleronresources.webp)
 
 Click **Save**.
 
@@ -107,7 +107,7 @@ Click **Save**.
 Go to the **Configuration > Services > Services by host** menu and edit your services. In the **Data Processing** tab,
 select the command:
 
-![image](../assets/configuration/enableeventhnadleronresources.png)
+![image](../assets/configuration/enableeventhnadleronresources.webp)
 
 Click **Save**.
 

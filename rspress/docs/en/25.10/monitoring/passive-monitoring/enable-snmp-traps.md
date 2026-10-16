@@ -39,7 +39,7 @@ The processing of an SNMP trap is as follows:
   information to a remote scheduler), which changes the status and the information associated with the service to which the
   SNMP trap is linked.
 
-![image](../../assets/configuration/06_trap_centreon.png)
+![image](../../assets/configuration/06_trap_centreon.webp)
 
 ### SNMP trap processing by a poller server
 
@@ -58,7 +58,7 @@ The processing of an SNMP trap is as follows:
 4. The ‘centreontrapd’ service transmits the information to the scheduler, which changes the status and the information
   associated with the service to which the SNMP trap is linked.
 
-![image](../../assets/configuration/06_trap_poller.png)
+![image](../../assets/configuration/06_trap_poller.webp)
 
 > The Centreon Gorgone process is responsible for copying the SQLite base on the remote poller.
 

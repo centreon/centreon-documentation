@@ -37,4 +37,4 @@ Your administrator has invited you to Centreon Hub; you have received an email i
 
 To open Centreon Log Management, log in to Centreon Hub. In the **Applications** page, click the tile you want:
 
-![image](./assets/ciam.png)
+![image](./assets/ciam.webp)

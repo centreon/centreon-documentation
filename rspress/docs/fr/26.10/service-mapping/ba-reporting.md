@@ -14,7 +14,7 @@ La page de reporting se trouve dans le menu **Rapports > Disponibilité** de Cen
 sélectionner une BA pour consulter ses statistiques de disponibilité
 opérationnelle, dégradée et non fonctionnelle sur une période donnée.
 
-![image](../assets/service-mapping/guide/reporting.png)
+![image](../assets/service-mapping/guide/reporting.webp)
 
 Il est possible d'exporter les données vers un fichier CSV, en cliquant
 sur le lien "Exporter en format CSV".

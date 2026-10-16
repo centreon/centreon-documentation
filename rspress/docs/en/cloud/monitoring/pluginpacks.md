@@ -29,27 +29,27 @@ fine-tuned later on). If you want to use a pack, you must install it through the
 Some Monitoring Connectors require extra configuration steps. Read the monitoring procedure for each installed pack
 to understand the contents of the pack and to find out about any prerequisites. Go to page **Configuration > Connectors > Monitoring Connectors** and click the ``i`` icon of each pack to access its documentation:
 
-![image](../assets/configuration/pluginpacks/doc.png)
+![image](../assets/configuration/pluginpacks/doc.webp)
 
 ### Installing the pack
 
 You can access the Monitoring Connectors catalog on the **Configuration > Connectors > Monitoring Connectors** page:
 
-![image](../assets/configuration/pluginpacks/pp_list.png)
+![image](../assets/configuration/pluginpacks/pp_list.webp)
 
 To install a pack, hover over the icon with the mouse and click the ``+``
 
-![image](../assets/configuration/pluginpacks/install_pp.png)
+![image](../assets/configuration/pluginpacks/install_pp.webp)
 
 You can also click the Monitoring Connector to display more details and click the ``+``
 
-![image](../assets/configuration/pluginpacks/install_pp_2.png)
+![image](../assets/configuration/pluginpacks/install_pp_2.webp)
 
 Once the pack is installed, it has a green outline and a green check mark.
 
 | **Before installation**                                          | **After installation**                                          |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
-| ![image](../assets/configuration/pluginpacks/before_install.png) | ![image](../assets/configuration/pluginpacks/after_install.png) |
+| ![image](../assets/configuration/pluginpacks/before_install.webp) | ![image](../assets/configuration/pluginpacks/after_install.webp) |
 
 ### Managing dependencies
 

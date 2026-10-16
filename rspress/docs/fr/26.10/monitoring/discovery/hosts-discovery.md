@@ -30,11 +30,11 @@ Vous pouvez dupliquer des tâches de découverte : survolez la tâche désirée 
 
 2. Cliquez sur le fournisseur correspondant aux ressources que vous voulez découvrir.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-1.webp)
 
     La barre de recherche permet de chercher un fournisseur spécifique :
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-1-2.webp)
 
 3. Cliquez sur **Suivant**. 
 
@@ -42,7 +42,7 @@ Vous pouvez dupliquer des tâches de découverte : survolez la tâche désirée 
 
 Définissez le serveur de supervision depuis lequel sera faite la découverte. Le serveur qui assurera effectivement la supervision pourra être différencié pour chaque hôte à l'aide de [modificateurs](#comment-utiliser-les-modificateurs).
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-2.webp)
 
 Certains fournisseurs demandent d'autres paramètres d'accès comme un proxy si la
 découverte doit se faire sur un service en ligne et/ou des identifiants.
@@ -52,7 +52,7 @@ découverte doit se faire sur un service en ligne et/ou des identifiants.
 Des paramètres additionnels peuvent être nécessaires pour définir la portée
 de la découverte :
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-3.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-3.webp)
 
 ### Étape 4 : Définir des modificateurs
 
@@ -62,7 +62,7 @@ modificateurs](#comment-utiliser-les-modificateurs).
 Dans l'assistant, une simulation sur un jeu de données d'exemple (tableau à droite) donne un aperçu de ce à quoi
 ressemblerait le résultat de la découverte :
 
-![image](../../assets/monitoring/discovery/host-discovery-wizard-step-4.png)
+![image](../../assets/monitoring/discovery/host-discovery-wizard-step-4.webp)
 
 ### Étape 5 : Définir les politiques d'analyse et de mise à jour
 
@@ -94,7 +94,7 @@ Pour plus d'informations voir la section [Analyser le résultat d'une tâche de 
 
     - **Ne pas découvrir les hôtes pour lesquels les modificateurs n'appliquent aucun modèle**: si les modificateurs n'appliquent aucun modèle à certains hôtes, alors ceux-ci ne seront pas inclus dans les résultats de la découverte. Si la case est décochée, le modèle par défaut sera appliqué à ces hôtes et ils seront découverts.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-5-2.webp)
 
     Voir l'[exemple ci-dessous](#exemples) pour mieux comprendre le fonctionnement des 3 premières options.
 
@@ -106,27 +106,27 @@ Pour plus d'informations voir la section [Analyser le résultat d'une tâche de 
 
     - Chaque année à des jours définis de mois définis et à une heure définie :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.png)
+        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-year.webp)
 
     - Chaque mois à des jours définis du mois et à une heure définie :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.png)
+        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-month.webp)
 
     - Chaque semaine à des jours définis de la semaine et à une heure définie :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.png)
+        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-week.webp)
 
     - Chaque jour à une heure définie :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.png)
+        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-day.webp)
 
     - Toutes les x heures (à des minutes définies) :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.png)
+        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-hour.webp)
 
     - Toutes les x minutes :
 
-        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.png)
+        ![image](../../assets/monitoring/discovery/host-discovery-wizard-step-6-minute.webp)
 
 Cliquez sur **TERMINER** à la dernière étape de l'assistant pour créer la tâche et l'exécuter ou la planifier. La tâche apparaît dans la liste des tâches de découverte. Voir [Analyser le résultat d'une tâche de découverte](#analyser-le-résultat-dune-tâche-de-découverte).
 
@@ -134,17 +134,17 @@ Cliquez sur **TERMINER** à la dernière étape de l'assistant pour créer la t�
 
 Allez à la page **Configuration > Hôtes > Découverte** pour accéder à la liste des tâches de découverte.
 
-![image](../../assets/monitoring/discovery/host-discovery-job-listing.png)
+![image](../../assets/monitoring/discovery/host-discovery-job-listing.webp)
 
 Les états d'une tâche peuvent être :
 
 | Icône                                                                    | état                          |
 |--------------------------------------------------------------------------|-------------------------------|
-| ![image](../../assets/monitoring/discovery/host-discovery-scheduled.png) | **Programmé**                 |
-| ![image](../../assets/monitoring/discovery/host-discovery-running.png)   | **En cours**                  |
-| ![image](../../assets/monitoring/discovery/host-discovery-saving.png)    | **En cours d'enregistrement** |
-| ![image](../../assets/monitoring/discovery/host-discovery-finished.png)  | **Terminé**                   |
-| ![image](../../assets/monitoring/discovery/host-discovery-failed.png)    | **Échoué**                    |
+| ![image](../../assets/monitoring/discovery/host-discovery-scheduled.webp) | **Programmé**                 |
+| ![image](../../assets/monitoring/discovery/host-discovery-running.webp)   | **En cours**                  |
+| ![image](../../assets/monitoring/discovery/host-discovery-saving.webp)    | **En cours d'enregistrement** |
+| ![image](../../assets/monitoring/discovery/host-discovery-finished.webp)  | **Terminé**                   |
+| ![image](../../assets/monitoring/discovery/host-discovery-failed.webp)    | **Échoué**                    |
 
 - Si une tâche est dans l'état **Terminé**, cliquez sur la flèche près de son statut pour analyser le
 résultat. Allez au chapitre [Analyser le résultat d'une
@@ -157,17 +157,17 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
 | Icône                                                                          | Action                                                                                                                     |
 |--------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| ![image](../../assets/monitoring/discovery/host-discovery-force-execution.png) | **Forcer l'exécution** : réexécuter une tâche                                                                              |
-| ![image](../../assets/monitoring/discovery/host-discovery-delete.png)          | Supprimer une tâche. Seule la tâche sera supprimée : les hôtes ayant déjà été ajoutés à la configuration seront conservés. |
-| ![image](../../assets/monitoring/discovery/host-discovery-pause.png)           | Mettre en pause une tâche planifiée                                                                                        |
-| ![image](../../assets/monitoring/discovery/host-discovery-resume.png)          | Reprendre une tâche mise en pause                                                                                          |
-| ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png)    | accéder aux résultats de la tâche de découverte                                                                            |
+| ![image](../../assets/monitoring/discovery/host-discovery-force-execution.webp) | **Forcer l'exécution** : réexécuter une tâche                                                                              |
+| ![image](../../assets/monitoring/discovery/host-discovery-delete.webp)          | Supprimer une tâche. Seule la tâche sera supprimée : les hôtes ayant déjà été ajoutés à la configuration seront conservés. |
+| ![image](../../assets/monitoring/discovery/host-discovery-pause.webp)           | Mettre en pause une tâche planifiée                                                                                        |
+| ![image](../../assets/monitoring/discovery/host-discovery-resume.webp)          | Reprendre une tâche mise en pause                                                                                          |
+| ![image](../../assets/monitoring/discovery/host-discovery-goto-results.webp)    | accéder aux résultats de la tâche de découverte                                                                            |
 
 ## Analyser le résultat d'une tâche de découverte
 
-1. À la page **Configuration > Hôtes > Découverte**, cliquez sur la flèche ![image](../../assets/monitoring/discovery/host-discovery-goto-results.png) à côté du statut d'une tâche terminée pour en visualiser le résultat.
+1. À la page **Configuration > Hôtes > Découverte**, cliquez sur la flèche ![image](../../assets/monitoring/discovery/host-discovery-goto-results.webp) à côté du statut d'une tâche terminée pour en visualiser le résultat.
 
-   ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.png)
+   ![image](../../assets/monitoring/discovery/host-discovery-hosts-listing.webp)
    
    La liste de résultats montre les hôtes découverts. Des icônes vous permettent d'identifier l'action qui sera effectuée sur l'hôte :
    
@@ -177,20 +177,20 @@ Plusieurs actions peuvent être réalisées sur les tâches :
 
 2. Sélectionnez les hôtes que vous souhaitez ajouter à la liste des hôtes supervisés et cliquez sur le bouton **Sauvegarder**. Cliquez ensuite sur le bouton **Retour** pour revenir à la page **Découverte**.
 
-3. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche. Cliquez sur la tâche pour afficher ses paramètres. Dans la section **Modificateurs**, modifiez le modificateur en cliquant sur le bouton d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.png#thumbnail1)
+3. Si vous le souhaitez, vous pouvez éditer les [modificateurs](#comment-utiliser-les-modificateurs) liés à la tâche. Cliquez sur la tâche pour afficher ses paramètres. Dans la section **Modificateurs**, modifiez le modificateur en cliquant sur le bouton d'édition : ![image](../../assets/monitoring/discovery/host-discovery-edit.webp#thumbnail1)
 
     Les changements seront appliqués directement à la liste des résultats lorsque vous cliquerez sur l'icône **Sauvegarder** en haut à droite du panneau.
     
     Si vous aviez sélectionné **Analyse automatique** et **Modifier les hôtes existants** à l'étape 5 de l'assistant, les hôtes seront mis à jour quand vous réexécuterez la tâche (voir [Éditer une tâche de découverte](#éditer-une-tâche-de-découverte)).
 
 4. Si vous avez sélectionné **Analyse manuelle** à l'étape 5 de l'assistant, sélectionnez les hôtes que vous voulez ajouter ou mettre à jour dans la configuration, puis cliquez
-sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.png#thumbnail1)
+sur le bouton d'enregistrement : ![image](../../assets/monitoring/discovery/host-discovery-hosts-save.webp#thumbnail1)
 
   Les hôtes sont alors créés ainsi que les services liés à leurs modèles d'hôte.
 
 5. Allez à la page **Configuration > Hôtes > Hôtes** : les hôtes que vous venez de créer apparaissent dans la liste.
 
-  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-configuration-hosts.webp)
 
   Si les hôtes que vous aviez sélectionnés ne sont pas visibles dans la
 liste, retournez à la liste des tâches et regardez si une erreur est
@@ -228,7 +228,7 @@ de la tâche désirée. Un panneau apparaît à droite.
 
   Si le module d'autodécouverte découvre un hôte avec un nom déjà existant, ayant été créé manuellement à la page **Configuration > Hôtes > Hôtes**, cet hôte sera également mis à jour par le module d'autodécouverte, même s'il n'a pas été créé par autodécouverte.
 
-2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : ![image](../../assets/monitoring/discovery/host-discovery-save.png#thumbnail2)
+2. Cliquez sur l'icône de sauvegarde en haut à droite du panneau : ![image](../../assets/monitoring/discovery/host-discovery-save.webp#thumbnail2)
 
 ## Comment utiliser les modificateurs
 
@@ -254,7 +254,7 @@ Pour tous ces modificateurs, des conditions peuvent être définies pour appliqu
 la modification à certains hôtes ou non. Les opérateurs de comparaison
 peuvent être : *est égal à*, *est différent de*, *contient* et *ne contient pas*.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-condition.webp)
 
 Si vous incluez plusieurs conditions dans un même modificateur, il faut que
 toutes les conditions soient vérifiées pour que le modificateur s'applique.
@@ -313,7 +313,7 @@ Le modificateur **Propriété** est utilisé pour définir les propriétés
 communes d'un hôte comme son nom, son alias ou son adresse IP. Ces trois
 propriétés sont obligatoires.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-property.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-property.webp)
 
 La liste **Source** permet de choisir entre les données d'identification
 (credentials), les paramètres additionnels (parameters) ou les attributs
@@ -327,7 +327,7 @@ associée.
 Le modificateur **Macro** est utilisé pour créer des macros custom à
 définir au niveau de l'hôte.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-macro.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-macro.webp)
 
 La liste **Source** permet de choisir entre les données d'identification
 (credentials), les paramètres additionnels (parameters) ou les attributs
@@ -346,7 +346,7 @@ autant de modificateurs **Modèle** que vous le désirez (un modèle par modific
 Comme dans l'exemple ci-dessous, vous pouvez définir un modèle en fonction de certaines conditions
 (ici, le modèle OS-Linux-SNMP-custom est appliqué aux hôtes de type Linux).
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-template.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-template.webp)
 
 La liste **Modèles d'hôte** permet de choisir parmi tous les modèles d'hôte
 définis dans la configuration.
@@ -358,13 +358,13 @@ automatiquement à des groupes d'hôtes. Cela peut se faire de deux manières.
 
 - Sélectionnez un groupe d'hôtes déjà existant dans le menu déroulant.
 
-    ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.png)
+    ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-select.webp)
 
 - Création de groupe d'hôtes à la volée : composez un nom de groupe à partir de chaînes de 
 caractères et/ou d'informations issues de la découverte (une aide à la 
 saisie propose les informations disponibles).
 
-  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostgroup-create.webp)
 
   Dans cet exemple, si l'on découvre des serveurs Linux, alors un groupe d'hôtes
 `os-linux` sera créé.
@@ -379,7 +379,7 @@ découverts automatiquement. Cela peut se faire de deux manières.
 
 - Sélectionnez une catégorie d'hôtes déjà existante dans le menu déroulant.
 
-  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.png)
+  ![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-select.webp)
 
   Dans l'exemple ci-dessus, les hôtes dont le nom contient "sql" seront rattachés à la catégorie "DB_Server".
 
@@ -387,7 +387,7 @@ découverts automatiquement. Cela peut se faire de deux manières.
 caractères et/ou d'informations issues de la découverte (une aide à la 
 saisie propose les informations disponibles).
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostcategory-create.webp)
 
 Si une catégorie d'hôtes existe déjà avec ce nom, elle ne sera pas 
 recréée, l'hôte sera simplement rattaché à cette catégorie.
@@ -400,14 +400,14 @@ sévérités étant constituées d'un nom et d'un niveau (numérique), celles-ci
 ne peuvent pas être créées à la volée. On ne proposera que la sélection
 d'une sévérité existante dans le menu déroulant.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-hostseverity-select.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-hostseverity-select.webp)
 
 ### Supervision
 
 Le modificateur **Supervision** est utilisé pour choisir depuis quel serveur de
 supervision l'hôte sera supervisé. Celui-ci est obligatoire.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-monitoring.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-monitoring.webp)
 
 Le bouton radio **Sélecteur d'instance de supervision** permet de choisir entre
 le serveur de supervision défini dans la tâche ou depuis ceux disponibles sur
@@ -420,7 +420,7 @@ Si aucun modificateur de type **Supervision** ne s'applique à un hôte (à caus
 Le modificateur **Exclusion** est utilisé pour exclure un
 sous-ensemble des hôtes de la liste des résultats.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-exclusion.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-exclusion.webp)
 
 Le modificateur utilise les attributs des hôtes comme condition pour les
 exclure. Dans l'exemple ci-dessus, les hôtes de type Windows seront exclus de la liste des résultats.
@@ -433,7 +433,7 @@ Le modificateur **Inclusion** permet d'inclure des hôtes qui auraient été pr�
  **Exclusion** *est différent de 1* par exemple). Notre modificateur **Inclusion** permettra d'inclure dans la liste des résultats tous les
  hôtes de type Linux.
 
-![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.png)
+![image](../../assets/monitoring/discovery/host-discovery-mappers-inclusion.webp)
 
 ## Attributs avancés
 
@@ -449,7 +449,7 @@ Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement clo
 
 - Dans l'attribut **tags**, la clé **environment** peut avoir la valeur **production**, **preprod** ou **test**. Vous ne voulez superviser que les instances de production, c'est à dire celles pour lesquelles la valeur ("value") **production** est associée à la clé ("key") **environment**. Utilisez un modificateur de type **Exclusion** de la façon suivante :
 
-    ![image](../../assets/monitoring/discovery/advanced_attributes1.png)
+    ![image](../../assets/monitoring/discovery/advanced_attributes1.webp)
 
 - Vous souhaitez classer des hôtes dans des groupes d'hôtes. Dans l'exemple ci-dessous, les machines seront ajoutées à un groupe d'hôtes correspondant à leur OS : par exemple, toutes les machines dont le tag **os** sera égal à **Windows** appartiendront au groupe d'hôtes **Windows**.
 
@@ -459,7 +459,7 @@ Exemple d'attribut avancé décrivant un hôte : les tags d'un environnement clo
 
     La valeur de la propriété est indiquée dans une infobulle. Faites **Shift+clic** sur l'attribut avancé pour éditer ses propriétés :
 
-    ![image](../../assets/monitoring/discovery/advanced_attributes2.png)
+    ![image](../../assets/monitoring/discovery/advanced_attributes2.webp)
 
 ## Exemples
 
@@ -504,7 +504,7 @@ répondre à nos besoins :
 Cela va se traduire par un modificateur *Exclusion* avec la configuration
 suivante :
 
-![image](../../assets/monitoring/discovery/host-discovery-exclude-powered-off.png)
+![image](../../assets/monitoring/discovery/host-discovery-exclude-powered-off.webp)
 
 Ainsi, toutes les machines virtuelles qui sont arrêtées ne feront pas partie du
 résultat qui sera analysé. Elles ne seront pas ajoutées. (2)
@@ -512,7 +512,7 @@ résultat qui sera analysé. Elles ne seront pas ajoutées. (2)
 En plus de ce modificateur, choisissez l'analyse automatique avec toutes les
 politiques de mise à jour comme ci-dessous :
 
-![image](../../assets/monitoring/discovery/host-discovery-automatic-analysis-all-options.png)
+![image](../../assets/monitoring/discovery/host-discovery-automatic-analysis-all-options.webp)
 
 Avec la première politique, les machines virtuelles qui font partie du résultat
 seront ajoutées (1).

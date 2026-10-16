@@ -9,7 +9,7 @@ Within centreon, the root OIDs of the SNMP traps is filed by manufacturer. To ad
 
 Go to **Configuration > SNMP traps > Manufacturer** and click **Add**
 
-![image](../../assets/configuration/06constructors.png)
+![image](../../assets/configuration/06constructors.webp)
 
 * The **Name** and **Alias** fields define the name and the alias of the manufacturer
 * The **Description** field provides an indication about the manufacturer
@@ -18,7 +18,7 @@ Go to **Configuration > SNMP traps > Manufacturer** and click **Add**
 
 Go into the **Configuration > SNMP traps > MIBs** menu
 
-![image](../../assets/configuration/06importmibssuccess.png)
+![image](../../assets/configuration/06importmibssuccess.webp)
 
 * The **Manufacturer** list can be used to choose the manufacturer to which the MIB that you are importing belongs
 * The **File (.mib)** field can be used to load the MIB
@@ -29,7 +29,7 @@ In order to find the dependencies of your MIB, open your MIB file using a standa
 1. Locate the line that starts with **IMPORTS**
 2. Verify all the required dependencies to import your MIB file after the keyword **FROM**
 
-![image](../../assets/configuration/kdependances.png)
+![image](../../assets/configuration/kdependances.webp)
 
 In the MIB file shown above, there are four dependencies required to import the MIB: SNMPv2-SMI, SNMPv2-TC, SNMPv2-CONF,
 SNMP-FRAMEWORK-MIB.
@@ -45,7 +45,7 @@ It is also possible to create definitions of SNMP traps manually:
 
 Go to **Configuration > SNMP traps > SNMP traps** and click **Add**
 
-![image](../../assets/configuration/06addsnmptrap.png)
+![image](../../assets/configuration/06addsnmptrap.webp)
 
 * The field **Trap name** defines the name of the trap.
 * The field **Mode** defines how to check the trap **OID** received.
@@ -97,7 +97,7 @@ correspondence is assured.
 
 The **Advanced** tab is used to configure the behavior of the handling process of the SNMP traps on receiving the traps.
 
-![image](../../assets/configuration/06advancedconfiguration.png)
+![image](../../assets/configuration/06advancedconfiguration.webp)
 
 * **Enable routing** is used to enable the routing of information.
 * **Route definition** is used to define the command to be used for routing.

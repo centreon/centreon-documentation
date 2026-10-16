@@ -11,7 +11,7 @@ Le journal d'évènements permet de :
 Pour afficher le journal d'évènements, allez à la page
 **Supervision > Journaux d'évènements**.
 
-![image](../assets/alerts/event_logs.png)
+![image](../assets/alerts/event_logs.webp)
 
 - Dans le menu supérieur, sélectionnez les hôtes et/ou
 les services désirés pour afficher les journaux d'événements correspondants. Vous pouvez également filtrer par
@@ -25,4 +25,4 @@ correspondants.
     - **Du/Au** : saisissez des dates manuellement.
 
 - Vous pouvez exporter le résultat au format CSV ou XML à l'aide des
-boutons au-dessus à droite de la liste : ![image](../assets/alerts/event_logs_export.png)
+boutons au-dessus à droite de la liste : ![image](../assets/alerts/event_logs_export.webp)

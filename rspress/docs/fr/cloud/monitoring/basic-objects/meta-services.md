@@ -42,7 +42,7 @@ Pour ajouter un méta-service :
 
 Rendez-vous dans le menu : **Configuration > Services > Méta-Services** et cliquez sur le bouton **Ajouter**
 
-![image](../../assets/configuration/02addmetaservice.png)
+![image](../../assets/configuration/02addmetaservice.webp)
 
 ### Informations générales
 
@@ -83,10 +83,10 @@ ce cas à sélectionner dans la liste déroulante Métrique.
 Si vous avez choisi l’option **Sélectionner les services manuellement**, au sein de l’écran regroupant l’ensemble des méta-services :
 
 1. Cliquez sur suivant pour sélectionner les métriques entrant en jeu dans le calcul du méta-service. Ces métriques
-  sont appelées indicateurs. ![image](../../assets/configuration/common/flechedirection.png)
+  sont appelées indicateurs. ![image](../../assets/configuration/common/flechedirection.webp)
 2. Cliquez sur le bouton **Ajouter**
 
-![image](../../assets/configuration/02metaservicesindicators.png)
+![image](../../assets/configuration/02metaservicesindicators.webp)
 
 * Le champ **Hôte** permet de sélectionner l’hôte auquel le service à sélectionner appartient.
 * Le champ **Service** permet de choisir le service (première liste) ainsi que la métrique au sein de ce service

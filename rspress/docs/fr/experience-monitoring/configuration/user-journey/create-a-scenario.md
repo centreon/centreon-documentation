@@ -5,11 +5,11 @@ title: Création d’un scénario (”Parcours Utilisateur”)
 
 Vous pouvez vérifier qu’il vous reste suffisamment d’étapes dans la page Organisation
 
-![image](../../assets/configuration/user-journey/create-scenario-1.png)
+![image](../../assets/configuration/user-journey/create-scenario-1.webp)
 
 Vous devez disposer des droits Propriétaire ou Administrateur pour modifier vos scénarios. Vous pouvez vérifier dans votre page Profil
 
-![image](../../assets/configuration/user-journey/create-scenario-2.png)
+![image](../../assets/configuration/user-journey/create-scenario-2.webp)
 
 Pour les modifier, consultez:
 
@@ -23,7 +23,7 @@ Le mode édition de parcours vous permet de modifier vos parcours ou d’en cré
 
 Si le site n’a pas de Parcours Utilisateur configuré, alors ce message s’affiche :
 
-![image](../../assets/configuration/user-journey/create-scenario-3.png)
+![image](../../assets/configuration/user-journey/create-scenario-3.webp)
 
 Vous pouvez cliquer sur *“Configurez votre parcours utilisateur maintenant !”* pour entrer en mode édition.
 
@@ -31,7 +31,7 @@ Vous pouvez cliquer sur *“Configurez votre parcours utilisateur maintenant !�
 
 Si un parcours existe**,** vous verrez un écran semblable à celui-ci:
 
-![image](../../assets/configuration/user-journey/create-scenario-4.png)
+![image](../../assets/configuration/user-journey/create-scenario-4.webp)
 
 Cliquez sur les 3 points et sur *Configurer* pour entrer en mode édition/création.
 
@@ -41,7 +41,7 @@ Cliquez sur les 3 points et sur *Configurer* pour entrer en mode édition/créat
 
 En bas de la page d’édition, vous trouverez un bouton pour créer un nouveau parcours:
 
-![image](../../assets/configuration/user-journey/create-scenario-5.png)
+![image](../../assets/configuration/user-journey/create-scenario-5.webp)
 
 Bouton d’action en mode édition
 
@@ -51,13 +51,13 @@ Experience Monitoring génère un nouveau parcours avec une seule étape: la nav
 
 Pour activer votre parcours, vous devez le sauvegarder. Pour cela, cliquer sur l’icône *Sauvegarder* ou sur le bouton au pied de votre parcours:
 
-![image](../../assets/configuration/user-journey/create-scenario-6.png)
+![image](../../assets/configuration/user-journey/create-scenario-6.webp)
 
 Options pour sauvegarder un parcours utilisateur
 
 Vous verrez un symbole de chargement dans le coin supérieur droit qui indique que votre parcours fonctionne mais que la sonde n’est pas encore passée depuis les dernières modifications
 
-![image](../../assets/configuration/user-journey/create-scenario-7.png)
+![image](../../assets/configuration/user-journey/create-scenario-7.webp)
 
 Indicateur de changements sauvegardés mais pas encore exécuté par la sonde
 
@@ -225,7 +225,7 @@ Permet d’activer / désactiver la vérification de conformité du certificat T
 
 Lorsque qu’un site n’est pas sécurisé, les clients peuvent voir un écran équivalent à celui-ci.
 
-![image](../../assets/configuration/user-journey/create-scenario-8.png)
+![image](../../assets/configuration/user-journey/create-scenario-8.webp)
 
 Exemple de page d’échec SSL
 

@@ -25,7 +25,7 @@ Certains services n'ont aucune métrique associée : il s'agit de services contr
 
 Exemple : Nous supervisons un collecteur Centreon (pour ce service, via le connecteur [Linux SNMP](https://docs.centreon.com/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp/#collected-metrics--status)). Dans l'image suivante, le service **Memory** retourne 6 métriques : **used**, **free**, **used_prct**, **buffer**, **cached** et **shared**.
 
-![image](../assets/monitoring/metrics.png)
+![image](../assets/monitoring/metrics.webp)
 
 Vous pouvez également :
 

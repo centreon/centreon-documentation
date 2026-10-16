@@ -8,7 +8,7 @@ title: Accedian PVX Skylight
 Every PVX-Skylight instance provides XML API endpoints allowing Centreon to
 perform queries against it.
 
-![architecture](../../assets/integrations/external/skylight-pvx-connector.png)
+![architecture](../../assets/integrations/external/skylight-pvx-connector.webp)
 
 ## Compatibility
 
@@ -63,7 +63,7 @@ centreon-plugin-Applications-Pvx-Restapi.noarch`
 On your central server, install the plugin-pack through "Configuration \>
 Plugin-Packs \> Manager" menu:
 
-![install\_epp](../../assets/integrations/external/skylight-pvx-epp-install.png)
+![install\_epp](../../assets/integrations/external/skylight-pvx-epp-install.webp)
 
 > :warning: **If you are using an offline license**: Make sure to install
 > the RPM package first with the command below:

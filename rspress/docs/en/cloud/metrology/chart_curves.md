@@ -13,7 +13,7 @@ settings: curve profile, position of the curves on the graph, legend and additio
 
 Go to the **Monitoring \> Performances \> Curves** menu
 
-![image](../assets/metrology/02addcurve.png)
+![image](../assets/metrology/02addcurve.webp)
 
 * The **Template Name** field defines the name of the model.
 * The **Hosts/Service Data Source** list defines the host/service for which this curve will be used. If this information
@@ -50,12 +50,12 @@ The attributes below concern the information situated under the graph:
 
 Stacked curves:
 
-![image](../assets/metrology/02graphempile.png)
+![image](../assets/metrology/02graphempile.webp)
 
 Reversed curves:
 
-![image](../assets/metrology/02graphinverse.png)
+![image](../assets/metrology/02graphinverse.webp)
  
 Curves with filling:
 
-![image](../assets/metrology/02graphremplissage.png)
+![image](../assets/metrology/02graphremplissage.webp)

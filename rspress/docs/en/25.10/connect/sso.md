@@ -13,7 +13,7 @@ Many Apache modules allow authentication via OIDC, SAMLv2, TLS, Kerberos, and ot
 
 Go to **Administration > Authentication > Web SSO Configuration**:
 
-![image](../assets/administration/web-sso-configuration.png)
+![image](../assets/administration/web-sso-configuration.webp)
 
 ### Step 1: Enable authentication
 

@@ -7,7 +7,7 @@ title: Using contact templates
 
 A contact or a contact template can only inherit one contact template.
 
-![image](../../assets/configuration/09contactmodel.png)
+![image](../../assets/configuration/09contactmodel.webp)
 
 ### Configuration
 

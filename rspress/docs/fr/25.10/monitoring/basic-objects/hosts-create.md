@@ -18,7 +18,7 @@ Pour mettre un hôte en supervision, le plus simple est de lui attribuer un [mod
 
 1. Pour connaître le nom du modèle correspondant à un connecteur de supervision, allez à la page **Configuration > Connecteurs > Connecteurs de supervision**. Recherchez le connecteur de supervision désiré, puis cliquez sur l'icône "i" en bas à gauche de celui-ci. 
 
-    ![image](../../assets/configuration/pluginpacks/doc.png)
+    ![image](../../assets/configuration/pluginpacks/doc.webp)
 
     La documentation correspondant au connecteur de supervision s'ouvre : elle vous indiquera le nom exact du modèle associé au connecteur de supervision.
 

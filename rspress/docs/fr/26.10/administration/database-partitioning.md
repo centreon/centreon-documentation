@@ -68,7 +68,7 @@ systemctl restart mariadb
 
 La durée de rétention des données est programmée dans le menu **Administration > Paramètres > Options** :
 
-![image](../assets/administration/partitioning-configuration.png)
+![image](../assets/administration/partitioning-configuration.webp)
 
 Le paramétrage est le suivant :
 
@@ -158,9 +158,9 @@ Il est également possible de visualiser les tables partitionnées et la
 consommation associée à chaque partition via le menu `Administration > Statut
 de la plateforme > Bases de données` :
 
-![image](../assets/administration/partitioning-state.png)
+![image](../assets/administration/partitioning-state.webp)
 
 Des informations plus globales sur l’état de santé des bases de données sont
 également présentes :
 
-![image](../assets/administration/database-information.png)
+![image](../assets/administration/database-information.webp)

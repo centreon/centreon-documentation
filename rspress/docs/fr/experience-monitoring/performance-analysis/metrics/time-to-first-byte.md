@@ -5,7 +5,7 @@ title: TTFB - Time To First Byte
 
 Le Time To First Byte (plus couramment appelé TTFB), ou “temps du premier octet” en français, est la mesure qui sépare l’émission de la **première requête** HTTP (demande initiale d’une page web) par le navigateur et le début de la réception de la réponse, soit la réception du premier octet de donnée :
 
-![image](../../assets/performance-analysis/metrics/ttfb-1.png)
+![image](../../assets/performance-analysis/metrics/ttfb-1.webp)
 
 Ce temps représente donc la capacité d’un site web à produire et délivrer rapidement le code HTML de la page demandée.
 

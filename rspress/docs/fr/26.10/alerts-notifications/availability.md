@@ -14,18 +14,18 @@ Pour visualiser le rapport de disponibilité d'un hôte :
 - Rendez-vous dans le menu **Rapports > Disponibilité > Hôtes**
 - Sélectionnez l'hôte désiré dans la liste déroulante **Hôte** située en haut à gauche
 
-![image](../assets/reporting/os-reporting/os-host-reporting.png)
+![image](../assets/reporting/os-reporting/os-host-reporting.webp)
 
 * La liste **Période de génération** permet de choisir la période de temps sur laquelle on souhaite visualiser le taux de disponibilité. Il est possible de sélectionner une période prédéfinie via la liste déroulante ou de sélectionner manuellement sa période en définissant les champs **Du** et **Au**
 * Le tableau **État de l'hôte** permet de visualiser le taux et la durée de disponibilité associés par état de l'objet
 * Le tableau **Statuts des éléments du rapport** permet de visualiser la disponibilité des services associés à l'hôte suivant leurs statuts
 * La frise chronologique permet de visualiser de manière intuitive le statut de l'objet au cours du temps
 
-![image](../assets/reporting/os-reporting/os-host-timeline.png)
+![image](../assets/reporting/os-reporting/os-host-timeline.webp)
 
 De plus, en cliquant sur une journée de la frise chronologique, vous obtenez le rapport de la journée :
 
-![image](../assets/reporting/os-reporting/os-host-tooltip.png)
+![image](../assets/reporting/os-reporting/os-host-tooltip.webp)
 
 Il est également possible de visualiser des rapports web pour :
 
@@ -34,6 +34,6 @@ Il est également possible de visualiser des rapports web pour :
 
 L'icône CSV permet d'exporter les données du rapport au format CSV.
 
-![image](../assets/reporting/os-reporting/os-csv.png)
+![image](../assets/reporting/os-reporting/os-csv.webp)
 
 > Cliquez sur le service d'un hôte dans le rapport de disponibilité de l'hôte pour obtenir un rapport détaillé du service.

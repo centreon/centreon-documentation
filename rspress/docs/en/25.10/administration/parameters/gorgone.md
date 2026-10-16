@@ -7,7 +7,7 @@ This lets you set the parameters needed by Centreon to interact with Gorgone.
 
 Go to **Administration > Parameters > Gorgone**.
 
-![image](../../assets/administration/parameters-gorgone.png)
+![image](../../assets/administration/parameters-gorgone.webp)
 
 - The **Enable Broker statistics collection** field enables the retrieval of
 statistics from the Centreon Broker.

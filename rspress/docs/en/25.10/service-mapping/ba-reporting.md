@@ -13,7 +13,7 @@ The reporting page is in the **Reporting > Availability** menu in Centreon.
 Select a BA to display operational availability, warning and critical
 statistics for a given period:
 
-![image](../assets/service-mapping/guide/reporting.png)
+![image](../assets/service-mapping/guide/reporting.webp)
 
 You can export the data to a .csv file by clicking the **Export in CSV
 format** link.

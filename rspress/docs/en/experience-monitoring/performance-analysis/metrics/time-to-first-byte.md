@@ -5,7 +5,7 @@ title: TTFB - Time To First Byte
 
 Time To First Byte (commonly known as TTFB) measures the interval between the browser's initial HTTP request for a page and the start of the response — i.e., when the first byte of data is received:
 
-![image](../../assets/performance-analysis/metrics/ttfb-1.png)
+![image](../../assets/performance-analysis/metrics/ttfb-1.webp)
 
 This metric therefore reflects a website's ability to quickly produce and deliver the requested HTML.
 

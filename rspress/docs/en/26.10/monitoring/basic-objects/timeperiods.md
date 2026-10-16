@@ -41,7 +41,7 @@ Here are a few examples:
 * From 8 AM to noon and from 2 PM to 6:45 PM on weekdays: 08:00-12:00,14:00-18:45 (to be applied to weekdays only).
 * To not monitor during a whole day, leave the corresponding field blank.
 
-![image](../../assets/configuration/05timeperiod.png)
+![image](../../assets/configuration/05timeperiod.webp)
 
 ### Time Range Exceptions tab
 

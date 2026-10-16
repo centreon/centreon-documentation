@@ -37,7 +37,7 @@ accède à la base de données du wiki.
 Pour cela rendez-vous dans **Administration > Paramètres > Base de connaissance** et
 renseignez le formulaire.
 
-![image](../assets/administration/parameters-wiki.png)
+![image](../assets/administration/parameters-wiki.webp)
 
 ## Guide utilisateur
 
@@ -56,7 +56,7 @@ Le contenu d'une procédure peut être d'ordre général ou spécifique:
 
 Une procédure peut être associée à un hôte ou un service.
 
-![image](../assets/administration/parameters-wiki-article.png)
+![image](../assets/administration/parameters-wiki-article.webp)
 
 ### Algorithme d'affichage : héritage et surcharge
 
@@ -108,7 +108,7 @@ Toutes les créations / modifications sont donc réalisées à travers celui-ci.
 La base de connaissance est accessible depuis l'interface Centreon Web à travers
 un icône cliquable (voir ci dessous)
 
-![image](../assets/administration/parameters-wiki-host-monitoring.png)
+![image](../assets/administration/parameters-wiki-host-monitoring.webp)
 
 En cliquant sur l'icône, l'utilisateur est redirigé vers la base de connaissance
 correspondante.

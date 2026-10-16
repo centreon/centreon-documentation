@@ -12,9 +12,9 @@ With Centreon MAP, you can simply create and share synthetic real time
 monitoring views to monitor the performance of your IT infrastructure, network,
 applications and services.
 
-![image](../assets/graph-views/tuto_ex_1.png)
+![image](../assets/graph-views/tuto_ex_1.webp)
 
-![image](../assets/graph-views/tuto_ex_2.png)
+![image](../assets/graph-views/tuto_ex_2.webp)
 
 For instance, this real-time view allows ITOM teams and managers to see the availability of critical business applications
 and services instantaneously. This guarantees a better reaction time in case of outage and
@@ -52,7 +52,7 @@ Connect to your Centreon MAP server using the desktop client. The following
 workspace environment should appear empty. To illustrate the explanation, we've
 opened a view. By default, no view is opened.
 
-![image](../assets/graph-views/tuto_workspace.png)
+![image](../assets/graph-views/tuto_workspace.webp)
 
 The information and area are organized as follows:
 
@@ -104,6 +104,6 @@ share the right views to the right teams. As soon as a view has been shared to a
 user, it is accessible through its browser in **Centreon > Monitoring > Map** or
 even directly on a dashboard using the **Centreon Map** widget (see example below).
 
-![image](../assets/graph-views/share_view.png)
+![image](../assets/graph-views/share_view.webp)
 
 You now have enough information to start working on Centreon Map.

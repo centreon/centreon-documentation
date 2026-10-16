@@ -15,7 +15,7 @@ collection.
 
 From your workspace, click the **Import** button.
 
-![image](../assets/api/postman-import.png)
+![image](../assets/api/postman-import.webp)
 
 Go to the **Link** tab and enter the URL to the OpenAPI definition from GitHub:
 
@@ -23,7 +23,7 @@ Go to the **Link** tab and enter the URL to the OpenAPI definition from GitHub:
 https://raw.githubusercontent.com/centreon/centreon/refs/tags/25.10-latest/centreon/doc/API/centreon-api.yaml
 ```
 
-![image](../assets/api/postman-import-link.png)
+![image](../assets/api/postman-import-link.webp)
 
 Click **Continue** and adjust some of the default parameters:
 
@@ -35,7 +35,7 @@ Click **Continue** and adjust some of the default parameters:
 
 Then click **Import** and wait a few seconds for the process to be done.
 
-![image](../assets/api/postman-import-feedback.png)
+![image](../assets/api/postman-import-feedback.webp)
 
 ### Add an environment
 
@@ -48,7 +48,7 @@ From your workspace, click the **Manage Environments** icon.
 
 Click **Add** and set the variables as below with your platform information:
 
-![image](../assets/api/postman-environment-add.png)
+![image](../assets/api/postman-environment-add.webp)
 
 Then click **Add**, and select it in the environments list.
 
@@ -56,7 +56,7 @@ Then click **Add**, and select it in the environments list.
 > collection variable. It can be changed directly in the collection by editing
 > it.
 >
-> ![image](../assets/api/postman-collection-edit.png)
+> ![image](../assets/api/postman-collection-edit.webp)
 >
 > In the **Variables** tab, change the *version* value to either
 > "latest" or your `v<major>.<minor>` version number, e.g. "v25.10".
@@ -73,7 +73,7 @@ Then click **Add**, and select it in the environments list.
 >   "fix": "1"
 > \}
 >
-> ![image](../assets/api/postman-collection-variables.png)
+> ![image](../assets/api/postman-collection-variables.webp)
 >
 > Other variables will be overloaded by environment variables.
 
@@ -88,7 +88,7 @@ folder.
 In the **Body** tab, replace the *login* and *password* values with the environment
 variables `{{username}}` and `{{password}}` as below:
 
-![image](../assets/api/postman-login-body.png)
+![image](../assets/api/postman-login-body.webp)
 
 In the **Tests** tab, add the following code:
 
@@ -106,7 +106,7 @@ pm.test("The response has all properties", () => {
 pm.environment.set("token", responseJson.security.token);
 ```
 
-![image](../assets/api/postman-login-test.png)
+![image](../assets/api/postman-login-test.webp)
 
 Then click **Save** or use the shortcut *Ctrl+S*.
 
@@ -114,21 +114,21 @@ Then click **Save** or use the shortcut *Ctrl+S*.
 
 Once saved, **Send** the *Login* request.
 
-![image](../assets/api/postman-login-response.png)
+![image](../assets/api/postman-login-response.webp)
 
 If successful, it will add a new *token* environment variable filled with the
 token retrieved from login.
 
-![image](../assets/api/postman-environment-view.png)
+![image](../assets/api/postman-environment-view.webp)
 
 To use it in all the requests, edit the collection.
 
-![image](../assets/api/postman-collection-edit.png)
+![image](../assets/api/postman-collection-edit.webp)
 
 In the **Authorization** tab, choose *API Key* type and fill the *Key* field
 with `X-AUTH-TOKEN` and the *Value* field with `{{token}}`.
 
-![image](../assets/api/postman-collection-edit-authorization.png)
+![image](../assets/api/postman-collection-edit-authorization.webp)
 
 Make sure it will be added to *Header*.
 
@@ -140,7 +140,7 @@ Now that a valid token is stored, you can execute requests on other endpoints.
 
 Uncheck unused query parameters or fill them with values, and click **Send**.
 
-![image](../assets/api/postman-hosts-list-console.png)
+![image](../assets/api/postman-hosts-list-console.webp)
 
 You will notice the token added in the defined header.
 
