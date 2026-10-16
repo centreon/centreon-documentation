@@ -27,7 +27,7 @@ Example:
 
 1. I notice an incident in Centreon Infra Monitoring, but I can't find enough information to determine the cause.
 2. In Log Management, I investigate the relevant logs and explore their context to identify the root cause of the problem.
-3. Once the cause is understood, I can create an alert in Centreon Infra Monitoring (or an [alert rule](alerts.md) in Log Management) to detect the issue automatically in the future.
+3. Once the cause is understood, I can create an alert in Centreon Infra Monitoring (or an [alert rule](../alerts) in Log Management) to detect the issue automatically in the future.
 
 <!--### Exemple 1 — Supervision classique d'un serveur
 

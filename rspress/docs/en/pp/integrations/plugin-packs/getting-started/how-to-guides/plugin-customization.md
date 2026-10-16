@@ -9,17 +9,17 @@ Monitoring connectors are provided with a default configuration. However, you ca
 
 **See also:**
 
-* The [Understanding metrics](/docs/monitoring/metrics) page.
+* The [Understanding metrics](../../../../../26.10/monitoring/metrics) page.
 * On our community platform The Watch : [How to use thresholds](https://thewatch.centreon.com/product-how-to-21/how-to-use-the-thresholds-694).
 * [Some examples on GitHub](https://github.com/centreon/centreon-plugins/blob/develop/doc/en/user/guide.rst#how-can-i-remove-perfdatas-).
 
 ## Configuration with the default options
 
-1. Check that the [**HTTP Server**](../../procedures/applications-protocol-http.md) monitoring connector is installed and that the plugin and the pack are both [up to date](/docs/monitoring/pluginpacks#updating-monitoring-connectors).
-2. [Create a host](/docs/monitoring/basic-objects/hosts) (for instance, `www.centreon.com`) and apply the **App-Protocol-HTTP-custom** host template to it.
+1. Check that the [**HTTP Server**](../../procedures/applications-protocol-http.md) monitoring connector is installed and that the plugin and the pack are both [up to date](../../../../../26.10/monitoring/pluginpacks#updating-monitoring-connectors).
+2. [Create a host](../../../../../26.10/monitoring/basic-objects/hosts) (for instance, `www.centreon.com`) and apply the **App-Protocol-HTTP-custom** host template to it.
 3. Check that the option **Create Services linked to the Template too** is selected.
 4. Click **Save**.
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and in the **Resource status** page.
+5. [Deploy the configuration](../../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and in the **Resource status** page.
 6. In the **Resource status** page, filter on the host's name (in our example, type `h.name:www.centreon.com` in the search bar). You can see that a service called **HTTP-Response-Time** has been created.
 7. Click on this service: in the details panel, several tiles give us interesting information:
    - **Performance data**: the service has 2 metrics, **time** (the time that the HTML page takes to answer) and **size** (the size of the obtained page). Example: `'time'=0.035s;;;0; 'size'=915B;;;0;`.
@@ -56,7 +56,7 @@ To change the behavior of the plugin (i.e. change the data returned by it), use 
 1. In the **Resource status** page, click the **HTTP-ResponseTime** service, then, in the details panel, click the cog icon next to the name of the service in order to access its configuration page.
 2. In the **Custom macros** section, enter the values you want in the **EXTRAOPTIONS** macro.
 3. Click **Save**.
-4. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration).
+4. [Deploy the configuration](../../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration).
 5. In the **Resource status** page, click on the **HTTP-Response-Time** service: in the details panel, the command has been updated.
 6. Hover over the service, then click **Forced check**. The command is executed: the **Information** column displays the output of the plugin. In the details panel, in the **Performance data** tile, the values of the metrics are updated.
 

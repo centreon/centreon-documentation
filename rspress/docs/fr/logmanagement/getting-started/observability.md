@@ -27,7 +27,7 @@ Exemple :
 
 1. Je constate un incident dans Centreon Infra Monitoring, mon outil de supervision, mais celui-ci ne me permet pas d'en trouver la cause.
 2. Dans Log Management, je cherche la root cause du problème, en explorant le contexte du log concerné.
-3. Une fois que j'ai compris la cause du problème, je peux créer une alerte dans mon outil de supervision (ou une [règle d'alerte](alerts.md) dans Log Management) afin de le détecter dans le futur.
+3. Une fois que j'ai compris la cause du problème, je peux créer une alerte dans mon outil de supervision (ou une [règle d'alerte](../alerts) dans Log Management) afin de le détecter dans le futur.
 
 <!--### Exemple 1 — Supervision classique d'un serveur
 

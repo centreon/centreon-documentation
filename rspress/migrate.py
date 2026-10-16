@@ -2,6 +2,7 @@
 """Migrate ALL Docusaurus markdown files to rspress format and generate sidebar."""
 
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -70,6 +71,12 @@ _RE_TABITEM_CLOSE = re.compile(r"</TabItem>")
 _RE_SITE_IMPORT = re.compile(r"^import \w+ from '@site/[^']*';\n", re.MULTILINE)
 _RE_SITE_COMPONENT = re.compile(r"^<[A-Z]\w* */>\n?", re.MULTILINE)
 _RE_BLANK_LINES = re.compile(r"\n{3,}")
+# With trailingSlash, Docusaurus resolves `../foo/` from the page URL (one level
+# deeper than the file); rspress resolves links from the file itself.
+_RE_URL_RELATIVE_LINK = re.compile(r"\]\(\.\./((?:\.\./)*)([^)#\s:]+?)/(#[^)\s]*)?\)")
+# Downloadable files linked from the docs (not routes, not bundled by rspress).
+DOWNLOAD_EXTENSIONS = ("sql", "pdf", "cnf")
+_RE_DOWNLOAD_LINK = re.compile(r"\]\(([^)#\s:]+\.(?:" + "|".join(DOWNLOAD_EXTENSIONS) + r"))\)")
 # Handles indented/non-indented fences and optional space before the language name.
 # Requires the rest of the line to contain no backticks, so inline triple-backtick
 # spans like ```rrdcached``` is not supported. don't get falsely treated as fence
@@ -117,6 +124,7 @@ def transform(content: str, is_mdx: bool = False, depth: int = 1) -> str:
     content = _RE_TABITEM_IMPORT.sub("import { Tab } from '@rspress/core/theme';\n", content)
     content = _RE_TABITEM_OPEN.sub("<Tab", content)
     content = _RE_TABITEM_CLOSE.sub("</Tab>", content)
+    content = _RE_URL_RELATIVE_LINK.sub(lambda m: f"]({m.group(1) or './'}{m.group(2)}{m.group(3) or ''})", content)
     # Decode %20 in image/link paths → hyphens (assets are renamed to remove spaces)
     content = re.sub(r'(\!\[.*?\]\([^)]*?)%20([^)]*?\))', lambda m: m.group(0).replace('%20', '-'), content)
     # Normalize asset reference depth: every `../assets/...` link must use the
@@ -482,6 +490,95 @@ def optimize_media() -> None:
         print("  ffmpeg not found, skipping video optimization")
 
 
+_RE_MD_LINK = re.compile(r"\]\(([^)\s]+)\)")
+_LINK_SECTIONS = {*VERSIONS, "pp", "cloud", "logmanagement", "experience-monitoring"}
+
+
+def _find_page(base: Path) -> Path | None:
+    for candidate in (base.with_name(base.name + ".md"), base.with_name(base.name + ".mdx"), base / "index.md", base / "index.mdx"):
+        if candidate.is_file():
+            return candidate
+    return None
+
+
+def _resolve_link(target: str, md: Path, lang_root: Path, section_root: Path) -> str | None:
+    """Map a Docusaurus link to the rspress page it points to, as a file-relative link."""
+    path, sep, anchor = target.partition("#")
+    if not path or ":" in path:
+        return None
+    if path.startswith("/docs/"):
+        # Docusaurus serves the latest core version under /docs/.
+        path = f"/{VERSIONS[0]}/{path[len('/docs/'):]}"
+    path = re.sub(r"\.mdx?$", "", path.rstrip("/"))
+    if path.startswith("/"):
+        # rspress strips a leading version segment from absolute links, so make
+        # them relative; other absolute links already resolve.
+        if path.split("/")[1] not in VERSIONS:
+            return None
+        bases = [lang_root / path.lstrip("/")]
+    else:
+        # Docusaurus falls back to the plugin content root for relative links.
+        bases = [md.parent / path, section_root / path]
+    for base in bases:
+        page = _find_page(Path(os.path.normpath(base)))
+        if page is None:
+            continue
+        rel = Path(os.path.relpath(page, md.parent)).with_suffix("").as_posix()
+        if not rel.startswith("."):
+            rel = f"./{rel}"
+        return rel + sep + anchor
+    return None
+
+
+def fix_links() -> None:
+    """Rewrite internal links that rspress resolves differently from Docusaurus."""
+    count = 0
+    for md in sorted(DOCS_ROOT.glob("[a-z][a-z]/**/*.md*")):
+        rel = md.relative_to(DOCS_ROOT)
+        if len(rel.parts) < 3 or rel.parts[1] not in _LINK_SECTIONS:
+            continue
+        lang_root = DOCS_ROOT / rel.parts[0]
+        section_root = lang_root / rel.parts[1]
+        original = md.read_text(encoding="utf-8")
+
+        def repl(m: re.Match) -> str:
+            target = m.group(1)
+            # Keep relative links rspress already resolves (it maps .md to .mdx itself).
+            path = re.sub(r"\.mdx?$", "", target.partition("#")[0].rstrip("/"))
+            if path and not path.startswith("/") and ":" not in path and _find_page(Path(os.path.normpath(md.parent / path))):
+                return m.group(0)
+            fixed = _resolve_link(target, md, lang_root, section_root)
+            return f"]({fixed})" if fixed else m.group(0)
+
+        content = _RE_MD_LINK.sub(repl, original)
+        if content != original:
+            md.write_text(content, encoding="utf-8")
+            count += 1
+    print(f"  links fixed in {count} files")
+
+
+def publish_downloads() -> None:
+    """Copy linked downloadable files to public/ at the URL the relative link resolves to.
+
+    With cleanUrls, `docs/<lang>/<section>/x/page.md` is served at `/[fr/]<section>/x/page`,
+    so a relative link resolves in the browser to the same path as on disk.
+    """
+    public = DOCS_ROOT / "public"
+    count = 0
+    for md in sorted(DOCS_ROOT.glob("[a-z][a-z]/**/*.md*")):
+        for link in _RE_DOWNLOAD_LINK.findall(md.read_text(encoding="utf-8")):
+            src = (md.parent / link).resolve()
+            if not src.is_file():
+                continue
+            rel = src.relative_to(DOCS_ROOT.resolve())
+            # The default language (en) has no URL prefix.
+            dst = public / (rel.relative_to("en") if rel.parts[0] == "en" else rel)
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(src, dst)
+            count += 1
+    print(f"  {count} downloadable files published")
+
+
 # ── Entry point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
@@ -495,6 +592,10 @@ if __name__ == "__main__":
     migrate_logmanagement()
     print("Migrating experience monitoring…")
     migrate_experience()
+    print("Fixing internal links…")
+    fix_links()
+    print("Publishing downloadable files…")
+    publish_downloads()
     print("Optimizing media (gif/video)…")
     optimize_media()
     print("Generating sidebar…")

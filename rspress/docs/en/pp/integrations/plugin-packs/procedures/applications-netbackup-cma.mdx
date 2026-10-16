@@ -41,7 +41,7 @@ The connector brings the following service templates (sorted by the host templat
 |:--------------|:------------------------------------|:---------------------------------|
 | Tape-Usage    | App-Netbackup-Tape-Usage-CMA-custom | Check tapes available in library |
 
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](../../../../26.10/monitoring/basic-objects/services), then apply the service template you want.
 
 </Tab>
 </Tabs>
@@ -166,11 +166,11 @@ the **Configuration > Connectors > Monitoring Connectors** menu.
 | CENTREONAGENTPLUGINS | Path where the centreon_plugins.exe plugin can be found | C:/Program Files/Centreon/Plugins |     X     |
 | SYSTEMLANGUAGE       | Language installed on the Windows system                | en                                |           |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Deploy the configuration](../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
 ### Using a service template provided by the connector
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](../../../../26.10/monitoring/basic-objects/services) and apply a service template to them.
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
@@ -239,7 +239,7 @@ the **Configuration > Connectors > Monitoring Connectors** menu.
 </Tab>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 

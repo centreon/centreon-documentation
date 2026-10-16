@@ -19,7 +19,7 @@ As they are Nagios-based, both Centreon and custom plugins are compatible with t
 
 Due to Telegraf or Centreon constraints, the following limitations need to be considered.
 
-* Due to Telegraf limitations, the configuration of resources known to the agent is only updated when you start or [reload the agent](#reload-the-agent) (typically, you would do that after [deploying the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration)). Technically, the agent requests an up-to-date configuration from Centreon.
+* Due to Telegraf limitations, the configuration of resources known to the agent is only updated when you start or [reload the agent](#reload-the-agent) (typically, you would do that after [deploying the configuration](../../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration)). Technically, the agent requests an up-to-date configuration from Centreon.
 * Only known metrics (i.e., the metrics for the hosts and services created in Centreon) are sent to Centreon. Metrics for unknown hosts or services are discarded.
 * Only metrics and statuses are returned (no outputs).
 * Network connections are one-way only: data goes from the agent to the poller. This means that a host in a DMZ will need a poller in this DMZ.
@@ -33,13 +33,13 @@ Due to Telegraf or Centreon constraints, the following limitations need to be co
 <Tab value="Linux" label="Linux">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
+2. [Install](../../../../../26.10/monitoring/pluginpacks#installing-a-monitoring-connector) the **Linux Telegraf Agent** monitoring connector.
 
 </Tab>
 <Tab value="Windows" label="Windows">
 
 1. On your central server, go to **Configuration > Connectors > Monitoring Connectors**.
-2. [Install](/docs/monitoring/pluginpacks#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
+2. [Install](../../../../../26.10/monitoring/pluginpacks#installing-a-monitoring-connector) the **Windows Telegraf Agent** monitoring connector.
 
 </Tab>
 </Tabs>
@@ -404,12 +404,12 @@ On the hosts you want to monitor, download and execute the corresponding [packag
 <Tabs groupId="sync">
 <Tab value="Linux" label="Linux">
 
-On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Linux-Telegraf-Agent-custom** template.
+On the central server, [create hosts](../../../../../26.10/monitoring/basic-objects/hosts) and apply to them the **OS-Linux-Telegraf-Agent-custom** template.
 
 </Tab>
 <Tab value="Windows" label="Windows">
 
-On the central server, [create hosts](/docs/monitoring/basic-objects/hosts) and apply to them the **OS-Windows-Telegraf-Agent-custom** template.
+On the central server, [create hosts](../../../../../26.10/monitoring/basic-objects/hosts) and apply to them the **OS-Windows-Telegraf-Agent-custom** template.
 
 </Tab>
 </Tabs>

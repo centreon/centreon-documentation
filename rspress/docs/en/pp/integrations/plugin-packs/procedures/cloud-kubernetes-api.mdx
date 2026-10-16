@@ -27,7 +27,7 @@ There are mainly three ways:
 - Collect infrastructural metrics (master and worker nodes) with a Centreon
   host per Kubernetes node, and keep orchestration/application metrics
   on a unique host (using one of the 2 previous scenarios) - apply the
-  [host discovery](/docs/monitoring/discovery/hosts-discovery) procedure.
+  [host discovery](../../../../26.10/monitoring/discovery/hosts-discovery) procedure.
 
 ### Templates
 
@@ -130,7 +130,7 @@ The connector brings the following service templates (sorted by the host templat
 | Kubernetes Namespaces (RestAPI) | Discover Kubernetes cluster namespaces by requesting the Kubernetes RestAPI               |
 | Kubernetes Namespaces (Kubectl) | Discover Kubernetes cluster namespaces by requesting the Kubernetes cluster using kubectl |
 
-More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
+More information about discovering hosts automatically is available on the [dedicated page](../../../../26.10/monitoring/discovery/hosts-discovery).
 
 #### Service discovery
 
@@ -148,8 +148,8 @@ More information about discovering hosts automatically is available on the [dedi
 | Cloud-Kubernetes-Api-ResourceQuota-Status          | Discover Kubernetes ResourceQuotas to monitor their status        |
 | Cloud-Kubernetes-Api-StatefulSets-Status           | Discover Kubernetes StatefulSets to monitor their status           |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+More information about discovering services automatically is available on the [dedicated page](../../../../26.10/monitoring/discovery/services-discovery)
+and in the [following chapter](../../../../26.10/monitoring/discovery/services-discovery#discovery-rules).
 
 ### Collected metrics & status
 
@@ -906,7 +906,7 @@ You still have to manually install the plugin on the poller(s) when:
 - Automatic plugin installation is turned off
 - You want to run a discovery job from a poller that doesn't monitor any resource of this kind yet
 
-> More information in the [Installing the plugin](/docs/monitoring/pluginpacks/#installing-the-plugin) section.
+> More information in the [Installing the plugin](../../../../26.10/monitoring/pluginpacks#installing-the-plugin) section.
 
 Use the commands below according to your operating system's package manager:
 
@@ -966,7 +966,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Deploy the configuration](../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the token [retrieved ealier](#retrieve-token-from-service-account) from the service account,
 
 </Tab>
@@ -986,7 +986,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                       |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Deploy the configuration](../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
 
 </Tab>
@@ -1010,7 +1010,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options).                       |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Deploy the configuration](../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the token [retrieved ealier](#retrieve-token-from-service-account) from the service account,
 > - If using kubectl: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
 
@@ -1031,7 +1031,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 | TIMEOUT                 | Set timeout in seconds                                                                                                     | 10                |             |
 | EXTRAOPTIONS            | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#available-options).                       |                   |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Deploy the configuration](../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 > For the host discovery: set the path to the [created configuration file](#create-a-kubectl-configuration) (prefer using relative path to make it work for both discovery and monitoring, i.e. `~/.kube/config`).
 
 </Tab>
@@ -1039,7 +1039,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 
 ### Using a service template provided by the connector
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
+1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](../../../../26.10/monitoring/basic-objects/services) and apply a service template to them.
 2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
 
 <Tabs groupId="sync">
@@ -1203,7 +1203,7 @@ yum install centreon-plugin-Cloud-Kubernetes-Api
 </Tab>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Deploy the configuration](../../../../26.10/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
 
 ## How to check in the CLI that the configuration is OK and what are the main options for?
 
