@@ -9,6 +9,8 @@ export * from '@rspress/core/theme-original';
 export function SwitchAppearance() {
   return null;
 }
+// Code block button icons drawn in CSS instead of inline SVG.
+export { IconCopy, IconSuccess, IconWrap, IconWrapped } from './maskIcons';
 // Lazily rendered sidebar groups (see components/Sidebar/SidebarGroup.tsx).
 export { Sidebar, SidebarList } from './components/Sidebar';
 

@@ -340,3 +340,23 @@
     width: 220px;
   }
 }
+
+/* Code block button icons (theme/maskIcons.tsx), same paths as rspress' SVGs. */
+.rp-mask-icon {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask: var(--rp-mask-icon) center / contain no-repeat;
+  mask: var(--rp-mask-icon) center / contain no-repeat;
+}
+.rp-mask-icon--copy {
+  --rp-mask-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 8v12H8V8zm0-2H8a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2'/%3E%3Cpath d='M4 16H2V4a2 2 0 0 1 2-2h12v2H4Z'/%3E%3C/svg%3E");
+}
+.rp-mask-icon--success {
+  --rp-mask-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m9.55 18-5.7-5.7 1.425-1.425L9.55 15.15l9.175-9.175L20.15 7.4z'/%3E%3C/svg%3E");
+}
+.rp-mask-icon--wrap {
+  --rp-mask-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M16 7H3V5h13zM3 19h13v-2H3zm19-7-4-3v2H3v2h15v2z'/%3E%3C/svg%3E");
+}
+.rp-mask-icon--wrapped {
+  --rp-mask-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z'/%3E%3C/svg%3E");
+}
