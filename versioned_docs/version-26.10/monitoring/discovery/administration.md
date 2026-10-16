@@ -11,13 +11,6 @@ import TabItem from '@theme/TabItem';
 1. To update the module, run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf update -y centreon-auto-discovery-server
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -25,7 +18,14 @@ dnf update -y centreon-auto-discovery-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf update -y centreon-auto-discovery-server
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt install --only-upgrade centreon-auto-discovery-server
@@ -198,6 +198,8 @@ gorgone:
       username: cli
       password: PYNM5kcc
 ```
+
+> If you have [customized the Centreon URI](../../administration/secure-platform.md#custom-uri), replace **/centreon** with your custom path in the **base_url** value.
 
 Access to RestAPI, represented by *centreonv2*, requires credentials of a
 user with *Reach API Configuration* access. It is used for Host Discovery.

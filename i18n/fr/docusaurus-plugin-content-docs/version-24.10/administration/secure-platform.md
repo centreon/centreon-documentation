@@ -1428,6 +1428,21 @@ systemctl restart apache2
 </TabItem>
 </Tabs>
 
+4. Mettez à jour l'URL utilisée par Gorgone pour appeler l'API Centreon. Dans le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml**, remplacez **/centreon** par votre nouveau chemin dans la valeur **base_url** :
+
+```yaml
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "https://<adresse-du-serveur-central>/monitoring/api/latest/"
+```
+
+5. Redémarrez Gorgone :
+
+```shell
+   systemctl restart gorgoned
+```
+
 ## Activation du http2
 
 Il est possible d'activer le protocole http2 pour améliorer les performances réseaux de Centreon.

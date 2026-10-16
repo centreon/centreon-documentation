@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 This chapter describes advanced procedures to secure your Centreon MAP platform.
 
-> If you want to use MAP in HTTPS, you must both secure your Centreon platform and MAP. Follow this [procedure](../administration/secure-platform.md#secure-the-web-server-with-https) if you need to secure your Centreon platform.
+> If you want to use MAP in HTTPS, you must both secure your Centreon platform and MAP. If necessary, follow this [procedure](../administration/secure-platform.md#secure-the-web-server-with-https) to secure your Centreon platform.
 
 > Mistakes when editing configuration files can lead to malfunctions of the software. We recommend that you make a backup of the file before editing it and that you only change the settings advised by Centreon.
 
@@ -283,7 +283,7 @@ will show the following error:
 
 ## Configure TLS for the connection to Centreon Central
 
-> You must [secure your Centreon platform with HTTPS](../administration/secure-platform.md#secure-the-web-server-with-https).
+> If it is not already done, [secure your Centreon platform with HTTPS](../administration/secure-platform.md#secure-the-web-server-with-https).
 
 Set the **centreon.url** parameter inside **/etc/centreon-map/map-config.properties**
 to use HTTPS instead of HTTP:
