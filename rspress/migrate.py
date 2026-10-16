@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Migrate ALL Docusaurus markdown files to rspress format and generate sidebar."""
 
+import hashlib
 import json
 import os
 import re
@@ -588,25 +589,39 @@ def convert_png_to_webp() -> None:
 
 
 def publish_downloads() -> None:
-    """Copy linked downloadable files to public/ at the URL the relative link resolves to.
+    """Publish linked downloadable files once to public/downloads/ and point the links there.
 
-    With cleanUrls, `docs/<lang>/<section>/x/page.md` is served at `/[fr/]<section>/x/page`,
-    so a relative link resolves in the browser to the same path as on disk.
+    The same file is often linked from several versions and languages (e.g. the
+    MBI sample report PDFs): identical contents are published once.
     """
-    public = DOCS_ROOT / "public"
-    count = 0
+    downloads = DOCS_ROOT / "public" / "downloads"
+    if downloads.exists():
+        shutil.rmtree(downloads)
+    downloads.mkdir(parents=True)
+    published: dict[str, str] = {}  # content hash -> published file name
+    links = 0
     for md in sorted(DOCS_ROOT.glob("[a-z][a-z]/**/*.md*")):
-        for link in _RE_DOWNLOAD_LINK.findall(md.read_text(encoding="utf-8")):
-            src = (md.parent / link).resolve()
+        original = md.read_text(encoding="utf-8")
+
+        def repl(m: re.Match) -> str:
+            nonlocal links
+            src = (md.parent / m.group(1)).resolve()
             if not src.is_file():
-                continue
-            rel = src.relative_to(DOCS_ROOT.resolve())
-            # The default language (en) has no URL prefix.
-            dst = public / (rel.relative_to("en") if rel.parts[0] == "en" else rel)
-            dst.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(src, dst)
-            count += 1
-    print(f"  {count} downloadable files published")
+                return m.group(0)
+            digest = hashlib.sha256(src.read_bytes()).hexdigest()
+            if digest not in published:
+                name = src.name
+                if (downloads / name).exists():
+                    name = f"{src.stem}-{digest[:8]}{src.suffix}"
+                shutil.copyfile(src, downloads / name)
+                published[digest] = name
+            links += 1
+            return f"](/downloads/{published[digest]})"
+
+        content = _RE_DOWNLOAD_LINK.sub(repl, original)
+        if content != original:
+            md.write_text(content, encoding="utf-8")
+    print(f"  {len(published)} downloadable files published for {links} links")
 
 
 # ── Entry point ───────────────────────────────────────────────────────────────

@@ -54,7 +54,7 @@ mysql_upgrade
     mysql mysql < repair_mysql_upgrade.sql
     ```
 
-    Téléchargez le fichier ici : [repair_mysql_upgrade.sql](../assets/reporting/administrate/repair_mysql_upgrade.sql).
+    Téléchargez le fichier ici : [repair_mysql_upgrade.sql](/downloads/repair_mysql_upgrade.sql).
 
 > Si vous aviez développé des rapports & bibliothèques personnalisées,
 > pensez à les copier dans les mêmes dossiers sur votre nouveau serveur de reporting.
