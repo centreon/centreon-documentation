@@ -1,6 +1,7 @@
 ---
 id: network-h3c-snmp
 title: H3C Network SNMP
+description: "Monitor H3C network devices via SNMP: CPU, memory, hardware, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

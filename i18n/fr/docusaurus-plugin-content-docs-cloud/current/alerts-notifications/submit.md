@@ -1,6 +1,7 @@
 ---
 id: submit
 title: Soumettre un résultat
+description: "Comment soumettre manuellement un statut, un message de sortie et des données de performance pour un service à contrôle passif"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

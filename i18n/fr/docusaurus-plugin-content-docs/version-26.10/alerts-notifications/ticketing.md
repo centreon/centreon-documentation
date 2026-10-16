@@ -1,6 +1,7 @@
 ---
 id: ticketing
 title: Configuration
+description: "Configurer les fournisseurs, widgets et réglages avancés d'Open Tickets"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

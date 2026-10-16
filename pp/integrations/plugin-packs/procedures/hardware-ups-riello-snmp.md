@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-riello-snmp
 title: Riello UPS SNMP
+description: "Monitor Riello UPS devices via SNMP: alarms, battery status, and input/output line metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

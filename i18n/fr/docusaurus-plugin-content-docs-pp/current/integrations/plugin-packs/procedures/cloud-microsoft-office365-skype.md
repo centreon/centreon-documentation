@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-skype
 title: Office365 Skype
+description: "Supervisez Microsoft Office 365 Skype via l'API REST : usage des appareils par type et activité des utilisateurs (sessions, conférences)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

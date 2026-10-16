@@ -1,6 +1,7 @@
 ---
 id: applications-activemq-jmx
 title: ActiveMQ JMX
+description: "Supervisez les brokers Apache ActiveMQ via JMX avec l'API REST Jolokia : taille des files et topics, mémoire et débit des messages."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

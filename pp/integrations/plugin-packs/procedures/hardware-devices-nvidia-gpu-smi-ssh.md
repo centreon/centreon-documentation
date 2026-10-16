@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-nvidia-gpu-smi-ssh
 title: NVIDIA GPU SMI SSH
+description: "Monitor NVIDIA GPUs via SSH: track utilization, memory, temperature, fan speed, and power consumption."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: migrate-from-debian-to-debian
 title: Migrate from Debian 11 to Debian 12
+description: "Migrate a Centreon platform from Debian 11 to Debian 12"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

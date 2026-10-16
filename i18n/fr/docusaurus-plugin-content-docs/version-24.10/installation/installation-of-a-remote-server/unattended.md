@@ -1,6 +1,7 @@
 ---
 id: unattended-install-remote
 title: Installation silencieuse d'un serveur distant
+description: "Installer rapidement un serveur distant à l'aide d'un script"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

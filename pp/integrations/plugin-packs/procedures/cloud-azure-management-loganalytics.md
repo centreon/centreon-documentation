@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-loganalytics
 title: Azure Log Analytics
+description: "Monitor Azure Log Analytics via the management API by running Kusto (KQL) queries and tracking match counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

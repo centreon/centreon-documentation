@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-sftp
 title: Protocol SFTP
+description: "Supervisez vos serveurs SFTP via SSH : statut de connexion, nombre de fichiers, dates de modification et exécution de scénarios."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-wsman
 title: Veeam WSMAN
+description: "Monitor Veeam Backup & Replication via WSMAN: backup job status, licenses, repositories, tape jobs, and SureBackup jobs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -221,6 +222,8 @@ yum install centreon-plugin-Applications-Backup-Veeam-Wsman
 
 | Macro           | Description                                                                                                                                                                                                     | Default value                                           | Mandatory |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:---------:|
+| JOB_SOURCE      | Define which Veeam job source to use.  Possible values are: `all` (retrieve both standard jobs and agent jobs), `standard` (retrieve only jobs returned by `Get-VBRJob`), or `agent` (retrieve only jobs returned by `Get-VBRComputerBackupJob`)                                                                                                                                                                                   | all                                                     |           |
+
 | FILTERENDTIME   | Filter job with end time greater than current time less value in seconds (Default: 86400)                                                                                                                       | 86400                                                   |           |
 | FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                                                               |                                                         |           |
 | FILTERSTARTTIME | Filter job with start time greater than current time less value in seconds                                                                                                                                      |                                                         |           |
@@ -448,6 +451,8 @@ All available options for each service template are listed below:
 |:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --ps-display        | Display powershell script.                                                                                                                                                                                       |
 | --ps-exec-only      | Print powershell output.                                                                                                                                                                                         |
+| --job-source        | Define which Veeam job source to use (default: all).  Possible values are: `all` (retrieve both standard jobs and agent jobs), `standard` (retrieve only jobs returned by `Get-VBRJob`), or `agent` (retrieve only jobs returned by `Get-VBRComputerBackupJob`).  |
+
 | --filter-name       | Filter job name (can be a regexp).                                                                                                                                                                               |
 | --exclude-name      | Exclude job name (regexp can be used).                                                                                                                                                                           |
 | --filter-type       | Filter job type (can be a regexp).                                                                                                                                                                               |

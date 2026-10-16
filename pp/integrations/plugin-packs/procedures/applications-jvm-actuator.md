@@ -1,6 +1,7 @@
 ---
 id: applications-jvm-actuator
 title: JVM Actuator
+description: "Monitor Java applications via the Spring Boot Actuator REST API: JVM CPU load, memory, threads, file descriptors, and class counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-lmsensors-snmp
 title: LM Sensors SNMP
+description: "Monitor LM Sensors hardware sensors via SNMP, tracking fan, temperature, voltage, and miscellaneous status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

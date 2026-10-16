@@ -1,6 +1,7 @@
 ---
 id: network-sophos-es-snmp
 title: Sophos ES SNMP
+description: "Monitor Sophos ES email security appliances via SNMP: health status and message queue/throughput metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

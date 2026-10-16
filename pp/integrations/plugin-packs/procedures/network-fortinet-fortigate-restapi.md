@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortigate-restapi
 title: Fortinet Fortigate Rest API
+description: "Monitor Fortinet FortiGate firewalls via REST API: certificate expiry, health, licenses, VDOM system resources, and HA clusters."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

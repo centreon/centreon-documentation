@@ -1,6 +1,7 @@
 ---
 id: applications-tosca-restapi
 title: Tosca Rest API
+description: "Monitor Tricentis Tosca execution lists and scenario status via REST API with this Centreon monitoring connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

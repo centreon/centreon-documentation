@@ -1,6 +1,7 @@
 ---
 id: azure-credential-configuration
 title: Prérequis pour la supervision Azure
+description: "Configurez les identifiants Azure API ou Azure CLI pour permettre à Centreon de récupérer les métriques de supervision Azure."
 ---
 
 Deux méthodes sont disponibles pour interroger les API d'Azure :

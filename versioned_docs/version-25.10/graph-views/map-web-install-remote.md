@@ -1,6 +1,7 @@
 ---
 id: map-web-install-remote
 title: Installing MAP on a remote server
+description: "Install Centreon MAP on a remote poller server"
 ---
 
 ## Centreon MAP installation for a Centreon remote server
@@ -17,11 +18,7 @@ Then refer to the [installation procedure](map-web-install.md) to install the tw
 After that, you will have to perform the additional steps explained below, to finish
 installing Centreon Map on your remote server.
 
-## Architecture
-
-The diagram below summarizes the MAP architecture:
-
-![image](../assets/graph-views/ng/map-web-remote-server-schema.png)
+For more information about the MAP architecture in a remote server setup, see the [MAP architecture](map-architecture.md) topic.
 
 ## Centreon Broker configuration
 

@@ -1,12 +1,25 @@
 ---
 id: known-issues
 title: Known issues
+description: "Known issues and workarounds for the Centreon platform"
 ---
 
 Below is a list of known issues and/or bugs you may encounter.
 We try to provide workarounds. We apply fixes when
 necessary and are forever improving our software in order to solve any
 issues for future releases.
+
+## Centreon Dashboards
+
+### Too many widgets cause a "413 error Request Entity Too Large" issue
+
+After a certain number of widgets in a single dashboard, any new widgets will produce a `413 error on Save (POST | Request Entity Too Large)`.
+The maximum size for the request body has been reached and you can fix it by modifying the PHP/Apache configuration.
+
+#### Workaround
+
+1. Edit the `/etc/httpd/conf.d/mod_security.conf` file and increase the `SecRequestBodyNoFilesLimit` value. By default the value is **131072 (128M)**, you can increase it to **524288 (512M)**.
+2. Then restart the Apache service.
 
 ## Anomaly Detection
 
@@ -26,7 +39,7 @@ When used as indicators in [BAM](../service-mapping/introduction.md), Anomaly De
 
 The feature that allows you to exclude some data from Anomaly Detection's model computation appears in the interface but is not implemented yet. You get the message "Not implemented yet" when trying to use the feature.
 
-### Workaround
+#### Workaround
 
 There is no workaround but the feature will be available in a coming version.
 
@@ -103,7 +116,7 @@ This is due to a column update issue in the database.
   php /usr/share/centreon/www/modules/centreon-bi-server/tools/updateColumnsToBigint.php
   ```
 
-2. Then follow this procedure to [rebuild missing reporting data](../reporting/concepts.md#how-to-rebuild-missing-reporting-data).
+2. Then follow this procedure to [rebuild missing reporting data](../reporting/rebuilding-data.md).
 
 ### MBI does not work if databases have custom names
 

@@ -1,6 +1,7 @@
 ---
 id: applications-jvm-jmx
 title: JVM JMX
+description: "Supervisez les machines virtuelles Java via JMX et l'agent Jolokia : charge CPU, mémoire, garbage collection, threads et classes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

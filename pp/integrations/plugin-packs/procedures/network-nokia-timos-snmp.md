@@ -1,6 +1,7 @@
 ---
 id: network-nokia-timos-snmp
 title: Nokia TiMos SNMP
+description: "Monitor Nokia TiMOS routers via SNMP: CPU, memory, hardware, uptime, interfaces, BGP, IS-IS, LDP, and L2TP usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

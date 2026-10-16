@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction à Centreon BAM
+description: "Introduction à Centreon Business Activity Monitoring et sa documentation"
 ---
 
 La fonctionnalité de **Service Mapping** de Centreon se base sur

@@ -1,6 +1,7 @@
 ---
 id: upgrade
 title: Monter de version l'extension
+description: "Monter de version Centreon MBI vers une nouvelle version majeure"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,7 +9,7 @@ import TabItem from '@theme/TabItem';
 > Lors d'une montée de version < 18.10.x vers une version >= 18.10.x, vous devez:
 >
 > - Récupérer une nouvelle licence via le support Centreon
-> - Vous assurer que votre serveur de reporting est basé sur CentOS 7. Si ce n'est
+> - Vous assurer que votre serveur de reporting est [basé sur un OS supporté](../installation/compatibility.md). Si ce n'est
 >   pas le cas, utilisez la procédure de [migration de votre serveur de
 >   reporting](migrate.md)
 
@@ -31,7 +32,7 @@ Sous EL8, pour des raisons de sécurité, les clés utilisées pour signer les R
 
 ## Étape 1 : Montée de version du paquet
 
-Lors d'une montée de version majeure (ex: 20.10.x à 24.10.x) il faut en premier lieu mettre à jour
+Lors d'une montée de version majeure (ex: 20.10.x à 25.10.x) il faut en premier lieu mettre à jour
  le dépôt contenant les paquets. 
 
 Vous trouverez ce dépôt depuis votre compte sur notre [platefome de support, à la page **Dépôts**](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).

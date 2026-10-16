@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-apigateway
 title: Amazon API Gateway
+description: "Monitor Amazon API Gateway via AWS CloudWatch: track client/backend latency, request counts, and 4XX/5XX errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,187 @@
 ---
 id: cloud-release-notes
 title: Centreon Cloud release notes
+description: "Release notes for Centreon Cloud, detailing new features, improvements, and fixes for each release"
 ---
+
+## September 8th, 2026
+
+### Centreon IT Edition
+
+**Configuration**
+ 
+- Host forms now include relationship fields to define dependencies between resources and reduce alert fatigue.
+- Freshness control for CMA checks (check freshness and threshold) can now be configured directly from host, service, host template, and service template forms.
+ 
+**Resource Status**
+ 
+- The CSV export from **Resource Status** now includes host and service IDs, making it easier to correlate exported data with the API and other external tools.
+ 
+**Centreon Dashboards**
+ 
+- The Resource table widget now supports **Notes** and **Action** columns, surfacing operational context directly inside dashboards.
+ 
+**Interface**
+ 
+- Resources across the interface now use new, consistent icons for easier identification.
+- The user menu in the top counter now shows a circular avatar with the user's initials.
+
+ 
+<details>
+<summary>**Bug fixes**</summary>
+ 
+- [API] Internal API calls now follow the configured base URL scheme, fixing failures when Centreon runs behind a TLS-terminating proxy.
+- [Autodiscovery] Fixed an error preventing service discovery rules from being enabled or disabled from the list.
+- [Autodiscovery] Fixed discovery jobs failing after activating Vault when existing job credentials had not yet been migrated.
+- [CMA] Filtering agent configurations by name or poller now returns the matching results instead of a blank page or wrong entries.
+- [Configuration] Editing a host or host template no longer triggers a 404 error when loading the check command default values.
+- [Configuration] The severity "Level" field now enforces the valid 1–127 range instead of showing a blank page.
+- [Configuration] Fixed an issue where mass change allowed moving a service to a host that already had a service with the same name.
+- [Dashboard] Fixed an issue where host and service severity levels appeared as duplicates in dashboard Resource table widgets.
+- [Dashboards] Interacting with a widget (pagination, page size, display view, map navigation) no longer switches the dashboard to edit mode.
+- [Monitoring] Clicking a resource in Custom Views or legacy pages now opens its details panel instead of showing an error.
+- [Open Tickets] Fixed an "Insufficient privileges" error that occurred when a user without access to notification rules tried to open a ticket from a Custom View.
+- [Open Tickets] ACL-restricted accounts can now view logs again, which previously failed with an SQL error.
+- [Performance Graphs] Curve thickness set in the curve settings now applies to the on-screen graph, matching the PNG export.
+- [Poller] Fixed newly added pollers not starting or supervising any resource, caused by a failed plugin installation step during configuration export.
+- [Poller] Fixed poller configuration generation failing with an "Unknown database centreon_storage" error on platforms where the database is not named `centreon`/`centreon_storage` — always the case on Centreon Cloud — a regression introduced in 26.07.
+- [Pollers] Fixed the Pollers menu "Database updates are not active" indicator staying red after an upgrade to 26.07, which was caused by stale legacy poller rows left in the real-time database.
+- [Resource Access Management] Fixed an issue in Centreon Cloud where filtering by host name while creating an ACL resource access rule returned a 500 error.
+- [Resource Status] Selected resources are now deselected after a check action.
+ 
+</details>
+ 
+### Centreon Pro Edition
+ 
+**BAM**
+ 
+The Business Activity configuration experience keeps expanding this cycle, with a new simulation mode and finer control over how Business Activities are organized and displayed.
+ 
+- Business Activities now support a simulation mode, so you can preview how your changes will affect results before saving them - making it easier to catch mistakes and fine-tune configurations with confidence.
+- Custom icons can now be defined for Business Activities, making nodes and indicators easier to identify in the Business Activity tree.
+- The Business Activity configuration listing now includes a "Show only top level" filter.
+- The impact-weight selector now shows each word's percentage (e.g. Major (50%)) directly in the dropdown.
+ 
+**MAP**
+ 
+- Resources on maps now support a flapping state icon, aligning them with flapping indicators shown elsewhere in the interface.
+ 
+ 
+<details>
+<summary>**Bug fixes**</summary>
+ 
+- [BAM] Fixed incorrect impact percentages displayed for word-type indicators in the BAM real-time monitoring view.
+- [BAM] Obsolete "Notifications" section has been removed from Business Activity configuration.
+- [Configuration] Fixed missing access-rights checks on Business Activity API actions.
+- [MAP] Improved the performance of map-engine during startup on platforms with a large number of host groups, service groups, or BA groups.
+- [MAP] Fixed a foreign key constraint error that prevented saving a map after replicating and deleting multiple containers.
+- [BAM] Fixed an issue with KPIs under downtime being counted for a Business Activity's status after editing the BA's KPI list.
+- [MAP] Fixed two MAP server errors (HTTP 500) affecting the import and save of standard-map views.
+- [MAP] Fixed an issue in the MAP viewer where clicking on a container's pop-up title redirected to an incorrect URL, resulting in errors.
+- [MAP] Fixed an issue where the MAP widget in dashboards and custom views could intermittently display the MAP homepage instead of the selected map, caused by a rare condition in the view loading order.
+- [MAP] Removed the line height option that caused the label to break and exposed raw HTML tags in the resource name.
+- [MAP] MAP server JWTs are now invalidated when the originating Centreon Web session ends, preventing stale or cross-user authorization on map-engine after logout.
+- [MAP] Fixed an issue in the MAP editor where custom border or text colors applied to an object were incorrectly carried over as defaults to newly created objects, instead of each new object starting with default color values.
+- [MAP] Fixed an issue in MAP where changing a resource (e.g., host) in the editor did not update the icon data, causing the editor and viewer to retain the previously selected resource's information instead of reflecting the new selection.
+- [MAP] Fixed a pie chart widget's inner radius being ignored when set to 0%, and capped the maximum value at 95% to prevent the chart from becoming invisible.
+- [MAP] Fixed map-engine failing to start when a poller identifier (UID) exceeds the 32-bit integer range.
+- [MAP] Restored map-engine listening on port 9443 by default when TLS is enabled.
+- [MAP] Improved outline visibility for resources and shapes in the map editor, complementing the earlier fix for link outlines.
+- [MAP] Fixed a memory leak causing browser slowdowns when dashboard playlists containing MAP widgets rotate over an extended period.
+ 
+</details>
+
+
+## August 11th, 2026
+
+### Centreon IT Edition
+
+**Resource Status**
+
+- Performance has been drastically improved on many search use cases. The default **Unhandled alerts** filter, free-text search, searching on several tags at once, and sorting or filtering by severity level are all significantly faster, for administrators as well as for users restricted by access groups.
+
+**Centreon Dashboards**
+
+- Status Grid widget: a new filter based on the state of the resources (unhandled, acknowledged, in downtime, flapping) is now available for the condensed view, allowing a more precise selection of what is displayed — for example excluding problems that have already been acknowledged by a user. This filter was already available for the standard view.
+
+**Configuration**
+
+- The VMware additional configuration no longer restarts the `centreon_vmware` process on every configuration deployment. The process is now restarted only when its own configuration has actually changed, which removes collection interruptions previously triggered by unrelated configuration changes.
+
+
+**Centreon Collect**
+
+The improvements below have been released on the collect components since the previous Centreon Cloud update. They do not come with this platform update: update your pollers and your **Centreon Monitoring Agents** to the latest available version to benefit from them.
+
+- Check timeperiods are now honored on resources monitored by the Centreon Monitoring Agent. The **check period** configured on the host or the service is respected with the same semantics as checks scheduled by the Centreon Engine: no check is executed outside the valid window, no performance data is collected and no status update is produced, and the next check is rescheduled on the next valid window. Freshness calculation excludes the inactive window, forced checks still run regardless of the timeperiod, and the timezone used is the one of the host where the agent is installed. This behavior is available on both Linux and Windows agents.
+- The Linux installation script of the agent now prepares the plugin cache directory required by several native checks, so that modes such as CPU, disk I/O, processes, traffic or packet errors work as expected right after installation.
+
+### Centreon Pro Edition
+
+**Service Mapping**
+
+The Business Activity configuration experience has been thoroughly reworked around an interactive tree, and refined based on the first feedback collected:
+
+- Business Activities can now be configured directly through an interactive dependency tree. The whole hierarchy — the top-level activity, its child activities and all their KPIs — is displayed and edited on a single page, and saved in one single action, with a clear distinction between blocking errors and warnings.
+- Two new actions allow you to expand or collapse the entire tree at once, making it much faster to grasp the overall structure or to reach a specific node.
+- The tree is now rendered with straight, orthogonal links instead of curves. The layout is far more compact and requires much less zooming and panning to navigate large activities.
+- The configuration workflow has been smoothed out: the side panel is now closed by default when opening a Business Activity, so that the tree structure is immediately visible, and a Business Activity created from the tree is attached to its parent right away, without having to open and save its panel.
+- The tooltips describing the **Impact** and **Ratio** threshold calculation methods have been corrected and clarified.
+
+**MAP**
+
+- Hover pop-ups in the Viewer are now positioned reliably next to the cursor. They no longer appear far above it at the bottom of the view, no longer overlap the cursor or get clipped by the edges of the container, and they follow the map when it is panned or zoomed. Firefox behavior, in particular, has been fixed.
+- Metric Link widget: metaservices can now be used as a data source. By combining one metaservice aggregating inbound metrics with another one aggregating outbound metrics, you can represent the cumulative traffic of a bidirectional network link and anticipate its saturation.
+
+
+## June 22nd, 2026
+
+### Centreon IT Edition
+
+**REST API**
+
+This release delivers a significant expansion of the Centreon REST API, enabling broader automation and integration capabilities across the platform.
+* A new endpoint is now available to retrieve Services (GET).
+* New endpoints have been introduced for retrieving and deleting Media resources (GET, DELETE).
+* A new endpoint allows retrieving Host configurations (GET).
+* New endpoints are available for Host Templates (GET) and Service Templates (GET).
+* Service Categories can now be retrieved and updated via API (GET, UPDATE).
+* Service Groups can now be retrieved and updated via API (GET, UPDATE).
+* Missing filter parameters have been added to the GET Maps API specification.
+
+**Authentication**
+
+* A new token type has been introduced: poller tokens. Dedicated tokens and agent configurations are now automatically created when deploying or upgrading a platform.
+* The accepted list of special characters has been improved for better compatibility.
+
+**Configuration**
+
+* Macros can now reference other macros (recursive macros), enabling more flexible and dynamic configurations.
+* BBDO state synchronization reliability has been improved: the default periodic reload is now disabled, while a manual sync API remains available.
+* The commands configuration page has been reworked for improved usability.
+
+**Collect**
+
+Several important improvements have been made to Centreon Broker to enhance performance, security, and protocol support:
+* The broker event queue capacity has been expanded to enhance overall performance.
+* The fixed-size BBDO message queue has been replaced with a dynamic scaling queue, preventing message loss while maintaining strict memory usage limits.
+
+**Centreon Monitoring Agent (CMA)**
+
+* The CMA installer now handles upgrades of existing instances, ensuring seamless version transitions.
+A new feature allows retrieving a public CA certificate using its fingerprint and establishing a TLS connection from it.
+* A dedicated window now allows you to automatically generate the correct CMA installation command for your target host. Simply copy the command and run it on the host.
+### Centreon Pro Edition
+
+**Service Mapping**
+
+A new streamlined and guided mode has been introduced for creating Business Activities, simplifying the setup process step by step.
+
+**MAP**
+
+The logo used as the MAP default image has been modernized to align with the current product branding.
+The Viewer now features a modernized resource display and updated status indicators, improving readability and consistency with Centreon's design standards.
+Host group tooltips in the Viewer now explicitly display each host's status alongside its most degraded service state, providing clearer incident visibility at a glance.
 
 ## April 8th, 2026
 
@@ -12,15 +192,10 @@ title: Centreon Cloud release notes
 This release focuses on streamlining the deployment lifecycle of the Centreon Monitoring Agent, from installation to automated host provisioning:
 
 * Automated Host Creation: To accelerate large-scale deployments, hosts can now be automatically created in the Centreon configuration upon agent registration. This behavior can be enabled via a new option in the Agent configuration menu.
-
 * Simplified Deployment: New helper scripts for both Linux and Windows are now available to simplify the download, installation, and initial registration of the agent.
-
 * Enhanced Native Checks: The **File** native check has been improved and can now trigger alerts when a result set is empty, providing better visibility into missing critical files.
-
 * Certificate Management: The Centreon Engine is now capable of automatically generating and renewing CMA certificates, reducing manual administrative overhead and ensuring continuous secure communication.
-
 * Threshold Compatibility: A dedicated script is now provided to help administrators adapt threshold formats specifically for CMA native checks.
-
 * Certificate Authority: New columns dedicated to CA certificates have been integrated into the instances database to support enhanced security tracking.
 
 **Centreon Dashboards**
@@ -30,11 +205,8 @@ This release focuses on streamlining the deployment lifecycle of the Centreon Mo
 **Configuration & Poller Wizard**
 
 * Global Macros: In an effort to clarify configuration terminology, **Resource macros** have been renamed **Global macros** throughout the interface.
-
 * Poller Setup: When creating a new poller, the system now automatically generates the dedicated token and agent configuration, ensuring a "ready-to-monitor" state immediately.
-
 * Poller Commands: The poller wizard has been updated to use systemctl instead of the legacy service command for Engine and Broker management, aligning with modern OS standards.
-
 * Broker Enhancements: A new Broker output has been added to handle script execution, and a mechanism has been implemented to delay write retries in specific scenarios where the system call does not return a boolean.
 
 **Centreon Customer Identity and Access Management**

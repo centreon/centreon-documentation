@@ -1,6 +1,7 @@
 ---
 id: network-dell-6200-snmp
 title: Dell 6200 SNMP
+description: "Supervisez les commutateurs réseau Dell 6200 via SNMP : CPU, mémoire, environnement matériel, statut global et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

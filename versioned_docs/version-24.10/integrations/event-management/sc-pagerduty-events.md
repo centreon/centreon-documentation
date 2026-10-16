@@ -1,6 +1,7 @@
 ---
 id: sc-pagerduty-events
 title: PagerDuty Events
+description: "Send host and service status events from Centreon to PagerDuty"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

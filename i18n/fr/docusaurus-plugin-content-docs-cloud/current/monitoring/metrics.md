@@ -1,6 +1,7 @@
 ---
 id: metrics
 title: Comprendre les métriques
+description: "Comprendre les métriques, leur format en tant que données de performance, et comment définir des seuils pour une métrique spécifique"
 ---
 
 ## Qu'est-ce qu'une métrique ?

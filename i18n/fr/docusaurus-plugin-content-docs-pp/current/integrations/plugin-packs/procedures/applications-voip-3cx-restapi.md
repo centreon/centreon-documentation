@@ -1,6 +1,7 @@
 ---
 id: applications-voip-3cx-restapi
-title: 3CX
+title: 3CX Rest API
+description: "Supervisez les systèmes téléphoniques 3CX via l'API REST : appels actifs, extensions enregistrées et état du système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,20 +10,17 @@ import TabItem from '@theme/TabItem';
 
 Ce connecteur a été conçu pour être compatible avec les produits suivants.
 
-| Produit | Modèles | Versions  |
-| ------- |:-------:| --------- |
-| 3CX     | -       | 18.0.9.20 |
+| Produit | Modèles | Versions    |
+| ------- |:-------:| ----------- |
+| 3CX     | -       | 20.0.0.1620 |
 
-> En l'état de la version 20 de 3CX, les endpoints de l'API qui étaient disponibles pour la
-version 18 ne sont plus disponibles, ce qui bloque notre mise à jour de ce connecteur. Si vous
-avez des nouvelles informations sur le sujet vous pouvez nous en faire part sur [ce 
-post](https://thewatch.centreon.com/ideas/request-to-upgrade-connector-3cx-4418).
+> La version 18 de 3CX n'est plus supportée et devrait être [mise à jour en version 20](https://www.3cx.com/blog/news/v18-support/https://www.3cx.com/blog/news/v18-support/).
 
 ## Contenu du pack
 
 ### Modèles
 
-Le connecteur de supervision **3CX** apporte un modèle d'hôte :
+Le connecteur de supervision **3CX Rest API** apporte un modèle d'hôte :
 
 * **App-VoIP-3cx-Restapi-custom**
 
@@ -106,7 +104,7 @@ yum install centreon-pack-applications-voip-3cx-restapi
 </TabItem>
 </Tabs>
 
-2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **3CX**
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **3CX Rest API**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
 ### Plugin
@@ -166,7 +164,7 @@ yum install centreon-plugin-Applications-Voip-3cx-Restapi
 | 3CXPASSWORD     | Define the password associated with the username                                                                                                                                                                          | USERPASSWORD      | X           |
 | 3CXPROTO        | Define the protocol to reach the API (default: 'https')                                                                                                                                                                   | https             |             |
 | 3CXPORT         | Define the port to connect to (default: '443')                                                                                                                                                                            | 443               |             |
-| 3CXVERSION      | Define the version of 3CX to monitor for the plugin to adapt to the API version. If this option is omitted, the plugin will assume the API is in the latest supported version. Example: 18.0.9.20 for version 18 update 9 | 18.0.9.20         |             |
+| 3CX_AUTH_MODE   | Define the authentication mode.  `oauth2`: for 3CX Enterprise edition. Uses OAuth2 client\_credentials flow via POST /connect/token. Requires an API client created in 3CX admin console (/#/office/integrations/api). The API client must have at least the 'Admin' role.  `login`: for 3CX Pro edition. Uses username/password login via POST /webclient/api/Login/GetAccessToken. Requires a System Owner account with `2FA` disabled. IMPORTANT: The poller IP must be whitelisted in 3CX admin console under Security \> Console Restrictions \> Allow access from specific IP addresses. Without this, 3CX returns a degraded token causing 403 errors on all API endpoints | oauth2            |             |
 | 3CXEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                      |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -177,6 +175,31 @@ yum install centreon-plugin-Applications-Voip-3cx-Restapi
 2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
+<TabItem value="Extension" label="Extension">
+
+| Macro             | Description                                                                                                                                                                                                                                                                                                                                    | Valeur par défaut | Obligatoire |
+|:------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| DND_PROFILE_NAME  | Name of the profile to consider as `DND` (Do Not Disturb). Default: `DND`. In 3CX version 20, the `DND` boolean field no longer exists. `DND` status is derived from the `CurrentProfileName` field. Use this option to specify the exact profile name configured in your 3CX instance for `DND`. Example: --dnd-profile-name='Do not disturb' | DND               |             |
+| INCLUDE_EXTENSION | Filter extension (by number, first name or last name)                                                                                                                                                                                                                                                                                          |                   |             |
+| EXCLUDE_EXTENSION | Exclude extension (by number, first name or last name)                                                                                                                                                                                                                                                                                         |                   |             |
+| WARNING_COUNT     | Threshold for extensions count                                                                                                                                                                                                                                                                                                                 |                   |             |
+| CRITICAL_COUNT    | Threshold for extensions count                                                                                                                                                                                                                                                                                                                 |                   |             |
+| WARNING_STATUS    | Define the conditions to match for the status to be WARNING. You can use the following variables: `extension`, `registered`, `dnd`, `profile`, `status`, `duration`                                                                                                                                                                            |                   |             |
+| CRITICAL_STATUS   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: `extension`, `registered`, `dnd`, `profile`, `status`, `duration`                                                                                                                                                                           |                   |             |
+| EXTRA_OPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                               |                   |             |
+
+</TabItem>
+<TabItem value="License" label="License">
+
+| Macro            | Description                                                                                                                                                                                                                                             | Valeur par défaut                                            | Obligatoire |
+|:-----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------|:-----------:|
+| WARNING_LICENSE  | Set warning condition for license status. Default: '%\{expires_in\} \< 10' (license expires within 10 days). Variables available: `activated`, `license_active`, `expires_in`, `expires_date`                                                       | %\{expires_in\} \< 10                                       |             |
+| CRITICAL_LICENSE | Set critical condition for license status. Default: '%\{activated\} !~ /true/ \|\| %\{license_active\} !~ /true/' (license not activated or not active). Variables available: `activated`, `license_active`, `expires_in` (in days), `expires_date` | %\{activated\} !~ /true/ \|\| %\{license_active\} !~ /true/ |             |
+| WARNING_SUPPORT  | Set warning condition for support status. Default: '%\{support\} !~ /true/' (support disabled). Variables available: `support`, `maintenance_expires_in` (in days), `maintenance_expires_date`                                                      | %\{support\} !~ /true/                                       |             |
+| CRITICAL_SUPPORT | Set critical condition for support status. Variables available: `support`, `maintenance_expires_in`, `maintenance_expires_date`                                                                                                                     |                                                              |             |
+| EXTRA_OPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                        |                                                              |             |
+
+</TabItem>
 <TabItem value="System" label="System">
 
 | Macro                        | Description                                                                                                                                              | Valeur par défaut  | Obligatoire |
@@ -216,8 +239,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--proto='https' \
 	--api-username='USERLOGIN' \
 	--api-password='USERPASSWORD' \
-	--3cx-version='18.0.9.20'  \
 	--unknown-status='' \
+	--auth-mode='' \
 	--warning-status='' \
 	--critical-status='%\{error\} =~ /true/' \
 	--warning-calls-active-usage='' \
@@ -261,7 +284,8 @@ Le plugin apporte les modes suivants :
 
 | Mode                                                                                                                      | Modèle de service associé             |
 |:--------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|
-| extension [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/voip/3cx/restapi/mode/extension.pm)] | Not used in this Monitoring Connector |
+| extension [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/voip/3cx/restapi/mode/extension.pm)] | App-Voip-3cx-Extension-Restapi-custom |
+| license [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/voip/3cx/restapi/mode/license.pm)]     | App-Voip-3cx-License-Restapi-custom   |
 | system [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/apps/voip/3cx/restapi/mode/system.pm)]       | App-Voip-3cx-System-Restapi-custom    |
 
 ### Options disponibles
@@ -271,6 +295,30 @@ Le plugin apporte les modes suivants :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
+<TabItem value="Extension" label="Extension">
+
+| Option              | Description                                                                                                                                                                                                                                                                                                                                    |
+|:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --include-extension | Filter extension (by number, first name or last name).                                                                                                                                                                                                                                                                                         |
+| --exclude-extension | Exclude extension (by number, first name or last name).                                                                                                                                                                                                                                                                                        |
+| --dnd-profile-name  | Name of the profile to consider as `DND` (Do Not Disturb). Default: `DND`. In 3CX version 20, the `DND` boolean field no longer exists. `DND` status is derived from the `CurrentProfileName` field. Use this option to specify the exact profile name configured in your 3CX instance for `DND`. Example: --dnd-profile-name='Do not disturb' |
+| --unknown-status    | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: `extension`, `registered`, `dnd`, `profile`, `status`, `duration`                                                                                                                                                                            |
+| --warning-status    | Define the conditions to match for the status to be WARNING. You can use the following variables: `extension`, `registered`, `dnd`, `profile`, `status`, `duration`                                                                                                                                                                            |
+| --critical-status   | Define the conditions to match for the status to be CRITICAL. You can use the following variables: `extension`, `registered`, `dnd`, `profile`, `status`, `duration`                                                                                                                                                                           |
+| --warning-count     | Threshold for extensions count.                                                                                                                                                                                                                                                                                                                |
+| --critical-count    | Threshold for extensions count.                                                                                                                                                                                                                                                                                                                |
+
+</TabItem>
+<TabItem value="License" label="License">
+
+| Option             | Description                                                                                                                                                                                                                                             |
+|:-------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning-license  | Set warning condition for license status. Default: '%\{expires\_in\} \< 10' (license expires within 10 days). Variables available: `activated`, `license\_active`, `expires\_in`, `expires\_date`                                                       |
+| --critical-license | Set critical condition for license status. Default: '%\{activated\} !~ /true/ \|\| %\{license\_active\} !~ /true/' (license not activated or not active). Variables available: `activated`, `license\_active`, `expires\_in` (in days), `expires\_date` |
+| --warning-support  | Set warning condition for support status. Default: '%\{support\} !~ /true/' (support disabled). Variables available: `support`, `maintenance\_expires\_in` (in days), `maintenance\_expires\_date`                                                      |
+| --critical-support | Set critical condition for support status. Variables available: `support`, `maintenance\_expires\_in`, `maintenance\_expires\_date`                                                                                                                     |
+
+</TabItem>
 <TabItem value="System" label="System">
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
@@ -309,9 +357,9 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --hostname                                 | Define the name or the address of the 3CX server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --port                                     | Define the port to connect to (default: '443').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --proto                                    | Define the protocol to reach the API (default: 'https').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --3cx-version                              | Define the version of 3CX to monitor for the plugin to adapt to the API version. If this option is omitted, the plugin will assume the API is in the latest supported version. Example: 18.0.9.20 for version 18 update 9.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | --api-username                             | Define the username for authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --api-password                             | Define the password associated with the username.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| --auth-mode                                | Define the authentication mode (default: `oauth2`).  `oauth2`: for 3CX Enterprise edition. Uses OAuth2 client\_credentials flow via POST /connect/token. Requires an API client created in 3CX admin console (/#/office/integrations/api). The API client must have at least the 'Admin' role.  `login`: for 3CX Pro edition. Uses username/password login via POST /webclient/api/Login/GetAccessToken. Requires a System Owner account with `2FA` disabled. IMPORTANT: The poller IP must be whitelisted in 3CX admin console under Security \> Console Restrictions \> Allow access from specific IP addresses. Without this, 3CX returns a degraded token causing 403 errors on all API endpoints.                                                                                                                                                                                                                                                                       |
 | --timeout                                  | Define the timeout in seconds (default: 30).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | --unknown-http-status                      | Define the conditions to match on the HTTP Status for the returned status to be UNKNOWN. Default: '%\{http_code\} \< 200 or %\{http_code\} \>= 300'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --warning-http-status                      | Define the conditions to match on the HTTP Status for the returned status to be WARNING. Example: '%\{http_code\} == 500'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |

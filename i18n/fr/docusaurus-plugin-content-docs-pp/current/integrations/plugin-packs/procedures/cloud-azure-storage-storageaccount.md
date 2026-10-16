@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-storage-storageaccount
 title: Azure Storage Account
+description: "Supervisez Azure Storage Account (Blob, File, Queue, Table) via l'API : capacité, transactions, latence, débit et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

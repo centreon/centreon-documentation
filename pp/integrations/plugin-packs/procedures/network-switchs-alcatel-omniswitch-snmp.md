@@ -1,6 +1,7 @@
 ---
 id: network-switchs-alcatel-omniswitch-snmp
 title: Alcatel Omniswitch SNMP
+description: "Monitor Alcatel OmniSwitch devices via SNMP: CPU, memory, flash usage, hardware status, interfaces, spanning tree, and virtual chassis."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

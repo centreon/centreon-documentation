@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-smtp
 title: SMTP Server
+description: "Monitor SMTP servers by checking connection login and message sending, with response time metrics for each check."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

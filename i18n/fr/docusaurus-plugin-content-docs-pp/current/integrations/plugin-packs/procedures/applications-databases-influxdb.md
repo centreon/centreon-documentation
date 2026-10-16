@@ -1,6 +1,7 @@
 ---
 id: applications-databases-influxdb
 title: InfluxDB
+description: "Supervisez vos bases de données InfluxDB via l'API REST : temps de connexion, statistiques des bases de données, du serveur HTTP, des écritures et requêtes personnalisées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

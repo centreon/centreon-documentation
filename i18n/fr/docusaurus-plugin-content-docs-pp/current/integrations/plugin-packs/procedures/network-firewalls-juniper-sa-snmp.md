@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-juniper-sa-snmp
 title: Juniper SA SNMP
+description: "Supervisez les équipements Juniper SA via SNMP : CPU, mémoire, swap, disque, journaux, trafic des interfaces et utilisateurs connectés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

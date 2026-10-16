@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-video-axis-snmp
 title: Axis Video SNMP
+description: "Supervisez les caméras réseau Axis Video via SNMP : composants d'environnement (vidéo, audio, alimentation, ventilateur, température, stockage) et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

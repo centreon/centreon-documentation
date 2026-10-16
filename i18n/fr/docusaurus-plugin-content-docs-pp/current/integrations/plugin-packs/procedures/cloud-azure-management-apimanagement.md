@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-apimanagement
 title: Azure API Management
+description: "Supervisez Azure API Management via l'API Azure : capacité, évènements EventHub, durée des requêtes et volume de requêtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

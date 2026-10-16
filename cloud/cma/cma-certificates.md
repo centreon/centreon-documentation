@@ -1,6 +1,7 @@
 ---
 id: cma-certificates
 title: Configuring certificates
+description: "Configure TLS, insecure TLS, and unencrypted test connections between the Centreon Monitoring Agent and the poller"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -183,10 +184,10 @@ You can leave the connection unencrypted **for test purposes only**. In this mod
 
 > Note that this connection will only last for one hour. Do not use this setting in production!
 
-To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration** window](cma-setup.md#configure-polleragent-communication).
+To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration** window](cma-setup-manual.md#configure-polleragent-communication).
 
 The agent will be configured the following way on the host:
-- [for Windows, using the corresponding option in the installer or the CLI](cma-setup.md#step-3-prepare-the-host)
+- [for Windows, using the corresponding option in the installer or the CLI](cma-setup-manual.md#step-3-prepare-the-host)
 - for Linux, using the **centagent.json** file:
 
 <Tabs groupId="sync">

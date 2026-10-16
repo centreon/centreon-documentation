@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-adic-tape-snmp
 title: Adic Tape SNMP
+description: "Monitor ADIC tape libraries via SNMP: global hardware status, physical drives, subsystems, temperature, and fans."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

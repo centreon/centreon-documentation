@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-huawei-hmm-snmp
 title: Huawei HMM SNMP
+description: "Supervisez les serveurs Huawei HMM via SNMP pour contrôler l'état des composants du châssis et des blades."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

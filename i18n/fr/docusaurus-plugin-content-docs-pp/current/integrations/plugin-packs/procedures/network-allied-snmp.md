@@ -1,6 +1,7 @@
 ---
 id: network-allied-snmp
 title: Allied Telesis SNMP
+description: "Superviser les commutateurs Allied Telesis via SNMP : utilisation CPU, état du matériel, mémoire et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

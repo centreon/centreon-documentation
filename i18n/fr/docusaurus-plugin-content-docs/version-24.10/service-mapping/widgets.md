@@ -1,6 +1,7 @@
 ---
 id: widgets
 title: Widgets
+description: "Afficher le statut des activités métier via des widgets de tableau de bord"
 ---
 
 ## Live Business Activity Status

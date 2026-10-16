@@ -1,6 +1,7 @@
 ---
 id: infrastructure-active-directory-nrpe
 title: Microsoft Active Directory NRPE
+description: "Supervisez les contrôleurs de domaine Active Directory via NRPE et NSClient++ : diagnostic dcdiag et suivi du backlog de réplication DFS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

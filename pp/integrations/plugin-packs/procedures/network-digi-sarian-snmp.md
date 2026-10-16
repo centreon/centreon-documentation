@@ -1,6 +1,7 @@
 ---
 id: network-digi-sarian-snmp
 title: Digi Sarian SNMP
+description: "Monitor Digi Sarian routers via SNMP, tracking CPU, memory, temperature, GPRS signal/status, and network interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

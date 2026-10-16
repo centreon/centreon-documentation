@@ -1,6 +1,7 @@
 ---
 id: ba-settings
 title: Paramètres
+description: "Configurer les paramètres par défaut et personnalisés des activités métier"
 ---
 
 ## Paramètres par défaut

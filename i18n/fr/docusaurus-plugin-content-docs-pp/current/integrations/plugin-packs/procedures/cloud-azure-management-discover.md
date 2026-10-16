@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-discover
 title: Azure Discover
+description: "Découvrez automatiquement les ressources et souscriptions Microsoft Azure via l'API Azure pour créer des hôtes à superviser dans Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

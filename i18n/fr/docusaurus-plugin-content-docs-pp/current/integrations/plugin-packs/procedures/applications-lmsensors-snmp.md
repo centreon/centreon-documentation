@@ -1,6 +1,7 @@
 ---
 id: applications-lmsensors-snmp
 title: LM Sensors SNMP
+description: "Supervisez les sondes matérielles LM Sensors via SNMP en surveillant les ventilateurs, températures, tensions et autres composants."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

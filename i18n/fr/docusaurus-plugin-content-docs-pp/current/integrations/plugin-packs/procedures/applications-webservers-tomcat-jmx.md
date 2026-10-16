@@ -1,6 +1,7 @@
 ---
 id: applications-webservers-tomcat-jmx
 title: Tomcat JMX
+description: "Supervisez Apache Tomcat via JMX/Jolokia : mémoire JVM, charge CPU, threads, utilisation des connecteurs et des datasources, et sessions des applications web."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

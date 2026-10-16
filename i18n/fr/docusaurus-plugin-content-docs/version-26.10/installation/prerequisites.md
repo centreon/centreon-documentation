@@ -1,6 +1,7 @@
 ---
 id: prerequisites
 title: Prérequis
+description: "Recommandations de dimensionnement pour votre plateforme Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -31,6 +32,8 @@ Les données ci-après sont des estimations en fonction des critères suivants :
 * Chaque service a en moyenne 8 métriques.
 
 Adaptez les chiffres suivants à vos valeurs réelles. Au cours du temps, vous serez peut-être amenés à ajuster la taille de votre plateforme au fur et à mesure que vous ajoutez plus d'hôtes.
+
+## Architecture et dimensionnement du serveur central et de la base de données
 
 <Tabs groupId="sizing" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">

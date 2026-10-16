@@ -1,15 +1,16 @@
 ---
 id: meta-services
-title: Créer des méta-services
+title: Créer des métaservices
+description: "Comment configurer un métaservice pour agréger les métriques de plusieurs services via une opération mathématique"
 ---
 
 ## Définition
 
-Un méta-service est un service virtuel permettant l’agrégation de métriques issues de différents services au travers
-d’une opération mathématique. Les méta-services sont gérés de la même manière qu’un service c’est à dire qu’ils
+Un métaservice est un service virtuel permettant l’agrégation de métriques issues de différents services au travers
+d’une opération mathématique. Les métaservices sont gérés de la même manière qu’un service c’est à dire qu’ils
 possèdent des seuils, un processus de notification, génèrent un graphique de performance...
 
-Exemple : Il est possible de déterminer la consommation totale de trafic WAN en additionnant au sein d’un méta-service
+Exemple : Il est possible de déterminer la consommation totale de trafic WAN en additionnant au sein d’un métaservice
 l’ensemble des services supervisant le trafic WAN unitairement.
 
 ### Les types de calcul
@@ -38,21 +39,21 @@ données disponibles sont :
 
 ## Configuration
 
-Pour ajouter un méta-service :
+Pour ajouter un métaservice :
 
-Rendez-vous dans le menu : **Configuration > Services > Méta-Services** et cliquez sur le bouton **Ajouter**
+Rendez-vous dans le menu : **Configuration > Services > Métaservices** et cliquez sur le bouton **Ajouter**
 
 ![image](../../assets/configuration/02addmetaservice.png)
 
 ### Informations générales
 
-* Le champ **Nom** correspond au nom du méta-service affiché dans l’interface. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
+* Le champ **Nom** correspond au nom du métaservice affiché dans l’interface. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
 * Le champ **Format de la chaîne de sortie (Formatage printf)** correspond au message de sortie (‘output’) visible dans Centreon.
-  La valeur “%d” correspond à la valeur calculée par le méta-service.
-* Le champ **Niveau d'alerte** and **Niveau critique** correspondent respectivement aux seuils "WARNING" et "CRITICAL" du méta-service.
+  La valeur “%d” correspond à la valeur calculée par le métaservice.
+* Le champ **Niveau d'alerte** and **Niveau critique** correspondent respectivement aux seuils "WARNING" et "CRITICAL" du métaservice.
 * Les champs **Type de calcul** et **Type de source de données** correspondent respectivement aux calculs et à la description
   de la source de données
-* Le champ **Mode de sélection** permet de sélectionner les services contenant les métriques qui entreront dans le calcul du méta-service.
+* Le champ **Mode de sélection** permet de sélectionner les services contenant les métriques qui entreront dans le calcul du métaservice.
 
 Si l'option **Sélectionner les services manuellement** est sélectionnée alors les métriques choisies seront issues de services sélectionnés
 manuellement.
@@ -63,26 +64,26 @@ ce cas à sélectionner dans la liste déroulante Métrique.
 
 > Plus d’informations sur le formatage *[PRINTF](http://en.wikipedia.org/wiki/Printf_format_string)*.
 
-### État du Meta Service
+### État du Métaservice
 
-* Le champ **Période de contrôle** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut du méta-service.
-* Le champ **Nombre de contrôles avant validation de l'état** définit le nombre de contrôles à effectuer avant de valider le statut du méta-service
+* Le champ **Période de contrôle** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut du métaservice.
+* Le champ **Nombre de contrôles avant validation de l'état** définit le nombre de contrôles à effectuer avant de valider le statut du métaservice
   : lorsque le statut est validé, une notification est envoyée.
 * Le champ **Intervalle normal de contrôle** est exprimé en minutes. Il définit l’intervalle entre chaque vérification lorsque
-  le statut du méta-service est OK.
+  le statut du métaservice est OK.
 * Le champ **Intervalle non-régulier de contrôle** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK du
-  méta-service.
+  métaservice.
 
 ### Informations supplémentaires
 
-* La liste **Modèle de graphique** définit le modèle de graphique utilisé par ce méta-service.
-* Les champs **Statut** et **Commentaires** permettent d’activer / désactiver ou de commenter le méta-service.
+* La liste **Modèle de graphique** définit le modèle de graphique utilisé par ce métaservice.
+* Les champs **Statut** et **Commentaires** permettent d’activer / désactiver ou de commenter le métaservice.
 
 ## Sélectionner manuellement des services
 
-Si vous avez choisi l’option **Sélectionner les services manuellement**, au sein de l’écran regroupant l’ensemble des méta-services :
+Si vous avez choisi l’option **Sélectionner les services manuellement**, au sein de l’écran regroupant l’ensemble des métaservices :
 
-1. Cliquez sur suivant pour sélectionner les métriques entrant en jeu dans le calcul du méta-service. Ces métriques
+1. Cliquez sur suivant pour sélectionner les métriques entrant en jeu dans le calcul du métaservice. Ces métriques
   sont appelées indicateurs. ![image](../../assets/configuration/common/flechedirection.png)
 2. Cliquez sur le bouton **Ajouter**
 
@@ -93,7 +94,7 @@ Si vous avez choisi l’option **Sélectionner les services manuellement**, au s
   (seconde liste).
 * Les champs **Statut** et **Commentaires** permettent d’activer / désactiver ou de commenter l’indicateur.
 
-3. Répétez l’opération jusqu’à avoir ajouté tous les indicateurs nécessaires au calcul du méta-service.
+3. Répétez l’opération jusqu’à avoir ajouté tous les indicateurs nécessaires au calcul du métaservice.
 
-> Un méta-service est à considérer comme service régulier. Il est nécessaire de générer la configuration de
+> Un métaservice est à considérer comme service régulier. Il est nécessaire de générer la configuration de
 > l’ordonnanceur central, d’exporter cette dernière puis de redémarrer l’ordonnanceur.

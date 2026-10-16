@@ -1,6 +1,7 @@
 ---
 id: application-virtualization-vmware8-esx-restapi
 title: VMware8 ESX REST API
+description: "Supervisez les serveurs physiques VMware ESX 8 via l'API REST vCenter : CPU, mémoire, E/S disque, réseau, alimentation et swap."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

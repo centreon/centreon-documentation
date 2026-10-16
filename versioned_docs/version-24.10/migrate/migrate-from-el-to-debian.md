@@ -1,6 +1,7 @@
 ---
 id: migrate-from-el-to-debian
 title: Migrate from an EL-type OS to Debian
+description: "Migrate a Centreon platform from an EL-type OS to Debian"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-zyxel-snmp
 title: Zyxel SNMP
+description: "Supervisez les équipements réseau Zyxel via SNMP : CPU, mémoire, sessions, trafic des interfaces et statut des VPN."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

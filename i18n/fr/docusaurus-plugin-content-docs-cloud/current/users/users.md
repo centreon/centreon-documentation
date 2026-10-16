@@ -1,6 +1,7 @@
 ---
 id: users
 title: Les utilisateurs dans Centreon Cloud
+description: "Présentation des rôles utilisateurs, de leurs droits, et de la création ou suppression d'utilisateurs dans une organisation Centreon Cloud"
 ---
 
 Dans Centreon Cloud, les utilisateurs/contacts peuvent :
@@ -23,7 +24,7 @@ Dans Centreon Cloud, les utilisateurs peuvent avoir 3 rôles, chacun avec des dr
   * utiliser des vues personnalisées, des graphiques de performance et des tableaux de bord.
 
 * **Editor**. Les éditeurs peuvent faire les mêmes choses que les "users", mais ils peuvent également :
-  * créer des hôtes et des services, des méta-services, des modèles, des catégories...
+  * créer des hôtes et des services, des métaservices, des modèles, des catégories...
   * annuler un acquittement, soumettre un résultat...
   * voir la liste des collecteurs, exporter la configuration et accéder à la commande d'installation de collecteurs.
   * installer des connecteurs de supervision.

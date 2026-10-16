@@ -1,6 +1,7 @@
 ---
 id: infrastructure-active-directory-centreon-monitoring-agent
 title: Microsoft Active Directory CMA
+description: "Supervisez Microsoft Active Directory via CMA : diagnostic du contrôleur de domaine (dcdiag) et backlog de réplication DFSR."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

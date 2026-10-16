@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
+description: "Monitor Palo Alto firewalls via SSH: hardware environment, high availability, interfaces, IPsec tunnels, licenses, and system status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

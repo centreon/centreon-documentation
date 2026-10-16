@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-barco-cs-restapi
 title: Barco ClickShare Rest API
+description: "Monitor Barco ClickShare devices via REST API: device status, temperatures, fan speed, and process status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

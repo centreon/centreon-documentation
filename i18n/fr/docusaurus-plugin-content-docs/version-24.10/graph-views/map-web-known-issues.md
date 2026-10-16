@@ -1,6 +1,7 @@
 ---
 id: map-web-known-issues
 title: Problèmes connus dans MAP
+description: "Problèmes connus actuellement traités par l'équipe MAP"
 ---
 
 Cette page répertorie les incidents connus sur lesquels l'équipe Centreon travaille actuellement :

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-compellent-snmp
 title: Dell Compellent SNMP
+description: "Monitor Dell Compellent storage arrays via SNMP: hardware status, controller health, and network interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-latencetech-restapi
 title: LatenceTech RestAPI
+description: "Monitor LatenceTech network probes via REST API: connectivity, latency, throughput, radio, and TWAMP metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

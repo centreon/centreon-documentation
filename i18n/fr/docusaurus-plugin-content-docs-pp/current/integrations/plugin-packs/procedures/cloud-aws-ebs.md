@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-ebs
 title: Amazon EBS
+description: "Supervisez les volumes Amazon EBS via l'API AWS CloudWatch : IOPS, temps de lecture/écriture et débit d'E/S des volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

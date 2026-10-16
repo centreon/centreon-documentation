@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-24-10
 title: Montée de version depuis Centreon 24.10
+description: "Passer une plateforme Centreon de la version 24.10 à la 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -195,7 +196,7 @@ systemctl stop cbd
 rm /var/lib/centreon-broker/* -f
 ```
 
-Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` (`/etc/php/8.2/fpm/conf.d/50-centreon.ini` pour Debian) est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` (`/etc/php/8.2/fpm/conf.d/50-centreon.ini` pour Debian) est fixé à au moins 256M. Ajoutez cette limite manuellement si nécessaire.
 
 7. Videz le cache :
 
@@ -772,6 +773,8 @@ dnf update centreon\*
 ```shell
 dnf update centreon\*
 ```
+
+> Si vous avez installé MariaDB depuis leurs dépôts officiels, il se peut que vous rencontriez des problèmes de conflits. Suivez notre [procédure sur le sujet](../resources/known-issues.md#vous-avez-un-conflit-entre-les-paquets-mysql-common-et-mariadb-common) pour une solution de contournement.
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">

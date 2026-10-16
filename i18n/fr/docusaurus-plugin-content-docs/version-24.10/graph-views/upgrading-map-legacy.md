@@ -1,6 +1,7 @@
 ---
 id: upgrading-map-legacy
 title: Monter MAP Legacy en 24.10
+description: "Monter de version le serveur, l'interface web et la base de données de MAP Legacy vers 24.10"
 ---
 
 import Tabs from '@theme/Tabs';

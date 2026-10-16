@@ -1,6 +1,7 @@
 ---
 id: inside-centreon
 title: À l'intérieur de Centreon
+description: "Introduction aux composants internes qui font fonctionner Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

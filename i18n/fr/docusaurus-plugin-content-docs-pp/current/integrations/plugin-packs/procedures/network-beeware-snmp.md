@@ -1,6 +1,7 @@
 ---
 id: network-beeware-snmp
 title: Bee Ware SNMP
+description: "Supervisez les reverse proxies Bee Ware en SNMP : statut, utilisation CPU, mémoire et nombre de processus enfants."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

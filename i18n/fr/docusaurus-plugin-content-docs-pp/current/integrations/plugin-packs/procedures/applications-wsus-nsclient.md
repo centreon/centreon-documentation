@@ -1,6 +1,7 @@
 ---
 id: applications-wsus-nsclient
 title: Microsoft WSUS Server
+description: "Supervisez les serveurs Microsoft WSUS via NRPE ou l'API REST NSClient++ : statut des ordinateurs, statistiques serveur, synchronisation et mises à jour."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

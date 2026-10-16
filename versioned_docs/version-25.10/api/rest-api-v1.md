@@ -1,6 +1,7 @@
 ---
 id: rest-api-v1
 title: Rest API (v1)
+description: "Use the REST API v1 for configuration and realtime data"
 ---
 
 ## Overview

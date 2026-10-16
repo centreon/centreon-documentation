@@ -1,6 +1,7 @@
 ---
 id: network-aviat-snmp
 title: Aviat Networks SNMP
+description: "Supervisez les équipements radio Aviat Networks via SNMP : événements, état des capteurs (alimentation, température, tension) et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

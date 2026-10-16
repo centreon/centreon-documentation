@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-fujitsu-snmp
 title: Fujitsu Server SNMP
+description: "Supervisez les serveurs Fujitsu via SNMP en contrôlant l'état matériel (CPU, ventilateurs, alimentations, disques, température, mémoire, raid, tension)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

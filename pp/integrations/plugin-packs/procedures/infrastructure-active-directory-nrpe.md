@@ -1,6 +1,7 @@
 ---
 id: infrastructure-active-directory-nrpe
 title: Microsoft Active Directory NRPE
+description: "Monitor Active Directory Domain Controllers via NRPE and NSClient++: dcdiag health status and DFS Replication backlog."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

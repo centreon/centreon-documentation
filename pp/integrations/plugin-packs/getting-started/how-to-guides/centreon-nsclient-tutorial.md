@@ -1,6 +1,7 @@
 ---
 id: centreon-nsclient-tutorial
 title: Centreon NSClient++
+description: "Install, configure, and update the centreon-nsclient agent on Windows servers, including NRPE and REST API (HTTPS) NSClient setup."
 ---
 
 ## Introduction

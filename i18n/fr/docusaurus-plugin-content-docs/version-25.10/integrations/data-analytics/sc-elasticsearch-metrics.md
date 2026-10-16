@@ -1,6 +1,7 @@
 ---
 id: sc-elastic-metrics
 title: Elastic Metrics
+description: "Envoi de métriques Centreon vers Elasticsearch avec dimensions personnalisées"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

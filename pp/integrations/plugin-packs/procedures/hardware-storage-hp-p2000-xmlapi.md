@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-p2000-xmlapi
 title: HP P2000 XML API
+description: "Monitor HP P2000 storage arrays via XML API: hardware health, virtual disks, and volume I/O statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

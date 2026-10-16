@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-node-exporter-windows
 title: Node Exporter Windows Metrics
+description: "Monitor Windows servers via the Prometheus Node Exporter: CPU, memory, storage, services, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

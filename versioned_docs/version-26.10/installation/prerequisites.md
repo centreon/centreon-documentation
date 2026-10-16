@@ -1,6 +1,7 @@
 ---
 id: prerequisites
 title: Prerequisites
+description: "Sizing guidelines to determine your Centreon platform requirements"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -31,6 +32,8 @@ The following data is meant for:
 * Each service has on average 8 metrics.
 
 You need to adapt the following figures to your actual values. Bear in mind that you may need to adjust the size of your platform as you add more hosts over time.
+
+## Architecture and central/database sizing
 
 <Tabs groupId="sizing" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">

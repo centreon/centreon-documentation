@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction
+description: "Introduction to installing your Centreon monitoring platform"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,6 +1,7 @@
 ---
 id: applications-cisco-dnac-restapi
 title: Cisco DNA Center Rest API
+description: "Monitor Cisco DNA Center via REST API to track network device health and site status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

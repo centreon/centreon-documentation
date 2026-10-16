@@ -1,6 +1,7 @@
 ---
 id: hardware-telephony-avaya-mediagateway-snmp
 title: Avaya Media Gateway SNMP
+description: "Monitor Avaya Media Gateway devices via SNMP: controller status, CPU usage, memory usage, and hardware alarms."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

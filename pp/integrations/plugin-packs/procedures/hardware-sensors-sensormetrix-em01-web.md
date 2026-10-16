@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-sensormetrix-em01-web
 title: Sensormetrix
+description: "Monitor Sensormetrix EM01 environmental sensors via the web interface: humidity, temperature, illumination, contact, flood, and voltage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

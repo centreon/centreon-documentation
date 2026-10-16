@@ -1,6 +1,7 @@
 ---
 id: poller-secure
 title: Securing your pollers
+description: "Recommendations for securing pollers: account passwords, SELinux, firewalld, SIEM logs, backups, and disaster recovery"
 ---
 
 import Tabs from '@theme/Tabs';

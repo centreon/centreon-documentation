@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-24-04
 title: Montée de version depuis Centreon 24.04
+description: "Passer une plateforme Centreon de la version 24.04 à la 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -18,7 +19,7 @@ Centreon depuis la version 24.04 vers la version 25.10.
 
 > Utilisateurs de la Business edition : MAP Legacy n'est plus disponible dans Centreon 25.10. Si vous utilisiez toujours MAP Legacy, vous devez migrer vers MAP. Consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
 
-> Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian 11, vous devez d'abord migrer en Debian 12 avant d'upgrader Centreon. Voir [How to migrate from Debian 11 to Debian 12](https://thewatch.centreon.com/product-how-to-21/how-to-migrate-from-debian-11-to-debian-12-3874). Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
+> Debian 11 n'est plus supporté depuis la version 24.10. Si vous utilisiez Debian 11, vous devez d'abord migrer en Debian 12 avant d'upgrader Centreon. Voir [Migrer depuis Debian 11 vers Debian 12](../migrate/migrate-from-debian-to-debian.md). Si vous utilisez la HA sur votre plateforme, contactez votre représentant commercial Centreon pour discuter des scénarios de migration possibles.
 
 > Si vous utilisiez MySQL 8.0, prévoyez de [passer à MySQL 8.4](upgrade-mysql.md) avant la fin du support de la version 8.0, prévue fin avril 2026.
 
@@ -230,7 +231,7 @@ dnf module enable php:8.2
 dnf distro-sync php\* --allowerasing
 ```
 
-Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256M. Ajoutez cette limite manuellement si nécessaire.
 
 ```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"
@@ -843,6 +844,8 @@ dnf update centreon\*
 ```shell
 dnf update centreon\*
 ```
+
+> Si vous avez installé MariaDB depuis leurs dépôts officiels, il se peut que vous rencontriez des problèmes de conflits. Suivez notre [procédure sur le sujet](../resources/known-issues.md#vous-avez-un-conflit-entre-les-paquets-mysql-common-et-mariadb-common) pour une solution de contournement.
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">

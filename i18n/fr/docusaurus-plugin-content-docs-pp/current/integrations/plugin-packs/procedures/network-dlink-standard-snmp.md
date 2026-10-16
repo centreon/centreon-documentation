@@ -1,6 +1,7 @@
 ---
 id: network-dlink-standard-snmp
 title: D-Link standard SNMP
+description: "Supervisez les commutateurs réseau D-Link en SNMP : CPU, mémoire, matériel, interfaces et membres de stack."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

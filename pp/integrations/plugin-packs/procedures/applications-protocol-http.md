@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-http
 title: HTTP Server
+description: "Monitor web servers over HTTP/HTTPS via response time, expected content, JSON content, and SOAP content checks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-saml
 title: Configurer une connexion SAML
+description: "Configuration pas à pas de l'authentification unique SAML entre un fournisseur d'identité et Centreon Hub, avec le mapping des rôles et des groupes"
 ---
 
 Une connexion SAML (Security Assertion Markup Language) vous permet de mettre en place une authentification unique (SSO) fluide et sécurisée pour votre organisation. Ainsi, vous pouvez lier votre organisation dans [Centreon Hub](centreon-hub.md) à un fournisseur d'identité.

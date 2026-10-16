@@ -1,6 +1,7 @@
 ---
 id: network-riverbed-interceptor-snmp
 title: Riverbed Interceptor SNMP
+description: "Supervisez les équipements Riverbed Interceptor via SNMP : CPU, mémoire, charge, espace disque, trafic et statut."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

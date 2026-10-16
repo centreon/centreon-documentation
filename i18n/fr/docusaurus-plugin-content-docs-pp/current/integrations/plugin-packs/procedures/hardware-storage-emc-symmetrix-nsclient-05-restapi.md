@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-symmetrix-nsclient-05-restapi
 title: EMC Symmetrix NSClient++ API
+description: "Supervisez l'état matériel des baies de stockage EMC Symmetrix DMX/VMAX via l'API REST de NSClient++ (disques, alimentation, température)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

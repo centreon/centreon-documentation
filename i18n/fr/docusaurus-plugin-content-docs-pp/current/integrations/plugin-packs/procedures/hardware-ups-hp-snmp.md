@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-hp-snmp
 title: HP UPS SNMP
+description: "Supervisez les onduleurs HP via SNMP : état de la batterie, charge restante, métriques des lignes d'entrée/sortie et environnement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

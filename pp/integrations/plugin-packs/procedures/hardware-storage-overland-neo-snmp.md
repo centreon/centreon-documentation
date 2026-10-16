@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-overland-neo-snmp
 title: Overland Neo SNMP
+description: "Monitor Overland Neo tape libraries via SNMP: drive and library status, component counts, and event logs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

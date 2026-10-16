@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-ees-snmp
 title: EES UPS SNMP
+description: "Supervisez les onduleurs Emerson Energy Systems/Vertiv via SNMP : batterie, entrées, redresseur, système et température."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

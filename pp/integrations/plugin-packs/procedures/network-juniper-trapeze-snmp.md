@@ -1,6 +1,7 @@
 ---
 id: network-juniper-trapeze-snmp
 title: Juniper Trapeze SNMP
+description: "Monitor Juniper Trapeze wireless controllers via SNMP: access point status, connected users, CPU, and memory usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

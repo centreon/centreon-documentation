@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-msl-snmp
 title: HP MSL SNMP
+description: "Supervisez les librairies de sauvegarde HP MSL via SNMP en surveillant le statut matériel et l'état de la librairie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

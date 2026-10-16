@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-sqs
 title: Amazon SQS
+description: "Supervisez les files d'attente Amazon SQS via l'API AWS CloudWatch : nombre de messages, âge et statut de livraison."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

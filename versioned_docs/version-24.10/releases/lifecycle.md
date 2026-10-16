@@ -1,6 +1,7 @@
 ---
 id: lifecycle
 title: Product lifecycle policy
+description: "Centreon's version numbering, release frequency, and support policy"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -37,17 +38,17 @@ The lifecycle of a version is divided into three phases:
 
 1.  First phase: Bugs of all severity levels (minor, major, critical, blocker)
     and security issues are fixed according to their priority. Functional enhancements are added.
-2.  Second phase: Major, critical bugs and blockers, or security issues are
+2.  Second phase: Major, critical bugs and blockers, and security issues are
     fixed according to their priority.
-3.  Third phase: Blockers or security issues are fixed according to their priority.
+3.  Third phase: Blockers and security issues are fixed according to their priority. A vulnerability whose remediation deadline falls after the version's end of support is not fixed on that version: upgrade to a supported version to get the fix.
 
-> The prioritization is determined by Centreon’s Product team.
+> Vulnerabilities follow a [CVSS v3 remediation plan](../security/security.md#vulnerability-scoring). Bugs are prioritized by Centreon's product team.
 
 The first phase of the lifecycle begins on the day of a version release.
 
 The second phase of a version begins when the next major version is available. For example, the release of Centreon 25.10 triggers the second phase of Centreon 24.10.
 
-The third phase of a version begins when the second next major version is available. For example, the release of Centreon 26.10 triggers the third phase of Centreon 24.10 and the second phase of Centreon 25.10.
+The third phase of a version begins when the second next major version is available. For example, the release of Centreon 26.10 triggers the third phase of Centreon 24.10 and of Centreon 25.10.
 
 ### Version lifecycle diagram
 

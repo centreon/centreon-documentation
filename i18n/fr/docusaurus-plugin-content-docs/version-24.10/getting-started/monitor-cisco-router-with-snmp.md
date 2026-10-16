@@ -1,6 +1,7 @@
 ---
 id: monitor-cisco-router-with-snmp
 title: Superviser votre premier routeur Cisco
+description: "Superviser un routeur Cisco à l'aide du protocole SNMP"
 ---
 
 import Tabs from '@theme/Tabs';

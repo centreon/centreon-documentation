@@ -1,6 +1,7 @@
 ---
 id: hardware-kvm-adder-aim-snmp
 title: Adder AIM SNMP
+description: "Monitor Adder AIM KVM switches via SNMP: device and server usage, connection counts, CPU, memory, and disk metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

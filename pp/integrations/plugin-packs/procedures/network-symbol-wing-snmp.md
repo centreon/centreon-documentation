@@ -1,6 +1,7 @@
 ---
 id: network-symbol-wing-snmp
 title: Symbol WiNG SNMP
+description: "Monitor Symbol WiNG devices via SNMP: interface traffic, packet errors, and system CPU and memory usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

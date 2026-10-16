@@ -1,6 +1,7 @@
 ---
 id: network-fiberstore-snmp
 title: Fiberstore SNMP
+description: "Monitor Fiberstore network switches via SNMP: CPU utilization, memory usage, hardware status, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

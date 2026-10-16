@@ -1,6 +1,7 @@
 ---
 id: cma
 title: Introduction à l'agent CMA
+description: "Introduction à l'agent de supervision Centreon et ses cas d'usage"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -71,6 +72,14 @@ L'agent peut être installé sur et superviser les OS suivants :
 
 * Vous pouvez également [développer vos propres plugins](cma-custom.md).
 
+## Période de contrôle
+
+Les hôtes supervisés par CMA peuvent optionnellement se voir attribuer une [période de contrôle](../monitoring/basic-objects/timeperiods.md). Lorsqu'elle est configurée, cette période est propagée par Centreon Engine à l'agent, qui l'utilise pour décider si un contrôle planifié doit être exécuté ou non à un instant donné.
+
+> **Contrainte d'alignement de fuseau horaire** : le fuseau horaire de la machine hôte supervisée doit être identique à celui du collecteur (Centreon Engine). Un désalignement entraînera un comportement incorrect dans l'ordonnancement des contrôles et dans le calcul de freshness, sans message d'erreur côté engine.
+
+Pour les détails complets et le tableau des comportements, consultez [Période de contrôle et CMA](../monitoring/basic-objects/timeperiods.md#période-de-contrôle-et-cma).
+
 ## Comment interagissent le collecteur et l'hôte?
 
 ### Sens de connexion
@@ -90,8 +99,8 @@ Les deux sens de connexion peuvent être combinés au sein d'un même collecteur
 
 La connexion entre le collecteur et l'agent doit être sécurisée en production. Vous devez utiliser :
 
-- [une connexion TLS avec certificats](cma-certificates.md)
-- [un jeton d'authentification](cma-setup.md#créez-un-jeton-dauthentification).
+- [une connexion TLS avec certificats](cma-certificates.md). Les certificats seront générés automatiquement si vous utilisez la [procédure d'installation automatique](cma-setup.md).
+- [un jeton d'authentification](cma-setup-manual.md#créez-un-jeton-dauthentification).
 
 <!-- 2 options are possible:-->
 <!--* TLS: the certificate is signed by a certification authority and the Common Name (CN) is verified.

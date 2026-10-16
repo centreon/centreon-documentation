@@ -1,6 +1,7 @@
 ---
 id: applications-skype-2015-mssql
 title: Skype 2015
+description: "Monitor Skype for Business 2015 via its MSSQL database: call quality (QoE) for audio, video, and app sharing, poor calls, and session types."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

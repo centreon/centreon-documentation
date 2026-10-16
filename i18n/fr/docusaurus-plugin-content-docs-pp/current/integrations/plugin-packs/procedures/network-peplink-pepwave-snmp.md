@@ -1,6 +1,7 @@
 ---
 id: network-peplink-pepwave-snmp
 title: Peplink Pepwave SNMP
+description: "Supervisez les routeurs Peplink Pepwave via SNMP : CPU, mémoire, utilisation WAN et statut des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-mip-restapi
 title: Maltem Insight Rest API
+description: "Supervisez les scénarios Maltem Insight Performance (MIP) via l'API REST : statut et métriques d'utilisation."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

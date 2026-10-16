@@ -1,6 +1,7 @@
 ---
 id: network-loadbalancers-f5-bigip-snmp
 title: F5 BigIP SNMP
+description: "Supervisez les load balancers F5 BIG-IP en SNMP : statut des pools et des nodes, serveurs virtuels, CPU, certificats et matériel."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

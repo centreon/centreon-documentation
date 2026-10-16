@@ -1,6 +1,7 @@
 ---
 id: applications-selenium
 title: Selenium
+description: "Supervisez les scénarios de test Selenium (Katalon ou WAA) via le serveur Selenium : temps d'exécution, statut des étapes et taux de réussite."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

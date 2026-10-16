@@ -1,6 +1,7 @@
 ---
 id: offline
 title: Offline installation
+description: "Install Centreon on servers without internet access using a local mirror"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: update-centreon-platform
 title: Update a Centreon 25.10 platform
+description: "Steps to update between minor versions of Centreon 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -121,7 +122,7 @@ Clean the cache:
 Then upgrade all the components with the following command:
 
   ```shell
-  apt install --only-upgrade centreon
+  apt install --only-upgrade "centreon*"
   ```
 
 </TabItem>

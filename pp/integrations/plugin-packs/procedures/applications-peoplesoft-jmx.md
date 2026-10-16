@@ -1,6 +1,7 @@
 ---
 id: applications-peoplesoft-jmx
 title: Peoplesoft
+description: "Monitor PeopleSoft applications via JMX and the Jolokia agent, tracking queue length and open session counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

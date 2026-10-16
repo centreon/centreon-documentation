@@ -1,6 +1,7 @@
 ---
 id: network-extreme-snmp
 title: Extreme Networks SNMP
+description: "Supervisez les commutateurs Extreme Networks via SNMP : CPU, mémoire, composants matériels, statut de la stack et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

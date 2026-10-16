@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-compute-virtualmachine
 title: Azure Virtual Machine
+description: "Supervisez les machines virtuelles Azure via API : CPU, disques, mémoire, réseau, statut des VM et découverte automatique des hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

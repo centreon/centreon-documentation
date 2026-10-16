@@ -1,6 +1,7 @@
 ﻿---
 id: use-cases
 title: Cas d'usage
+description: Cas d'usage courants pour détecter et résoudre des problèmes informatiques via les logs
 ---
 
 Centreon Log Management vous permet de détecter et de résoudre une grande variété de problèmes dans un système informatique, allant des erreurs mineures aux incidents majeurs. De nombreux cas d'utilisation typiques de Log Management se concentrent sur l'analyse des causes profondes (root cause analysis). Voici quelques exemples concrets de ce que Log Management peut vous aider à détecter à partir de l'analyse des journaux manquants, des types de journaux inattendus ou des volumes de journaux inhabituels.

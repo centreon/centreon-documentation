@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-panzura-snmp
 title: Panzura SNMP
+description: "Monitor Panzura storage systems via SNMP: CPU, memory, disk usage, load, swap, dedup/compression ratios, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

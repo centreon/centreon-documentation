@@ -1,6 +1,7 @@
 ---
 id: virtualization-hpe-simplivity-restapi
 title: HPE Simplivity Rest API
+description: "Supervisez HPE SimpliVity via l'API REST OmniStack : statut des hôtes et des disques RAID, ratios de stockage des clusters et état des VM."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

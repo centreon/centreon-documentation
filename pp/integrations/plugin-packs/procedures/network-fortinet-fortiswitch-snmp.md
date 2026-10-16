@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiswitch-snmp
 title: Fortinet FortiSwitch SNMP
+description: "Monitor Fortinet FortiSwitch devices via SNMP: CPU, memory, disk, uptime, ARP table, and network interface traffic and errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

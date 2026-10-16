@@ -1,6 +1,7 @@
 ---
 id: applications-jboss-jmx
 title: JBoss Server
+description: "Supervisez JBoss Server via JMX/Jolokia : mémoire Java (heap et non-heap), pools de mémoire, classes, threads et utilisation des datasources."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

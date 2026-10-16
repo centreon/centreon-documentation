@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-nrpe
 title: Veeam NRPE
+description: "Supervisez Veeam Backup & Replication via NRPE : état des jobs, licences, dépôts, jobs sur bande et jobs SureBackup."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -221,6 +222,7 @@ yum install nagios-plugins-nrpe
 
 | Macro           | Description                                                                                                                                                               | Valeur par défaut                                       | Obligatoire |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
+| JOB_SOURCE      | Define which Veeam job source to use.  Possible values are: `all` (retrieve both standard jobs and agent jobs), `standard` (retrieve only jobs returned by `Get-VBRJob`), or `agent` (retrieve only jobs returned by `Get-VBRComputerBackupJob`)                                                                                                                                                                                   | all                                                     |           |
 | FILTERENDTIME   | Tolerance value in seconds, to avoid skipping jobs whose end time is earlier than the current time                                                                        | 86400                                                   |             |
 | FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                         |                                                         |             |
 | FILTERSTARTTIME | Tolerance value in seconds, to avoid skipping jobs whose start time is earlier than the current time                                                                      |                                                         |             |
@@ -429,6 +431,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option              | Description                                                                                                                                                                                                                                     |
 |:--------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --timeout           | Set timeout time for command execution (default: 50 sec)                                                                                                                                                                                        |
+| --job-source        | Define which Veeam job source to use (default: all).  Possible values are: `all` (retrieve both standard jobs and agent jobs), `standard` (retrieve only jobs returned by `Get-VBRJob`), or `agent` (retrieve only jobs returned by `Get-VBRComputerBackupJob`).  |
 | --no-ps             | Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                                                          |
 | --command           | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                                          |
 | --command-path      | Command path (default: none).                                                                                                                                                                                                                   |

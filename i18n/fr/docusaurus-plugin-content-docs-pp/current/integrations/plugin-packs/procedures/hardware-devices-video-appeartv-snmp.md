@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-video-appeartv-snmp
 title: Appear TV SNMP
+description: "Supervisez vos équipements vidéo Appear TV via SNMP en suivant le statut des alarmes pour une infrastructure vidéo fiable."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

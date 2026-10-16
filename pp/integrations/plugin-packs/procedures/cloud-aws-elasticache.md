@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-elasticache
 title: Amazon ElastiCache
+description: "Monitor AWS ElastiCache (Redis and Memcached) via the CloudWatch API: CPU, connections, evictions, network, and replication."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

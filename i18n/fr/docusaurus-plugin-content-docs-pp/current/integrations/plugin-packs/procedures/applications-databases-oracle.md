@@ -1,6 +1,7 @@
 ---
 id: applications-databases-oracle
 title: Oracle Database
+description: "Supervisez Oracle Database via des requêtes SQL : utilisation des tablespaces, sauvegardes RMAN, groupes de disques ASM, sessions et connexions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -15,9 +16,10 @@ depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ### Modèles
 
-Le connecteur de supervision **Oracle Database** apporte un modèle d'hôte :
+Le connecteur de supervision **Oracle Database** apporte 2 modèles d'hôte :
 
 * **App-DB-Oracle-custom**
+* **App-DB-Rman-Catalog-custom**
 
 Le connecteur apporte les modèles de service suivants
 (classés selon le modèle d'hôte auquel ils sont rattachés) :
@@ -42,6 +44,18 @@ Le connecteur apporte les modèles de service suivants
 > Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
+<TabItem value="App-DB-Rman-Catalog-custom" label="App-DB-Rman-Catalog-custom">
+
+| Alias                | Modèle de service                          | Description                                                                                                                 |
+|:---------------------|:-------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
+| Connection-Time      | App-DB-Rman-Catalog-Connection-Time-custom | Contrôle permettant de vérifier la durée de connexion au serveur. Ce temps est donné en secondes                            |
+| Rman-Backup-Age      | App-DB-Rman-Catalog-Backup-Age-custom      | Contrôle permettant de vérifier l'ancienneté des sauvegardes RMAN via un catalogue RMAN                              |
+| Rman-Backup-Problems | App-DB-Rman-Catalog-Backup-Problems-custom | Contrôle permettant de vérifier les erreurs de sauvegarde RMAN du serveur durant les 3 derniers jours via un catalogue RMAN |
+
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-DB-Rman-Catalog-custom** est utilisé.
+
+</TabItem>
+
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
 | Alias                            | Modèle de service                                     | Description                                                                                                 | Découverte |
@@ -619,6 +633,9 @@ apt install centreon-plugin-applications-databases-oracle
 
 ### Utiliser un modèle d'hôte issu du connecteur
 
+<Tabs groupId="sync">
+<TabItem value="App-DB-Oracle-custom" label="App-DB-Oracle-custom">
+
 1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
 2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
 3. Appliquez le modèle d'hôte **App-DB-Oracle-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
@@ -633,6 +650,27 @@ apt install centreon-plugin-applications-databases-oracle
 | ORACLESID         | Database SID                              | SID               |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+</TabItem>
+<TabItem value="App-DB-Rman-Catalog-custom" label="App-DB-Rman-Catalog-custom">
+
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **App-DB-Rman-Catalog-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
+
+| Macro             | Description           | Valeur par défaut | Obligatoire |
+|:------------------|:----------------------|:------------------|:-----------:|
+| RMAN_USERNAME     | User name used to connect to the RMAN catalog                 | USERNAME          |             |
+| RMAN_PASSWORD     | Password for the defined RMAN catalog                         | PASSWORD          |             |
+| RMAN_PORT         | RMAN used to connect to the RMAN catalog  | 1521              |             |
+| RMAN_SERVICE_NAME | Service Name of the RMAN catalog database  |                   |             |
+| RMAN_SID          | SID of the RMAN catalog database | SID               |             |
+
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
+
+</TabItem>
+</Tabs>
 
 ### Utiliser un modèle de service issu du connecteur
 
@@ -1062,6 +1100,7 @@ Les options génériques sont listées ci-dessous :
 | --port                                     | Database Server Port.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | --sid                                      | Database SID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --servicename                              | Database Service Name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --component-type                           | Define the component to monitor. Can be `database` or `rman_catalog` (default: `database`). This enables the use of `rman-backup-problems` and `rman-backup-age` modes when an external RMAN catalog is used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --container                                | Change container (does an alter session set container command).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 #### Options des modes

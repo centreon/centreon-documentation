@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-24-04
 title: Upgrade from Centreon 24.04
+description: "Upgrade a Centreon platform from version 24.04 to 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -76,6 +77,8 @@ Before upgrading your Centreon platform, make sure the following package reposit
 ## Upgrade the Centreon Central server
 
 > When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
+
+> If you installed MariaDB from their official repositiories, you may run into a conflict issue. Read our [dedicated procedure](../resources/known-issues.md#you-have-a-conflict-between-packages-mysql-common-and-mariadb-common) for a workaround.
 
 ### Install the new repositories
 
@@ -843,6 +846,8 @@ dnf update centreon\*
 ```shell
 dnf update centreon\*
 ```
+
+> If you installed MariaDB from their official repositiories, you may run into a conflict issue. Read our [dedicated procedure](../resources/known-issues.md#you-have-a-conflict-between-packages-mysql-common-and-mariadb-common) for a workaround.
 
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">

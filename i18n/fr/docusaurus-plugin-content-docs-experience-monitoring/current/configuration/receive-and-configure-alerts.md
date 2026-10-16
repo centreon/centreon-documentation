@@ -1,13 +1,12 @@
 ﻿---
 id: receive-and-configure-alerts
 title: Recevoir et configurer les alertes
+description: Configurer des canaux d'alerte par e-mail, SMS, Slack ou webhook
 ---
 
 Les alertes sont accessibles **dans toutes les licences par email**.
 
-Certaines licences permettent de recevoir des alertes **par SMS, par Slack, ou par webhooks** (Microsoft Teams, Google Chat, Mattermost...). Pour souscrire à cette option, contactez votre interlocuteur commercial ou le support: 
-
-[Contacter le support Experience Monitoring](../getting-started/contact-support.md)
+Certaines licences permettent de recevoir des alertes **par SMS, par Slack, ou par webhooks** (Microsoft Teams, Google Chat, Mattermost...). Pour souscrire à cette option, contactez votre interlocuteur commercial ou le support.
 
 ## Configurer les moyens de communication
 
@@ -42,7 +41,7 @@ Les utilisateurs peuvent définir les périodes pendant lesquelles ils ne reçoi
 
 ![image](../assets/configuration/receive-and-configure-alerts-4.png)
 
-Egalement, chaque alerte peut être activée/désactivée sur des plages horaires pour ne pas notifier les personnes abonnées à cette alerte, quelque soit leur propre planning.
+Également, chaque alerte peut être activée/désactivée sur des plages horaires pour ne pas notifier les personnes abonnées à cette alerte, quel que soit leur propre planning.
 
 ### Configurer une alerte
 
@@ -169,7 +168,7 @@ Vous recevrez une alerte pour les anomalies de type : Code d’erreur, Site ind
 
 Chaque erreur est représentée par des barres rouges dans Experience Monitoring. Pour savoir exactement ce qui s’est passé, nous vous invitons à regarder le message d’alerte que vous avez reçu et dans lequel la raison de l’incident est explicitée.
 
-### Y-a-t’il des quotas dans les alertes ?
+### Y a-t-il des quotas dans les alertes ?
 
 Il n’y a pas de quotas pour les emails, les webhooks et les notifications Slack mais il y en a pour les SMS. Le quota de SMS est fixé par site et recrédité tous les mois.
 

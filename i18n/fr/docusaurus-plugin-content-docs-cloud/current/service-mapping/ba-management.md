@@ -1,6 +1,7 @@
 ---
 id: ba-management
 title: Gestion
+description: "Configurer les activités métier, les indicateurs (KPI), les règles booléennes et les vues métier pour modéliser vos services informatiques dans Centreon BAM"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -120,16 +121,19 @@ dépendra alors des paramètres présents dans la section Indicateur.
 
 ### Création d'une activité métier
 
-Pour créer une nouvelle activité métier, cliquer sur **+AJOUTER**. Le
-formulaire ci-dessous apparaît :
+#### Informations de base
 
-![image](../assets/service-mapping/guide/business-activity-add.png)
+1. Pour ajouter une Activité Métier (BA), cliquez sur le bouton **Ajouter**. Une fenêtre s'ouvre pour configurer la BA.
 
-La création de l'activité métier se fait directement dans le panneau qui
-s'ouvre. Après avoir donné un nom (obligatoire & unique) à votre
-activité métier, vous devrez configurer plusieurs sections. La section
-**Indicateur** est la plus importante.
-Les caractères suivants ne sont pas autorisés dans le nom d'une BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
+2. Donnez un nom unique à la BA. Les caractères suivants ne sont pas acceptés dans le nom de la BA : `~!$%^&|'"<>?,()=*{}` et les espaces.
+
+Vous pouvez choisir une icône pour la BA et ajouter une description, ces deux éléments sont optionnels.
+
+4. Sélectionnez la [méthode de calcul](#méthodes-de-calcul).
+
+5. Vous devez également assigner la BA à une [Vue Métier](#vue-métier) (BV) ou la BA ne sera pas visible.
+
+> Après avoir cliqué sur **Enregistrer**, vous serez redirigé vers l'écran principal présentant l'arbre des BA. Vous pouvez interagir directement à partir de cette arbre pour configurer chaque élément.
 
 #### Indicateurs
 
@@ -141,7 +145,7 @@ Vous pouvez lier ces types d'indicateurs à une activité métier:
 
 -   Services
 -   D'autres activités métier
--   Meta-services
+-   Métaservices
 -   Règles booléennes
 
 **Méthode de calcul**
@@ -246,6 +250,9 @@ lignes
 > La suppression d'une activité métier la supprime définitivement avec
 > l'ensemble des données et indicateurs qui lui sont rattachés.
 
+La liste des BA propose un filtre pour se concentrer uniquement sur les activités métier de premier niveau au lieu d'afficher également leurs activités métier enfants.
+- Basculez entre les boutons de la fonctionnalité **Afficher la vue** pour afficher soit **Toutes les Activités Métiers** ou **Uniquement les Activités Métiers de premier niveau**.
+
 ## Indicateurs (KPI)
 
 > Lorsque vous créez/modifiez un indicateur, il faut générer et
@@ -259,7 +266,7 @@ et ces indicateurs peuvent être de quatre types :
 
 -   Indicateur "Service" (les services déployés par groupes **ne sont
     pas** disponibles)
--   Indicateur "Meta Service"
+-   Indicateur "Métaservice"
 -   Indicateur "Booléen"
 -   Indicateur "Activité métier"
 
@@ -291,7 +298,7 @@ La gestion des indicateurs peut être réalisée de deux manières:
 | Colonne                   | Description                                                                         |
 |---------------------------|-------------------------------------------------------------------------------------|
 | Key Performance indicator | Nom de l'indicateur (basé sur l'objet utilisé)                                      |
-| Type                      | type de resource associée (Service, Meta Service, BA)                               |
+| Type                      | type de resource associée (Service, Métaservice, BA)                               |
 | Impact dégradé            | Poids d'impact en cas d'état "Warning" ou dégradé, dans la supervision temps réel   |
 | Impact critique           | Poids d'impact en cas d'état "Critical" ou critique, dans la supervision temps réel |
 | Impact inconnu            | Poids d'impact en cas d'état "Unknown" ou inconnu, dans la supervision temps réel   |
@@ -338,7 +345,7 @@ Il permet de saisir la valeur des impacts manuellement.
 | Paramètre                             | Description                                                                         |
 |---------------------------------------|-------------------------------------------------------------------------------------|
 | Mode de configuration                 | Mode de configuration standard ou avancé                                            |
-| Type de KPI                           | Type de KPI (Service, Meta service, booléen ou une BA)                              |
+| Type de KPI                           | Type de KPI (Service, Métaservice, booléen ou une BA)                              |
 | Key Performance Indicator             | Choix du KPI sur la base des objets présents dans **Centreon**                      |
 | Impact métier pour le statut warning  | Poids d'impact en cas d'état "Warning" ou dégradé, dans la supervision temps réel   |
 | Impact métier pour le statut critique | Poids d'impact en cas d'état "Critical" ou critique, dans la supervision temps réel |
@@ -410,7 +417,7 @@ Expression booléenne :
 > Les acquittements d'une alerte s'appliquent uniquement à l'objet concerné (activité métier ou KPI).
 
 Les acquittements s'appliquent aux activités métier (BA) comme suit :
-- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un méta-service).
+- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un métaservice).
 - L'acquittement d'un KPI n'entraîne pas l'acquittement de l'activité métier qui en dépend.
 
 ## Les vues métier

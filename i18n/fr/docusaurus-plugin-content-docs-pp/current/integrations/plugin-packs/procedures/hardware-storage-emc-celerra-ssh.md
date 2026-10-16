@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-celerra-ssh
 title: EMC Celerra SSH
+description: "Supervisez les systèmes de stockage EMC Celerra en SSH : contrôlez le statut des control stations et des data movers avec le service Getreason."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

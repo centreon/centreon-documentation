@@ -1,6 +1,7 @@
 ---
 id: applications-exchange-nrpe
 title: Microsoft Exchange NSClient NRPE
+description: "Supervisez Microsoft Exchange via NRPE et NSClient++ : bases de données, boîtes aux lettres, files d'attente, réplication et services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

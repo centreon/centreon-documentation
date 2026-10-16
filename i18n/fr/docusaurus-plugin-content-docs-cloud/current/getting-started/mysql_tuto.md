@@ -1,6 +1,7 @@
 ---
 id: monitor-mysql-server
 title: Superviser une base de données MySQL ou MariaDB
+description: "Tutoriel pas à pas pour superviser une base de données MySQL ou MariaDB avec le connecteur de supervision MySQL/MariaDB"
 ---
 
 L'objectif de ce tutoriel est de superviser une base de données Mysql/MariaDB.

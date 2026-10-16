@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-classicstorage-storageaccount
 title: Azure Classic Storage
+description: "Supervisez les comptes de stockage Azure Classic Storage via l'API REST ou Azure CLI : capacité, transactions, latence et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

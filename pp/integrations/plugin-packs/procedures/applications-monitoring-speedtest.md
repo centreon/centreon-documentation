@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-speedtest
 title: Speedtest
+description: "Monitor internet connection quality with the Speedtest CLI: ping latency, jitter, and download/upload bandwidth."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

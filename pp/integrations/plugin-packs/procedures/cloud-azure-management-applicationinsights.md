@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-applicationinsights
 title: Azure Application Insights
+description: "Monitor Azure Application Insights via REST API: application availability, requests, exceptions, CPU, memory, and page views."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-telnet
 title: Telnet Scenario
+description: "Monitor Telnet connections via a JSON scenario file: test login, commands, and expected responses on remote hosts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

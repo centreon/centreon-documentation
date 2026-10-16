@@ -1,6 +1,7 @@
 ---
 id: secure-platform
 title: Sécurisez votre plateforme
+description: "Sécuriser Centreon avec SELinux, pare-feu, HTTPS et autres mesures"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -170,7 +171,8 @@ Suivant le type de serveur, installer les paquets avec la commande suivante :
 <TabItem value="MBI server" label="MBI server">
 
    ```shell
-   dnf install centreon-mbi-selinux
+   dnf install centreon-mbi-selinux \
+   centreon-gorgoned-selinux
    ```
 
 </TabItem>
@@ -206,18 +208,26 @@ Avant d'activer SELinux en **mode renforcé**, vous devez vous assurer qu'aucune
 commande suivante :
 
 ```shell
-cat /var/log/audit/audit.log | grep -i denied
+ausearch --start week-ago --message AVC,USER_AVC
 ```
 
 Si des erreurs apparaissent, vous devez les analyser et décider si ces erreurs sont régulières et doivent être ajoutées
 en plus des règles SELinux par défaut de Centreon. Pour ce faire, utilisez la commande suivante pour transformer
 l'erreur en règles SELinux :
 
+Pour analyser les logs :
+
 ```shell
-audit2allow -a
+ausearch --start week-ago --message AVC,USER_AVC | audit2why
+ausearch --start week-ago --message AVC,USER_AVC | audit2allow --module <modulename>
 ```
 
-Exécutez ensuite les règles proposées.
+Pour créer et installer les règles proposées :
+
+```shell
+ausearch --start week-ago --message AVC,USER_AVC | audit2allow -M <modulename>
+semodule -i <modulename>.pp
+```
 
 Si après un certain temps, aucune erreur n'est présente, vous pouvez activer SELinux en mode renforcé en suivant cette
 [procédure](#activer-selinux) avec le mode **enforcing**.

@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-onedrive
 title: Office 365 OneDrive
+description: "Monitor Microsoft Office 365 OneDrive via the Microsoft Graph and Office 365 Management REST APIs: site usage, file counts, and user activity."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

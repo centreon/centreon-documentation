@@ -1,6 +1,7 @@
 ---
 id: applications-haproxy-web
 title: HAProxy Web API
+description: "Supervisez HAProxy via l'API stats au format JSON : utilisation des backends et frontends, sessions, trafic et statuts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

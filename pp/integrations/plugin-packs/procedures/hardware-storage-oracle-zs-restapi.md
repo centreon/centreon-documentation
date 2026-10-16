@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-oracle-zs-restapi
 title: Oracle ZS Rest API
+description: "Monitor Oracle ZFS Storage Appliances via REST API: track hardware component status and storage pool space usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

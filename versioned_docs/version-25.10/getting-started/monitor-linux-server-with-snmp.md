@@ -1,6 +1,7 @@
 ---
 id: monitor-linux-server-with-snmp
 title: Monitor your first Linux host
+description: "Monitor a Linux server using the SNMP protocol"
 ---
 
 import Tabs from '@theme/Tabs';

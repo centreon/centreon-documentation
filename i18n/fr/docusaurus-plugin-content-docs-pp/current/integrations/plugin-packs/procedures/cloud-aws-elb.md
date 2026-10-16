@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-elb
 title: AWS ELB
+description: "Supervisez les répartiteurs de charge AWS ELB (Classic, Application, Network) via l'API CloudWatch : connexions, codes HTTP, latence et santé des cibles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

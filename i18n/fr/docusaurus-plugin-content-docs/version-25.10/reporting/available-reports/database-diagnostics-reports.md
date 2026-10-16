@@ -1,6 +1,7 @@
 ---
 id: database-diagnostics-reports
 title: Rapports de diagnostic de la base de données
+description: "Vérifier l'intégrité des données de disponibilité et de performance agrégées par MBI"
 ---
 
 ## Diagnostic de base de données Centreon/Reporting

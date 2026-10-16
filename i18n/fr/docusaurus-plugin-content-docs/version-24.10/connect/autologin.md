@@ -1,6 +1,7 @@
 ---
 id: autologin
 title: Configurer une authentification en auto-connexion
+description: "Configurer l'auto-connexion pour accéder à Centreon sans mot de passe"
 ---
 
 La fonctionnalité d'auto-connexion vous permet de donner accès à la plateforme via une simple URL, sans login ni mot de passe. Utilisez l'auto-connexion par exemple pour afficher des custom views sur un grand écran dans votre espace de travail. 

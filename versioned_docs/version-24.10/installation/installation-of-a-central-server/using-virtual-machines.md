@@ -1,6 +1,7 @@
 ---
 id: using-virtual-machines
 title: Using a virtual machine (VM)
+description: "Install a central server using a ready-to-use virtual machine"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

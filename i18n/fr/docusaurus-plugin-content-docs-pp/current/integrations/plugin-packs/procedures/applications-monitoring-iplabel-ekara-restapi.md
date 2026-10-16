@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-iplabel-ekara-restapi
 title: IP-Label Ekara Rest API
+description: "Supervisez IP-Label Ekara via l'API REST : incidents, statut des scénarios, disponibilité et temps de réponse."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

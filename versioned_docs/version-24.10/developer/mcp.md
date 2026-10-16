@@ -1,6 +1,7 @@
 ---
 id: mcp-server
 title: Centreon MCP server
+description: "Overview of the Centreon MCP server tools for AI assistant integration"
 ---
 
 > This is a new, rapidly evolving feature. During its initial phases, the main source of documentation will be the README file on the [GitHub project](https://github.com/centreon/centreon-mcp).

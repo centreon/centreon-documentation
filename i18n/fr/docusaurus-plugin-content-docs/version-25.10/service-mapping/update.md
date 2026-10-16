@@ -1,6 +1,7 @@
 ---
 id: update
 title: Mettre à jour l'extension
+description: "Mettre à jour le paquet et le module de l'extension Centreon BAM"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

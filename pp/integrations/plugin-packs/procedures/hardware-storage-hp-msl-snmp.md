@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-msl-snmp
 title: HP MSL SNMP
+description: "Monitor HP MSL tape libraries via SNMP, tracking hardware component and library status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

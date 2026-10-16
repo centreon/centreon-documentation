@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-teams
 title: Office365 Teams
+description: "Supervisez Microsoft Office 365 Teams via les API Graph et Management : utilisation des appareils et activité des utilisateurs (appels, réunions, messages)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

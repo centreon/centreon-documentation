@@ -1,6 +1,7 @@
 ---
 id: applications-wallix-bastion-snmp
 title: Wallix Bastion SNMP
+description: "Supervisez Wallix Bastion via SNMP : état et expiration des licences, sessions et requêtes en attente."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

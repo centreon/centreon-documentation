@@ -1,6 +1,7 @@
 ---
 id: network-routers-redback-snmp
 title: RedBack Router SNMP
+description: "Supervisez les routeurs RedBack via SNMP : CPU, mémoire, espace disque, matériel et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-routers-peplink-balance-snmp
 title: Peplink Balance SNMP
+description: "Monitor Peplink Balance routers via SNMP: CPU, memory, interface traffic, and packet errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

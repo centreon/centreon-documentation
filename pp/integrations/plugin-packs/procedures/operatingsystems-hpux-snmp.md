@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-hpux-snmp
 title: HP-UX SNMP
+description: "Monitor HP-UX servers via SNMP: CPU, load average, memory and swap usage, disk storage, uptime, and processes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

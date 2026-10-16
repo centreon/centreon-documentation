@@ -1,6 +1,7 @@
 ---
 id: applications-databases-informix
 title: Informix DB
+description: "Supervisez les bases de données IBM Informix via des requêtes SQL : checkpoints, utilisation des dbspaces, sessions et locks de tables."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -193,7 +194,6 @@ wget http://search.cpan.org/CPAN/authors/id/J/JO/JOHNL/DBD-Informix-2013.0521.ta
 tar xzf DBD-Informix-2013.0521.tar.gz
 cd DBD-Informix-2013.0521
 export INFORMIXDIR=/home/informix/sdkclient
-export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 export PATH=${PATH}:/home/informix/sdkclient/bin
 export LD_LIBRARY_PATH=/home/informix/sdkclient/lib/esql/:/home/informix/sdkclient/lib/
 export DBD_INFORMIX_USERNAME=root
@@ -232,7 +232,7 @@ vi /etc/ld.so.conf.d/informix.conf
 
 ### À propos du compte utilisateur
 
-Le moyen le plus sûr de récupérer des informations du serveur Oracle est de créer un utilisateur dédié à Centreon.
+Le moyen le plus sûr de récupérer des informations du serveur Informix est de créer un utilisateur dédié à Centreon.
 Ce compte utilisateur doit avoir les droits de lecture sur la base de données `sysmaster`.
 
 ## Installer le connecteur de supervision

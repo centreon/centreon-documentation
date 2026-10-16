@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-zscaler-zdx-api
 title: Zscaler ZDX API
+description: "Monitor Zscaler ZDX applications via REST API: track user counts, ZDX scores, and page fetch time by location."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

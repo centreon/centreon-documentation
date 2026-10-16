@@ -1,6 +1,7 @@
 ﻿---
 id: use-cases
 title: Use cases
+description: Common use cases for detecting and resolving IT issues with logs
 ---
 
 <!-- évaluer un nombre de lignes de logs basé sur un pattern, seuil fixe (ou anomaly detection). -->

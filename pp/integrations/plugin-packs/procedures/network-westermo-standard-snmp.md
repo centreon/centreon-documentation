@@ -1,6 +1,7 @@
 ---
 id: network-westermo-standard-snmp
 title: Westermo Standard SNMP
+description: "Monitor Westermo network devices via SNMP: CPU, memory, sensors, uptime, interfaces, and Spanning Tree status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

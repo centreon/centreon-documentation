@@ -1,6 +1,7 @@
 ﻿---
 id: tokens
 title: Gérer les jetons d'authentification
+description: Générer et gérer les jetons d'authentification des hôtes envoyant des logs
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

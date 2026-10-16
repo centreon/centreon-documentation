@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-compellent-api
 title: Dell Compellent Nsclient NRPE
+description: "Supervisez les baies de stockage Dell Compellent via NRPE/NSClient++, avec le suivi de l'utilisation des ports HBA et des volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

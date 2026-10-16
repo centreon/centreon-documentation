@@ -1,6 +1,7 @@
 ---
 id: preparing-data
 title: Préparer les données pour pouvoir générer des rapports
+description: "Préparer hôtes, catégories et périodes temporelles avant de générer des rapports MBI"
 ---
 
 ## Mettre vos ressources à la disposition de MBI

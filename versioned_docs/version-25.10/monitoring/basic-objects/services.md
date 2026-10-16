@@ -1,6 +1,7 @@
 ---
 id: services
 title: Creating services manually
+description: "Detailed reference for service configuration fields, notifications, and relations"
 ---
 
 To create a service manually, go to **Configuration \> Services > Services by host** and then click **Add**.
@@ -42,7 +43,7 @@ can be used to hide the value of the macro.
   the service. When the status is validated, the notification process is engaged
 * The **Normal Check Interval** field is expressed in minutes. It defines the interval between checks when the service status is OK.
 * The **Retry Check Interval** field is expressed in minutes. It defines the confirmation interval for the Not-OK service status
-* The **Active Checks Enabled** and **Passive Checks Enabled** fields enable / disable the type of check on the service.
+* The **Active Checks Enabled** and **Passive Checks Enabled** fields enable / disable  [active and passive checks](../active-passive-checks.md) on the service.
 * The **Is Volatile** field indicates if the service is volatile or not (normally only passive services are volatile).
 
 ### Notifications tab
@@ -75,9 +76,8 @@ can be used to hide the value of the macro.
 ### Data processing tab
 
 * If the **Obsess over service** field is enabled, the monitoring feedback command of the host will be enabled.
-* The **Check freshness** field allows us to enable or disable the check on the freshness of the result.
-* The **Freshness threshold** field is expressed in seconds. If no request for a change in the status
-  of the service (passive command) is received during this period, the check command is executed.
+* The **Check Freshness** is an active check performed by the engine when the amount of time determined in the Freshness Threshold has elapsed since the last [passive check](../../monitoring/passive-monitoring/enable-snmp-traps.md) of the object.
+* The **Freshness Threshold** is expressed in seconds. If, during this period, no passive command is received from the service, the active check command is executed. A default threshold value is assigned automatically if this field is left blank and the check is enabled.
 * The **Flap Detection Enabled** field allows us to enable or disable the detection of disruption in the statuses (status
   value changing too often in a given period).
 * The **Low flap threshold** and **High flap threshold** fields define the high and low thresholds for the detection of

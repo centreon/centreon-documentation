@@ -1,13 +1,14 @@
 ---
 id: applications-quadstor-nrpe
 title: Quadstor NSClient++ NRPE
+description: "Monitor Quadstor VTL backup appliances via NRPE: disk usage, backup job status, and tape usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Connector dependencies
 
-The following monitoring connectors will be installed when you install the **Quadstor** connector through the
+The following monitoring connectors will be installed when you install the **Quadstor NSClient++ NRPE** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
@@ -15,7 +16,7 @@ The following monitoring connectors will be installed when you install the **Qua
 
 ### Templates
 
-The Monitoring Connector **Quadstor** brings a host template:
+The Monitoring Connector **Quadstor NSClient++ NRPE** brings a host template:
 
 * **App-Quadstor-Vtl-NRPE-custom**
 
@@ -135,7 +136,7 @@ yum install centreon-pack-applications-quadstor-nrpe
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Quadstor** connector through
+2. Whatever the license type (*online* or *offline*), install the **Quadstor NSClient++ NRPE** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
 ### Plugin
@@ -182,11 +183,11 @@ yum install nagios-plugins-nrpe
 3. Apply the **App-Quadstor-Vtl-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                          | Default value         | Mandatory   |
-|:-----------------|:-----------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
-| NRPEPORT         | Port used to reach the NRPE server                                                                                                     | 5666                  |             |
-| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                     | check\_centreon\_nrpe |             |
-| NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                     | 55                    |             |
+| Macro            | Description                                                                                                                              | Default value         | Mandatory   |
+|:-----------------|:-----------------------------------------------------------------------------------------------------------------------------------------|:----------------------|:-----------:|
+| NRPEPORT         | Port used to reach the NRPE server                                                                                                       | 5666                  |             |
+| NRPECLIENT       | NRPE Binary used to perform the check                                                                                                    | check\_centreon\_nrpe |             |
+| NRPETIMEOUT      | Timeout to connect to the NRPE Server                                                                                                    | 55                    |             |
 | NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                       |             |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
@@ -199,42 +200,42 @@ yum install nagios-plugins-nrpe
 <Tabs groupId="sync">
 <TabItem value="Vtl-Disk-Usage" label="Vtl-Disk-Usage">
 
-| Macro          | Description                                                                                                                                                        | Default value                | Mandatory   |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
-| UNITS          | Units of thresholds (default: '%') ('%', 'absolute')                                                                                                               | %                            |             |
-| FILTERNAME     | Filter tape name                                                                                                                                                   |                              |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /active/i'). You can use the following variables: %\{status\}, %\{display\} | not %\{status\} =~ /active/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                        |                              |             |
-| WARNINGUSAGE   | Threshold                                                                                                                                                          |                              |             |
-| CRITICALUSAGE  | Threshold                                                                                                                                                          |                              |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                 |                              |             |
+| Macro          | Description                                                                                                                            | Default value                | Mandatory   |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
+| UNITS          | Units of thresholds ('%', 'absolute')                                                                                                  | %                            |             |
+| FILTERNAME     | Filter tape name                                                                                                                       |                              |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}           | not %\{status\} =~ /active/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}            |                              |             |
+| WARNINGUSAGE   | Threshold                                                                                                                              |                              |             |
+| CRITICALUSAGE  | Threshold                                                                                                                              |                              |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                              |             |
 
 </TabItem>
 <TabItem value="Vtl-Job-Status" label="Vtl-Job-Status">
 
-| Macro          | Description                                                                                                                                                       | Default value           | Mandatory   |
-|:---------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
-| WARNINGFROZEN  | Set warning threshold for frozen jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{kb\}                       |                         |             |
-| CRITICALFROZEN | Set critical threshold for frozen jobs (default: none). You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{kb\}                     |                         |             |
-| WARNINGLONG    | Set warning threshold for long jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}                                  |                         |             |
-| CRITICALLONG   | Set critical threshold for long jobs (default: none). You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}                                |                         |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /error/i'). You can use the following variables: %\{display\}, %\{status\} | %\{status\} =~ /error/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: none) You can use the following variables: %\{display\}, %\{status\}                        |                         |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                | --verbose               |             |
+| Macro          | Description                                                                                                                                   | Default value           | Mandatory   |
+|:---------------|:----------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
+| WARNINGFROZEN  | Set warning threshold for frozen jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{kb\}   |                         |             |
+| CRITICALFROZEN | Set critical threshold for frozen jobs (default: none). You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}, %\{kb\} |                         |             |
+| WARNINGLONG    | Set warning threshold for long jobs (default: none) You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}              |                         |             |
+| CRITICALLONG   | Set critical threshold for long jobs (default: none). You can use the following variables: %\{display\}, %\{status\}, %\{elapsed\}            |                         |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{display\}, %\{status\}                  | %\{status\} =~ /error/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING (default: none) You can use the following variables: %\{display\}, %\{status\}    |                         |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).        | --verbose               |             |
 
 </TabItem>
 <TabItem value="Vtl-Tape-Usage" label="Vtl-Tape-Usage">
 
-| Macro          | Description                                                                                                                                                        | Default value                         | Mandatory   |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
-| UNITS          | Units of thresholds (default: '%') ('%', 'absolute')                                                                                                               | %                                     |             |
-| VTLNAME        | Set VTL name (required)                                                                                                                                            |                                       |             |
-| FILTERNAME     | Filter tape name                                                                                                                                                   |                                       |             |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} !~ /active/i'). You can use the following variables: %\{status\}, %\{display\} | not %\{status\} =~ /active\|vaulted/i |             |
-| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}                                        |                                       |             |
-| WARNINGUSAGE   | Threshold                                                                                                                                                          |                                       |             |
-| CRITICALUSAGE  | Threshold                                                                                                                                                          |                                       |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                 |                                       |             |
+| Macro          | Description                                                                                                                            | Default value                         | Mandatory   |
+|:---------------|:---------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------|:-----------:|
+| UNITS          | Units of thresholds ('%', 'absolute')                                                                                                  | %                                     |             |
+| VTLNAME        | Set VTL name (required)                                                                                                                |                                       |             |
+| FILTERNAME     | Filter tape name                                                                                                                       |                                       |             |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{display\}           | not %\{status\} =~ /active\|vaulted/i |             |
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{status\}, %\{display\}            |                                       |             |
+| WARNINGUSAGE   | Threshold                                                                                                                              |                                       |             |
+| CRITICALUSAGE  | Threshold                                                                                                                              |                                       |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                                       |             |
 
 </TabItem>
 </Tabs>

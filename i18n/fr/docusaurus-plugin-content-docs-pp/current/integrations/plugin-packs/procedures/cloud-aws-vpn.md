@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-vpn
 title: AWS VPN
+description: "Supervisez les connexions VPN AWS via l'API CloudWatch, en surveillant l'état des tunnels et le trafic entrant/sortant."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

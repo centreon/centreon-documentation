@@ -1,6 +1,7 @@
 ---
 id: map-web-advanced
-title: Paramètres avancés dans MAP
+title: Personnaliser le calcul du statut
+description: "Configurer les paramètres avancés de calcul du statut hérité dans MAP"
 ---
 
 ## Définir les paramètres de calcul du statut
@@ -15,7 +16,7 @@ Un statut hérité est un statut personnalisé de Centreon MAP associé à certa
 - Un hôte a deux statuts : son propre statut (disponible/indisponible/en attente) et un statut hérité qui est basé sur le pire statut de ses services. Pour simplifier la lecture, le statut affiché est le résultat du calcul du pire statut des deux.
 - Un groupe d'hôtes n'a qu'un statut hérité correspondant au pire statut de ses enfants (hôtes, services).
 - Un groupe de services n'a qu'un statut hérité : le pire statut de ses enfants (services).
-- Un conteneur n'a qu'un statut hérité : le pire statut de ses enfants (hôtes, services, méta-services, groupes d'hôtes, groupes de services, BA, widgets).
+- Un conteneur n'a qu'un statut hérité : le pire statut de ses enfants (hôtes, services, métaservices, groupes d'hôtes, groupes de services, BA, widgets).
 
 ### Paramètres de calcul du statut
 

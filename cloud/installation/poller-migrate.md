@@ -1,6 +1,7 @@
 ---
 id: poller-migrate
 title: Migrating a poller to another host machine
+description: "How to migrate a poller to a new host machine by installing a new server and moving your monitored resources to it"
 ---
 
 import Tabs from '@theme/Tabs';

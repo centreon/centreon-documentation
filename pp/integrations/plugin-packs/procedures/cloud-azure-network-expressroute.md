@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-expressroute
 title: Azure ExpressRoute
+description: "Monitor Azure ExpressRoute circuits via REST API: circuit status, health, and inbound/outbound traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

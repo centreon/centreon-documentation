@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-netbotz-snmp
 title: Netbotz Sensor SNMP
+description: "Supervisez les sondes environnementales APC Netbotz en SNMP : température, humidité, point de rosée, débit d'air, portes et caméras."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

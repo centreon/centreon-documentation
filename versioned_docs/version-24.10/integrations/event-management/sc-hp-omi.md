@@ -1,6 +1,7 @@
 ---
 id: sc-hp-omi
 title: HP OMI
+description: "Configure the stream connector that sends events to HP OMI"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -8,10 +9,6 @@ import TabItem from '@theme/TabItem';
 ## How it works
 
 HP OMI stream connector sends events related data to HP OMI
-
-## Compatibility
-
-**to be determined**
 
 ### Installation
 

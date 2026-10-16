@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-supermicro-bmc-snmp
 title: Supermicro BMC SNMP
+description: "Supervisez le BMC Supermicro via SNMP en suivant les relevés de capteurs pour surveiller l'état matériel du serveur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

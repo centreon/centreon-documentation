@@ -1,6 +1,7 @@
 ---
 id: virtualization-hyperv-2012-nrpe
 title: Hyper-V 2012 NSClient++ NRPE
+description: "Superviser Hyper-V 2012 et SCVMM via NRPE : statut des VM, réplication, snapshots et services d'intégration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

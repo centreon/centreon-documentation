@@ -1,6 +1,7 @@
 ---
 id: key-rotation
 title: Rotating keys
+description: "Rotate the keys used to sign Centreon packages and repositories"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: itsm-overview
 title: ITSM
+description: "Présentation des intégrations ITSM disponibles dans Centreon Cloud pour transformer les alertes de supervision en tickets"
 ---
 
 Transform one or several alerts into case(s) in your favorite ITSM tool. 

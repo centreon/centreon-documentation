@@ -1,6 +1,7 @@
 ---
 id: network-allied-snmp
 title: Allied Telesis SNMP
+description: "Monitor Allied Telesis switches via SNMP: CPU usage, hardware health, memory usage, and network interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

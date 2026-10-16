@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Notes de release Centreon Infra Monitoring 25.10
+description: "Présentation des notes de release Centreon Infra Monitoring 25.10"
 ---
 import DocCardList from '@theme/DocCardList';
 

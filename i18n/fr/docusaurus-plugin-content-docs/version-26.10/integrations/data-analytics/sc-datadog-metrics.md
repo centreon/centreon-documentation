@@ -1,6 +1,7 @@
 ---
 id: sc-datadog-metrics
 title: Datadog Metrics
+description: "Transmettre les métriques de performance hôtes et services vers Datadog"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

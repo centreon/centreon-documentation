@@ -1,6 +1,7 @@
 ---
 id: what-is-centreon-ceip
 title: Qu'est-ce que Centreon CEIP?
+description: "Présentation du programme d'amélioration de l'expérience utilisateur"
 ---
 
 Rejoignez le programme d’amélioration de l’expérience utilisateur Centreon.

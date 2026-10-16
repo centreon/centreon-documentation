@@ -1,6 +1,7 @@
 ---
 id: applications-netbackup-nsclient-05-restapi
 title: Netbackup NSClient++ API
+description: "Supervisez NetBackup via l'API REST NSClient++ : état de la déduplication, des lecteurs, des jobs de sauvegarde et utilisation des bandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

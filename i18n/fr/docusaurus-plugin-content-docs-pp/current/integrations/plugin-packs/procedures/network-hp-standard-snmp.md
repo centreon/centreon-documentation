@@ -1,6 +1,7 @@
 ---
 id: network-hp-standard-snmp
 title: HP Standard Network SNMP
+description: "Supervisez les équipements réseau HP via SNMP : CPU, mémoire, matériel, temps de fonctionnement, trafic des interfaces, erreurs de paquets, Spanning Tree et statut VRRP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,12 +1,13 @@
 ---
 id: centreon-hub
 title: Portail utilisateur (Centreon Hub)
+description: Gérer les organisations, les comptes utilisateurs et l'accès via Centreon Hub
 ---
 
 Centreon Hub est un module qui :
 
 - vous permet d'accéder à toutes vos applications Centreon.
-- permet à votre administrateur de gérer vos organisations, de gérer tous les comptes utilisateurs et groupes d'utilisateurs Centreon pour une organisation, et de gérer la façon dont les utilisateurs vont se connecter à Centreon Log Management.
+- permet à votre administrateur de gérer vos organisations, de gérer tous les [comptes utilisateurs](user-rights.md) et groupes d'utilisateurs Centreon pour une organisation, et de gérer la façon dont les utilisateurs vont se connecter à Centreon Log Management.
 
 Une organisation correspond à un périmètre d'équipements dont vous voulez recevoir des logs. Par exemple, vous pourrez avoir une organisation Europe et une organisation Asie. Les différentes organisations sont indépendantes les unes des autres. Selon vos besoins, vous aurez une seule organisation ou bien plusieurs. Chaque organisation a ses propres applications, dont sa propre plateforme Log Management.
 

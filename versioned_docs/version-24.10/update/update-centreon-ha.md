@@ -1,6 +1,7 @@
 ---
 id: update-centreon-ha
 title: Updating a Centreon HA platform
+description: "Perform minor updates on a Centreon HA platform"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -69,7 +70,7 @@ apt update
 Update all components:
 
 ```shell
-apt install --only-upgrade centreon\*
+apt install --only-upgrade "centreon*"
 ```
 
 </TabItem>
@@ -166,6 +167,22 @@ The `cbd` service must also be restarted on [Centreon Remote Servers](../install
 
 ```bash
 service cbd restart
+```
+
+### Update the centreon_central_sync script (MBI only)
+
+This step is only necessary if you use [MBI](../reporting/introduction.md). Update the script `/usr/share/centreon-ha/bin/centreon_central_sync` at the following lines:
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua"],
+```
+
+For MBI reports to still be downloadable later on, the lines must be updated like this:
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua", "/var/lib/centreon/centreon-bi-server/archives"],
 ```
 
 ## Resuming cluster resource management

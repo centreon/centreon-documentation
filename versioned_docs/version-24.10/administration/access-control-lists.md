@@ -1,6 +1,7 @@
 ---
 id: access-control-lists
 title: Granting rights to Centreon users (ACL)
+description: "Manage user rights via access groups and filters on resources, menus, and actions"
 ---
 
 You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.md):
@@ -19,7 +20,7 @@ Rights are not defined at user level, but through [access groups](#creating-an-a
 ACLs are recalculated every minute; this is why it is sometimes necessary
 to wait a few seconds before changes are applied to a user. You can also [reload them](#reload-acl) manually.
 
-> The Centreon [MBI](../reporting/configure.md), BAM and [MAP](../graph-views/map-web-access.md) modules have their own ACLs.
+> The Centreon [MBI](../reporting/introduction.md), BAM and [MAP](../graph-views/map-web-access.md) modules have their own ACLs.
 
 ## Granting rights to a user
 

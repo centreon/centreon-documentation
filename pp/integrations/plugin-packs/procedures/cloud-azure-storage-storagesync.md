@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-storage-storagesync
 title: Azure Storage Sync
+description: "Monitor Azure Storage Sync via REST API: track file sync status, recalls, and server heartbeat."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

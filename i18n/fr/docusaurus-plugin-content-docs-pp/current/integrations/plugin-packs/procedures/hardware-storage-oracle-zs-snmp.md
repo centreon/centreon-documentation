@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-oracle-zs-snmp
 title: Oracle ZS SNMP
+description: "Supervisez les baies de stockage Oracle ZS via SNMP : état des modules matériels, utilisation des partages/projets et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

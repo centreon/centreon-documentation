@@ -1,6 +1,7 @@
 ---
 id: lifecycle
 title: Product lifecycle policy
+description: "Centreon's version numbering, release frequency, and support policy"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -47,7 +48,7 @@ The first phase of the lifecycle begins on the day of a version release.
 
 The second phase of a version begins when the next major version is available. For example, the release of Centreon 25.10 triggers the second phase of Centreon 24.10.
 
-The third phase of a version begins when the second next major version is available. For example, the release of Centreon 26.10 triggers the third phase of Centreon 24.10 and the second phase of Centreon 25.10.
+The third phase of a version begins when the second next major version is available. For example, the release of Centreon 26.10 triggers the third phase of Centreon 24.10 and of Centreon 25.10.
 
 ### Version lifecycle diagram
 

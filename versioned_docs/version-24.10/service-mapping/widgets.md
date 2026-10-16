@@ -1,6 +1,7 @@
 ---
 id: widgets
 title: Widgets
+description: "Display live Business Activity status widgets on dashboards"
 ---
 
 ## Live Business Activity Status

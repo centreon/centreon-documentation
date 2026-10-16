@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-windows-nsclient-05-restapi
 title: Windows NSClient API
+description: "Monitor Windows servers via the NSClient++ REST API: CPU, memory, disks, services, events, and pending updates."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

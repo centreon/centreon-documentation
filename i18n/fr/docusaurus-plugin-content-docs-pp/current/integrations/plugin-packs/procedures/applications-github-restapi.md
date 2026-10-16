@@ -1,6 +1,7 @@
 ---
 id: applications-github-restapi
 title: GitHub Rest API
+description: "Supervisez GitHub via son API REST : commits, issues, pull requests, statistiques d'un dépôt et statut du service."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

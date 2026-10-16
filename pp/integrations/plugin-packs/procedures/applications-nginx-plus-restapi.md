@@ -1,6 +1,7 @@
 ---
 id: applications-nginx-plus-restapi
 title: Nginx Plus Restapi
+description: "Monitor Nginx Plus via its REST API: HTTP zone traffic and responses, connections, and SSL handshake statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

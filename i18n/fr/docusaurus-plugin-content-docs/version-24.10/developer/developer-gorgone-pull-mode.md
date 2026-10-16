@@ -1,6 +1,7 @@
 ---
 id: developer-gorgone-pull-mode
 title : Configurer Gorgone en mode pull
+description: "Configurer le mode pull de Gorgone pour des collecteurs derrière un pare-feu"
 ---
 
 Cette procédure décrit comment configurer Gorgone entre un collecteur distant et un serveur central.

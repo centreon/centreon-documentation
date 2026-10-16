@@ -1,6 +1,7 @@
 ---
 id: other
 title: Other actions
+description: "Add comments, manage checks, and reschedule host or service checks"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

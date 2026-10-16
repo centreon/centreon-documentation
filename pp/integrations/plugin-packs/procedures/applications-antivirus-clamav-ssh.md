@@ -1,6 +1,7 @@
 ---
 id: applications-antivirus-clamav-ssh
 title: Antivirus ClamAV
+description: "Monitor ClamAV antivirus via SSH to track engine, main database, and daily database update status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: sc-datadog-events
 title: Datadog Events
+description: "Fonctionnement de l'envoi des évènements hôtes et services vers Datadog"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-cloudtrail
 title: AWS CloudTrail
+description: "Supervisez AWS CloudTrail via l'API AWS : contrôlez l'état des journaux de suivi et comptez les événements CloudTrail."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

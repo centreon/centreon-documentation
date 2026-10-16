@@ -1,6 +1,7 @@
 ---
 id: network-libraesva-snmp
 title: Libraesva SNMP
+description: "Monitor Libraesva email security appliances via SNMP: interfaces, storage, load, memory, swap, and mail system metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

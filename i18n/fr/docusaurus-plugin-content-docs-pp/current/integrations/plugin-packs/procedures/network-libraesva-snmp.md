@@ -1,6 +1,7 @@
 ---
 id: network-libraesva-snmp
 title: Libraesva SNMP
+description: "Supervisez les appliances de sécurité email Libraesva via SNMP : interfaces, stockage, charge, mémoire, swap et statistiques de messagerie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

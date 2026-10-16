@@ -1,6 +1,7 @@
 ---
 id: resources-status
 title: Resources Status page
+description: "How to use the Resources Status page to view, filter, search, and take action on host and service alerts"
 ---
 
 The **Monitoring > Resources Status** page is your main view to track
@@ -25,7 +26,7 @@ You can add or remove columns and sort by the column of your choice.
 Use the **Display view** buttons above the list of resources to define how the list will be displayed. 
 
 - **All**: This view gathers all types of resources in the same list (hosts, services, metaservices, Anomaly Detection services).
-- **View by host**: Displays all hosts. By default, for each host, a summary of the status of all services is displayed in the **Services** column. Click the arrow to the left of the summary to expand the zone and display all the services attached to this host. Meta services are not included in this view.
+- **View by host**: Displays all hosts. By default, for each host, a summary of the status of all services is displayed in the **Services** column. Click the arrow to the left of the summary to expand the zone and display all the services attached to this host. Metaservices are not included in this view.
 - **View by service**: Lists all the services, and shows the host they are attached to in the **Host** column. The list includes metaservices and Anomaly Detection services.
 
 ### Compact or extended view

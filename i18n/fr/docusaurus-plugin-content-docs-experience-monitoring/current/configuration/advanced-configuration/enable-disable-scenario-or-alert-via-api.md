@@ -1,7 +1,8 @@
 ﻿---
 id: enable-disable-scenario-or-alert-via-api
 title: Automatiser l’activation/désactivation d’un scénario ou d’une alerte par API
---- 
+description: Automatiser l'activation ou la désactivation des parcours et alertes par API
+---
 
 ## Préambule
 

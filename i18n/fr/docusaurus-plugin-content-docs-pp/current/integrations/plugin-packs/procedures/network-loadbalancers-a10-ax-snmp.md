@@ -1,6 +1,7 @@
 ---
 id: network-loadbalancers-a10-ax-snmp
 title: A10 AX SNMP
+description: "Supervisez les load balancers A10 AX en SNMP : CPU, mémoire, disque, matériel, statistiques globales, trafic des interfaces et serveurs virtuels."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

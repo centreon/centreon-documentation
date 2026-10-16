@@ -1,6 +1,7 @@
 ---
 id: sc-elastic-events
 title: Elastic Events
+description: "Envoyer les évènements hôtes et services vers Elasticsearch avec indexation automatique"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-phoenixtec-snmp
 title: Phoenixtec UPS SNMP
+description: "Supervisez les onduleurs Phoenixtec via SNMP : état de la batterie, tension, fréquence et charge des lignes d'entrée/sortie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

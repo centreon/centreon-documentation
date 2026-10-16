@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-kubernetes-api
 title: Kubernetes w/ Prometheus API
+description: "Monitor Kubernetes clusters via the Prometheus API, tracking container, daemonset, deployment, namespace, and node status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,13 +1,19 @@
-﻿---
+---
 id: install-php-magento-orocommerce-profiler
-title: Install the PHP / Magento / OroCommerce Profiler
+title: Install the PHP profiler
+description: Install the deprecated PHP profiler for Magento and OroCommerce
 ---
 
-The Experience Monitoring PHP module comes as a PHP extension that allows you to collect detailed information about the execution time of each part of your CMS.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+> This module will be deprecated soon.
+
+The PHP profiler allows you to collect detailed information about the execution time of each part of a PHP application (e.g. Magento, Orocommerce...). The collected data will appear in a dedicated tab on the **System data** page.
 
 ## Prerequisites
 
-> The profiler requires the installation of the system agent. [Refer to the dedicated page to install the agent](./install-system-agents.md).
+> Before installing the PHP profiler, you must install the [system agent](./install-system-agents.md).
 
 ## Compatibility
 
@@ -19,13 +25,15 @@ The Experience Monitoring PHP module comes as a PHP extension that allows you to
 | Ubuntu | Jammy (22.04) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
 | Ubuntu | Kinetic (22.10) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
 | Ubuntu | Lunar (23.04) | 7.3/7.4/8.0/8.1/8.2/8.3 | 1.3.4 |
-| CentOS | 7 | 7.3/7.4 | 1.3.3 (beta repo) |
 
 ## Installation
 
 > The PHP module must be installed on every server running your PHP application.
 
-### Install the Experience Monitoring PHP Module for Debian / Ubuntu
+### Step 1: install the package
+
+<Tabs groupId="os">
+<TabItem value="Debian/Ubuntu" label="Debian/Ubuntu">
 
 You must have added the Experience Monitoring repositories, which you should already have done during the system agent installation.
 
@@ -67,7 +75,8 @@ Then, enable the extension with the following command:
 phpenmod quanta_mon
 ```
 
-### Install the Experience Monitoring PHP Module for CentOS / RedHat
+</TabItem>
+<TabItem value="CentOS/RedHat" label="CentOS/RedHat">
 
 You must have added the Experience Monitoring repositories, which you should already have done during the system agent installation.
 
@@ -97,11 +106,15 @@ Then, enable the extension with the following command:
 phpenmod quanta_mon
 ```
 
-### Install the PHP Module for Other OSs
+</TabItem>
+<TabItem value="Other OSs" label="Other OSs">
 
 We do not officially support packages for other operating systems. However, you can compile the module yourself, as the source code is [available on GitHub](https://github.com/quanta-computing/quanta-php-module).
 
-## Configure Your Backoffice URL if You Use Magento
+</TabItem>
+</Tabs>
+
+### Step 2 (optional): Configure your Magento backoffice URL
 
 If you use Magento and a custom URL is used to access the Magento backoffice (i.e., a URL that does **not** start with **"/admin/"**), you must modify the module configuration so that Magento-type events are correctly reported in Experience Monitoring.
 
@@ -125,7 +138,7 @@ For example, if your backoffice URL is "http://admin.mysite.com/admin_123456/", 
 quanta_mon.admin_url="/admin_123456/"
 ```
 
-## Restarting the Web Server
+### Step 3: Restart the web server
 
 After installing the module, you must restart your web service so that the PHP extension is loaded and activated.
 
@@ -141,12 +154,10 @@ After installing the module, you must restart your web service so that the PHP e
     systemctl restart php8.2-fpm
     ```
 
-## Checking That Everything Works
+## Check that everything works
 
 Once everything is installed **and the web scenario has been created in Experience Monitoring**, go to the Web Scenario menu, then click “+ details” in the legend of one of the pages requiring PHP execution (for example: a Cart page, which is usually never cached).
 
 You should then see an “Application” tab (otherwise this tab is grayed out) with information about the time spent in PHP.
 
 In the case of a Magento (v1 or 2) CMS or the OroCommerce platform, the color coding differs: it is orange for Magento and yellow for OroCommerce.
-
-> Advanced metrics (Apache, MySQL, Redis, etc.) must be installed separately. [Refer to the dedicated page](./add-advanced-metrics.md).

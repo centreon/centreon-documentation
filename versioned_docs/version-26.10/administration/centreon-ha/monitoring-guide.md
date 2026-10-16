@@ -1,6 +1,7 @@
 ---
 id: monitoring-guide
 title: Monitoring Centreon HA
+description: "Monitor the health of your Centreon HA cluster with dedicated connectors"
 ---
 
 Monitoring your HA setup using Centreon itself helps you keep track of the health of your cluster. It is strongly recommended to implement it.

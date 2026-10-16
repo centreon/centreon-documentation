@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-huawei-ibmc-snmp
 title: Huawei iBMC SNMP
+description: "Supervisez le matériel des serveurs Huawei iBMC via SNMP : CPU, mémoire, ventilateurs, alimentations, disques durs, contrôleur RAID et température."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

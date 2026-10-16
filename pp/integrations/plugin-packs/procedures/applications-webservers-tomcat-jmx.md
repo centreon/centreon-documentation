@@ -1,6 +1,7 @@
 ---
 id: applications-webservers-tomcat-jmx
 title: Tomcat JMX
+description: "Monitor Apache Tomcat via JMX/Jolokia: JVM memory, CPU load, threads, class count, connector and datasource usage, and webapp sessions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

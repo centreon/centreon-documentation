@@ -1,6 +1,7 @@
 ---
 id: dashboards
 title: Tableaux de bord
+description: "Créer des tableaux de bord, ajouter des widgets et gérer des listes de diffusion"
 ---
 
 Commencez par créer des tableaux de bord et ajoutez des widgets spécialement conçus pour optimiser votre expérience utilisateur. Bénéficiez ensuite d'options de visualisation de données pour afficher et suivre vos ressources en temps réel.
@@ -110,14 +111,15 @@ Vous utilisez la fonctionnalité Tableaux de bord avec un profil de **viewer** o
 #### Gérer les droits d'accès
 
 1. Cliquez sur le bouton **partager** en bas à droite du tableau de bord.
-2. Dans la liste déroulante **Ajouter un contact**, sélectionnez l'utilisateur à ajouter.
-  > Seuls les utilisateurs remplissant les deux conditions suivantes sont affichés : 
+2. Choisissez si vous allez partager le tableau de bord avec des contacts individuels ou des groupes de contacts.
+3. Dans la liste déroulante **Ajouter un contact** ou **Ajouter un groupe de contacts**, sélectionnez l'utilisateur ou groupe de contacts à ajouter.
+  > Seuls les utilisateurs ou les groupes remplissant les deux conditions suivantes sont affichés : 
   >  - appartenir aux mêmes groupes d'accès que les vôtres,
   >  - avoir accès au menu des Tableaux de bord (activable via les droits d'accès).
-3. Sélectionnez le profil **Viewer** ou **Editor**.
-4. Cliquez sur le bouton **+** pour l'ajouter.
-5. Répétez l'action pour chaque utilisateur que vous souhaitez ajouter.
-6. Cliquez sur le bouton **Mettre à jour** pour enregistrer vos modifications.
+4. Sélectionnez le profil **Viewer** ou **Editor**.
+5. Cliquez sur le bouton **+** pour l'ajouter.
+6. Répétez l'action pour chaque utilisateur que vous souhaitez ajouter.
+7. Cliquez sur le bouton **Mettre à jour** pour enregistrer vos modifications.
 
 Les utilisateurs que vous venez d'ajouter ont maintenant accès au partage de votre tableau de bord, selon le profil que vous avez défini pour eux.
 

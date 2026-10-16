@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-nimble-restapi
 title: Nimble Storage Rest API
+description: "Supervisez les baies Nimble Storage via l'API REST : espace disque, état du matériel et performances des volumes (E/S, latence)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

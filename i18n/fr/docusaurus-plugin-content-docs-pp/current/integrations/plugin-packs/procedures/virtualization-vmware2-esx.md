@@ -1,6 +1,7 @@
 ---
 id: virtualization-vmware2-esx
 title: VMware ESX
+description: "Supervisez les hôtes VMware ESX via l'API vCenter : CPU, mémoire, état de santé, stockage, datastores et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

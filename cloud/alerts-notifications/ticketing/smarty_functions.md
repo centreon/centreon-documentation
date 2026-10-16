@@ -1,6 +1,7 @@
 ---
 id: ticketing-advanced-smarty-functions
 title: Open Tickets Smarty functions
+description: "Reference of Smarty functions for inserting host and service groups, severities, categories, and macros into tickets"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

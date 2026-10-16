@@ -1,6 +1,7 @@
 ---
 id: network-mikrotik-snmp
 title: Mikrotik SNMP
+description: "Monitor Mikrotik routers via SNMP: CPU, memory, interfaces, LTE, environment, and wireless signal strength."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

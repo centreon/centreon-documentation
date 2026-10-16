@@ -1,6 +1,7 @@
 ---
 id: applications-mulesoft-restapi
 title: Mulesoft Anypoint
+description: "Supervisez Mulesoft Anypoint via l'API REST : statut des applications, serveurs et clusters, et messages des files Anypoint MQ."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

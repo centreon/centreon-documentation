@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-ec2
 title: Amazon EC2
+description: "Monitor Amazon EC2 instances, Auto Scaling Groups, and Spot Fleet requests via the AWS API, tracking CPU, network, disk I/O, and status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-node-exporter-api
 title: Node Exporter w/ Prometheus API
+description: "Supervisez Node Exporter via l'API Prometheus : utilisation CPU, charge, mémoire et stockage des nœuds Linux."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

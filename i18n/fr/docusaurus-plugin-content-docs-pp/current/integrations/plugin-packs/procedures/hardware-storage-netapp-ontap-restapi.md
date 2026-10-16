@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-netapp-ontap-restapi
 title: NetApp Ontap Rest API
+description: "Supervisez les systèmes de stockage NetApp ONTAP via l'API REST : agrégats, cluster, matériel, LUNs, quotas, snapmirrors et volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

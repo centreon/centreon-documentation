@@ -1,6 +1,7 @@
 ---
 id: applications-openweathermap-restapi
 title: OpenWeatherMap
+description: "Supervisez la météo actuelle via l'API REST OpenWeatherMap : température, humidité, couverture nuageuse et vitesse du vent par ville."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

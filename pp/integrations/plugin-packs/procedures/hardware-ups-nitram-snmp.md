@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-nitram-snmp
 title: Nitram UPS SNMP
+description: "Monitor Nitram UPS devices via SNMP: battery status, and input/output line voltage, current, power, and frequency."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

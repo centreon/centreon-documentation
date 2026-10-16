@@ -1,6 +1,7 @@
 ---
 id: applications-iis-wsman
 title: Microsoft IIS Server WSMAN
+description: "Supervisez les pools d'applications de Microsoft IIS Server via WSMAN : statut des pools et nombre détecté."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

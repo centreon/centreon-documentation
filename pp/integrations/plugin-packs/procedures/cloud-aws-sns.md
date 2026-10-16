@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-sns
 title: Amazon SNS
+description: "Monitor Amazon SNS topic notifications via the AWS CloudWatch API: published, delivered, failed, and filtered message counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

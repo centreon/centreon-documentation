@@ -1,6 +1,7 @@
 ---
 id: generic-actions
 title: Generic actions
+description: "How to add, duplicate, mass change, enable, disable, and delete configuration objects in Centreon"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

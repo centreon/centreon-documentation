@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-21-04
 title: Montée de version depuis Centreon 21.04
+description: "Passer une plateforme Centreon de la version 21.04 à la 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -189,7 +190,7 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
-Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256M. Ajoutez cette limite manuellement si nécessaire.
 
 Puis, finissez la montée de version de la solution Centreon.
 

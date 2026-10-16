@@ -1,6 +1,7 @@
 ---
 id: cluster-elements
 title: Éléments d'un cluster Centreon HA
+description: "Introduction aux composants et processus d'un cluster Centreon HA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

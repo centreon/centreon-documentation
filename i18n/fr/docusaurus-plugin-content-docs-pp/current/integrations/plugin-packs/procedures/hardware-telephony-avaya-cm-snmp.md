@@ -1,6 +1,7 @@
 ---
 id: hardware-telephony-avaya-cm-snmp
 title: Avaya CM SNMP
+description: "Supervisez Avaya Communication Manager (CM) via SNMP : suivez le volume d'appels, l'utilisation des licences de stations et l'état de signalisation des trunks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

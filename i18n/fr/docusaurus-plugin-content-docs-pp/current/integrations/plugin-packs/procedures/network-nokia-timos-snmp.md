@@ -1,6 +1,7 @@
 ---
 id: network-nokia-timos-snmp
 title: Nokia TiMos SNMP
+description: "Supervisez les routeurs Nokia TiMOS via SNMP : CPU, mémoire, matériel, uptime, interfaces, BGP, IS-IS, LDP et tunnels L2TP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

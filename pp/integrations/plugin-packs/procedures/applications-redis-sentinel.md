@@ -1,6 +1,7 @@
 ---
 id: applications-redis-sentinel
 title: Redis Sentinel
+description: "Monitor Redis Sentinel via redis-cli: track cluster quorum status, replica detection, and ping latency for Redis and Sentinel nodes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

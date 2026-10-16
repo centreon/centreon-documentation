@@ -1,6 +1,7 @@
 ---
 id: applications-video-zixi-restapi
 title: ZIXI
+description: "Supervisez Zixi Broadcaster via API REST : utilisation des entrées, sorties, licences et ressources système (CPU, mémoire, disque)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

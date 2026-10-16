@@ -1,6 +1,7 @@
 ---
 id: interface
 title: Overview of the Centreon interface
+description: "Guided tour of the Centreon Cloud interface, covering menus, the top banner, dark mode, and language settings"
 ---
 
 ## Accessing the user interface

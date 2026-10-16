@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-camera-optelecom-snmp
 title: Optelecom camera SNMP
+description: "Supervisez les caméras Optelecom en SNMP : alarmes, trafic réseau, températures, interfaces et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

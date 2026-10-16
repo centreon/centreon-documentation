@@ -1,6 +1,7 @@
 ---
 id: monitor-mysql-server
 title: Monitor a MySQL or MariaDB database
+description: "Step-by-step tutorial to monitor a MySQL or MariaDB database using the MySQL/MariaDB Monitoring Connector"
 ---
 
 The objective of this tutorial is to monitor a Mysql/MariaDB database.

@@ -1,6 +1,7 @@
 ---
 id: applications-bind9-web
 title: Bind9 Web
+description: "Supervisez les serveurs DNS Bind9 via l'API web Statistics Channel : utilisation mémoire, statistiques du serveur et des zones DNS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

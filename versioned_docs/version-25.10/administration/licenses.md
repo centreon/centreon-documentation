@@ -1,10 +1,10 @@
 ---
 id: licenses
 title: Licenses
+description: "Obtain, add, and troubleshoot online or offline Centreon licenses"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 ## How can I obtain a license?
 
@@ -133,3 +133,57 @@ chmod 640 /etc/centreon/license.d/*
     ```
 
     > Disabled hosts are taken into account by the license. Make sure that the total number of existing hosts (enabled + disabled) is below the limit set by your license.
+
+### License expired or host limit exceeded
+
+When a license expires or the number of hosts on your platform exceeds the license limit, certain modules will stop working correctly. This section explains how to identify the issue and what behavior to expect.
+
+#### Checking the number of registered hosts
+
+Your license counts all hosts in the database, including disabled ones. To check the total number of registered hosts, run the following SQL query on the central server:
+
+```sql
+SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
+```
+
+The result must be strictly inferior to your license limit. If the number of hosts exceeds your license limit, you must either delete unused hosts or upgrade your license to a higher limit.
+
+> Disabled hosts are taken into account by the license. Make sure the total number of existing hosts (enabled + disabled) is below the limit set by your license.
+
+#### Checking your license limit
+
+License files are stored in the following directory:
+
+```shell
+/etc/centreon/license.d/
+```
+
+To view the host limit defined in your license, inspect the relevant license file:
+
+```shell
+less /etc/centreon/license.d/epp.license
+```
+
+The file contains information about the maximum number of hosts allowed by your license.
+
+#### Module behavior when the license is invalid
+
+When your license is expired or when the host limit is exceeded, the following behaviors are observed in the interface:
+
+| Module | Behavior |
+|---|---|
+| Service Mapping (BAM) | Displays the message: "Oops! License Invalid or Expired" |
+| Graphical views (MAP) | Displays a blank page, or the message: "Map server license is not valid, please contact Centreon support service" |
+| Monitoring Connectors (EPP) | Displays the message: "Your EPP License is not valid" |
+| Auto Discovery (Host/Service Discovery) | Displays the message: "Oops! License Invalid or Expired" |
+
+> When the license host limit is exceeded, it is still possible to add new hosts, but they will no longer be able to inherit the host templates provided by the monitoring connectors.
+
+#### Resolving the issue
+
+To restore normal module behavior:
+
+* If your license is expired: Contact the Centreon support team to renew your license.
+* If the host limit is exceeded, either:
+   * Delete or remove unused hosts (including disabled ones) to bring the total below the license limit.
+   * Upgrade your license to a higher host limit by contacting your sales representative.

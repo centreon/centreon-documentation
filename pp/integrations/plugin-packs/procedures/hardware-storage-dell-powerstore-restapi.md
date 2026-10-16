@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-powerstore-restapi
 title: Dell PowerStore Rest API
+description: "Monitor Dell PowerStore storage systems via REST API: alerts, clusters, hardware status, and memory usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

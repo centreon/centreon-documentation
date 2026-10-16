@@ -1,6 +1,7 @@
 ---
 id: network-opengear-snmp
 title: Opengear SNMP
+description: "Supervisez les équipements Opengear via SNMP : CPU, mémoire, charge, disponibilité, interfaces réseau et ports série."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

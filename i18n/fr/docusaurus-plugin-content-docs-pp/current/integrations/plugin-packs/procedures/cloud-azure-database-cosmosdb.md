@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-cosmosdb
 title: Azure Cosmos DB
+description: "Supervisez Azure Cosmos DB via l'API Azure ou Azure CLI : disponibilité, cache, documents, santé, latence, débit et utilisation."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

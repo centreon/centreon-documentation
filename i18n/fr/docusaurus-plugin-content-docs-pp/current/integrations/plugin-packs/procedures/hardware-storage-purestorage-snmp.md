@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-purestorage-snmp
 title: Pure Storage SNMP
+description: "Supervisez vos baies Pure Storage en SNMP : bande passante, IOPS et latence des lectures/écritures."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

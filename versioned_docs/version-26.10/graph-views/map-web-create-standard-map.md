@@ -1,6 +1,7 @@
 ---
 id: map-web-create-standard-map
 title: Creating a standard map
+description: "Create and customize standard maps using the MAP editor"
 ---
 
 This topic describes how to create standard maps and how to customize them using the MAP editing mode.
@@ -13,6 +14,7 @@ The display of the **Add a Map** button in the **Map** page means that you are a
 
 2. Fill in the properties of the new map:
    - Name: provide a name to the map.
+   - Geo coordinates: fill in the fields with the `Latitude, Longitude` format. This allows the map to be added to a [geographic view](./map-web-create-geoview.md).
    - Image: select an image if you want to customize the map's display in the list of maps.
 
 3. Click **Add** to confirm the map's creation.
@@ -92,7 +94,7 @@ Use **Media** elements to add:
 Use **Link** elements to make connections between items (with anchor points):
 - **Link:** is a simple arrow link element to connect two items.
 - **Status link:** use this link between two items and configure a resource to monitor from it. Then this link will display the color status of the resource you specified.
-- **Metric link:** use this link between two items and configure a service and its metrics from it. Then this link will display the metrics of the service you specified. 
+- **Metric link:** use this link between two items and configure a service or metaservice and its metrics from it. Then this link will display the metrics of the service or metaservice you specified. 
 
 #### Centreon elements
 
@@ -101,7 +103,7 @@ Use **Link** elements to make connections between items (with anchor points):
   - Host
   - Service
   - Service group
-  - Meta service
+  - Metaservice
 
 - **MAP** element:
   - ### Container
@@ -130,7 +132,7 @@ The **Format** panel allows you to apply formatting options depending on the typ
 In edition mode, you can add several resources to your view in a single action.
 
 1. Click in the **Search a resource** bar above the view.
-2. In the dropdown list, select the resources you want in **Host groups, Hosts, Service groups, Services, Meta services and Business Activities**.
+2. In the dropdown list, select the resources you want in **Host groups, Hosts, Service groups, Services, Metaservices and Business Activities**.
 3. Then click the **Add to map** button.
 
 The resources you have selected are now added to the view!

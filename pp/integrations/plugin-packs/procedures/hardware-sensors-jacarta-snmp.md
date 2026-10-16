@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-jacarta-snmp
 title: Jacarta Sensor SNMP
+description: "Monitor Jacarta environmental sensors via SNMP: temperature, humidity, and input status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

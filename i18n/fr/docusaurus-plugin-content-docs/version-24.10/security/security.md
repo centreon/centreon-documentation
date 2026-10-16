@@ -1,6 +1,7 @@
 ---
 id: security
 title: Centreon et la sécurité 
+description: "Présentation de l'approche de Centreon en matière de sécurité"
 ---
 
 Les organisations du monde entier font appel à Centreon pour assurer une supervision de leur informatique adaptée à leur activité,

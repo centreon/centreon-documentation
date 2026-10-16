@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-compellent-api
 title: Dell Compellent Nsclient NRPE
+description: "Monitor Dell Compellent storage arrays via NRPE/NSClient++, tracking HBA usage and storage volume usage metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

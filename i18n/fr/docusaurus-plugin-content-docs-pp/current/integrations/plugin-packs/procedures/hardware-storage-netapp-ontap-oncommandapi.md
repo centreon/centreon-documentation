@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-netapp-ontap-oncommandapi
 title: NetApp Ontap OnCommand API
+description: "Supervisez le stockage NetApp ONTAP via l'API OnCommand : agrégats, clusters, disques, LUNs, nœuds, qtrees, snapmirror et volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

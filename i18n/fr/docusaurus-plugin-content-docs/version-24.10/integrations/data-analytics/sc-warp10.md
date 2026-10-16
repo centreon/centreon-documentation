@@ -1,6 +1,7 @@
 ---
 id: sc-warp10
 title: Warp10
+description: "Envoyer les évènements hôtes et services Centreon vers Warp10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

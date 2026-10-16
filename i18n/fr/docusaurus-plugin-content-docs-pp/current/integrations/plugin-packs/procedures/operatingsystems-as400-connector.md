@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-as400-connector
 title: IBM AS400 Connector
+description: "Supervisez les systèmes IBM AS400/iSeries via le connecteur Centreon : jobs, disques, sous-systèmes, files de messages et charge système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: network-westermo-standard-snmp
 title: Westermo Standard SNMP
+description: "Supervisez les équipements réseau Westermo via SNMP : CPU, mémoire, sondes, disponibilité, interfaces et protocole Spanning Tree."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
