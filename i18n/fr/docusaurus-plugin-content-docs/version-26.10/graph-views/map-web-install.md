@@ -328,17 +328,6 @@ Vous devez d'abord installer le dépôt EPEL :
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
-La commande doit retourner des résultats comme suit :
-
-<!-- TODO(Sam): vérifier la sortie exacte de la commande EPEL sur EL10 (nom de build). -->
-
-```shell
-Installed:
-  epel-release-10-<build>.el10.noarch
-
-Complete!
-```
-
 Ensuite installez le dépôt Centreon :
 
 ```shell
