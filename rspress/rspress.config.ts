@@ -3,6 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from '@rspress/core';
 import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 import { pluginImageCompress } from '@rsbuild/plugin-image-compress';
+import { pluginLastUpdatedFromSource } from './src/plugins/lastUpdatedFromSource';
 import { sidebar } from './src/sidebar';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -41,6 +42,7 @@ export default defineConfig({
     default: '26.10',
     versions: ['26.10', '25.10'],
   },
+  plugins: [pluginLastUpdatedFromSource(join(__dirname, 'docs'), join(__dirname, '..'))],
   // SSG disabled: rspress v2 beta SSG doesn't support relative image paths (../assets/...)
   // from MDX files. Dev mode works fine. To re-enable, images must be moved to public/
   // or served via absolute URLs.
@@ -131,6 +133,7 @@ export default defineConfig({
   themeConfig: {
     sidebar,
     enableScrollToTop: true,
+    lastUpdated: true,
     footer: {
       message:
         '<a href="https://www.centreon.com/en/" target="_blank" rel="noreferrer">Corporate Website</a> · <a href="https://www.centreon.com/en/blog/" target="_blank" rel="noreferrer">Blog</a> · <a href="https://download.centreon.com/" target="_blank" rel="noreferrer">Download</a><br/>Copyright © 2005 - 2026 Centreon',
