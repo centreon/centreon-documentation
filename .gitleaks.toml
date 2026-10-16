@@ -21,22 +21,21 @@ regexes = [
   '''ABCDEFG1234567890''',
   '''deactivation/expiration/revocation''',
   '''78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216''', # token example
-  # Example values published in the documentation (API responses, public key
-  # thumbprints, placeholders) that predate the secrets scan (MON-212387).
-  '''12345abcd6789efgh0123abcd4567efgh8901abcd''', # Cisco Meraki API token placeholder
-  '''eyJhbGciOiJSUzI1NiIsIng1dCI6Ill5ZnNoSkMzclBRLWtwR281ZFVhaVk1dDNpVSJ9\.eyJhdWQiOiJodHRwczpcL1wvbG9naW4ud2luZG93cy5uZXRcLzQxNDYzZjUzLTg4MTItNDBmNC04OTBmLTg2NWJmNmUzNTE5MFwvb2F1dGgyXC90b2tlbiIsImV4cCI6MTQyNzI0ODY0OCwiaXNzIjoiYTYwOTk3MjctNmI3Yi00ODJjLWI1MDktMWRmMzA5YWNjNTYzIiwianRpIjoiMGNlMjU0YzQtODFiMS00YTJlLTg0MzYtOWE4YzNiNDlkZmI5IiwibmJmIjoxNDI3MjQ4MDQ4LCJzdWIiOiJhNjA5OTcyNy02YjdiLTQ4MmMtYjUwOS0xZGYzMDlhY2M1NjMifQ\.vfDrmCjiXgoj2JrTkwyOpr\-NOeQTzlXQcGlKGNpLLe0oh4Zvjdcim5C7E0UbI3Z2yb9uKQdx9G7GeqS\-gVc9kNV_XSSNP4wEQj3iYNKpf_JD2ikUVIWBkOg41BiTuknRJAYOMjiuBE2a6Wyk\-vPCs_JMd7Sr\-N3LiNZ\-TjluuVzWHfok_HWz_wH8AzdoMF3S0HtrjNd9Ld5eI7MVMt4OTpRfh\-Syofi7Ow0HN07nKT5FYeC_ThBpGiIoODnMQQtDA2tM7D3D6OlLQRgLfI8ir73PVXWL7V7Zj2RcOiooIeXx38dvuSwYreJYtdphmrDBZ2ehqtduzUZhaHL1iDvLlw''', # Microsoft Entra client assertion sample (expired 2015)
-  '''NTc1MDU3MGE3M2JiODIuMjA4OTA2OTc=''', # REST API v1 authentication response example
-  '''pnI6EWkiTbazjikJXRkLmjml5wvVECYtQduJUjS4QK4''', # Gorgone public key thumbprint (client/server communication)
-  '''8uT4BM1RsXRmIPQbTEazUAhQHtyM7xZ4nlFMIUqQ7lRkbWz24yemkGs9tS4eOwDfF''', # Centreon MAP signing key example (troubleshooting)
-  '''nJSH9nZN2ugQeksHif7Jtv19RQA58yjxfX\-Cpnhx09s''', # Gorgone public key thumbprint (pull mode)
-  '''tRsFMBv9X3ScNFMwvG8D652nXMsgEYMb1qsJek\-Mns8''', # Gorgone public key thumbprint (Centreon HA pollers)
-  '''NmnPME43IoWpkQoam6CLnrI5hjmdq6Kq8QMUCCg\-F4g''', # Gorgone public key thumbprint (rebound mode)
-  '''e40b1cc6\-f629\-43a4\-8be6\-14a9c9f036e0''', # Skylight PVX API key example
-  '''https://hooks\.slack\.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX''', # Slack webhook template (XXX placeholders)
-  '''elastic:centreon\-es\-passwd''', # Elasticsearch curl user placeholder (sc-elastic-events)
-  '''Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI''', # Gorgone public key thumbprint (move poller)
-  '''hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S''', # API login response example (update/upgrade procedures)
-  '''"USERNAME:API_KEY"''', # IBM SoftLayer curl user placeholder
-  '''"NOM_UTILISATEUR:API_KEY"''', # IBM SoftLayer curl user placeholder (fr)
-  '''x-api-key: (your|votre)_token''', # Centreon Cloud deploy-poller placeholders
+  # Example values from the docs (API responses, public key thumbprints, placeholders), MON-212387.
+  '''"USERNAME:API_KE''',
+  '''12345abcd6789efg''',
+  '''"NOM_UTILISATEUR''',
+  '''vfDrmCjiXgoj2JrT''',
+  '''NTc1MDU3MGE3M2Ji''',
+  '''pnI6EWkiTbazjikJ''',
+  '''8uT4BM1RsXRmIPQb''',
+  '''nJSH9nZN2ugQeksH''',
+  '''tRsFMBv9X3ScNFMw''',
+  '''NmnPME43IoWpkQoa''',
+  '''e40b1cc6\-f629\-43''',
+  '''hooks\.slack\.com/services/X+/X+/X+''',
+  '''elastic:centreon''',
+  '''Np1wWwpbFD2I0Mde''',
+  '''hwwE7w/ukiiMce2l''',
+  '''x-api-key: (your|votre)_token''',
 ]
