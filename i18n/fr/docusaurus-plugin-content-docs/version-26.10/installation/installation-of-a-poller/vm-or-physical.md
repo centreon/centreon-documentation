@@ -1,7 +1,7 @@
 ---
 id: vm-or-physical
-title: Using a generated command (virtual or physical machine)
-description: "Install a poller on a virtual or physical machine using a command generated in the Centreon interface"
+title: À l'aide d'une commande générée automatiquement (VM ou machine physique)
+description: "Installer un collecteur sur une machine virtuelle ou physique à l'aide d'une commande générée dans l'interface Centreon"
 ---
 
 > La fonctionnalité décrite ici est en phase bêta.

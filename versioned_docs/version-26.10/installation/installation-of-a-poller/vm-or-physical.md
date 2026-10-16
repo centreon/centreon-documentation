@@ -1,7 +1,7 @@
 ---
 id: vm-or-physical
-title: Installing a poller on a physical or virtual machine
-description: "Installing a poller on a physical or virtual machine from the Centreon interface"
+title: Using a generated command (virtual or physical machine)
+description: "Install a poller on a virtual or physical machine using a command generated in the Centreon interface"
 ---
 
 > The following feature is in beta.
