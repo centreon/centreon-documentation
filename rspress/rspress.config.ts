@@ -93,6 +93,8 @@ export default defineConfig({
   },
   search: {
     versioned: true,
+    // Filters results to the version being read (see theme/searchHooks.ts).
+    searchHooks: join(__dirname, 'theme/searchHooks.ts'),
     // Full-text search (including code blocks) for staging/production. On PR
     // preview builds we drop code blocks so each per-language search index stays
     // under Cloudflare Pages' 25 MiB per-file limit; the preview workflow sets
