@@ -36,4 +36,4 @@ A tailored command for installing a poller on a virtual or physical machine can 
 
 6. Copy the command using the button at the top right of the code block and execute it on your host machine.
 
-7. Click **Export configuration**.
+7. Click **Export configuration**. The poller appears in the list of pollers.
