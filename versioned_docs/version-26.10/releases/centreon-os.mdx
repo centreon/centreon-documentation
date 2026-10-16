@@ -18,246 +18,201 @@ In this chapter, you can find all the changelogs concerning **Centreon Open Sour
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose).
 
-Read more about version 25.10 in our [blog post](https://www.centreon.com/centreon-announces-the-25-10-release-of-centreon-infra-monitoring-cornerstone-of-the-new-centreon-observability-platform/).
-
 <ExpandCollapseAll />
 
 ## Centreon Web
 
-### 25.10.0
+### 26.10.0
 
-Release date: `November 3, 2025`
- 
+Release date: `October 21, 2026`
+
 <details open>
   <summary>Enhancements</summary>
 
-#### **Administration & Access Control**
-- [ACL] Added Image Folders in ACL groups to allow access control to images in MAP.
-- [Administration] Added INFO logs on API and CMA Tokens Add/Delete/Activate/Revoke and API Tokens usage.
-
-#### **Agent Configuration & Security**
-- [Agent configuration] It is now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
-- [Configuration] Added Insecure TLS connection mode to Agent configuration.
-- [Configuration] Agent configuration - All certificate fields are now optional, to handle public certificate use case.
-- [Configuration] Cleaned up labels in Agent configuration screens.
-- [Configuration] Insecure TLS is now available as encryption mode in Agent configuration.
-- [Credentials encryption] Configuration generation is now able to handle encrypted credentials.
-- Vault paths are now exported in plain-text to pollers.
-
-#### **API & REST Services**
-- [API] Added a new endpoint to bulk Duplicate Host Groups.
-- [API] Added bulk enable/disable endpoint for hostgroups.
-- [API] Added an endpoint to bulk Delete Host groups.
-- [API] Added a new endpoint to bulk Delete services.
-- [API] Added missing configuration change logs for service template configuration.
-- [Configuration] Hostgroup form is now using REST API for update.
-- [Configuration] Host form is now using REST API.
-- [Configuration] Hostgroup form is now using REST API for deletion.
-- [Configuration] Host form is now using REST API for deletion.
-- [Configuration] Service form is now using REST API for deletion.
-- [Configuration] Service Template form is now using REST API.
-
-#### **Configuration Management**
-- [Configuration] Default 24/7 notification time period is now defined on base pack Host templates.
-- [Configuration] Host_down_disable_service_checks and flapping are now enabled by default on pollers.
-- [Configuration] Improved Hostgroup Add/Edit.
-- [Configuration] Improved Hostgroup listing (columns, filtering, sorting).
-- [Configuration] Improved the tooltip for Broker's Unified SQL output.
-- [Configuration] Replication enabled option has been removed from the Broker output form.
-
-#### **Core Framework & Dependencies**
-- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
-- [Core] Updated PHP dependencies to 8.2 version.
-- [Core] Rectangular logos are now correctly displayed on the login page.
-- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
-- [Packaging] Increased php memory limit in centreon php configuration.
-
-#### **Dashboards & Widgets**
-- [Dashboards] Added default sizes for widgets, and optimized their default positioning on the grid of the dashboard.
-- [Dashboards] Custom views menu is now hidden on new installation or if no custom views are present.
-- [Dashboards] Improved Status Grid widget responsiveness in condensed mode.
-- [Dashboards] It is now possible to use regex (regular expressions) to filter certain resource types in specific widgets.
-- [Dashboards] It is now possible to expand an individual widget.
-- [Dashboards] Metrics are now clearly identifiable in the Metrics Graph widget, thanks to the addition of service and/or host related names, when needed.
-- [Dashboards] Reduced spacing between items of the Dashboard page. It is now possible to resize the widgets horizontally or diagonally, either on the left or the right side.
-- [Dashboards] When creating a new widget, the list of existing types of widgets is now categorized and ordered alphabetically.
-- [Dashboards][Metrics Graph] Added new time periods: 14 days and 2 months.
-
-#### **Resource Status & Monitoring**
-- [Resource Status] Improved copy of executed command.
-- [Resource Status] Improved the label of the "Sticky" option in the acknowledgement window.
-- [Resource Status] It is now possible to avoid performance issues when using free text search, by using a new option named "Free text search behavior" in the **Administration > Parameters > Centreon UI** menu.
-- [Metaservices] Fixed several issues occuring when using MySQL 8.
-- [Metaservices] Fixed SQLi issues.
-
-#### **User Experience & Interface**
-- [Authentication Tokens] Added a welcome page when no token exists in the **Authentication tokens** page.
-- [Configuration] Harmonized the interface for **Additional Configurations** with other screens.
-- [UX] Added a button to copy the breadcrumbs on ReactJS pages.
-- [UX/UI] Updated forms and pop-ups to improve readability and added a new tab navigation system for quick access to collapsible sub-menus.
+- (Beta) Added a Create new poller shortcut to the top banner that generates a single command line for rapid poller deployment via container or package.
+- Provided a new modal to generate Poller install command, for Docker and VM.
+- [API] Added an endpoint to create Poller.
+- [API] Added endpoints to handle Global, installed & standard macros.
+- [API] Added examples on medias endpoints.
+- [Administration] Improved the About page and added new links.
+- [Agent configuration] It's now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
+- [Agent configuration] “CA common name” is now displayed only in Insecure TLS mode.
+- [Authentication] Added a new token type: poller.
+- [CMA] Host can now be automatically created when option is checked in Agent configuration.
+- [Configuration] Enabled 3.1.0 BBDO protocol version by default for Broker communications.
+- [Configuration] Refreshed host categories page with live search, inline enable/disable and a redesigned add/edit form.
+- [Configuration] Resource macros have been renamed Global macros.
+- [Configuration] Reworked commands configuration page.
+- [Top Banner] Redesigned status tiles make the header clearer and easier to read at a glance.
+- [Top Counter] The user menu now shows a circular avatar with the user's initials.
+- [UI] Resources now use new, consistent icons across the interface for easier identification.
+- [Web] Refreshed interface colors: new primary blue, softer table and section headers, and more readable status chips in light and dark modes.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed missing French translations.
-- A default token has been generated and applied to existing agent configuration.
-- [ACL] Fixed issue when cumulating ACLs for a same user.
-- [Configuration] Fixed an issue where export wasn't taking in account macros inherited from indirect template parents.
-- [Configuration] Fixed issue preventing user from disabling a metaservice.
-- [Dashboards] Fixed contact search when sharing a dashboard or a playlist.
-- Fixed an issue where exported tokens was ignored by Engine.
-- Fixed an issue where notes weren't displayed correctly in **Administration > Logs**.
-- Fixed an issue where service deploy endpoint was adding the command line to the service.
-- Forced BBDO 3.0.1 instead of 3.1 on pollers, to prevent a blocking issue.
-- [LDAP] Fixed an issue on Users & Groups filters validation.
-- [Metrics Graph Widget] Fixed an issue where an unexpected application error was occurring when selecting a custom time period.
-- [Packaging] Updated permissions of token purge log file.
-- [Resource Status] Fixed an issue that prevented the details panel from displaying correctly for a service that is part of a service group.
-- [Translations] Fixed issue preventing translations from being displayed.
-- [Unattended] On versions that use MySQL 8.0, the default authentication plugin is now mysql_native_password.
+- [Administration] API tokens now display correctly after the user who created them is deleted.
+- [Configuration] Changes made in a host's Relations tab are now recorded in the logs like other configuration changes.
+- [Configuration] Temporary export folders are now cleaned up, preventing disk saturation when generating poller configuration.
+- [Export] Fixed encrypted passwords in exported configuration files, which could prevent Broker from starting.
+- [LDAP] LDAP contact groups are now removed during synchronization when deleted from the server or excluded by filter changes.
+- [Unattended] Fixed missing support of version 26.10.
+- [Unattended] Fixed the path to repository files (RPM).
+- [Unattended] Pinned stable plugin repositories for Debian unattended installation.
+- [Upgrade] Upgrades no longer enable flapping detection or disable service checks on down hosts, so your engine settings are preserved.
+- [Web] Deprecation logs are now disabled by default, preventing the log file from growing uncontrollably and filling the disk.
+- [Web] Fixed an issue where some actions would fail when Centreon is accessed through a server with a short name.
+- [Web] Fixed an issue where the Resource Status CSV export leaked the translation catalog header into empty columns.
+- [Web] Fixed broker config export adding an event_script logger that broke connectivity on pollers older than 25.10.03.
+- [Web] Fixed connection failures when the database uses a custom port, which was ignored in favor of the default port 3306.
 
 </details>
 
 <details>
   <summary>Security fixes</summary>
 
-- [Administration] Fixed XSS in **Administration > ACL > Action Access**.
-- [Configuration] Fixed XSS in **Configuration > SNMP Traps** form
-- [Vulnerability] Fixed XSS vulnerability on Hosts templates.
-- [Vulnerability] Fixed XSS vulnerability on Recurrent downtimes.
-- [Vulnerability] Fixed XSS vulnerability on Resources Access parameters.
-- [Vulnerability] Fixed XSS vulnerability on SNMP traps.
-- [Vulnerability] Fixed XSS vulnerability on Connectors.
-- [Vulnerability] [security] Fixed an RCE on poller reload page.
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
 
 </details>
 
 ## Centreon Collect
 
-### 25.10.0
+### 26.10.0
 
-Release date: `November 3, 2025`
+Release date: `October 21, 2026`
 
 <details open>
   <summary>Enhancements</summary>
 
-#### **Broker & Engine Communication**
-- [BBDO2 sunset] Added BBDO 3.1 in Broker configuration dropdown.
-- [Broker] Broker can now read and cache Engine configurations, eliminating redundant configuration transfers. When Engine starts, it checks if Broker already has the current configuration during negotiation. If the configuration is already known, Engine skips the transfer, significantly improving the negotiation process between Engine and Broker.
-- Cbmod is no longer needed in the Engine configuration as it is automatically loaded when Engine starts.
-
-#### **Configuration & Security**
-- [Configuration] a dedicated whitelist block is now available for Centreon Monitoring Agent.
-- [Credentials encryption] Broker is now able to handle encrypted credentials.
-- [Credentials encryption] Engine is now able to check its encryption readiness.
-- Enhanced configuration generation to handle Insecure TLS.
-- Insecure TLS is now available as encryption mode in CMA.
-
-#### **gRPC API Enhancements**
-- [gRPC API] GetHostgroups function return information about hostgroups.
-- [gRPC API] GetTag function return information about Tag.
-- [gRPC API] GetService function have been improved to return more information.
-
-#### **Cache & Performance**
-- Added a new function in the lua cache to access hostgroups alias.
+- Added alias field to PB_SERVICE_GROUP protobuf message.
+- Fixed an issue where icons configured for Business Activities were not showing up properly.
+- The broker now writes the full poller configuration in a single block instead of processing it incrementally. Pollers no longer send their configuration to the broker.
+- [Engine] Added a PERL NoFork connector to enhance plugins execution and reduce poller CPU consumption.
 
 </details>
 
 <details>
   <summary>Bug fixes</summary>
 
-- AES 256 encryption keys are now automatically resized (zero-padded if too short, truncated if too long) instead of throwing an error when not exactly 32 bytes.
-- cbmod is no longer needed in the Engine configuration as it is automatically loaded when Engine starts.
-- [Collect] Fixed a regression where an engine command could not launch several checks at the same time.
-- [Core] Fixed compatibility of Engine with older versions of Linux kernel.
-- [Engine] Fixed an issue where parameters are not correctly inherited from templates.
-- [Packaging] Fixed package dependency issue with centreon-broker-caching-sha2-password that could block a broker update.
-- Fixed a segmentation fault in Engine that could occur if checks were still running when a shutdown was requested.
-- Fixed Engine crash when deleting a host during downtime notification.
-- "name" attribute is now managed in CMA Tokens.
-
-</details>
-
-## Centreon Monitoring Agent
-
-<details open>
-  <summary>Enhancements</summary>
-
-#### **Security & Encryption**
-- [Credentials encryption] CMA is now able to retrieve encryption key & handle encrypted credentials.
-- Enhanced configuration generation to handle Insecure TLS.
-- Insecure TLS is now available as encryption mode in CMA.
-
-#### **Other**
-- [CMA] Improved error handling for syntax checks.
-
-</details>
-
-## Centreon Gorgone
-
-### 25.10.0
-
-Release date: `November 3, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Gorgone] Added the ability to fetch configuration credentials from a vault.
-
-</details>
-
-## Centreon AWIE
-
-### 25.10.0
-
-Release date: `November 3, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Core] Updated PHP dependencies to 8.2 version.
-
-</details>
-
-## Centreon DSM
-
-### 25.10.0
-
-Release date: `November 3, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Core] Updated PHP dependencies to 8.2 version.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Packaging] SQL files are now correctly packaged on centreon-dsm.
-
-</details>
-
-## Centreon Open Tickets
-
-### 25.10.0
-
-Release date: `November 3, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Core] Updated PHP dependencies to 8.2 version.
+- Fixed the installation of centreon-engine and centreon-monitoring-agent on hosts where USERGROUPS_ENAB is set to no in /etc/login.defs: the centreon-engine and centreon-monitoring-agent groups are now always created.
 
 </details>
 
 <details>
   <summary>Security fixes</summary>
 
-- [Vulnerability] Fixed SQL injection in the **Notification > Rules** page.
-- [Vulnerability] Fixed XSS vulnerability in the **Configuration > Notification > Rules** page.
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+## Centreon Monitoring Agent
+
+### 26.10.0
+
+Release date: `October 21, 2026`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Fixed an issue where icons configured for Business Activities were not showing up properly.
+- [Engine] Added a PERL NoFork connector to enhance plugins execution and reduce poller CPU consumption.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a build failure with the Windows agent installer when downloading the centreon_plugins.exe binary.
+- Fixed the installation of centreon-engine and centreon-monitoring-agent on hosts where USERGROUPS_ENAB is set to no in /etc/login.defs: the centreon-engine and centreon-monitoring-agent groups are now always created.
+
+</details>
+
+## Centreon Gorgone
+
+### 26.10.0
+
+Release date: `October 21, 2026`
+
+<details open>
+  <summary>Enhancements</summary>
+
+- Gorgone is now able to validate poller token.
+- [Gorgone] Added support for using a UID to identify a poller instead of the numeric id.
+- [Gorgone] Gorgone can now be configured using ENV variables.
+
+</details>
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed a data formatting conflict that occurred after system updates, ensuring that MBI reports generate correctly without encountering errors.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+## Centreon AWIE
+
+### 26.10.0
+
+Release date: `October 21, 2026`
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+## Centreon DSM
+
+### 26.10.0
+
+Release date: `October 21, 2026`
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+## Centreon Open Tickets
+
+### 26.10.0
+
+Release date: `October 21, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- [Open Tickets] Category and group lists now load correctly with the GLPI provider on GLPI 9.5 and later.
+
+</details>
+
+<details>
+  <summary>Security fixes</summary>
+
+- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
+
+</details>
+
+## Centreon High Availability
+
+### 26.10.0
+
+Release date: `October 21, 2026`
+
+<details>
+  <summary>Bug fixes</summary>
+
+- Fixed an issue with the GPG signing of the centreon-ha-common and centreon-ha-web RPM packages.
 
 </details>
