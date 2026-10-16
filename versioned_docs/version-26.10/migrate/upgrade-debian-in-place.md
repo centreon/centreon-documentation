@@ -1,6 +1,6 @@
 ---
 id: upgrade-debian-in-place
-title: Upgrading Centreon and Debian (12 to 13) on the same server
+title: Migrating from Debian 12 to Debian 13 on the same server, while upgrading Centreon to version 26.10
 description: "In-place migration procedure for Debian - Debian 12 to 13"
 ---
 import Tabs from '@theme/Tabs';
@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 Use this procedure if you are running Centreon 24.04, 24.10 or 25.10 on Debian 12 and you wish to upgrade to Centreon 26.10 (only Debian 13 is supported for this version).
 
-> Run every command as `root`.
+> Run every command as `root`. Read each comment in the code blocks before running commands.
 
 <!-- ## Find your case
 
@@ -54,48 +54,63 @@ Snapshots let you roll back a whole server quickly, but they do not replace back
 
     ```bash
     B=/root/upgrade-2610-backup; mkdir -p $B
-    # On the server that hosts the database
+    # On the server that hosts the database (local or remote)
     mysqldump --single-transaction --routines --triggers --events centreon         | gzip > $B/centreon.sql.gz
     mysqldump --single-transaction --routines --triggers --events centreon_storage | gzip > $B/centreon_storage.sql.gz
-    mysqldump --single-transaction --routines --triggers --events centreon_map     | gzip > $B/centreon_map.sql.gz   # [MAP], where it lives
-    zcat $B/centreon_storage.sql.gz | tail -n 1                                     # "-- Dump completed on …"
+    # On your MAP server, if you have one
+    mysqldump --single-transaction --routines --triggers --events centreon_map     | gzip > $B/centreon_map.sql.gz   
+    zcat $B/centreon_storage.sql.gz | tail -n 1                                     # Expected results: "-- Dump completed on …"
     # On every server
     tar czf $B/etc-$(hostname).tar.gz -C / etc
     dpkg -l > $B/dpkg-l.txt
-    systemctl list-unit-files --state=enabled > $B/enabled-units.txt               # compared in step 9
-    ```
+    systemctl list-unit-files --state=enabled > $B/enabled-units.txt
+    ```            
 
-### 1.3 Check the state of the server
+### 1.3 Check that cron and logrotate are installed (on every Centreon server)
 
-Before starting the upgrade, check that the server is in the expected state: Debian 12, Centreon 25.10, enough free disk space, and working package repositories. If any result differs from the expected one, fix it before going further.
-
-    ```bash
-    cat /etc/debian_version                         # 12.x
-    dpkg -l centreon-web | awk '/^ii/{print $3}'    # 25.10.x
-    df -h / /var /var/lib/mysql                     # several GB free (~1,300 packages)
-    apt-get update                                  # no error (a broken repository blocks the upgrade to Debian 13)
-    ```
-
-### 1.4 Check that cron and logrotate are installed (on every Centreon server)
-
-Centreon needs **cron** to run its scheduled jobs and **logrotate** to rotate its logs. Minimal Debian images often include neither, and nothing warns you when they are missing.
+Centreon needs **cron** to run its scheduled jobs and **logrotate** to rotate its logs. Minimal Debian images often include neither, and nothing warns you when they are missing. Run the following commands and follow the instructions in the comments.
 
 ```bash
-ls /etc/cron.d/ | grep -iE "centreon|centstorage"           # Centreon jobs here?
-dpkg -l cron | grep -q "^ii" || apt-get install -y cron     # install if missing
-systemctl enable --now cron && systemctl is-active cron     # active
+# list the cron job files installed by Centreon: are there any?
+ls /etc/cron.d/ | grep -iE "centreon|centstorage"
+# check whether cron is installed and install it if it is missing, then activate it and check that it is active
+dpkg -l cron | grep -q "^ii" || apt-get install -y cron     
+systemctl enable --now cron && systemctl is-active cron
+# make sure logrotate is installed, install it if it is missing
 dpkg -l logrotate | grep -q "^ii" || apt-get install -y logrotate
+# set the permissions of the two Centreon rotation configurations, for Centreon Broker (cbd) and Centreon Engine (centengine)
 chmod 644 /etc/logrotate.d/cbd /etc/logrotate.d/centengine 2>/dev/null
-logrotate -d /etc/logrotate.conf 2>&1 | grep -E "^error|Ignoring"     # nothing
+# do a dry run that parses the whole configuration and shows what it would do without rotating anything
+logrotate -d /etc/logrotate.conf 2>&1 | grep -E "^error|Ignoring"
 ```
 
 - **Without cron**, the Centreon jobs never run and no error is shown. This affects the MBI jobs (ETL, purge, backup) in particular.
 - **Without logrotate**, Centreon logs are never rotated.
 - **The `chmod 644` line** is a workaround. The Broker and Engine logrotate files are shipped with permissions `0664`, so logrotate ignores them. A package upgrade can restore `0664`, so check again in step 9.
 
-## Step 2: Update your Centreon version to the latest minor
+## Step 2: Prepare your platform for the upgrade
 
-Follow the update procedures for your version ([24.04](https://archives-docs.centreon.com/24.04/docs/update/update-centreon-platform/), [24.10](https://docs.centreon.com/docs/24.10/update/update-centreon-platform/) or [25.10](https://docs.centreon.com/docs/25.10/update/update-centreon-platform.md)). Update your central server, your pollers and your remote servers.
+### 2.1 Upgrade your Centreon version to version 25.10
+
+* If you are in version 24.04 or 24.10 on Debian 12, upgrade your version to version 25.10. (See the upgrade procedures for versions [24.04](https://docs.centreon.com/docs/upgrade/upgrade-from-24-04/) and [24.10](https://docs.centreon.com/docs/upgrade/upgrade-from-24-10/)).
+* If you are already in version 25.10, [update your platform to the latest minor version](https://docs.centreon.com/docs/25.10/update/update-centreon-platform.md).
+
+Upgrade/update your central server, your pollers and your remote servers.
+
+### 2.2 Check the state of the server
+
+Before starting the upgrade, check that the server is in the expected state: Debian 12, enough free disk space, and working package repositories. If any result differs from the expected one, fix it before going further.
+
+    ```bash
+    # check that the version of Debian is 12.x
+    cat /etc/debian_version
+    # check that your Centreon version is 25.10.x                    
+    dpkg -l centreon-web | awk '/^ii/{print $3}'
+    # check that your have several GB free (the migration installs ~1,300 packages)
+    df -h / /var /var/lib/mysql
+    # update your system: there should be no errors (e.g., a broken repository blocks the upgrade to Debian 13)
+    apt-get update                                
+    ```
 
 <!-- ```bash
 apt update
@@ -138,33 +153,41 @@ The following commands bring the server to the latest Debian 12 minor version be
 
 ```bash
 apt-get update
+# upgrade every installed package to the newest available version, without asking any questions, and keep your existing configuration files
 DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::=--force-confold full-upgrade
-cat /etc/debian_version          #  latest 12.x version
+# check that you have the latest 12.x version
+cat /etc/debian_version
+# reboot your machine
 systemctl reboot
 ```
 
 | If…                                                                             | Do                                                                             |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `apt-get update` fails on the **MaxScale** line (`NO_PUBKEY`) in `mariadb.list` | Comment **only that line** (the file also holds the MariaDB Server repository) |
-| [MySQL] `mysql-apt-config` is upgraded (seen 0.8.36 → 0.8.40)                   | Nothing: `mysql.list` is kept                                                  |
+| `apt-get update` fails on the **MaxScale** line (`NO_PUBKEY`) in `mariadb.list` | Comment **only that line** (the file also holds the MariaDB server repository) |
+| If you have MySQL, if `mysql-apt-config` is upgraded                   | Nothing: `mysql.list` is kept                                                  |
 
 After the reboot, check that the web interface works and that the pollers are connected. You can update the servers in any order (central server or database server first).
 
 ## Step 4: Upgrade a remote database server (if applicable)
 
-Do this only if your database runs on its own server, separate from the central. Before you start, make sure Centreon is already stopped on the central server.
+Do this only if your database runs on its own server, separate from the central. Before you start, make sure Centreon is already stopped on the central server. If needed, stop all Centreon services:
+
+```shell
+systemctl stop centengine cbd gorgoned smtptrapd centreontrapd snmpd
+```
 
 ### 4.1 Back up the configuration and stop the database
 
 Run these commands on the **database server**:
 
 ```bash
+# create the backup folder used in the rest of the procedure, with a subfolder for the apt configuration
 B=/root/upgrade-2610-backup; mkdir -p $B/apt-bookworm
+# back up the apt sources and the MySQL/MariaDB configuration
 cp -a /etc/apt/sources.list /etc/apt/sources.list.d /etc/mysql $B/apt-bookworm/
-systemctl stop mariadb                              # MySQL: systemctl stop mysql
+# stop your database: if you have MySQL, do "systemctl stop mysql" instead
+systemctl stop mariadb
 ```
-
-This saves your current APT repositories and MySQL/MariaDB configuration, then stops the database.
 
 ### 4.2 Upgrade the server
 
@@ -178,15 +201,24 @@ This saves your current APT repositories and MySQL/MariaDB configuration, then s
 ### 4.3 Check the result
 
 ```bash
-dpkg -l | awk 'NR>5 && $1 != "ii" && $1 != "rc"'                 # nothing
-cat /etc/debian_version                                            # 13.x
-systemctl is-active mariadb                                        # active (MySQL: mysql)
-mariadb -e "SELECT @@version, @@read_only"                         # 11.8.x, 0 (MySQL: 8.4.x, 0)
-mariadb-upgrade --check-if-upgrade-is-needed && echo "run: mariadb-upgrade" || echo "done"   # MySQL: skip this line
-mariadb -e "SHOW DATABASES" | grep -E "^centreon(_storage)?$"      # both databases listed
-tail -n 5 /var/log/mysql/error.log                                 # MySQL only: "ready for connections. Version: '8.4.x'"
-find /etc/mysql -name "*.dpkg-dist"                                # keep your own file
-systemctl enable mariadb && systemctl reboot                       # MySQL: mysql
+# list any packages in an abnormal state. you should have none
+dpkg -l | awk 'NR>5 && $1 != "ii" && $1 != "rc"'
+# check that your version of Debian is 13.x
+cat /etc/debian_version
+# check that your database is active (if you have MySQL, replace "mariadb" by "mysql")
+systemctl is-active mariadb
+# check the version of your database. MariaDB should be 11.8.x, MySQL should be 8.4.x. Both should have read-only as 0
+mariadb -e "SELECT @@version, @@read_only"
+## check and upgrade mariadb: skip this line if you have MySQL
+mariadb-upgrade --check-if-upgrade-is-needed && echo "run: mariadb-upgrade" || echo "done"
+# check that both databases are listed
+mariadb -e "SHOW DATABASES" | grep -E "^centreon(_storage)?$"
+# if you have MySQL, check the logs for any errors. The correct log mesage is "ready for connections. Version: '8.4.x'"
+tail -n 5 /var/log/mysql/error.log
+# list the new MariaDB/MySQL config files that the upgrade didn’t apply because you had modified the originals
+find /etc/mysql -name "*.dpkg-dist"
+# enable the database and restart it: use mysql instead of mariadb if applicable.
+systemctl enable mariadb && systemctl reboot
 ```
 
 For MySQL, use `mysql` instead of `mariadb` in the commands above.
@@ -214,9 +246,13 @@ It should print `OK`. (This command is used because `nc` is not installed by def
 The commands edit your existing repository files (either deb822 *.sources files or one-line *.list files). Do not add a new file next to an old one: the 25.10 and 26.10 repositories would mix.
 
 ```bash
+# create a the backup folder
 B=/root/upgrade-2610-backup; mkdir -p $B/apt-bookworm
-cp -a /etc/apt/sources.list /etc/apt/sources.list.d $B/apt-bookworm/            # rollback
+# save the apt repository configuration
+cp -a /etc/apt/sources.list /etc/apt/sources.list.d $B/apt-bookworm/
+# back up the Apache configuration file for the Centreon web interface
 cp -a /etc/apache2/sites-available/centreon.conf $B/apache-centreon.conf.2510 2>/dev/null
+# list the extra apt repository files configured on the server
 ls /etc/apt/sources.list.d/
 ```
 
@@ -289,8 +325,8 @@ echo "== /etc/apt/sources.list.d/mysql.list"; grep -vE "^\s*#|^\s*$" /etc/apt/so
 | If…                                        | Do / know                                                                                                                                                                                     |
 | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | No `mariadb.*` file                        | MariaDB comes from Debian: Debian 13 ships 11.8, nothing to do                                                                                                                                |
-| [MySQL] `mysql.list` points to `mysql-8.0` | **Stop**: `repo.mysql.com` trixie has no 8.0. Upgrade to 8.4 LTS on Debian 12 first (trixie has `mysql-8.4-lts`, `mysql-9.7-lts`, `mysql-innovation`, plus `mysql-apt-config`, `mysql-tools`) |
-| [MySQL] debconf line skipped               | A later `mysql-apt-config` reconfiguration (`dpkg-reconfigure`, new package version) may write `bookworm` back. With it: kept (checked; prints a harmless `gpg: cannot open '/dev/tty'`)      |
+| if you have mySQL: `mysql.list` points to `mysql-8.0` | **Stop**: `repo.mysql.com` trixie has no 8.0. Upgrade to 8.4 LTS on Debian 12 first (trixie has `mysql-8.4-lts`, `mysql-9.7-lts`, `mysql-innovation`, plus `mysql-apt-config`, `mysql-tools`) |
+| if you have mySQL: debconf line skipped               | A later `mysql-apt-config` reconfiguration (`dpkg-reconfigure`, new package version) may write `bookworm` back. With it: kept (checked; prints a harmless `gpg: cannot open '/dev/tty'`)      |
 | `*.disabled`, `*.old_*` files              | Ignored by apt                                                                                                                                                                                |
 | MaxScale line commented in step 3          | Stays commented                                                                                                                                                                               |
 
@@ -299,13 +335,20 @@ echo "== /etc/apt/sources.list.d/mysql.list"; grep -vE "^\s*#|^\s*$" /etc/apt/so
 This step is a dry-run check before the real upgrade. It verifies that the repository changes are correct and simulates the upgrade, so you can spot problems while nothing has been modified yet. The comment at the end of each line is the expected result.
 
 ```bash
-grep -rn bookworm /etc/apt/sources.list /etc/apt/sources.list.d/ | grep -v ":\s*#"   # nothing
-apt clean && apt-get update                                                       # no W:/E:
+# check that no active line in the apt source files still points to Debian 12. There should be nothing
+grep -rn bookworm /etc/apt/sources.list /etc/apt/sources.list.d/ | grep -v ":\s*#"
+# clear apt’s local package cache, then download the package lists from the newly configured Debian 13 repositories. no line should start with W: or E:
+apt clean && apt-get update
+# simulate the full upgrade without changing anything and save the result to a file
 apt-get -s full-upgrade > $B/sim.txt
-tail -n 3 $B/sim.txt                                                              # N upgraded / new / removed
-grep -iE "broken|unmet" $B/sim.txt                                                # nothing
+# check the number of upgraded/new/removed packages
+tail -n 3 $B/sim.txt
+# check that no simulation file for dependency problems would stop or break the upgrade
+grep -iE "broken|unmet" $B/sim.txt
+# check which versions the upgrade would install for the web interface, PHP, and the database server
 grep -E "^Inst (centreon-web|php8.4-fpm|mariadb-server|mysql-community-server) " $B/sim.txt
-grep -E "^Remv centreon" $B/sim.txt                                               # nothing
+# check that the upgrade would remove no Centreon package
+grep -E "^Remv centreon" $B/sim.txt
 ```
 
 * If the simulation shows broken packages, stop and restore the sources: `cp -a $B/apt-bookworm/* /etc/apt/`.
@@ -316,8 +359,10 @@ grep -E "^Remv centreon" $B/sim.txt                                             
 This is the real upgrade to Debian 13. It runs the upgrade in the background, in two stages, and then lets you watch its progress.
 
 ```bash
+# run the actual Debian 13 / Centreon 26.10 upgrade in the background
 systemd-run --unit=upg2610 /bin/sh -c 'export DEBIAN_FRONTEND=noninteractive; O="-o Dpkg::Options::=--force-confold -o Dpkg::Options::=--force-confdef"; apt-get -y $O upgrade --without-new-pkgs > /root/upgrade-2610-backup/upg-step1.log 2>&1 && apt-get -y $O full-upgrade > /root/upgrade-2610-backup/upg-step2.log 2>&1'
-watch -n 10 'pgrep -x apt-get; pgrep -x dpkg; tail -n 2 /root/upgrade-2610-backup/upg-step2.log'   # done when both pgrep print nothing
+# show every 10 seconds whether apt or dpkg is still running. The upgrade is done when both pgrep print nothing
+watch -n 10 'pgrep -x apt-get; pgrep -x dpkg; tail -n 2 /root/upgrade-2610-backup/upg-step2.log' 
 ```
 
 - Don't interrupt it and don't reboot until it's finished, even if it seems slow (about 1,300 packages).
@@ -331,7 +376,8 @@ Then stop Centreon again on the central server. The 26.10 packages restart the s
 
 ```bash
 systemctl stop centengine cbd gorgoned centreontrapd cron
-systemctl stop centreon-map-engine 2>/dev/null      # [MAP]
+## If you have MAP, run this
+systemctl stop centreon-map-engine 2>/dev/null
 ```
 
 ## Step 7: Checks after the packages
@@ -341,30 +387,36 @@ systemctl stop centreon-map-engine 2>/dev/null      # [MAP]
 This step is the post-upgrade verification (7.1 to 7.4), followed by switching the web stack to PHP 8.4. It checks that the upgrade to Debian 13 went cleanly and that nothing was left half-done. The comment on each line is the expected result.
 
 ```bash
-# 7.1 dpkg
-dpkg -l | awk 'NR>5 && $1 != "ii" && $1 != "rc"'                                   # nothing ("rc" = removed, OK)
-grep -hE "^(W|E):|dpkg: (error|erreur)" /root/upgrade-2610-backup/upg-step*.log      # nothing
-cat /etc/debian_version                                                              # 13.x
+# 7.1 list any package that isn’t in a normal state: the command should print nothing
+dpkg -l | awk 'NR>5 && $1 != "ii" && $1 != "rc"'
+# search both upgrade logs for warnings and errors: there should be nothing
+grep -hE "^(W|E):|dpkg: (error|erreur)" /root/upgrade-2610-backup/upg-step*.log
+# check that the Debian version is 13.x
+cat /etc/debian_version
+# show the installed version of the main Centreon packages and of PHP-FPM
 dpkg -l centreon-web centreon-engine centreon-broker centreon-gorgone php8.4-fpm | awk '/^ii/{print $2, $3}'
-# 7.2 Perl / libraries left on Debian 12
-dpkg -l | awk '/^ii/ && $3 ~ /deb12/ {print $2, $3}'           # only obsolete Debian libs (libperl5.36, perl-modules-5.36…)
-perl -MCrypt::OpenSSL::AES -MNet::Curl -MLibssh::Session -e 'print "OK\n"'   # OK
-# 7.3 Config files kept by --force-confold
+# 7.2 list any installed packages whose version still carries a Debian 12 marker. There should be only obsolete Debian libs (libperl5.36, perl-modules-5.36…)
+dpkg -l | awk '/^ii/ && $3 ~ /deb12/ {print $2, $3}'
+# check that three Perl modules used by Centreon still load correctly after the upgrade (if they do, it prints OK) 
+perl -MCrypt::OpenSSL::AES -MNet::Curl -MLibssh::Session -e 'print "OK\n"'
+# 7.3 list the new config files the upgrade set aside for Apache, Centreon, PHP and MySQL/MariaDB
 find /etc -name "*.dpkg-dist" -o -name "*.ucf-dist" | grep -E "apache2|centreon|php|mysql"
-# 7.4 PHP 8.4
+# 7.4 switche PHP-FPM from the old PHP 8.2 service to the new PHP 8.4 one
 systemctl enable --now php8.4-fpm; systemctl disable --now php8.2-fpm 2>/dev/null
+# restart Apache
 systemctl restart apache2
-curl -s -o /dev/null -w "%{http_code}\n" http://localhost/centreon/                 # 200
+# check that the Centreon interface responds (with an HTTP 200 status code)
+curl -s -o /dev/null -w "%{http_code}\n" http://localhost/centreon/
 ```
 
 | If… (7.2 / 7.3)                                                                                       | Do                                                                                                                             |
 | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | A Centreon or `lib*-perl` package still `deb12`, or Perl not OK                                       | `apt-get install --reinstall <package>`; check `apt-plugins-stable trixie` (5.2)                                               |
-| [MAP] `openjdk-17-jre-headless` still `deb12`                                                         | Normal: MAP 26.10 uses Java 25 (`openjdk-25-jre-headless`, now default). After validation: `apt purge openjdk-17-jre-headless` |
+| If you have MAP, `openjdk-17-jre-headless` still `deb12`                                                         | Normal: MAP 26.10 uses Java 25 (`openjdk-25-jre-headless`, now default). After validation: `apt purge openjdk-17-jre-headless` |
 | `apache2/…/centreon.conf.dpkg-dist`                                                                   | **Apache merge** (step 2): 26.10 adds the Gorgone websocket `ProxyPass` block                                                  |
 | `/etc/centreon-engine/centengine.cfg.dpkg-dist`, `/etc/centreon-broker/central-module.json.dpkg-dist` | Keep yours (generated by the export)                                                                                           |
 | `/etc/mysql/mariadb.conf.d/50-server.cnf.dpkg-dist`                                                   | Keep yours (package sets `bind-address = 127.0.0.1`)                                                                           |
-| [MAP] `/etc/centreon-map/map-config.properties.dpkg-dist`                                             | Keep yours: it is a template (`%CENTREON_BROKER_ADDRESS%`, `%CENTREON_PWD%`…)                                                  |
+| If you have MAP, `/etc/centreon-map/map-config.properties.dpkg-dist`                                             | Keep yours: it is a template (`%CENTREON_BROKER_ADDRESS%`, `%CENTREON_PWD%`…)                                                  |
 
 ### 7.2 Check the database
 
@@ -443,7 +495,7 @@ If you use MAP, check that it works:
     ```bash
     systemctl enable centengine cbd gorgoned centreontrapd snmptrapd.socket php8.4-fpm apache2 cron
     systemctl enable centreon-map-engine 2>/dev/null                 # [MAP]
-    systemctl enable mariadb                                         # [local DB] or local MAP DB — [MySQL] mysql
+    systemctl enable mariadb                                         # [local database] or local MAP database — [MySQL] mysql
     diff <(awk '{print $1}' /root/upgrade-2610-backup/enabled-units.txt | sort) \
         <(systemctl list-unit-files --state=enabled | awk '{print $1}' | sort)   # php8.2 → php8.4 expected
     systemctl reboot
