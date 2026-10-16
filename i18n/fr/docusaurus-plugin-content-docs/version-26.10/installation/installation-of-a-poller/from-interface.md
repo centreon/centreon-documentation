@@ -1,7 +1,7 @@
 ---
 id: from-interface
-title: Installer un collecteur sur une machine virtuelle ou physique
-description: "Installer un collecteur sur une machine virtuelle ou physique depuis l'interface Centreon"
+title: Avec une commande générée automatiquement (machine virtuelle ou physique)
+description: "Installer un collecteur sur une machine virtuelle ou physique en utilisant une commande générée automatiquement depuis l'interface Centreon"
 ---
 
 > La fonctionnalité décrite ici est en phase bêta.
@@ -12,7 +12,7 @@ Une commande personnalisée pour installer un collecteur sur une machine virtuel
 
 * La machine sur laquelle vous allez installer le collecteur doit satisfaire les [prérequis d'installation d'un collecteur](../prerequisites.md#dimensionnement-dun-collecteur).
 * Vous devez avoir créé un [jeton de d'authentification de type collecteur](..administration/authentication-tokens.md).
-* 
+* Sur le serveur central, [le module **pullwss** de Gorgone doit être configuré pour accepter les connexions entrantes](./pollers-containers-prerequisites.md). Cette opération n'est à réaliser qu'une seule fois, avant d'installer votre premier collecteur en utilisant la commande fournie par l'interface (qu'il soit installé sur une machine physique, une VM ou un conteneur).
 
 ## Étape 1 : Générer la commande d'installation
 
