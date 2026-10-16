@@ -1,0 +1,342 @@
+/* Styles of the custom nav and footer components (theme/index.tsx). */
+.rp-version-aware-nav {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.rp-vnav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.rp-nav-link {
+  color: var(--rp-c-text-1);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+.rp-nav-link:hover {
+  color: var(--rp-c-brand);
+}
+/* Hide rspress's built-in language (NavLangs) + version (NavVersions)
+   selectors. In rspress 2.x they render as plain '.rp-nav-menu__item'
+   elements directly inside '.rp-nav__others', so we hide those while
+   keeping the divider, the appearance toggle and the social links. */
+/* The appearance toggle is re-rendered inside our own nav cluster (in the
+   right order: version, language, theme, product switcher), so hide
+   rspress's entire built-in "others" group (langs/versions/appearance). */
+.rp-nav__others {
+  display: none !important;
+}
+.rp-nav-sections {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  margin-left: 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.rp-nav-link-active {
+  color: var(--rp-c-brand);
+}
+.rp-version-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.rp-version-star {
+  color: #f5b50a;
+}
+@media (max-width: 1280px) {
+  .rp-nav-sections {
+    display: none;
+  }
+}
+/* We provide our own responsive burger (rp-vnav-burger) for the custom
+   nav, so hide rspress's built-in mobile hamburger to avoid two burgers. */
+.rp-nav-hamburger {
+  display: none !important;
+}
+.rp-nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.rp-nav-dropdown-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--rp-c-text-1);
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+  transition: color 0.2s;
+  white-space: nowrap;
+  background: none;
+  border: none;
+  font: inherit;
+}
+.rp-nav-dropdown-button:hover {
+  color: var(--rp-c-text-2);
+}
+.rp-nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 140px;
+  padding: 0.5rem;
+  background: var(--rp-c-bg);
+  border: 1px solid var(--rp-c-divider-light);
+  border-radius: var(--rp-radius-large);
+  box-shadow: var(--rp-shadow-3);
+  z-index: 100;
+  transition: opacity 0.2s;
+}
+.rp-nav-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  color: var(--rp-c-text-1);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+.rp-nav-dropdown-item:hover {
+  background: var(--rp-c-bg-mute);
+}
+.rp-nav-dropdown-item-active {
+  color: var(--rp-c-brand);
+}
+.rp-lang-current {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.rp-lang-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--rp-c-text-2);
+  text-transform: uppercase;
+}
+
+.rp-product-switcher .rp-nav-dropdown-button {
+  padding: 0.4rem;
+}
+.rp-product-switcher .rp-nav-dropdown-menu {
+  width: 16rem;
+  padding: 0.5rem;
+}
+.rp-product-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0.5rem;
+  color: var(--rp-c-text-1);
+  text-decoration: none;
+  border-radius: 0.5rem;
+}
+.rp-product-item:hover {
+  background: var(--rp-c-bg-mute);
+}
+.rp-product-item-active {
+  background: var(--rp-c-bg-mute);
+}
+.rp-product-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+.rp-product-label {
+  font-size: 0.9rem;
+}
+
+/* --- Responsive burger (mobile / tablet) --- */
+.rp-vnav-burger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  color: var(--rp-c-text-1);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.rp-vnav-burger:hover {
+  background: var(--rp-c-bg-mute);
+  color: var(--rp-c-brand);
+}
+.rp-vnav-mobile-panel {
+  display: none;
+  position: absolute;
+  top: var(--rp-nav-height);
+  right: 0;
+  width: min(280px, 92vw);
+  max-height: calc(100vh - var(--rp-nav-height));
+  overflow-y: auto;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--rp-c-bg);
+  border: 1px solid var(--rp-c-divider-light);
+  border-radius: var(--rp-radius-large);
+  box-shadow: var(--rp-shadow-3);
+  z-index: 100;
+}
+.rp-vnav-mobile-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--rp-c-divider-light);
+}
+.rp-vnav-mobile-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.rp-vnav-mobile-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--rp-c-text-2);
+  padding: 0.25rem 0.5rem;
+}
+.rp-vnav-mobile-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  color: var(--rp-c-text-1);
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+}
+.rp-vnav-mobile-link:hover {
+  background: var(--rp-c-bg-mute);
+}
+.rp-vnav-mobile-link-active {
+  color: var(--rp-c-brand);
+}
+.rp-vnav-mobile-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+.rp-vnav-mobile-appearance {
+  padding-top: 0.25rem;
+}
+
+@media (max-width: 1280px) {
+  .rp-vnav-desktop {
+    display: none;
+  }
+  .rp-vnav-burger {
+    display: flex;
+  }
+  .rp-vnav-mobile-panel.open {
+    display: flex;
+  }
+}
+
+.rp-site-footer {
+  --footer-bg: #fff;
+  --footer-color: #00003d;
+  --footer-hover: #2213e2;
+  padding: 2rem;
+  background: var(--footer-bg);
+  color: var(--footer-color);
+}
+.dark .rp-site-footer,
+.rp-site-footer--inverted {
+  --footer-bg: #00003d;
+  --footer-color: #fff;
+  --footer-hover: #37d6ae;
+}
+.dark .rp-site-footer--inverted {
+  --footer-bg: #fff;
+  --footer-color: #00003d;
+  --footer-hover: #2213e2;
+}
+.rp-site-footer__container {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  align-items: center;
+  gap: 16px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.rp-site-footer__links {
+  display: flex;
+  flex-grow: 1;
+  max-width: 650px;
+}
+.rp-site-footer__links a {
+  flex: 1;
+  text-align: center;
+  color: var(--footer-color);
+  font-family: 'Esphimere', serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 2;
+  text-decoration: none;
+}
+.rp-site-footer__links a:hover {
+  color: var(--footer-hover);
+  text-decoration: underline;
+}
+.rp-site-footer__bottom {
+  text-align: center;
+}
+.rp-site-footer__logo {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+.rp-site-footer__logo--on-dark,
+.dark .rp-site-footer__logo--on-light,
+.rp-site-footer--inverted .rp-site-footer__logo--on-light {
+  display: none;
+}
+.dark .rp-site-footer__logo--on-dark,
+.rp-site-footer--inverted .rp-site-footer__logo--on-dark {
+  display: inline-block;
+}
+.dark .rp-site-footer--inverted .rp-site-footer__logo--on-dark {
+  display: none;
+}
+.dark .rp-site-footer--inverted .rp-site-footer__logo--on-light {
+  display: inline-block;
+}
+@media (max-width: 996px) {
+  .rp-site-footer__links {
+    flex-direction: column;
+  }
+  .rp-site-footer__bottom {
+    width: 50%;
+  }
+}
+@media (max-width: 575px) {
+  .rp-site-footer__bottom {
+    width: 220px;
+  }
+}

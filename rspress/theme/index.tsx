@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Layout as DefaultLayout, Link, SwitchAppearance } from '@rspress/core/theme-original';
-import { useLang, useLocation } from '@rspress/core/runtime';
-import mediumZoom from 'medium-zoom';
-import 'medium-zoom/dist/style.css';
+import { useLang, useLocation, usePage } from '@rspress/core/runtime';
+import './index.css';
 
 export * from '@rspress/core/theme-original';
 // Lazily rendered sidebar groups (see components/Sidebar/SidebarGroup.tsx).
@@ -424,376 +423,60 @@ function VersionAwareNav() {
         </div>
       </div>
 
-      <style>{`
-        .rp-version-aware-nav {
-          display: flex;
-          align-items: center;
-          font-size: 0.875rem;
-          font-weight: 500;
-        }
-        .rp-vnav-desktop {
-          display: flex;
-          align-items: center;
-          gap: 1.25rem;
-        }
-        .rp-nav-link {
-          color: var(--rp-c-text-1);
-          text-decoration: none;
-          white-space: nowrap;
-          transition: color 0.2s;
-        }
-        .rp-nav-link:hover {
-          color: var(--rp-c-brand);
-        }
-        /* Hide rspress's built-in language (NavLangs) + version (NavVersions)
-           selectors. In rspress 2.x they render as plain '.rp-nav-menu__item'
-           elements directly inside '.rp-nav__others', so we hide those while
-           keeping the divider, the appearance toggle and the social links. */
-        /* The appearance toggle is re-rendered inside our own nav cluster (in the
-           right order: version, language, theme, product switcher), so hide
-           rspress's entire built-in "others" group (langs/versions/appearance). */
-        .rp-nav__others {
-          display: none !important;
-        }
-        .rp-nav-sections {
-          display: flex;
-          align-items: center;
-          gap: 1.75rem;
-          margin-left: 2rem;
-          font-size: 0.875rem;
-          font-weight: 500;
-        }
-        .rp-nav-link-active {
-          color: var(--rp-c-brand);
-        }
-        .rp-version-current {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.35rem;
-        }
-        .rp-version-star {
-          color: #f5b50a;
-        }
-        @media (max-width: 1280px) {
-          .rp-nav-sections {
-            display: none;
-          }
-        }
-        /* We provide our own responsive burger (rp-vnav-burger) for the custom
-           nav, so hide rspress's built-in mobile hamburger to avoid two burgers. */
-        .rp-nav-hamburger {
-          display: none !important;
-        }
-        .rp-nav-dropdown {
-          position: relative;
-          display: flex;
-          align-items: center;
-        }
-        .rp-nav-dropdown-button {
-          display: flex;
-          align-items: center;
-          gap: 4px;
-          color: var(--rp-c-text-1);
-          cursor: pointer;
-          padding: 0.5rem 0.5rem;
-          transition: color 0.2s;
-          white-space: nowrap;
-          background: none;
-          border: none;
-          font: inherit;
-        }
-        .rp-nav-dropdown-button:hover {
-          color: var(--rp-c-text-2);
-        }
-        .rp-nav-dropdown-menu {
-          position: absolute;
-          top: calc(100% + 4px);
-          right: 0;
-          min-width: 140px;
-          padding: 0.5rem;
-          background: var(--rp-c-bg);
-          border: 1px solid var(--rp-c-divider-light);
-          border-radius: var(--rp-radius-large);
-          box-shadow: var(--rp-shadow-3);
-          z-index: 100;
-          transition: opacity 0.2s;
-        }
-        .rp-nav-dropdown-item {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.4rem 0.75rem;
-          color: var(--rp-c-text-1);
-          text-decoration: none;
-          border-radius: 0.5rem;
-          font-size: 0.875rem;
-          white-space: nowrap;
-        }
-        .rp-nav-dropdown-item:hover {
-          background: var(--rp-c-bg-mute);
-        }
-        .rp-nav-dropdown-item-active {
-          color: var(--rp-c-brand);
-        }
-        .rp-lang-current {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-        }
-        .rp-lang-badge {
-          display: inline-block;
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.04em;
-          color: var(--rp-c-text-2);
-          text-transform: uppercase;
-        }
-
-        .rp-product-switcher .rp-nav-dropdown-button {
-          padding: 0.4rem;
-        }
-        .rp-product-switcher .rp-nav-dropdown-menu {
-          width: 16rem;
-          padding: 0.5rem;
-        }
-        .rp-product-item {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          padding: 0.5rem;
-          color: var(--rp-c-text-1);
-          text-decoration: none;
-          border-radius: 0.5rem;
-        }
-        .rp-product-item:hover {
-          background: var(--rp-c-bg-mute);
-        }
-        .rp-product-item-active {
-          background: var(--rp-c-bg-mute);
-        }
-        .rp-product-icon {
-          width: 44px;
-          height: 44px;
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          color: #fff;
-          font-size: 18px;
-          font-weight: 700;
-        }
-        .rp-product-label {
-          font-size: 0.9rem;
-        }
-
-        /* --- Responsive burger (mobile / tablet) --- */
-        .rp-vnav-burger {
-          display: none;
-          align-items: center;
-          justify-content: center;
-          padding: 6px;
-          color: var(--rp-c-text-1);
-          background: transparent;
-          border: none;
-          border-radius: 6px;
-          cursor: pointer;
-        }
-        .rp-vnav-burger:hover {
-          background: var(--rp-c-bg-mute);
-          color: var(--rp-c-brand);
-        }
-        .rp-vnav-mobile-panel {
-          display: none;
-          position: absolute;
-          top: var(--rp-nav-height);
-          right: 0;
-          width: min(280px, 92vw);
-          max-height: calc(100vh - var(--rp-nav-height));
-          overflow-y: auto;
-          flex-direction: column;
-          gap: 0.5rem;
-          padding: 1rem;
-          background: var(--rp-c-bg);
-          border: 1px solid var(--rp-c-divider-light);
-          border-radius: var(--rp-radius-large);
-          box-shadow: var(--rp-shadow-3);
-          z-index: 100;
-        }
-        .rp-vnav-mobile-section {
-          display: flex;
-          flex-direction: column;
-          gap: 0.25rem;
-          padding-bottom: 0.5rem;
-          border-bottom: 1px solid var(--rp-c-divider-light);
-        }
-        .rp-vnav-mobile-section:last-child {
-          border-bottom: none;
-          padding-bottom: 0;
-        }
-        .rp-vnav-mobile-title {
-          font-size: 0.7rem;
-          font-weight: 700;
-          letter-spacing: 0.04em;
-          text-transform: uppercase;
-          color: var(--rp-c-text-2);
-          padding: 0.25rem 0.5rem;
-        }
-        .rp-vnav-mobile-link {
-          display: flex;
-          align-items: center;
-          gap: 0.5rem;
-          padding: 0.5rem;
-          color: var(--rp-c-text-1);
-          text-decoration: none;
-          border-radius: 0.5rem;
-          font-size: 0.9rem;
-        }
-        .rp-vnav-mobile-link:hover {
-          background: var(--rp-c-bg-mute);
-        }
-        .rp-vnav-mobile-link-active {
-          color: var(--rp-c-brand);
-        }
-        .rp-vnav-mobile-badge {
-          width: 24px;
-          height: 24px;
-          border-radius: 6px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          flex-shrink: 0;
-          color: #fff;
-          font-size: 11px;
-          font-weight: 700;
-        }
-        .rp-vnav-mobile-appearance {
-          padding-top: 0.25rem;
-        }
-
-        @media (max-width: 1280px) {
-          .rp-vnav-desktop {
-            display: none;
-          }
-          .rp-vnav-burger {
-            display: flex;
-          }
-          .rp-vnav-mobile-panel.open {
-            display: flex;
-          }
-        }
-      `}</style>
     </div>
   );
 }
 
-/**
- * Enables click-to-zoom on documentation images, mirroring the medium-zoom
- * behaviour of the Docusaurus site (which zoomed `.markdown img`). We re-attach
- * on every navigation because rspress swaps the page content client-side, and
- * pick the overlay background from the active theme (white in light mode, the
- * Centreon navy in dark mode).
- */
-function useImageZoom() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    const isDark = document.documentElement.classList.contains('dark');
-    const zoom = mediumZoom('.rspress-doc img, .rp-doc img', {
-      background: isDark ? '#00003d' : '#ffffff',
-      margin: 24,
-    });
-
-    return () => zoom.detach();
-  }, [pathname]);
-}
+const FOOTER_LINKS = [
+  { label: 'Corporate Website', href: 'https://www.centreon.com/en/' },
+  { label: 'Blog', href: 'https://www.centreon.com/en/blog/' },
+  { label: 'Download', href: 'https://download.centreon.com/' },
+];
 
 /**
- * Global footer rendered on documentation pages, mirroring the Docusaurus
- * footer: corporate links, the Centreon logo and the copyright line.
+ * Global footer, like the Docusaurus one: links on one side, logo and
+ * copyright on the other. Doc pages use the inverted color scheme.
  */
 function SiteFooter() {
+  const { page } = usePage();
+  const inverted = page.pageType === 'doc';
   return (
-    <footer className="rp-site-footer">
-      <div className="rp-site-footer__inner">
-        <picture>
-          <img
-            className="rp-site-footer__logo rp-site-footer__logo--light"
-            src="/img/logo_centreon_dark.png"
-            alt="Centreon"
-          />
-          <img
-            className="rp-site-footer__logo rp-site-footer__logo--dark"
-            src="/img/logo_centreon.png"
-            alt="Centreon"
-          />
-        </picture>
+    <footer className={`rp-site-footer${inverted ? ' rp-site-footer--inverted' : ''}`}>
+      <div className="rp-site-footer__container">
         <nav className="rp-site-footer__links" aria-label="Footer">
-          <a href="https://www.centreon.com/en/" target="_blank" rel="noreferrer">
-            Corporate Website
-          </a>
-          <a href="https://www.centreon.com/en/blog/" target="_blank" rel="noreferrer">
-            Blog
-          </a>
-          <a href="https://download.centreon.com/" target="_blank" rel="noreferrer">
-            Download
-          </a>
+          {FOOTER_LINKS.map(({ label, href }) => (
+            <a key={href} href={href} target="_blank" rel="noreferrer">
+              {label}
+            </a>
+          ))}
         </nav>
-        <div className="rp-site-footer__copyright">Copyright © 2005 - 2026 Centreon</div>
+        <div className="rp-site-footer__bottom">
+          <img
+            className="rp-site-footer__logo rp-site-footer__logo--on-light"
+            src="/img/logo_centreon_dark.png"
+            alt="Centreon Open Source Logo"
+            width={257}
+            height={61}
+            loading="lazy"
+            decoding="async"
+          />
+          <img
+            className="rp-site-footer__logo rp-site-footer__logo--on-dark"
+            src="/img/logo_centreon.png"
+            alt="Centreon Open Source Logo"
+            width={257}
+            height={61}
+            loading="lazy"
+            decoding="async"
+          />
+          <div className="rp-site-footer__copyright">Copyright © 2005 - 2026 Centreon</div>
+        </div>
       </div>
-      <style>{`
-        .rp-site-footer {
-          margin-top: 3rem;
-          padding: 2.5rem 1.5rem;
-          border-top: 1px solid var(--rp-c-divider-light);
-        }
-        .rp-site-footer__inner {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          gap: 1rem;
-          text-align: center;
-        }
-        .rp-site-footer__logo {
-          height: 34px;
-          width: auto;
-        }
-        .rp-site-footer__logo--dark {
-          display: none;
-        }
-        .dark .rp-site-footer__logo--light {
-          display: none;
-        }
-        .dark .rp-site-footer__logo--dark {
-          display: inline-block;
-        }
-        .rp-site-footer__links {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          gap: 1.5rem;
-          font-size: 0.875rem;
-          font-weight: 500;
-        }
-        .rp-site-footer__links a {
-          color: var(--rp-c-text-2);
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .rp-site-footer__links a:hover {
-          color: var(--rp-c-brand);
-        }
-        .rp-site-footer__copyright {
-          font-size: 0.8125rem;
-          color: var(--rp-c-text-2);
-        }
-      `}</style>
     </footer>
   );
 }
 
 export function Layout(props: any) {
-  useImageZoom();
   return (
     <DefaultLayout
       {...props}

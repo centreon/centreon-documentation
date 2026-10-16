@@ -65,6 +65,8 @@ export default defineConfig({
     versions: ['26.10', '25.10'],
   },
   siteOrigin: 'https://docs.centreon.com',
+  // Built-in image zoom; its overlay uses --rp-c-bg (white / Centreon navy), like Docusaurus.
+  mediumZoom: { options: { margin: 24 } },
   plugins: [
     pluginLastUpdatedFromSource(join(__dirname, 'docs'), join(__dirname, '..')),
     pluginSlimPageData(),
@@ -171,10 +173,6 @@ export default defineConfig({
   themeConfig: {
     enableScrollToTop: true,
     lastUpdated: true,
-    footer: {
-      message:
-        '<a href="https://www.centreon.com/en/" target="_blank" rel="noreferrer">Corporate Website</a> · <a href="https://www.centreon.com/en/blog/" target="_blank" rel="noreferrer">Blog</a> · <a href="https://download.centreon.com/" target="_blank" rel="noreferrer">Download</a><br/>Copyright © 2005 - 2026 Centreon',
-    },
     locales: [
       {
         lang: 'en',
