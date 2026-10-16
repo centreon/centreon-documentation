@@ -59,8 +59,10 @@ export default defineConfig({
   },
   siteOrigin: 'https://docs.centreon.com',
   plugins: [pluginLastUpdatedFromSource(join(__dirname, 'docs'), join(__dirname, '..'))],
-  // Render ~6,000 pages (en/fr x 2 versions) in worker threads.
-  ssg: { experimentalWorker: true },
+  // Pre-render ~6,000 pages (en/fr x 2 versions) in worker threads (one per
+  // CPU, ~15 GB peak with 2 CPUs). PR previews stay client-rendered: SSG does
+  // not fit in the 16 GB GitHub-hosted runner.
+  ssg: process.env.PREVIEW_BUILD === 'true' ? false : { experimentalWorker: true },
   route: {
     // Extension-less URLs, like docs.centreon.com.
     cleanUrls: true,
