@@ -4,7 +4,7 @@ title: Parcours utilisateur
 description: Fonctionnalités clés et prérequis de la fonctionnalité Parcours Utilisateurs
 ---
 
-Les parcours utilisateur vous permettent de configurer une sonde pour naviguer régulièrement sur votre site en suivant un chemin prédéfini, en mesurant divers indicateurs de performance web.
+Les parcours utilisateur vous permettent de configurer une sonde pour naviguer régulièrement sur votre site en suivant un scénario, en mesurant divers indicateurs de performance web.
 La sonde envoie ensuite les données à Experience Monitoring pour que vous puissiez les consulter.
 
 Les parcours utilisateur, ainsi que le [Real User Monitoring](../../getting-started/real-user-monitoring.md), constituent l'une des fonctionnalités clés d'Experience Monitoring, car d'autres fonctionnalités comme le [Score de Sobriété Numérique](../../digital-sobriety/digital-sobriety-concepts.md) ou les [Tests de charge](../../getting-started/load-tests.md) dépendent du chemin défini par les parcours utilisateur pour fonctionner.
