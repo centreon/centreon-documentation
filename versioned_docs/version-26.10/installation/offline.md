@@ -13,11 +13,11 @@ To be able to install Centreon on servers with no internet access, create a loca
 1. Install the repository on your mirror server.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -29,11 +29,11 @@ rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -42,6 +42,21 @@ Then retrieve the gpg key for the packages:
 
 ```shell
 rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+```shell
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+Then retrieve the gpg key for the packages:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
 ```
 
 </TabItem>
