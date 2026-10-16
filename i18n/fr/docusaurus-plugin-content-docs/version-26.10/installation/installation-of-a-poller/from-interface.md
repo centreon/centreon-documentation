@@ -12,7 +12,7 @@ Une commande personnalisée pour installer un collecteur sur une machine virtuel
 
 * La machine sur laquelle vous allez installer le collecteur doit satisfaire les [prérequis d'installation d'un collecteur](../prerequisites.md#dimensionnement-dun-collecteur).
 * Vous devez avoir créé un [jeton de d'authentification de type collecteur](..administration/authentication-tokens.md).
-* Sur le serveur central, [le module **pullwss** de Gorgone doit être configuré pour accepter les connexions entrantes](./pollers-containers-prerequisites.md). Cette opération n'est à réaliser qu'une seule fois, avant d'installer votre premier collecteur en utilisant la commande fournie par l'interface (qu'il soit installé sur une machine physique, une VM ou un conteneur).
+* Sur le serveur central, [le module **pullwss** de Gorgone doit être configuré pour accepter les connexions entrantes](./pollers-containers-prerequisites.md). Cette opération n'est à réaliser qu'une seule fois, avant d'installer votre premier collecteur en utilisant une commande fournie par l'interface (qu'il soit installé sur une machine physique, une VM ou un conteneur).
 
 ## Étape 1 : Générer la commande d'installation
 
@@ -35,7 +35,7 @@ Une commande personnalisée pour installer un collecteur sur une machine virtuel
 
 5. Dans la section **Générer la commande d'installation**, cliquez sur le bouton et patientez le temps que la commande soit générée.
 
-6. Copiez la commande à l'aide du bouton situé en haut à droite du bloc de code et exécutez-la.
+6. Copiez la commande à l'aide du bouton situé en haut à droite du bloc de code et exécutez-la sur votre machine hôte.
 
 7. Cliquez sur le bouton **Exporter la configuration**.
 
