@@ -488,8 +488,8 @@ dnf install https://dev.mysql.com/get/mysql84-community-release-el10-1.noarch.rp
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.32-1_all.deb
-dpkg -i mysql-apt-config_0.8.32-1_all.deb
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.36-1_all.deb
+dpkg -i mysql-apt-config_0.8.36-1_all.deb
 apt update
 ```
 
