@@ -59,9 +59,15 @@ importers:
       '@rspress/core':
         specifier: ~2.0.23
         version: 2.0.23(@rspack/core@2.2.8(@swc/helpers@0.5.23))(core-js@3.48.0)(micromark-util-types@2.0.2)(micromark@4.0.2)
+      clsx:
+        specifier: 2.1.1
+        version: 2.1.1
       medium-zoom:
         specifier: ^1.1.0
         version: 1.1.0
+      scroll-into-view-if-needed:
+        specifier: 3.1.0
+        version: 3.1.0
     devDependencies:
       '@napi-rs/image':
         specifier: ^1.11.2

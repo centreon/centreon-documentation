@@ -5,6 +5,8 @@ import mediumZoom from 'medium-zoom';
 import 'medium-zoom/dist/style.css';
 
 export * from '@rspress/core/theme-original';
+// Lazily rendered sidebar groups (see components/Sidebar/SidebarGroup.tsx).
+export { Sidebar, SidebarList } from './components/Sidebar';
 
 const DEFAULT_VERSION = '26.10';
 const VERSIONS = ['26.10', '25.10'] as const;
