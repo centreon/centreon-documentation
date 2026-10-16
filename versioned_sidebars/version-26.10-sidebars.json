@@ -154,6 +154,18 @@
               "id": "installation/installation-of-a-poller/unattended-install-poller"
             },
             {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/vm-or-physical"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/pollers-containers-prerequisites"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/adapt-legacy-pullwss"
+            },
+            {
               "type": "category",
               "label": "Pollers in containers",
               "link": {
@@ -166,15 +178,7 @@
                 },
                 {
                   "type": "doc",
-                  "id": "installation/installation-of-a-poller/pollers-containers-prerequisites"
-                },
-                {
-                  "type": "doc",
                   "id": "installation/installation-of-a-poller/using-containers-advanced-configuration"
-                },
-                {
-                  "type": "doc",
-                  "id": "installation/installation-of-a-poller/adapt-legacy-pullwss"
                 }
               ]
             },
