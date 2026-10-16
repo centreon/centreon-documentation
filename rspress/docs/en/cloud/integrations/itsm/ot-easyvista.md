@@ -1,6 +1,7 @@
 ---
 id: ot-easyvista
 title: EasyVista API SOAP
+description: "Configure the deprecated EasyVista SOAP API open-tickets provider, superseded by the EasyVista REST API version"
 ---
 
 > **SOAP** Service Manager web services are no longer maintained, so we recommend that you use the [**Rest API** version](./ot-easyvista-rest-api.md) to benefit from the latest enhancements and features.
@@ -11,13 +12,6 @@ EasyVista open-tickets provider uses the EasyVista SOAP API to open incidents
 about your monitoring alerts.
 
 ![architecture](../../assets/integrations/open-tickets/ot-easyvista-architecture.webp)
-
-## Compatibility
-
-This integration is (at least) compatible with the following EasyVista
-versions:
-
-**To be determined**
 
 ## Requirements
 
@@ -37,12 +31,12 @@ Our provider requires the following parameters:
 
 As of now, the provider is able to open a ticket with the following parameters
 
-  - Requestor
-  - Urgency
-  - Severity
-  - Asset
-  - External reference
-  - Phone
-  - Recipient
-  - Origin
-  - CI
+- Requestor
+- Urgency
+- Severity
+- Asset
+- External reference
+- Phone
+- Recipient
+- Origin
+- CI

@@ -246,7 +246,7 @@ export const sidebar: Sidebar = {
           "link": "/25.10/administration/secure-platform"
         },
         {
-          "text": "Secure your MAP platform",
+          "text": "Securing your MAP platform",
           "link": "/25.10/graph-views/secure-your-map-platform"
         },
         {
@@ -268,6 +268,10 @@ export const sidebar: Sidebar = {
             {
               "text": "Basic principles of monitoring",
               "link": "/25.10/monitoring/about"
+            },
+            {
+              "text": "Active vs passive checks",
+              "link": "/25.10/monitoring/active-passive-checks"
             },
             {
               "text": "Understanding metrics",
@@ -332,8 +336,8 @@ export const sidebar: Sidebar = {
               "link": "/25.10/monitoring/basic-objects/services-templates"
             },
             {
-              "text": "Creating Meta Services",
-              "link": "/25.10/monitoring/basic-objects/meta-services"
+              "text": "Metaservices",
+              "link": "/25.10/monitoring/basic-objects/metaservices"
             }
           ]
         },
@@ -564,19 +568,52 @@ export const sidebar: Sidebar = {
           ]
         },
         {
+          "text": "Installing Open Tickets",
+          "link": "/25.10/alerts-notifications/ticketing-install"
+        },
+        {
           "text": "Managing tickets",
           "collapsible": true,
           "collapsed": true,
           "items": [
             {
-              "text": "Installing Open Tickets",
-              "link": "/25.10/alerts-notifications/ticketing-install"
-            },
-            {
               "text": "Configuring Open Tickets",
               "link": "/25.10/alerts-notifications/ticketing"
+            },
+            {
+              "text": "Customizing tickets",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Ticketing Advanced Smarty Variables",
+                  "link": "/25.10/alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "text": "Ticketing Advanced Smarty Functions",
+                  "link": "/25.10/alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "text": "Ticketing Advanced Mapping",
+                  "link": "/25.10/alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "text": "Open tickets glossary",
+                  "link": "/25.10/alerts-notifications/ticketing/glossary"
+                }
+              ],
+              "link": "/25.10/alerts-notifications/ticketing/ticketing-advanced-body"
+            },
+            {
+              "text": "Using Open Tickets",
+              "link": "/25.10/alerts-notifications/ticketing-use"
+            },
+            {
+              "text": "Ticketing Advanced Architecture",
+              "link": "/25.10/alerts-notifications/ticketing/ticketing-advanced-architecture"
             }
-          ]
+          ],
+          "link": "/25.10/alerts-notifications/ticketing-overview"
         }
       ]
     },
@@ -714,68 +751,119 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Introduction to Centreon MAP",
-              "link": "/25.10/graph-views/introduction-map"
+              "text": "Overview",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Introduction to Centreon MAP",
+                  "link": "/25.10/graph-views/introduction-map"
+                },
+                {
+                  "text": "MAP architecture",
+                  "link": "/25.10/graph-views/map-architecture"
+                }
+              ]
             },
             {
-              "text": "Installing MAP",
-              "link": "/25.10/graph-views/map-web-install"
+              "text": "Setting up MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installing MAP",
+                  "link": "/25.10/graph-views/map-web-install"
+                },
+                {
+                  "text": "Installing MAP on a remote server",
+                  "link": "/25.10/graph-views/map-web-install-remote"
+                },
+                {
+                  "text": "Securing your MAP platform",
+                  "link": "/25.10/graph-views/secure-your-map-platform"
+                },
+                {
+                  "text": "Changing the MAP server's port",
+                  "link": "/25.10/graph-views/map-web-change-port"
+                },
+                {
+                  "text": "Managing access rights in MAP",
+                  "link": "/25.10/graph-views/map-web-access"
+                }
+              ]
             },
             {
-              "text": "Installing MAP on a remote server",
-              "link": "/25.10/graph-views/map-web-install-remote"
+              "text": "Using MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Managing maps in MAP",
+                  "link": "/25.10/graph-views/map-web-manage"
+                },
+                {
+                  "text": "Creating a standard map",
+                  "link": "/25.10/graph-views/map-web-create-standard-map"
+                },
+                {
+                  "text": "Creating a geographic view",
+                  "link": "/25.10/graph-views/map-web-create-geoview"
+                },
+                {
+                  "text": "Understanding map access (ACL)",
+                  "link": "/25.10/graph-views/map-understanding-access"
+                },
+                {
+                  "text": "Map Api",
+                  "link": "/25.10/api/map-api"
+                }
+              ]
             },
             {
-              "text": "Updating MAP",
-              "link": "/25.10/graph-views/map-web-update"
+              "text": "Administrating MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Updating MAP",
+                  "link": "/25.10/graph-views/map-web-update"
+                },
+                {
+                  "text": "Upgrading MAP",
+                  "link": "/25.10/graph-views/map-web-upgrade"
+                },
+                {
+                  "text": "Migrating the extension",
+                  "link": "/25.10/graph-views/map-web-migrate"
+                },
+                {
+                  "text": "Backing up and restoring your MAP server",
+                  "link": "/25.10/graph-views/map-web-backup-restore"
+                },
+                {
+                  "text": "Monitoring your MAP server",
+                  "link": "/25.10/graph-views/map-web-monitoring"
+                },
+                {
+                  "text": "Customizing status computation",
+                  "link": "/25.10/graph-views/map-web-advanced"
+                }
+              ]
             },
             {
-              "text": "Upgrading MAP",
-              "link": "/25.10/graph-views/map-web-upgrade"
-            },
-            {
-              "text": "Managing access rights in MAP",
-              "link": "/25.10/graph-views/map-web-access"
-            },
-            {
-              "text": "Managing maps in MAP",
-              "link": "/25.10/graph-views/map-web-manage"
-            },
-            {
-              "text": "Creating a standard map",
-              "link": "/25.10/graph-views/map-web-create-standard-map"
-            },
-            {
-              "text": "Creating a geographic view",
-              "link": "/25.10/graph-views/map-web-create-geoview"
-            },
-            {
-              "text": "Migrating the extension",
-              "link": "/25.10/graph-views/map-web-migrate"
-            },
-            {
-              "text": "Advanced configuration in MAP",
-              "link": "/25.10/graph-views/map-web-advanced-configuration"
-            },
-            {
-              "text": "Advanced parameters in MAP",
-              "link": "/25.10/graph-views/map-web-advanced"
-            },
-            {
-              "text": "Backing up and restoring your MAP server",
-              "link": "/25.10/graph-views/map-web-backup-restore"
-            },
-            {
-              "text": "MAP known issues",
-              "link": "/25.10/graph-views/map-web-known-issues"
-            },
-            {
-              "text": "MAP troubleshooting",
-              "link": "/25.10/graph-views/map-web-troubleshooting"
-            },
-            {
-              "text": "Map Api",
-              "link": "/25.10/api/map-api"
+              "text": "Fixing MAP issues",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "MAP known issues",
+                  "link": "/25.10/graph-views/map-web-known-issues"
+                },
+                {
+                  "text": "MAP troubleshooting",
+                  "link": "/25.10/graph-views/map-web-troubleshooting"
+                }
+              ]
             }
           ]
         },
@@ -1180,8 +1268,19 @@ export const sidebar: Sidebar = {
           "link": "/25.10/cma/cma-setup"
         },
         {
-          "text": "Configuring certificates",
-          "link": "/25.10/cma/cma-certificates"
+          "text": "Manual setup (advanced)",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Setting up CMA manually",
+              "link": "/25.10/cma/cma-setup-manual"
+            },
+            {
+              "text": "Configuring certificates",
+              "link": "/25.10/cma/cma-certificates"
+            }
+          ]
         },
         {
           "text": "Using custom plugins with CMA",
@@ -1240,6 +1339,10 @@ export const sidebar: Sidebar = {
               "link": "/25.10/integrations/data-analytics/sc-elastic-metrics"
             },
             {
+              "text": "Graphite Metrics",
+              "link": "/25.10/integrations/data-analytics/sc-graphite-metrics"
+            },
+            {
               "text": "HP OMI",
               "link": "/25.10/integrations/event-management/sc-hp-omi"
             },
@@ -1296,8 +1399,8 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "BMC Footprints",
-              "link": "/25.10/integrations/itsm/ot-bmc-footprints"
+              "text": "BMC Footprints 11",
+              "link": "/25.10/integrations/itsm/ot-bmc-footprints-11"
             },
             {
               "text": "BMC Remedy",
@@ -1324,6 +1427,10 @@ export const sidebar: Sidebar = {
               "link": "/25.10/integrations/itsm/ot-itop"
             },
             {
+              "text": "Ivanti",
+              "link": "/25.10/integrations/itsm/ot-ivanti"
+            },
+            {
               "text": "Jira",
               "link": "/25.10/integrations/itsm/ot-jira"
             },
@@ -1336,16 +1443,20 @@ export const sidebar: Sidebar = {
               "link": "/25.10/integrations/itsm/ot-otrs-restapi"
             },
             {
-              "text": "Ot Request Tracker Restapi",
-              "link": "/25.10/integrations/itsm/ot-request-tracker-restapi"
+              "text": "Request Tracker 2",
+              "link": "/25.10/integrations/itsm/ot-request-tracker-2"
             },
             {
-              "text": "Serena",
-              "link": "/25.10/integrations/itsm/ot-serena"
+              "text": "Serena ITSM",
+              "link": "/25.10/integrations/itsm/ot-serena-itsm"
             },
             {
               "text": "Ot Servicenow",
               "link": "/25.10/integrations/itsm/ot-servicenow"
+            },
+            {
+              "text": "Simple",
+              "link": "/25.10/integrations/itsm/ot-simple"
             }
           ],
           "link": "/25.10/integrations/itsm/itsm-overview"
@@ -1686,6 +1797,10 @@ export const sidebar: Sidebar = {
               "link": "/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma"
             },
             {
+              "text": "Rust Collections (experimental)",
+              "link": "/pp/integrations/plugin-packs/getting-started/how-to-guides/rust-collections"
+            },
+            {
               "text": "Azure Monitoring Prerequisites",
               "link": "/pp/integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration"
             },
@@ -1724,23 +1839,8 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/releases/release-notes"
         },
         {
-          "text": "Developers Center",
-          "collapsible": true,
-          "collapsed": true,
-          "items": [
-            {
-              "text": "Getting started - Plugin development",
-              "link": "/pp/integrations/plugin-packs/dev-resources/introduction"
-            },
-            {
-              "text": "Plugins development guidelines",
-              "link": "/pp/integrations/plugin-packs/dev-resources/plugins-guidelines"
-            },
-            {
-              "text": "Develop with centreon-plugins",
-              "link": "/pp/integrations/plugin-packs/dev-resources/develop-with-centreon-plugins"
-            }
-          ]
+          "text": "Developing your own plugins",
+          "link": "/pp/integrations/plugin-packs/getting-started/develop-plugin"
         }
       ],
       "link": "/pp/integrations/plugin-packs/getting-started/introduction"
@@ -1751,7 +1851,7 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "3CX",
+          "text": "3CX Rest API",
           "link": "/pp/integrations/plugin-packs/procedures/applications-voip-3cx-restapi"
         },
         {
@@ -1843,7 +1943,7 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/applications-controlm-restapi"
         },
         {
-          "text": "Docker REST API",
+          "text": "Docker Rest API",
           "link": "/pp/integrations/plugin-packs/procedures/applications-docker-restapi"
         },
         {
@@ -1851,8 +1951,20 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/applications-drbd-ssh"
         },
         {
+          "text": "Dynamics AX CMA",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-cma"
+        },
+        {
           "text": "Dynamics AX Database",
           "link": "/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-mssql"
+        },
+        {
+          "text": "Dynamics AX NSClient 0.5 NRPE",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe"
+        },
+        {
+          "text": "Dynamics365 CMA",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-dynamics-365-cma"
         },
         {
           "text": "Dynamics365 NSClient 0.5 NRPE",
@@ -2039,10 +2151,6 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp"
         },
         {
-          "text": "Dynamics AX NSClient 0.5 NRPE",
-          "link": "/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe"
-        },
-        {
           "text": "Microsoft Exchange 2010 NRPE (deprecated)",
           "link": "/pp/integrations/plugin-packs/procedures/applications-exchange-2010-nrpe"
         },
@@ -2209,6 +2317,10 @@ export const sidebar: Sidebar = {
         {
           "text": "PVX",
           "link": "/pp/integrations/plugin-packs/procedures/applications-pvx-restapi"
+        },
+        {
+          "text": "Quadstor CMA",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-quadstor-cma"
         },
         {
           "text": "Quadstor NSClient++ NRPE",
@@ -3389,7 +3501,7 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/network-cisco-waas-snmp"
         },
         {
-          "text": "Cisco WAP SNMP",
+          "text": "Cisco Wap SNMP",
           "link": "/pp/integrations/plugin-packs/procedures/network-cisco-wap-snmp"
         },
         {
@@ -3901,6 +4013,10 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/network-watchguard-snmp"
         },
         {
+          "text": "Waystream SNMP",
+          "link": "/pp/integrations/plugin-packs/procedures/network-waystream-snmp"
+        },
+        {
           "text": "Westermo Standard SNMP",
           "link": "/pp/integrations/plugin-packs/procedures/network-westermo-standard-snmp"
         },
@@ -3968,6 +4084,10 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp"
         },
         {
+          "text": "Linux SNMP (Rust)",
+          "link": "/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp-rs"
+        },
+        {
           "text": "Linux SNMP v3",
           "link": "/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmpv3"
         },
@@ -4010,6 +4130,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Windows SNMP",
           "link": "/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp"
+        },
+        {
+          "text": "Windows SNMP (Rust)",
+          "link": "/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp-rs"
         },
         {
           "text": "Windows Telegraf Agent",
@@ -4056,6 +4180,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Generic SNMP",
           "link": "/pp/integrations/plugin-packs/procedures/applications-protocol-snmp"
+        },
+        {
+          "text": "Generic SNMP (Rust)",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-protocol-snmp-rs"
         },
         {
           "text": "HTTP Server",
@@ -4278,6 +4406,10 @@ export const sidebar: Sidebar = {
         {
           "text": "EMC RecoveryPoint SSH",
           "link": "/pp/integrations/plugin-packs/procedures/applications-backup-emc-recoverypoint-ssh"
+        },
+        {
+          "text": "EMC Symmetrix CMA",
+          "link": "/pp/integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-cma"
         },
         {
           "text": "EMC Symmetrix NRPE",
@@ -4725,6 +4857,22 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/virtualization-proxmox-ve-restapi"
         },
         {
+          "text": "Vates XCPng Host REST API",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-virtualization-vates-host-restapi"
+        },
+        {
+          "text": "Vates VM REST API",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-virtualization-vates-vm-restapi"
+        },
+        {
+          "text": "Vates Pool REST API",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-virtualization-vates-pool-restapi"
+        },
+        {
+          "text": "Vates Xen Orchestra REST API",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-virtualization-vates-xenorchestra-restapi"
+        },
+        {
           "text": "VMware ESX",
           "link": "/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx"
         },
@@ -4829,7 +4977,7 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "How do I monitor a resource?",
+              "text": "How do I monitor my first host?",
               "link": "/cloud/getting-started/monitoring"
             },
             {
@@ -4975,6 +5123,10 @@ export const sidebar: Sidebar = {
             {
               "text": "Deploying a configuration",
               "link": "/cloud/monitoring/monitoring-servers/deploying-a-configuration"
+            },
+            {
+              "text": "Active vs passive checks",
+              "link": "/cloud/monitoring/active-passive-checks"
             }
           ]
         },
@@ -5023,7 +5175,7 @@ export const sidebar: Sidebar = {
               "link": "/cloud/monitoring/basic-objects/services-templates"
             },
             {
-              "text": "Creating Meta Services",
+              "text": "Creating Metaservices",
               "link": "/cloud/monitoring/basic-objects/meta-services"
             }
           ]
@@ -5218,6 +5370,10 @@ export const sidebar: Sidebar = {
               "link": "/cloud/service-mapping/ba-management"
             },
             {
+              "text": "Simulate Business Activities",
+              "link": "/cloud/service-mapping/ba-simulation"
+            },
+            {
               "text": "Monitor Business Activities",
               "link": "/cloud/service-mapping/ba-monitoring"
             },
@@ -5342,8 +5498,19 @@ export const sidebar: Sidebar = {
           "link": "/cloud/cma/cma-setup"
         },
         {
-          "text": "Configuring certificates",
-          "link": "/cloud/cma/cma-certificates"
+          "text": "Manual setup (advanced)",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Setting up CMA manually",
+              "link": "/cloud/cma/cma-setup-manual"
+            },
+            {
+              "text": "Configuring certificates",
+              "link": "/cloud/cma/cma-certificates"
+            }
+          ]
         },
         {
           "text": "Using custom plugins with CMA",
@@ -5378,8 +5545,12 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "BMC Footprints",
-              "link": "/cloud/integrations/itsm/ot-bmc-footprints"
+              "text": "BMC Footprints 11",
+              "link": "/cloud/integrations/itsm/ot-bmc-footprints-11"
+            },
+            {
+              "text": "BMC Remedy",
+              "link": "/cloud/integrations/itsm/ot-bmc-remedy"
             },
             {
               "text": "EasyVista API SOAP",
@@ -5402,20 +5573,36 @@ export const sidebar: Sidebar = {
               "link": "/cloud/integrations/itsm/ot-itop"
             },
             {
+              "text": "Ivanti",
+              "link": "/cloud/integrations/itsm/ot-ivanti"
+            },
+            {
               "text": "Jira",
               "link": "/cloud/integrations/itsm/ot-jira"
+            },
+            {
+              "text": "Mail",
+              "link": "/cloud/integrations/itsm/ot-mail"
             },
             {
               "text": "Ot Otrs Restapi",
               "link": "/cloud/integrations/itsm/ot-otrs-restapi"
             },
             {
-              "text": "Ot Request Tracker Restapi",
-              "link": "/cloud/integrations/itsm/ot-request-tracker-restapi"
+              "text": "Request Tracker 2",
+              "link": "/cloud/integrations/itsm/ot-request-tracker-2"
+            },
+            {
+              "text": "Serena ITSM",
+              "link": "/cloud/integrations/itsm/ot-serena-itsm"
             },
             {
               "text": "Ot Servicenow",
               "link": "/cloud/integrations/itsm/ot-servicenow"
+            },
+            {
+              "text": "Simple",
+              "link": "/cloud/integrations/itsm/ot-simple"
             }
           ],
           "link": "/cloud/integrations/itsm/itsm-overview"
@@ -5456,14 +5643,29 @@ export const sidebar: Sidebar = {
       ]
     },
     {
-      "text": "Resources",
+      "text": "Troubleshooting Centreon Cloud",
       "collapsible": true,
       "collapsed": true,
       "items": [
         {
+          "text": "Troubleshooting Centreon Cloud",
+          "link": "/cloud/resources/troubleshooting"
+        },
+        {
           "text": "Centreon Cloud known issues",
           "link": "/cloud/resources/known-issues"
         },
+        {
+          "text": "Licenses FAQ",
+          "link": "/cloud/resources/licenses-faq"
+        }
+      ]
+    },
+    {
+      "text": "Resources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
         {
           "text": "Glossary of Centreon concepts",
           "link": "/cloud/resources/glossary"
@@ -5500,6 +5702,10 @@ export const sidebar: Sidebar = {
         {
           "text": "User portal (Centreon Hub)",
           "link": "/logmanagement/centreon-hub"
+        },
+        {
+          "text": "User rights in Centreon Log Management",
+          "link": "/logmanagement/user-rights"
         }
       ]
     },
@@ -5513,8 +5719,8 @@ export const sidebar: Sidebar = {
           "link": "/logmanagement/collector/opentelemetry-collector"
         },
         {
-          "text": "Copyright 2025 Centreon.",
-          "link": "/logmanagement/collector/collector-simple"
+          "text": "Generating an OTel collector configuration file",
+          "link": "/logmanagement/collector/collector-generator"
         },
         {
           "text": "Collector",
@@ -5532,7 +5738,7 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Log Explorer",
+          "text": "Using the log explorer",
           "link": "/logmanagement/log-explorer"
         },
         {
@@ -5547,13 +5753,17 @@ export const sidebar: Sidebar = {
       "link": "/logmanagement/explore-analyze"
     },
     {
-      "text": "Managing alerts",
+      "text": "Managing alerts and notifications",
       "collapsible": true,
       "collapsed": true,
       "items": [
         {
           "text": "Alert Events",
           "link": "/logmanagement/alert-events"
+        },
+        {
+          "text": "Setting up notifications",
+          "link": "/logmanagement/notifications"
         }
       ]
     },
@@ -5595,166 +5805,47 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Experience Monitoring Solution",
+          "text": "What can I do with Experience Monitoring?",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Synthetic Monitoring",
+              "link": "/experience-monitoring/getting-started/synthetic-monitoring"
+            },
+            {
+              "text": "Real User Monitoring (RUM)",
+              "link": "/experience-monitoring/getting-started/real-user-monitoring"
+            },
+            {
+              "text": "System Data",
+              "link": "/experience-monitoring/getting-started/system-view"
+            },
+            {
+              "text": "Network Data",
+              "link": "/experience-monitoring/getting-started/network-data"
+            },
+            {
+              "text": "Business View",
+              "link": "/experience-monitoring/getting-started/business-view"
+            },
+            {
+              "text": "Load Tests",
+              "link": "/experience-monitoring/getting-started/load-tests"
+            },
+            {
+              "text": "Digital Sobriety",
+              "link": "/experience-monitoring/getting-started/digital-sobriety"
+            }
+          ],
           "link": "/experience-monitoring/getting-started/experience-monitoring-solution"
         },
         {
-          "text": "Contact Support",
-          "link": "/experience-monitoring/getting-started/contact-support"
+          "text": "Navigating in Experience Monitoring",
+          "link": "/experience-monitoring/performance-analysis/basic-actions/navigate-in-experience-monitoring"
         },
         {
-          "text": "Synthetic Monitoring",
-          "link": "/experience-monitoring/getting-started/synthetic-monitoring"
-        },
-        {
-          "text": "Real User Monitoring",
-          "link": "/experience-monitoring/getting-started/real-user-monitoring"
-        },
-        {
-          "text": "System View",
-          "link": "/experience-monitoring/getting-started/system-view"
-        },
-        {
-          "text": "Business View",
-          "link": "/experience-monitoring/getting-started/business-view"
-        },
-        {
-          "text": "Load Tests",
-          "link": "/experience-monitoring/getting-started/load-tests"
-        },
-        {
-          "text": "Dashboards",
-          "link": "/experience-monitoring/getting-started/dashboards"
-        }
-      ],
-      "link": "/experience-monitoring/getting-started/welcome"
-    },
-    {
-      "text": "Installation",
-      "collapsible": true,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "Installation Checklist",
-          "link": "/experience-monitoring/installation/installation-checklist"
-        },
-        {
-          "text": "Experience Monitoring Ip Addresses",
-          "link": "/experience-monitoring/installation/experience-monitoring-ip-addresses"
-        },
-        {
-          "text": "Real User Monitoring Installation",
-          "link": "/experience-monitoring/installation/real-user-monitoring-installation"
-        },
-        {
-          "text": "Monitor Production Events",
-          "link": "/experience-monitoring/installation/monitor-production-events"
-        },
-        {
-          "text": "Servers and middleware",
-          "collapsible": true,
-          "collapsed": true,
-          "items": [
-            {
-              "text": "Install System Agents",
-              "link": "/experience-monitoring/installation/servers/install-system-agents"
-            },
-            {
-              "text": "Cloud Configuration Of Agents",
-              "link": "/experience-monitoring/installation/servers/cloud-configuration-of-agents"
-            },
-            {
-              "text": "Add Advanced Metrics",
-              "link": "/experience-monitoring/installation/servers/add-advanced-metrics"
-            },
-            {
-              "text": "Install Php Magento Orocommerce Profiler",
-              "link": "/experience-monitoring/installation/servers/install-php-magento-orocommerce-profiler"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "Configuration",
-      "collapsible": true,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "Configuration Checklist",
-          "link": "/experience-monitoring/configuration/configuration-checklist"
-        },
-        {
-          "text": "Manage Users And Rights",
-          "link": "/experience-monitoring/configuration/manage-users-and-rights"
-        },
-        {
-          "text": "Configure Digital Sobriety",
-          "link": "/experience-monitoring/configuration/configure-digital-sobriety"
-        },
-        {
-          "text": "Configure Google Analytics",
-          "link": "/experience-monitoring/configuration/configure-google-analytics"
-        },
-        {
-          "text": "Receive And Configure Alerts",
-          "link": "/experience-monitoring/configuration/receive-and-configure-alerts"
-        },
-        {
-          "text": "User journey",
-          "collapsible": true,
-          "collapsed": true,
-          "items": [
-            {
-              "text": "Create A Scenario",
-              "link": "/experience-monitoring/configuration/user-journey/create-a-scenario"
-            },
-            {
-              "text": "User Journey Best Practices",
-              "link": "/experience-monitoring/configuration/user-journey/user-journey-best-practices"
-            },
-            {
-              "text": "Monitoring non-public user journeys (closed beta)",
-              "link": "/experience-monitoring/configuration/user-journey/stm-zones"
-            }
-          ]
-        },
-        {
-          "text": "Advanced configuration",
-          "collapsible": true,
-          "collapsed": true,
-          "items": [
-            {
-              "text": "Define CSRF token and _qm3k_session variables",
-              "link": "/experience-monitoring/configuration/advanced-configuration/enable-disable-scenario-or-alert-via-api"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "Performance analysis",
-      "collapsible": true,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "Network Tab Indicators",
-          "link": "/experience-monitoring/performance-analysis/network-tab-indicators"
-        },
-        {
-          "text": "System Tab Indicators",
-          "link": "/experience-monitoring/performance-analysis/system-tab-indicators"
-        },
-        {
-          "text": "Speed Up Website With Applications Or Server Configuration",
-          "link": "/experience-monitoring/performance-analysis/speed-up-website-with-applications-or-server-configuration"
-        },
-        {
-          "text": "Errors And Unavailability Front End",
-          "link": "/experience-monitoring/performance-analysis/errors-and-unavailability-front-end"
-        },
-        {
-          "text": "Metric overview",
+          "text": "Understanding metrics",
           "collapsible": true,
           "collapsed": true,
           "items": [
@@ -5790,29 +5881,112 @@ export const sidebar: Sidebar = {
           "link": "/experience-monitoring/performance-analysis/metrics/overview-of-metrics"
         },
         {
-          "text": "Basic actions",
+          "text": "Working with charts",
           "collapsible": true,
           "collapsed": true,
           "items": [
             {
-              "text": "Navigate In Experience Monitoring",
-              "link": "/experience-monitoring/performance-analysis/basic-actions/navigate-in-experience-monitoring"
+              "text": "Using Charts",
+              "link": "/experience-monitoring/how-to-articles/using-charts"
             },
             {
-              "text": "How Alerts Work",
-              "link": "/experience-monitoring/performance-analysis/basic-actions/how-alerts-work"
-            },
-            {
-              "text": "Gray Areas On Charts",
-              "link": "/experience-monitoring/performance-analysis/basic-actions/gray-areas-on-charts"
-            },
-            {
-              "text": "Event Tracking",
-              "link": "/experience-monitoring/performance-analysis/basic-actions/event-tracking"
+              "text": "Adding event markers to charts",
+              "link": "/experience-monitoring/installation/monitor-production-events"
             }
           ]
         }
+      ],
+      "link": "/experience-monitoring/getting-started/welcome"
+    },
+    {
+      "text": "Setting up Experience Monitoring",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Experience Monitoring installation checklist",
+          "link": "/experience-monitoring/installation/installation-checklist"
+        },
+        {
+          "text": "Managing access tokens",
+          "link": "/experience-monitoring/installation/tokens"
+        },
+        {
+          "text": "Manage Users And Rights",
+          "link": "/experience-monitoring/configuration/manage-users-and-rights"
+        }
       ]
+    },
+    {
+      "text": "User journeys (STM)",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "User Journeys",
+          "link": "/experience-monitoring/configuration/user-journey/user-journey-intro"
+        },
+        {
+          "text": "Create A Scenario",
+          "link": "/experience-monitoring/configuration/user-journey/create-a-scenario"
+        },
+        {
+          "text": "User Journey Best Practices",
+          "link": "/experience-monitoring/configuration/user-journey/user-journey-best-practices"
+        },
+        {
+          "text": "Journey overview",
+          "link": "/experience-monitoring/how-to-articles/user-journey-screen"
+        },
+        {
+          "text": "User Journey Notifications",
+          "link": "/experience-monitoring/configuration/user-journey/user-journey-notifications"
+        },
+        {
+          "text": "Monitoring non-public user journeys",
+          "link": "/experience-monitoring/configuration/user-journey/stm-zones"
+        },
+        {
+          "text": "Optimizing your site",
+          "link": "/experience-monitoring/configuration/user-journey/user-journey-improve"
+        },
+        {
+          "text": "Errors And Unavailability Front End",
+          "link": "/experience-monitoring/performance-analysis/errors-and-unavailability-front-end"
+        },
+        {
+          "text": "Define CSRF token and _qm3k_session variables",
+          "link": "/experience-monitoring/configuration/advanced-configuration/enable-disable-scenario-or-alert-via-api"
+        }
+      ]
+    },
+    {
+      "text": "Real User Monitoring (RUM)",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "What is Real User Monitoring?",
+          "link": "/experience-monitoring/rum/rum-intro"
+        },
+        {
+          "text": "Setting up RUM",
+          "link": "/experience-monitoring/installation/real-user-monitoring-installation"
+        },
+        {
+          "text": "Understanding RUM results",
+          "link": "/experience-monitoring/rum/rum-results"
+        },
+        {
+          "text": "RUM optimization recommendations",
+          "link": "/experience-monitoring/rum/rum-improve"
+        },
+        {
+          "text": "Troubleshooting RUM",
+          "link": "/experience-monitoring/how-to-articles/rum-blocked-by-csp"
+        }
+      ],
+      "link": "/experience-monitoring/rum/rum"
     },
     {
       "text": "Digital sobriety",
@@ -5820,69 +5994,106 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Carbon Footprint Evaluation And Digital Sobriety",
-          "link": "/experience-monitoring/digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety"
+          "text": "Digital Sobriety concepts",
+          "link": "/experience-monitoring/digital-sobriety/digital-sobriety-concepts"
         },
         {
-          "text": "Digital Sobriety Score",
+          "text": "Digital Sobriety Score calculations",
           "link": "/experience-monitoring/digital-sobriety/digital-sobriety-score"
         },
         {
-          "text": "Differences With Eco Index",
-          "link": "/experience-monitoring/digital-sobriety/differences-with-eco-index"
+          "text": "Improving your Digital Sobriety Score",
+          "link": "/experience-monitoring/digital-sobriety/improve-dss"
         }
       ]
     },
     {
-      "text": "How-to articles",
+      "text": "Business data (Google Analytics/Matomo)",
       "collapsible": true,
       "collapsed": true,
       "items": [
         {
-          "text": "Unable To Connect",
-          "link": "/experience-monitoring/how-to-articles/unable-to-connect"
+          "text": "Configure Google Analytics with Experience Monitoring",
+          "link": "/experience-monitoring/configuration/configure-google-analytics"
         },
         {
-          "text": "To view the error details, hover over the red bar — Experience Monitoring will show at which step the scenario stopped and why.",
-          "link": "/experience-monitoring/how-to-articles/meaning-of-colors-in-graphs"
+          "text": "Understanding business data results",
+          "link": "/experience-monitoring/business-data/business-data-results"
         },
         {
-          "text": "SEO Module – Google Search Optimization",
-          "link": "/experience-monitoring/how-to-articles/seo-module"
-        },
-        {
-          "text": "Measurement Interval",
-          "link": "/experience-monitoring/how-to-articles/measurement-interval"
-        },
-        {
-          "text": "Experience Monitoring Probes In Google Analytics",
-          "link": "/experience-monitoring/how-to-articles/experience-monitoring-probes-in-google-analytics"
-        },
-        {
-          "text": "I'm concerned about my server's security, can you explain how the Experience Monitoring agent and PHP module work?",
-          "link": "/experience-monitoring/how-to-articles/faq"
-        },
-        {
-          "text": "How do I reset my password?",
-          "link": "/experience-monitoring/how-to-articles/password-reset"
-        },
-        {
-          "text": "Using Charts",
-          "link": "/experience-monitoring/how-to-articles/using-charts"
-        },
-        {
-          "text": "User Journey Screen",
-          "link": "/experience-monitoring/how-to-articles/user-journey-screen"
-        },
-        {
-          "text": "Rum Blocked By Csp",
-          "link": "/experience-monitoring/how-to-articles/rum-blocked-by-csp"
+          "text": "Business alerts",
+          "link": "/experience-monitoring/business-data/business-alerts"
         }
       ]
     },
     {
+      "text": "System data (host server health)",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Installation",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Install the agent on a static server",
+              "link": "/experience-monitoring/installation/servers/install-system-agents"
+            },
+            {
+              "text": "Install the agent in autoscaling environments",
+              "link": "/experience-monitoring/installation/servers/cloud-configuration-of-agents"
+            },
+            {
+              "text": "Install application agents",
+              "link": "/experience-monitoring/installation/servers/add-advanced-metrics"
+            },
+            {
+              "text": "Install the PHP profiler",
+              "link": "/experience-monitoring/installation/servers/install-php-magento-orocommerce-profiler"
+            },
+            {
+              "text": "Agent FAQ",
+              "link": "/experience-monitoring/how-to-articles/faq"
+            }
+          ]
+        },
+        {
+          "text": "Understanding the System tab indicators",
+          "link": "/experience-monitoring/performance-analysis/system-tab-indicators"
+        }
+      ]
+    },
+    {
+      "text": "Network Tab Indicators",
+      "link": "/experience-monitoring/performance-analysis/network-tab-indicators"
+    },
+    {
+      "text": "Load tests",
+      "link": "/experience-monitoring/how-to-articles/performing-load-tests"
+    },
+    {
+      "text": "Dashboards",
+      "link": "/experience-monitoring/performance-analysis/dashboards"
+    },
+    {
       "text": "Centreon Experience Monitoring release notes",
       "link": "/experience-monitoring/release-notes"
+    },
+    {
+      "text": "Resources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Experience Monitoring glossary",
+          "link": "/experience-monitoring/experience-monitoring-glossary"
+        },
+        {
+          "text": "Troubleshooting Experience Monitoring",
+          "link": "/experience-monitoring/troubleshooting"
+        }
+      ]
     }
   ],
   "/fr/25.10/": [
@@ -6130,7 +6341,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/25.10/administration/secure-platform"
         },
         {
-          "text": "Sécurisez votre plateforme MAP",
+          "text": "Sécuriser votre plateforme MAP",
           "link": "/fr/25.10/graph-views/secure-your-map-platform"
         },
         {
@@ -6152,6 +6363,10 @@ export const sidebar: Sidebar = {
             {
               "text": "Principes de base de la supervision",
               "link": "/fr/25.10/monitoring/about"
+            },
+            {
+              "text": "Contrôles actifs vs contrôles passifs",
+              "link": "/fr/25.10/monitoring/active-passive-checks"
             },
             {
               "text": "Comprendre les métriques",
@@ -6216,8 +6431,8 @@ export const sidebar: Sidebar = {
               "link": "/fr/25.10/monitoring/basic-objects/services-templates"
             },
             {
-              "text": "Créer des méta-services",
-              "link": "/fr/25.10/monitoring/basic-objects/meta-services"
+              "text": "Metaservices",
+              "link": "/fr/25.10/monitoring/basic-objects/metaservices"
             }
           ]
         },
@@ -6448,19 +6663,52 @@ export const sidebar: Sidebar = {
           ]
         },
         {
+          "text": "Installation d'Open Tickets",
+          "link": "/fr/25.10/alerts-notifications/ticketing-install"
+        },
+        {
           "text": "Gérer des tickets",
           "collapsible": true,
           "collapsed": true,
           "items": [
             {
-              "text": "Installation d'Open Tickets",
-              "link": "/fr/25.10/alerts-notifications/ticketing-install"
-            },
-            {
               "text": "Configuration",
               "link": "/fr/25.10/alerts-notifications/ticketing"
+            },
+            {
+              "text": "Personnaliser les tickets",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Ticketing Advanced Smarty Variables",
+                  "link": "/fr/25.10/alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "text": "Ticketing Advanced Smarty Functions",
+                  "link": "/fr/25.10/alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "text": "Ticketing Advanced Mapping",
+                  "link": "/fr/25.10/alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "text": "Glossaire Open Tickets",
+                  "link": "/fr/25.10/alerts-notifications/ticketing/glossary"
+                }
+              ],
+              "link": "/fr/25.10/alerts-notifications/ticketing/ticketing-advanced-body"
+            },
+            {
+              "text": "Utiliser Open Tickets",
+              "link": "/fr/25.10/alerts-notifications/ticketing-use"
+            },
+            {
+              "text": "Ticketing Advanced Architecture",
+              "link": "/fr/25.10/alerts-notifications/ticketing/ticketing-advanced-architecture"
             }
-          ]
+          ],
+          "link": "/fr/25.10/alerts-notifications/ticketing-overview"
         }
       ]
     },
@@ -6598,68 +6846,119 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Introduction à Centreon MAP",
-              "link": "/fr/25.10/graph-views/introduction-map"
+              "text": "Introduction",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Introduction à Centreon MAP",
+                  "link": "/fr/25.10/graph-views/introduction-map"
+                },
+                {
+                  "text": "Architecture de MAP",
+                  "link": "/fr/25.10/graph-views/map-architecture"
+                }
+              ]
             },
             {
-              "text": "Installer MAP",
-              "link": "/fr/25.10/graph-views/map-web-install"
+              "text": "Mettre en place MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installer MAP",
+                  "link": "/fr/25.10/graph-views/map-web-install"
+                },
+                {
+                  "text": "Installer MAP sur un serveur distant",
+                  "link": "/fr/25.10/graph-views/map-web-install-remote"
+                },
+                {
+                  "text": "Sécuriser votre plateforme MAP",
+                  "link": "/fr/25.10/graph-views/secure-your-map-platform"
+                },
+                {
+                  "text": "Changer le port du serveur Centreon MAP",
+                  "link": "/fr/25.10/graph-views/map-web-change-port"
+                },
+                {
+                  "text": "Gérer les droits d'accès dans MAP",
+                  "link": "/fr/25.10/graph-views/map-web-access"
+                }
+              ]
             },
             {
-              "text": "Installer MAP sur un serveur distant",
-              "link": "/fr/25.10/graph-views/map-web-install-remote"
+              "text": "Utiliser MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Gérer les cartes dans MAP",
+                  "link": "/fr/25.10/graph-views/map-web-manage"
+                },
+                {
+                  "text": "Créer une carte standard",
+                  "link": "/fr/25.10/graph-views/map-web-create-standard-map"
+                },
+                {
+                  "text": "Créer une vue géographique",
+                  "link": "/fr/25.10/graph-views/map-web-create-geoview"
+                },
+                {
+                  "text": "Comprendre les droits d'accès aux cartes (ACL)",
+                  "link": "/fr/25.10/graph-views/map-understanding-access"
+                },
+                {
+                  "text": "Map Api",
+                  "link": "/fr/25.10/api/map-api"
+                }
+              ]
             },
             {
-              "text": "Mettre à jour MAP",
-              "link": "/fr/25.10/graph-views/map-web-update"
+              "text": "Administrer MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Mettre à jour MAP",
+                  "link": "/fr/25.10/graph-views/map-web-update"
+                },
+                {
+                  "text": "Monter de version MAP",
+                  "link": "/fr/25.10/graph-views/map-web-upgrade"
+                },
+                {
+                  "text": "Migrer l'extension",
+                  "link": "/fr/25.10/graph-views/map-web-migrate"
+                },
+                {
+                  "text": "Sauvegarder et restaurer votre serveur Centreon MAP",
+                  "link": "/fr/25.10/graph-views/map-web-backup-restore"
+                },
+                {
+                  "text": "Superviser votre serveur Centreon MAP",
+                  "link": "/fr/25.10/graph-views/map-web-monitoring"
+                },
+                {
+                  "text": "Personnaliser le calcul du statut",
+                  "link": "/fr/25.10/graph-views/map-web-advanced"
+                }
+              ]
             },
             {
-              "text": "Monter de version MAP",
-              "link": "/fr/25.10/graph-views/map-web-upgrade"
-            },
-            {
-              "text": "Gérer les droits d'accès dans MAP",
-              "link": "/fr/25.10/graph-views/map-web-access"
-            },
-            {
-              "text": "Gérer les cartes dans MAP",
-              "link": "/fr/25.10/graph-views/map-web-manage"
-            },
-            {
-              "text": "Créer une carte standard",
-              "link": "/fr/25.10/graph-views/map-web-create-standard-map"
-            },
-            {
-              "text": "Créer une vue géographique",
-              "link": "/fr/25.10/graph-views/map-web-create-geoview"
-            },
-            {
-              "text": "Migrer l'extension",
-              "link": "/fr/25.10/graph-views/map-web-migrate"
-            },
-            {
-              "text": "Configuration avancée dans MAP",
-              "link": "/fr/25.10/graph-views/map-web-advanced-configuration"
-            },
-            {
-              "text": "Paramètres avancés dans MAP",
-              "link": "/fr/25.10/graph-views/map-web-advanced"
-            },
-            {
-              "text": "Sauvegarder et restaurer votre serveur Centreon MAP",
-              "link": "/fr/25.10/graph-views/map-web-backup-restore"
-            },
-            {
-              "text": "Problèmes connus dans MAP",
-              "link": "/fr/25.10/graph-views/map-web-known-issues"
-            },
-            {
-              "text": "Dépannage de MAP",
-              "link": "/fr/25.10/graph-views/map-web-troubleshooting"
-            },
-            {
-              "text": "Map Api",
-              "link": "/fr/25.10/api/map-api"
+              "text": "Résoudre les problèmes MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Problèmes connus dans MAP",
+                  "link": "/fr/25.10/graph-views/map-web-known-issues"
+                },
+                {
+                  "text": "Dépanner MAP",
+                  "link": "/fr/25.10/graph-views/map-web-troubleshooting"
+                }
+              ]
             }
           ]
         },
@@ -7064,8 +7363,19 @@ export const sidebar: Sidebar = {
           "link": "/fr/25.10/cma/cma-setup"
         },
         {
-          "text": "Configurer les certificats",
-          "link": "/fr/25.10/cma/cma-certificates"
+          "text": "Installation manuelle",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Configurer CMA manuellement",
+              "link": "/fr/25.10/cma/cma-setup-manual"
+            },
+            {
+              "text": "Configurer les certificats",
+              "link": "/fr/25.10/cma/cma-certificates"
+            }
+          ]
         },
         {
           "text": "Utiliser des plugins personnalisés avec CMA",
@@ -7124,6 +7434,10 @@ export const sidebar: Sidebar = {
               "link": "/fr/25.10/integrations/data-analytics/sc-elastic-metrics"
             },
             {
+              "text": "Graphite Metrics",
+              "link": "/fr/25.10/integrations/data-analytics/sc-graphite-metrics"
+            },
+            {
               "text": "Sc Hp Omi",
               "link": "/fr/25.10/integrations/event-management/sc-hp-omi"
             },
@@ -7180,8 +7494,8 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "BMC Footprints",
-              "link": "/fr/25.10/integrations/itsm/ot-bmc-footprints"
+              "text": "BMC Footprints 11",
+              "link": "/fr/25.10/integrations/itsm/ot-bmc-footprints-11"
             },
             {
               "text": "BMC Remedy",
@@ -7192,7 +7506,7 @@ export const sidebar: Sidebar = {
               "link": "/fr/25.10/integrations/itsm/ot-easyvista"
             },
             {
-              "text": "EasyVista API Rest",
+              "text": "EasyVista RestAPI",
               "link": "/fr/25.10/integrations/itsm/ot-easyvista-rest-api"
             },
             {
@@ -7208,6 +7522,10 @@ export const sidebar: Sidebar = {
               "link": "/fr/25.10/integrations/itsm/ot-itop"
             },
             {
+              "text": "Ivanti",
+              "link": "/fr/25.10/integrations/itsm/ot-ivanti"
+            },
+            {
               "text": "Jira",
               "link": "/fr/25.10/integrations/itsm/ot-jira"
             },
@@ -7220,16 +7538,20 @@ export const sidebar: Sidebar = {
               "link": "/fr/25.10/integrations/itsm/ot-otrs-restapi"
             },
             {
-              "text": "Ot Request Tracker Restapi",
-              "link": "/fr/25.10/integrations/itsm/ot-request-tracker-restapi"
+              "text": "Request Tracker 2",
+              "link": "/fr/25.10/integrations/itsm/ot-request-tracker-2"
             },
             {
-              "text": "Serena",
-              "link": "/fr/25.10/integrations/itsm/ot-serena"
+              "text": "Serena ITSM",
+              "link": "/fr/25.10/integrations/itsm/ot-serena-itsm"
             },
             {
               "text": "Ot Servicenow",
               "link": "/fr/25.10/integrations/itsm/ot-servicenow"
+            },
+            {
+              "text": "Simple",
+              "link": "/fr/25.10/integrations/itsm/ot-simple"
             }
           ],
           "link": "/fr/25.10/integrations/itsm/itsm-overview"
@@ -7383,7 +7705,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/25.10/installation/installation-of-centreon-ha/ha-small"
         },
         {
-          "text": "Completing your Centreon HA setup",
+          "text": "Finaliser votre installation Centreon HA",
           "collapsible": true,
           "collapsed": true,
           "items": [
@@ -7570,6 +7892,10 @@ export const sidebar: Sidebar = {
               "link": "/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/cma/cma"
             },
             {
+              "text": "Collections Rust (expérimental)",
+              "link": "/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/rust-collections"
+            },
+            {
               "text": "Prérequis pour la supervision Azure",
               "link": "/fr/pp/integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration"
             },
@@ -7608,23 +7934,8 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/releases/release-notes"
         },
         {
-          "text": "Developers Center",
-          "collapsible": true,
-          "collapsed": true,
-          "items": [
-            {
-              "text": "Getting started - Plugin development",
-              "link": "/fr/pp/integrations/plugin-packs/dev-resources/introduction"
-            },
-            {
-              "text": "Plugins development guidelines",
-              "link": "/fr/pp/integrations/plugin-packs/dev-resources/plugins-guidelines"
-            },
-            {
-              "text": "Develop with centreon-plugins",
-              "link": "/fr/pp/integrations/plugin-packs/dev-resources/develop-with-centreon-plugins"
-            }
-          ]
+          "text": "Développer vos propres plugins",
+          "link": "/fr/pp/integrations/plugin-packs/getting-started/develop-plugin"
         }
       ],
       "link": "/fr/pp/integrations/plugin-packs/getting-started/introduction"
@@ -7635,7 +7946,7 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "3CX",
+          "text": "3CX Rest API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-voip-3cx-restapi"
         },
         {
@@ -7727,7 +8038,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-controlm-restapi"
         },
         {
-          "text": "Docker REST API",
+          "text": "Docker Rest API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-docker-restapi"
         },
         {
@@ -7735,8 +8046,20 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-drbd-ssh"
         },
         {
+          "text": "Dynamics AX CMA",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-cma"
+        },
+        {
           "text": "Dynamics AX Database",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-mssql"
+        },
+        {
+          "text": "Dynamics AX NSClient 0.5 NRPE",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe"
+        },
+        {
+          "text": "Dynamics365 CMA",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-dynamics-365-cma"
         },
         {
           "text": "Dynamics365 NSClient 0.5 NRPE",
@@ -7923,10 +8246,6 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-microsoft-dhcp-snmp"
         },
         {
-          "text": "Dynamics AX NSClient 0.5 NRPE",
-          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe"
-        },
-        {
           "text": "Microsoft Exchange 2010 NRPE (déprécié)",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-exchange-2010-nrpe"
         },
@@ -8093,6 +8412,10 @@ export const sidebar: Sidebar = {
         {
           "text": "PVX",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-pvx-restapi"
+        },
+        {
+          "text": "Quadstor CMA",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-quadstor-cma"
         },
         {
           "text": "Quadstor NSClient++ NRPE",
@@ -9273,7 +9596,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/network-cisco-waas-snmp"
         },
         {
-          "text": "Cisco WAP SNMP",
+          "text": "Cisco Wap SNMP",
           "link": "/fr/pp/integrations/plugin-packs/procedures/network-cisco-wap-snmp"
         },
         {
@@ -9785,6 +10108,10 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/network-watchguard-snmp"
         },
         {
+          "text": "Waystream SNMP",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/network-waystream-snmp"
+        },
+        {
           "text": "Westermo Standard SNMP",
           "link": "/fr/pp/integrations/plugin-packs/procedures/network-westermo-standard-snmp"
         },
@@ -9852,6 +10179,10 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp"
         },
         {
+          "text": "Linux SNMP (Rust)",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmp-rs"
+        },
+        {
           "text": "Linux SNMP v3",
           "link": "/fr/pp/integrations/plugin-packs/procedures/operatingsystems-linux-snmpv3"
         },
@@ -9894,6 +10225,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Windows SNMP",
           "link": "/fr/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp"
+        },
+        {
+          "text": "Windows SNMP (Rust)",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp-rs"
         },
         {
           "text": "Windows Telegraf Agent",
@@ -9940,6 +10275,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Generic SNMP",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-protocol-snmp"
+        },
+        {
+          "text": "Generic SNMP (Rust)",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-protocol-snmp-rs"
         },
         {
           "text": "HTTP Server",
@@ -10162,6 +10501,10 @@ export const sidebar: Sidebar = {
         {
           "text": "EMC RecoveryPoint SSH",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-backup-emc-recoverypoint-ssh"
+        },
+        {
+          "text": "EMC Symmetrix CMA",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-cma"
         },
         {
           "text": "EMC Symmetrix NRPE",
@@ -10609,6 +10952,22 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/virtualization-proxmox-ve-restapi"
         },
         {
+          "text": "Vates XCPng Host REST API",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-virtualization-vates-host-restapi"
+        },
+        {
+          "text": "Vates VM REST API",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-virtualization-vates-vm-restapi"
+        },
+        {
+          "text": "Vates Pool REST API",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-virtualization-vates-pool-restapi"
+        },
+        {
+          "text": "Vates Xen Orchestra REST API",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-virtualization-vates-xenorchestra-restapi"
+        },
+        {
           "text": "VMware ESX",
           "link": "/fr/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx"
         },
@@ -10713,7 +11072,7 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Comment mettre une ressource en supervision ?",
+              "text": "Comment mettre mon premier hôte en supervision ?",
               "link": "/fr/cloud/getting-started/monitoring"
             },
             {
@@ -10859,6 +11218,10 @@ export const sidebar: Sidebar = {
             {
               "text": "Déployer une configuration",
               "link": "/fr/cloud/monitoring/monitoring-servers/deploying-a-configuration"
+            },
+            {
+              "text": "Contrôles actifs vs contrôles passifs",
+              "link": "/fr/cloud/monitoring/active-passive-checks"
             }
           ]
         },
@@ -10907,7 +11270,7 @@ export const sidebar: Sidebar = {
               "link": "/fr/cloud/monitoring/basic-objects/services-templates"
             },
             {
-              "text": "Créer des méta-services",
+              "text": "Créer des métaservices",
               "link": "/fr/cloud/monitoring/basic-objects/meta-services"
             }
           ]
@@ -11102,6 +11465,10 @@ export const sidebar: Sidebar = {
               "link": "/fr/cloud/service-mapping/ba-management"
             },
             {
+              "text": "Simulation",
+              "link": "/fr/cloud/service-mapping/ba-simulation"
+            },
+            {
               "text": "Supervision",
               "link": "/fr/cloud/service-mapping/ba-monitoring"
             },
@@ -11226,8 +11593,19 @@ export const sidebar: Sidebar = {
           "link": "/fr/cloud/cma/cma-setup"
         },
         {
-          "text": "Configurer les certificats",
-          "link": "/fr/cloud/cma/cma-certificates"
+          "text": "Installation manuelle",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Configurer CMA manuellement",
+              "link": "/fr/cloud/cma/cma-setup-manual"
+            },
+            {
+              "text": "Configurer les certificats",
+              "link": "/fr/cloud/cma/cma-certificates"
+            }
+          ]
         },
         {
           "text": "Utiliser des plugins personnalisés avec CMA",
@@ -11262,8 +11640,12 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "BMC Footprints",
-              "link": "/fr/cloud/integrations/itsm/ot-bmc-footprints"
+              "text": "BMC Footprints 11",
+              "link": "/fr/cloud/integrations/itsm/ot-bmc-footprints-11"
+            },
+            {
+              "text": "BMC Remedy",
+              "link": "/fr/cloud/integrations/itsm/ot-bmc-remedy"
             },
             {
               "text": "EasyVista API SOAP",
@@ -11286,20 +11668,36 @@ export const sidebar: Sidebar = {
               "link": "/fr/cloud/integrations/itsm/ot-itop"
             },
             {
+              "text": "Ivanti",
+              "link": "/fr/cloud/integrations/itsm/ot-ivanti"
+            },
+            {
               "text": "Jira",
               "link": "/fr/cloud/integrations/itsm/ot-jira"
+            },
+            {
+              "text": "Mail",
+              "link": "/fr/cloud/integrations/itsm/ot-mail"
             },
             {
               "text": "Ot Otrs Restapi",
               "link": "/fr/cloud/integrations/itsm/ot-otrs-restapi"
             },
             {
-              "text": "Ot Request Tracker Restapi",
-              "link": "/fr/cloud/integrations/itsm/ot-request-tracker-restapi"
+              "text": "Request Tracker 2",
+              "link": "/fr/cloud/integrations/itsm/ot-request-tracker-2"
+            },
+            {
+              "text": "Serena ITSM",
+              "link": "/fr/cloud/integrations/itsm/ot-serena-itsm"
             },
             {
               "text": "Ot Servicenow",
               "link": "/fr/cloud/integrations/itsm/ot-servicenow"
+            },
+            {
+              "text": "Simple",
+              "link": "/fr/cloud/integrations/itsm/ot-simple"
             }
           ],
           "link": "/fr/cloud/integrations/itsm/itsm-overview"
@@ -11340,14 +11738,29 @@ export const sidebar: Sidebar = {
       ]
     },
     {
-      "text": "Ressources",
+      "text": "Dépanner Centreon Cloud",
       "collapsible": true,
       "collapsed": true,
       "items": [
         {
+          "text": "Dépanner Centreon Cloud",
+          "link": "/fr/cloud/resources/troubleshooting"
+        },
+        {
           "text": "Problèmes connus sur Centreon Cloud",
           "link": "/fr/cloud/resources/known-issues"
         },
+        {
+          "text": "FAQ sur les licences",
+          "link": "/fr/cloud/resources/licenses-faq"
+        }
+      ]
+    },
+    {
+      "text": "Ressources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
         {
           "text": "Glossaire des concepts Centreon",
           "link": "/fr/cloud/resources/glossary"
@@ -11384,6 +11797,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Portail utilisateur (Centreon Hub)",
           "link": "/fr/logmanagement/centreon-hub"
+        },
+        {
+          "text": "Droits utilisateur dans Centreon Log Management",
+          "link": "/fr/logmanagement/user-rights"
         }
       ]
     },
@@ -11397,8 +11814,8 @@ export const sidebar: Sidebar = {
           "link": "/fr/logmanagement/collector/opentelemetry-collector"
         },
         {
-          "text": "Copyright 2025 Centreon",
-          "link": "/fr/logmanagement/collector/collector-simple"
+          "text": "Générer un fichier de configuration de collecteur OTel",
+          "link": "/fr/logmanagement/collector/collector-generator"
         },
         {
           "text": "Collector",
@@ -11431,13 +11848,17 @@ export const sidebar: Sidebar = {
       "link": "/fr/logmanagement/explore-analyze"
     },
     {
-      "text": "Gérer les alertes",
+      "text": "Gérer alertes et notifications",
       "collapsible": true,
       "collapsed": true,
       "items": [
         {
           "text": "Alert Events",
           "link": "/fr/logmanagement/alert-events"
+        },
+        {
+          "text": "Paramétrer des notifications",
+          "link": "/fr/logmanagement/notifications"
         }
       ]
     },
@@ -11479,166 +11900,47 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Experience Monitoring Solution",
+          "text": "Que faire avec Experience Monitoring?",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Synthetic Monitoring",
+              "link": "/fr/experience-monitoring/getting-started/synthetic-monitoring"
+            },
+            {
+              "text": "Real User Monitoring",
+              "link": "/fr/experience-monitoring/getting-started/real-user-monitoring"
+            },
+            {
+              "text": "System View",
+              "link": "/fr/experience-monitoring/getting-started/system-view"
+            },
+            {
+              "text": "Network Data",
+              "link": "/fr/experience-monitoring/getting-started/network-data"
+            },
+            {
+              "text": "Business View",
+              "link": "/fr/experience-monitoring/getting-started/business-view"
+            },
+            {
+              "text": "Load Tests",
+              "link": "/fr/experience-monitoring/getting-started/load-tests"
+            },
+            {
+              "text": "Sobriété Numérique",
+              "link": "/fr/experience-monitoring/getting-started/digital-sobriety"
+            }
+          ],
           "link": "/fr/experience-monitoring/getting-started/experience-monitoring-solution"
         },
         {
-          "text": "Contact Support",
-          "link": "/fr/experience-monitoring/getting-started/contact-support"
+          "text": "Navigate In Experience Monitoring",
+          "link": "/fr/experience-monitoring/performance-analysis/basic-actions/navigate-in-experience-monitoring"
         },
         {
-          "text": "Synthetic Monitoring",
-          "link": "/fr/experience-monitoring/getting-started/synthetic-monitoring"
-        },
-        {
-          "text": "Real User Monitoring",
-          "link": "/fr/experience-monitoring/getting-started/real-user-monitoring"
-        },
-        {
-          "text": "System View",
-          "link": "/fr/experience-monitoring/getting-started/system-view"
-        },
-        {
-          "text": "Business View",
-          "link": "/fr/experience-monitoring/getting-started/business-view"
-        },
-        {
-          "text": "Load Tests",
-          "link": "/fr/experience-monitoring/getting-started/load-tests"
-        },
-        {
-          "text": "Dashboards",
-          "link": "/fr/experience-monitoring/getting-started/dashboards"
-        }
-      ],
-      "link": "/fr/experience-monitoring/getting-started/welcome"
-    },
-    {
-      "text": "Installation",
-      "collapsible": true,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "Installation Checklist",
-          "link": "/fr/experience-monitoring/installation/installation-checklist"
-        },
-        {
-          "text": "Experience Monitoring Ip Addresses",
-          "link": "/fr/experience-monitoring/installation/experience-monitoring-ip-addresses"
-        },
-        {
-          "text": "Real User Monitoring Installation",
-          "link": "/fr/experience-monitoring/installation/real-user-monitoring-installation"
-        },
-        {
-          "text": "Monitor Production Events",
-          "link": "/fr/experience-monitoring/installation/monitor-production-events"
-        },
-        {
-          "text": "Serveurs et middleware",
-          "collapsible": true,
-          "collapsed": true,
-          "items": [
-            {
-              "text": "Install System Agents",
-              "link": "/fr/experience-monitoring/installation/servers/install-system-agents"
-            },
-            {
-              "text": "Cloud Configuration Of Agents",
-              "link": "/fr/experience-monitoring/installation/servers/cloud-configuration-of-agents"
-            },
-            {
-              "text": "Add Advanced Metrics",
-              "link": "/fr/experience-monitoring/installation/servers/add-advanced-metrics"
-            },
-            {
-              "text": "Install Php Magento Orocommerce Profiler",
-              "link": "/fr/experience-monitoring/installation/servers/install-php-magento-orocommerce-profiler"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "Configuration",
-      "collapsible": true,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "Configuration Checklist",
-          "link": "/fr/experience-monitoring/configuration/configuration-checklist"
-        },
-        {
-          "text": "Manage Users And Rights",
-          "link": "/fr/experience-monitoring/configuration/manage-users-and-rights"
-        },
-        {
-          "text": "Configure Digital Sobriety",
-          "link": "/fr/experience-monitoring/configuration/configure-digital-sobriety"
-        },
-        {
-          "text": "Configure Google Analytics",
-          "link": "/fr/experience-monitoring/configuration/configure-google-analytics"
-        },
-        {
-          "text": "Receive And Configure Alerts",
-          "link": "/fr/experience-monitoring/configuration/receive-and-configure-alerts"
-        },
-        {
-          "text": "Parcours Utilisateurs",
-          "collapsible": true,
-          "collapsed": true,
-          "items": [
-            {
-              "text": "Create A Scenario",
-              "link": "/fr/experience-monitoring/configuration/user-journey/create-a-scenario"
-            },
-            {
-              "text": "User Journey Best Practices",
-              "link": "/fr/experience-monitoring/configuration/user-journey/user-journey-best-practices"
-            },
-            {
-              "text": "Superviser des parcours utilisateur non-publics (beta fermée)",
-              "link": "/fr/experience-monitoring/configuration/user-journey/stm-zones"
-            }
-          ]
-        },
-        {
-          "text": "Configuration avancée",
-          "collapsible": true,
-          "collapsed": true,
-          "items": [
-            {
-              "text": "Définir les variables CSRF-Token et _qm3k_session",
-              "link": "/fr/experience-monitoring/configuration/advanced-configuration/enable-disable-scenario-or-alert-via-api"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "text": "Analyse de la performance",
-      "collapsible": true,
-      "collapsed": true,
-      "items": [
-        {
-          "text": "Network Tab Indicators",
-          "link": "/fr/experience-monitoring/performance-analysis/network-tab-indicators"
-        },
-        {
-          "text": "System Tab Indicators",
-          "link": "/fr/experience-monitoring/performance-analysis/system-tab-indicators"
-        },
-        {
-          "text": "Speed Up Website With Applications Or Server Configuration",
-          "link": "/fr/experience-monitoring/performance-analysis/speed-up-website-with-applications-or-server-configuration"
-        },
-        {
-          "text": "Errors And Unavailability Front End",
-          "link": "/fr/experience-monitoring/performance-analysis/errors-and-unavailability-front-end"
-        },
-        {
-          "text": "Vue d'ensemble des métriques",
+          "text": "Comprendre les métriques",
           "collapsible": true,
           "collapsed": true,
           "items": [
@@ -11663,7 +11965,7 @@ export const sidebar: Sidebar = {
               "link": "/fr/experience-monitoring/performance-analysis/metrics/largest-contentful-paint"
             },
             {
-              "text": "TTB - Total Blocking Time (Web Vital)",
+              "text": "TBT - Total Blocking Time (Web Vital)",
               "link": "/fr/experience-monitoring/performance-analysis/metrics/total-blocking-time"
             },
             {
@@ -11674,29 +11976,112 @@ export const sidebar: Sidebar = {
           "link": "/fr/experience-monitoring/performance-analysis/metrics/overview-of-metrics"
         },
         {
-          "text": "Actions de base",
+          "text": "Travailler avec les graphiques",
           "collapsible": true,
           "collapsed": true,
           "items": [
             {
-              "text": "Navigate In Experience Monitoring",
-              "link": "/fr/experience-monitoring/performance-analysis/basic-actions/navigate-in-experience-monitoring"
+              "text": "Using Charts",
+              "link": "/fr/experience-monitoring/how-to-articles/using-charts"
             },
             {
-              "text": "How Alerts Work",
-              "link": "/fr/experience-monitoring/performance-analysis/basic-actions/how-alerts-work"
-            },
-            {
-              "text": "Gray Areas On Charts",
-              "link": "/fr/experience-monitoring/performance-analysis/basic-actions/gray-areas-on-charts"
-            },
-            {
-              "text": "Event Tracking",
-              "link": "/fr/experience-monitoring/performance-analysis/basic-actions/event-tracking"
+              "text": "Monitor Production Events",
+              "link": "/fr/experience-monitoring/installation/monitor-production-events"
             }
           ]
         }
+      ],
+      "link": "/fr/experience-monitoring/getting-started/welcome"
+    },
+    {
+      "text": "Mettre en place Experience Monitoring",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Installation Checklist",
+          "link": "/fr/experience-monitoring/installation/installation-checklist"
+        },
+        {
+          "text": "Gérer les jetons d'accès",
+          "link": "/fr/experience-monitoring/installation/tokens"
+        },
+        {
+          "text": "Manage Users And Rights",
+          "link": "/fr/experience-monitoring/configuration/manage-users-and-rights"
+        }
       ]
+    },
+    {
+      "text": "Parcours utilisateur (STM)",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Parcours utilisateur",
+          "link": "/fr/experience-monitoring/configuration/user-journey/user-journey-intro"
+        },
+        {
+          "text": "Créer un parcours utilisateur",
+          "link": "/fr/experience-monitoring/configuration/user-journey/create-a-scenario"
+        },
+        {
+          "text": "User Journey Best Practices",
+          "link": "/fr/experience-monitoring/configuration/user-journey/user-journey-best-practices"
+        },
+        {
+          "text": "L’écran Parcours Utilisateurs",
+          "link": "/fr/experience-monitoring/how-to-articles/user-journey-screen"
+        },
+        {
+          "text": "User Journey Notifications",
+          "link": "/fr/experience-monitoring/configuration/user-journey/user-journey-notifications"
+        },
+        {
+          "text": "Superviser des parcours utilisateur non publics",
+          "link": "/fr/experience-monitoring/configuration/user-journey/stm-zones"
+        },
+        {
+          "text": "Optimiser votre site",
+          "link": "/fr/experience-monitoring/configuration/user-journey/user-journey-improve"
+        },
+        {
+          "text": "Errors And Unavailability Front End",
+          "link": "/fr/experience-monitoring/performance-analysis/errors-and-unavailability-front-end"
+        },
+        {
+          "text": "Définir les variables CSRF-Token et _qm3k_session",
+          "link": "/fr/experience-monitoring/configuration/advanced-configuration/enable-disable-scenario-or-alert-via-api"
+        }
+      ]
+    },
+    {
+      "text": "Real User Monitoring (RUM)",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Qu'est-ce que le Real User Monitoring?",
+          "link": "/fr/experience-monitoring/rum/rum-intro"
+        },
+        {
+          "text": "Real User Monitoring Installation",
+          "link": "/fr/experience-monitoring/installation/real-user-monitoring-installation"
+        },
+        {
+          "text": "Comprendre les résultats RUM",
+          "link": "/fr/experience-monitoring/rum/rum-results"
+        },
+        {
+          "text": "Recommandations d'optimisation de RUM",
+          "link": "/fr/experience-monitoring/rum/rum-improve"
+        },
+        {
+          "text": "Dépanner RUM",
+          "link": "/fr/experience-monitoring/how-to-articles/rum-blocked-by-csp"
+        }
+      ],
+      "link": "/fr/experience-monitoring/rum/rum"
     },
     {
       "text": "Sobriété numérique",
@@ -11704,69 +12089,106 @@ export const sidebar: Sidebar = {
       "collapsed": true,
       "items": [
         {
-          "text": "Carbon Footprint Evaluation And Digital Sobriety",
-          "link": "/fr/experience-monitoring/digital-sobriety/carbon-footprint-evaluation-and-digital-sobriety"
+          "text": "Introduction à la sobriété numérique",
+          "link": "/fr/experience-monitoring/digital-sobriety/digital-sobriety-concepts"
         },
         {
-          "text": "Digital Sobriety Score",
+          "text": "Calcul du Score de Sobriété Numérique",
           "link": "/fr/experience-monitoring/digital-sobriety/digital-sobriety-score"
         },
         {
-          "text": "Differences With Eco Index",
-          "link": "/fr/experience-monitoring/digital-sobriety/differences-with-eco-index"
+          "text": "Améliorer votre Score de Sobriété Numérique",
+          "link": "/fr/experience-monitoring/digital-sobriety/improve-dss"
         }
       ]
     },
     {
-      "text": "Articles How-to",
+      "text": "Données business (Google Analytics/Matomo)",
       "collapsible": true,
       "collapsed": true,
       "items": [
         {
-          "text": "Unable To Connect",
-          "link": "/fr/experience-monitoring/how-to-articles/unable-to-connect"
+          "text": "Configure Google Analytics",
+          "link": "/fr/experience-monitoring/configuration/configure-google-analytics"
         },
         {
-          "text": "Meaning Of Colors In Graphs",
-          "link": "/fr/experience-monitoring/how-to-articles/meaning-of-colors-in-graphs"
+          "text": "Comprendre les résultats des données business",
+          "link": "/fr/experience-monitoring/business-data/business-data-results"
         },
         {
-          "text": "Module SEO - Référencement Google",
-          "link": "/fr/experience-monitoring/how-to-articles/seo-module"
-        },
-        {
-          "text": "Measurement Interval",
-          "link": "/fr/experience-monitoring/how-to-articles/measurement-interval"
-        },
-        {
-          "text": "Experience Monitoring Probes In Google Analytics",
-          "link": "/fr/experience-monitoring/how-to-articles/experience-monitoring-probes-in-google-analytics"
-        },
-        {
-          "text": "Faq",
-          "link": "/fr/experience-monitoring/how-to-articles/faq"
-        },
-        {
-          "text": "Comment réinitialiser mon mot de passe ?",
-          "link": "/fr/experience-monitoring/how-to-articles/password-reset"
-        },
-        {
-          "text": "Using Charts",
-          "link": "/fr/experience-monitoring/how-to-articles/using-charts"
-        },
-        {
-          "text": "L’écran Parcours Utilisateurs",
-          "link": "/fr/experience-monitoring/how-to-articles/user-journey-screen"
-        },
-        {
-          "text": "Les données du RUM sont bloquées car le site utilise une politique CSP stricte",
-          "link": "/fr/experience-monitoring/how-to-articles/rum-blocked-by-csp"
+          "text": "Alertes business",
+          "link": "/fr/experience-monitoring/business-data/business-alerts"
         }
       ]
     },
     {
+      "text": "Données système (santé du serveur hôte)",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Installation",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Install System Agents",
+              "link": "/fr/experience-monitoring/installation/servers/install-system-agents"
+            },
+            {
+              "text": "Cloud Configuration Of Agents",
+              "link": "/fr/experience-monitoring/installation/servers/cloud-configuration-of-agents"
+            },
+            {
+              "text": "Add Advanced Metrics",
+              "link": "/fr/experience-monitoring/installation/servers/add-advanced-metrics"
+            },
+            {
+              "text": "Install Php Magento Orocommerce Profiler",
+              "link": "/fr/experience-monitoring/installation/servers/install-php-magento-orocommerce-profiler"
+            },
+            {
+              "text": "Faq",
+              "link": "/fr/experience-monitoring/how-to-articles/faq"
+            }
+          ]
+        },
+        {
+          "text": "System Tab Indicators",
+          "link": "/fr/experience-monitoring/performance-analysis/system-tab-indicators"
+        }
+      ]
+    },
+    {
+      "text": "Network Tab Indicators",
+      "link": "/fr/experience-monitoring/performance-analysis/network-tab-indicators"
+    },
+    {
+      "text": "Tests de montée en charge",
+      "link": "/fr/experience-monitoring/how-to-articles/performing-load-tests"
+    },
+    {
+      "text": "Dashboards",
+      "link": "/fr/experience-monitoring/performance-analysis/dashboards"
+    },
+    {
       "text": "Centreon Experience Monitoring - notes de release",
       "link": "/fr/experience-monitoring/release-notes"
+    },
+    {
+      "text": "Ressources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Glossaire Experience Monitoring",
+          "link": "/fr/experience-monitoring/experience-monitoring-glossary"
+        },
+        {
+          "text": "Dépanner Experience Monitoring",
+          "link": "/fr/experience-monitoring/troubleshooting"
+        }
+      ]
     }
   ],
   "/26.10/": [
@@ -12014,7 +12436,7 @@ export const sidebar: Sidebar = {
           "link": "/26.10/administration/secure-platform"
         },
         {
-          "text": "Secure your MAP platform",
+          "text": "Securing your MAP platform",
           "link": "/26.10/graph-views/secure-your-map-platform"
         },
         {
@@ -12036,6 +12458,10 @@ export const sidebar: Sidebar = {
             {
               "text": "Basic principles of monitoring",
               "link": "/26.10/monitoring/about"
+            },
+            {
+              "text": "Active vs passive checks",
+              "link": "/26.10/monitoring/active-passive-checks"
             },
             {
               "text": "Understanding metrics",
@@ -12100,8 +12526,8 @@ export const sidebar: Sidebar = {
               "link": "/26.10/monitoring/basic-objects/services-templates"
             },
             {
-              "text": "Creating Meta Services",
-              "link": "/26.10/monitoring/basic-objects/meta-services"
+              "text": "Metaservices",
+              "link": "/26.10/monitoring/basic-objects/metaservices"
             }
           ]
         },
@@ -12332,19 +12758,52 @@ export const sidebar: Sidebar = {
           ]
         },
         {
+          "text": "Installing Open Tickets",
+          "link": "/26.10/alerts-notifications/ticketing-install"
+        },
+        {
           "text": "Managing tickets",
           "collapsible": true,
           "collapsed": true,
           "items": [
             {
-              "text": "Installing Open Tickets",
-              "link": "/26.10/alerts-notifications/ticketing-install"
-            },
-            {
               "text": "Configuring Open Tickets",
               "link": "/26.10/alerts-notifications/ticketing"
+            },
+            {
+              "text": "Customizing tickets",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Ticketing Advanced Smarty Variables",
+                  "link": "/26.10/alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "text": "Ticketing Advanced Smarty Functions",
+                  "link": "/26.10/alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "text": "Ticketing Advanced Mapping",
+                  "link": "/26.10/alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "text": "Open tickets glossary",
+                  "link": "/26.10/alerts-notifications/ticketing/glossary"
+                }
+              ],
+              "link": "/26.10/alerts-notifications/ticketing/ticketing-advanced-body"
+            },
+            {
+              "text": "Using Open Tickets",
+              "link": "/26.10/alerts-notifications/ticketing-use"
+            },
+            {
+              "text": "Ticketing Advanced Architecture",
+              "link": "/26.10/alerts-notifications/ticketing/ticketing-advanced-architecture"
             }
-          ]
+          ],
+          "link": "/26.10/alerts-notifications/ticketing-overview"
         }
       ]
     },
@@ -12482,68 +12941,119 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Introduction to Centreon MAP",
-              "link": "/26.10/graph-views/introduction-map"
+              "text": "Overview",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Introduction to Centreon MAP",
+                  "link": "/26.10/graph-views/introduction-map"
+                },
+                {
+                  "text": "MAP architecture",
+                  "link": "/26.10/graph-views/map-architecture"
+                }
+              ]
             },
             {
-              "text": "Installing MAP",
-              "link": "/26.10/graph-views/map-web-install"
+              "text": "Setting up MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installing MAP",
+                  "link": "/26.10/graph-views/map-web-install"
+                },
+                {
+                  "text": "Installing MAP on a remote server",
+                  "link": "/26.10/graph-views/map-web-install-remote"
+                },
+                {
+                  "text": "Securing your MAP platform",
+                  "link": "/26.10/graph-views/secure-your-map-platform"
+                },
+                {
+                  "text": "Changing the MAP server's port",
+                  "link": "/26.10/graph-views/map-web-change-port"
+                },
+                {
+                  "text": "Managing access rights in MAP",
+                  "link": "/26.10/graph-views/map-web-access"
+                }
+              ]
             },
             {
-              "text": "Installing MAP on a remote server",
-              "link": "/26.10/graph-views/map-web-install-remote"
+              "text": "Using MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Managing maps in MAP",
+                  "link": "/26.10/graph-views/map-web-manage"
+                },
+                {
+                  "text": "Creating a standard map",
+                  "link": "/26.10/graph-views/map-web-create-standard-map"
+                },
+                {
+                  "text": "Creating a geographic view",
+                  "link": "/26.10/graph-views/map-web-create-geoview"
+                },
+                {
+                  "text": "Understanding map access (ACL)",
+                  "link": "/26.10/graph-views/map-understanding-access"
+                },
+                {
+                  "text": "Automating MAP via API",
+                  "link": "/26.10/api/map-api"
+                }
+              ]
             },
             {
-              "text": "Updating MAP",
-              "link": "/26.10/graph-views/map-web-update"
+              "text": "Administrating MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Updating MAP",
+                  "link": "/26.10/graph-views/map-web-update"
+                },
+                {
+                  "text": "Upgrading MAP",
+                  "link": "/26.10/graph-views/map-web-upgrade"
+                },
+                {
+                  "text": "Migrating the extension",
+                  "link": "/26.10/graph-views/map-web-migrate"
+                },
+                {
+                  "text": "Backing up and restoring your MAP server",
+                  "link": "/26.10/graph-views/map-web-backup-restore"
+                },
+                {
+                  "text": "Monitoring your MAP server",
+                  "link": "/26.10/graph-views/map-web-monitoring"
+                },
+                {
+                  "text": "Customizing status computation",
+                  "link": "/26.10/graph-views/map-web-advanced"
+                }
+              ]
             },
             {
-              "text": "Upgrading MAP",
-              "link": "/26.10/graph-views/map-web-upgrade"
-            },
-            {
-              "text": "Managing access rights in MAP",
-              "link": "/26.10/graph-views/map-web-access"
-            },
-            {
-              "text": "Managing maps in MAP",
-              "link": "/26.10/graph-views/map-web-manage"
-            },
-            {
-              "text": "Creating a standard map",
-              "link": "/26.10/graph-views/map-web-create-standard-map"
-            },
-            {
-              "text": "Creating a geographic view",
-              "link": "/26.10/graph-views/map-web-create-geoview"
-            },
-            {
-              "text": "Migrating the extension",
-              "link": "/26.10/graph-views/map-web-migrate"
-            },
-            {
-              "text": "Advanced configuration in MAP",
-              "link": "/26.10/graph-views/map-web-advanced-configuration"
-            },
-            {
-              "text": "Advanced parameters in MAP",
-              "link": "/26.10/graph-views/map-web-advanced"
-            },
-            {
-              "text": "Backing up and restoring your MAP server",
-              "link": "/26.10/graph-views/map-web-backup-restore"
-            },
-            {
-              "text": "MAP known issues",
-              "link": "/26.10/graph-views/map-web-known-issues"
-            },
-            {
-              "text": "MAP troubleshooting",
-              "link": "/26.10/graph-views/map-web-troubleshooting"
-            },
-            {
-              "text": "Map Api",
-              "link": "/26.10/api/map-api"
+              "text": "Fixing MAP issues",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "MAP known issues",
+                  "link": "/26.10/graph-views/map-web-known-issues"
+                },
+                {
+                  "text": "MAP troubleshooting",
+                  "link": "/26.10/graph-views/map-web-troubleshooting"
+                }
+              ]
             }
           ]
         },
@@ -12736,6 +13246,10 @@ export const sidebar: Sidebar = {
               "link": "/26.10/administration/parameters/medias"
             }
           ]
+        },
+        {
+          "text": "Authentication tokens",
+          "link": "/26.10/api/authentication-tokens"
         },
         {
           "text": "Customize Centreon",
@@ -12948,8 +13462,19 @@ export const sidebar: Sidebar = {
           "link": "/26.10/cma/cma-setup"
         },
         {
-          "text": "Configuring certificates",
-          "link": "/26.10/cma/cma-certificates"
+          "text": "Manual setup (advanced)",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Setting up CMA manually",
+              "link": "/26.10/cma/cma-setup-manual"
+            },
+            {
+              "text": "Configuring certificates",
+              "link": "/26.10/cma/cma-certificates"
+            }
+          ]
         },
         {
           "text": "Using custom plugins with CMA",
@@ -13008,6 +13533,10 @@ export const sidebar: Sidebar = {
               "link": "/26.10/integrations/data-analytics/sc-elastic-metrics"
             },
             {
+              "text": "Graphite Metrics",
+              "link": "/26.10/integrations/data-analytics/sc-graphite-metrics"
+            },
+            {
               "text": "HP OMI",
               "link": "/26.10/integrations/event-management/sc-hp-omi"
             },
@@ -13064,8 +13593,8 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "BMC Footprints",
-              "link": "/26.10/integrations/itsm/ot-bmc-footprints"
+              "text": "BMC Footprints 11",
+              "link": "/26.10/integrations/itsm/ot-bmc-footprints-11"
             },
             {
               "text": "BMC Remedy",
@@ -13092,6 +13621,10 @@ export const sidebar: Sidebar = {
               "link": "/26.10/integrations/itsm/ot-itop"
             },
             {
+              "text": "Ivanti",
+              "link": "/26.10/integrations/itsm/ot-ivanti"
+            },
+            {
               "text": "Jira",
               "link": "/26.10/integrations/itsm/ot-jira"
             },
@@ -13104,16 +13637,20 @@ export const sidebar: Sidebar = {
               "link": "/26.10/integrations/itsm/ot-otrs-restapi"
             },
             {
-              "text": "Ot Request Tracker Restapi",
-              "link": "/26.10/integrations/itsm/ot-request-tracker-restapi"
+              "text": "Request Tracker 2",
+              "link": "/26.10/integrations/itsm/ot-request-tracker-2"
             },
             {
-              "text": "Serena",
-              "link": "/26.10/integrations/itsm/ot-serena"
+              "text": "Serena ITSM",
+              "link": "/26.10/integrations/itsm/ot-serena-itsm"
             },
             {
               "text": "Ot Servicenow",
               "link": "/26.10/integrations/itsm/ot-servicenow"
+            },
+            {
+              "text": "Simple",
+              "link": "/26.10/integrations/itsm/ot-simple"
             }
           ],
           "link": "/26.10/integrations/itsm/itsm-overview"
@@ -13165,12 +13702,8 @@ export const sidebar: Sidebar = {
           "link": "/26.10/api/rest-api-v2"
         },
         {
-          "text": "Map Api",
+          "text": "Automating MAP via API",
           "link": "/26.10/api/map-api"
-        },
-        {
-          "text": "API tokens",
-          "link": "/26.10/api/api-tokens"
         }
       ]
     },
@@ -13679,7 +14212,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/26.10/administration/secure-platform"
         },
         {
-          "text": "Sécurisez votre plateforme MAP",
+          "text": "Sécuriser votre plateforme MAP",
           "link": "/fr/26.10/graph-views/secure-your-map-platform"
         },
         {
@@ -13701,6 +14234,10 @@ export const sidebar: Sidebar = {
             {
               "text": "Principes de base de la supervision",
               "link": "/fr/26.10/monitoring/about"
+            },
+            {
+              "text": "Contrôles actifs vs contrôles passifs",
+              "link": "/fr/26.10/monitoring/active-passive-checks"
             },
             {
               "text": "Comprendre les métriques",
@@ -13765,8 +14302,8 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/monitoring/basic-objects/services-templates"
             },
             {
-              "text": "Créer des méta-services",
-              "link": "/fr/26.10/monitoring/basic-objects/meta-services"
+              "text": "Metaservices",
+              "link": "/fr/26.10/monitoring/basic-objects/metaservices"
             }
           ]
         },
@@ -13997,19 +14534,52 @@ export const sidebar: Sidebar = {
           ]
         },
         {
+          "text": "Installation d'Open Tickets",
+          "link": "/fr/26.10/alerts-notifications/ticketing-install"
+        },
+        {
           "text": "Gérer des tickets",
           "collapsible": true,
           "collapsed": true,
           "items": [
             {
-              "text": "Installation d'Open Tickets",
-              "link": "/fr/26.10/alerts-notifications/ticketing-install"
-            },
-            {
               "text": "Configuration",
               "link": "/fr/26.10/alerts-notifications/ticketing"
+            },
+            {
+              "text": "Personnaliser les tickets",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Ticketing Advanced Smarty Variables",
+                  "link": "/fr/26.10/alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "text": "Ticketing Advanced Smarty Functions",
+                  "link": "/fr/26.10/alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "text": "Ticketing Advanced Mapping",
+                  "link": "/fr/26.10/alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "text": "Glossaire Open Tickets",
+                  "link": "/fr/26.10/alerts-notifications/ticketing/glossary"
+                }
+              ],
+              "link": "/fr/26.10/alerts-notifications/ticketing/ticketing-advanced-body"
+            },
+            {
+              "text": "Utiliser Open Tickets",
+              "link": "/fr/26.10/alerts-notifications/ticketing-use"
+            },
+            {
+              "text": "Ticketing Advanced Architecture",
+              "link": "/fr/26.10/alerts-notifications/ticketing/ticketing-advanced-architecture"
             }
-          ]
+          ],
+          "link": "/fr/26.10/alerts-notifications/ticketing-overview"
         }
       ]
     },
@@ -14147,68 +14717,119 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Introduction à Centreon MAP",
-              "link": "/fr/26.10/graph-views/introduction-map"
+              "text": "Introduction",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Introduction à Centreon MAP",
+                  "link": "/fr/26.10/graph-views/introduction-map"
+                },
+                {
+                  "text": "Architecture de MAP",
+                  "link": "/fr/26.10/graph-views/map-architecture"
+                }
+              ]
             },
             {
-              "text": "Installer MAP",
-              "link": "/fr/26.10/graph-views/map-web-install"
+              "text": "Mettre en place MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installer MAP",
+                  "link": "/fr/26.10/graph-views/map-web-install"
+                },
+                {
+                  "text": "Installer MAP sur un serveur distant",
+                  "link": "/fr/26.10/graph-views/map-web-install-remote"
+                },
+                {
+                  "text": "Sécuriser votre plateforme MAP",
+                  "link": "/fr/26.10/graph-views/secure-your-map-platform"
+                },
+                {
+                  "text": "Changer le port du serveur Centreon MAP",
+                  "link": "/fr/26.10/graph-views/map-web-change-port"
+                },
+                {
+                  "text": "Gérer les droits d'accès dans MAP",
+                  "link": "/fr/26.10/graph-views/map-web-access"
+                }
+              ]
             },
             {
-              "text": "Installer MAP sur un serveur distant",
-              "link": "/fr/26.10/graph-views/map-web-install-remote"
+              "text": "Utiliser MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Gérer les cartes dans MAP",
+                  "link": "/fr/26.10/graph-views/map-web-manage"
+                },
+                {
+                  "text": "Créer une carte standard",
+                  "link": "/fr/26.10/graph-views/map-web-create-standard-map"
+                },
+                {
+                  "text": "Créer une vue géographique",
+                  "link": "/fr/26.10/graph-views/map-web-create-geoview"
+                },
+                {
+                  "text": "Comprendre les droits d'accès aux cartes (ACL)",
+                  "link": "/fr/26.10/graph-views/map-understanding-access"
+                },
+                {
+                  "text": "Automatiser MAP via l'API",
+                  "link": "/fr/26.10/api/map-api"
+                }
+              ]
             },
             {
-              "text": "Mettre à jour MAP",
-              "link": "/fr/26.10/graph-views/map-web-update"
+              "text": "Administrer MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Mettre à jour MAP",
+                  "link": "/fr/26.10/graph-views/map-web-update"
+                },
+                {
+                  "text": "Monter de version MAP",
+                  "link": "/fr/26.10/graph-views/map-web-upgrade"
+                },
+                {
+                  "text": "Migrer l'extension",
+                  "link": "/fr/26.10/graph-views/map-web-migrate"
+                },
+                {
+                  "text": "Sauvegarder et restaurer votre serveur Centreon MAP",
+                  "link": "/fr/26.10/graph-views/map-web-backup-restore"
+                },
+                {
+                  "text": "Superviser votre serveur Centreon MAP",
+                  "link": "/fr/26.10/graph-views/map-web-monitoring"
+                },
+                {
+                  "text": "Personnaliser le calcul du statut",
+                  "link": "/fr/26.10/graph-views/map-web-advanced"
+                }
+              ]
             },
             {
-              "text": "Monter de version MAP",
-              "link": "/fr/26.10/graph-views/map-web-upgrade"
-            },
-            {
-              "text": "Gérer les droits d'accès dans MAP",
-              "link": "/fr/26.10/graph-views/map-web-access"
-            },
-            {
-              "text": "Gérer les cartes dans MAP",
-              "link": "/fr/26.10/graph-views/map-web-manage"
-            },
-            {
-              "text": "Créer une carte standard",
-              "link": "/fr/26.10/graph-views/map-web-create-standard-map"
-            },
-            {
-              "text": "Créer une vue géographique",
-              "link": "/fr/26.10/graph-views/map-web-create-geoview"
-            },
-            {
-              "text": "Migrer l'extension",
-              "link": "/fr/26.10/graph-views/map-web-migrate"
-            },
-            {
-              "text": "Configuration avancée dans MAP",
-              "link": "/fr/26.10/graph-views/map-web-advanced-configuration"
-            },
-            {
-              "text": "Paramètres avancés dans MAP",
-              "link": "/fr/26.10/graph-views/map-web-advanced"
-            },
-            {
-              "text": "Sauvegarder et restaurer votre serveur Centreon MAP",
-              "link": "/fr/26.10/graph-views/map-web-backup-restore"
-            },
-            {
-              "text": "Problèmes connus dans MAP",
-              "link": "/fr/26.10/graph-views/map-web-known-issues"
-            },
-            {
-              "text": "Dépannage de MAP",
-              "link": "/fr/26.10/graph-views/map-web-troubleshooting"
-            },
-            {
-              "text": "Map Api",
-              "link": "/fr/26.10/api/map-api"
+              "text": "Résoudre les problèmes MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Problèmes connus dans MAP",
+                  "link": "/fr/26.10/graph-views/map-web-known-issues"
+                },
+                {
+                  "text": "Dépanner MAP",
+                  "link": "/fr/26.10/graph-views/map-web-troubleshooting"
+                }
+              ]
             }
           ]
         },
@@ -14401,6 +15022,10 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/administration/parameters/medias"
             }
           ]
+        },
+        {
+          "text": "Jetons d'authentification",
+          "link": "/fr/26.10/api/authentication-tokens"
         },
         {
           "text": "Customize Centreon",
@@ -14613,8 +15238,19 @@ export const sidebar: Sidebar = {
           "link": "/fr/26.10/cma/cma-setup"
         },
         {
-          "text": "Configurer les certificats",
-          "link": "/fr/26.10/cma/cma-certificates"
+          "text": "Installation manuelle",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Configurer CMA manuellement",
+              "link": "/fr/26.10/cma/cma-setup-manual"
+            },
+            {
+              "text": "Configurer les certificats",
+              "link": "/fr/26.10/cma/cma-certificates"
+            }
+          ]
         },
         {
           "text": "Utiliser des plugins personnalisés avec CMA",
@@ -14673,6 +15309,10 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/integrations/data-analytics/sc-elastic-metrics"
             },
             {
+              "text": "Graphite Metrics",
+              "link": "/fr/26.10/integrations/data-analytics/sc-graphite-metrics"
+            },
+            {
               "text": "Sc Hp Omi",
               "link": "/fr/26.10/integrations/event-management/sc-hp-omi"
             },
@@ -14729,8 +15369,8 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "BMC Footprints",
-              "link": "/fr/26.10/integrations/itsm/ot-bmc-footprints"
+              "text": "BMC Footprints 11",
+              "link": "/fr/26.10/integrations/itsm/ot-bmc-footprints-11"
             },
             {
               "text": "BMC Remedy",
@@ -14741,7 +15381,7 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/integrations/itsm/ot-easyvista"
             },
             {
-              "text": "EasyVista API Rest",
+              "text": "EasyVista RestAPI",
               "link": "/fr/26.10/integrations/itsm/ot-easyvista-rest-api"
             },
             {
@@ -14757,6 +15397,10 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/integrations/itsm/ot-itop"
             },
             {
+              "text": "Ivanti",
+              "link": "/fr/26.10/integrations/itsm/ot-ivanti"
+            },
+            {
               "text": "Jira",
               "link": "/fr/26.10/integrations/itsm/ot-jira"
             },
@@ -14769,16 +15413,20 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/integrations/itsm/ot-otrs-restapi"
             },
             {
-              "text": "Ot Request Tracker Restapi",
-              "link": "/fr/26.10/integrations/itsm/ot-request-tracker-restapi"
+              "text": "Request Tracker 2",
+              "link": "/fr/26.10/integrations/itsm/ot-request-tracker-2"
             },
             {
-              "text": "Serena",
-              "link": "/fr/26.10/integrations/itsm/ot-serena"
+              "text": "Serena ITSM",
+              "link": "/fr/26.10/integrations/itsm/ot-serena-itsm"
             },
             {
               "text": "Ot Servicenow",
               "link": "/fr/26.10/integrations/itsm/ot-servicenow"
+            },
+            {
+              "text": "Simple",
+              "link": "/fr/26.10/integrations/itsm/ot-simple"
             }
           ],
           "link": "/fr/26.10/integrations/itsm/itsm-overview"
@@ -14830,12 +15478,8 @@ export const sidebar: Sidebar = {
           "link": "/fr/26.10/api/rest-api-v2"
         },
         {
-          "text": "Map Api",
+          "text": "Automatiser MAP via l'API",
           "link": "/fr/26.10/api/map-api"
-        },
-        {
-          "text": "Jetons d'API",
-          "link": "/fr/26.10/api/api-tokens"
         }
       ]
     },
@@ -14932,7 +15576,7 @@ export const sidebar: Sidebar = {
           "link": "/fr/26.10/installation/installation-of-centreon-ha/ha-small"
         },
         {
-          "text": "Completing your Centreon HA setup",
+          "text": "Finaliser votre installation Centreon HA",
           "collapsible": true,
           "collapsed": true,
           "items": [

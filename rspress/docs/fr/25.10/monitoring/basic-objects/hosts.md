@@ -1,6 +1,7 @@
 ---
 id: hosts
 title: Créer un hôte manuellement
+description: "Référence détaillée des champs de configuration, notifications et dépendances d'un hôte"
 ---
 
 Pour créer un hôte manuellement :
@@ -72,7 +73,7 @@ Si plusieurs modèles tentaient de modifier le même champ, les caractéristique
 * **Intervalle normal de contrôle** : exprimé en minutes. Il définit l’intervalle entre chaque contrôle lorsque
   le statut de l’hôte est OK.
 * **Intervalle non-régulier de contrôle** : exprimé en minutes, désigne l'intervalle de temps entre chaque contrôle réalisé afin de confirmer l'état non-OK de l'hôte. Une fois le nombre de contrôles de validation réalisé, l'intervalle entre deux contrôles revient à son rythme normal.
-* **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les contrôles actifs et passifs. [Les contrôles passifs](../../monitoring/passive-monitoring/enable-snmp-traps.md) sont les informations que la ressource supervisée envoie au moteur de supervision sans que celles-ci aient été activement demandées.
+* **Contrôle actif activé** et **Contrôle passif activé** activent / désactivent les [contrôles actifs et passifs](../active-passive-checks.md) sur l'hôte.
 
 ## Onglet Notification
 Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifications/notif-concept.md) et les [contacts](contacts.md) pour en savoir plus sur ces sujets.
@@ -105,9 +106,8 @@ Jetez un oeil à notre documentation sur les [notifications](../../alerts-notifi
 ## Onglet Traitement des données
 
 * **Durée maximale d'un acquittement** : spécifie une durée maximale en minutes pour l'[acquittement](../../alerts-notifications/acknowledge.md) de l'hôte. Si le statut de l'hôte est toujours non-OK lorsque ce temps s'est écoulé, l'envoi des notifications reprend son cours.  Laissez ce champ vide pour que l'acquittement n'ait pas de durée maximale.
-* **Contrôler la fraicheur du résultat** : effectue un contrôle actif lorsque la quantité de temps définie dans **Seuil de fraicheur du résultat** s'est écoulée depuis le dernier [contrôle passif](../../monitoring/passive-monitoring/enable-snmp-traps.md) de l'objet.
-* **Seuil de fraicheur du résultat** : exprimé en secondes. Si durant cette période aucune
- commande passive de l'hôte n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, un seuil sera déterminé automatiquement.
+* **Contrôler la fraicheur du résultat** : effectue un contrôle actif lorsque la quantité de temps définie dans Seuil de fraicheur du résultat s'est écoulée depuis le dernier [contrôle passif](../../monitoring/passive-monitoring/enable-snmp-traps.md) de l'objet.
+* **Seuil de fraicheur du résultat** : exprimé en secondes. Si durant cette période aucune commande passive de l'hôte n’a été reçue alors la commande de vérification active est exécutée. Si le contrôle est activé mais que le champ est laissé vide, une valeur par défaut est appliquée automatiquement.
 * **Détection de bagotage des statuts** : active ou désactive la détection du [bagotage](../../alerts-notifications/notif-flapping.md) (ou instabilité) des statuts (statut
   changeant trop fréquemment de valeur sur une période donnée).
 * **Seuil bas de détection de bagotage des statuts** et **Seuil haut de détection de bagotage des statuts** : les seuils hauts et bas pour la détection du

@@ -1,6 +1,7 @@
 ---
 id: generating-reports
 title: Générer des rapports grâce aux tâches planifiées
+description: "Créer et configurer des tâches planifiées pour générer des rapports MBI"
 ---
 
 > MBI est une extension de Centreon avec des termes que vous n'avez potentiellement pas vu ailleurs dans notre documentation. Il est fortement recommandé de lire [la page de concepts](concepts.md) avant de suivre les procédures concernant MBI.

@@ -1,6 +1,7 @@
 ---
 id: groups
 title: Groupes
+description: "Comment créer des groupes d'hôtes et de services pour organiser les ressources et gérer les règles d'accès"
 ---
 
 Il est possible de regrouper des hôtes ou des services au sein de groupes.

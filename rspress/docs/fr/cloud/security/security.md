@@ -1,7 +1,7 @@
 ---
 id: security
 title: Centreon Cloud - Management de la sécurité
-
+description: "Présentation des pratiques de gouvernance de la sécurité, d'infrastructure, de protection des données et de gestion des vulnérabilités de Centreon Cloud"
 ---
 
 ## Introduction

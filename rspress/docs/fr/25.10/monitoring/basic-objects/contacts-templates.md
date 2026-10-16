@@ -1,6 +1,7 @@
 ---
 id: contacts-templates
 title: Utiliser des modèles de contacts
+description: "Créer des modèles de contacts pour standardiser la configuration des utilisateurs et les imports LDAP"
 ---
 
 ## Les modèles de contacts

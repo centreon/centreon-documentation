@@ -1,6 +1,7 @@
 ---
 id: map-web-create-standard-map
 title: Créer une carte standard
+description: "Créer et personnaliser des cartes standard à l'aide de l'éditeur Centreon MAP, des formes, des widgets et des éléments de ressources"
 ---
 
 Cette page décrit comment créer des cartes standards et comment les personnaliser avec l'éditeur de MAP. 
@@ -13,6 +14,7 @@ L'affichage du bouton **Ajouter une carte** signifie que vous êtes autorisé à
 
 2. Définissez les propriétés de la nouvelle carte :
    - Nom : nommez la carte.
+   - Coordonnées géographiques : renseignez les champs au format `Latitude, Longitude`. Cela permet d'ajouter la carte à une [vue géographique](./map-web-create-geoview.md).
    - Image : sélectionnez une image si vous souhaitez personnaliser l'affichage de la carte dans la liste des cartes.
 
 3. Cliquez sur **Ajouter** pour confirmer la création de la carte.
@@ -102,7 +104,7 @@ Utilisez les éléments de la section **Liens** pour établir des liens entre le
   - Host
   - Service
   - Service group
-  - Meta service
+  - Métaservice
 
 - Elément de la section **Centreon MAP** :
   - ### Conteneur
@@ -131,7 +133,7 @@ Le panneau **Format** vous permet d'appliquer des options de formatage en foncti
 En mode édition, vous pouvez ajouter plusieurs ressources à votre vue en une seule action.
 
 1. Cliquez dans la barre **Rechercher une ressource** au-dessus de la vue.
-2. Dans la liste déroulante, sélectionnez les ressources que vous souhaitez dans **Groupes d'hôtes, Hôtes, Groupes de services, Services, Méta-services et Activités métier**.
+2. Dans la liste déroulante, sélectionnez les ressources que vous souhaitez dans **Groupes d'hôtes, Hôtes, Groupes de services, Services, Métaservices et Activités métier**.
 3. Cliquez ensuite sur le bouton **Ajouter à la carte**.
 
 Les ressources que vous avez sélectionnées sont maintenant ajoutées à la vue !

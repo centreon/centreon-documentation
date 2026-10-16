@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Notes de release Centreon Infra Monitoring 26.10
+description: "Présentation des notes de release Centreon Infra Monitoring 26.10"
 ---
 
 Ce chapitre présente les notes de release de **Centreon Infra Monitoring 26.10** :

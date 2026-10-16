@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction
+description: "Présentation du module de découverte automatique et de la manière dont il détecte et crée automatiquement des hôtes et des services"
 ---
 
 Le module de découverte automatique permet d'obtenir une liste des nouveaux hôtes ou services et, si vous le désirez,

@@ -1,6 +1,7 @@
 ---
 id: web-and-post-installation
 title: Installation Web
+description: "Terminer l'assistant d'installation web et initialiser la supervision"
 ---
 
 ## Installation web

@@ -1,9 +1,8 @@
 ﻿---
 id: enable-disable-scenario-or-alert-via-api
-title: Automate enabling/disabling a scenario or an alert via API
---- 
-
-## Preamble
+title: Automate enabling/disabling a journey or an alert via API
+description: Automate enabling or disabling journeys and alerts via API calls
+---
 
 In some situations it can be useful to modify Experience Monitoring's configuration automatically. Use cases are many, but the most common are:
 
@@ -14,7 +13,7 @@ In some situations it can be useful to modify Experience Monitoring's configurat
 
 In Experience Monitoring, all features are accessible through the API, so you can send requests to Experience Monitoring using tools such as curl or wget by specifying the site ID, the User Journey ID and the authentication parameters (**x-csrf-token** and **_qm3k_session**).
 
-Example REST request to disable a journey where the Experience Monitoring UI edit panel URL is https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913:
+Example: a REST request to disable a journey for which the Experience Monitoring UI edit panel URL is https://app.quanta.io/app/settings/sites/29274/user-journey?ids=2913:
 
 ```bash
 curl "https://app.quanta.io/api/sites/29274/uj/journeys/2913" -X 'PUT' \
@@ -24,7 +23,7 @@ curl "https://app.quanta.io/api/sites/29274/uj/journeys/2913" -X 'PUT' \
   -H "x-csrf-token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX=" \
   -H "content-type: application/json;charset=UTF-8" \
   -H "cookie: _qm3k_session=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" \
-  --data-raw '{"user_journey":{id:"**29274**","enabled":**false**}}'
+  --data-raw '{"user_journey":{id:"**2913**","enabled":**false**}}'
 ```
 
 ## Implementation as a shell script

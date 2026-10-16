@@ -1,6 +1,7 @@
 ---
 id: map-web-create-standard-map
 title: Créer une carte standard
+description: "Créer et personnaliser des cartes standard à l'aide de l'éditeur MAP"
 ---
 
 Cette page décrit comment créer des cartes standards et comment les personnaliser avec l'éditeur de MAP. 
@@ -13,6 +14,7 @@ L'affichage du bouton **Ajouter une carte** signifie que vous êtes autorisé à
 
 2. Définissez les propriétés de la nouvelle carte :
    - Nom : nommez la carte.
+   - Coordonnées géographiques : renseignez les champs au format `Latitude, Longitude`. Cela permet d'ajouter la carte à une [vue géographique](./map-web-create-geoview.md).
    - Image : sélectionnez une image si vous souhaitez personnaliser l'affichage de la carte dans la liste des cartes.
 
 3. Cliquez sur **Ajouter** pour confirmer la création de la carte.
@@ -93,7 +95,7 @@ Utilisez les éléments de la section **Médias** pour ajouter :
 Utilisez les éléments de la section **Liens** pour établir des liens entre les éléments (avec des points d'ancrage) :
 - **Link :** est un élément de lien simple de type flèche pour connecter deux éléments.
 - **Status link :** utilisez ce lien entre deux éléments et configurez une ressource à superviser à partir de celui-ci. Ensuite, ce lien affichera l'état de la couleur de la ressource que vous avez spécifiée.
-- **Metric link :** utilisez ce lien entre deux éléments et configurez un service et ses métriques à partir de celui-ci. Ensuite, ce lien affichera les métriques du service que vous avez spécifié. 
+- **Metric link :** utilisez ce lien entre deux éléments et configurez un service ou un métaservice et ses métriques à partir de celui-ci. Ensuite, ce lien affichera les métriques du service ou métaservice que vous avez spécifié. 
 
 #### Eléments Centreon
 
@@ -102,7 +104,7 @@ Utilisez les éléments de la section **Liens** pour établir des liens entre le
   - Host
   - Service
   - Service group
-  - Meta service
+  - Métaservice
 
 - Elément de la section **Centreon MAP** :
   - ### Conteneur

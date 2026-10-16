@@ -1,6 +1,7 @@
 ---
 id: developer-broker-mapping
 title: Mapping d’évènements Centreon Broker
+description: "Référence des propriétés des événements NEB et Storage de Centreon Broker"
 ---
 
 import { Tabs } from '@rspress/core/theme';
@@ -1662,11 +1663,11 @@ message KpiStatus {
 }
 ```
 
-### Meta service status event
+### Metaservice status event
 
-Cet évènement a été créé pour envoyer les changements d'état d'un méta-service.
+Cet évènement a été créé pour envoyer les changements d'état d'un métaservice.
 
-Actuellement, les méta-services n'étant pas gérés par Centreon Broker, cet
+Actuellement, les métaservices n'étant pas gérés par Centreon Broker, cet
 évènement n'est pas utilisé.
 
 <Tabs groupId="sync">
@@ -1682,8 +1683,8 @@ Le contenu de ce message est sérialisé comme suit :
 
 | Propriété         | Type             | Description                      |
 | ----------------- | ---------------- | -------------------------------- |
-| meta\_service\_id | entier non signé | L’ID du méta-service.            |
-| value             | réel             | La valeur du méta-service.       |
+| meta\_service\_id | entier non signé | L’ID du métaservice.            |
+| value             | réel             | La valeur du métaservice.       |
 | state\_changed    | booléen          | True si l’état vient de changer. |
 
 </Tab>
@@ -1851,8 +1852,8 @@ message DimensionKpiEvent {
     string service_description = 7;  // Description du service associé au KPI (KPI de type service)
     uint32 kpi_ba_id = 8;            // ID de la BA associée au KPI (KPI de type BA)
     string kpi_ba_name = 9;          // Nom de la BA associée au KPI (KPI de type BA)
-    uint32 meta_service_id = 10;     // ID du méta-service associé au KPI (KPI de type méta-service)
-    string meta_service_name = 11;   // Nom du méta-service associé au KPI (KPI de type méta-service)
+    uint32 meta_service_id = 10;     // ID du métaservice associé au KPI (KPI de type métaservice)
+    string meta_service_name = 11;   // Nom du métaservice associé au KPI (KPI de type métaservice)
     uint32 boolean_id = 12;          // Id of the boolean expression associated with this KPI for boolean KPI.
     string boolean_name = 13;        // Nom de l'expression booléenne associée au KPI (KPI de type booléen)
     double impact_warning = 14;      // Impact d'un état warning pour le KPI.

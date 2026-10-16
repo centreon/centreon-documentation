@@ -1,6 +1,7 @@
 ---
 id: hosts
 title: Creating hosts manually
+description: "Detailed reference for host configuration fields, notifications, and dependencies"
 ---
 
 To create a host manually:
@@ -70,9 +71,10 @@ If multiple templates modify the same field, the properties of the template plac
   host as not OK. When the status is confirmed, the notification process is triggered.
 * **Normal Check Interval**: interval in minutes between checks when the host status is OK.
 * **Retry Check Interval**: interval expressed in minutes referring to the wait between the checks done to confirm the status of the host is not "OK". Once the max check attempts have been made, the interval between checks returns to its normal value.
-* **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable the active and passive checks. [Passive checks](../../monitoring/passive-monitoring/enable-snmp-traps.md) are information the monitored resource sends to the monitoring engine without it having been actively requested.
+* **Active Checks Enabled** and **Passive Checks Enabled**: enable / disable [active and passive checks](../active-passive-checks.md) on the host.
 
 ## Notification tab
+
 Learn more about [notifications](../../alerts-notifications/notif-concept.md) and [contacts](contacts.md).
 
 * **Notification Enabled**: used to enable or disable notifications concerning the object.
@@ -99,8 +101,9 @@ If, on page **Administration > Parameters > Centreon UI**, the **Vertical inheri
 ## Data processing tab
 
 * **Acknowledgement timeout** : is expressed in minutes. Once this time limit expires, the acknowledgement tag is removed from this host. If its status is still not-OK when this happens, the notification process starts once again. Leave this blank so acknowledgements do not expire.
-* **Check Freshness**: active check performed by the engine when the amount of time determined in the **Freshness Threshold** has elapsed since the last [passive command](../../monitoring/passive-monitoring/enable-snmp-traps.md) of the object.
-* **Freshness Threshold**: expressed in seconds. If, during this period, no passive command is received from the host, the active check command is executed. A threshold will be determined automatically if the field is left blank and the check is enabled.
+* **Check Freshness**: active check performed by the engine when the amount of time determined in the Freshness Threshold has elapsed since the last [passive command](../../monitoring/passive-monitoring/enable-snmp-traps.md) of the object.
+* **Check Freshness**: active check performed by the engine when the amount of time determined in the Freshness Threshold has elapsed since the last [passive check](../../monitoring/passive-monitoring/enable-snmp-traps.md) of the object.
+* **Freshness Threshold**: expressed in seconds. If, during this period, no passive command is received from the host, the active check command is executed. A default threshold value is assigned automatically if this field is left blank and the check is enabled.
 * **Flap Detection Enabled**: enable or disable the detection [flapping](../../alerts-notifications/notif-flapping.md) in the statuses (status
   value changing too often in a given period).
 * **Low Flap Threshold** and **High Flap Threshold** define the high and low thresholds for the detection of

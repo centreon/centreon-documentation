@@ -1,6 +1,7 @@
 ---
 id: event-management-overview
 title: Event Management
+description: "Introduction aux stream connectors pour les outils de gestion des événements"
 ---
 
 Utilisez les Stream Connectors pour envoyer vos alertes vers des outils spécialisés 

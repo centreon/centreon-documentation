@@ -1,6 +1,7 @@
 ---
 id: troubleshooting-plugins
 title: Dépanner les erreurs de plugin
+description: "Diagnostiquez les erreurs courantes des connecteurs de supervision (SNMP, HTTP/API, AWS, SSH, NRPE) et découvrez leurs causes et les solutions de résolution possibles."
 ---
 
 Lorsque vous utilisez des plugins et que vous déployez une nouvelle sonde de supervision, des erreurs peuvent apparaître.

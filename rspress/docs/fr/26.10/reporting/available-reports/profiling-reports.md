@@ -1,6 +1,7 @@
 ---
 id: profiling-reports
 title: Rapports de profiling
+description: "Rapports détaillés par hôte sur la disponibilité, le CPU, la mémoire et le stockage"
 ---
 
 ### Host-Detail-2

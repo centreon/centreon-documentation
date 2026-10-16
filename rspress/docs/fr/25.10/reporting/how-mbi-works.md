@@ -1,6 +1,7 @@
 ---
 id: how-mbi-works
 title: Comment fonctionne MBI ?
+description: "Comment Centreon MBI prépare, agrège et génère les rapports chaque jour"
 ---
 
 Chaque jour, MBI suit 3 phases principales indépendantes :

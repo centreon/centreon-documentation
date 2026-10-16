@@ -1,5 +1,6 @@
 ---
 id: cumulative-layout-shift
+description: Métrique Web Vitals CLS pour la stabilité visuelle au chargement de la page
 title: CLS - Cumulative Layout Shift (Web Vital)
 --- 
 

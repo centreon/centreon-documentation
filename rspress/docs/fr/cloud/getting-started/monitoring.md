@@ -1,18 +1,21 @@
 ---
 id: monitoring
-title: Comment mettre une ressource en supervision ?
+title: Comment mettre mon premier hôte en supervision ?
+description: "Comment configurer et superviser votre premier hôte dans Centreon Cloud en le liant à un collecteur et à un modèle de connecteur de supervision"
 ---
 
 Assurez-vous d'avoir lu la page [Bases de la supervision](concepts.md) avant de mettre votre première ressource en supervision.
 
-## Mettre une ressource en supervision
+## Superviser un hôte
 
-Pour mettre une ressource en supervision dans Centreon Cloud :
+> Nous recommandons d'installer l'[agent de supervision Centreon (Centreon Monitoring Agent, CMA)](../cma/cma.md), une brique logicielle qui supervise l'hôte sur lequel il est installé. Il collecte des métriques, calcule des statuts et les envoie à Centreon. Lorsque vous installez CMA sur un hôte, vous pouvez choisir de créer automatiquement cet hôte dans Centreon.
 
-1. Créez la ressource.
-2. Liez la ressource au collecteur qui la supervisera.
-3. Liez la ressource au modèle fourni par le [connecteur de supervision](../monitoring/pluginpacks.md) correspondant.
-4. [Exportez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). La ressource apparaît à la page **Statut des ressources** : vous pouvez y suivre tout changement de statut.
+Pour superviser un hôte dans Centreon Cloud :
+
+1. Pour créer l'hôte, allez à la page **Configuration > Hôtes > Hôtes** puis cliquez sur **Ajouter**.
+2. Liez le nouvel hôte au collecteur qui doit le superviser.
+3. Liez le nouvel hôte au modèle d'hôte correspondant fourni par un [Connecteur de supervision](../monitoring/pluginpacks.md).
+4. [Exportez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md). L'hôte apparaîtra à la page **Supervision > Statut des ressources** sous peu. De là, vous pouvez suivre tout changement de statut.
 
 ## Voir aussi
 

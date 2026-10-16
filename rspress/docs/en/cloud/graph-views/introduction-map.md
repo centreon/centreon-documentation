@@ -1,6 +1,7 @@
 ---
 id: introduction-map
 title: Introduction to Centreon MAP
+description: "Overview of Centreon MAP for creating, displaying, and sharing graphical maps of your monitored infrastructure"
 ---
 
 Centreon MAP is a solution fully available in the Centreon web interface offering you the best possible experience in creating, displaying and sharing graphical representations of your monitored infrastructure.

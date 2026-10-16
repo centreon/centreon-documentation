@@ -1,6 +1,7 @@
 ﻿---
 id: concepts
 title: Bases de Centreon Log Management
+description: Concepts clés et terminologie de Centreon Log Management
 ---
 
 ## Que sont les logs ?
@@ -9,7 +10,7 @@ Centreon Log Management gère des logs. Les logs contiennent des informations d�
 
 ## À quoi ressemble une entrée de log dans Log Management ?
 
-Tous les logs reçus par Log Management sont listés à la page **Log explorer**, où vous pouvez les filtrer. Dans Log Management, chaque entrée de log a une [sévérité (c'est-à-dire un niveau de log)](../resources/glossary.md#sévérité), indiqué par une ligne colorée.
+Tous les logs reçus par Log Management sont listés à la page **Log explorer**, où vous pouvez les filtrer. Dans Log Management, chaque entrée de log a une [sévérité (c'est-à-dire un niveau de log)](../resources/glossary.md#sévérité), qui apparaît sur un fond coloré.
 
 ![image](../assets/log_explorer.webp)
 
@@ -21,7 +22,7 @@ Voici les principales fonctionnalités de Centreon Log Management :
 
 3. Log Management vous permet d'[analyser ces logs en temps réel](../explore-analyze.md), à l'aide de filtres, de [requêtes](../query-syntax.md) ou de [tableaux de bord](../dashboards.md). Cela vous aide à détecter les anomalies, les erreurs, les incidents de sécurité ou les comportements inattendus : consultez les [**cas d'utilisation**](use-cases.md) pour des exemples détaillés.
 
-4. Log Management crée des [évènements d'alerte](../resources/glossary.md#évènement-dalertestatut-dalerte) (alert events) en cas de problème ou de dépassement des seuils critiques, conformément aux [règles d'alerte](../alerts.md) (alert rules) que vous avez définies.
+4. Log Management crée des [évènements d'alerte](../resources/glossary.md#évènement-dalerte) (alert events) en cas de problème ou de dépassement des seuils critiques, conformément aux [règles d'alerte](../alerts.md) (alert rules) que vous avez définies.
 
 5. Log Management vous permet de stocker les logs en toute sécurité pendant de longues périodes (à des fins de conformité, de sécurité ou d'analyse historique).
 

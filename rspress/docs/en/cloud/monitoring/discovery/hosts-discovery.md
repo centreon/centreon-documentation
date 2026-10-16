@@ -1,6 +1,7 @@
 ---
 id: hosts-discovery
 title: Discovering hosts automatically
+description: "How to create and manage host discovery jobs, configure mappers, and analyze discovery results"
 ---
 
 See also our tutorial on [how to detect AWS EC2 instances](../../getting-started/autodisco-aws.md).

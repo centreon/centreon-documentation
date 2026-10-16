@@ -1,6 +1,7 @@
 ---
 id: monitor-linux-server-with-snmp
 title: Monitor your first Linux host
+description: "Step-by-step tutorial to monitor a Linux server using SNMP and the Linux SNMP Monitoring Connector"
 ---
 
 ## Monitoring a Linux server with SNMP

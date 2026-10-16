@@ -1,6 +1,7 @@
 ---
 id: architectures
 title: Architectures
+description: "Choisir l'architecture de supervision adaptée à la taille de votre plateforme"
 ---
 import { Tabs } from '@rspress/core/theme';
 import { Tab } from '@rspress/core/theme';
@@ -13,14 +14,14 @@ Si vous ne supervisez qu'un petit nombre d'hôtes et de services, un serveur cen
 
 ### Serveur central seul
 
-Si vous ne supervisez que peu d'hôtes, vous n'aurez besoin que d'un serveur central. Le serveur central effectuera toute la supervision lui-même.
+Si vous ne supervisez que peu d'hôtes, vous n'aurez besoin que d'un serveur central. Le serveur central effectuera toute la supervision lui-même. Consultez notre [guide de dimensionnement](./prerequisites.md#architecture-et-dimensionnement-du-serveur-central-et-de-la-base-de-données) pour déterminer l'architecture qui correspond à votre cas.
 
 ### Architecture distribuée
 
 Une architecture distribuée consiste en :
 
 * Un serveur central qui permet de configurer la supervision, d'afficher les données collectées et d'agir dessus.
-* Un ou plusieurs collecteurs qui permettent d'afficher les données collectées et d'agir dessus.
+* Un ou plusieurs serveurs distants qui permettent d'afficher les données collectées et d'agir dessus.
 
 et/ou
 
