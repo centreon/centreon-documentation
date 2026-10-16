@@ -1,9 +1,14 @@
 import React, { useRef, useState } from 'react';
-import { Layout as DefaultLayout, Link, SwitchAppearance } from '@rspress/core/theme-original';
+import { Layout as DefaultLayout, Link, SwitchAppearance as OriginalSwitchAppearance } from '@rspress/core/theme-original';
 import { useLang, useLocation, usePage } from '@rspress/core/runtime';
 import './index.css';
 
 export * from '@rspress/core/theme-original';
+// The default nav renders its own theme switch in .rp-nav__others, which is
+// hidden in favor of the custom nav: render nothing there.
+export function SwitchAppearance() {
+  return null;
+}
 // Lazily rendered sidebar groups (see components/Sidebar/SidebarGroup.tsx).
 export { Sidebar, SidebarList } from './components/Sidebar';
 
@@ -335,7 +340,7 @@ function VersionAwareNav() {
       <div className="rp-vnav-desktop">
         {versioned && <VersionSelector />}
         <LanguageSelector />
-        <SwitchAppearance />
+        <OriginalSwitchAppearance />
         <ProductSwitcher />
       </div>
 
@@ -356,8 +361,9 @@ function VersionAwareNav() {
         </svg>
       </button>
 
-      {/* Mobile panel */}
-      <div className={`rp-vnav-mobile-panel${mobileOpen ? ' open' : ''}`}>
+      {/* Mobile panel, only rendered while open (not repeated in every SSG page) */}
+      {mobileOpen && (
+      <div className="rp-vnav-mobile-panel open">
         {family === 'infra' && (
           <div className="rp-vnav-mobile-section">
             {sections.map((sec) => (
@@ -419,10 +425,10 @@ function VersionAwareNav() {
         </div>
         <div className="rp-vnav-mobile-section rp-vnav-mobile-appearance">
           <div className="rp-vnav-mobile-title">{lang === 'fr' ? 'Thème' : 'Theme'}</div>
-          <SwitchAppearance />
+          <OriginalSwitchAppearance />
         </div>
       </div>
-
+      )}
     </div>
   );
 }
