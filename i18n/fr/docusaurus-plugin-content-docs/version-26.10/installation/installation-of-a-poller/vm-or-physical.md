@@ -18,7 +18,7 @@ Une commande personnalisée pour installer un collecteur sur une machine virtuel
 
 1. Sur l'interface du serveur central, cliquez sur la zone des collecteurs en haut à gauche de l'écran puis sur **Créer un collecteur**.
 
-![image](../../assets/installation/create-poller-banner.png)
+   ![image](../../assets/installation/create-poller-banner.png)
 
 2. Remplissez le formulaire avec les informations concernant le collecteur :
 

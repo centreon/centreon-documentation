@@ -165,7 +165,7 @@ systemctl restart apache2
 
 ## Étape 3 : Ajouter le collecteur à la configuration de la plateforme
 
-Vous pouvez maintenant ajouter un collecteur en utilisant la commande générée automatiquement. Pour cela, [récupérez la commande depuis l'interface web Centreon](./using-containers.md). Le collecteur se connectera automatiquement au serveur central via pullwss.
+Vous pouvez maintenant ajouter un collecteur en utilisant la commande générée automatiquement. Pour cela, récupérez la commande depuis l'interface web Centreon (dans la section des collecteurs en haut à gauche de l'écran, que vous souhaitiez installer un collecteur [dans un conteneur](./using-containers.md) ou [sur une VM ou une machine physique](vm-or-physical.md)). Le collecteur se connectera automatiquement au serveur central via pullwss.
 
 ## Si vous supprimez tous vos collecteurs installés via commande générée automatiquement
 

@@ -1,7 +1,7 @@
 ---
 id: pollers-containers-prerequisites
-title: Prerequisites for collectors installed via a generated command
-description: "Configure Centreon to receive connections from collectors installed via a generated command (installed on a VM, a physical machine or a container)"
+title: Prerequisites for pollers installed via a generated command
+description: "Configure Centreon to receive connections from pollers installed via a generated command (installed on a VM, a physical machine or a container)"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -165,7 +165,7 @@ systemctl restart apache2
 
 ## Add the poller to the platform's configuration
 
-You can now add a poller using the automatically generated command. To do so, [retrieve the command from the Centreon web interface](./using-containers.md). The poller will automatically connect to the central server using pullwss.
+You can now add a poller using the automatically generated command. To do so, retrieve the command from the Centreon web interface (in the poller section at the top left of the screen, whether you want to install a poller [on a container](./using-containers.md) or [on a VM or a physical machine](vm-or-physical.md)). The poller will automatically connect to the central server using pullwss.
 
 ## If you delete all your collectors installed via an automatically generated command
 

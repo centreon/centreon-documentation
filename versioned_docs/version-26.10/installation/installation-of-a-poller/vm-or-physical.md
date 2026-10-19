@@ -11,7 +11,8 @@ A tailored command for installing a poller on a virtual or physical machine can 
 ## Prerequisites
 
 * The machine on which you will install the poller must fulfill the [poller installation prerequisites](../prerequisites.md#poller-sizing).
-* YOu must have created a poller-type authentication token.
+* You must have created a poller-type authentication token.
+* On the central server, [Gorgone's **pullwss** module must be configured to accept incoming connections](./pollers-containers-prerequisites.md). You only need to do this once, before installing your first poller using a command provided by the interface (whether it is installed on a physical machine, a VM, or a container).
 
 ## Step 1: generate the installation command
 
