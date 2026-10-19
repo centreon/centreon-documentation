@@ -167,7 +167,7 @@ systemctl restart apache2
 
 You can now add a poller using the automatically generated command. To do so, retrieve the command from the Centreon web interface (in the poller section at the top left of the screen, whether you want to install a poller [on a container](./using-containers.md) or [on a VM or a physical machine](vm-or-physical.md)). The poller will automatically connect to the central server using pullwss.
 
-## If you delete all your collectors installed via an automatically generated command
+## If you delete all your pollers installed via an automatically generated command
 
 If in the future you should delete all your pollers installed via an automatically generated command, do not forget to undo the steps above.
 

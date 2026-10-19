@@ -288,6 +288,14 @@ GRANT SELECT, INSERT ON centreon.* TO 'centreon_map'@'<IP_SERVER_MAP>';
 
 Le privilège INSERT ne sera utilisé que pendant le processus d'installation afin de créer une nouvelle sortie Centreon Broker. Il sera révoqué ultérieurement ([à cette étape](#étape-6--appliquer-la-configuration-broker-et-redémarrer-map-engine)).
 
+> Si le serveur MAP Engine est un serveur séparé, la base de données qui héberge **centreon** et **centreon_storage** doit accepter ses connexions. Sur Debian 13, MariaDB écoute sur 127.0.0.1 par défaut : sur le serveur de base de données du central, éditez **/etc/mysql/mariadb.conf.d/50-server.cnf**, définissez le paramètre **bind-address** à **0.0.0.0**, puis redémarrez la base de données :
+>
+> ```shell
+> systemctl restart mariadb
+> ```
+>
+> Si un pare-feu est activé sur le serveur de base de données, autorisez le port 3306 depuis le serveur MAP Engine.
+
 ### Étape 3 : installer le serveur MAP Engine
 
 #### Installation des paquets
@@ -528,6 +536,12 @@ sudo systemctl status mysqld
 
 </TabItem>
 <TabItem value="Debian 13" label="Debian 13">
+
+> **Debian 13 :** après l'installation, l'utilisateur **root** utilise le plugin auth_socket et `mysql_secure_installation` ne peut pas définir son mot de passe (la commande boucle sur "SET PASSWORD has no significance"). Définissez d'abord le mot de passe, puis lancez `mysql_secure_installation` avec ce mot de passe :
+>
+> ```shell
+> mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH 'caching_sha2_password' BY '<mot_de_passe_root>';"
+> ```
 
 ```shell
 apt update
