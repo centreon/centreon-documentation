@@ -37,7 +37,7 @@ Ce widget vous permet de visualiser la disponibilité d'un groupe d'hôtes trié
 
 - Calculs basés sur la période temporelle : Sélectionnez la [période temporelle](../monitoring/basic-objects/timeperiods.md) qui sera utilisée pour les calculs.
 - Afficher les ressources avec ce type : Choisissez d'afficher les données pour des groupes d'hôtes, catégories d'hôtes ou des hôtes.
-- Thresholds : Activez ou désactivez les seuils et configurez leur valeurs.
+- Seuils : Activez ou désactivez les seuils et configurez leur valeurs.
 - Intervalle de rafraîchissement : Configurez la fréquence de mise à jour des données affichées.
 
 ### MTBF and MTRS par hôte
