@@ -27,23 +27,14 @@ Release date: `October 20, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- Added support for MariaDB 11.8.
-- [Viewer] Added support for the flapping state icon on resources.
-- [Configuration] Unified Maps icons using those from Centreon Web.
-- [Configuration] Improved BBDO state synchronization reliability, disabling the default periodic reload while maintaining a manual sync API and a configuration fallback for emergencies.
-- [Metric Link widget] Meta-services can now be used to visualize cumulative inbound and outbound traffic.
+- [MariaDB] Added support for MariaDB 11.8.
+- [Viewer] Added a new icon for flapping resources.
+- [Configuration] Unified Maps icons, using the icons from Centreon Web.
+- [Configuration] Improved the BBDO state synchronization reliability. The default periodic reload was disabled while maintaining a manual sync API and a configuration fallback for emergencies.
+- [Metric Link widget] Metaservices can now be used to visualize cumulative inbound and outbound traffic.
 - [Server] Expanded broker event queue capacity to enhance overall performance.
-- [Server] Replaced the fixed-size BBDO message queue with a dynamic scaling, to prevent message loss while maintaining strict memory usage limits.
-- [Viewer] Modernized the resource display and its status indicators to improve readability and align with the product’s design standards.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed an issue in Centreon MAP where hovering over a host inside a host group resource caused an error and failed to display host information when the host was not directly added to the map.
-- Improved Maps status calculation to reduce engine startup time, lower memory and CPU consumption, and make the Map engine server ready faster — this improvement requires enabling a feature flag.
-- Prevented error messages about expired JWT tokens.
+- [Server] Replaced the fixed-size BBDO message queue with a dynamic scaling. This prevents message loss while maintaining strict memory usage limits.
+- [Viewer] Modernized the resources display and its status indicators to improve readability and align with the product’s design standards.
 
 </details>
 
@@ -65,19 +56,12 @@ Release date: `October 20, 2026`
 
 - [Configuration] ACL-restricted users must now select a Business View when creating a Business Activity.
 - [Configuration] Added a "Show only top level" filter on the Business Activity configuration listing.
-- [Configuration] Added a new simulation mode to the Business Activity configuration page.
+- [Configuration] Added a new simulation mode to the Business Activity configuration page. This allows users to preview the impact of their changes before enacting them.
 - [Configuration] The impact-weight selector now shows each word's percentage (e.g. Major (50%)) directly in the dropdown.
 - [Configuration] Users can now define custom icons for BAs, making nodes and indicators easier to identify in the Business Activity tree.
 - [Configuration] Business Activities can now be configured directly through an interactive dependency tree.
 - [UI] Resources now use new, consistent icons across the interface for easier identification.
 - [UI] Changed Business Activity Trees' default display type from curve to step.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [BAM] The event handler command now stays visible in the Business Activity configuration form after saving and reopening it.
 
 </details>
 
@@ -97,17 +81,10 @@ Release date: `October 20, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- Added support for MariaDB 11.8.
-- Added tooltips to explain how retention works in the general options form.
-- Updated MBI logo for reports.
-- The MBI report job configuration form has been completely redesigned with a clearer 2-tab layout, modern searchable selectors, a smarter scheduler with next-run preview, and template-aware output format selection — making report setup faster and less error-prone.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed a data formatting conflict that occurred after system updates, ensuring that MBI reports generate correctly without encountering errors.
+- [MBI] Added support for MariaDB 11.8.
+- [MBI] Added tooltips to explain how retention works in the general options form.
+- [MBI] Updated MBI logo for reports.
+- [MBI] The MBI report job configuration form has been completely redesigned with a clearer 2-tab layout, modern searchable selectors, a smarter scheduler with next-run preview, and template-aware output format selection. This will make report setup faster and less error-prone.
 
 </details>
 
@@ -175,11 +152,5 @@ Release date: `October 20, 2026`
 ### 26.10.0
 
 Release date: `October 20, 2026`
-
-<details open>
-  <summary>Enhancements</summary>
-
-
-</details>
 
 No functional changes for this module in this version.
