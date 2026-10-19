@@ -35,7 +35,7 @@ This widget displays the past availability of a hostgroup by hosts, by host cate
 
 **Menu description**
 
-- Calculations based on time period: Select the [time period](../monitoring/basic-objects/timeperiods.md) that will be used for the calculations
+- Calculations based on time period: Select the [time period](../monitoring/basic-objects/timeperiods.md) that will be used for the calculations.
 - Display with this resource type: Choose to display data for host groups, host categories or hosts.
 - Thresholds: Enable or disable thresholds and set their values.
 - Refresh interval: Set how often the displayed data should be refreshed.
