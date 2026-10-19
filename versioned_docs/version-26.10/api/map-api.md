@@ -1,6 +1,6 @@
 ---
 id: map-api
-title: MAP API
+title: Automating MAP via API
 description: "Automate creation and maintenance of standard maps via API"
 ---
 
@@ -165,7 +165,7 @@ Body: {
 
 ### Using a delegated authentication
 
-A user can use MAP APIs using a Centreon token, as follows in the header:
+A user can use MAP APIs using an [authentication token](./authentication-tokens.md), as follows in the header:
 
 ```
 Headers {

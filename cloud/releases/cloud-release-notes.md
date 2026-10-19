@@ -131,7 +131,7 @@ The Business Activity configuration experience has been thoroughly reworked arou
 **MAP**
 
 - Hover pop-ups in the Viewer are now positioned reliably next to the cursor. They no longer appear far above it at the bottom of the view, no longer overlap the cursor or get clipped by the edges of the container, and they follow the map when it is panned or zoomed. Firefox behavior, in particular, has been fixed.
-- Metric Link widget: meta-services can now be used as a data source. By combining one meta-service aggregating inbound metrics with another one aggregating outbound metrics, you can represent the cumulative traffic of a bidirectional network link and anticipate its saturation.
+- Metric Link widget: metaservices can now be used as a data source. By combining one metaservice aggregating inbound metrics with another one aggregating outbound metrics, you can represent the cumulative traffic of a bidirectional network link and anticipate its saturation.
 
 
 ## June 22nd, 2026
