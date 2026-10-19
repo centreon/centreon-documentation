@@ -18,6 +18,10 @@ In this chapter, you can find all the changelogs concerning **Centreon Open Sour
 If you have feature requests or want to report a bug, please go to our
 [Github](https://github.com/centreon/centreon/issues/new/choose).
 
+Read more about version 26.10 in our blog post:
+* [in English](https://centreon.com/blog/centreon-news/centreon-infra-monitoring-26-10-lts-whats-new/)
+* [in French](https://centreon.com/fr/blog/actualites/centreon-infra-monitoring-26-10-lts-nouveautes/).
+
 <ExpandCollapseAll />
 
 ## Centreon Web
@@ -57,10 +61,7 @@ Release date: `October 20, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- [Broker] Added alias field to PB_SERVICE_GROUP protobuf message.
-- [Broker] Fixed an issue where icons configured for Business Activities were not showing up properly.
-- [Broker] The broker now writes the full poller configuration in a single block instead of processing it incrementally. Pollers no longer send their configuration to the broker.
-- [Engine] Added a PERL NoFork connector to enhance plugins execution and reduce poller CPU consumption.
+- [Engine] Improved the performance of the PERL connector.
 
 </details>
 
@@ -108,9 +109,9 @@ Release date: `October 20, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- Gorgone is now able to validate poller token.
-- Added support for using a UID to identify a poller instead of the numeric id.
-- Gorgone can now be configured using ENV variables.
+- Gorgone is now able to validate poller tokens.
+- Added support for using a UID to identify a poller instead of its numeric ID.
+- Gorgone can now be configured using environment variables for pollers in containers compatibility.
 
 </details>
 
