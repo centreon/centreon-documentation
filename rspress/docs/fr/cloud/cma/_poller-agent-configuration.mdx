@@ -1,0 +1,5 @@
+1. Sur votre serveur central, allez à la page **Configuration > Collecteurs > Configurations d'agent**, puis cliquez sur **Ajouter une configuration collecteur/agent**.
+2. Dans la fenêtre qui s'ouvre, sélectionnez {props.type}. Des champs supplémentaires apparaissent.
+3. Dans la section **Paramètres**, sélectionnez le ou les collecteurs qui recevront des données en provenance de l'agent. 
+4. Dans la section **Receveur OTLP**, entrez les noms des fichiers des certificats pour la partie du collecteur (engine) qui recevra des données en provenance de l'agent.
+Les fichiers doivent posséder l'extension .crt (pour les certificats) ou .key (pour la clé). Assurez-vous que les droits sur les fichiers sont corrects, à l'aide de la commande `chmod 644 /etc/pki/agent*`.
