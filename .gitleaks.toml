@@ -20,6 +20,23 @@ regexTarget = "match"
 regexes = [
   '''ABCDEFG1234567890''',
   '''deactivation/expiration/revocation''',
-  '''78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216''', # token example,
-  '''hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S''' # example token generated at centreon login
+  '''78e64233e09d3d8ec7bf73c4d9ea8a8851badbd216''', # token example
+  # Example values from the docs (API responses, public key thumbprints, placeholders), MON-212387.
+  '''"USERNAME:API_KEY"''', # SoftLayer curl user
+  '''12345abcd6789efgh0123abcd4567efgh8901abcd''', # Meraki API token
+  '''"NOM_UTILISATEUR:API_KEY"''', # SoftLayer curl user (fr)
+  '''vfDrmCjiXgoj2JrTkwyOpr\-NOeQTzlXQ''', # Microsoft sample JWT
+  '''NTc1MDU3MGE3M2JiODIuMjA4OTA2OTc=''', # REST API v1 token
+  '''pnI6EWkiTbazjikJXRkLmjml5wvVECYtQduJUjS4QK4''', # Gorgone key thumbprint
+  '''8uT4BM1RsXRmIPQbTEazUAhQHtyM7xZ4nlFMIUqQ7lRkbWz24yemkGs9tS4eOwDfF''', # MAP signing key
+  '''nJSH9nZN2ugQeksHif7Jtv19RQA58yjxfX\-Cpnhx09s''', # Gorgone key thumbprint
+  '''tRsFMBv9X3ScNFMwvG8D652nXMsgEYMb1qsJek\-Mns8''', # Gorgone key thumbprint
+  '''NmnPME43IoWpkQoam6CLnrI5hjmdq6Kq8QMUCCg\-F4g''', # Gorgone key thumbprint
+  '''e40b1cc6\-f629\-43a4\-8be6\-14a9c9f036e0''', # Skylight PVX API key
+  '''https://hooks\.slack\.com/services/XXXXXXXXX/XXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXX''', # Slack webhook template
+  '''elastic:centreon\-es\-passwd''', # Elasticsearch curl user
+  '''Np1wWwpbFD2I0MdeHWRlFx51FmlYkDRZy9JTFxkrDPI''', # Gorgone key thumbprint
+  '''hwwE7w/ukiiMce2lwhNi2mcFxLNYPhB9bYSKVP3xeTRUeN8FuGQms3RhpLreDX/S''', # API login token
+  '''x-api-key: your_token''', # Cloud API token placeholder
+  '''x-api-key: votre_token''', # Cloud API token placeholder (fr)
 ]
