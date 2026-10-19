@@ -3,242 +3,89 @@ id: centreon-commercial-extensions
 title: Commercial extensions
 description: "Changelogs for each Centreon Commercial Extensions release"
 ---
-
 import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
-
-## Introduction
-
-You can find in this chapter all changelogs concerning **Centreon Commercial Extension**.
-
-> It is very important when you update your system to refer to this section in order to learn about behavior changes or
-> major changes that have been made on this version. This will let you know the impact of the installation of these
-> versions on the features you use or the specific developments that you have built on your platform (modules,
-> widgets, plugins).
-If you have feature requests or want to report a bug, please contact support.
-
-Read more about version 25.10 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/).
 
 <ExpandCollapseAll />
 
-## Centreon MAP
+## Compnent verison history
 
-### 25.10.0
+<details>
 
-Release date: `November 3, 2025`
+| Component | Releases |
+|----------|----------|
+| **Centreon MAP** | [26.10.0 (October 20, 2026)](#centreon-map-26100) |
+| **Centreon BAM** | [26.10.0 (October 20, 2026)](#centreon-bam-26100) |
+| **Centreon MBI** | [26.10.0 (October 20, 2026)](#centreon-mbi-26100) |
+| **Centreon Auto Discovery** | [26.10.0 (October 20, 2026)](#centreon-auto-discovery-26100) |
+| **Centreon License Manager** | [26.10.0 (October 20, 2026)](#centreon-license-manager-26100) |
+| **Centreon Anomaly Detection** | [26.10.0 (October 20, 2026)](#centreon-anomaly-detection-26100) |
+| **Centreon IT Edition Extensions** | [26.10.0 (October 20, 2026)](#centreon-it-edition-extensions-26100) |
+| **Centreon Monitoring Connectors Manager** | [26.10.0 (October 20, 2026)](#centreon-monitoring-connectors-manager-26100) |
+
+</details>
+
+## October 20, 2026
+
+### Centreon MAP 26.10.0
 
 <details open>
   <summary>Enhancements</summary>
 
-- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
-- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
-- [MAP API] It is now possible to use the MAP API with an API token when authentication is delegated.
-- [MAP] Removed MAP Legacy elements in the MAP configuration screen.
-- [Server] BBDOv2 messages are no longer supported.
+- [MariaDB] Added support for MariaDB 11.8.
+- [Viewer] Added a new icon for flapping resources.
+- [Configuration] Unified Maps icons, using the icons from Centreon Web.
+- [Configuration] Improved the BBDO state synchronization reliability. The default periodic reload was disabled while maintaining a manual sync API and a configuration fallback for emergencies.
+- [Metric Link widget] Metaservices can now be used to visualize cumulative inbound and outbound traffic.
+- [Server] Expanded broker event queue capacity to enhance overall performance.
+- [Server] Replaced the fixed-size BBDO message queue with a dynamic scaling. This prevents message loss while maintaining strict memory usage limits.
+- [Viewer] Modernized the resources display and its status indicators to improve readability and align with the product’s design standards.
 
 </details>
 
-<details>
-  <summary>Bug fixes</summary>
-
-- Added missing French translations.
-- [Config] The **configure.sh** script does not start the **mysql** service anymore, as it was not necessary.
-- [Config] The Map address is now used by default when no internal Map address has been defined.
-- [Editor] Fixed issues occurring when copying and pasting elements.
-- [Geoviews] Fixed several issues in the edition window.
-- [MAP Editor] Fixed an issue causing a resource's parent name to be wrong in the tooltip after saving.
-- [MAP Viewer] Fixed an issue causing an inherited status not to be refreshed when removing a service from a container.
-- [MAP Viewer] Fixed an issue causing an inherited status to ignore status computation parameters (downtime, acknowledgement) for services.
-- [MAP Viewer] Fixed an issue causing text formatting not to be applied in some cases.
-- [Viewer] Fixed an issue where BAs linked to a remote server were not displayed.
-- [Viewer] When clicking on a metaservice, the redirection link to the Resource Status page now works correctly.
-- [Viewer] Graphs are no longer being displayed for services without any metric.
-
-</details>
-
-<details>
-  <summary>Security fixes</summary>
-
-- [Server] Fixed ownership of configuration files.
-- [Vulnerability] Upgraded Tomcat to version 10.1.44.
-- [Security] Added authentication for actuator endpoints.
-
-</details>
-
-## Centreon BAM
-
-### 25.10.0
-
-Release date: `November 3, 2025`
+### Centreon BAM 26.10.0
 
 <details open>
   <summary>Enhancements</summary>
 
-- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
-- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
-- [Dashboards] When creating a new widget, the list of existing types of widgets is now categorized and ordered alphabetically.
+- [Configuration] ACL-restricted users must now select a Business View when creating a Business Activity.
+- [Configuration] Added a "Show only top level" filter on the Business Activity configuration listing.
+- [Configuration] Added a new simulation mode to the Business Activity configuration page. This allows users to preview the impact of their changes before enacting them.
+- [Configuration] The impact-weight selector now shows each word's percentage (e.g. Major (50%)) directly in the dropdown.
+- [Configuration] Users can now define custom icons for BAs, making nodes and indicators easier to identify in the Business Activity tree.
+- [Configuration] Business Activities can now be configured directly through an interactive dependency tree.
+- [UI] Resources now use new, consistent icons across the interface for easier identification.
+- [UI] Changed Business Activity Trees' default display type from curve to step.
 
 </details>
 
-<details>
-  <summary>Bug fixes</summary>
-
-- Added missing French translations.
-- [BA diagram] Disabled indicators are now displayed in a dedicated node of the tree.
-
-</details>
-
-## Centreon MBI
-
-### 25.10.0
-
-Release date: `November 3, 2025`
+### Centreon MBI 26.10.0
 
 <details open>
   <summary>Enhancements</summary>
 
-- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
-- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
-- [Dashboards] Fixed the auto-adjustment of curves in graphics.
-- [Dashboards] New MBI reporting widget: **Business Activity availability**. It displays availability and alerts for a Business Activity for a given period.
-- [Dashboards] New MBI reporting widget: **Business Activity history**. It displays the availability history for a Business Activity or a Business View for a given period.
-- [Dashboards] New MBI reporting widget: **Hostgroup Availability History**. It displays the availability history of hosts, host categories or host groups.
-- [Dashboards] New MBI reporting widget: **Metric Capacity Planning**. It displays the future evolution of a metric in relation to its history using linear regression.
+- [MBI] Added support for MariaDB 11.8.
+- [MBI] Added tooltips to explain how retention works in the general options form.
+- [MBI] Updated MBI logo for reports.
+- [MBI] The MBI report job configuration form has been completely redesigned with a clearer 2-tab layout, modern searchable selectors, a smarter scheduler with next-run preview, and template-aware output format selection. This will make report setup faster and less error-prone.
 
 </details>
 
-<details>
-  <summary>Bug fixes</summary>
+### Centreon Auto Discovery 26.10.0
 
-- Added missing French translations.
-- [ETL] Fixed an issue occurring when metric names exceeded 255 characters.
-- [MBI] Fixed an issue causing ACLs not to be applied to report designs.
-- [MBI] Fixed duplicated report templates that appeared when upload failed.
-- [MBI] Fixed upload of report templates.
+No functional changes for this module in this version.
 
-</details>
+### Centreon License Manager 26.10.0
 
-<details>
-  <summary>Security fixes</summary>
+No functional changes for this module in this version.
 
-- [Engine] Fixed ownership of configuration files.
-- [MBI] Fixed an issue causing potential privilege escalation.
-- [Vulnerability] Upgraded JDOM version.
-- [Vulnerability] Upgraded versions of Apache Commons and TemporaryFolder dependencies.
+### Centreon Anomaly Detection 26.10.0
 
-</details>
+No functional changes for this module in this version.
 
-## Centreon Auto Discovery
+### Centreon IT Edition Extensions 26.10.0
 
-### 25.10.0
+No functional changes for this module in this version.
 
-Release date: `November 3, 2025`
+### Centreon Monitoring Connectors Manager 26.10.0
 
-<details open>
-  <summary>Enhancements</summary>
-
-- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
-- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Added missing French translations.
-- [Configuration] Fixed SQL error in service discovery occurring when using MySQL.
-- Fixed the error code and message that were displayed in case of an invalid license.
-
-</details>
-
-<details>
-  <summary>Security</summary>
-
-- [Vulnerability] Disabled shell interpretation for discovery commands by default. Can be enabled again with a Gorgone configuration file parameter.
-
-</details>
-
-## Centreon License Manager
-
-### 25.10.0
-
-Release date: `November 3, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Added missing French translations.
-
-</details>
-
-## Centreon Anomaly Detection
-
-### 25.10.0
-
-Release date: `November 3, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
-- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Translation] Added missing French translations.
-
-</details>
-
-## Centreon IT Edition Extensions
-
-### 25.10.0
-
-Release date: `November 3, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [CSS] The Tailwind framework is now used, optimizing the loading of CSS elements.
-- [Core] Migrated to PNPM 10 and upgraded dependencies (React 19 and Cypress 14).
-- [Playlists] The MAP widget is now handled correctly in the public playlists of Dashboards.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Added missing French translations.
-- [Playlists] Fixed an issue occurring when refreshing the dashboard list to be displayed.
-- [Playlists] Fixed a "Playlist not found" error after modifying widgets in a dashboard.
-
-</details>
-
-## Centreon Monitoring Connectors Manager (formerly Plugin Packs Manager)
-
-### 25.10.0
-
-Release date: `November 3, 2025`
-
-<details open>
-  <summary>Enhancements</summary>
-
-- [Configuration] A default 24/7 notification time period is now defined on base pack host templates.
-- [Monitoring Connectors] User access to this page can now be handled using dedicated ACLs.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Added missing French translations.
-
-</details>
+No functional changes for this module in this version.
