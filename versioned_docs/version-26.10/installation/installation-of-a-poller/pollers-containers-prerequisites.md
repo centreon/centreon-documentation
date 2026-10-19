@@ -1,25 +1,25 @@
 ---
 id: pollers-containers-prerequisites
-title: Pollers in containers prerequisites
-description: "Configuring Centreon to receive connections from pollers in containers"
+title: Prerequisites for pollers installed via a generated command
+description: "Configure Centreon to receive connections from pollers installed via a generated command (installed on a VM, a physical machine or a container)"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page explains how to configure your platform to be able to use pollers in containers. You only have to perform this procedure once for the whole platform, before you install your first poller in a container. It has no impact on other poller deployment modes.
+This page explains how to configure your platform to be able to use pollers installed via a command generated in the interface (whether they are installed on a VM, a physical machine or a container). You only have to perform this procedure once for the whole platform, before you install your first poller this way. It has no impact on the manual deployment mode.
 
 ## When to use this procedure
 
 This page describes what to do if the following conditions are met:
 
 * You have just installed a platform in version 26.10, or upgraded a platform that did not have any pollers in pullwss mode.
-* You want to use pollers in containers for the first time.
+* You want to use pollers installed via a command generated in the interface for the first time (whether they are installed on a VM, a physical machine or a container).
 
-> If your platform had pollers in pullwss mode and you now wish to use pollers in containers, follow [Adapting legacy pullwss poller setups](./adapt-legacy-pullwss.md).
+> If your platform had pollers in pullwss mode and you now wish to use pollers installed via a command generated in the interface, follow [Adapting legacy pullwss poller setups](./adapt-legacy-pullwss.md).
 
 ### Pullwss mode
 
-By default, the central server initiates the connection to its pollers. However, a poller running in a container cannot accept incoming connections, so this mode does not work.
+By default, the central server initiates the connection to its pollers. However, for example, a poller running in a container cannot accept incoming connections, so this mode does not work.
 
 **pullwss** mode reverses the direction: the poller opens a WebSocket connection to the central server and keeps it open.
 
@@ -27,13 +27,13 @@ The recomended and secure way is to use HTTPS. This means that certificates are 
 
 ## Installation requirements
 
-* Make sure your container meets the [poller installation prerequisites](../prerequisites.md#poller-sizing).
+* Make sure your container or your host machine meets the [poller installation prerequisites](../prerequisites.md#poller-sizing).
 
 * Ensure the central server and Gorgone are already installed and up to date with the latest major version.
 
 * If not already done, configure HTTPS on your central server. This can be done as part of the [installation procedure](../installation-of-a-central-server/using-packages.md#step-3-set-up-the-tls-configuration), or separately.
 
-   Once HTTPS is enabled, also update the Gorgone API URL: in **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** on the central server, set `base_url` to `https://<central_fqdn>/centreon/api/latest/`, then restart Gorgone (`systemctl restart gorgoned`). Otherwise, the central server rejects every poller in a container with an `invalid token` error.
+   Once HTTPS is enabled, also update the Gorgone API URL: in **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** on the central server, set `base_url` to `https://<central_fqdn>/centreon/api/latest/`, then restart Gorgone (`systemctl restart gorgoned`). Otherwise, the central server rejects this type of pollers with an `invalid token` error.
 
 * The poller must be able to reach the central server.
 
@@ -165,12 +165,11 @@ systemctl restart apache2
 
 ## Add the poller to the platform's configuration
 
-You can now add a poller in a container. To do so, [retrieve the correct command from the Centreon web interface](./using-containers.md).
-The poller will automatically connect to the central server using pullwss.
+You can now add a poller using the automatically generated command. To do so, retrieve the command from the Centreon web interface (in the poller section at the top left of the screen, whether you want to install a poller [on a container](./using-containers.md) or [on a VM or a physical machine](vm-or-physical.md)). The poller will automatically connect to the central server using pullwss.
 
-## If you delete all your pollers in containers
+## If you delete all your pollers installed via an automatically generated command
 
-If in the future you should delete all your pollers in containers, do not forget to undo the steps above.
+If in the future you should delete all your pollers installed via an automatically generated command, do not forget to undo the steps above.
 
 ## Troubleshooting the installation
 

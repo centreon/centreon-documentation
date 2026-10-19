@@ -1,16 +1,16 @@
 ---
-id: meta-services
-title: Créer des méta-services
-description: "Agréger les métriques de plusieurs services au sein d'un méta-service virtuel"
+id: metaservices
+title: Créer des métaservices
+description: "Agréger les métriques de plusieurs services au sein d'un métaservice virtuel"
 ---
 
 ## Definition
 
-Un méta-service est un service virtuel permettant l’agrégation de métriques issues de différents services au travers
-d’une opération mathématique. Les méta-services sont gérés de la même manière qu’un service c’est à dire qu’ils
+Un métaservice est un service virtuel permettant l’agrégation de métriques issues de différents services au travers
+d’une opération mathématique. Les métaservices sont gérés de la même manière qu’un service c’est à dire qu’ils
 possèdent des seuils, un processus de notification, génèrent un graphique de performance...
 
-Exemple : Il est possible de déterminer la consommation totale de trafic WAN en additionnant au sein d’un méta-service
+Exemple : Il est possible de déterminer la consommation totale de trafic WAN en additionnant au sein d’un métaservice
 l’ensemble des services supervisant le trafic WAN unitairement.
 
 ### Les types de calcul
@@ -39,23 +39,23 @@ données disponibles sont :
 
 ## Configuration
 
-Pour ajouter un méta-service :
+Pour ajouter un métaservice :
 
-Rendez-vous dans le menu : **Configuration > Services > Meta Services** et cliquez sur le bouton **Add**
+Rendez-vous dans le menu : **Configuration > Services > Métaservices** et cliquez sur le bouton **Add**
 
 ![image](../../assets/configuration/02addmetaservice.png)
 
 ### Informations générales
 
-* Le champ **Meta Service Name** correspond au nom du méta-service affiché dans l’interface. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
+* Le champ **Métaservice Name** correspond au nom du métaservice affiché dans l’interface. Les caractères suivants ne sont pas autorisés : `~!$%^&|'"<>?,()=*{}` et les espaces.
 * Le champ **Output format string (printf-style)** correspond au message de sortie (‘output’) visible dans Centreon.
-  La valeur “%d” correspond à la valeur calculée par le méta-service.
+  La valeur “%d” correspond à la valeur calculée par le métaservice.
 * Le champ **Warning level** and **Critical level** correspondent respectivement aux seuils "WARNING" et
-  "CRITICAL" du méta-service.
+  "CRITICAL" du métaservice.
 * Les champs **Calculation Type** et **Data source Type** correspondent respectivement aux calculs et à la description
   de la source de données
 * Le champ **Selection Mode** permet de sélectionner les services contenant les métriques qui entreront dans le calcul
-  du méta-service.
+  du métaservice.
 
 Si l'option **Service list** est sélectionnée alors les métriques choisies seront issues de services sélectionnés
 manuellement.
@@ -66,15 +66,15 @@ ce cas à sélectionner dans la liste déroulante Métrique.
 
 > Plus d’informations sur le formatage *[PRINTF](http://en.wikipedia.org/wiki/Printf_format_string)*.
 
-### Etat du Meta Service
+### Etat du Métaservice
 
-* Le champ **Check Period** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut du méta-service.
-* Le champ **Max Check Attempts** définit le nombre de contrôles à effectuer avant de valider le statut du méta-service
+* Le champ **Check Period** définit la période temporelle durant laquelle l’ordonnanceur vérifie le statut du métaservice.
+* Le champ **Max Check Attempts** définit le nombre de contrôles à effectuer avant de valider le statut du métaservice
   : lorsque le statut est validé, une notification est envoyée.
 * Le champ **Normal Check Interval** est exprimé en minutes. Il définit l’intervalle entre chaque vérification lorsque
-  le statut du méta-service est OK.
+  le statut du métaservice est OK.
 * Le champ **Retry Check Interval** est exprimé en minutes. Il définit l’intervalle de validation du statut non-OK du
-  méta-service.
+  métaservice.
 
 ### Notification
 
@@ -87,14 +87,14 @@ ce cas à sélectionner dans la liste déroulante Métrique.
 
 ### Informations supplémentaires
 
-* La liste **Graphic Template** définit le modèle de graphique utilisé par ce méta-service.
-* Les champs **Status** et **Comments** permettent d’activer / désactiver ou de commenter le méta-service.
+* La liste **Graphic Template** définit le modèle de graphique utilisé par ce métaservice.
+* Les champs **Status** et **Comments** permettent d’activer / désactiver ou de commenter le métaservice.
 
 ## Sélectionner manuellement des services
 
-Si vous avez choisi l’option **Service list**, au sein de l’écran regroupant l’ensemble des méta-services :
+Si vous avez choisi l’option **Service list**, au sein de l’écran regroupant l’ensemble des métaservices :
 
-1. Cliquez sur suivant pour sélectionner les métriques entrant en jeu dans le calcul du méta-service. Ces métriques
+1. Cliquez sur suivant pour sélectionner les métriques entrant en jeu dans le calcul du métaservice. Ces métriques
   sont appelées indicateurs. ![image](../../assets/configuration/common/flechedirection.png)
 2. Cliquez sur le bouton **Add**
 
@@ -105,7 +105,7 @@ Si vous avez choisi l’option **Service list**, au sein de l’écran regroupan
   (seconde liste).
 * Les champs **Status** et **Comment** permettent d’activer / désactiver ou de commenter l’indicateur.
 
-3. Répétez l’opération jusqu’à avoir ajouté tous les indicateurs nécessaires au calcul du méta-service.
+3. Répétez l’opération jusqu’à avoir ajouté tous les indicateurs nécessaires au calcul du métaservice.
 
-> Un méta-service est à considérer comme service régulier. Il est nécessaire de générer la configuration de
+> Un métaservice est à considérer comme service régulier. Il est nécessaire de générer la configuration de
 > l’ordonnanceur central, d’exporter cette dernière puis de redémarrer l’ordonnanceur.

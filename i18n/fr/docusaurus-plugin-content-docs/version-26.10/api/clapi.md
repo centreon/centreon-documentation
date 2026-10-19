@@ -712,12 +712,12 @@ If you want to grant or revoke resources in an ACL Resource rule definition, use
 | grant\_host                | Put host name(s)             | \[...\] -a grant\_host -v "ACL Resource Test;srv-esx"                  | Yes                     |
 | grant\_hostgroup           | Put hostgroup name(s)        | \[...\] -a grant\_hostgroup -v "ACL Resource Test;Linux servers"       | Yes                     |
 | grant\_servicegroup        | Put servicegroup name(s)     | \[...\] -a grant\_servicegroup -v "ACL Resource Test;Ping"             | Yes                     |
-| grant\_metaservice         | Put metaservice name(s)      | \[...\] -a grant\_metaservice -v "ACL Resource Test;Traffic Average"   | No                      |
+| grant\_métaservice         | Put métaservice name(s)      | \[...\] -a grant\_métaservice -v "ACL Resource Test;Traffic Average"   | No                      |
 | addhostexclusion           | Put host name(s)             | \[...\] -a addhostexclusion -v "ACL Resource Test;srv-test"            | No                      |
 | revoke\_host               | Put host name(s)             | \[...\] -a revoke\_host -v "ACL Resource Test;srv-esx"                 | Yes                     |
 | revoke\_hostgroup          | Put hostgroup name(s)        | \[...\] -a revoke\_hostgroup -v "ACL Resource Test;Linux servers"      | Yes                     |
 | revoke\_servicegroup       | Put servicegroup name(s)     | \[...\] -a revoke\_servicegroup -v "ACL Resource Test;Ping"            | Yes                     |
-| revoke\_metaservice        | Put metaservice name(s)      | \[...\] -a revoke\_metaservice -v "ACL Resource Test;Traffic Average"  | Yes                     |
+| revoke\_métaservice        | Put métaservice name(s)      | \[...\] -a revoke\_métaservice -v "ACL Resource Test;Traffic Average"  | Yes                     |
 | delhostexclusion           | Put host name(s)             | \[...\] -a delhostexclusion -v "ACL Resource Test;srv-test"            | Yes                     |
 | addfilter\_instance        | Put instance name(s)         | \[...\] -a addfilter\_instance -v "ACL Resource Test;Monitoring-2"     | No                      |
 | addfilter\_hostcategory    | Put host category name(s)    | \[...\] -a addfilter\_hostcategory -v "ACL Resource Test;Customer-1"   | No                      |
@@ -6658,7 +6658,7 @@ To list available KPI, use the **SHOW** action:
 centreon -u admin -p 'centreon' -o KPI -a SHOW
 id;type;name;impacted_ba;warning_impact;critical_impact;unknown_impact
 1;service;Centreon-Server Load;ba1;25;50;20
-2;metaservice;meta1;toto;50;100;75
+2;métaservice;meta1;toto;50;100;75
 [...]
 ```
 
@@ -6667,7 +6667,7 @@ Columns are the following:
   |Column           |Description                                  |
   |-----------------|---------------------------------------------|
   |KPI ID           |KPI id                                       |
-  |KPI type         | *service*, *metaservice*, *ba* or *boolean* |
+  |KPI type         | *service*, *métaservice*, *ba* or *boolean* |
   |KPI name         |KPI name                                     |
   |Impacted BA      |Impacted business activity                   |
   |Warning impact   |Warning impact                               |
@@ -6680,7 +6680,7 @@ To add a KPI, use the **ADD** action:
 
 ``` shell
 centreon -u admin -p 'centreon' -o KPI -a ADD -v 'service;host1|service1;ba1;10;20;5'
-centreon -u admin -p 'centreon' -o KPI -a ADD -v 'metaservice;meta11;ba2;minor;major;null'
+centreon -u admin -p 'centreon' -o KPI -a ADD -v 'métaservice;meta11;ba2;minor;major;null'
 centreon -u admin -p 'centreon' -o KPI -a ADD -v 'ba;ba1;ba3;10;20;5'
 centreon -u admin -p 'centreon' -o KPI -a ADD -v 'boolean;rule1;ba4;10;20;5'
 ```
@@ -6689,7 +6689,7 @@ Required columns are the following:
 
   |Column           |Description                                  |
   |-----------------|---------------------------------------------|
-  |KPI type         | *service*, *metaservice*, *ba* or *boolean* |
+  |KPI type         | *service*, *métaservice*, *ba* or *boolean* |
   |Object           | Object used in KPI                          |
   |Impacted BA      |Impacted business activity                   |
   |Warning impact   |Warning impact                               |
@@ -6711,7 +6711,7 @@ If you want to change a specific parameters for a KPI, use the
 
 ``` shell
 centreon -u admin -p 'centreon' -o KPI -a SETPARAM -v 'service;host1|service1;ba1;enable;0'
-centreon -u admin -p 'centreon' -o KPI -a SETPARAM -v 'metaservice;meta1;ba1;warning_impact;50'
+centreon -u admin -p 'centreon' -o KPI -a SETPARAM -v 'métaservice;meta1;ba1;warning_impact;50'
 ```
 
 Parameters that you can change are the following:
@@ -6737,7 +6737,7 @@ Parameters that you can change are the following:
 
   |Parameter     |Description                                 |
   |--------------|--------------------------------------------|
-  |KPI type      |*service*, *metaservice*, *ba* or *boolean* |
+  |KPI type      |*service*, *métaservice*, *ba* or *boolean* |
   |Object        |Object used in KPI                          |
   |Impacted BA   |Impacted business activity                  |
   |Impact mode   |regular or advanced                         |

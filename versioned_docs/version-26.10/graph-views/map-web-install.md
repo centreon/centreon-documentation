@@ -343,17 +343,6 @@ First you need to install an EPEL repository:
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ```
 
-The command should return results as follows:
-
-<!-- TODO(Sam): vérifier la sortie exacte de la commande EPEL sur EL10 (nom de build). -->
-
-```shell
-Installed:
-  epel-release-10-<build>.el10.noarch
-
-Complete!
-```
-
 Then install the Centreon repository:
 
 ```shell
@@ -366,10 +355,8 @@ dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/e
 
 Install the following dependencies:
 
-<!-- TODO(Sam): vérifier que software-properties-common est toujours disponible sur Debian 13. -->
-
 ```shell
-apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+apt update && apt install lsb-release ca-certificates apt-transport-https wget gnupg2 curl
 ```
 
 To install the Centreon repository, execute the following command:
@@ -411,7 +398,9 @@ First you need to add the MariaDB repository:
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-There is no module stream to enable on Alma / RHEL / Oracle Linux 10: MariaDB 11.8 is provided by the `mariadb11.8-server` package. Go to the next step.
+```shell
+dnf module enable -y mariadb:11.8
+```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
@@ -499,8 +488,6 @@ dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-<!-- TODO(Sam): vérifier que le RPM mysql84-community-release existe pour el10 et son numéro de release. -->
-
 ```shell
 dnf install https://dev.mysql.com/get/mysql84-community-release-el10-1.noarch.rpm -y
 ```
@@ -509,8 +496,8 @@ dnf install https://dev.mysql.com/get/mysql84-community-release-el10-1.noarch.rp
 <TabItem value="Debian 13" label="Debian 13">
 
 ```shell
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.32-1_all.deb
-dpkg -i mysql-apt-config_0.8.32-1_all.deb
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.36-1_all.deb
+dpkg -i mysql-apt-config_0.8.36-1_all.deb
 apt update
 ```
 

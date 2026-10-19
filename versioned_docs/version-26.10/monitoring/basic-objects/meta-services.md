@@ -1,16 +1,16 @@
 ---
-id: meta-services
-title: Creating Meta Services
-description: "Aggregate metrics from multiple services into a virtual meta-service"
+id: metaservices
+title: Creating Metaservices
+description: "Aggregate metrics from multiple services into a virtual metaservice"
 ---
 
 ## Definition
 
-A meta-service is a virtual service providing the aggregation of metrics from different services via a mathematical
-operation. Meta-services are managed in the same way as a service, i.e. they have thresholds, a notification process,
+A metaservice is a virtual service providing the aggregation of metrics from different services via a mathematical
+operation. Metaservices are managed in the same way as a service, i.e. they have thresholds, a notification process,
 generate a performance graph, etc.
 
-Example: It is possible to determine the total consumption of WAN traffic by adding together, within a meta-service, all
+Example: It is possible to determine the total consumption of WAN traffic by adding together, within a metaservice, all
 the services monitoring the WAN traffic individually.
 
 ### Types of computing
@@ -39,22 +39,22 @@ The types of data source available are as follows:
 
 ## Configuration
 
-To add a meta-service:
+To add a metaservice:
 
-Go to **Configuration \> Services \> Meta Services** and click **Add**:
+Go to **Configuration \> Services \> Metaservices** and click **Add**:
 
 ![image](../../assets/configuration/02addmetaservice.png)
 
 ### General information
 
-* The **Meta Service Name** field corresponds to the name of the meta-service displayed in the interface. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
+* The **Metaservice Name** field corresponds to the name of the metaservice displayed in the interface. The following characters are not authorized: `~!$%^&|'"<>?,()=*{}` and spaces.
 * The **Output format string (printf-style)** field corresponds to the output message (‘output’) visible in Centreon.
-  The “%d” value corresponds to the value calculated by the meta-service
-* The **Warning level** and **Critical level** correspond to the “WARNING” and “CRITICAL” thresholds of the meta-service
+  The “%d” value corresponds to the value calculated by the metaservice
+* The **Warning level** and **Critical level** correspond to the “WARNING” and “CRITICAL” thresholds of the metaservice
   respectively.
 * The **Calculation Type** and **Data source Type** fields correspond to the calculations and the description of the
   data source, respectively
-* The **Selection Mode** field is used to select the services containing the metrics that will be used in the meta-service calculation.
+* The **Selection Mode** field is used to select the services containing the metrics that will be used in the metaservice calculation.
 
 If the **Service list** selection mode is selected, the metrics chosen will be obtained from services selected manually.
 
@@ -64,15 +64,15 @@ Metric dropdown list.
 
 > More information on *[PRINTF formatting](http://en.wikipedia.org/wiki/Printf_format_string)*.
 
-### Meta Service status
+### Metaservice status
 
-* The **Check Period** field defines the time period during which the scheduler checks the status of the meta-service.
-* The **Max Check Attempts** field defines the number of checks to be made before confirming the status of the meta-service:
+* The **Check Period** field defines the time period during which the scheduler checks the status of the metaservice.
+* The **Max Check Attempts** field defines the number of checks to be made before confirming the status of the metaservice:
   when the status is valid, a notification is sent.
 * The **Normal Check Interval** field is expressed in minutes. It defines the interval between checks when the status of
-  the meta-service is OK.
+  the metaservice is OK.
 * The **Retry Check Interval** field is expressed in minutes. It defines the checking interval of the Not-OK status of
-  the meta-service.
+  the metaservice.
 
 ### Notification 
 
@@ -85,14 +85,14 @@ Metric dropdown list.
 
 ### Additional information
 
-* The **Graphic Template** list defines the graphic model used by this meta-service.
-* The **Status** and **Comments** fields are used to enable / disable or comment on the meta-service.
+* The **Graphic Template** list defines the graphic model used by this metaservice.
+* The **Status** and **Comments** fields are used to enable / disable or comment on the metaservice.
 
 ## Select services manually
 
-If you have chosen the **Service list** option, in the screen containing all the meta-services:
+If you have chosen the **Service list** option, in the screen containing all the metaservices:
 
-1. Click the following icon to select the metrics entering into the calculation of the meta-service. These
+1. Click the following icon to select the metrics entering into the calculation of the metaservice. These
   metrics are called indicators. ![image](../../assets/configuration/common/flechedirection.png)
 2. Click **Add**
 
@@ -102,7 +102,7 @@ If you have chosen the **Service list** option, in the screen containing all the
 * The **Service** field is used to choose the service (first list) as well as the metric in this service (second list).
 * The **Status** and **Comment** fields are used to enable / disable or comment on the indicator.
 
-3. Repeat the operation until you have added all the indicators necessary for the calculation of the meta-service.
+3. Repeat the operation until you have added all the indicators necessary for the calculation of the metaservice.
 
-> A meta-service should be considered as a regular service. It is necessary to generate the configuration of the central
+> A metaservice should be considered as a regular service. It is necessary to generate the configuration of the central
 > scheduler to export it and then restart the scheduler.

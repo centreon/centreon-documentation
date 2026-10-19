@@ -47,7 +47,7 @@ and runs an installer script on the target container host. The script generates 
 
 2. Fill in the poller's information:
 
-   * **Poller name**: a unique name for this poller. It will appear in the list of pollers.
+   * **Poller name**: a unique name for this poller. It will appear in the list of pollers. The name must contain no spaces or special characters, and the first character must be alphanumeric.
    * **Poller address**: the address of the host machine where you are going to install the poller.
       > The **Poller address** does not affect connectivity: Gorgone uses
       > PullWSS, so the poller always initiates the connection to the central

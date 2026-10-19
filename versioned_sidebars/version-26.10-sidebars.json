@@ -154,6 +154,10 @@
               "id": "installation/installation-of-a-poller/unattended-install-poller"
             },
             {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/vm-or-physical"
+            },
+            {
               "type": "category",
               "label": "Pollers in containers",
               "link": {
@@ -166,18 +170,28 @@
                 },
                 {
                   "type": "doc",
-                  "id": "installation/installation-of-a-poller/pollers-containers-prerequisites"
-                },
-                {
-                  "type": "doc",
                   "id": "installation/installation-of-a-poller/using-containers-advanced-configuration"
-                },
-                {
-                  "type": "doc",
-                  "id": "installation/installation-of-a-poller/adapt-legacy-pullwss"
                 }
               ]
             },
+            {
+              "type": "category",
+              "label": "Prerequisites for pollers in pullwss mode",
+              "link": {
+                "type": "generated-index"
+              },
+              "items": [
+            
+            {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/pollers-containers-prerequisites"
+            },
+            {
+              "type": "doc",
+              "id": "installation/installation-of-a-poller/adapt-legacy-pullwss"
+            }
+          ]
+        },
             {
               "type": "doc",
               "id": "installation/installation-of-a-poller/using-packages"
@@ -351,7 +365,7 @@
             },
             {
               "type": "doc",
-              "id": "monitoring/basic-objects/meta-services"
+              "id": "monitoring/basic-objects/metaservices"
             }
           ]
         },
@@ -709,6 +723,10 @@
             {
               "type": "doc",
               "id": "service-mapping/ba-management"
+            },
+              {
+              "type": "doc",
+              "id": "service-mapping/ba-simulation"
             },
             {
               "type": "doc",
@@ -1136,6 +1154,10 @@
         },
         {
           "type": "doc",
+          "id": "api/authentication-tokens"
+        },
+        {
+          "type": "doc",
           "id": "administration/customize-centreon"
         },
         {
@@ -1420,6 +1442,10 @@
             },
             {
               "type": "doc",
+              "id": "integrations/data-analytics/sc-graphite-metrics"
+            },
+            {
+              "type": "doc",
               "id": "integrations/event-management/sc-hp-omi"
             },
             {
@@ -1599,8 +1625,19 @@
           "id": "api/map-api"
         },
         {
-          "type": "doc",
-          "id": "api/api-tokens"
+          "type": "link",
+          "href": "https://docs-api.centreon.com/api/centreon-map/26.10/",
+          "label": "MAP API"
+        },
+        {
+          "type": "link",
+          "href": "https://docs-api.centreon.com/api/centreon-bam",
+          "label": "BAM API"
+        },
+        {
+          "type": "link",
+          "href": "https://docs-api.centreon.com/api/centreon-autodiscovery",
+          "label": "Autodiscovery API"
         }
       ]
     },

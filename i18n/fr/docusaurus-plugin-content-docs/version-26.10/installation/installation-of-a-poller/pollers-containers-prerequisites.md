@@ -1,25 +1,25 @@
 ---
 id: pollers-containers-prerequisites
-title: Prérequis pour les collecteurs en conteneur
-description: "Configurer Centreon pour recevoir les connexions des collecteurs en conteneur"
+title: Prérequis pour les collecteurs installés par commande générée
+description: "Configurer Centreon pour recevoir les connexions des collecteurs installés par commande générée (installés sur une VM, une machine physique ou un conteneur)"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Cette page explique comment configurer votre plateforme afin de pouvoir utiliser des collecteurs en conteneur. Cette procédure n'est à réaliser qu'une seule fois pour l'ensemble de la plateforme, avant d'installer votre premier collecteur en conteneur. Elle n'a aucun impact sur les autres modes de déploiement des collecteurs.
+Cette page explique comment configurer votre plateforme afin de pouvoir utiliser des collecteurs installés par commande générée via l'interface (qu'ils soient installés sur une VM, une machine physique ou un conteneur). Cette procédure n'est à réaliser qu'une seule fois pour l'ensemble de la plateforme, avant d'installer votre premier collecteur de cette façon. Elle n'a aucun impact sur le mode de déploiement manuel de collecteurs.
 
 ## Quand utiliser cette procédure
 
 Cette page décrit la marche à suivre si les conditions suivantes sont réunies :
 
 * Vous venez d'installer une plateforme en version 26.10, ou vous avez mis à jour une plateforme qui ne comportait aucun collecteur en mode pullwss.
-* Vous souhaitez utiliser des collecteurs en conteneur pour la première fois.
+* Vous souhaitez utiliser des collecteurs installés par commande générée via l'interface pour la première fois (qu'ils soient installés sur une VM, une machine physique ou un conteneur).
 
-> Si votre plateforme comportait des collecteurs en mode pullwss et que vous souhaitez désormais utiliser des collecteurs en conteneur, suivez la procédure [Adapter les anciennes configurations de collecteurs pullwss](./adapt-legacy-pullwss.md).
+> Si votre plateforme comportait des collecteurs en mode pullwss et que vous souhaitez désormais utiliser des collecteurs installés par commande générée via l'interface, suivez la procédure [Adapter les anciennes configurations de collecteurs pullwss](./adapt-legacy-pullwss.md).
 
 ### Le mode pullwss
 
-Par défaut, c'est le serveur central qui initie la connexion vers ses collecteurs. Or un collecteur qui s'exécute dans un conteneur ne peut pas accepter de connexions entrantes : ce mode ne fonctionne donc pas.
+Par défaut, c'est le serveur central qui initie la connexion vers ses collecteurs. Or par exemple un collecteur qui s'exécute dans un conteneur ne peut pas accepter de connexions entrantes : ce mode ne fonctionne donc pas.
 
 Le mode **pullwss** inverse le sens de la connexion : c'est le collecteur qui ouvre une connexion WebSocket vers le serveur central, puis qui la maintient ouverte.
 
@@ -27,13 +27,13 @@ La méthode recommandée et sécurisée consiste à utiliser HTTPS. Des certific
 
 ## Prérequis à l'installation
 
-* Assurez-vous que votre conteneur soit conforme aux [prérequis d'installation d'un collecteur](../prerequisites.md#dimensionnement-dun-collecteur).
+* Assurez-vous que votre conteneur ou votre machine hôte soit conforme aux [prérequis d'installation d'un collecteur](../prerequisites.md#dimensionnement-dun-collecteur).
 
 * Assurez-vous que le serveur central et Gorgone sont déjà installés et à jour dans la dernière version majeure.
 
 * Si ce n'est pas déjà fait, configurez le HTTPS sur votre serveur central. Cela peut être fait dans le cadre de la [procédure d'installation](../installation-of-a-central-server/using-packages.md#étape-3--mettre-en-place-la-configuration-tls), ou séparément.
 
-   Une fois HTTPS activé, mettez également à jour l'URL de l'API Gorgone : dans **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** sur le serveur central, définissez `base_url` sur `https://<central_fqdn>/centreon/api/latest/`, puis redémarrez Gorgone (`systemctl restart gorgoned`). Sinon, le serveur central rejettera chaque collecteur exécuté dans un conteneur avec une erreur `invalid token`.
+   Une fois HTTPS activé, mettez également à jour l'URL de l'API Gorgone : dans **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** sur le serveur central, définissez `base_url` sur `https://<central_fqdn>/centreon/api/latest/`, puis redémarrez Gorgone (`systemctl restart gorgoned`). Sinon, le serveur central rejettera ce type de collecteurs avec une erreur `invalid token`.
 
 * Le collecteur doit pouvoir joindre le serveur central.
 
@@ -165,11 +165,11 @@ systemctl restart apache2
 
 ## Étape 3 : Ajouter le collecteur à la configuration de la plateforme
 
-Vous pouvez maintenant ajouter un collecteur en conteneur. Pour cela, [récupérez la commande adéquate depuis l'interface web Centreon](./using-containers.md). Le collecteur se connectera automatiquement au serveur central via pullwss.
+Vous pouvez maintenant ajouter un collecteur en utilisant la commande générée automatiquement. Pour cela, récupérez la commande depuis l'interface web Centreon (dans la section des collecteurs en haut à gauche de l'écran, que vous souhaitiez installer un collecteur [dans un conteneur](./using-containers.md) ou [sur une VM ou une machine physique](vm-or-physical.md)). Le collecteur se connectera automatiquement au serveur central via pullwss.
 
-## Si vous supprimez tous vos collecteurs en conteneur
+## Si vous supprimez tous vos collecteurs installés via commande générée automatiquement
 
-Si vous veniez à supprimer à l'avenir tous vos collecteurs en conteneur, n'oubliez pas d'annuler les étapes ci-dessus.
+Si vous veniez à supprimer à l'avenir tous vos collecteurs installés via commande générée automatiquement, n'oubliez pas d'annuler les étapes ci-dessus.
 
 ## Dépanner l'installation
 

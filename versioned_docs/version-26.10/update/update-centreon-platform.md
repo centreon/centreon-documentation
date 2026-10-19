@@ -235,6 +235,21 @@ This procedure is the same as to update a Centreon central server.
 
 ## Update the Pollers
 
+<Tabs groupId="poller-update">
+<TabItem value="Using the installation command" label="Using the installation command">
+
+You can obtain the command installation for an existing poller from the central server interface.
+Executing the installation command of an existing poller will udpate it.
+
+1. Go to the pollers list in **Configuration > Pollers > Pollers**.
+
+2. In the **Actions** column, click on the **Copy installation command** button.
+
+3. Execute the copied command on your poller to update it.
+
+</TabItem>
+<TabItem value="Manually" label="Manually">
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -314,6 +329,9 @@ Nothing to do for this OS.
   ```shell
   apt-mark unhold centreon-plugin*
   ```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>

@@ -240,6 +240,21 @@ Cette procédure est identique à la mise à jour d'un serveur Centreon Central.
 
 ## Mise à jour des collecteurs
 
+<Tabs groupId="poller-update">
+<TabItem value="Avec la commande d'installation" label="Avec la commande d'installation">
+
+Il est possible d'obtenir la commande d'installation d'un collecteur existant depuis l'interface de votre serveur central.
+Exécuter la commande d'installation d'un collecteur existant le met à jour.
+
+1. Allez dans la liste des collecteurs dans **Configuration > Collecteurs > Collecteurs**.
+
+2. Dans la colonne **Actions**, cliquez le bouton **Copier la commande d'installation**
+
+3. Exécutez cette commande sur le collecteur pour le mettre à jour.
+
+</TabItem>
+<TabItem value="Mise à jour manuelle" label="Mise à jour manuelle">
+
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
@@ -319,6 +334,9 @@ Rien à faire pour cet OS.
   ```shell
   apt-mark unhold centreon-plugin*
   ```
+
+</TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>

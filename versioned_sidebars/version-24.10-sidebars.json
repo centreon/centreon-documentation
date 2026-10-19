@@ -318,7 +318,7 @@
             },
             {
               "type": "doc",
-              "id": "monitoring/basic-objects/meta-services"
+              "id": "monitoring/basic-objects/metaservices"
             }
           ]
         },
@@ -1412,6 +1412,10 @@
             {
               "type": "doc",
               "id": "integrations/data-analytics/sc-elastic-events"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/data-analytics/sc-graphite-metrics"
             },
             {
               "type": "doc",
