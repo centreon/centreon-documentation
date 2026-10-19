@@ -9,9 +9,41 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
-> **Warning, important information**: We have fixed an issue affecting all plugins that was causing empty `OK`: outputs. These will now return the correct value, `UNKNOWN`.
+### October
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Atlassian Statuspage API**](../procedures/applications-atlassian-statuspage-api.md) - Initial release.
+- [**Veeam Backup & Replication Rest API**](../procedures/applications-veeam-vbr-restapi.md) - Initial release.
+- [**Zero Trust Branch Rest API**](../procedures/cloud-zscaler-ztb-restapi.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Centreon Experience Monitoring Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Changed `timeframe` option default value.
+- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added **disks** mode and its service discovery rule.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Improved job execution performance when filtering by specific-jobs in **job-status** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Improved job execution performance when filtering by specific-jobs in **job-status** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Improved job execution performance when filtering by specific-jobs in **job-status** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Improved job execution performance when filtering by specific-jobs in **job-status** mode.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Fixed **health** mode by adding `--server` option that was leading to build invalid Azure Resource ID and an host permanently DOWN / ResourceNotFound.
+- [**Bind9 Web**](../procedures/applications-bind9-web.md) - Fixed the output value in **memory-usage** mode.
+- [**Docker Rest API**](../procedures/applications-docker-restapi.md) - Fixed the desired replicas count for Global Docker services.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed **rman** mode unusable with `--sqlmode=sqlpluscmd`.
+- [**Prometheus Server API**](../procedures/cloud-prometheus-api.md) - Fixed missing `query` option in the **Cloud-Prometheus-Api-Expression** service.
+- [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Discovery: the default template no longer maps the VM name to the host address when no IP is reported. This used to create hosts with invalid addresses that could not be edited or deleted.
+
+</TabItem>
+</Tabs>
 
 ### September
+
+> **Warning, important information**: We have fixed an issue affecting all plugins that was causing empty `OK`: outputs. These will now return the correct value, `UNKNOWN`.
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
