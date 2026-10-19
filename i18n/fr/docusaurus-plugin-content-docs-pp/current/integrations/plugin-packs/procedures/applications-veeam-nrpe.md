@@ -26,11 +26,13 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Veeam-NRPE-custom" label="App-Veeam-NRPE-custom">
 
-| Alias      | Modèle de service                | Description                                                   |
-|:-----------|:---------------------------------|:--------------------------------------------------------------|
-| Job-Status | App-Veeam-Job-Status-NRPE-custom | Contrôle permettant de vérifier l'état des jobs de sauvegarde |
+| Alias      | Modèle de service                | Description                                                   | Découverte |
+|:-----------|:---------------------------------|:--------------------------------------------------------------|:----------:|
+| Job-Status | App-Veeam-Job-Status-NRPE-custom | Contrôle permettant de vérifier l'état des jobs de sauvegarde | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Veeam-NRPE-custom** est utilisé.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -46,6 +48,17 @@ Le connecteur apporte les modèles de service suivants
 
 </TabItem>
 </Tabs>
+
+### Règles de découverte
+
+#### Découverte de services
+
+| Nom de la règle         | Description       |
+|:------------------------|:------------------|
+| App-Veeam-NRPE-Job-Name | Découvre les jobs |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
@@ -107,7 +120,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 ### Centreon NSClient++
 
-Pour superviser les ressources *Windows* via NRPE, installez la version Centreon
+Pour surveiller les ressources *Windows* via NRPE, installez la version Centreon
 de l'agent NSClient++. Veuillez suivre notre [documentation officielle](../getting-started/how-to-guides/centreon-nsclient-tutorial.md) et assurez-vous que la configuration du **serveur NRPE** est correcte.
 
 ## Installer le connecteur de supervision
