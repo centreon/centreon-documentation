@@ -34,19 +34,18 @@ Release date: `October 20, 2026`
   <summary>Enhancements</summary>
 
 - [Configuration] (Beta) Added a **Create new poller** shortcut in the top banner that generates a single command line for simple poller deployment via container or packages.
-- [API] Added an API endpoint for creating a pollers.
-- [API] Added API endpoints to handle global, installed & standard macros.
+- [API] Added an API endpoint for creating pollers.
+- [API] Added API endpoints to handle global, installed and standard macros.
 - [Administration] The **Administration > About** page has been updated for a new look. Many useful links have also been added to it.
 - [Agent configuration] It is now possible to configure both connection directions (poller-initiated or agent-initiated) in the same configuration. The user interface has been updated according to this.
 - [Agent configuration] When adding an agent configuration, the **CA common name** field is now displayed only in Insecure TLS mode.
-- [Authentication] Added "poller" as a new type of authentication token.
-- [Agent configuration] CMA can now automatically create hosts when the option is checked in Agent configuration.
+- [Authentication] Added **poller** as a new type of authentication token.
 - [Configuration] The BBDO protocol version 3.1.0 is now enabled by default for Broker communications.
 - [Configuration] The host categories page has been updated with live search, inline enable/disable and a redesigned add/edit form.
 - [Configuration] "Resource macros" are now called "Global macros".
 - [Configuration] The **Configuration > Commands > Commands** configuration page has been updated.
-- [Top Banner] Redesigned the status tiles make the header clearer and easier to read at a glance.
-- [Top Banner] The user's profile menu now shows a circular avatar with the user's initials.
+- [Top banner] Redesigned the status tiles to make the header clearer and easier to read at a glance.
+- [Top banner] The user's profile menu now shows a circular avatar with the user's initials.
 - [UI] Resources now use new, consistent icons across the interface for easier identification.
 - [UI] Refreshed interface colors: new primary blue, softer table and section headers, and more readable status chips in light and dark modes.
 
@@ -65,40 +64,13 @@ Release date: `October 20, 2026`
 
 </details>
 
-<details>
-  <summary>Bug fixes</summary>
-
-- [Engine] Fixed the installation of centreon-engine and centreon-monitoring-agent on hosts where USERGROUPS_ENAB is set to no in /etc/login.defs: the centreon-engine and centreon-monitoring-agent groups are now always created.
-
-</details>
-
-<details>
-  <summary>Security fixes</summary>
-
-- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
-
-</details>
-
 ## Centreon Monitoring Agent
 
 ### 26.10.0
 
 Release date: `October 20, 2026`
 
-<details open>
-  <summary>Enhancements</summary>
-
-- Fixed an issue where icons configured for Business Activities were not showing up properly.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed a build failure with the Windows agent installer when downloading the centreon_plugins.exe binary.
-- Fixed the installation of centreon-engine and centreon-monitoring-agent on hosts where USERGROUPS_ENAB is set to no in /etc/login.defs: the centreon-engine and centreon-monitoring-agent groups are now always created.
-
-</details>
+No functional changes for this module in this version.
 
 ## Centreon Gorgone
 
@@ -109,23 +81,10 @@ Release date: `October 20, 2026`
 <details open>
   <summary>Enhancements</summary>
 
+Adaptations have been made to allow for pollers in containers deployment:
 - Gorgone is now able to validate poller tokens.
 - Added support for using a UID to identify a poller instead of its numeric ID.
 - Gorgone can now be configured using environment variables for pollers in containers compatibility.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed a data formatting conflict that occurred after system updates, ensuring that MBI reports generate correctly without encountering errors.
-
-</details>
-
-<details>
-  <summary>Security fixes</summary>
-
-- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
 
 </details>
 
@@ -151,19 +110,7 @@ No functional changes for this module in this version.
 
 Release date: `October 20, 2026`
 
-<details>
-  <summary>Bug fixes</summary>
-
-- Category and group lists now load correctly with the GLPI provider on GLPI 9.5 and later.
-
-</details>
-
-<details>
-  <summary>Security fixes</summary>
-
-- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
-
-</details>
+No functional changes for this module in this version.
 
 ## Centreon High Availability
 
@@ -171,9 +118,4 @@ Release date: `October 20, 2026`
 
 Release date: `October 20, 2026`
 
-<details>
-  <summary>Bug fixes</summary>
-
-- Fixed an issue with the GPG signing of the centreon-ha-common and centreon-ha-web RPM packages.
-
-</details>
+No functional changes for this module in this version.
