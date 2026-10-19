@@ -9,6 +9,10 @@
   display: flex;
   align-items: center;
   gap: 1.25rem;
+  /* Like the Docusaurus navbar items */
+  font-family: 'Esphimere', serif;
+  font-size: 16px;
+  font-weight: 700;
 }
 .rp-nav-link {
   color: var(--rp-c-text-1);
@@ -32,11 +36,15 @@
 .rp-nav-sections {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
-  margin-left: 2rem;
-  font-size: 0.875rem;
-  font-weight: 500;
+  margin-left: 1.25rem;
+  font-family: 'Esphimere', serif;
+  font-size: 16px;
+  font-weight: 700;
 }
+.rp-nav-sections .rp-nav-link {
+  padding: 4px 12px;
+}
+
 .rp-nav-link-active {
   color: var(--rp-c-brand);
 }
@@ -359,4 +367,59 @@
 }
 .rp-mask-icon--wrapped {
   --rp-mask-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M21 5H3v2h18zM3 19h7v-2H3zm0-6h15c1 0 2 .43 2 2s-1 2-2 2h-2v-2l-4 3 4 3v-2h2c2.95 0 4-1.27 4-4 0-2.72-1-4-4-4H3z'/%3E%3C/svg%3E");
+}
+
+/* Breadcrumbs and version badge (DocBreadcrumbs), like Docusaurus. */
+.rp-breadcrumbs ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 0 0 0.8rem;
+  padding: 0;
+  list-style: none;
+  font-size: 12.8px;
+}
+.rp-breadcrumbs li {
+  display: flex;
+  align-items: center;
+}
+.rp-breadcrumbs li + li::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  margin: 0 0.25rem;
+  background-color: currentColor;
+  opacity: 0.5;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8.59 16.59 13.17 12 8.59 7.41 10 6l6 6-6 6z'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.rp-breadcrumbs a,
+.rp-breadcrumbs span {
+  display: flex;
+  align-items: center;
+  padding: 5.12px 10.24px;
+  border-radius: 24px;
+  color: var(--rp-c-text-1);
+  text-decoration: none;
+}
+.rp-breadcrumbs a:hover,
+.rp-breadcrumbs__item--active span {
+  background: rgba(0, 0, 0, 0.05);
+}
+.dark .rp-breadcrumbs a:hover,
+.dark .rp-breadcrumbs__item--active span {
+  background: rgba(255, 255, 255, 0.05);
+}
+.rp-breadcrumbs__item--active span {
+  color: var(--rp-c-brand);
+}
+.rp-version-badge {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #ebedf0;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
 }

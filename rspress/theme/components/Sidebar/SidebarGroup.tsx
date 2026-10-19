@@ -63,6 +63,14 @@ export function SidebarGroup(props: SidebarGroupProps) {
   // Docusaurus), so SSG pages only carry the active branch of the sidebar.
   const [expandedOnce, setExpandedOnce] = useState(!collapsed);
   if (!collapsed && !expandedOnce) setExpandedOnce(true);
+  // Centreon: color the groups leading to the active page, like Docusaurus.
+  const containsActive = (items: NormalizedSidebarGroup['items']): boolean =>
+    items.some(
+      (child) =>
+        ('link' in child && !!child.link && activeMatcher(child.link)) ||
+        ('items' in child && containsActive((child as NormalizedSidebarGroup).items)),
+    );
+  const inActiveTrail = !active && containsActive((item as NormalizedSidebarGroup).items ?? []);
 
   const toggleCollapse = (): void => {
     // update collapsed state
@@ -91,7 +99,7 @@ export function SidebarGroup(props: SidebarGroupProps) {
         tag={item.tag}
         text={item.text}
         context={item.context}
-        className={clsx('rp-sidebar-group', className)}
+        className={clsx('rp-sidebar-group', className, inActiveTrail && 'rp-sidebar-group--active-trail')}
         depth={depth}
         onClick={e => {
           if (!active && item.link && !collapsed) {

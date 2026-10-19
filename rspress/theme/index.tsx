@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Layout as DefaultLayout, Link, SwitchAppearance as OriginalSwitchAppearance } from '@rspress/core/theme-original';
-import { useLang, useLocation, usePage } from '@rspress/core/runtime';
+import { useActiveMatcher, useLang, useLocation, usePage, useSidebar } from '@rspress/core/runtime';
 import './index.css';
 
 export * from '@rspress/core/theme-original';
@@ -268,6 +268,9 @@ function NavSections() {
   const sections = headerSections(family, lang, version);
   const active = activeSection(pathname);
 
+  // Like docs.centreon.com, the home page navbar has no section links.
+  if (parsePathname(pathname).rest === '/') return null;
+
   return (
     <div className="rp-nav-sections">
       {sections.map((sec) => (
@@ -435,6 +438,72 @@ function VersionAwareNav() {
   );
 }
 
+interface SidebarNode {
+  text?: string;
+  link?: string;
+  items?: SidebarNode[];
+}
+
+/** Sidebar entries leading to the active page, the page itself last. */
+function findTrail(items: SidebarNode[], isActive: (link: string) => boolean): SidebarNode[] | null {
+  for (const item of items) {
+    if (item.items) {
+      const sub = findTrail(item.items, isActive);
+      if (sub) return [item, ...sub];
+    }
+    if (item.link && isActive(item.link)) return [item];
+  }
+  return null;
+}
+
+/** Breadcrumbs and version badge above the page title, like Docusaurus. */
+function DocBreadcrumbs() {
+  const { page } = usePage();
+  const sidebar = useSidebar() as SidebarNode[];
+  const isActive = useActiveMatcher();
+  const { pathname } = useLocation();
+  const lang = useLang() as Lang;
+  if (page.pageType !== 'doc') return null;
+
+  const trail = findTrail(sidebar, isActive);
+  if (!trail) return null;
+  const { version, versioned } = parsePathname(pathname);
+  const section = headerSections(familyOf(pathname), lang, version).find((s) => s.key === activeSection(pathname));
+  const current = trail[trail.length - 1];
+
+  return (
+    <>
+      <nav className="rp-breadcrumbs" aria-label="Breadcrumbs">
+        <ul>
+          <li>
+            <Link href={lang === 'fr' ? '/fr/' : '/'} aria-label={lang === 'fr' ? "Page d'accueil" : 'Home page'}>
+              <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="currentColor" d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" />
+              </svg>
+            </Link>
+          </li>
+          {section && (
+            <li>
+              <Link href={section.href}>{section.label}</Link>
+            </li>
+          )}
+          {trail.slice(0, -1).map((item, i) => (
+            <li key={i}>{item.link ? <Link href={item.link}>{item.text}</Link> : <span>{item.text}</span>}</li>
+          ))}
+          <li className="rp-breadcrumbs__item--active">
+            <span>{current.text}</span>
+          </li>
+        </ul>
+      </nav>
+      {versioned && (
+        <span className="rp-version-badge">
+          {lang === 'fr' ? 'Version :' : 'Version:'} {version}
+        </span>
+      )}
+    </>
+  );
+}
+
 const FOOTER_LINKS = [
   { label: 'Corporate Website', href: 'https://www.centreon.com/en/' },
   { label: 'Blog', href: 'https://www.centreon.com/en/blog/' },
@@ -490,6 +559,7 @@ export function Layout(props: any) {
       {...props}
       afterNavTitle={<NavSections />}
       afterNavMenu={<VersionAwareNav />}
+      beforeDocContent={<DocBreadcrumbs />}
       bottom={<SiteFooter />}
     />
   );
