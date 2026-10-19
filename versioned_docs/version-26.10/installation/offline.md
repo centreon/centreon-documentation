@@ -6,6 +6,8 @@ description: "Install Centreon on servers without internet access using a local 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This procedure is currently unavailable for Debian platforms.
+
 To be able to install Centreon on servers with no internet access, create a local copy of the Centreon repository on a server that has an internet access, and then make your offline Centreon servers point to it.
 
 ## Creating a local copy of the Centreon repository
@@ -13,11 +15,11 @@ To be able to install Centreon on servers with no internet access, create a loca
 1. Install the repository on your mirror server.
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el8/centreon-26.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -29,11 +31,11 @@ rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -62,8 +64,10 @@ rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 4. Synchronize the repositories:
 
    ```shell
-   reposync -p /var/www/html/repos/centreon/ -r centreon-stable-noarch
-   reposync -p /var/www/html/repos/centreon/ -r centreon-stable
+   reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable-noarch
+   reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable
+   reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable-noarch
+   reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable
    ```
 
 5. Create the repository:
@@ -105,9 +109,12 @@ cd  /var/spool/cron
 crontab -e
 ```
 
-The following commands will schedule a synchronization every day at 2 for the **centreon-stable-noarch** repository, and every day at 3 for the **centreon-stable** repository:
+The following commands will schedule a synchronization every day at 2:00 for the **centreon-26.10-stable-noarch** and **centreon-plugins-26.10-stable-noarch** repositories and every day at 3:00 for the **centreon-26.10-stable** and **centreon-plugins-26.10-stable** repositories. It will also rebuild the repository metadata every day at 4:
 
 ```shell
-* 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-stable-noarch
-* 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-stable
+0 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable-noarch
+0 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable
+0 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable-noarch
+0 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable
+0 4 * * * createrepo --update /var/www/html/repos/centreon/
 ```
