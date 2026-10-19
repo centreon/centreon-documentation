@@ -165,6 +165,8 @@ dnf install centreon-connector-ssh
 ``` shell
 apt install centreon-connector-ssh
 ```
+</TabItem>
+</Tabs>
 
 ## Connecteurs d'optimisation
 
