@@ -197,6 +197,8 @@ apt install centreon-connector-ssh
 </TabItem>
 </Tabs>
 
+## Optimization connectors
+
 ### Perl connector
 
 Centreon Perl Connector is free software from Centreon available under the Apache Software License version 2 (ASL 2.0).
