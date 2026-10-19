@@ -109,11 +109,12 @@ cd  /var/spool/cron
 crontab -e
 ```
 
-Les commandes suivantes programmeront une synchronisation tous les jours à 2h pour le dépôt **centreon-stable-noarch** et tous les jours à 3h pour le dépôt **centreon-26.10-stable**:
+Les commandes suivantes programmeront une synchronisation tous les jours à 2h pour les dépôts **centreon-stable-noarch** et **centreon-plugins-26.10-stable-noarch** ainsi que tous les jours à 3h pour les dépôts **centreon-26.10-stable** et **centreon-plugins-26.10-stable**. Elle reconstruira également les metadonnées du dépôt tous les jours à 4h:
 
 ```shell
-* 0 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable-noarch
-* 0 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable
-* 0 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable-noarch
-* 0 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable
+0 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable-noarch
+0 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable
+0 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable-noarch
+0 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable
+0 4 * * * createrepo --update /var/www/html/repos/centreon/
 ```
