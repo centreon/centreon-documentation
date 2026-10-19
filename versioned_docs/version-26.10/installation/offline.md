@@ -6,6 +6,8 @@ description: "Install Centreon on servers without internet access using a local 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This procedure is currently unavailable for Debian platforms.
+
 To be able to install Centreon on servers with no internet access, create a local copy of the Centreon repository on a server that has an internet access, and then make your offline Centreon servers point to it.
 
 ## Creating a local copy of the Centreon repository
@@ -45,21 +47,6 @@ rpm --import https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
 ```
 
 </TabItem>
-<TabItem value="Debian 13" label="Debian 13">
-
-```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-```
-
-Then retrieve the gpg key for the packages:
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-apt update
-```
-
-</TabItem>
 </Tabs>
 
 2. Create a directory for the local repository:
@@ -77,8 +64,10 @@ apt update
 4. Synchronize the repositories:
 
    ```shell
-   reposync -p /var/www/html/repos/centreon/ -r centreon-stable-noarch
-   reposync -p /var/www/html/repos/centreon/ -r centreon-stable
+   reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable-noarch
+   reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable
+   reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable-noarch
+   reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable
    ```
 
 5. Create the repository:
@@ -120,9 +109,11 @@ cd  /var/spool/cron
 crontab -e
 ```
 
-The following commands will schedule a synchronization every day at 2 for the **centreon-stable-noarch** repository, and every day at 3 for the **centreon-stable** repository:
+The following commands will schedule a synchronization every day at 2 for the **centreon-26.10-stable-noarch** repository, and every day at 3 for the **centreon-26.10-stable** repository:
 
 ```shell
-* 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-stable-noarch
-* 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-stable
+* 0 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable-noarch
+* 0 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-26.10-stable
+* 0 2 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable-noarch
+* 0 3 * * * reposync -p /var/www/html/repos/centreon/ -r centreon-plugins-26.10-stable
 ```
