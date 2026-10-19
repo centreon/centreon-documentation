@@ -424,13 +424,39 @@ If you have a local database, run this on the central server. If your database i
 
 This step is the database health check after the upgrade. It confirms that the new MariaDB 11.8 is running, writable, upgraded internally, and that the Centreon databases are still there. The comments give the expected result, with the MySQL variant after the dash.
 
+<Tabs groupId="db">
+<TabItem value="MariaDB" label="MariaDB">
+
 ```bash
-systemctl is-active mariadb                                        # active   — [MySQL] mysql
-mariadb -e "SELECT @@version, @@read_only"                         # 11.8.x, 0 — [MySQL] 8.4.x, 0
-mariadb-upgrade --check-if-upgrade-is-needed && echo "run: mariadb-upgrade" || echo "done"   # [MySQL] skip
+# check that mariadb is active (for MySQL, replace "mariadb" with "mysql")
+systemctl is-active mariadb
+# check that the MariaDB versin is 11.8.x, and read-only is 0
+mariadb -e "SELECT @@version, @@read_only"
+# check whether MariaDB’s system tables need upgrading, and print a message telling you what to do
+mariadb-upgrade --check-if-upgrade-is-needed && echo "run: mariadb-upgrade" || echo "done"
+# check which Centreon databases exist
 mariadb -e "SHOW DATABASES" | grep -E "^centreon(_storage|_map)?$"
-journalctl -u mariadb --since "-1h" | grep -iE "error|warning" | tail -n 20   # [MySQL] tail /var/log/mysql/error.log
+# show the most recent errors and warnings that MariaDB logged in the last hour
+journalctl -u mariadb --since "-1h" | grep -iE "error|warning" | tail -n 20
 ```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+```bash
+# check that MySQL is active
+systemctl is-active mysql
+# check that the MySQL versin is 8.4.x, and read-only is 0
+mysql -e "SELECT @@version, @@read_only"
+# check which Centreon databases exist
+mysql -e "SHOW DATABASES" | grep -E "^centreon(_storage|_map)?$"
+# look for recent MySQL errors and warnings in two different places, because MySQL can log to either one (or both) depending on its configuration
+journalctl -u mysql --since "-1h" | grep -iE "error|warning" | tail -n 20
+grep -iE "error|warning" /var/log/mysql/error.log | tail -n 20
+```
+
+</TabItem>
+</Tabs>
 
 * If MariaDB isn't active, or the version query shows read_only = 1 (the database refuses writes), use [the troubleshooting table from step 4](#45-troubleshooting).
 * If the check prints "run: mariadb-upgrade", run mariadb-upgrade. It takes its login details from /root/.my.cnf. When it works, it finishes with return code 0 after 8 phases, and running the check again reports that no upgrade is needed.
@@ -454,20 +480,18 @@ First, clear your browser cache so you don't see old pages from 25.10. (If you u
 To restart Centreon on the new version, run these commands on the central server:
 
 ```bash
+# clear the web application cache.
 cd /usr/share/centreon && sudo -u www-data php bin/console cache:clear
+# let the web server and Broker access each other's files.
 usermod -a -G centreon-broker www-data
 usermod -a -G www-data centreon-broker
-sudo -u www-data php /usr/share/centreon/bin/console w:m:c --dry-run   # "No invalid commands found."
+# check for invalid Engine and Broker commands. If the check lists any, run it again without **--dry-run** to remove them. (`w:m:c` is short for `web:monitoring-server:clean-engine-broker-command`.)
+sudo -u www-data php /usr/share/centreon/bin/console w:m:c --dry-run
+# restart the monitoring services
 systemctl restart cbd centengine gorgoned centreontrapd
-systemctl start centreon-map-engine                                   # [MAP]
+# If you have MAP, start the MAP engine
+systemctl start centreon-map-engine
 ```
-
-What these commands do:
-
-* Clear the web application cache.
-* Let the web server and Broker access each other's files.
-* Check for invalid Engine and Broker commands. If the check lists any, run it again without **--dry-run** to remove them. (`w:m:c` is short for `web:monitoring-server:clean-engine-broker-command`.)
-* Restart the monitoring services, and start the MAP engine if you use MAP.
 
 If you use MAP, check that it works:
 
@@ -479,12 +503,12 @@ If you use MAP, check that it works:
 
 1. Export the central server's configuration with **Generate**, **Move export files** and **Restart all** checked. If you skip **Move export files**, the new files stay in `/var/cache/centreon/config` and Engine 26.10 keeps using the old configuration.
 
-2. Restart the services one last time
+2. Restart the services one last time:
 
-    ```bash
-    systemctl restart cbd centengine centreontrapd gorgoned
-    systemctl start cron
-    ```
+   ```bash
+   systemctl restart cbd centengine centreontrapd gorgoned
+   systemctl start cron
+   ```
 
    This makes the services load the new configuration and turns scheduled jobs (cron) back on.
 
@@ -492,40 +516,63 @@ If you use MAP, check that it works:
 
 1. Run these commands on the central server:
 
-    ```bash
-    systemctl enable centengine cbd gorgoned centreontrapd snmptrapd.socket php8.4-fpm apache2 cron
-    systemctl enable centreon-map-engine 2>/dev/null                 # [MAP]
-    systemctl enable mariadb                                         # [local database] or local MAP database — [MySQL] mysql
-    diff <(awk '{print $1}' /root/upgrade-2610-backup/enabled-units.txt | sort) \
-        <(systemctl list-unit-files --state=enabled | awk '{print $1}' | sort)   # php8.2 → php8.4 expected
-    systemctl reboot
-    ```
+<Tabs groupId="db">
+<TabItem value="MariaDB" label="MariaDB">
 
-    What these commands do:
+```bash
+# make sure all Centreon services, the web server, PHP 8.4, cron and the database start automatically at boot
+systemctl enable centengine cbd gorgoned centreontrapd snmptrapd.socket php8.4-fpm apache2 cron
+# if you have MAP, set the Centreon MAP engine service to start automatically at boot, while hiding any messages it prints
+systemctl enable centreon-map-engine 2>/dev/null
+# ruen this on the machine that hosts each database: it sets the database service to start automatically each time the server boots
+systemctl enable mariadb
+# Compare the list of services enabled before the upgrade (saved in step 1.2) with the current list. The only expected difference is php8.2-fpm replaced by php8.4-fpm. Anything else deserves a look.
+diff <(awk '{print $1}' /root/upgrade-2610-backup/enabled-units.txt | sort) \
+     <(systemctl list-unit-files --state=enabled | awk '{print $1}' | sort)   # php8.2 → php8.4 expected
 
-    * Make sure all Centreon services, the web server, PHP 8.4, cron and the database start automatically at boot.
-    * Compare the list of services enabled before the upgrade (saved in step 1.2) with the current list. The only expected difference is php8.2-fpm replaced by php8.4-fpm. Anything else deserves a look.
-    * Reboot the server.
+# reboot the server
+systemctl reboot
+```
+
+</TabItem>
+<TabItem value="MySQL" label="MySQL">
+
+```bash
+# make sure all Centreon services, the web server, PHP 8.4, cron and the database start automatically at boot
+systemctl enable centengine cbd gorgoned centreontrapd snmptrapd.socket php8.4-fpm apache2 cron
+# if you have MAP, set the Centreon MAP engine service to start automatically at boot, while hiding any messages it prints
+systemctl enable centreon-map-engine 2>/dev/null
+# ruen this on the machine that hosts each database: it sets the database service to start automatically each time the server boots
+systemctl enable mysql
+# Compare the list of services enabled before the upgrade (saved in step 1.2) with the current list. The only expected difference is php8.2-fpm replaced by php8.4-fpm. Anything else deserves a look.
+diff <(awk '{print $1}' /root/upgrade-2610-backup/enabled-units.txt | sort) \
+     <(systemctl list-unit-files --state=enabled | awk '{print $1}' | sort)   # php8.2 → php8.4 expected
+
+# reboot the server
+systemctl reboot
+```
+
+</TabItem>
+</Tabs>
 
 2. After the reboot, check that everything works:
 
 ```bash
-uname -r                                       # 6.12.x
-systemctl --failed                             # 0 units
+# check that the release version of the Linux kernel the server is currently running is 6.12.x
+uname -r
+# list all systemd unitsthat are currently in a failed state: there should be 0
+systemctl --failed
+# check whether each of the main Centreon-related services is running (each should be active)
 for u in centengine cbd gorgoned centreontrapd php8.4-fpm apache2 mariadb centreon-map-engine cron; do printf "%s=%s " $u $(systemctl is-active $u); done; echo
-ls /etc/cron.d/                                # centreon, centstorage
-ss -ulnp | grep ":162 "                        # SNMP traps: UDP 162 held by systemd
-logrotate -d /etc/logrotate.conf 2>&1 | grep -E "^error|Ignoring"   # nothing (else table below)
-systemctl is-active centreontrapd              # active (see the table below)
+# check that cron files include at least centreon and centstorage
+ls /etc/cron.d/
+# check whether something on the server is listening for SNMP traps, which arrive on UDP port 162
+ss -ulnp | grep ":162 "
+# check the log rotation configuration for problems, without actually rotating any logs. It should return nothing
+logrotate -d /etc/logrotate.conf 2>&1 | grep -E "^error|Ignoring"
+# check whether the centreontrapd service is currently running
+systemctl is-active centreontrapd
 ```
-
-What you should see:
-
-* The kernel version starts with 6.12.
-* No failed services.
-* Each service reports active.
-* The Centreon cron files (centreon, centstorage) are in /etc/cron.d/.
-* Port UDP 162, used for SNMP traps, is held by systemd.
 
 | What you see                          | What it means and what to do                                                                |
 | -------------------------------------------- | ------------------------------------------------------------------------------------ |
@@ -558,14 +605,20 @@ Allow about 6 minutes per poller. Do each poller one at a time.
 5. Reboot, then export the poller's configuration from the central server, with **Generate**, **Move export files** and **Restart** all checked.
 6. Check that everything works:
 
-   ```bash
-   systemctl --failed                                     # 0 units
-   systemctl is-active centengine gorgoned centreontrapd  # all active
-   grep -E "Centreon Engine 26.10|Configuration loaded" /var/log/centreon-engine/centengine.log | tail -n 2
-   ss -tn | grep -E ":5669|:5556"                         # Broker (5669) and Gorgone (5556) connected to the central
-   ls -l /etc/snmp/centreon_traps/centreontrapd.sdb       # file is not empty
-   logrotate -d /etc/logrotate.conf 2>&1 | grep -E "^error|Ignoring"   # nothing (else 1.4)
-   ```
+```bash
+# list all systemd unitsthat are currently in a failed state: there should be 0
+systemctl --failed
+# all services should be active
+systemctl is-active centengine gorgoned centreontrapd
+# check the Centreon Engine log to confirm that the engine started with version 26.10 and loaded its configuration
+grep -E "Centreon Engine 26.10|Configuration loaded" /var/log/centreon-engine/centengine.log | tail -n 2
+# List active connections on ports 5669 (Broker) and 5556 (Gorgone) (they should be connected to the central server)
+ss -tn | grep -E ":5669|:5556"
+# check that the file is not empty (it contains the details of the SQLite database file that centreontrapd uses to look up SNMP trap definitions)
+ls -l /etc/snmp/centreon_traps/centreontrapd.sdb
+# check the log rotation configuration for problems without rotating anything. Should return nothing
+logrotate -d /etc/logrotate.conf 2>&1 | grep -E "^error|Ignoring"
+```
 
 ### If `centreontrapd` stops by itself
 
@@ -594,19 +647,23 @@ On the reporting server, make sure no ETL run is in progress: check with `ps -ef
 
 1. **Back up the server:**
 
-   ```bash
-   B=/root/upgrade-2610-backup; mkdir -p $B
-   tar czf $B/etc-$(hostname).tar.gz -C / etc; dpkg -l > $B/dpkg-l.txt
-   systemctl list-unit-files --state=enabled > $B/enabled-units.txt
-   ```
+```bash
+# set up a backup directory
+B=/root/upgrade-2610-backup; mkdir -p $B
+# back up the server’s configuration and record the list of installed packages before the upgrade.
+tar czf $B/etc-$(hostname).tar.gz -C / etc; dpkg -l > $B/dpkg-l.txt
+# save the list of systemd units that are set to start automatically, into a text file in the backup directory
+systemctl list-unit-files --state=enabled > $B/enabled-units.txt
+```
 
    Also back up the reporting database, as described on the MBI page [Backing up and restoring MBI](../reporting/backup-restore.md).
 
 2. **Make sure cron is installed** (see step 1.4).
 
-   ```bash
-   dpkg -l cron | grep -q "^ii" || apt-get install -y cron
-   ```
+```bash
+# if cron is installed, the command prints nothing. If it isn't installed, it installs it
+dpkg -l cron | grep -q "^ii" || apt-get install -y cron
+```
 
 3. **Stop the services:**
 
@@ -623,16 +680,26 @@ On the reporting server, make sure no ETL run is in progress: check with `ps -ef
 ### 11.3 Check and restart
 
 ```bash
-dpkg -l | awk 'NR>5 && $1 != "ii" && $1 != "rc"'                       # nothing
-dpkg -l "centreon-bi*" | awk '/^ii/{print $2, $3}'                      # 26.10.0
-java -version 2>&1 | head -n 1                                           # openjdk 25
-grep ExecStart /lib/systemd/system/cbis.service | grep -o "java-[0-9]*-openjdk"   # java-25-openjdk
-find /etc -name "*.dpkg-dist" | grep -E "centreon|mysql"                 # keep yours (bind-address)
-systemctl is-active mariadb                                              # local reporting DB (MySQL: mysql)
+# lists packages that are in an unusual or broken state: there should be nothing
+dpkg -l | awk 'NR>5 && $1 != "ii" && $1 != "rc"'
+# checks that the centreon-bi-server and centreon-bi-engine packages are in version 26.10.0
+dpkg -l "centreon-bi*" | awk '/^ii/{print $2, $3}'
+# check that your versoini of java is openjdk 25
+java -version 2>&1 | head -n 1
+# check which Java version the cbis service is configured to use: it should be java-25-openjdk
+grep ExecStart /lib/systemd/system/cbis.service | grep -o "java-[0-9]*-openjdk"
+# find new configuration files that an upgrade installed alongside your existing ones, instead of replacing them, for Centreon and MySQL/MariaDB.
+find /etc -name "*.dpkg-dist" | grep -E "centreon|mysql"
+# check that your MBI database is active (if you have MySQL, replace "mariadb" with "mysql")
+systemctl is-active mariadb
+# start services
 systemctl start cbis; systemctl enable --now gorgoned cron
-systemctl is-active cbis gorgoned cron                                   # all active
-ls /etc/cron.d/ | grep centreon-bi                                       # engine, purge, backup-reporting-server
-tail -n 20 /var/log/centreon-bi/cbis.$(date +%F).log                     # no "Connection test … failed"
+# check whether the cbis, gorgoned, and cron services are all currently running
+systemctl is-active cbis gorgoned cron
+# check whether the Centreon MBI scheduled tasks (cron jobs) are in place (engine, purge, backup-reporting-server)
+ls /etc/cron.d/ | grep centreon-bi
+# should not contain "Connection test … failed"
+tail -n 20 /var/log/centreon-bi/cbis.$(date +%F).log
 ```
 
 Then reboot and check again that `cbis`, `gorgoned` and `cron` are active. After 07:30 on the next weekday, `/var/log/centreon-bi/centreonBIETL.log` should show the ETL run.
@@ -642,8 +709,6 @@ Then reboot and check again that `cbis`, `gorgoned` and `cron` are active. After
 - **Java 25, not 17.** MBI 26.10 uses Java 25. `centreon-bi-engine` pulls in `openjdk-25-jdk`, and `cbis.service` runs `/usr/lib/jvm/java-25-openjdk-amd64/bin/java` directly. The Java 17 left over from Debian 12 is unused. After validation, remove it with `apt purge openjdk-17-*`.
 
 ## Known issues
-
-Here is the table without the Ticket column:
 
 | When | You see | Do |
 | --- | --- | --- |
