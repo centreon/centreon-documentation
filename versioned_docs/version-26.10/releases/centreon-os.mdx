@@ -29,8 +29,7 @@ Release date: `October 20, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- (Beta) Added a Create new poller shortcut to the top banner that generates a single command line for rapid poller deployment via container or package.
-- Provided a new modal to generate Poller install command, for Docker and VM.
+- [Configuration] (Beta) Added a Create new poller shortcut to the top banner that generates a single command line for rapid poller deployment via container or package.
 - [API] Added an endpoint to create Poller.
 - [API] Added endpoints to handle Global, installed & standard macros.
 - [API] Added examples on medias endpoints.
@@ -38,15 +37,15 @@ Release date: `October 20, 2026`
 - [Agent configuration] It's now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
 - [Agent configuration] “CA common name” is now displayed only in Insecure TLS mode.
 - [Authentication] Added a new token type: poller.
-- [CMA] Host can now be automatically created when option is checked in Agent configuration.
+- [Agent configuration] Host using CMA can now be automatically created when option is checked in Agent configuration.
 - [Configuration] Enabled 3.1.0 BBDO protocol version by default for Broker communications.
 - [Configuration] Refreshed host categories page with live search, inline enable/disable and a redesigned add/edit form.
 - [Configuration] Resource macros have been renamed Global macros.
 - [Configuration] Reworked commands configuration page.
 - [Top Banner] Redesigned status tiles make the header clearer and easier to read at a glance.
-- [Top Counter] The user menu now shows a circular avatar with the user's initials.
+- [Top Banner] The user menu now shows a circular avatar with the user's initials.
 - [UI] Resources now use new, consistent icons across the interface for easier identification.
-- [Web] Refreshed interface colors: new primary blue, softer table and section headers, and more readable status chips in light and dark modes.
+- [UI] Refreshed interface colors: new primary blue, softer table and section headers, and more readable status chips in light and dark modes.
 
 </details>
 
@@ -86,9 +85,9 @@ Release date: `October 20, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- Added alias field to PB_SERVICE_GROUP protobuf message.
-- Fixed an issue where icons configured for Business Activities were not showing up properly.
-- The broker now writes the full poller configuration in a single block instead of processing it incrementally. Pollers no longer send their configuration to the broker.
+- [Broker] Added alias field to PB_SERVICE_GROUP protobuf message.
+- [Broker] Fixed an issue where icons configured for Business Activities were not showing up properly.
+- [Broker] The broker now writes the full poller configuration in a single block instead of processing it incrementally. Pollers no longer send their configuration to the broker.
 - [Engine] Added a PERL NoFork connector to enhance plugins execution and reduce poller CPU consumption.
 
 </details>
@@ -96,7 +95,7 @@ Release date: `October 20, 2026`
 <details>
   <summary>Bug fixes</summary>
 
-- Fixed the installation of centreon-engine and centreon-monitoring-agent on hosts where USERGROUPS_ENAB is set to no in /etc/login.defs: the centreon-engine and centreon-monitoring-agent groups are now always created.
+- [Engine] Fixed the installation of centreon-engine and centreon-monitoring-agent on hosts where USERGROUPS_ENAB is set to no in /etc/login.defs: the centreon-engine and centreon-monitoring-agent groups are now always created.
 
 </details>
 
@@ -117,7 +116,6 @@ Release date: `October 20, 2026`
   <summary>Enhancements</summary>
 
 - Fixed an issue where icons configured for Business Activities were not showing up properly.
-- [Engine] Added a PERL NoFork connector to enhance plugins execution and reduce poller CPU consumption.
 
 </details>
 
@@ -139,8 +137,8 @@ Release date: `October 20, 2026`
   <summary>Enhancements</summary>
 
 - Gorgone is now able to validate poller token.
-- [Gorgone] Added support for using a UID to identify a poller instead of the numeric id.
-- [Gorgone] Gorgone can now be configured using ENV variables.
+- Added support for using a UID to identify a poller instead of the numeric id.
+- Gorgone can now be configured using ENV variables.
 
 </details>
 
@@ -183,7 +181,7 @@ Release date: `October 20, 2026`
 <details>
   <summary>Bug fixes</summary>
 
-- [Open Tickets] Category and group lists now load correctly with the GLPI provider on GLPI 9.5 and later.
+- Category and group lists now load correctly with the GLPI provider on GLPI 9.5 and later.
 
 </details>
 
