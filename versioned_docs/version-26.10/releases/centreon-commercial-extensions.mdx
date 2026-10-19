@@ -7,7 +7,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 <ExpandCollapseAll />
 
-## Compnent verison history
+## Component verison history
 
 <details>
 
@@ -33,7 +33,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 
 - [MariaDB] Added support for MariaDB 11.8.
 - [Viewer] Added a new icon for flapping resources.
-- [Configuration] Unified Maps icons, using the icons from Centreon Web.
+- [Configuration] Unified map icons, using the icons from Centreon Web.
 - [Configuration] Improved the BBDO state synchronization reliability. The default periodic reload was disabled while maintaining a manual sync API and a configuration fallback for emergencies.
 - [Metric Link widget] Metaservices can now be used to visualize cumulative inbound and outbound traffic.
 - [Server] Expanded broker event queue capacity to enhance overall performance.
@@ -47,14 +47,17 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
-- [Configuration] ACL-restricted users must now select a Business View when creating a Business Activity.
-- [Configuration] Added a "Show only top level" filter on the Business Activity configuration listing.
-- [Configuration] Added a new simulation mode to the Business Activity configuration page. This allows users to preview the impact of their changes before enacting them.
-- [Configuration] The impact-weight selector now shows each word's percentage (e.g. Major (50%)) directly in the dropdown.
-- [Configuration] Users can now define custom icons for BAs, making nodes and indicators easier to identify in the Business Activity tree.
-- [Configuration] Business Activities can now be configured directly through an interactive dependency tree.
-- [UI] Resources now use new, consistent icons across the interface for easier identification.
-- [UI] Changed Business Activity Trees' default display type from curve to step.
+Centreon BAM gets a major upgrade in 26.10:
+
+* You can now configure Business Activities directly from an interactive dependency tree.
+* A new simulation mode lets you preview the impact of your changes before applying them.
+* The tree is easier to read:
+   * You can give Business Activities custom icons, making nodes and indicators easier to identify in the Business Activity tree.
+   * Resources use consistent new icons across the interface, and trees now use a step layout by default.
+* Day-to-day configuration is smoother too:
+   * A **Show only top level** filter has been added to the Business Activity listing
+   * Impact levels show their percentage directly in the dropdown, such as **Major (50%)**. 
+   * Finally, users restricted by ACLs must now select a Business View when they create a Business Activity, which makes sure each new Business Activity is attached to a view they can access.
 
 </details>
 
@@ -63,10 +66,10 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 <details open>
   <summary>Enhancements</summary>
 
+- [MBI] The MBI report job configuration form has been completely redesigned with a clearer 2-tab layout, modern searchable selectors, a smarter scheduler with next-run preview, and template-aware output format selection. This will make report setup faster and less error-prone.
 - [MBI] Added support for MariaDB 11.8.
 - [MBI] Added tooltips to explain how retention works in the general options form.
 - [MBI] Updated MBI logo for reports.
-- [MBI] The MBI report job configuration form has been completely redesigned with a clearer 2-tab layout, modern searchable selectors, a smarter scheduler with next-run preview, and template-aware output format selection. This will make report setup faster and less error-prone.
 
 </details>
 
