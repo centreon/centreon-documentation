@@ -503,7 +503,7 @@ perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRight
 This script will return the password for the CentreonBI user.
 The password can be updated in **Reports > Monitoring Business Intelligence > General options > Reporting Widgets**.
 
-@MYSQLROOTPASSWORD@: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option root-password.
+@MYSQLROOTPASSWORD@: The root password of the MariaDB monitoring database. If there is no password for the "root" user, do not specify the root-password option.
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
@@ -521,7 +521,7 @@ perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRight
 This script will return the password for the CentreonBI user.
 The password can be updated in **Reports > Monitoring Business Intelligence > General options > Reporting Widgets**.
 
-@MYSQLROOTPASSWORD@: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option root-password.
+@MYSQLROOTPASSWORD@: The root password of the MariaDB monitoring database. If there is no password for the "root" user, do not specify the root-password option.
 
 </TabItem>
 </Tabs>

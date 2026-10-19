@@ -767,7 +767,7 @@ dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarc
 Activer les dépôts **codeready-builder** :
 
 ```shell
-dnf config-manager --set-enabled ol8_codeready_builder
+dnf config-manager --set-enabled ol9_codeready_builder
 ```
 
 </TabItem>
