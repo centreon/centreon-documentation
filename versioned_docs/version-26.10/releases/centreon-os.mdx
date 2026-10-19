@@ -29,50 +29,22 @@ Release date: `October 20, 2026`
 <details open>
   <summary>Enhancements</summary>
 
-- [Configuration] (Beta) Added a Create new poller shortcut to the top banner that generates a single command line for rapid poller deployment via container or package.
-- [API] Added an endpoint to create Poller.
-- [API] Added endpoints to handle Global, installed & standard macros.
-- [API] Added examples on medias endpoints.
-- [Administration] Improved the About page and added new links.
-- [Agent configuration] It's now possible to configure both connection direction in the same configuration. The user interface has been improved according to this.
-- [Agent configuration] “CA common name” is now displayed only in Insecure TLS mode.
-- [Authentication] Added a new token type: poller.
-- [Agent configuration] Host using CMA can now be automatically created when option is checked in Agent configuration.
-- [Configuration] Enabled 3.1.0 BBDO protocol version by default for Broker communications.
-- [Configuration] Refreshed host categories page with live search, inline enable/disable and a redesigned add/edit form.
-- [Configuration] Resource macros have been renamed Global macros.
-- [Configuration] Reworked commands configuration page.
-- [Top Banner] Redesigned status tiles make the header clearer and easier to read at a glance.
-- [Top Banner] The user menu now shows a circular avatar with the user's initials.
+- [Configuration] (Beta) Added a **Create new poller** shortcut in the top banner that generates a single command line for simple poller deployment via container or packages.
+- [API] Added an API endpoint for creating a pollers.
+- [API] Added API endpoints to handle global, installed & standard macros.
+- [Administration] The **Administration > About** page has been updated for a new look. Many useful links have also been added to it.
+- [Agent configuration] It is now possible to configure both connection directions (poller-initiated or agent-initiated) in the same configuration. The user interface has been updated according to this.
+- [Agent configuration] When adding an agent configuration, the **CA common name** field is now displayed only in Insecure TLS mode.
+- [Authentication] Added "poller" as a new type of authentication token.
+- [Agent configuration] CMA can now automatically create hosts when the option is checked in Agent configuration.
+- [Configuration] The BBDO protocol version 3.1.0 is now enabled by default for Broker communications.
+- [Configuration] The host categories page has been updated with live search, inline enable/disable and a redesigned add/edit form.
+- [Configuration] "Resource macros" are now called "Global macros".
+- [Configuration] The **Configuration > Commands > Commands** configuration page has been updated.
+- [Top Banner] Redesigned the status tiles make the header clearer and easier to read at a glance.
+- [Top Banner] The user's profile menu now shows a circular avatar with the user's initials.
 - [UI] Resources now use new, consistent icons across the interface for easier identification.
 - [UI] Refreshed interface colors: new primary blue, softer table and section headers, and more readable status chips in light and dark modes.
-
-</details>
-
-<details>
-  <summary>Bug fixes</summary>
-
-- [Administration] API tokens now display correctly after the user who created them is deleted.
-- [Configuration] Changes made in a host's Relations tab are now recorded in the logs like other configuration changes.
-- [Configuration] Temporary export folders are now cleaned up, preventing disk saturation when generating poller configuration.
-- [Export] Fixed encrypted passwords in exported configuration files, which could prevent Broker from starting.
-- [LDAP] LDAP contact groups are now removed during synchronization when deleted from the server or excluded by filter changes.
-- [Unattended] Fixed missing support of version 26.10.
-- [Unattended] Fixed the path to repository files (RPM).
-- [Unattended] Pinned stable plugin repositories for Debian unattended installation.
-- [Upgrade] Upgrades no longer enable flapping detection or disable service checks on down hosts, so your engine settings are preserved.
-- [Web] Deprecation logs are now disabled by default, preventing the log file from growing uncontrollably and filling the disk.
-- [Web] Fixed an issue where some actions would fail when Centreon is accessed through a server with a short name.
-- [Web] Fixed an issue where the Resource Status CSV export leaked the translation catalog header into empty columns.
-- [Web] Fixed broker config export adding an event_script logger that broke connectivity on pollers older than 25.10.03.
-- [Web] Fixed connection failures when the database uses a custom port, which was ignored in favor of the default port 3306.
-
-</details>
-
-<details>
-  <summary>Security fixes</summary>
-
-- This release contains security fixes. Details will be available soon on [The Watch](https://thewatch.centreon.com/latest-security-bulletins-64).
 
 </details>
 
