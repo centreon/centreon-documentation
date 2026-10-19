@@ -81,7 +81,6 @@ h6,
 .rspress-doc h2,
 .rspress-doc h3 {
   font-family: 'Esphimere', var(--rp-font-family-base);
-  letter-spacing: 0.01em;
 }
 
 /* ---- Blockquotes (match Docusaurus tinted callout) ------------------------ */
@@ -92,7 +91,211 @@ h6,
   padding: 16px 32px;
 }
 
-/* ---- Inline code ---------------------------------------------------------- */
-.rspress-doc :not(pre) > code {
-  background-color: var(--rp-c-brand-tint);
+
+/* ---- Docusaurus parity (values measured on docs.centreon.com) ------------ */
+html:root {
+  --rp-c-text-1: #00003d;
+  --rp-c-link: #2213e2;
+}
+html:root.dark {
+  --rp-c-text-1: #ffffff;
+  --rp-c-link: #37d6ae;
+}
+
+/* Navbar: no bottom border, dark pill search box. */
+html .rp-nav {
+  border-bottom: none;
+}
+html .rp-search-button {
+  justify-content: space-between;
+  width: 288px;
+  height: 40px;
+  padding: 0 12px 0 16px;
+  border: none;
+  border-radius: 32px;
+  background: #00003d;
+  color: #fff;
+  font-size: 16px;
+}
+html.dark .rp-search-button {
+  background: #eef0f2;
+  color: #000;
+}
+html .rp-search-button__word {
+  color: inherit;
+}
+html .rp-search-button__hotkey {
+  padding: 0 4px;
+  border-radius: 3px;
+  background: #fff;
+  color: #00003d;
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+}
+
+/* Sidebar: larger dark text, active item colored without a background. */
+html .rp-doc-layout__sidebar {
+  width: 300px;
+  padding-left: 8px;
+  border-right: none;
+}
+html .rp-sidebar-item {
+  margin-top: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 4px;
+  color: var(--rp-c-text-1);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+html .rp-sidebar-item:hover,
+html .rp-sidebar-item--active,
+html .rp-sidebar-item--active:hover,
+html .rp-sidebar-group--active-trail {
+  background: transparent;
+  color: var(--rp-c-brand);
+}
+html .rp-sidebar-item--active {
+  font-weight: 500;
+}
+html .rp-sidebar-item--group-item::before,
+html .rp-sidebar-item__left::before {
+  display: none;
+}
+html .rp-sidebar-item__right svg {
+  width: 24px;
+  height: 24px;
+  color: var(--rp-c-text-1);
+}
+
+/* Content: 18px dark text, bold headings without the rule above the first h2. */
+html .rp-doc-layout__doc-container {
+  padding: 24px 32px 48px;
+}
+html .rp-doc.rspress-doc {
+  color: var(--rp-c-text-1);
+  font-size: 18px;
+  line-height: 1.65;
+}
+html .rp-doc.rspress-doc h1,
+html .rp-doc.rspress-doc h2,
+html .rp-doc.rspress-doc h3,
+html .rp-doc.rspress-doc h4,
+html .rp-doc.rspress-doc h5,
+html .rp-doc.rspress-doc h6 {
+  color: var(--rp-c-text-1);
+  font-weight: 700;
+  line-height: 1.25;
+}
+html .rp-doc.rspress-doc h1 {
+  margin-bottom: 25px;
+  font-size: 48px;
+}
+html .rp-doc.rspress-doc h2 {
+  font-size: 32px;
+}
+html .rp-doc.rspress-doc h2:first-of-type::before {
+  display: none;
+}
+html .rp-doc.rspress-doc p {
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+}
+
+/* Outline: no title, 14px items, dark left border. */
+html .rp-outline__title {
+  display: none;
+}
+html .rp-outline {
+  border-left-color: var(--rp-c-text-1);
+}
+html .rp-toc-item {
+  color: var(--rp-c-text-1);
+  font-size: 14px;
+}
+html .rp-toc-item[data-depth='2'],
+html .rp-toc-item[data-depth='3'] {
+  /* Docusaurus' outline stops at h3. */
+  display: none;
+}
+
+/* Tables: bordered grid sized to its content, striped rows. */
+html .rp-doc.rspress-doc table {
+  display: table;
+  width: auto;
+  margin: 0 0 16px;
+  border: none;
+  border-collapse: collapse;
+  border-radius: 0;
+  font-size: 18px;
+}
+html .rp-doc.rspress-doc thead tr {
+  border-bottom: 2px solid #dadde1;
+}
+html .rp-doc.rspress-doc th,
+html .rp-doc.rspress-doc td {
+  padding: 12px;
+  border: 1px solid #dadde1;
+  background: transparent;
+  color: var(--rp-c-text-1);
+  font-size: 18px;
+}
+html .rp-doc.rspress-doc th {
+  font-weight: 700;
+}
+html .rp-doc.rspress-doc tbody tr:nth-child(2n) {
+  background: rgba(0, 0, 0, 0.03);
+}
+html.dark .rp-doc.rspress-doc thead tr {
+  border-bottom-color: #606770;
+}
+html.dark .rp-doc.rspress-doc th,
+html.dark .rp-doc.rspress-doc td {
+  border-color: #606770;
+}
+html.dark .rp-doc.rspress-doc tbody tr:nth-child(2n) {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* Smaller h4, lists and inline code like Docusaurus. */
+html .rp-doc.rspress-doc h4 {
+  margin-top: 25px;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+html .rp-doc.rspress-doc ul,
+html .rp-doc.rspress-doc ol {
+  margin-top: 0;
+  margin-bottom: 20px;
+  padding-left: 32px;
+}
+html .rp-doc.rspress-doc :not(pre) > code {
+  padding: 1.6px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  background-color: rgba(7, 0, 63, 0.1);
+  color: var(--rp-c-text-1);
+  font-size: 95%;
+}
+html.dark .rp-doc.rspress-doc :not(pre) > code {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+/* Sidebar and outline texts are wrapped in .rp-doc spans: inherit the item. */
+html .rp-sidebar-item .rp-doc,
+html .rp-toc-item .rp-doc {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+@media (max-width: 576px) {
+  html .rp-doc.rspress-doc h1 {
+    font-size: 32px;
+  }
+  html .rp-doc.rspress-doc h2 {
+    font-size: 24px;
+  }
+  html .rp-doc.rspress-doc h3 {
+    font-size: 20px;
+  }
 }
