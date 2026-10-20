@@ -1,0 +1,94 @@
+---
+id: centreon-commercial-extensions
+title: Commercial extensions
+description: "Changelogs for each Centreon Commercial Extensions release"
+---
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+<ExpandCollapseAll />
+
+## Component version history
+
+<details>
+
+| Component | Releases |
+|----------|----------|
+| **Centreon MAP** | [26.10.0 (October 20, 2026)](#centreon-map-26100) |
+| **Centreon BAM** | [26.10.0 (October 20, 2026)](#centreon-bam-26100) |
+| **Centreon MBI** | [26.10.0 (October 20, 2026)](#centreon-mbi-26100) |
+| **Centreon Auto Discovery** | [26.10.0 (October 20, 2026)](#centreon-auto-discovery-26100) |
+| **Centreon License Manager** | [26.10.0 (October 20, 2026)](#centreon-license-manager-26100) |
+| **Centreon Anomaly Detection** | [26.10.0 (October 20, 2026)](#centreon-anomaly-detection-26100) |
+| **Centreon IT Edition Extensions** | [26.10.0 (October 20, 2026)](#centreon-it-edition-extensions-26100) |
+| **Centreon Monitoring Connectors Manager** | [26.10.0 (October 20, 2026)](#centreon-monitoring-connectors-manager-26100) |
+
+</details>
+
+## October 20, 2026
+
+### Centreon MAP 26.10.0
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [MariaDB] Added support for MariaDB 11.8.
+- [Viewer] Added a new icon for flapping resources.
+- [Configuration] Unified map icons, using the icons from Centreon Web.
+- [Configuration] Improved the BBDO state synchronization reliability. The default periodic reload was disabled while maintaining a manual sync API and a configuration fallback for emergencies.
+- [Metric Link widget] Metaservices can now be used to visualize cumulative inbound and outbound traffic.
+- [Server] Expanded Broker event queue capacity to enhance overall performance.
+- [Server] Replaced the fixed-size BBDO message queue with a dynamic scaling. This prevents message loss while maintaining strict memory usage limits.
+- [Viewer] Modernized the resources display and its status indicators to improve readability and align with the product’s design standards.
+
+</details>
+
+### Centreon BAM 26.10.0
+
+<details open>
+  <summary>Enhancements</summary>
+
+Centreon BAM gets a major upgrade in 26.10:
+
+* You can now configure Business Activities directly from an interactive dependency tree.
+* A new **simulation mode** lets you preview the impact of your changes before applying them.
+* The tree is easier to read:
+   * You can give Business Activities custom icons, making nodes and indicators easier to identify in the Business Activity tree.
+   * Resources use consistent new icons across the interface, and trees now use a step layout by default.
+* Day-to-day configuration is smoother too:
+   * A **Show only top level** filter has been added to the Business Activity listing.
+   * Impact levels show their percentage directly in the dropdown, such as **Major (50%)**. 
+   * Finally, users restricted by ACLs must now select a Business View when they create a Business Activity, which makes sure each new Business Activity is attached to a view they can access.
+
+</details>
+
+### Centreon MBI 26.10.0
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [MBI] The MBI report job configuration form has been completely redesigned with a clearer 2-tab layout, modern searchable selectors, a smarter scheduler with next-run preview, and template-aware output format selection. This will make report setup faster and less error-prone.
+- [MBI] Added support for MariaDB 11.8.
+- [MBI] Added tooltips to explain how retention works in the general options form.
+- [MBI] Updated MBI logo for reports.
+
+</details>
+
+### Centreon Auto Discovery 26.10.0
+
+No functional changes for this module in this version.
+
+### Centreon License Manager 26.10.0
+
+No functional changes for this module in this version.
+
+### Centreon Anomaly Detection 26.10.0
+
+No functional changes for this module in this version.
+
+### Centreon IT Edition Extensions 26.10.0
+
+No functional changes for this module in this version.
+
+### Centreon Monitoring Connectors Manager 26.10.0
+
+No functional changes for this module in this version.
