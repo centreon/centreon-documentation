@@ -43,7 +43,10 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
   sudo systemctl stop centreon-map-engine
   ```
 
-2. To update the Centreon MAP module, run the following commands (from Alma / RHEL / Oracle Linux 9):
+2. To update the Centreon MAP module, run the following commands:
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
  - On the central server:
  
@@ -56,6 +59,9 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
  ``` shell
  sudo dnf update centreon-map-engine
  ```
+
+</TabItem>
+</Tabs>
 
 3. Clear your browser cache.
 

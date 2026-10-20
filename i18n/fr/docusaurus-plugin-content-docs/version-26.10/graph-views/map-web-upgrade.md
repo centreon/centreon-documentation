@@ -39,7 +39,10 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
   sudo systemctl stop centreon-map-engine
   ```
   
-2. Pour mettre à jour le module Centreon MAP, exécutez les commandes suivantes (depuis Alma / RHEL / Oracle Linux 9) :
+2. Pour mettre à jour le module Centreon MAP, exécutez les commandes suivantes :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
  - Sur le serveur central :
  
@@ -52,6 +55,9 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
  ``` shell
  sudo dnf update centreon-map-engine
  ```
+
+</TabItem>
+</Tabs>
 
 3. Videz le cache de votre navigateur.
 
