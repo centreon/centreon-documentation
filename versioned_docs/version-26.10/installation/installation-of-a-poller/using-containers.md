@@ -4,7 +4,7 @@ title: Installing a poller in a container
 description: "Install a Centreon poller using docker-compose"
 ---
 
-> The container-based poller deployment method is currently in **BETA**.
+> The container-based poller deployment method is currently in **BETA**. You can test it and [give your feedback in our dedicated group on our community platform The Watch](https://thewatch.centreon.com/groups/cim-pollers-in-containers-75).
 
 A ready-to-use installation command for container-based pollers can be retrieved from the central server's interface, tailored to your platform.
 
