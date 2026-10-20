@@ -1,0 +1,91 @@
+---
+id: centreon-os
+title: Centreon Open Source
+description: "Changelogs for each Centreon Open Source release"
+---
+import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
+
+<ExpandCollapseAll />
+
+## Component version history
+
+<details>
+
+| Component | Releases |
+|----------|----------|
+| **Centreon Web** | [26.10.0 (October 20, 2026)](#centreon-web-26100) |
+| **Centreon Collect** | [26.10.0 (October 20, 2026)](#centreon-collect-26100) |
+| **Centreon Gorgone** | [26.10.0 (October 20, 2026)](#centreon-gorgone-26100) |
+| **Centreon Monitoring Agent** | [26.10.0 (October 20, 2026)](#centreon-monitoring-agent-26100) |
+| **Centreon Open Tickets** | [26.10.0 (October 20, 2026)](#centreon-open-tickets-26100) |
+| **Centreon AWIE** | [26.10.0 (October 20, 2026)](#centreon-awie-26100) |
+| **Centreon DSM** | [26.10.0 (October 20, 2026)](#centreon-dsm-26100) |
+| **Centreon High Availability** | [26.10.0 (October 20, 2026)](#centreon-high-availability-26100) |
+
+</details>
+
+## October 20, 2026
+
+### Centreon Web 26.10.0
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Configuration] (Beta) Added a **Create new poller** shortcut in the top banner that generates a single command line for simple poller deployment via container or packages.
+- [API] Added an API endpoint for creating pollers.
+- [API] Added API endpoints to handle global, installed and standard macros.
+- [Administration] The **Administration > About** page has been updated for a new look. Many useful links have also been added to it.
+- [Agent configuration] It is now possible to configure both connection directions (poller-initiated or agent-initiated) in the same configuration. The user interface has been updated according to this.
+- [Agent configuration] When adding an agent configuration, the **CA common name** field is now displayed only in Insecure TLS mode.
+- [Authentication] Added **poller** as a new type of authentication token.
+- [Configuration] The BBDO protocol version 3.1.0 is now enabled by default for Broker communications.
+- [Configuration] The host categories page has been updated with live search, inline enable/disable and a redesigned add/edit form.
+- [Configuration] "Resource macros" are now called "Global macros".
+- [Configuration] The **Configuration > Commands > Commands** configuration page has been updated.
+- [Top banner] Redesigned the status tiles to make the header clearer and easier to read at a glance.
+- [Top banner] The user's profile menu now shows a circular avatar with the user's initials.
+- [UI] Resources now use new, consistent icons across the interface for easier identification.
+- [UI] Refreshed interface colors: new primary blue, softer table and section headers, and more readable status chips in light and dark modes.
+
+</details>
+
+### Centreon Collect 26.10.0
+
+<details open>
+  <summary>Enhancements</summary>
+
+- [Engine] Improved the performance of the PERL connector.
+
+</details>
+
+### Centreon Monitoring Agent 26.10.0
+
+No functional changes for this module in this version.
+
+### Centreon Gorgone 26.10.0
+
+<details open>
+  <summary>Enhancements</summary>
+
+Adaptations have been made to allow for pollers in containers deployment:
+- Gorgone is now able to validate poller tokens.
+- Added support for using a UID to identify a poller instead of its numeric ID.
+- Gorgone can now be configured using environment variables for pollers in containers compatibility.
+
+</details>
+
+### Centreon AWIE 26.10.0
+
+No functional changes for this module in this version.
+
+### Centreon DSM 26.10.0
+
+No functional changes for this module in this version.
+
+### Centreon Open Tickets 26.10.0
+
+No functional changes for this module in this version.
+
+### Centreon High Availability 26.10.0
+
+No functional changes for this module in this version.
