@@ -16,7 +16,9 @@ import TabItem from '@theme/TabItem';
 
 Assurez-vous que le serveur central et le serveur MAP fonctionnent sous un [système d'exploitation pris en charge par cette version](../installation/compatibility.md#système-dexploitation).
 
-Si l'un de vos serveurs fonctionne sous un système d'exploitation qui n'est plus pris en charge, vous ne pouvez pas le monter de version directement. Migrez d'abord votre plateforme vers un système d'exploitation pris en charge :
+> Vous pouvez monter de version seulement depuis Alma / RHEL / Oracle Linux 9.
+
+Si l'un de vos serveurs fonctionne sous un système d'exploitation qui n'est plus pris en charge, vous ne pouvez pas monter MAP de version directement. Migrez d'abord votre plateforme vers un système d'exploitation pris en charge :
 
 - Pour le serveur central, voir [Migrer une plateforme](../migrate/introduction.md).
 - Pour le serveur MAP, voir [Migrer l'extension](map-web-migrate.md).
@@ -37,10 +39,7 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
   sudo systemctl stop centreon-map-engine
   ```
   
-2. Pour mettre à jour le module Centreon MAP, exécutez les commandes suivantes :
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+2. Pour mettre à jour le module Centreon MAP, exécutez les commandes suivantes (depuis Alma / RHEL / Oracle Linux 9) :
 
  - Sur le serveur central :
  
@@ -53,39 +52,6 @@ Pour des raisons de sécurité, les clés utilisées pour signer les RPMs Centre
  ``` shell
  sudo dnf update centreon-map-engine
  ```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
- - Sur le serveur central :
- 
- ``` shell
- sudo dnf update centreon-map-web-client
- ```
-
- - Sur le serveur MAP :
- 
- ``` shell
- sudo dnf update centreon-map-engine
- ```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
- - Sur le serveur central :
- 
- ``` shell
- sudo apt install --only-upgrade centreon-map-web-client
- ```
- 
- - Sur le serveur MAP :
- 
- ``` shell
- sudo apt install --only-upgrade centreon-map-engine
- ```
-
-</TabItem>
-</Tabs>
 
 3. Videz le cache de votre navigateur.
 

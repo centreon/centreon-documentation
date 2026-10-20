@@ -14,11 +14,15 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
+> You can upgrade from 
+
 ### Check your operating system
 
 Make sure that the central server and the MAP server run an [operating system supported by this version](../installation/compatibility.md#operating-systems).
 
-If one of your servers runs an operating system that is no longer supported, you cannot upgrade it directly. First migrate your platform to a supported operating system:
+> You can only upgrade from Alma / RHEL / Oracle Linux 9.
+
+If one of your servers runs an operating system that is no longer supported, you cannot upgrade MAP directly. First migrate your platform to a supported operating system:
 
 - For the central server, see [Migrating a platform](../migrate/introduction.md).
 - For the MAP server, see [Migrating the extension](map-web-migrate.md).
@@ -39,10 +43,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
   sudo systemctl stop centreon-map-engine
   ```
 
-2. To update the Centreon MAP module, run the following commands:
-
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+2. To update the Centreon MAP module, run the following commands (from Alma / RHEL / Oracle Linux 9):
 
  - On the central server:
  
@@ -55,39 +56,6 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
  ``` shell
  sudo dnf update centreon-map-engine
  ```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
- - On the central server:
- 
- ``` shell
- sudo dnf update centreon-map-web-client
- ```
- 
- - On the MAP server:
-
- ``` shell
- sudo dnf update centreon-map-engine
- ```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
- - On the central server:
-
- ``` shell
- sudo apt install --only-upgrade centreon-map-web-client
- ```
-  
- - On the MAP server:
- 
- ``` shell
- sudo apt install --only-upgrade centreon-map-engine
- ```
-
-</TabItem>
-</Tabs>
 
 3. Clear your browser cache.
 
