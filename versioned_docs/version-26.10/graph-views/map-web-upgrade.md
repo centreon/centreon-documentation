@@ -42,6 +42,21 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
 2. To update the Centreon MAP module, run the following commands:
 
 <Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+ - On the central server:
+ 
+ ``` shell
+ sudo dnf update centreon-map-web-client
+ ```
+ 
+ - On the MAP server:
+
+ ``` shell
+ sudo dnf update centreon-map-engine
+ ```
+
+</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
  - On the central server:
@@ -57,22 +72,7 @@ For security reasons, the keys used to sign Centreon RPMs are rotated regularly.
  ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
-
- - On the central server:
- 
- ``` shell
- sudo dnf update centreon-map-web-client
- ```
- 
- - On the MAP server:
-
- ``` shell
- sudo dnf update centreon-map-engine
- ```
-
-</TabItem>
-<TabItem value="Debian 13" label="Debian 13">
+<TabItem value="Debian 12" label="Debian 12">
 
  - On the central server:
 
