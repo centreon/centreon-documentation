@@ -33,7 +33,6 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Fixed **health** mode by adding `--server` option that was leading to build invalid Azure Resource ID and an host permanently DOWN / ResourceNotFound.
-- [**Bind9 Web**](../procedures/applications-bind9-web.md) - Fixed the output value in **memory-usage** mode.
 - [**Docker Rest API**](../procedures/applications-docker-restapi.md) - Fixed the desired replicas count for Global Docker services.
 - [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed **rman** mode unusable with `--sqlmode=sqlpluscmd`.
 - [**Prometheus Server API**](../procedures/cloud-prometheus-api.md) - Fixed missing `query` option in the **Cloud-Prometheus-Api-Expression** service.
