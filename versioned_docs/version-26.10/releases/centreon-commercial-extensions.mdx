@@ -36,7 +36,7 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 - [Configuration] Unified map icons, using the icons from Centreon Web.
 - [Configuration] Improved the BBDO state synchronization reliability. The default periodic reload was disabled while maintaining a manual sync API and a configuration fallback for emergencies.
 - [Metric Link widget] Metaservices can now be used to visualize cumulative inbound and outbound traffic.
-- [Server] Expanded broker event queue capacity to enhance overall performance.
+- [Server] Expanded Broker event queue capacity to enhance overall performance.
 - [Server] Replaced the fixed-size BBDO message queue with a dynamic scaling. This prevents message loss while maintaining strict memory usage limits.
 - [Viewer] Modernized the resources display and its status indicators to improve readability and align with the product’s design standards.
 
@@ -50,12 +50,12 @@ import ExpandCollapseAll from '@site/src/components/ExpandCollapseAll';
 Centreon BAM gets a major upgrade in 26.10:
 
 * You can now configure Business Activities directly from an interactive dependency tree.
-* A new simulation mode lets you preview the impact of your changes before applying them.
+* A new **simulation mode** lets you preview the impact of your changes before applying them.
 * The tree is easier to read:
    * You can give Business Activities custom icons, making nodes and indicators easier to identify in the Business Activity tree.
    * Resources use consistent new icons across the interface, and trees now use a step layout by default.
 * Day-to-day configuration is smoother too:
-   * A **Show only top level** filter has been added to the Business Activity listing
+   * A **Show only top level** filter has been added to the Business Activity listing.
    * Impact levels show their percentage directly in the dropdown, such as **Major (50%)**. 
    * Finally, users restricted by ACLs must now select a Business View when they create a Business Activity, which makes sure each new Business Activity is attached to a view they can access.
 
