@@ -94,8 +94,8 @@ const cards = [
 ];
 
 const versionInfo = {
-  version: '25.10',
-  link: 'https://www.centreon.com/fr/centreon-annonce-la-version-25-10-de-centreon-infra-monitoring-pierre-angulaire-de-la-nouvelle-centreon-observability-platform/',
+  version: '26.10',
+  link: 'https://centreon.com/fr/blog/actualites/centreon-infra-monitoring-26-10-lts-nouveautes/',
   target: '_blank'
  }
 
