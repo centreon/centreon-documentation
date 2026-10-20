@@ -264,7 +264,7 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 1. Execute the following commands:
 
@@ -1006,7 +1006,7 @@ dnf update centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 ```shell
 apt-get update && apt-get upgrade centreon-monitoring-agent

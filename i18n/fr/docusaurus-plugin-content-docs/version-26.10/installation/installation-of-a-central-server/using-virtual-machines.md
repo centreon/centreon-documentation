@@ -9,12 +9,14 @@ import TabItem from '@theme/TabItem';
 Sur sa [page de téléchargement](https://download.centreon.com), Centreon fournit des machines virtuelles prêtes à l’emploi. Ces machines virtuelles sont disponibles pour les environnements
 VMware et pour l'outil Oracle VirtualBox.
 
-Elles sont basées sur les systèmes d'exploitation **Alma Linux 8 et 9** et **Debian 12** et incluent
+Elles sont basées sur les systèmes d'exploitation **Alma Linux 9 et 10** et **Debian 13**, et incluent
 une installation de Centreon permettant de démarrer en toute simplicité votre première supervision.
 
 > L'installation par machine virtuelle n'est adaptée que pour utiliser IT-100, ou à des fins de test.
 
 Les VMs sont configurées en **Thin Provision** pour économiser autant d'espace libre que possible sur le disque (meilleure pratique).
+
+Les VMs sont installées en mode TLS : les connexions à l'interface web et à la base de données sont chiffrées.
 
 ## Prérequis
 
@@ -124,7 +126,7 @@ cliquez sur **Download**.
 configuration.
  
 <Tabs groupId="sync">
-<TabItem value="Alma 8 et 9" label="Alma 8 et 9">
+<TabItem value="Alma 9 et 10" label="Alma 9 et 10">
   
 Définissez les paramètres suivants :
 
@@ -178,7 +180,7 @@ changer, utilisez la commande suivante :
   ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 Définissez les paramètres suivants :
 
@@ -207,7 +209,7 @@ Définissez les paramètres suivants :
     1. Ouvrez le fichier suivant :
       
    ```shell
-   /etc/php/8.2/mods-available/centreon.ini
+   /etc/php/4/mods-available/centreon.ini
    ```
    
    2. Après date.timezone, entrez le fuseau horaire désiré.
@@ -215,7 +217,7 @@ Définissez les paramètres suivants :
    3. Redémarrez le serveur PHP :
 
    ```shell
-   systemctl restart php8.2-fpm.service
+   systemctl restart php8.4-fpm.service
    ```
 
 - Le hostname de votre serveur (facultatif). Le nom par défaut du serveur est centreon-central. Pour le
@@ -274,8 +276,8 @@ fonctionnera pas si vous ne l’exécutez pas.
         >`/etc/profile.d/centreon.sh`
 
 6. Connectez-vous à l’interface web : dans votre navigateur, entrez l’adresse du serveur au format
-`http://addresse_ip/centreon` ou `http://FQDN/centreon`. (Par exemple, une URL valide serait
-`http://192.168.1.44/centreon`.)
+`https://addresse_ip/centreon` ou `https://FQDN/centreon`. (Par exemple, une URL valide serait
+`https://192.168.1.44/centreon`.) La connexion est chiffrée avec un certificat autosigné : votre navigateur affichera une alerte de sécurité.
 
 7. Connectez-vous en utilisant les informations suivantes : Login: `admin`, password: `Centreon!123`. Par défaut, votre serveur offre une configuration prédéfinie qui permet de le superviser lui-même.
 

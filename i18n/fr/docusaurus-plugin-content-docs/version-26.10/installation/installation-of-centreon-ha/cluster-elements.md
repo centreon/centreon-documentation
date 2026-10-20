@@ -80,6 +80,8 @@ Toutes ces ressources sont décrites dans le tableau ci-dessous.
 | `ms_mysql-master`       | location             | Définit quelle base de données est le nœud actif     |
 | `vip_mysql`             | service primitif     | Adresse VIP pour le cluster de base de données       |
 
-## Nœuds actifs/passifs ou nœuds maître/esclave ?
+## Nœuds actifs/passifs, master/slave, promoted/demoted
 
-Dans ce chapitre, nous parlerons de nœuds actifs/passifs. Vous remarquerez peut-être que la sortie de certaines commandes utilise les termes maître et esclave : il s'agit de termes propres à Pacemaker et Corosync. Le maître désigne le nœud actif et l'esclave le nœud passif.
+Dans ce chapitre, nous parlerons de nœuds actifs/passifs. Vous remarquerez peut-être que pour d'anciennes version de Pacemaker/Corosync la sortie de certaines commandes utilise les termes maître et esclave : il s'agit de termes propres à Pacemaker et Corosync. Le maître désigne le nœud actif et l'esclave le nœud passif. Dans les versions plus récentes de Pacemaker/Corosync, les termes employés sont "Promoted/demoted".
+
+> Notez que certaines commandes, options ou sorties peuvent varier selon votre version de Pacemaker/Corosync. Reportez-vous à la documentation officielle correspondant à votre version.

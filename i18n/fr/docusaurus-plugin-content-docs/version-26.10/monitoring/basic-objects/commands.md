@@ -134,8 +134,39 @@ cma-whitelist:
 Utilisez `.*` afin d'inclure tous les arguments dans la regex.
 Le `.*` à la fin de la regex lui permet de gérer tout argument qu'elle contiendrait. Attention, le format doit être strictement identique à celui ci-dessus (cela inclut les indentations).
 
-
 > Si vous n'avez pas autorisé votre commande dans la liste blanche du collecteur, cela vous sera signalé dans la colonne **Informations** de la page **Statut des ressources**.
+
+### Connecteur SSH
+
+Le connecteur Centreon SSH Connector est un logiciel Centreon gratuit, disponible sous licence Apache Software License version 2 (ASL 2.0).
+Utilisé avec Centreon Engine, il accélère l'exécution des contrôles faits via SSH.
+
+#### Installation
+
+Exécutez la commande suivante en tant qu'utilisateur privilégié :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+``` shell
+dnf install centreon-connector-ssh
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-connector-ssh
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+``` shell
+apt install centreon-connector-ssh
+```
+</TabItem>
+</Tabs>
 
 ## Connecteurs d'optimisation
 
