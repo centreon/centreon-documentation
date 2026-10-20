@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Atlassian Statuspage API**](../procedures/applications-atlassian-statuspage-api.md) - Initial release.
 - [**Veeam Backup & Replication Rest API**](../procedures/applications-veeam-vbr-restapi.md) - Initial release.
-- [**Zero Trust Branch Rest API**](../procedures/cloud-zscaler-ztb-restapi.md) - Initial release.
+- [**Zscaler Zero Trust Branch Api**](../procedures/cloud-zscaler-ztb-restapi.md) - Initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
