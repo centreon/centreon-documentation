@@ -118,7 +118,8 @@ dnf update -y centreon-bi\* centreon-perl-libs-common
     systemctl is-active mariadb
     ```
 
-The command must return `active`.<!--  On Debian 13, also check that MariaDB still listens on all interfaces:
+The command must return `active`.
+<!--  On Debian 13, also check that MariaDB still listens on all interfaces:
 
 ```shell
 grep "^bind-address" /etc/mysql/mariadb.conf.d/50-server.cnf
