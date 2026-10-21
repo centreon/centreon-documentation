@@ -243,16 +243,17 @@ La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: All components are ok
-Component 'Desktop Web' [group: reddit.com] status: operational
-Component 'Reddit Ads' [group: ads.reddit.com] status: operational
-Component 'Comment Processing' [group: reddit.com] status: operational
-Component 'Vote Processing' [group: reddit.com] status: operational
-Component 'Native Mobile Apps' [group: reddit.com] status: operational
-Component 'Modmail' [group: reddit.com] status: operational
-Component 'Reddit Media Storage' status: operational
-Component 'Mobile Web' [group: reddit.com] status: operational
-Component 'Spam Processing' [group: reddit.com] status: operational
-Component 'Reddit Infrastructure' status: operational
+Component 'Actions' [group: github.com] status: operational
+Component 'Copilot AI Model Providers' [group: ads.github.com] status: operational
+Component 'Issues' [group: github.com] status: operational
+Component 'API Requests' [group: github.com] status: operational
+Component 'Codespaces' [group: github.com] status: operational
+Component 'Pages' [group: github.com] status: operational
+Component 'Copilot' status: operational
+Component 'Packages' [group: github.com] status: operational
+Component 'Git Operations' [group: github.com] status: operational
+Component 'Pull Requests' status: operational
+Component 'Webhooks' [group: github.com] status: operational
 ```
 
 ### Diagnostic des erreurs communes

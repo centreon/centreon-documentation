@@ -69,7 +69,7 @@ Statuspage. No account or API key is needed.
 * The poller must be able to reach the status page on the TCP/443 port, directly
   or through a proxy (`--proxyurl` option).
 * In Centreon, the **IP Address/DNS** field of the host is the domain name of
-  the status page, for example `www.redditstatus.com`.
+  the status page, for example `www.githubstatus.com`.
 
 To check that a status page is compatible, open
 `https://<domain name of the status page>/api/v2/components.json` in a browser:
@@ -251,7 +251,17 @@ Component 'Modmail' [group: reddit.com] status: operational
 Component 'Reddit Media Storage' status: operational
 Component 'Mobile Web' [group: reddit.com] status: operational
 Component 'Spam Processing' [group: reddit.com] status: operational
-Component 'Reddit Infrastructure' status: operational
+Component 'Actions' [group: github.com] status: operational
+Component 'Copilot AI Model Providers' [group: ads.github.com] status: operational
+Component 'Issues' [group: github.com] status: operational
+Component 'API Requests' [group: github.com] status: operational
+Component 'Codespaces' [group: github.com] status: operational
+Component 'Pages' [group: github.com] status: operational
+Component 'Copilot' status: operational
+Component 'Packages' [group: github.com] status: operational
+Component 'Git Operations' [group: github.com] status: operational
+Component 'Pull Requests' status: operational
+Component 'Webhooks' [group: github.com] status: operational
 ```
 
 ### Troubleshooting
