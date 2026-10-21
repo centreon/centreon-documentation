@@ -126,13 +126,13 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | connected_users | count |
 
 </TabItem>
-<TabItem value="Connection-Time*" label="Connection-Time*">
+<TabItem value="Connection-Time" label="Connection-Time">
 
 | Nom                          | Unité |
 |:-----------------------------|:------|
 | connection.time.milliseconds | ms    |
 
-> Concerne les modèles de service suivants : Connection-Time, Connection-Time
+> Concerne les modèles de service suivants : Connection-Time
 
 </TabItem>
 <TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
