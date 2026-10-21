@@ -53,9 +53,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                             | Description |
-|:--------------------------------------|:------------|
-| App-Veeam-NSClient05-Restapi-Job-Name |             |
+| Rule name                             | Description   |
+|:--------------------------------------|:--------------|
+| App-Veeam-NSClient05-Restapi-Job-Name | Discover Jobs |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
