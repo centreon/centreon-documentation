@@ -248,15 +248,15 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 </TabItem>
 <TabItem value="Rman-Backup-Problems*" label="Rman-Backup-Problems*">
+<TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
 | Name                                       | Unit  |
 |:-------------------------------------------|:------|
-| rman.backups.completed.count               | count |
-| rman.backups.failed.count                  | count |
+@@ -249,6 +256,8 @@
 | rman.backups.completed_with_warnings.count | count |
 | rman.backups.completed_with_errors.count   | count |
 
-> Applies to the following service templates: Rman-Backup-Problems, Rman-Backup-Problems
+> Applies to the following service templates: Rman-Backup-Problems
 
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">
