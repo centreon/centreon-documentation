@@ -42,7 +42,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle   | Description                                                                           |
 |:------------------|:--------------------------------------------------------------------------------------|
-| Vates XCPng Hosts | Découvre les hosts Vates XCPng en requêtant le serveur Xen Orchestra via the Rest API |
+| Vates XCPng Hosts | Découvre les hosts Vates XCPng en requêtant le serveur Xen Orchestra via l'API Rest |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 

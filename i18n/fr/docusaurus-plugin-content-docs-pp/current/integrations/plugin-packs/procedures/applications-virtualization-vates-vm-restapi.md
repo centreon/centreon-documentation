@@ -43,7 +43,7 @@ Le connecteur apporte les modèles de service suivants
 
 | Nom de la règle        | Description                                                                                                     |
 |:-----------------------|:----------------------------------------------------------------------------------------------------------------|
-| Vates VM Xen Orchestra | Découvre les machines virtuelles Vates Xcp-ng/Xen orchestra en requêtant le serveur  Xen Orchestra via Rest API |
+| Vates VM Xen Orchestra | Découvre les machines virtuelles Vates Xcp-ng/Xen orchestra en requêtant le serveur Xen Orchestra via l'API Rest |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
