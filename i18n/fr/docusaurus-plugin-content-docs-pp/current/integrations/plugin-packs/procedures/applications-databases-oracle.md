@@ -248,7 +248,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 </TabItem>
 <TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
-<TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
 | Nom                                        | Unité |
 |:-------------------------------------------|:------|

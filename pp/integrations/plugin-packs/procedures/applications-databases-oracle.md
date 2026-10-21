@@ -247,7 +247,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 </TabItem>
 <TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
-<TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
 | Name                                       | Unit  |
 |:-------------------------------------------|:------|
