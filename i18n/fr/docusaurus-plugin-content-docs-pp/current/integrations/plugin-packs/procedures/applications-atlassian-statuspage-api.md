@@ -70,7 +70,7 @@ Atlassian Statuspage. Aucun compte ni clé d'API n'est nécessaire.
 * Le collecteur doit pouvoir joindre la page de statut sur le port TCP/443,
   directement ou via un proxy (option `--proxyurl`).
 * Dans Centreon, le champ **IP Address/DNS** de l'hôte contient le nom de
-  domaine de la page de statut, par exemple `www.redditstatus.com`.
+  domaine de la page de statut, par exemple `www.githubstatus.com`.
 
 Pour vérifier qu'une page de statut est compatible, ouvrez
 `https://<nom de domaine de la page de statut>/api/v2/components.json` dans un
@@ -223,7 +223,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--plugin=apps::atlassian::statuspage::api::plugin \
 	--custommode=json \
 	--mode=components \
-	--hostname='www.redditstatus.com' \
+	--hostname='www.githubstatus.com' \
 	--port='443' \
 	--proto='https' \
 	--api-path='/api/v2/' \

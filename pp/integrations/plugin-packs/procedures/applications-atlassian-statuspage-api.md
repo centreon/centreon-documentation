@@ -222,7 +222,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--plugin=apps::atlassian::statuspage::api::plugin \
 	--custommode=json \
 	--mode=components \
-	--hostname='www.redditstatus.com' \
+	--hostname='www.githubstatus.com' \
 	--port='443' \
 	--proto='https' \
 	--api-path='/api/v2/' \
