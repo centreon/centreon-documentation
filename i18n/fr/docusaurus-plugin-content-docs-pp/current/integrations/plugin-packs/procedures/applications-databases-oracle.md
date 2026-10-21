@@ -250,15 +250,15 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 
 </TabItem>
 <TabItem value="Rman-Backup-Problems*" label="Rman-Backup-Problems*">
+<TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
 | Nom                                        | Unité |
 |:-------------------------------------------|:------|
-| rman.backups.completed.count               | count |
-| rman.backups.failed.count                  | count |
+@@ -251,6 +258,8 @@
 | rman.backups.completed_with_warnings.count | count |
 | rman.backups.completed_with_errors.count   | count |
 
-> Concerne les modèles de service suivants : Rman-Backup-Problems, Rman-Backup-Problems
+> Concerne les modèles de service suivants : Rman-Backup-Problems
 
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">
