@@ -233,7 +233,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | redolog.traffic.io.bytespersecond | B/s   |
 
 </TabItem>
-<TabItem value="Rman-Backup-Age*" label="Rman-Backup-Age*">
+<TabItem value="Rman-Backup-Age" label="Rman-Backup-Age">
 
 | Nom    | Unité |
 |:-------|:------|
@@ -247,7 +247,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 | status | N/A   |
 
 </TabItem>
-<TabItem value="Rman-Backup-Problems*" label="Rman-Backup-Problems*">
+<TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 <TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
 | Nom                                        | Unité |
@@ -255,8 +255,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 @@ -251,6 +258,8 @@
 | rman.backups.completed_with_warnings.count | count |
 | rman.backups.completed_with_errors.count   | count |
-
-> Concerne les modèles de service suivants : Rman-Backup-Problems
 
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">

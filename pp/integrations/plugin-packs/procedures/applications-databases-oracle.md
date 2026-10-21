@@ -124,13 +124,12 @@ Here is the list of services for this connector, detailing all metrics and statu
 | connected_users | count |
 
 </TabItem>
-<TabItem value="Connection-Time*" label="Connection-Time*">
+<TabItem value="Connection-Time" label="Connection-Time">
 
 | Name                         | Unit |
 |:-----------------------------|:-----|
 | connection.time.milliseconds | ms   |
 
-> Applies to the following service templates: Connection-Time, Connection-Time
 
 </TabItem>
 <TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
@@ -233,7 +232,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | redolog.traffic.io.bytespersecond | B/s  |
 
 </TabItem>
-<TabItem value="Rman-Backup-Age*" label="Rman-Backup-Age*">
+<TabItem value="Rman-Backup-Age" label="Rman-Backup-Age">
 
 | Name   | Unit |
 |:-------|:-----|
@@ -247,7 +246,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 | status | N/A  |
 
 </TabItem>
-<TabItem value="Rman-Backup-Problems*" label="Rman-Backup-Problems*">
+<TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 <TabItem value="Rman-Backup-Problems" label="Rman-Backup-Problems">
 
 | Name                                       | Unit  |
@@ -255,8 +254,6 @@ Here is the list of services for this connector, detailing all metrics and statu
 @@ -249,6 +256,8 @@
 | rman.backups.completed_with_warnings.count | count |
 | rman.backups.completed_with_errors.count   | count |
-
-> Applies to the following service templates: Rman-Backup-Problems
 
 </TabItem>
 <TabItem value="Rollback-Segment-Usage" label="Rollback-Segment-Usage">
