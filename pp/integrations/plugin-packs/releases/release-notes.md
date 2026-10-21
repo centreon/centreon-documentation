@@ -32,9 +32,9 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Fixed **health** mode by adding `--server` option that was leading to build invalid Azure Resource ID and an host permanently DOWN / ResourceNotFound.
-- [**Docker Rest API**](../procedures/applications-docker-restapi.md) - Fixed the desired replicas count for Global Docker services.
-- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed **rman** mode unusable with `--sqlmode=sqlpluscmd`.
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Fixed **health** mode that was leading to build invalid Azure Resource ID and an host permanently DOWN / ResourceNotFound, by adding `--server` option.
+- [**Docker Rest API**](../procedures/applications-docker-restapi.md) - Fixed the desired replicas count for services: it was always reported as 0 and now matches the number of tasks Docker expects to run.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed **rman** mode unusable with the option `--sqlmode` set to `sqlpluscmd`.
 - [**Prometheus Server API**](../procedures/cloud-prometheus-api.md) - Fixed missing `query` option in the **Cloud-Prometheus-Api-Expression** service.
 - [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Discovery: the default template no longer maps the VM name to the host address when no IP is reported. This used to create hosts with invalid addresses that could not be edited or deleted.
 
