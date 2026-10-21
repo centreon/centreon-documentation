@@ -132,8 +132,6 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 |:-----------------------------|:------|
 | connection.time.milliseconds | ms    |
 
-> Concerne les modèles de service suivants : Connection-Time
-
 </TabItem>
 <TabItem value="Corrupted-Blocks" label="Corrupted-Blocks">
 
