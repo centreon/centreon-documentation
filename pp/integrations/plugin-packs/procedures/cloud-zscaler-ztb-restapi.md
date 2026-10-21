@@ -28,7 +28,7 @@ The connector brings the following service templates (sorted by the host templat
 | Service Alias        | Service Template                                      | Service Description                                |
 |:---------------------|:------------------------------------------------------|:---------------------------------------------------|
 | Cluster-Appconnector | Cloud-Zscaler-Ztb-Cluster-Appconnector-Restapi-custom | Monitors the state and the number of Appconnectors |
-| Cluster-Ipsec        | Cloud-Zscaler-Ztb-Cluster-Ipsec-Restapi-custom        | Monitors the states of IPSec tunnels               |
+| Cluster-Ipsec        | Cloud-Zscaler-Ztb-Cluster-Ipsec-Restapi-custom        | Monitors the state of IPSec tunnels               |
 
 > The services listed above are created automatically when the **Cloud-Zscaler-Ztb-Cluster-Restapi-custom** host template is used.
 
@@ -66,8 +66,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name            | Description                                                |
 |:---------------------|:-----------------------------------------------------------|
-| Zscaler ZTB Gateways | Discover Zscaler Zero Trust Branch gateways using REST API |
-| Zscaler ZTB Clusters | Discover Zscaler Zero Trust Branch clusters using REST API |
+| Zscaler ZTB Gateways | Discover Zscaler Zero Trust Branch gateways using the REST API |
+| Zscaler ZTB Clusters | Discover Zscaler Zero Trust Branch clusters using the REST API |
 
 More information about discovering hosts automatically is available on the [dedicated page](/docs/monitoring/discovery/hosts-discovery).
 
