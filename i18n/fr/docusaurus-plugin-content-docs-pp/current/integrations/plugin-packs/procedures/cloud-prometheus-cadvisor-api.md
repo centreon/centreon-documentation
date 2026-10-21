@@ -271,7 +271,7 @@ services:
 ```
 
 > Si vous utilisez Kubernetes, les pods d'un `StatefulSet` gardent un nom stable (`mon-service-0`, `mon-service-1`, etc.), tout comme les pods créés directement (`kind: Pod`).
-> Les pods des autres contrôleurs (`Deployment`, `DaemonSet`, `Job`, `CronJob`, etc.) reçoivent un nouveau nom à chaque recréation : la découverte automatique d'hôtes peux être configurée pour ajouter un nouvel hôte à chaque changement de nom, et supprimer l'ancien, mais les métriques collectées pour deux noms différents ne seront ni liées ni visibles ensemble.
+> Les pods des autres contrôleurs (`Deployment`, `DaemonSet`, `Job`, `CronJob`, etc.) reçoivent un nouveau nom à chaque recréation : la découverte automatique d'hôtes peut être configurée pour ajouter un nouvel hôte à chaque changement de nom, et supprimer l'ancien, mais les métriques collectées pour deux noms différents ne seront ni liées ni visibles ensemble.
 
 ## Installer le connecteur de supervision
 
@@ -400,7 +400,7 @@ Pour créer un hôte manuellement :
 | PROMETHEUS_API_HOSTNAME | Prometheus hostname                                                                                                                                                                                                         |                   | X           |
 | PROMETHEUS_API_PROTO    | Specify https if needed (`http` or `https`)                                                                                                                                                                                 |                   | X           |
 | PROMETHEUS_API_PORT     | API port (for example: `9090`)                                                                                                                                                                                              |                   | X           |
-| PROMETHEUS_API_URL      | API url path (for example: `/api/v1`)                                                                                                                                                                                       |                   | X           |
+| PROMETHEUS_API_URL      | API URL path (for example: `/api/v1`)                                                                                                                                                                                       |                   | X           |
 | CONTAINER_FILTER        | PromQL filter on the container (`--container` option), for example: `name="haproxy"`                                                                                                                                        |                   | X           |
 | POD_FILTER              | PromQL filter on the pod (`--pod` option), for example: `pod=~".*"`                                                                                                                                                         |                   | X           |
 | NAMESPACE_FILTER        | Additional PromQL filter (`--extra-filter` option). It can be used to select the Prometheus target of the container when several Docker hosts have a container with the same name, for example: `instance="docker-01:8080"` |                   |             |
