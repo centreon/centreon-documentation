@@ -550,9 +550,7 @@ OK: total transactions: 21977/s All databases are ok | 'databases.transactions.p
 
 ### Troubleshooting
 
-> Ensure you have the latest version of `freetds` to avoid 
-any errors, particularly those leading to core dumps on certain services 
-(SQL queries failing to retrieve integers stored in the database).
+> Ensure you have the latest version of `freetds` to avoid any errors, particularly those leading to core dumps on certain services (SQL queries failing to retrieve integers stored in the database).
 
 > On Debian, the `freetds` package does not exist, so you must install `freetds-bin` on this distribution. 
 

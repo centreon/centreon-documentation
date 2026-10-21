@@ -552,8 +552,7 @@ OK: total transactions: 52806/s All databases are ok | 'databases.transactions.p
 
 ### Diagnostic des erreurs communes
 
-> Assurez vous de disposer de la dernière version de `freetds` pour éviter 
-toute erreur notamment conduisant à des coredump sur certains services (SQL queries not fetching integers stored in database).
+> Assurez vous de disposer de la dernière version de `freetds` pour éviter toute erreur notamment conduisant à des coredump sur certains services (SQL queries not fetching integers stored in database).
 
 > Sur Debian, le paquet `freetds` n’existe pas, il faut donc installer `freetds-bin` sur cette distribution. 
 
