@@ -117,7 +117,7 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 Voici le tableau des services pour ce connecteur, détaillant les métriques et statuts rattachés à chaque service.
 
 <Tabs groupId="sync">
-<TabItem value="Container-Cpu*" label="Container-Cpu*">
+<TabItem value="Container-Cpu" label="Container-Cpu">
 
 | Nom                                                    | Unité |
 |:-------------------------------------------------------|:------|
@@ -129,7 +129,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
-<TabItem value="Container-Load*" label="Container-Load*">
+<TabItem value="Container-Load" label="Container-Load">
 
 | Nom                                    | Unité |
 |:---------------------------------------|:------|
@@ -140,7 +140,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 > Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
-<TabItem value="Container-Memory*" label="Container-Memory*">
+<TabItem value="Container-Memory" label="Container-Memory">
 
 | Nom                                    | Unité |
 |:---------------------------------------|:------|
@@ -153,7 +153,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 > Concerne les modèles de service suivants : Cloud-Prometheus-cAdvisor-Memory-Api-custom, Cloud-Prometheus-cAdvisor-Container-Memory-Api-custom
 
 </TabItem>
-<TabItem value="Container-Storage*" label="Container-Storage*">
+<TabItem value="Container-Storage" label="Container-Storage">
 
 | Nom                                                    | Unité |
 |:-------------------------------------------------------|:------|
@@ -165,7 +165,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 > La métrique **storage.space.free.bytes** remplace **storage.space.usage.bytes** lorsque l'option `--free` est ajoutée dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
-<TabItem value="Container-Task-State*" label="Container-Task-State*">
+<TabItem value="Container-Task-State" label="Container-Task-State">
 
 | Nom                                           | Unité |
 |:----------------------------------------------|:------|
@@ -835,7 +835,7 @@ Les options génériques sont listées ci-dessous :
 Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
-<TabItem value="Container-Cpu*" label="Container-Cpu*">
+<TabItem value="Container-Cpu" label="Container-Cpu">
 
 | Option               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -852,7 +852,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters    | Only display some counters (regexp can be used). Example: --filter-counters='throttled'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 </TabItem>
-<TabItem value="Container-Load*" label="Container-Load*">
+<TabItem value="Container-Load" label="Container-Load">
 
 | Option            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -865,7 +865,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --metric-overload | Overload default metrics name (can be defined multiple times).  Example : --metric-overload='metric,^my\_metric\_name$'  Default :      - load: ^container\_cpu\_load\_average\_10s$                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 </TabItem>
-<TabItem value="Container-Memory*" label="Container-Memory*">
+<TabItem value="Container-Memory" label="Container-Memory">
 
 | Option             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |:-------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -888,7 +888,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --filter-counters  | Only display some counters (regexp can be used). Example: --filter-counters='usage'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 </TabItem>
-<TabItem value="Container-Storage*" label="Container-Storage*">
+<TabItem value="Container-Storage" label="Container-Storage">
 
 | Option            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |:------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -904,7 +904,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | --metric-overload | Overload default metrics name (can be defined multiple times).  Example : --metric-overload='metric,^my\_metric\_name$'  Default :      - used: ^container\_fs\_usage\_bytes.*     - limit: ^container\_fs\_limit\_bytes.*                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 
 </TabItem>
-<TabItem value="Container-Task-State*" label="Container-Task-State*">
+<TabItem value="Container-Task-State" label="Container-Task-State">
 
 | Option                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 |:---------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
