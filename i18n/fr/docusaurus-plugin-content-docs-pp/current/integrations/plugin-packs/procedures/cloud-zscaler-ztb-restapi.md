@@ -74,9 +74,9 @@ Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-dis
 
 #### Découverte de services
 
-| Nom de la règle                                      | Description                                                                                               |
-|:-----------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
-| Cloud-Zscaler-Ztb-Restapi-Gateway-Interfaces-by-Name | Découvre les interfaces réseau de la passerelle par leur nom et supervise leur statut et leur utilisation |
+| Nom de la règle                                   | Description                                                                                               |
+|:--------------------------------------------------|:----------------------------------------------------------------------------------------------------------|
+| Cloud-Zscaler-Ztb-Restapi-Gateway-Interfaces-Name | Découvre les interfaces réseau de la passerelle par leur nom et supervise leur statut et leur utilisation |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).

@@ -73,9 +73,9 @@ More information about discovering hosts automatically is available on the [dedi
 
 #### Service discovery
 
-| Rule name                                            | Description                                                                               |
-|:-----------------------------------------------------|:------------------------------------------------------------------------------------------|
-| Cloud-Zscaler-Ztb-Restapi-Gateway-Interfaces-by-Name | Discover the network interfaces of the gateway by name and monitor their status and usage |
+| Rule name                                         | Description                                                                               |
+|:--------------------------------------------------|:------------------------------------------------------------------------------------------|
+| Cloud-Zscaler-Ztb-Restapi-Gateway-Interfaces-Name | Discover the network interfaces of the gateway by name and monitor their status and usage |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
