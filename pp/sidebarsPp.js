@@ -124,6 +124,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-atlassian-statuspage-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-awa-jmx'
         },
         {
