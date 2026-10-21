@@ -179,7 +179,7 @@ yum install centreon-plugin-Applications-Atlassian-Statuspage-Api
 |:-------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | STATUSPAGE_PROTO         | Specify https if needed (default: 'https')                                                                                                         | https             |             |
 | STATUSPAGE_PORT          | Port used (default: 443)                                                                                                                           | 443               |             |
-| STATUSPAGE_API_PATH      | API base url path (default: '/api/v2/')                                                                                                            | /api/v2/          |             |
+| STATUSPAGE_API_PATH      | API base URL path (default: '/api/v2/')                                                                                                            | /api/v2/          |             |
 | STATUSPAGE_EXTRA_OPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
