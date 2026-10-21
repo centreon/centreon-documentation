@@ -1,6 +1,7 @@
 ---
 id: cloud-zscaler-ztb-restapi
 title: Zscaler Zero Trust Branch API
+description: "Supervise les clusters et passerelles Zscaler Zero Trust Branch via API : état, tunnels IPsec, App Connectors, CPU, mémoire, disque, interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
