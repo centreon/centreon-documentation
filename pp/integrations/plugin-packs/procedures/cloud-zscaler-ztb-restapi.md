@@ -1,6 +1,7 @@
 ---
 id: cloud-zscaler-ztb-restapi
 title: Zscaler Zero Trust Branch API
+description: "Monitor Zscaler Zero Trust Branch clusters and gateways via REST API: status, IPsec tunnels, App Connectors, CPU, memory, disk, interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
