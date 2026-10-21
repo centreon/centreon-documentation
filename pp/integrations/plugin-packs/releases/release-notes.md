@@ -16,18 +16,18 @@ import TabItem from '@theme/TabItem';
 
 - [**Atlassian Statuspage API**](../procedures/applications-atlassian-statuspage-api.md) - Initial release.
 - [**Veeam Backup & Replication Rest API**](../procedures/applications-veeam-vbr-restapi.md) - Initial release.
-- [**Zscaler Zero Trust Branch Api**](../procedures/cloud-zscaler-ztb-restapi.md) - Initial release.
+- [**Zscaler Zero Trust Branch API**](../procedures/cloud-zscaler-ztb-restapi.md) - Initial release.
 
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**cAdvisor w/ Prometheus API**](../procedures/cloud-prometheus-cadvisor-api.md) - Added host discovery and template for **pods** and **containers**.
-- [**Centreon Experience Monitoring Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Changed `timeframe` option default value.
+- [**Centreon Experience Monitoring Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Changed the default value of the `timeframe` option (from ... to ...).
 - [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added **disks** mode and its service discovery rule.
-- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Improved job execution performance when filtering by specific-jobs in **job-status** mode.
-- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Improved job execution performance when filtering by specific-jobs in **job-status** mode.
-- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Improved job execution performance when filtering by specific-jobs in **job-status** mode.
-- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Improved job execution performance when filtering by specific-jobs in **job-status** mode.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
