@@ -22,7 +22,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**cAdvisor w/ Prometheus API**](../procedures/cloud-prometheus-cadvisor-api.md) - Added host discovery and template features for **pods** and **containers**.
-- [**Centreon Experience Monitoring Rest API**](../procedures/applications-monitoring-centreon-dem-restapi.md) - Changed the default value of the `timeframe` option (from 3600 to 86400 seconds).
+- [**Centreon Experience Monitoring Rest API**](../procedures/applications-monitoring-centreon-experience-monitoring-restapi.md) - Changed the default value of the `timeframe` option (from 3600 to 86400 seconds).
 - [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added **disks** mode and its service discovery rule.
 - [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
 - [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
