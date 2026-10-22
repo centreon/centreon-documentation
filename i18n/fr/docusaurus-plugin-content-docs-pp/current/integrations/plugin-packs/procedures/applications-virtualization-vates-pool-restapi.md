@@ -39,9 +39,9 @@ Le connecteur apporte le modèle de service suivant
 
 #### Découverte d'hôtes
 
-| Nom de la règle          | Description                                                                                            |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------|
-| Vates Pool Xen Orchestra | Discover Vates Xcp-ng/Xen orchestra virtual machines by requesting Xen Orchestra server using Rest API |
+| Nom de la règle          | Description                                                                                      |
+|:-------------------------|:-------------------------------------------------------------------------------------------------|
+| Vates Pool Xen Orchestra | Découvre les pools Vates Xcp-ng/Xen orchestra en requêtant le serveur Xen Orchestra via Rest API |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -64,7 +64,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 Pour créer un utilisateur ayant seulement les droits de lecture, vous pouvez utiliser l'option `--create-xoa-read-only-user` du plugin, par exemple : 
 
 ```bash
-/usr/lib/centreon/plugins/centreon_vates_xen_orchestra_restapi.pl --plugin='apps::virtualization::vates::pool::plugin' --mode='discovery' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
+/usr/lib/centreon/plugins/centreon_vates_pool_restapi.pl --plugin='apps::virtualization::vates::pool::plugin' --mode='discovery' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
 ```
 
 Vous pouvez utiliser `--insecure` si vous n'avez pas de certificats reconnus, et `--debug` pour observer les appels API exacts effectués.
@@ -98,17 +98,10 @@ dnf install centreon-pack-applications-virtualization-vates-pool-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-pack-applications-virtualization-vates-pool-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-virtualization-vates-pool-restapi
 ```
 
 </TabItem>
@@ -143,17 +136,10 @@ dnf install centreon-plugin-Virtualization-Vates-Pool-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-plugin-virtualization-vates-pool-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Virtualization-Vates-Pool-Restapi
 ```
 
 </TabItem>
