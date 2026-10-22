@@ -43,13 +43,13 @@ import TabItem from '@theme/TabItem';
 
 ### Septembre
 
-> **Attention, information importante :** Nous avons corrigé un problème touchant tous les plugins, qui causait des `OK:` vides. Ceux-ci retourneront désormais la valeur correcte, `UNKNOWN`.
+> **Attention, information importante :** Nous avons corrigé un problème touchant à tous les connecteurs qui causait des `OK:` vides. Ceux-ci retourneront désormais la valeur correcte, `UNKNOWN`.
 
 > Centreon lance un programme bêta pour sa nouvelle collection SNMP Rust.
 > Le principe reste le même que pour la collection SNMP existante: un connecteur est décrit dans un fichier JSON
 > (requêtes SNMP, macros, seuils), sans écrire de code Perl. Cependant, le moteur est désormais un binaire Rust.
 > Nous recherchons des utilisateurs prêts à tester cette nouvelle collection sur leurs propres équipements et à nous faire part de leurs retours avant la sortie officielle.
-> Un groupe bêta dédié est disponible sur The Watch [ici](https://thewatch.centreon.com/latest-news-37/data-driven-monitoring-checks-powered-by-rust-join-the-beta-5974).
+> Un groupe dédié pour les testeurs bêta est disponible sur The Watch [ici](https://thewatch.centreon.com/latest-news-37/data-driven-monitoring-checks-powered-by-rust-join-the-beta-5974).
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
