@@ -235,7 +235,12 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 </TabItem>
 </Tabs>
 
-> L'instance de chaque métrique est formée du nom du pod et du nom du conteneur (par exemple `web-1_nginx` ou `web-1~nginx`), du nom du pod pour un pod, ou du nom du conteneur pour un conteneur exécuté hors de Kubernetes (par exemple `haproxy`). Les métriques de stockage contiennent aussi le périphérique (par exemple `web-1~nginx~/dev/vda1`).
+> L'instance de chaque métrique est dépend du type de ressource :
+- Conteneur dans un pod : nom du pod et du nom du conteneur (par exemple `web-1_nginx` ou `web-1~nginx`)
+- Pod : nom du pod
+- Conteneur exécuté hors de Kubernetes : nom du conteneur (par exemple `haproxy`). 
+
+Les métriques de stockage contiennent aussi le périphérique (par exemple `web-1~nginx~/dev/vda1`).
 
 ## Prérequis
 
