@@ -6,6 +6,8 @@ description: "Vérifier l'état du cluster, exécuter des bascules et gérer la 
 
 > Sauf indication contraire, toutes les commandes de cette page doivent être exécutées en tant que « root ».
 
+> Notez que certaines commandes, options ou sorties peuvent varier selon votre version de Pacemaker/Corosync. Reportez-vous à la documentation officielle correspondant à votre version.
+
 ## Se connecter à Centreon sur le nœud actif
 
 L'accès à l'interface du nœud actif se fait via l'adresse IP de la VIP centrale. Cela signifie que vous utilisez toujours la même URL pour accéder à l'interface, que l'interface soit celle du nœud central 1 ou celle du nœud central 2.

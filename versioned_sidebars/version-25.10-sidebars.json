@@ -322,7 +322,7 @@
             },
             {
               "type": "doc",
-              "id": "monitoring/basic-objects/meta-services"
+              "id": "monitoring/basic-objects/metaservices"
             }
           ]
         },
@@ -1227,6 +1227,10 @@
             },
             {
               "type": "doc",
+              "id": "upgrade/upgrade-matrix"
+            },
+            {
+              "type": "doc",
               "id": "upgrade/upgrade-from-24-10"
             },
             {
@@ -1412,6 +1416,10 @@
             {
               "type": "doc",
               "id": "integrations/data-analytics/sc-elastic-metrics"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/data-analytics/sc-graphite-metrics"
             },
             {
               "type": "doc",

@@ -34,8 +34,8 @@ The connector brings the following service templates (sorted by the host templat
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
-| Service Alias      | Service Template                                           | Service Description                                     | Discovery |
-|:-------------------|:-----------------------------------------------------------|:--------------------------------------------------------|:---------:|
+| Service Alias      | Service Template                                           | Service Description                                      | Discovery |
+|:-------------------|:-----------------------------------------------------------|:---------------------------------------------------------|:---------:|
 | Storage-Repository | Virt-Vates-Xen-Orchestra-Storage-Repository-Restapi-custom | Monitor one or multiple Storage Repositories space usage |     X     |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
@@ -49,9 +49,9 @@ The connector brings the following service templates (sorted by the host templat
 
 #### Service discovery
 
-| Rule name                                        | Description                                               |
-|:-------------------------------------------------|:----------------------------------------------------------|
-| Virt-Vates-Xen-Orchestra-Storage-Repository-Name | Discover the disk partitions and monitor space occupation |
+| Rule name                                        | Description                                  |
+|:-------------------------------------------------|:---------------------------------------------|
+| Virt-Vates-Xen-Orchestra-Storage-Repository-Name | Discover storage repository using their name |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -121,17 +121,10 @@ dnf install centreon-pack-applications-virtualization-vates-xenorchestra-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-pack-applications-virtualization-vates-xenorchestra-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-virtualization-vates-xenorchestra-restapi
 ```
 
 </TabItem>
@@ -168,17 +161,10 @@ dnf install centreon-plugin-Virtualization-Vates-Xen-Orchestra-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-plugin-virtualization-vates-xen-orchestra-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Virtualization-Vates-Xen-Orchestra-Restapi
 ```
 
 </TabItem>

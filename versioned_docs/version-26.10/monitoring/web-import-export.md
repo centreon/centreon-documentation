@@ -27,13 +27,6 @@ To be able to use AWIE, you need to be an administrator.
 Run the following commands as a privileged user:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-awie
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -41,7 +34,14 @@ dnf install centreon-awie
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-awie
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt install centreon-awie
