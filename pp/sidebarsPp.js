@@ -66,7 +66,7 @@ module.exports = {
           id: 'integrations/plugin-packs/releases/release-notes'
         },
         {
-        type: 'doc',
+          type: 'doc',
           id: 'integrations/plugin-packs/getting-started/develop-plugin'
         }
       ]
@@ -1240,6 +1240,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-vmware-velocloud-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-zscaler-ztb-restapi'
         }
       ]
     },
@@ -3120,7 +3124,6 @@ module.exports = {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-proxmox-ve-restapi'
         },
-
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-host-restapi'
