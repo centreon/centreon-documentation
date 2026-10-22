@@ -40,9 +40,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte d'hôtes
 
-| Nom de la règle   | Description                                                                  |
-|:------------------|:-----------------------------------------------------------------------------|
-| Vates XCPng Hosts | Discover Vates XCPng hosts by querying a Xen Orchestra server using the Rest API |
+| Nom de la règle   | Description                                                                           |
+|:------------------|:--------------------------------------------------------------------------------------|
+| Vates XCPng Hosts | Découvre les hosts Vates XCPng en requêtant le serveur Xen Orchestra via l'API Rest |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/hosts-discovery) pour en savoir plus sur la découverte automatique d'hôtes.
 
@@ -75,7 +75,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 Pour créer un utilisateur ayant seulement les droits de lecture, vous pouvez utiliser l'option `--create-xoa-read-only-user` du plugin, par exemple : 
 
 ```bash
-/usr/lib/centreon/plugins/centreon_vates_vm_restapi.pl --plugin='apps::virtualization::vates::vm::plugin' --mode='discovery' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
+/usr/lib/centreon/plugins/centreon_vates_xcpng_host_restapi.pl --plugin='apps::virtualization::vates::host::plugin' --mode='discovery' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
 ```
 
 Vous pouvez utiliser `--insecure` si vous n'avez pas de certificats reconnus, et `--debug` pour observer les appels API exacts effectués.
@@ -109,7 +109,7 @@ dnf install centreon-pack-applications-virtualization-vates-host-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-pack-applications-virtualization-vates-host-restapi
@@ -147,7 +147,7 @@ dnf install centreon-plugin-Virtualization-Vates-XCPng-Host-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-plugin-virtualization-vates-xcpng-host-restapi

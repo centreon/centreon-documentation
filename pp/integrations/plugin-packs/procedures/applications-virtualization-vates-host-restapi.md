@@ -74,7 +74,7 @@ Here is the list of services for this connector, detailing all metrics and statu
 To create a read-only user you can use the `--create-xoa-read-only-user` option of the plugin, for example : 
 
 ```bash
-/usr/lib/centreon/plugins/centreon_vates_vm_restapi.pl --plugin='apps::virtualization::vates::vm::plugin' --mode='discovery' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
+/usr/lib/centreon/plugins/centreon_vates_xcpng_host_restapi.pl --plugin='apps::virtualization::vates::host::plugin' --mode='discovery' --password='YourAdminPasswordHere' --username='admin' --hostname='XoaAddressOrIp.com' --create-xoa-read-only-user
 ```
 
 You can use `--insecure` if your XOA doesn't have a public signed certificate, and `--debug` to see every HTTP call made.
@@ -108,7 +108,7 @@ dnf install centreon-pack-applications-virtualization-vates-host-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-pack-applications-virtualization-vates-host-restapi
@@ -148,7 +148,7 @@ dnf install centreon-plugin-Virtualization-Vates-XCPng-Host-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-plugin-virtualization-vates-xcpng-host-restapi
