@@ -4,7 +4,7 @@ title: Introduction à Centreon MAP
 description: "Introduction à Centreon MAP et à ses vues graphiques de supervision"
 ---
 
-Centreon MAP est une solution intégralement disponible dans l'interface web Centreon tout en vous proposant la meilleure expérience possible pour créer, visualiser et partager des représentations graphiques de votre infrastructure supervisée.
+Centreon MAP vous permet de créer, visualiser et partager des représentations graphiques de votre infrastructure supervisée, directement dans l'interface web Centreon.
 
 > Centreon MAP est une **extension** Centreon qui nécessite une [licence](../administration/licenses.md) valide.
 > Pour en acquérir une et récupérer les dépôts nécessaires, contactez [Centreon](mailto:sales@centreon.com).

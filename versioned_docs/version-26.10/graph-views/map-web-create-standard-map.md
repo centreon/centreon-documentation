@@ -13,7 +13,7 @@ The display of the **Add a Map** button in the **Map** page means that you are a
 1. In the **Monitoring > Map** page, click the **Add a Map** button located in the **Standard maps** section.
 
 2. Fill in the properties of the new map:
-   - Name: provide a name to the map.
+   - Name: enter a name for the map.
    - Geo coordinates: fill in the fields with the `Latitude, Longitude` format. This allows the map to be added to a [geographic view](./map-web-create-geoview.md).
    - Image: select an image if you want to customize the map's display in the list of maps.
 
@@ -23,7 +23,7 @@ The new map opens directly in the editor interface.
 
 ## Create a map from an existing container
 
-You can create a view directly from a [container](#container). This is useful when you want to share the sublevel of a view to a different profile without duplicating its contents or assigning full access to the main view.
+You can create a view directly from a [container](#container). This is useful when you want to share one level of a map with other users without duplicating its content or granting full access to the main map.
 
 1. Right-click the container and click **Create map from container**.
 2. Name the container.
@@ -82,7 +82,7 @@ Use **Widget** elements to display graphical data about the resources you monito
 #### Media elements
 
 Use **Media** elements to add:
-- **URL:** allows you to add an access to a specified link.
+- **URL:** adds a clickable link.
 - **Image:** allows you to customize your diagram by adding images.  
 
 1. Drag and drop the element into the drawing canvas.

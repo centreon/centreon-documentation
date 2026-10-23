@@ -10,7 +10,7 @@ The display of the **Add a new Geographic view** button on the **Map** page mean
 
 ## Requirement
 
-In order to apply geographic coordinates while configuring a new geographic view, it is necessary to provide them on the **Extended infos** tab corresponding to the resource you want to monitor (a host, a hostgroup, or a business activity).
+To place a resource (host, host group or business activity) on a geographic view, first enter its geographic coordinates in the **Extended infos** tab of the resource.
 
 For example, to fill in geographic coordinates for the **Central** host:
 
@@ -25,7 +25,7 @@ For example, to fill in geographic coordinates for the **Central** host:
 1. In the **Monitoring > Map** page, click the **Add a Geographic view** button located in the **Geographic views** section.
 
 2. Fill in the **Name** part:
-   - Name and Image: provide a name to the geographic view and select an image in the dropdown list.
+   - Name and Image: enter a name for the geographic view and select an image in the dropdown list.
 
 3. Fill in the **Add resources** part by selecting the resources listed by type. Each field provides a list of the available resources:
    - Maps
@@ -52,8 +52,7 @@ Unknown(gray) \> Unreachable(gray) \> Ok(green) \> Up(green) \> Pending(blue)
 
 ### Clustering
 
-When multiple resources are geographically close and you are at a "certain" zoom level, then they are grouped into one single circle
-displaying two elements:
+When resources are close to each other at the current zoom level, they are grouped into a single circle that shows:
 
 - Status of the worst object (displayed as a color between green, orange, red
   and gray).
@@ -71,4 +70,4 @@ This behavior can be disabled in the global Centreon Map options by setting the 
 Centreon MAP allows you to display additional data layers on maps to add context to your real time IT infrastructure status.
 
 First you need to add data layers in Centreon Map options, in the **Data Layers geographic services** section.
-Then, if the data layer is enabled, you can make it visible or not by checking the dedicated layer using the top left icon.
+Once a data layer is enabled, use the icon in the top-left corner to show or hide it.

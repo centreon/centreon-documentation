@@ -13,7 +13,7 @@ L'affichage du bouton **Ajouter une carte** signifie que vous êtes autorisé à
 1. Dans la page **Supervision > Map**, cliquez sur le bouton **Ajouter une carte** situé dans la section **Cartes standard**.
 
 2. Définissez les propriétés de la nouvelle carte :
-   - Nom : nommez la carte.
+   - Nom : saisissez un nom pour la carte.
    - Coordonnées géographiques : renseignez les champs au format `Latitude, Longitude`. Cela permet d'ajouter la carte à une [vue géographique](./map-web-create-geoview.md).
    - Image : sélectionnez une image si vous souhaitez personnaliser l'affichage de la carte dans la liste des cartes.
 
@@ -23,7 +23,7 @@ La nouvelle carte s'ouvre directement dans l'interface de l'éditeur.
 
 ## Créer une carte à partir d'un conteneur existant
 
-Vous pouvez créer une vue directement à partir d'un [conteneur](#conteneur). Cela est très pratique lorsque vous souhaitez partager le sous-niveau d'une vue avec un autre utilisateur sans dupliquer son contenu ou sans donner un accès complet à la vue principale.
+Vous pouvez créer une vue directement à partir d'un [conteneur](#conteneur). Cela est utile lorsque vous souhaitez partager un niveau d'une carte avec d'autres utilisateurs sans dupliquer son contenu ni donner un accès complet à la carte principale.
 
 1. Faites un clic-droit sur le conteneur et cliquez sur **Créer une carte à partir d'un conteneur**.
 2. Nommez le conteneur.
@@ -83,7 +83,7 @@ Utilisez les éléments **Widget** pour afficher des données graphiques sur les
 #### Éléments médias
 
 Utilisez les éléments de la section **Médias** pour ajouter :
-- Une **URL** : vous permet d'ajouter un accès à un lien spécifié.
+- Une **URL** : ajoute un lien cliquable.
 - Une **Image** : vous permet de personnaliser votre diagramme en ajoutant des images.  
 
 1. Faites un glisser-déposer de l'élément vers l'espace de travail.
