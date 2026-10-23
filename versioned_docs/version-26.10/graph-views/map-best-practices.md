@@ -1,6 +1,7 @@
 ---
 id: map-best-practices
 title: Best practices for using maps
+description: "Design clear, maintainable Centreon MAP views: tailor each map to its audience, choose the right map type and widgets, and manage access and updates."
 ---
 
 This topic provides recommendations to help you design maps that are clear, easy to maintain, and useful for the audience they are built for.
