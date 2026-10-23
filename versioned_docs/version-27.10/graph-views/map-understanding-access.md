@@ -10,13 +10,13 @@ Rights to access a map – also called privileges – are not managed at user le
 
 ## Privileges on a map
 
-Ensure users are well organized in access groups. This will facilitate the granting of privileges according to those groups.
+Organize users into access groups first: privileges are granted per group.
 
 ### Managing users in access groups
 Users must belong to the right group to get access to specific maps. Use the [Creating an access group](../administration/access-control-lists.md#creating-an-access-group) procedure to manage users in access groups.
 
 ### Granting privileges on a map
-Privileges are granted when you perform the action of sharing a map. At map level, you can specify which access group is allowed to access that map, with specific privileges as well.
+You grant privileges when you share a map. At map level, you can specify which access group is allowed to access that map, with specific privileges as well.
 
 Perform the following procedure to grant privileges using the sharing action.
 

@@ -10,7 +10,7 @@ Les droits d'accès à une carte - également appelés privilèges - ne sont pas
 
 ## Privilèges sur une carte
 
-Assurez-vous que les utilisateurs sont bien regroupés en groupes d'accès. Cela facilitera l'attribution de privilèges en fonction de ces groupes.
+Commencez par regrouper les utilisateurs en groupes d'accès : les privilèges sont attribués par groupe.
 
 ### Gérer les utilisateurs dans les groupes d'accès
 
@@ -18,7 +18,7 @@ Les utilisateurs doivent appartenir au bon groupe pour avoir accès à des carte
 
 ### Accorder des privilèges sur une carte
 
-Les privilèges sont accordés lorsque vous effectuez l'action de partager une carte. Au niveau de la carte, vous pouvez spécifier quel groupe d'accès est autorisé à accéder à cette carte, ainsi que des privilèges spécifiques.
+Vous accordez des privilèges lorsque vous partagez une carte. Au niveau de la carte, vous pouvez spécifier quel groupe d'accès est autorisé à accéder à cette carte, ainsi que des privilèges spécifiques.
 
 Suivez cette procédure pour accorder des privilèges à l'aide de la fonctionnalité de partage :
 

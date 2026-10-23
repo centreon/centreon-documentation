@@ -32,8 +32,8 @@ Pour superviser la JVM centreon-map, veuillez utiliser les valeurs de macro suiv
 | :---------------------- | :---------------------------------------- |
 | ACTUATORCUSTOMMODE      | ```centreonmap```                         |
 | ACTUATORAPIURLPATH      | ```/centreon-map/api/latest```           |
-| ACTUATORAPIUSERNAME     | Le nom d'utilisateur Api doit être défini |
-| ACTUATORAPIPASSWORD     | Le mot de passe Api doit être défini      |
+| ACTUATORAPIUSERNAME     | Le nom d'utilisateur API doit être défini |
+| ACTUATORAPIPASSWORD     | Le mot de passe API doit être défini      |
 
 > N'oubliez pas de cocher la case "Créer aussi les services liés aux modèles".
 

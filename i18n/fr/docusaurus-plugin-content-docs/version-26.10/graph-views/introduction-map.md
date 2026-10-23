@@ -4,14 +4,14 @@ title: Introduction à Centreon MAP
 description: "Introduction à Centreon MAP et à ses vues graphiques de supervision"
 ---
 
-Centreon MAP est une solution intégralement disponible dans l'interface web Centreon tout en vous proposant la meilleure expérience possible pour créer, visualiser et partager des représentations graphiques de votre infrastructure supervisée.
+Centreon MAP vous permet de créer, visualiser et partager des représentations graphiques de votre infrastructure supervisée, directement dans l'interface web Centreon.
 
 > Centreon MAP est une **extension** Centreon qui nécessite une [licence](../administration/licenses.md) valide.
 > Pour en acquérir une et récupérer les dépôts nécessaires, contactez [Centreon](mailto:sales@centreon.com).
 
-> **À partir de Centreon 24.10, MAP Legacy n'est plus disponible.** Que vous utilisiez encore MAP Legacy ou non, consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/graph-views/map-legacy-eol/).
+> **À partir de Centreon 24.10, MAP Legacy n'est plus disponible.** Que vous utilisiez encore MAP Legacy ou non, consultez la page [Fin de vie de MAP Legacy](https://docs.centreon.com/fr/docs/24.10/graph-views/map-legacy-eol/).
 
-> Vous pouvez consulter la procédure de gestion des vues à l'aide de l'API REST de Centreon MAP [ici](https://docs-api.centreon.com/api/centreon-map/25.10/).
+> Pour gérer les cartes à l'aide de l'API REST de Centreon MAP, consultez [Automatiser MAP via l'API](../api/map-api.md).
 
 ## Aperçu de l'interface
 
@@ -37,7 +37,7 @@ Les procédures suivantes permettent de gérer et d'utiliser Centreon MAP.
   - [Installer MAP](map-web-install.md) décrit les prérequis et les procédures d'installation de MAP.
   - [Installer MAP sur un serveur distant](map-web-install-remote.md) explique comment installer MAP sur un serveur distant.
   - [Mettre à jour MAP](map-web-update.md) décrit la procédure de mise à jour de MAP.
-  - [Gérer les droits d'accès dans MAP](map-web-manage.md) décrit les différents droits et permissions sur les cartes.
+  - [Gérer les droits d'accès dans MAP](map-web-access.md) décrit les différents droits et permissions sur les cartes.
   - [Problèmes connus dans MAP](map-web-known-issues.md) est une liste d'incidents que vous pouvez rencontrer en utilisant MAP.
   - [Dépanner MAP](map-web-troubleshooting.md) vous aide à résoudre certains incidents survenant dans MAP.
 
