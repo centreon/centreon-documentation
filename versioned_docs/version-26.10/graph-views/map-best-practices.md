@@ -49,7 +49,7 @@ A map built for one application or team is often reused as a building block insi
 
 ## Use containers to reflect your infrastructure's levels
 
-[Containers](/docs/graph-views/map-web-create-standard-map#container) let you split a map into multiple levels, each with its own status. Use them when:
+[Containers](/map-web-create-standard-map.md#container) let you split a map into multiple levels, each with its own status. Use them when:
 
 - A single view would otherwise become too dense to read.
 - You want to give a team access to a specific sublevel without duplicating content or granting access to the whole view.
