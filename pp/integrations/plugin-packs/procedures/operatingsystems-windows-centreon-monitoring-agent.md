@@ -686,28 +686,32 @@ CRITICAL= 0
 | CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |               |           |
 | TIMEOUT              | Set timeout for command execution                                                                                                         | 120           |           |
 
+> `FILTERNAME`, `EXCLUDENAME`, `FILTERDISPLAY`, and `EXCLUDEDISPLAY` accept regular expressions that are sent to the agent as part of a JSON payload. To match a literal special character (e.g. a `$` in a service name), you must escape it for **both** JSON and regex. For example, to match a service named `SQLAgent$SAGEV12PRD`, use `^SQLAgent\\\\$SAGEV12PRD` (double backslash escaping) or `^SQLAgent\[$\]SAGEV12PRD` (character class).
+
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Macro                | Description                                                                                                                               | Valeur par défaut | Obligatoire |
-|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| STARTAUTO            | Only services that start automatically will be counted                                                                                    | true              |             |
-| FILTERNAME           | Regex to filter service names                                                                                                             | .*                |             |
-| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
-| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
-| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
-| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
-| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
-| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
-| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
-| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
-| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
-| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
-| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
-| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
-| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
-| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
-| TIMEOUT              | Set timeout for command execution                                                                                                         | 120               |             |
+| Macro                | Description                                                                                                                               | Default value | Mandatory |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | true          |           |
+| FILTERNAME           | Regex to filter service names                                                                                                             | .*            |           |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |               |           |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |               |           |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |               |           |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service       |           |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |               |           |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |               |           |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |               |           |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |               |           |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |               |           |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |               |           |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |               |           |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |               |           |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |               |           |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |               |           |
+| TIMEOUT              | Set timeout for command execution                                                                                                         | 120           |           |
+
+> `FILTERNAME`, `EXCLUDENAME`, `FILTERDISPLAY`, and `EXCLUDEDISPLAY` accept regular expressions that are sent to the agent as part of a JSON payload. To match a literal special character (e.g. a `$` in a service name), you must escape it for **both** JSON and regex. For example, to match a service named `SQLAgent$SAGEV12PRD`, use `^SQLAgent\\\\$SAGEV12PRD` (double backslash escaping) or `^SQLAgent\[$\]SAGEV12PRD` (character class).
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">

@@ -6,6 +6,8 @@ description: "Check cluster status, perform failovers, and manage Centreon HA"
 
 > Unless otherwise stated, all commands in this page must be run as `root`.
 
+> Note that some commands, options or outputs may differ with your version of Pacemaker/Corosync. Refer to the official documentation of your version.
+
 ## Logging in to Centreon on the active node
 
 You access the interface of the active node via the IP address of the central VIP. This means that you always use the same URL to access the interface, whether the interface is that of central node 1 or of central node 2.

@@ -122,17 +122,19 @@ whether the modeled IT service or application is in an **OK**,
 
 ### Create a Business Activity
 
-To add a Business Activity, click the **Add** button. The following panel
-appears:
+#### Basic information
 
-![image](../assets/service-mapping/guide/business-activity-add.png)
+1. To add a Business Activity, click the **Add** button. A window to create the BA opens.
 
-In this configuration panel, after giving a unique name (mandatory), you
-need to configure multiple sections to have an aggregated indicator. The
-name is the only mandatory parameter, but to have a BA that works, **you
-must at least configure some indicators and define the
-calculation methods**. This can be done in the "Indicator" section.
-The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
+2. Give a unique name to the BA. The following characters are not authorized in the name of a BA: `~!$%^&|'"<>?,()=*{}` and spaces.
+
+You can choose an icon for the BA and add a description, these two elements are optional.
+
+3. Select a [calculation method](#calculation-methods).
+
+4. You must also link the BA to a BV ([Business view](#business-view)) or the BA will not be visible.
+
+> After clicking **Save**, you will be redirected to the main screen presenting the BA tree. Interact directly from the tree to configure each element.
 
 #### Indicators
 
@@ -146,7 +148,7 @@ The type of indicators you can use are :
 - Other business activities: it is really important to understand
   that you can create “infinite” multi-level BAs to model simple to
   highly complex IT services or apps.
-- Meta services
+- Metaservices
 - Boolean rules: a combination of services with AND/OR/XOR rules
 - [Anomaly detection services](../monitoring/anomaly-detection.md).
 
@@ -265,6 +267,10 @@ enable/disable the BA and massively change thresholds.
 > Deleting a business activity is permanent; only past data will be
 > available through reports/widgets
 
+The BA listing includes a filter that allows you to focus only on top-levels BAs instead of displaying also their child BAs.
+
+- Switch between the buttons within the **Display view** feature to display either **All Business Activities** or **Only top-level Business Activities**.
+
 ## Indicators (KPI)
 
 > To update the indicator configuration, you need to push and reload the
@@ -277,7 +283,7 @@ BA. A BA may have multiple indicators and sub-indicators. There are five
 types of indicator:
 
 - Service (Service by hostgroups are **NOT** usable as indicators)
-- Meta service
+- Metaservice
 - Boolean
 - Another business activity
 - [Anomaly Detection services](../monitoring/anomaly-detection.md)
@@ -307,7 +313,7 @@ Indicators can be configured in two different ways:
 | Column          | Description                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Indicator (KPI) | Indicator or Key Performance Indicator: Name of the indicator based on the object used                               |
-| Type            | Indicator type (service, meta service, BA, boolean rule)                                                           |
+| Type            | Indicator type (service, metaservice, BA, boolean rule)                                                           |
 | Warning Impact  | Impact weight in the event of a *Warning* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
 | Critical Impact | Impact weight in the event of a *Critical* condition, in real-time monitoring                                        |
 | Unknown Impact  | Impact weight in the event of an *Unknown* condition, in real-time monitoring. Ignored if indicator is a boolean rule |
@@ -348,7 +354,7 @@ To be able to manually define an impact.
 | Column          | Description                                                                                                          |
 | ------------------------- | ----------------------------------------------------------------------------- |
 | Configuration Mode        | Configuration mode: regular or advanced                                       |
-| KPI Type                  | KPI type (service, meta service, boolean rule or a BA)                        |
+| KPI Type                  | KPI type (service, metaservice, boolean rule or a BA)                        |
 | Key Performance Indicator | Choice of KPI based on the objects in Centreon                                |
 | Warning Business Impact   | Impact weight in the event of a *Warning* condition, in real-time monitoring  |
 | Critical Business Impact  | Impact weight in the event of a *Critical* condition, in real-time monitoring |
@@ -414,7 +420,7 @@ Logical expression:
 > Acknowledgments apply only to the specific object (BA or KPI).
 
 Acknowledgements apply to Business Activities (BAs) as follows:
-- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or meta-services).
+- Acknowledging a BA does not acknowledge its underlying KPIs (whether these KPIs are BAs, services, or metaservices).
 - Acknowledging a KPI does not acknowledge the BA that depends on it.
 
 ## Business View (BV)

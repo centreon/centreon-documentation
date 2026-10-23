@@ -11,6 +11,7 @@ import TabItem from '@theme/TabItem';
 The following monitoring connectors will be installed when you install the **Veeam NSClient API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
+* [Windows NSClient API](./operatingsystems-windows-nsclient-05-restapi.md)
 
 ## Pack assets
 
@@ -25,11 +26,13 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Veeam-NSClient-05-Restapi-custom" label="App-Veeam-NSClient-05-Restapi-custom">
 
-| Service Alias | Service Template                               | Service Description |
-|:--------------|:-----------------------------------------------|:--------------------|
-| Job-Status    | App-Veeam-Job-Status-NSClient05-Restapi-custom | Check job status    |
+| Service Alias | Service Template                               | Service Description | Discovery |
+|:--------------|:-----------------------------------------------|:--------------------|:---------:|
+| Job-Status    | App-Veeam-Job-Status-NSClient05-Restapi-custom | Check job status    | X         |
 
 > The services listed above are created automatically when the **App-Veeam-NSClient-05-Restapi-custom** host template is used.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
@@ -45,6 +48,17 @@ The connector brings the following service templates (sorted by the host templat
 
 </TabItem>
 </Tabs>
+
+### Discovery rules
+
+#### Service discovery
+
+| Rule name                             | Description   |
+|:--------------------------------------|:--------------|
+| App-Veeam-NSClient05-Restapi-Job-Name | Discover Jobs |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 

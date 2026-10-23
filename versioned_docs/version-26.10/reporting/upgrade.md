@@ -6,7 +6,13 @@ description: "Upgrade Centreon MBI to a new major version"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-> When updating from version < 18.10 to a version >= 18.10, you need to
+> If one of your servers runs an operating system that is [no longer supported](../installation/compatibility.md#operating-systems), you cannot upgrade MBI directly. 
+First migrate your platform to a supported operating system:
+>
+> - For the central server, see our [introduction to the migration process](../migrate/introduction.md).
+> - For the MBI server, see [Migrating the extension](migrate.md).
+
+> When updating from version < 18.10 to a version >= 18.10, you need to: 
 >
 > - Retrieve a new license from Centreon support
 > - Make sure your Centreon MBI server is [based on a supported OS](../installation/compatibility.md). You may use the
@@ -26,47 +32,33 @@ The upgrade of Centreon MBI consists of four steps:
 
 See [Introduction to upgrade](../upgrade/introduction.md).
 
-### Update the RPM signing key
-
-On EL8, for security reasons, the keys used to sign Centreon RPMs are rotated regularly. The last change occurred on October 14, 2021. When upgrading from an older version, you need to go through the [key rotation procedure](../security/key-rotation.md#existing-installation) to remove the old key and install the new one.
-
 ## Step 1: Update the repository
 
-When you upgrade from a previous major version to 25.10.x, you first need to update the repository on your Central & Reporting servers.
+When you upgrade from a previous major version to 26.10.x, you first need to update the repository on your Central & Reporting servers.
 
 You will find the new "Business" repository on the "Repositories" page in your [Centreon Support account](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories).
+
+On the reporting server, you also need to install the 26.10 standard repository:
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf clean all
+dnf update -y centreon-bi\* centreon-perl-libs-common
+```
+</TabItem>
+</Tabs>
 
 ## Step 2: Upgrade the extension interface
 
 1. Update the package, run the following commands:
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
 ```shell
 dnf clean all
 dnf update centreon-bi-server
 ```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf clean all
-dnf update centreon-bi-server
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt clean
-apt update
-apt install --only-upgrade centreon-bi-server
-```
-
-</TabItem>
-</Tabs>
 
 2. Update through the interface:  Log on to the Centreon web interface, go to
 **Administration > Extension > Manager** and click the
@@ -75,28 +67,8 @@ Update button to update the extension and the widgets.
 ## Step 3: Upgrade the reporting server
 
 ### Java version requirement
-  
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
-  
-  - If you need to check the Java version, enter the following command:
-  
-  ```shell
-  java -version
-  ```
-  
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
-  
-  ```shell
-  sudo update-alternatives --config java
-  ```
-  
-  Then restart the service:
-  
-  ```shell
-  systemctl restart cbis
-  ```
+Version 26.10 requires Java 25. When upgrading the MBI packages, java (OpenJDK 25) is automatically installed as a dependency, if needed. The **cbis** service always uses **/usr/lib/jvm/java-25-openjdk** on Alma / RHEL / Oracle Linux and **/usr/lib/jvm/java-25-openjdk-amd64** on Debian 13. Once the upgrade is complete, you can remove the Java 17 packages left over from version 25.10, if no other application on the server uses them.
 
 ### Upgrade procedure
 
@@ -110,34 +82,11 @@ Now you can start the upgrade process:
 
 2. Then run the following commands:
 
-<Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-dnf clean all
-dnf update centreon-bi\*
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
 ```shell
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 dnf clean all
-dnf update centreon-bi\*
+dnf update -y centreon-bi\* centreon-perl-libs-common
 ```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-```shell
-apt clean
-apt install --only-upgrade centreon-bi-reporting-server
-```
-
-</TabItem>
-</Tabs>
 
 3. Start the scheduler service:
 
@@ -151,7 +100,7 @@ apt install --only-upgrade centreon-bi-reporting-server
    systemctl start gorgoned && systemctl enable gorgoned
    ```
 
-## Step 4: Upgrade the MariaDB database
+## Step 4: Upgrade the database
 
 1. Stop the **cbis** service:
 
@@ -159,9 +108,26 @@ apt install --only-upgrade centreon-bi-reporting-server
     systemctl stop cbis
     ```
 
-2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md).
+2. See [Upgrading MariaDB](../upgrade/upgrade-mariadb.md) or [Upgrade MySQL](../upgrade/upgrade-mysql.md).
 
-3. Start the **cbis** service:
+<!-- On Debian 13, if the package asks whether to replace `/etc/mysql/mariadb.conf.d/50-server.cnf`, keep your currently installed version (answer **N**). The package version sets `bind-address = 127.0.0.1`, and the central server would then no longer be able to reach the reporting database. -->
+
+3. Check that MariaDB is running:
+
+    ```shell
+    systemctl is-active mariadb
+    ```
+
+The command must return `active`.
+<!--  On Debian 13, also check that MariaDB still listens on all interfaces:
+
+```shell
+grep "^bind-address" /etc/mysql/mariadb.conf.d/50-server.cnf
+```
+
+The value must be `0.0.0.0`. If it is `127.0.0.1`, set it back to `0.0.0.0` and restart MariaDB with `systemctl restart mariadb`. -->
+
+4. Start the **cbis** service:
 
     ```shell
     systemctl start cbis

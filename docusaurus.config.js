@@ -165,6 +165,11 @@ const config = {
           })(),
         },
         blog: false,
+        sitemap: {
+          lastmod: 'date',
+          changefreq: null,
+          priority: null,
+        },
         theme: {
           customCss: ['./src/css/custom.css'],
         },
