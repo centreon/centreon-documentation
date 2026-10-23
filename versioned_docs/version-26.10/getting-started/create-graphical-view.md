@@ -4,106 +4,111 @@ title: Create a graphical view
 description: "How to create real-time infrastructure views with Centreon MAP"
 ---
 
-The objective of this tutorial is to help you understand how you can provide
-real time IT infrastructure status overviews with the data presentation
-extension called Centreon MAP to your ITOM teams and operational users.
+This tutorial shows you how to use Centreon MAP to give your operations teams and business users a real-time overview of the status of your IT infrastructure.
 
-With Centreon MAP, you can simply create and share synthetic real time
-monitoring views to monitor the performance of your IT infrastructure, network,
-applications and services.
+With Centreon MAP, you create and share graphical views of your infrastructure, network, applications and services directly from the Centreon web interface. For instance, a view can show the availability of your critical business applications at a glance, so that teams react faster in case of an outage and restore services sooner.
 
-![image](../assets/graph-views/tuto_ex_1.png)
+![image](../assets/graph-views/ng/map-web-global-view.png)
 
-![image](../assets/graph-views/tuto_ex_2.png)
+By the end of this tutorial, you will know how to:
 
-For instance, this real-time view allows ITOM teams and managers to see the availability of critical business applications
-and services instantaneously. This guarantees a better reaction time in case of outage and
-optimizes MTRS (Mean Time to Restore Service).
+- Create a standard map and build it with the MAP editor.
+- Create a geographic view.
+- Display your maps and share them with the right users.
 
-This tutorial shows you how to create views using Centreon MAP.
-After reading this article, you will be familiar with Centreon MAP's main features
-and you will be able to create views that meet your technical or business users'
-needs.
+> Centreon MAP is a Centreon **extension** that requires a valid [license](../administration/licenses.md). To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
-> Centreon MAP is a Centreon **extension** that requires a valid license key. To
-> purchase one and retrieve the necessary repositories, contact
-> [Centreon](mailto:sales@centreon.com).
+## Before you start
 
-## Create a logical view
+### Check that you can create maps
 
-### Before creating a view: define the objective
+To create maps, you must be a Centreon administrator or belong to an access group that is granted the creator role. If you can see the **Add a Map** button on the **Monitoring > Map** page, you are allowed to create maps. Otherwise, ask your administrator to [grant you the creator role](../graph-views/map-web-access.md#granting-creator-role).
 
-Define what is the main objective of the view. What need does it meet? Who
-are the recipients? What are the main topics to consider before creating a view? Here
-are some questions you might consider:
+### Define the objective of your map
 
-  - Who is/are the recipient(s) (users' profiles) of this view?
-  - What level of information do users need?
-  - Do I monitor all the resources and indicators I need to create that view?
-  - What kind of information should the view contain (resources, indicators,
-    graphs, network links, etc)? It can be interesting to start drawing that view
-    on a paper note.
+Before you start building, define what the map is for. Here are some questions you can ask yourself:
 
-Now that you have defined the objectives, let's start showing you how to make the view.
+- Who will use this map, and what do they need to see?
+- What level of detail do they need: a global status, or the status of each server, service or network link?
+- Are all the resources and indicators you need already monitored in Centreon?
+- What should the map contain: resources, performance graphs, network links, images, etc.?
 
-### The view designer's workspace
+## Create a standard map
 
-Connect to your Centreon MAP server using the desktop client. The following
-workspace environment should appear empty. To illustrate the explanation, we've
-opened a view. By default, no view is opened.
+A standard map is a diagram of your infrastructure, in which each element displays the real-time status of the resource it represents.
 
-![image](../assets/graph-views/tuto_workspace.png)
+### Create the map
 
-The information and area are organized as follows:
+1. Go to **Monitoring > Map**.
+2. In the **Standard maps** section, click **Add a Map**.
+3. Enter a **Name** for the map. Optionally, fill in the **Geo coordinates** (in the `Latitude, Longitude` format) if you want to add this map to a geographic view later, and select an **Image** to illustrate the map in the list of maps.
+4. Click **Add**.
 
-1.  **Views**: existing views that are accessible to you.
-2.  **Element**: objects available in opened views.
-3.  **Media**: available media (images).
-4.  **Resources**: Centreon's object that you can use in the view (drag & drop).
-5.  Content of the view.
-6.  **Palette**: graphical elements that you can use in a view.
-7.  **Properties**: the selected element's properties.
+The new map opens in the MAP editor.
 
-### Create a new view
+### Discover the MAP editor
 
-Right click in the **View** panel and click **Add**.
+![image](../assets/graph-views/ng/map-web-editor-description.png)
 
-![image](../assets/graph-views/create_view.gif)
+The editor is organized as follows:
 
-Put resources, widgets and other elements in position using drag and drop and shortcuts.
+1. **Breadcrumb**: shows where you are in the map, when the map has several levels.
+2. **Toolbar**: lets you show or hide panels, undo or redo actions, and zoom in or out.
+3. **Search a resource**: lets you make a search for resources.
+4. **Shapes** panel: contains all the elements you can add to your map, from basic shapes to Centreon resources.
+5. **Format** panel: lets you change the format of the selected element.
+6. **Drawing canvas**: the area where you build your map.
+7. **Tabs**: let you navigate between the levels of your map.
 
-Below is an example of an IT infrastructure real-time status view created in
-4 minutes or less:
+### Build the map
 
-![image](../assets/graph-views/ex_view.jpg)
+1. Add your Centreon resources:
+    - To add one resource, drag a **Host**, **Service**, **Host group**, **Service group**, **Meta service** or **Business activity** element from the **Shapes** panel onto the canvas, right-click it, select **Edit data**, choose the resource and click **Submit**.
+    - To add several resources at once, use the **Search a resource** bar above the canvas, select the resources you want, then click **Add to map**.
+2. Add context to your map:
+    - **Widgets** display data about your resources, such as a pie chart of statuses, a line chart of performance data, a gauge or the output of a service.
+    - **Links** connect elements. A **Status link** takes the color of a resource's status, and a **Metric link** displays a service's metrics.
+    - **Media** elements let you add images and URLs, and **Basic** shapes let you organize your map with shapes and text.
+3. If your map has several levels (for instance, one level per site or per application), add **Containers**. In viewing mode, each container becomes a map with its own status.
+4. Use the **Format** panel to customize the style, text and layout of your elements.
+5. Click **Save**, then **Exit**.
 
-<div align="center">
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/tsgYRpYqaAU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
+Your map is displayed in viewing mode, and each element shows the real-time status of its resource.
 
-## Create a geographical view
+> To learn more about the available elements and their settings, see [Creating a standard map](../graph-views/map-web-create-standard-map.md).
 
-If your IT is geographically spread over a city, country or even the world, you
-may want to view it in the most appropriate way to obtain insights into the status of your IT
-infrastructure.
+## Create a geographic view
 
-This is easy to do using the **GeoView**. The only prerequisite is to
-have defined Geo-coordinate parameters on your hosts (which can be consulted
-and modified in the **Configuration > Hosts > Hosts** and **Host Extended Infos** tab).
+If your infrastructure is spread across a city, a country or the world, a geographic view displays the status of your resources across a geographical area.
 
-To create a **GeoView**, go to **Monitoring > Map** and click the "+" that appears
-on the **Geographic view** line. If you do not see the "+", it means you do not have
-enough privileges on Centreon.
+### Prerequisite: add geographic coordinates to your resources
 
-![image](../assets/graph-views/create_geo_view.gif)
+A resource can only be displayed on a geographic view if it has geographic coordinates. For a host:
 
-## Display and share the view
+1. Go to **Configuration > Hosts > Hosts** and click the host.
+2. In the **Host Extended Infos** tab, fill in the **Geographic coordinates** field in the `Latitude, Longitude` format.
+3. Click **Save**.
 
-Using an access control mechanism based on Centreon ACL objects, it is easy to
-share the right views to the right teams. As soon as a view has been shared to a
-user, it is accessible through its browser in **Centreon > Monitoring > Map** or
-even directly on a dashboard using the **Centreon Map** widget (see example below).
+You can also add geographic coordinates to host groups, business activities and standard maps.
 
-![image](../assets/graph-views/share_view.png)
+### Create the view
 
-You now have enough information to start working on Centreon Map.
+1. Go to **Monitoring > Map**.
+2. In the **Geographic views** section, click **Add a Geographic view**.
+3. Enter a **Name** for the view and, optionally, select an **Image**.
+4. In the **Add resources** section, select the maps, host groups, hosts and business activities you want to display.
+5. Click **Add**.
+
+Each resource is displayed as a circle whose color shows its status. When resources are close to each other, they are grouped into a single circle showing the worst status and the number of resources in that status.
+
+> To learn more, see [Creating a geographic view](../graph-views/map-web-create-geoview.md).
+
+## Display and share your maps
+
+Access to maps is based on Centreon access groups, so each team only sees the maps that concern them.
+
+- **Share a map**: on the **Monitoring > Map** page, click the **share** button of the map, set the privileges of each access group, then click **Save**. See [Understanding map access (ACL)](../graph-views/map-understanding-access.md).
+- **Send a link to a map**: in viewing mode, click **Copy MAP URL**.
+- **Add a map to a dashboard**: add the **MAP - Display a view** widget to a [dashboard](../alerts-notifications/dashboards.md), then select the map to display.
+
+You now know the main features of Centreon MAP. To go further, see the [Centreon MAP documentation](../graph-views/introduction-map.md).
