@@ -77,8 +77,8 @@ Utilisez les éléments **Widget** pour afficher des données graphiques sur les
 - **Output :** décrit la sortie d'un service. La couleur d'arrière-plan est la même que le statut.
 - **Processus :** permet de déclencher une action sur n'importe quelle ressource à l'aide d'une commande. Voici un exemple :
   - Vous avez un site internet interne qui utilise Apache et parfois,  Apache se bloque. Vous avez besoin d'investiguer sur la raison principale de ce crash, mais votre priorité est de vous assurer que les utilisateurs finaux peuvent accéder au site internet.
-  - Vous pouvez utiliser le widget Processus en attribuant une commande telle que `services httpd restart` de sorte que lorsque le processus Apache se bloque, les utilisateurs peuvent immédiatement redémarrer le service Apache à partir de la vue en double-cliquant sur le widget.
-  - Pour créer un service dédié à une "action" : créez une commande (dans **Configuration > Commande > Contrôles > Ajouter**) qui contient `services httpd restart` (n'oubliez pas d'activer le shell). Liez la commande à un service passif. Reliez le service passif à un hôte (par exemple, l'hôte qui héberge le site internet). Vous pouvez ensuite affecter ce service au widget.
+  - Vous pouvez utiliser le widget Processus en attribuant une commande telle que `service httpd restart` de sorte que lorsque le processus Apache se bloque, les utilisateurs peuvent immédiatement redémarrer le service Apache à partir de la vue en double-cliquant sur le widget.
+  - Pour créer un service dédié à une "action" : créez une commande (dans **Configuration > Commande > Contrôles > Ajouter**) qui contient `service httpd restart` (n'oubliez pas d'activer le shell). Liez la commande à un service passif. Reliez le service passif à un hôte (par exemple, l'hôte qui héberge le site internet). Vous pouvez ensuite affecter ce service au widget.
 
 #### Éléments médias
 
@@ -107,10 +107,7 @@ Utilisez les éléments de la section **Liens** pour établir des liens entre le
   - Métaservice
 
 - Elément de la section **Centreon MAP** :
-  - ### Conteneur
-  Utilisez des conteneurs lorsque vous souhaitez créer plusieurs niveaux de votre carte. Chaque niveau est représenté par un conteneur.
-    - En mode vue, chaque conteneur devient une carte avec son propre statut.
-    - En mode éditeur, chaque niveau devient un onglet. Vous pouvez alors naviguer entre les conteneurs à l'aide des différents onglets.
+  - [Conteneur](#conteneur)
 
 - Eléments de la section **Centreon BAM** :
   - Business activity
@@ -120,6 +117,12 @@ Les paramètres s'affichent en fonction du type d'élément que vous avez sélec
 1. Faites un glisser-déposer de l'élément vers l'espace de travail.
 2. Faites un clic-droit dessus et sélectionnez **Modifier les paramètres...**.
 3. Remplissez le paramètre requis et cliquez sur **Soumettre**.
+
+##### Conteneur
+
+Utilisez des conteneurs lorsque vous souhaitez créer plusieurs niveaux de votre carte. Chaque niveau est représenté par un conteneur.
+- En mode vue, chaque conteneur devient une carte avec son propre statut.
+- En mode éditeur, chaque niveau devient un onglet. Vous pouvez alors naviguer entre les conteneurs à l'aide des différents onglets.
 
 #### Personnaliser les éléments
 
