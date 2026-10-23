@@ -58,4 +58,3 @@ Vous donnez accès aux cartes par des groupes d'accès. Chaque groupe reçoit de
 - Pour ajouter plusieurs ressources similaires à la fois, utilisez la barre **Rechercher une ressource**.
 - Enregistrez la perspective (disposition, zoom et position). La carte s'ouvrira alors toujours de la même façon. C'est utile pour les écrans muraux.
 - Vérifiez vos cartes quand votre infrastructure change. Supprimez les éléments qui ne sont plus liés à une ressource supervisée.
-- Pour mettre à jour vos cartes automatiquement, utilisez l'[API MAP](../api/graph-views-map-api.md).

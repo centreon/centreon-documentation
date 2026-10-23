@@ -58,4 +58,3 @@ You give access to maps through access groups. Each group gets read, write, or o
 - To add many similar resources at once, use the **Search a resource** bar.
 - Save the perspective (layout, zoom, and position). The map will then always open the same way. This is useful for wall screens.
 - Check your maps when your infrastructure changes. Remove elements that are no longer linked to a monitored resource.
-- To update your maps automatically, use the [MAP API](../api/graph-views-map-api.md).
