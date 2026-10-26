@@ -876,6 +876,10 @@
               "items": [
                 {
                   "type": "doc",
+                  "id": "graph-views/map-best-practices"
+                },
+                {
+                  "type": "doc",
                   "id": "graph-views/map-web-manage"
                 },
                 {
