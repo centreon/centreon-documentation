@@ -1,7 +1,7 @@
 ---
 id: real-user-monitoring-installation
 title: Setting up RUM
-description: Install the RUM JavaScript tag manually or via GTM
+description: "Add the RUM JavaScript tag to your site's pages manually or with Google Tag Manager, and check GDPR cookie consent requirements for your country."
 ---
 
 Real User Monitoring (RUM) requires inserting a JavaScript tag into your site's pages.

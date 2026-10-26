@@ -1,7 +1,7 @@
 ---
 id: user-journey-screen
 title: L’écran Parcours Utilisateurs
-description: Parcourir l'écran de synthèse des parcours et ses actions
+description: "Consultez la performance de chaque scénario sur la page des parcours utilisateurs, exportez incidents et fichiers HAR, et ouvrez la vue par étape."
 --- 
 
 En cliquant sur **Les parcours utilisateurs**, vous accédez à une page contenant tous les scénarios créés pour votre site.

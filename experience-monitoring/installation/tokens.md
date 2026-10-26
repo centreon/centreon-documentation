@@ -1,7 +1,7 @@
 ---
 id: tokens
 title: Managing access tokens
-description: "Learn how to create, scope, and revoke the access tokens that authenticate Centreon Experience Monitoring agents, probes, and API calls."
+description: "Create, scope, and revoke the organization and personal access tokens that authenticate Experience Monitoring system agents, STM probes, and API calls."
 ---
 
 Some Experience Monitoring features require access tokens to work.

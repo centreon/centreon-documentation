@@ -1,7 +1,7 @@
 ﻿---
 id: business-view
 title: Données Business
-description: Introduction au module Données Business pour analyser l'impact sur le revenu
+description: "Le module Données Business relie les métriques Google Analytics 4 ou Matomo aux performances du site pour chiffrer le coût des incidents et pages lentes."
 ---
 
 Le module **Données Business** facilite l'analyse des métriques commerciales du site.

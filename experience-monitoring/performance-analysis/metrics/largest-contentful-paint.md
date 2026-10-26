@@ -1,7 +1,7 @@
 ﻿---
 id: largest-contentful-paint
 title: LCP - Largest Contentful Paint (Web Vitals)
-description: LCP Web Vitals metric for perceived loading speed
+description: "LCP measures when the largest image or text block in the viewport renders. See the target for a good score, which elements count, and how size is set."
 ---
 
 > The Largest Contentful Paint is documented on [Google's Web Dev site](https://web.dev/lcp/). This page summarizes the core information.

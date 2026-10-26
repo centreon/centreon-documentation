@@ -1,6 +1,6 @@
 ---
 id: speed-index
-description: Métrique Speed Index pour la rapidité d'affichage du contenu visuel
+description: "Le Speed Index évalue la vitesse d'affichage du contenu visuel pendant le chargement. Comment l'améliorer (TTFB, JavaScript) et quelle notation viser."
 title: Speed Index
 --- 
 

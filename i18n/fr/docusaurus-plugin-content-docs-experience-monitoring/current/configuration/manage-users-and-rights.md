@@ -1,7 +1,7 @@
 ﻿---
 id: manage-users-and-rights
 title: Gérer les utilisateurs et leurs droits
-description: Gérer les membres, rôles et niveaux de droits de l'organisation
+description: "Invitez des utilisateurs dans votre organisation Experience Monitoring, attribuez-leur un rôle et définissez l'expiration automatique des mots de passe."
 ---
 
 Les licences Experience Monitoring n'ont pas de limite de nombre d'utilisateurs. Nous recommandons d'inviter toutes les personnes impliquées dans le projet, quel que soit leur rôle. Accédez à la page **Organisation** pour inviter des utilisateurs.

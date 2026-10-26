@@ -1,7 +1,7 @@
 ﻿---
 id: errors-and-unavailability-front-end
 title: Understanding errors & unavailability
-description: Diagnose user journey incidents using failure screenshots
+description: "Troubleshoot user journey incidents with failure screenshots and HAR files, and find causes and fixes for common errors such as timeouts or missing text."
 ---
 
 ## Troubleshooting user journey incidents

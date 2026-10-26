@@ -1,7 +1,7 @@
 ---
 id: digital-sobriety-concepts
 title: Digital Sobriety concepts
-description: How the Digital Sobriety Score measures environmental impact
+description: "The Digital Sobriety Score grades your website's environmental efficiency from A to E, combining carbon footprint per click and an eco-design score."
 ---
 
 Although websites are immaterial, they rely on physical infrastructure: servers, networks, and end-user devices that all consume energy. 
