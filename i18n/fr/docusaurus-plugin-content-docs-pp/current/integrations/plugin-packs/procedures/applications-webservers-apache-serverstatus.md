@@ -507,8 +507,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [25.07](../releases/release-notes.md#2025-07) - Enhancement: Reworked **requests** mode and enhanced **slot-states** mode, based on community contribution [PR 4920](https://github.com/centreon/centreon-plugins/pull/4920).

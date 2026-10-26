@@ -253,8 +253,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

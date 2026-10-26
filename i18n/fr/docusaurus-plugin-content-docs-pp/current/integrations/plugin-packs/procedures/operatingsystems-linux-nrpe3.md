@@ -8,8 +8,6 @@ import TabItem from '@theme/TabItem';
 
 > Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le connecteur [Linux NRPE4](operatingsystems-linux-nrpe4.md).
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [25.10](../releases/release-notes.md#2025-10) - Enhancement: Now deprecated, please use [**Linux NRPE4**](./operatingsystems-linux-nrpe4.md).

@@ -684,8 +684,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed an issue leading to a returned value of more than 1000 % in **cpu** mode  (issue [#4311](https://github.com/centreon/centreon-plugins/issues/4311)).

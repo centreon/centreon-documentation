@@ -6,8 +6,6 @@ description: "This deprecated HP StoreOnce REST API connector has been replaced 
 
 > This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [HP StoreOnce 3.x Rest API](hardware-storage-hp-storeonce3-restapi.md) connector or the [HP StoreOnce 4.x Rest API](hardware-storage-hp-storeonce4-restapi.md) connector.
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [22.06](../releases/release-notes.md#2022-06) - Enhancement: Initial release and original StoreOnce Pack deprecation.

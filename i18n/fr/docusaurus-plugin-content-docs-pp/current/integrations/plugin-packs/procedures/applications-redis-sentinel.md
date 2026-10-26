@@ -418,8 +418,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [25.08](../releases/release-notes.md#2025-08) - Enhancement: Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), from community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).

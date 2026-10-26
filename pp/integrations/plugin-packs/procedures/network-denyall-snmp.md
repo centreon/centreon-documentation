@@ -707,8 +707,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed `FILTERSTORAGE` default macro value.

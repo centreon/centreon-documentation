@@ -630,8 +630,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [26.04](../releases/release-notes.md#2026-04) - Enhancement: Improved cache naming and **job** mode filtering, from a [The Watch idea](https://thewatch.centreon.com/ideas/code-optimization-for-mode-apps-backup-rubrik-restapi-mode-jobs-4911) (issue [#5865](https://github.com/centreon/centreon-plugins/issues/5865)).

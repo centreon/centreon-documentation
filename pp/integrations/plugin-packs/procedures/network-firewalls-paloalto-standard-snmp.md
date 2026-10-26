@@ -801,8 +801,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added new **sensors** mode, from a community contribution ([PR 6293](https://github.com/centreon/centreon-plugins/pull/6293)).

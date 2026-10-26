@@ -8,8 +8,6 @@ import TabItem from '@theme/TabItem';
 
 > This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Centreon Experience Monitoring (formerly Quanta) Rest API](applications-monitoring-centreon-experience-monitoring-restapi.md) connector.
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.01](../releases/release-notes.md#2026-01) - Enhancement: Deprecated, replaced by [**Centreon Experience Monitoring (formerly Quanta) Rest API**](./applications-monitoring-centreon-experience-monitoring-restapi.md).

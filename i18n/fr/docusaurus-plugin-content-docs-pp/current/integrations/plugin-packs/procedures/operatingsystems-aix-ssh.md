@@ -531,8 +531,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [26.02](../releases/release-notes.md#2026-02) - Enhancement: Added a `FILTERARG` macro to the **Process** service template to filter on the process' arguments. Also added the ability to display details of all processes (including "OK" processes) in the long output (issue [#5945](https://github.com/centreon/centreon-plugins/issues/5945)).

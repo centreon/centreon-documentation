@@ -839,8 +839,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed an issue where default value for `timezone` option was empty, leading to an unknown status being returned in **cleaning** mode.

@@ -443,8 +443,6 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.06](../releases/release-notes.md#2026-06) - New connector: Initial release.

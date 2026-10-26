@@ -554,8 +554,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [26.04](../releases/release-notes.md#2026-04) - Enhancement: Enhanced compatibility with Dell SAN for **interfaces** mode, based on community contribution (PR [#5912](https://github.com/centreon/centreon-plugins/pull/5912)).

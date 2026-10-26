@@ -530,8 +530,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.10](../releases/release-notes.md#2026-10) - Bug fix: Discovery: the default template no longer maps the VM name to the host address when no IP is reported. This used to create hosts with invalid addresses that could not be edited or deleted.

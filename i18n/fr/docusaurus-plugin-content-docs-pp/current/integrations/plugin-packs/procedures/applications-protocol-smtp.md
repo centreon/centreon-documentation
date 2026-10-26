@@ -330,8 +330,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed a Perl warning in **App-Protocol-SMTP-Message** and **App-Protocol-SMTP-Login** commands.

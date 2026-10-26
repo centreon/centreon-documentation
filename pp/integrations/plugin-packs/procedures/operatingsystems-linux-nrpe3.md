@@ -8,8 +8,6 @@ import TabItem from '@theme/TabItem';
 
 > This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Linux NRPE4](operatingsystems-linux-nrpe4.md) connector.
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [25.10](../releases/release-notes.md#2025-10) - Enhancement: Now deprecated, please use [**Linux NRPE4**](./operatingsystems-linux-nrpe4.md).

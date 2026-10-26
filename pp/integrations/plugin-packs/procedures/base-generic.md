@@ -205,8 +205,6 @@ All available options for each service template are listed below:
 </TabItem>
 </Tabs>
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.02](../releases/release-notes.md#2026-02) - Enhancement: Reduced the ICMP packet size to ensure it can pass through firewalls protecting SaaS software.

@@ -365,8 +365,6 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release.

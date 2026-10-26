@@ -558,8 +558,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.10](../releases/release-notes.md#2026-10) - Enhancement: Changed the default value of the `timeframe` option (from 3600 to 86400 seconds).

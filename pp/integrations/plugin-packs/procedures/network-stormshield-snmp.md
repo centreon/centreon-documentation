@@ -1179,8 +1179,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added new **uptime**, **licenses**, **ha-cluster** and **auto-update** modes. Enhanced **connections** mode , based on community contributions: [PR 6113](https://github.com/centreon/centreon-plugins/pull/6113), [PR 6179](https://github.com/centreon/centreon-plugins/pull/6179) and [PR 6258](https://github.com/centreon/centreon-plugins/pull/6258).

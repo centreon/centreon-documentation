@@ -1129,8 +1129,6 @@ All available options for a given mode can be displayed by adding the
 "C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin=os::windows::local::plugin --mode=certificates --help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.09](../releases/release-notes.md#2026-09) - Enhancement: `centreon_plugins.exe` now supports the curl HTTP backend.

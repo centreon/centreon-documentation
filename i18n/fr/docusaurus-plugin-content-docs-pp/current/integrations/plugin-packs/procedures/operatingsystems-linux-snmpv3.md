@@ -8,8 +8,6 @@ import TabItem from '@theme/TabItem';
 
 > Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le connecteur [Linux SNMP](operatingsystems-linux-snmp.md).
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Deprecated with the enhancement of [**Linux SNMP**](./operatingsystems-linux-snmp.md).

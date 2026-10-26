@@ -542,8 +542,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.10](../releases/release-notes.md#2026-10) - Bug fix: Fixed the desired replicas count for services: it was always reported as 0 and now matches the number of tasks Docker expects to run.

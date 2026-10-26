@@ -1294,8 +1294,6 @@ sudo -u centreon-monitoring-agent /usr/lib/centreon/plugins/centreon_linux_local
     --help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [26.05](../releases/release-notes.md#2026-05) - Enhancement: added EL 10 and Debian 13 support.

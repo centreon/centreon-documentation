@@ -798,8 +798,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added **certificates** and **health** modes and host discovery to handle Panorama.

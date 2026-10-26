@@ -481,8 +481,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed GitHub [issue 5899](https://github.com/centreon/centreon-plugins/issues/5899), also talked about on [TheWatch](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).

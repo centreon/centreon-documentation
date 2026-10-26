@@ -317,8 +317,6 @@ sudo /usr/lib/centreon/plugins/centreon_protocol_udp.pl \
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [23.05](../releases/release-notes.md#2023-05) - Enhancement: added a UDP-based host template.

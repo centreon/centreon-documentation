@@ -625,8 +625,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [25.09](../releases/release-notes.md#2025-09) - Enhancement: Improve UUID generation to make it unique in **host discovery**.

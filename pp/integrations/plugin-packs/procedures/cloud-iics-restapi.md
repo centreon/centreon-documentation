@@ -376,8 +376,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [22.09](../releases/release-notes.md#2022-09) - New connector: Add Informatica Intelligent Cloud Services Pack.

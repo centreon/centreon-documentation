@@ -190,8 +190,6 @@ If you get this message, you're probably facing one of theses issues:
 This message generally means that SNMP privileges are not wide enough for the
 mode/plugin to work properly.
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-IBM-Bladecenter-SNMP-Time** command.

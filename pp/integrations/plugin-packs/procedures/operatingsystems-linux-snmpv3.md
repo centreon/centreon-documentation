@@ -8,8 +8,6 @@ import TabItem from '@theme/TabItem';
 
 > This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [Linux SNMP](operatingsystems-linux-snmp.md) connector.
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Deprecated with the enhancement of [**Linux SNMP**](./operatingsystems-linux-snmp.md).

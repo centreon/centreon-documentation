@@ -966,8 +966,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.04](../releases/release-notes.md#2026-04) - Enhancement: Authentication to API now requires a bearer header.

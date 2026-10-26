@@ -636,8 +636,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [23.08](../releases/release-notes.md#2023-08) - Enhancement: added Sbc-Calls service.

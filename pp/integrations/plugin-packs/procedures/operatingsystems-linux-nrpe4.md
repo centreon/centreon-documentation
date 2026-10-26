@@ -1420,8 +1420,6 @@ All available options for a given mode can be displayed by adding the
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic' --help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.05](../releases/release-notes.md#2026-05) - Enhancement: added EL10 and Debian13 prerequisites.

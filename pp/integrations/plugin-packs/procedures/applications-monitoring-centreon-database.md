@@ -352,8 +352,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [24.11](../releases/release-notes.md#2024-11) - Enhancement: Used the correct MariaDB message when checking MySQL replication state.

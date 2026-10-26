@@ -331,8 +331,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [23.02](../releases/release-notes.md#2023-02) - Breaking change: changed service name and options.

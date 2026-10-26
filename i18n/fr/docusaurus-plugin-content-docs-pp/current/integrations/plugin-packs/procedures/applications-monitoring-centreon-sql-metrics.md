@@ -641,8 +641,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed hardcoded `centreon_storage` database name.

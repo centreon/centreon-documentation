@@ -1005,8 +1005,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.05](../releases/release-notes.md#2026-05) - Bug fix: fixed unknown status returned if no trunk was configured in **trunks** mode.

@@ -382,8 +382,6 @@ All available options for a given mode can be displayed by adding the
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Changelog
 
 - [26.01](../releases/release-notes.md#2026-01) - Breaking change: The pack has been renamed and the default NRPECLIENT macro changed to use the official Nagios NRPE4 client.

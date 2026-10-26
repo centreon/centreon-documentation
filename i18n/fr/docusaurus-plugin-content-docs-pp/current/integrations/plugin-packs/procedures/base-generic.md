@@ -209,8 +209,6 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 </TabItem>
 </Tabs>
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [26.02](../releases/release-notes.md#2026-02) - Enhancement: Reduced the ICMP packet size to ensure it can pass through firewalls protecting SaaS software.

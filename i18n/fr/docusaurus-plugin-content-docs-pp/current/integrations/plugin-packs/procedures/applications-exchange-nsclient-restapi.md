@@ -718,8 +718,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed edge cases size calculation in database mode.

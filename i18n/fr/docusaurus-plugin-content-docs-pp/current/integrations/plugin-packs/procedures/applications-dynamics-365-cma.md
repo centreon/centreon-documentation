@@ -160,8 +160,6 @@ Checks files in a directory tree, applies filters, and evaluates file metadata (
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api)
 des plugins basés sur HTTP/API si votre erreur ne correspond pas à l'un des cas suivants.
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed missing command for **New Orders** service.

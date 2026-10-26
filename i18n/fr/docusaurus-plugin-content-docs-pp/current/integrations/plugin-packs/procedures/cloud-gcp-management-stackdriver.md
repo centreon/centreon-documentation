@@ -352,8 +352,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
-{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
-
 ## Historique des modifications
 
 - [25.11](../releases/release-notes.md#2025-11) - Enhancement: Enhanced compatibility with DISTRIBUTION type values in **getmetrics** mode.
