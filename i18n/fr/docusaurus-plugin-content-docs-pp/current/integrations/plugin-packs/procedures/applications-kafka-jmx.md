@@ -343,3 +343,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=global-stats \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed the plugin dependencies.
+
+{/* CHANGELOG:END */}

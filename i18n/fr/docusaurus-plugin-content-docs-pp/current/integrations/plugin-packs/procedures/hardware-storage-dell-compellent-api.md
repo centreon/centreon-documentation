@@ -383,3 +383,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--cem-password="" \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Breaking changes: The pack has been renamed and the default NRPECLIENT macro changed to use the official Nagios NRPE4 client.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Made NSClient and NRPE usage more explicit.
+
+{/* CHANGELOG:END */}

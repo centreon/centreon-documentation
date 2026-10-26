@@ -400,3 +400,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=network-devices \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed percentage metrics in **network-devices** mode.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: fixed wrong api-password macro in commands.
+
+{/* CHANGELOG:END */}

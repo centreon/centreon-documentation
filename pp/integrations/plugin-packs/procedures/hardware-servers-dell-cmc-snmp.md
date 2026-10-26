@@ -392,3 +392,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=uptime \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [22.01](../releases/release-notes.md#2022-01) - Bug fixes: Fix host template used.
+
+{/* CHANGELOG:END */}

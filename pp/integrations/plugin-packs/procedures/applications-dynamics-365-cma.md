@@ -173,3 +173,12 @@ Checks files in a directory tree, applies filters, and evaluates file metadata (
 
 Please find the troubleshooting documentation for the API-based plugins in
 this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks) if you cannot find the solution to your issue below.
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed missing command for **New Orders** service.
+- [26.07](../releases/release-notes.md#2026-07) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

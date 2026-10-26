@@ -407,3 +407,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=login \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.05](../releases/release-notes.md#2024-05) - Bug fixes: Fixed file processing when both --filter-file and --max-depth options were used.
+
+{/* CHANGELOG:END */}

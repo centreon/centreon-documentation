@@ -722,3 +722,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='azcli' \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Changed host status checks output.
+- [22.07](../releases/release-notes.md#2022-07) - Bug fixes: Fixed typo in serverlog-usage option label.
+
+{/* CHANGELOG:END */}

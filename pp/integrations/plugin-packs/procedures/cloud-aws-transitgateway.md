@@ -411,3 +411,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=traffic \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [24.12](../releases/release-notes.md#2024-12) - Enhancements: Added default value `awscli` for host template custom mode.
+
+{/* CHANGELOG:END */}

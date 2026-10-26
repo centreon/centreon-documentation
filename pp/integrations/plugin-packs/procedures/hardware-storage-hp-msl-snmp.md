@@ -338,3 +338,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=hardware \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
+
+{/* CHANGELOG:END */}

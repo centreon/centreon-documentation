@@ -672,3 +672,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
     --help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [23.06](../releases/release-notes.md#2023-06) - Bug fixes: Fixed option in virtual-volumes-quotas mode.
+- [22.12](../releases/release-notes.md#2022-12) - Enhancements: add service virtual-volumes-quotas.
+
+{/* CHANGELOG:END */}

@@ -609,3 +609,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=routes \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

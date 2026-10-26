@@ -1477,3 +1477,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode=api \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancements: Added the common system checks from Prometheus node exporter.
+- [25.11](../releases/release-notes.md#2025-11) - New connectors: Initial release of HPE Athonet w/ Prometheus API.
+
+{/* CHANGELOG:END */}

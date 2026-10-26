@@ -472,3 +472,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=stats \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **App-Github-Restapi-Repositories-Statistics**, **App-Github-Restapi-Repositories-Pull-Requests**, **App-Github-Restapi-Repositories-Issues** and **App-Github-Restapi-Repositories-Commits** commands as well as the default port and protocol.
+
+{/* CHANGELOG:END */}

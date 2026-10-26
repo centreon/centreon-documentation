@@ -446,3 +446,11 @@ CRITICAL= 0
 </Tabs>
 
 3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

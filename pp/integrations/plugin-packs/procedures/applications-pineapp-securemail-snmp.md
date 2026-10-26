@@ -385,3 +385,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=system \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - New connectors: Add new Pineapp Secure mail Pack.
+
+{/* CHANGELOG:END */}

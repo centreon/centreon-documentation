@@ -786,3 +786,14 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=cpu \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
+- [23.01](../releases/release-notes.md#2023-01) - Enhancements: enh (cloud-aws-elasticache): Add discovery mode/rule for AWS ElastiCache.
+
+{/* CHANGELOG:END */}

@@ -481,3 +481,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=system-status \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: **Container-Usage** now returns UNKNOWN when container is not found.
+- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Fixed API endpoint for **container-usage** mode.
+- [25.02](../releases/release-notes.md#2025-02) - New connectors: Initial release of Podman API.
+
+{/* CHANGELOG:END */}

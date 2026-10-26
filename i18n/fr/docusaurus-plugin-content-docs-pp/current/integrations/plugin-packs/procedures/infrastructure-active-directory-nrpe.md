@@ -334,3 +334,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 30 -u -2 -P 8192 -c check_centreon_plugins -a 'apps::microsoft::activedirectory::local::plugin' 'dfsr-backlog' --help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.09](../releases/release-notes.md#2024-09) - Enhancements: Added Italian and German language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)).
+- [24.04](../releases/release-notes.md#2024-04) - Breaking changes: Changed the default NRPE plugin and options for Active Directory.
+
+{/* CHANGELOG:END */}

@@ -797,3 +797,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=system \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added **certificates** and **health** modes and host discovery to handle Panorama.
+- [26.04](../releases/release-notes.md#2026-04) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

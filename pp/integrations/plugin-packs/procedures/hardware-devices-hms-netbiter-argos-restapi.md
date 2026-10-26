@@ -427,3 +427,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=alarms \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [23.05](../releases/release-notes.md#2023-05) - New connectors: initial release.
+
+{/* CHANGELOG:END */}

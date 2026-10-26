@@ -870,3 +870,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - Bug fixes: Fixed unknown call method map instance in **dsp-stats** mode, based on community contribution [PR 5477](https://github.com/centreon/centreon-plugins/pull/5477).
+- [24.08](../releases/release-notes.md#2024-08) - Bug fixes: Fixed the CPU service template.
+- [23.05](../releases/release-notes.md#2023-05) - Enhancements: change thresholds names.
+
+{/* CHANGELOG:END */}

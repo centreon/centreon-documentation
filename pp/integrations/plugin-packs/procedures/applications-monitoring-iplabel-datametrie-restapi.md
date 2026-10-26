@@ -5,3 +5,11 @@ description: "Deprecated connector that monitored IP-Label Datamétrie via its R
 ---
 
 > This connector is deprecated, as the Datamétrie online service is not available any more.
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [23.07](../releases/release-notes.md#2023-07) - Bug fixes: marked as deprecated (service end of life).
+
+{/* CHANGELOG:END */}

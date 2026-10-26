@@ -541,3 +541,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.04](../releases/release-notes.md#2024-04) - Enhancements: New filtering option supported for the SNMP IDs of the interfaces.
+
+{/* CHANGELOG:END */}

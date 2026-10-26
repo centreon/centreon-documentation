@@ -694,3 +694,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancements: **Nortel standard SNMP** rebranded to Extreme SNMP.
+- [22.07](../releases/release-notes.md#2022-07) - Enhancements: Added stack service.
+
+{/* CHANGELOG:END */}

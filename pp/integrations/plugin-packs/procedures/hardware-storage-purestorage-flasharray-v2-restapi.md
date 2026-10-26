@@ -532,3 +532,14 @@ All available options for a given mode can be displayed by adding the
 	--mode=volumes \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancements: Added performance counters in **arrays** mode, based on community contribution [PR 5355](https://github.com/centreon/centreon-plugins/pull/5355).
+- [25.03](../releases/release-notes.md#2025-03) - Enhancements: Added `flagged` status attribute in **alerts** mode, from community contribution [PR 5307](https://github.com/centreon/centreon-plugins/pull/5307).
+- [23.08](../releases/release-notes.md#2023-08) - Bug fixes: fixed an error that occurred when the storage size was zero.
+- [23.01](../releases/release-notes.md#2023-01) - Enhancements: refactoring purestorage rest api.
+
+{/* CHANGELOG:END */}

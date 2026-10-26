@@ -339,3 +339,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=server-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed landing_used calculation to prevent negative values in **server-usage** mode, from community contribution (PR [#5863](https://github.com/centreon/centreon-plugins/pull/5863)).
+
+{/* CHANGELOG:END */}

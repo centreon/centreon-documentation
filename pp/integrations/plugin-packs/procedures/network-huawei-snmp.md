@@ -801,3 +801,17 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Added native SNMP v3 host macro.
+- [26.05](../releases/release-notes.md#2026-05) - Enhancements: added a way to handle missing fans in **hardware** mode.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Extended Huawei network devices with GPON ONT module monitoring, from community contribution (PR [#5675](https://github.com/centreon/centreon-plugins/pull/5675)).
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed missing fan state in short output.
+- [25.01](../releases/release-notes.md#2025-01) - Breaking changes: Renamed, refactored, and added a new service template.
+- [22.09](../releases/release-notes.md#2022-09) - Bug fixes: Make regex more restrictive when using interface discovery scan.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancements: Add optical monitoring in interfaces check.
+
+{/* CHANGELOG:END */}

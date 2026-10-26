@@ -625,3 +625,13 @@ All available options for a given mode can be displayed by adding the
 	--mode=virtual-chassis \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [23.12](../releases/release-notes.md#2023-12) - Breaking changes: The Traffic-Global service template is now replaced by Interfaces.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancements: add interfaces service.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancements: Add new service to check virtual chassis.
+
+{/* CHANGELOG:END */}

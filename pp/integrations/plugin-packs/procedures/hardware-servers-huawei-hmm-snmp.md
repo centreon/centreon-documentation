@@ -410,3 +410,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=chassis \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed `no-component` option.
+- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Removed experimental keys on scalar in **blade** mode components.
+
+{/* CHANGELOG:END */}

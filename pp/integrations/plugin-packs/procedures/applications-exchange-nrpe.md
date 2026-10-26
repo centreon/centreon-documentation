@@ -707,3 +707,13 @@ All available options for a given mode can be displayed by adding the
 /usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::exchange::local::plugin' 'queues'  '  \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking changes: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fixes: Fixed edge cases size calculation in database mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed typo for custom perfdata in **databases** mode.
+
+{/* CHANGELOG:END */}

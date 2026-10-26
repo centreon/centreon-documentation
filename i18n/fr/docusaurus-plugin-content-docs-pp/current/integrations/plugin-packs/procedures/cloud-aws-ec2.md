@@ -824,3 +824,17 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='paws' \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancements: New host check commands to monitor EC2 instances and auto-scaling groups.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fixes: Fix bug with assume-role option.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Adding platformDetails attribute in EC2 discovery.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fixes: Fixing discovery mapper and wrong HTPL/STPL association.
+
+{/* CHANGELOG:END */}

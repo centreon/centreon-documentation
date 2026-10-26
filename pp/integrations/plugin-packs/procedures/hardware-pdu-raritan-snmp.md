@@ -430,3 +430,13 @@ All available options for a given mode can be displayed by adding the
 	--mode=outlet-sensors \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Fixed an issue with sensors when powerFactor value is missing.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancements: add external-sensors mode.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancements: Add service inlet-sensors.
+
+{/* CHANGELOG:END */}

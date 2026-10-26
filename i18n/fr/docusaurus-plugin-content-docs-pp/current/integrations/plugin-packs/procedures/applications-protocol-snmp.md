@@ -570,3 +570,20 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=response-time \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added service template for **response-time** mode and added native SNMP v3 host macro.
+- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Added missing mandatory parameter in SNMP collection discovery command.
+- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [24.04](../releases/release-notes.md#2024-04) - Enhancements: Enhanced the functionality provided by the '--convert-custom-values' option of the 'string-value' mode.
+- [24.03](../releases/release-notes.md#2024-03) - Bug fixes: Fixed the App-Protocol-SNMP-Host command and a random behaviour on SNMP-Collection.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancements: added dependencies to avoid errors when using host discovery.
+- [23.05](../releases/release-notes.md#2023-05) - Enhancements: added a SNMP-based host template.
+- [22.11](../releases/release-notes.md#2022-11) - Enhancements: New SNMP Host discovery for IP protocol (rfc4293).
+- [22.05](../releases/release-notes.md#2022-05) - Enhancements: Add Cisco ASA support in SNMP discovery providers.
+
+{/* CHANGELOG:END */}

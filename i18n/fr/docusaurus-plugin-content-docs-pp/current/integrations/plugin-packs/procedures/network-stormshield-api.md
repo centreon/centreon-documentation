@@ -671,3 +671,14 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vpn-tunnels \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.05](../releases/release-notes.md#2025-05) - Enhancements: Added new **vpn-tunnels** mode and **list-vpn-tunnels** discovery rule, based on community contribution [PR 5048](https://github.com/centreon/centreon-plugins/pull/5048).
+- [25.01](../releases/release-notes.md#2025-01) - Breaking changes: Fixed mapped values for **state** and **plugged in interfaces** modes.
+- [23.12](../releases/release-notes.md#2023-12) - Bug fixes: Fixed an incorrect option in the HA command.
+- [22.12](../releases/release-notes.md#2022-12) - New connectors: initial release.
+
+{/* CHANGELOG:END */}

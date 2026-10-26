@@ -609,3 +609,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--scvmm-username="" \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking changes: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [24.09](../releases/release-notes.md#2024-09) - Bug fixes: Fixed the default `--filter-status` value on VM status.
+
+{/* CHANGELOG:END */}

@@ -536,3 +536,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=output-lines \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [24.02](../releases/release-notes.md#2024-02) - New connectors: First release of Inmatics PSU Sputnik monitoring connector.
+
+{/* CHANGELOG:END */}

@@ -537,3 +537,15 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage-pools \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Bug fixes: Fixed a token expiration issue.
+- [26.06](../releases/release-notes.md#2026-06) - Bug fixes: Fixed issues related to tokens in commands and removed undefined ARRAY value if no jobs have been sent in **jobs** mode.
+- [26.01](../releases/release-notes.md#2026-01) - Enhancements: Added client name to the output prefix of the **jobs** mode.
+- [25.10](../releases/release-notes.md#2025-10) - Bug fixes: Fixed an error with **jobs** mode occurring when the output was too long.
+- [24.12](../releases/release-notes.md#2024-12) - Bug fixes: Fixed **storagepools** mode to avoid division by 0, from community feedback [PR 5141](https://github.com/centreon/centreon-plugins/pull/5141).
+
+{/* CHANGELOG:END */}

@@ -612,3 +612,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=link-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.08](../releases/release-notes.md#2024-08) - Bug fixes: Fixed the listing (for discovery) and monitoring of Edges.
+
+{/* CHANGELOG:END */}

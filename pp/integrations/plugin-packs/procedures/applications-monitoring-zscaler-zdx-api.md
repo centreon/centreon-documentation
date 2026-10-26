@@ -391,3 +391,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=application
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Breaking changes: The former authentication method is no longer supported. Only OneAPI is now supported.
+- [26.02](../releases/release-notes.md#2026-02) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

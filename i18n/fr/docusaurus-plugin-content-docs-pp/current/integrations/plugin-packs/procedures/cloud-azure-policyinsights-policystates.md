@@ -346,3 +346,14 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=compliance \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fixes: Add policy-name macro.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fixes: changed command name.
+- [23.03](../releases/release-notes.md#2023-03) - New connectors: initial release.
+
+{/* CHANGELOG:END */}

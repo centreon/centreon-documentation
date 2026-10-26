@@ -514,3 +514,15 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=subscriptions \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Added `filter-classification` option to **service-status** mode.
+- [25.10](../releases/release-notes.md#2025-10) - Bug fixes: Fixed an issue where each new alert for a service overwrote the previous one, making it impossible to have a global vision in **service-status**.
+- [22.12](../releases/release-notes.md#2022-12) - Enhancements: add subscriptions service.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancements: Add service app-credentials.
+- [22.01](../releases/release-notes.md#2022-01) - Breaking changes: Use new microsoft api.
+
+{/* CHANGELOG:END */}

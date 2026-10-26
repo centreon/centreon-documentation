@@ -387,3 +387,13 @@ All available options for a given mode can be displayed by adding the
 	--mode=jobs \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Fixed typo in jobs mode.
+- [23.04](../releases/release-notes.md#2023-04) - Enhancements: service jobs add option **--job-name**.
+- [23.03](../releases/release-notes.md#2023-03) - New connectors: initial release.
+
+{/* CHANGELOG:END */}

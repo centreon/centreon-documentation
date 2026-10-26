@@ -559,3 +559,15 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=tags-compliance \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.07](../releases/release-notes.md#2025-07) - Enhancements: Added an option to choose `cost-metric`, from community contribution [PR 4756](https://github.com/centreon/centreon-plugins/pull/4756).
+- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **Cloud-Azure-Management-Costs-Api-Tags-Compliance** command.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancements: moved to correct pack category.
+- [22.11](../releases/release-notes.md#2022-11) - Enhancements: Cost-Explorer, Orphan-Resources, Hybrid-Benefits, Tags-Compliance.
+- [22.09](../releases/release-notes.md#2022-09) - New connectors: New Pack to monitor Azure budgets consumptions.
+
+{/* CHANGELOG:END */}

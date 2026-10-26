@@ -262,3 +262,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--warning-seconds='' \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.09](../releases/release-notes.md#2026-09) - New connectors: Initial release (experimental).
+
+{/* CHANGELOG:END */}

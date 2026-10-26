@@ -374,3 +374,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
     --mode=vtl-tape-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

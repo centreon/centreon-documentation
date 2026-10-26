@@ -351,3 +351,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--dyn-mode=apps::centreon::sql::mode::partitioning \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.11](../releases/release-notes.md#2024-11) - Enhancements: Used the correct MariaDB message when checking MySQL replication state.
+- [24.03](../releases/release-notes.md#2024-03) - Enhancements: Updated host template logo.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancements: Replace the old logo with the current one.
+
+{/* CHANGELOG:END */}

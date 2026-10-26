@@ -413,3 +413,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=frontend-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.03](../releases/release-notes.md#2026-03) - Enhancements: Allow compatibility with version 17 OIDs.
+
+{/* CHANGELOG:END */}

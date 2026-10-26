@@ -640,3 +640,16 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--dyn-mode=apps::centreon::sql::mode::countservices \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed hardcoded `centreon_storage` database name.
+- [24.03](../releases/release-notes.md#2024-03) - Enhancements: Updated host template logo.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancements: Replace the old logo with the current one.
+- [23.11](../releases/release-notes.md#2023-11) - Enhancements: Added execution-time template and cleaned up duplicate templates.
+- [23.03](../releases/release-notes.md#2023-03) - Bug fixes: fix partitioning mode.
+- [23.01](../releases/release-notes.md#2023-01) - Enhancements: fix (sql-metrics): add poller delay.
+
+{/* CHANGELOG:END */}

@@ -1047,3 +1047,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=rsvp \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - New connectors: Initial release of Juniper M-series with Netconf.
+
+{/* CHANGELOG:END */}

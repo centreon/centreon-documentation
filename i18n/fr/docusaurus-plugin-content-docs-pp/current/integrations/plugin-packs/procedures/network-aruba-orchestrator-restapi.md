@@ -374,3 +374,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=appliances \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.10](../releases/release-notes.md#2022-10) - New connectors: New Pack monitoring the orchestrator using its restapi.
+
+{/* CHANGELOG:END */}

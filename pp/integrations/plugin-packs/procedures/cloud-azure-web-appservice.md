@@ -795,3 +795,13 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu-time \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancements: removed privatebytes threshold from Memory service.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fixes: Fix extra newlines in commands definition causing failures during CLAPI import.
+
+{/* CHANGELOG:END */}

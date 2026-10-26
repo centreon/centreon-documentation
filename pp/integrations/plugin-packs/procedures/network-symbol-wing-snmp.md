@@ -556,3 +556,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [22.04](../releases/release-notes.md#2022-04) - Bug fixes: Fix Systems command.
+- [22.01](../releases/release-notes.md#2022-01) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

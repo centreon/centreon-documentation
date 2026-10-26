@@ -303,3 +303,14 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=internet-bandwidth  \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.11](../releases/release-notes.md#2024-11) - Bug fixes: Fixed packaging issue leading to conflict between speedtest and speedtest-cli binaries.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancements: Added the unit to jitter service.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancements: now using Ookla's speedtest.
+- [22.06](../releases/release-notes.md#2022-06) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

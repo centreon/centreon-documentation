@@ -416,3 +416,11 @@ All available options for a given mode can be displayed by adding the
 	--custommode=api \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.04](../releases/release-notes.md#2025-04) - New connectors: Initial release of Exense Step REST API.
+
+{/* CHANGELOG:END */}

@@ -555,3 +555,22 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	'vsb-jobs' \
 	'--help'
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancements: Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed `job-type` and `session` values in **job-status** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Enhanced message displayed when using wrong powershell version with veeam 13.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fixes: Fixed Veeam job retrieval in **job-status** mode.
+- [26.06](../releases/release-notes.md#2026-06) - Breaking changes: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: fixed warnings about uninitialized values in **job-status** mode.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancements: Allow compatibility with version 13.
+- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Improved execution time in **job-status** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Bug fixes: Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancements: Add new services: Repositories and Licenses.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancements: Add vsb-jobs service.
+
+{/* CHANGELOG:END */}

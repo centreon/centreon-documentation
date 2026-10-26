@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
-### October
+### October {#2026-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -41,7 +41,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### September
+### September {#2026-09}
 
 > **Warning, important information**: We fixed an issue affecting all connectors that was causing empty `OK`: outputs. These will now return the correct value, `UNKNOWN`.
 
@@ -84,7 +84,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### August
+### August {#2026-08}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -133,7 +133,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### July
+### July {#2026-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -243,7 +243,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### June
+### June {#2026-06}
 
 > **Warning important information :** [**Nmap CLI**](../procedures/applications-nmap-cli.md) - `nmap` does not install automatically anymore.
 
@@ -334,7 +334,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### May
+### May {#2026-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -381,7 +381,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### April
+### April {#2026-04}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -453,7 +453,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### March
+### March {#2026-03}
 
 > **Warning:**  As you may notice, almost all monitoring connectors will appear as updated in the Monitoring Connector Manager.
 > Most of them have been reissued for technical reasons. If you do not find them in the tabs below, there will be no changes except that the required plugin version will be available for Debian 13 and EL10 to prepare the future availability of Centreon on these platforms.
@@ -484,7 +484,7 @@ import TabItem from '@theme/TabItem';
 - [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Handle extended thresholds on CMA native checks.
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed a `No peers detected` error with `--ntp-mode=ntpq`.
 - [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Fixed edge cases size calculation in database mode.
@@ -499,7 +499,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### February
+### February {#2026-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -533,7 +533,7 @@ import TabItem from '@theme/TabItem';
    - [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md)
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-experience-monitoring-restapi.md) - The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases. 
@@ -545,7 +545,7 @@ import TabItem from '@theme/TabItem';
 </Tabs>
 
 
-### January
+### January {#2026-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -576,7 +576,7 @@ import TabItem from '@theme/TabItem';
 - [**Microsoft Cluster Server NSClient++ NRPE**](../procedures/applications-mscs-nrpe.md) - Changed the default NRPECLIENT macro to use the official Nagios NRPE4 client and fixed the default client options.
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**D-Link DGS 3100 SNMP**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
 - [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
@@ -592,7 +592,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
-### December
+### December {#2025-12}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -621,7 +621,7 @@ import TabItem from '@theme/TabItem';
 - [**Cisco Waas SNMP**](../procedures/network-cisco-waas-snmp.md) - Fixed errors related to thresholds.
 
 </TabItem>
-<TabItem value="Fix" label="Fix">
+<TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - Fixed typo in jobs mode.
 - [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Added state to the requested fields in volume query [PR 5851](https://github.com/centreon/centreon-plugins/pull/5851).
@@ -642,7 +642,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### November
+### November {#2025-11}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -703,7 +703,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### October
+### October {#2025-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -746,7 +746,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### September
+### September {#2025-09}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -787,7 +787,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### August
+### August {#2025-08}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -877,7 +877,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### July
+### July {#2025-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -912,7 +912,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### June
+### June {#2025-06}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -992,7 +992,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### May
+### May {#2025-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1022,7 +1022,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### April
+### April {#2025-04}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1067,7 +1067,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### March
+### March {#2025-03}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1105,7 +1105,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### February
+### February {#2025-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1134,7 +1134,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### January
+### January {#2025-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1201,7 +1201,7 @@ systemctl restart centreon_vmware
 
 ## 2024
 
-### December
+### December {#2024-12}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1236,7 +1236,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### November
+### November {#2024-11}
 
 <Tabs groupId="sync">
 <TabItem value="Enhancements" label="Enhancements">
@@ -1266,7 +1266,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### October
+### October {#2024-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1304,7 +1304,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### September
+### September {#2024-09}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1328,7 +1328,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### August
+### August {#2024-08}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1357,7 +1357,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### July
+### July {#2024-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1380,7 +1380,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### June
+### June {#2024-06}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1412,7 +1412,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### May
+### May {#2024-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1434,7 +1434,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### April
+### April {#2024-04}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1466,7 +1466,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### March
+### March {#2024-03}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1496,7 +1496,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### February
+### February {#2024-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1518,7 +1518,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### January
+### January {#2024-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1541,7 +1541,7 @@ systemctl restart centreon_vmware
 
 ## 2023
 
-### December
+### December {#2023-12}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1580,7 +1580,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### November
+### November {#2023-11}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1618,7 +1618,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### October
+### October {#2023-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1655,7 +1655,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### September
+### September {#2023-09}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1695,7 +1695,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### August
+### August {#2023-08}
 
 > **Major change impacting all host discovery providers**: the default host templates used in host discovery used to be the *read-only* ones. The "-custom" *read-write* ones are now used. As an example, **generic-active-host-custom** will be used instead of **generic-active-host**. See "Breaking changes" for more information.
 
@@ -1766,7 +1766,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### July
+### July {#2023-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1798,7 +1798,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### June
+### June {#2023-06}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1825,7 +1825,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### May
+### May {#2023-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1856,7 +1856,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### April
+### April {#2023-04}
 
 > In the Monitoring Connector Manager, you may notice that all connectors have been updated. If they are not listed in the table below, they haven’t been modified: they have been republished in order to take into account the last version of their plugin.
 
@@ -1881,7 +1881,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### March
+### March {#2023-03}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1908,7 +1908,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### February
+### February {#2023-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1933,7 +1933,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### January
+### January {#2023-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1969,7 +1969,7 @@ systemctl restart centreon_vmware
 
 ## 2022
 
-### December
+### December {#2022-12}
 
 <Tabs groupId="sync">
 
@@ -2004,7 +2004,7 @@ systemctl restart centreon_vmware
 
 </Tabs>
 
-### November
+### November {#2022-11}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2046,7 +2046,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### October
+### October {#2022-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2095,7 +2095,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### September
+### September {#2022-09}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2150,7 +2150,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### July 
+### July {#2022-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2187,7 +2187,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### June 
+### June {#2022-06}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2238,7 +2238,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### May
+### May {#2022-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2275,7 +2275,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### April
+### April {#2022-04}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2319,7 +2319,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### February
+### February {#2022-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2353,7 +2353,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### January
+### January {#2022-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">

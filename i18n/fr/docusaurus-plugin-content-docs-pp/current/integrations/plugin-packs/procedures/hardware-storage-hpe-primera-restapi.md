@@ -617,3 +617,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=licenses \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.11](../releases/release-notes.md#2024-11) - Bug fixes: Fixed status handling & retry on invalid token, from community feedback [PR 5256](https://github.com/centreon/centreon-plugins/pull/5256).
+- [24.10](../releases/release-notes.md#2024-10) - Bug fixes: Fixed header leading to API authentication issue, from community feedback [PR 5183](https://github.com/centreon/centreon-plugins/pull/5183).
+- [24.08](../releases/release-notes.md#2024-08) - New connectors: First official release.
+
+{/* CHANGELOG:END */}

@@ -665,3 +665,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

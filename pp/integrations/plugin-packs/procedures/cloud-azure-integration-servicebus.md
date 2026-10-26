@@ -575,3 +575,13 @@ All available options for a given mode can be displayed by adding the
 	--mode=requests \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Changed host status checks output.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed an issue in metric configuration in **namespaces** mode.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
+
+{/* CHANGELOG:END */}

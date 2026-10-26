@@ -408,3 +408,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=input-lines \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Bug fixes: Removed thresholds for non-existent counters in --help section.
+
+{/* CHANGELOG:END */}

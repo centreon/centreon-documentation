@@ -350,3 +350,13 @@ All available options for a given mode can be displayed by adding the
 	--mode=get-metrics \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Enhanced compatibility with DISTRIBUTION type values in **getmetrics** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed the minimum aggregation calculation.
+- [25.07](../releases/release-notes.md#2025-07) - Enhancements: Allowed compatibility with `distribution` type values in **get-metrics** mode.
+
+{/* CHANGELOG:END */}

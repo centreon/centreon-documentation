@@ -413,3 +413,11 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--mode=quorum \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

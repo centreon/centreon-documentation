@@ -411,3 +411,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=container-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [23.10](../releases/release-notes.md#2023-10) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

@@ -378,3 +378,11 @@ All available options for a given mode can be displayed by adding the
 	--unknown-status="%\{state\} =~ /unknown/" \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - Breaking changes: Changed the default NRPECLIENT macro to use the official Nagios NRPE4 client and fixed the default client options.
+
+{/* CHANGELOG:END */}

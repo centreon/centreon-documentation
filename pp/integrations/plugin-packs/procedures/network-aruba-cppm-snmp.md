@@ -643,3 +643,13 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
     --help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [24.08](../releases/release-notes.md#2024-08) - Bug fixes: Fixed the plugin's packaging.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancements: added swap monitoring.
+- [23.04](../releases/release-notes.md#2023-04) - New connectors: initial release.
+
+{/* CHANGELOG:END */}

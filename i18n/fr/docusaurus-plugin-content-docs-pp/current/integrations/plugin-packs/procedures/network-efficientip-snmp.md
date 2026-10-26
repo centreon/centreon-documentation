@@ -850,3 +850,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=dhcp-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Add SOLID server service template.
+
+{/* CHANGELOG:END */}

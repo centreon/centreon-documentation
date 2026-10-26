@@ -863,3 +863,16 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
+- [24.11](../releases/release-notes.md#2024-11) - Bug fixes: Fixed wrong unit for roundtrip-time.
+- [24.10](../releases/release-notes.md#2024-10) - Enhancements: Added host macros to the AP host template to make configuration easier.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fixes: Fixed host template used in the host discovery template mapper.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancements: added a host discovery rule.
+- [23.03](../releases/release-notes.md#2023-03) - Enhancements: add AP discovery.
+
+{/* CHANGELOG:END */}

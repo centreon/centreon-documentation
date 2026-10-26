@@ -373,3 +373,17 @@ All available options for a given mode can be displayed by adding the
 	--mode=path-verification \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancements: Handle the pagination brought by version 7.5.
+- [24.09](../releases/release-notes.md#2024-09) - Enhancements: Added the missing SNMP community in host discovery.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancements: updated the logo.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancements: updated path verification service.
+- [22.05](../releases/release-notes.md#2022-05) - Enhancements: Add new discovery capabilities (aruba, cisco, checkpoint, ...).
+- [22.04](../releases/release-notes.md#2022-04) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

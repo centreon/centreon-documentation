@@ -570,3 +570,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - Bug fixes: Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Fixed percentage calculation in interfaces mode.
+
+{/* CHANGELOG:END */}

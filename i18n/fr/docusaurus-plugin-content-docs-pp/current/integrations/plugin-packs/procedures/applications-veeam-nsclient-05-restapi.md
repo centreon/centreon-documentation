@@ -565,3 +565,20 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=query \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancements: Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed `job-type` and `session` values in **job-status** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Enhanced message displayed when using wrong powershell version with veeam 13.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fixes: Fixed Veeam job retrieval in **job-status** mode.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: fixed warnings about uninitialized values in **job-status** mode.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancements: Allow compatibility with version 13.
+- [26.02](../releases/release-notes.md#2026-02) - Breaking changes: The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Improved execution time in **job-status** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Bug fixes: Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+
+{/* CHANGELOG:END */}

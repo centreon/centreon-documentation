@@ -335,3 +335,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=scenario \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancements: Added `--command-path` option as macro in host template.
+- [24.12](../releases/release-notes.md#2024-12) - New connectors: Initial release of JMeter.
+
+{/* CHANGELOG:END */}

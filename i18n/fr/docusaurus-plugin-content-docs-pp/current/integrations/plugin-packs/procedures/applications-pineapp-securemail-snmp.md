@@ -385,3 +385,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=system \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - New connectors: Add new Pineapp Secure mail Pack.
+
+{/* CHANGELOG:END */}

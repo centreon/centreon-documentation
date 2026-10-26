@@ -750,3 +750,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=volume-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [22.10](../releases/release-notes.md#2022-10) - Bug fixes: fix macros for service cages.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Add services afc, cages, capacity, nodes to HP 3par SSH Pack.
+
+{/* CHANGELOG:END */}

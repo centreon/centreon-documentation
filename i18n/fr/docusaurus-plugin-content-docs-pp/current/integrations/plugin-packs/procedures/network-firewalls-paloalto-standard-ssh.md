@@ -543,3 +543,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=environment \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [23.06](../releases/release-notes.md#2023-06) - Enhancements: added new licences mode.
+
+{/* CHANGELOG:END */}

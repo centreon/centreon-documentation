@@ -507,3 +507,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=traffic \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.07](../releases/release-notes.md#2022-07) - New connectors: Added Linux Node Exporter Monitoring Pack.
+
+{/* CHANGELOG:END */}

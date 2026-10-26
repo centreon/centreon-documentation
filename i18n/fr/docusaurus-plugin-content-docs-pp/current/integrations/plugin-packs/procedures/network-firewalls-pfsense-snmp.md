@@ -866,3 +866,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=packet-stats \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Added new modes: **cpu**, **cpu-detailed**, **load**, **memory**, **swap** and **uptime**.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Split **Net-FW-Pfsense-SNMP-Packet-Stats** into 6 dedicated commands.
+
+{/* CHANGELOG:END */}

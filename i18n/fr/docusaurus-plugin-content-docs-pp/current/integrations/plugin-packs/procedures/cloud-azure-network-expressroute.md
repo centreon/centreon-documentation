@@ -440,3 +440,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=traffic \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
+- [22.09](../releases/release-notes.md#2022-09) - Breaking changes: Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines.
+
+{/* CHANGELOG:END */}

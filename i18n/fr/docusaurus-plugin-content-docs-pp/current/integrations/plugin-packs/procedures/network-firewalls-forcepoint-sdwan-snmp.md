@@ -1246,3 +1246,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.08](../releases/release-notes.md#2025-08) - New connectors: Initial release of Forcepoint SNMP, based on community contribution [PR 5512](https://github.com/centreon/centreon-plugins/pull/5512) and a [The Watch idea](https://thewatch.centreon.com/ideas/update-stonesoft-forcepoint-plugin-4169).
+
+{/* CHANGELOG:END */}

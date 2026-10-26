@@ -1425,3 +1425,15 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic' --help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.05](../releases/release-notes.md#2026-05) - Enhancements: added EL10 and Debian13 prerequisites.
+- [25.09](../releases/release-notes.md#2025-09) - Enhancements: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [24.10](../releases/release-notes.md#2024-10) - Bug fixes: Added an `--output-fields` option for some OSs in the **systemd-journal** mode, when journalctl is in version 236 or higher.
+- [24.04](../releases/release-notes.md#2024-04) - Bug fixes: The 'storage' mode now takes the reserved space of the file systems into account.
+- [24.03](../releases/release-notes.md#2024-03) - New connectors: First release of Linux NRPE4.
+
+{/* CHANGELOG:END */}

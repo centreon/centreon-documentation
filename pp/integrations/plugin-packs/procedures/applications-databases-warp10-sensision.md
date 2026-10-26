@@ -511,3 +511,11 @@ All available options for a given mode can be displayed by adding the
 	--custommode='web' \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [24.01](../releases/release-notes.md#2024-01) - Bug fixes: Fixed an issue that blocked the uninstallation process and a broker command.
+
+{/* CHANGELOG:END */}

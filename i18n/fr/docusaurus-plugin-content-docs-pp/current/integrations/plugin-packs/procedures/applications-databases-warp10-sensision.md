@@ -512,3 +512,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='web' \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.01](../releases/release-notes.md#2024-01) - Bug fixes: Fixed an issue that blocked the uninstallation process and a broker command.
+
+{/* CHANGELOG:END */}

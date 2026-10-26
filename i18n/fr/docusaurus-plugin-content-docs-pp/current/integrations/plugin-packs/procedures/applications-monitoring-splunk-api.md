@@ -525,3 +525,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=query \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.03](../releases/release-notes.md#2026-03) - Bug fixes: Fixed the **App-Monitoring-Splunk-Api-String-Value** command that used a wrong mode.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Extended **query** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-for-splunk-return-value-of-spl-request-3734).
+- [22.10](../releases/release-notes.md#2022-10) - New connectors: Adding Splunk Monitoring Connector.
+
+{/* CHANGELOG:END */}

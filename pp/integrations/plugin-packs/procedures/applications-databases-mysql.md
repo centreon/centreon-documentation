@@ -882,3 +882,19 @@ All available options for a given mode can be displayed by adding the
 	--mode=uptime \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Fixed an error occurring when retrieving the server version.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancements: Enhance uptime date display in **uptime** mode, based on community contribution [PR 4853](https://github.com/centreon/centreon-plugins/pull/4853).
+- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Fixed an unsafe eval for unknown status option in **collection** mode, based on a community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [24.11](../releases/release-notes.md#2024-11) - Enhancements: Used the correct MariaDB message when checking MySQL replication state.
+- [24.07](../releases/release-notes.md#2024-07) - Breaking changes: The way fragmentation is calculated has changed to avoid getting values ​​above 100.
+- [24.01](../releases/release-notes.md#2024-01) - Bug fixes: Fixed a regression on sql-string mode.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancements: Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [23.05](../releases/release-notes.md#2023-05) - Enhancements: added a collection service.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking changes: change sql-statement option protection.
+
+{/* CHANGELOG:END */}

@@ -346,3 +346,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=qos-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - Breaking changes: Migrate and secure the underlying modes.
+
+{/* CHANGELOG:END */}

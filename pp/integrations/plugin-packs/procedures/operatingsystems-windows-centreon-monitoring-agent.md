@@ -1128,3 +1128,22 @@ All available options for a given mode can be displayed by adding the
 ```bash
 "C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin=os::windows::local::plugin --mode=certificates --help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - Enhancements: `centreon_plugins.exe` now supports the curl HTTP backend.
+- [26.09](../releases/release-notes.md#2026-09) - Bug fixes: Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added timeout macro to all native CMA checks.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fixes: Fixed `CRITICALSTATUS` macro default value.
+- [26.03](../releases/release-notes.md#2026-03) - Breaking changes: Handle extended thresholds on CMA native checks.
+- [26.02](../releases/release-notes.md#2026-02) - Enhancements: Added new parameters for the **Services** service template and added a **Custom-Script** service template to run custom commands.
+- [25.12](../releases/release-notes.md#2025-12) - Enhancements: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.08](../releases/release-notes.md#2025-08) - Enhancements: Added native checks for **Process**, **Counter**, **Taskched** and **Files**. Added default timeout service macro, set to 120s.
+- [25.08](../releases/release-notes.md#2025-08) - Breaking changes: Converted into stable with the new CMA version leading to breaking changes for earlier versions.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancements: Added new native checks: **cma-health**, **eventlog** and **services**.
+- [24.12](../releases/release-notes.md#2024-12) - Enhancements: Added native checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (these native checks will be available with the upcoming Collect 24.10.3 release).
+- [24.10](../releases/release-notes.md#2024-10) - New connectors: Initial release of Windows CMA.
+
+{/* CHANGELOG:END */}

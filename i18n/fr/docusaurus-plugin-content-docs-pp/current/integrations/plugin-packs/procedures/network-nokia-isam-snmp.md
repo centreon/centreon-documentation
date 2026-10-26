@@ -593,3 +593,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.07](../releases/release-notes.md#2024-07) - New connectors: Initial release of Nokia formerly Alcatel Isam SNMP.
+
+{/* CHANGELOG:END */}

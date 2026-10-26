@@ -309,3 +309,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=login \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [22.05](../releases/release-notes.md#2022-05) - Bug fixes: Fix translation.
+
+{/* CHANGELOG:END */}

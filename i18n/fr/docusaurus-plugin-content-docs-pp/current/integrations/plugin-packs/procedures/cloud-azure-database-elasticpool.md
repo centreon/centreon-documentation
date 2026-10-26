@@ -613,3 +613,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='azcli' \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
+- [24.12](../releases/release-notes.md#2024-12) - Bug fixes: Fixed an issue with **storage** mode where thresholds weren't taken into account.
+
+{/* CHANGELOG:END */}

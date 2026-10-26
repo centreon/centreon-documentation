@@ -366,3 +366,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=alerts \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - New connectors: Initial release of HPE Athonet Alertmanager w/ Prometheus API.
+
+{/* CHANGELOG:END */}

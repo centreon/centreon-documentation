@@ -549,3 +549,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=sessions \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Enhancements: Improved the calculation of space used by created log files, from community contribution [PR 4943](https://github.com/centreon/centreon-plugins/pull/4943).
+
+{/* CHANGELOG:END */}

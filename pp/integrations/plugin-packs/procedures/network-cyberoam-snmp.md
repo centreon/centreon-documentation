@@ -702,3 +702,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.02](../releases/release-notes.md#2025-02) - Enhancements: Added **HA**, **license**, **VPN** and **VPN discovery** modes, based on a community contribution ([PR 5144](https://github.com/centreon/centreon-plugins/pull/5144)).
+
+{/* CHANGELOG:END */}

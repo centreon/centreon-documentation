@@ -443,3 +443,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=modem \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: renamed System service to Modem.
+
+{/* CHANGELOG:END */}

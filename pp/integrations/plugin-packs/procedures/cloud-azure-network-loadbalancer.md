@@ -488,3 +488,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=throughput \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - Enhancements: Added `tags` attribute to **host discovery**.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
+
+{/* CHANGELOG:END */}

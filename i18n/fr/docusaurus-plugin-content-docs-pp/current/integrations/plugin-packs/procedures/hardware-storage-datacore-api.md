@@ -411,3 +411,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=pool-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.06](../releases/release-notes.md#2024-06) - Bug fixes: Fixed API path in pools check and added verbosity in monitoring Datacore “monitors” objects.
+- [24.03](../releases/release-notes.md#2024-03) - New connectors: First release of Datacore.
+
+{/* CHANGELOG:END */}

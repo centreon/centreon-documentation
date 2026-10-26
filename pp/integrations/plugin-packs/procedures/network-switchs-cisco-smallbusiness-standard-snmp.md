@@ -782,3 +782,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
+- [25.05](../releases/release-notes.md#2025-05) - Enhancements: Added a new **stack** mode, based on community contribution [PR 5317](https://github.com/centreon/centreon-plugins/pull/5317).
+
+{/* CHANGELOG:END */}

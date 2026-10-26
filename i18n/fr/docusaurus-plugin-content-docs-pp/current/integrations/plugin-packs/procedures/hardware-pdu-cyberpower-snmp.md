@@ -380,3 +380,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=outlets \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.10](../releases/release-notes.md#2024-10) - Enhancements: Added `phase-voltage` metric to **load** mode.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fixes: Fixed power value in **load** mode (the value is no longer multiplied by 10).
+
+{/* CHANGELOG:END */}

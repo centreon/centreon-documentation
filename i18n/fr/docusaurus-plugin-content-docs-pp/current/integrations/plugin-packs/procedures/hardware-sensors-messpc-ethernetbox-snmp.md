@@ -437,3 +437,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=sensors \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.05](../releases/release-notes.md#2026-05) - New connectors: Initial release, based on community contribution [PR 6044](https://github.com/centreon/centreon-plugins/pull/6044).
+
+{/* CHANGELOG:END */}

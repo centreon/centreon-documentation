@@ -378,3 +378,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=response-time  \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [23.05](../releases/release-notes.md#2023-05) - Enhancements: added a TCP-based host template.
+- [22.06](../releases/release-notes.md#2022-06) - Breaking changes: Rename response-time to Connection-Status and add new service Response-Time.
+
+{/* CHANGELOG:END */}

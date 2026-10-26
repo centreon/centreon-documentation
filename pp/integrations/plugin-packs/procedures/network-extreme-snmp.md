@@ -577,3 +577,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Added supported models in documentation.
+
+{/* CHANGELOG:END */}

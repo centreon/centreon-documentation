@@ -525,3 +525,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=hardware-device \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
+- [23.11](../releases/release-notes.md#2023-11) - Enhancements: The plugin now handles marker supplies of type "other".
+
+{/* CHANGELOG:END */}

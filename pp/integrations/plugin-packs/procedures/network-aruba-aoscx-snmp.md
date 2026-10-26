@@ -790,3 +790,14 @@ All available options for a given mode can be displayed by adding the
 	--mode=spanning-tree \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
+- [25.03](../releases/release-notes.md#2025-03) - Enhancements: Added **uptime**, **spanning tree** and **spanning tree discovery** modes, based on community contribution [PR 5424](https://github.com/centreon/centreon-plugins/pull/5424).
+- [25.01](../releases/release-notes.md#2025-01) - Enhancements: Added new **stack** mode from a [The Watch idea](https://thewatch.centreon.com/ideas/aruba-stack-members-check-if-not-vsf-or-vsx-stack-3832).
+- [23.10](../releases/release-notes.md#2023-10) - Bug fixes: Fixed the hardware mode: "ready" states now give OK status.
+
+{/* CHANGELOG:END */}

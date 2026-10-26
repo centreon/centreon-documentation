@@ -439,3 +439,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=serviceset-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - Enhancements: Initial release and original StoreOnce Pack deprecation.
+
+{/* CHANGELOG:END */}

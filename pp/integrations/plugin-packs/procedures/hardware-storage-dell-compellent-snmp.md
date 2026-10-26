@@ -492,3 +492,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Added SNMP in title to be more explicit.
+
+{/* CHANGELOG:END */}

@@ -685,3 +685,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed plugin option value in commands.
+- [24.06](../releases/release-notes.md#2024-06) - Enhancements: Added disk partition discovery rule.
+- [24.06](../releases/release-notes.md#2024-06) - Breaking changes: Fixed packaging and change thresholds macro naming.
+
+{/* CHANGELOG:END */}

@@ -251,3 +251,16 @@ Sélectionnez les éléments que vous voulez ajouter dans Centreon et *Sauvegard
 
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
 pour le diagnostic des erreurs communes des plugins Centreon.
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Combined two filters in **listmetrics** mode, from community contribution (PR [#4743](https://github.com/centreon/centreon-plugins/pull/4743)).
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.10](../releases/release-notes.md#2023-10) - Bug fixes: Added the missing is\_password attribute to the host discovery provider.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fixes: Fix bug with assume-role option.
+- [22.09](../releases/release-notes.md#2022-09) - New connectors: Add unified AWS host discovery and add assume-role support.
+
+{/* CHANGELOG:END */}

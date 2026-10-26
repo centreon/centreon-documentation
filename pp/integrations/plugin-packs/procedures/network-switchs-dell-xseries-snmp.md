@@ -547,3 +547,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [24.01](../releases/release-notes.md#2024-01) - Bug fixes: Fixed the wrong options in the Net-Dell-Xseries-SNMP-Cpu command.
+
+{/* CHANGELOG:END */}

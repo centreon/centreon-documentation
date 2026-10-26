@@ -540,3 +540,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [22.07](../releases/release-notes.md#2022-07) - Bug fixes: Fixed macro in Ruckus ICX Memory service template.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancements: Add new thresholds to Memory service.
+
+{/* CHANGELOG:END */}

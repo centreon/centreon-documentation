@@ -829,3 +829,24 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--hostname 10.0.0.1 \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed empty output for mssql **database-size** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fixes: Fixed a bad query issue revealed by a previous fix.
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Enhanced status threshold for **failed-jobs** mode.
+- [26.06](../releases/release-notes.md#2026-06) - Breaking changes: Added new filtering and threshold options
+- [26.01](../releases/release-notes.md#2026-01) - Enhancements: Added an option to the **connected-users** mode to filter by database name ([PR 5195](https://github.com/centreon/centreon-plugins/pull/5195)).
+- [26.01](../releases/release-notes.md#2026-01) - Bug fixes: Forced the version of a dependency, to fix a segmentation fault issue.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Fixed wrong output unit in locks-wait mode.
+- [25.10](../releases/release-notes.md#2025-10) - Bug fixes: Fixed an issue where **deadlocks** mode returned false positives.
+- [24.01](../releases/release-notes.md#2024-01) - Bug fixes: Fixed a regression on sql-string mode.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancements: Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [22.12](../releases/release-notes.md#2022-12) - Breaking changes: change sql-statement option protection.
+- [22.11](../releases/release-notes.md#2022-11) - Breaking changes: Replace a standard command by dedicated ones.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancements: Add new threshold to Backup-age service.
+- [22.01](../releases/release-notes.md#2022-01) - Breaking changes: Change thresholds for Backup-age service.
+
+{/* CHANGELOG:END */}

@@ -485,3 +485,14 @@ All available options for a given mode can be displayed by adding the
 	--mode=uptime \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed `format-custom` option.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed a syntax error and an issue with encoding occurring when topic names contained accents.
+- [25.04](../releases/release-notes.md#2025-04) - Bug fixes: Fixed perfdata options in **numeric-value** mode, from community contribution [PR 5462](https://github.com/centreon/centreon-plugins/pull/5462).
+- [24.06](../releases/release-notes.md#2024-06) - New connectors: Initial release of Eclipse Mosquitto MQTT.
+
+{/* CHANGELOG:END */}

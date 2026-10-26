@@ -430,3 +430,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=email-activity \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Change service template aliases to avoid service deployment issues.
+
+{/* CHANGELOG:END */}

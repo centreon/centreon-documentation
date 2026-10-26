@@ -708,3 +708,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=vserver-status \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [24.05](../releases/release-notes.md#2024-05) - Bug fixes: Fixed status mapping on Citrix PSU ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4722))
+- [23.09](../releases/release-notes.md#2023-09) - Bug fixes: Fixed the status mapping for power supplies in Health service template.
+
+{/* CHANGELOG:END */}

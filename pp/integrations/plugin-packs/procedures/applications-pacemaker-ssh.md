@@ -453,3 +453,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=crm \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [24.07](../releases/release-notes.md#2024-07) - Enhancements: Added an `SSHPRIVKEY` host macro allowing to define the path to the private key file for user authentication.
+- [24.07](../releases/release-notes.md#2024-07) - Breaking changes: The Clustat service template and its associated command are deprecated and have been removed.
+
+{/* CHANGELOG:END */}

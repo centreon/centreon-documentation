@@ -419,3 +419,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=jobs \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.09](../releases/release-notes.md#2025-09) - Bug fixes: Fixed an issue leading to `Unknown option --token` in **jobs** mode.
+- [22.02](../releases/release-notes.md#2022-02) - Breaking changes: Use official and latest API.
+
+{/* CHANGELOG:END */}

@@ -672,3 +672,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=serial-ports \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added CM8100 series compatibility.
+- [23.04](../releases/release-notes.md#2023-04) - New connectors: initial release.
+
+{/* CHANGELOG:END */}

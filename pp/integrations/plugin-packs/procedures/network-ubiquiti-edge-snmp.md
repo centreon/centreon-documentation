@@ -549,3 +549,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fixes: Fixed interfaces service template.
+
+{/* CHANGELOG:END */}

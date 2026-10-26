@@ -699,3 +699,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='perlmod' \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed an issue leading to a returned value of more than 1000 % in **cpu** mode  (issue [#4311](https://github.com/centreon/centreon-plugins/issues/4311)).
+- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Added authentication with username for custommode perlmod, from community contribution [PR 5255](https://github.com/centreon/centreon-plugins/pull/5255).
+- [25.08](../releases/release-notes.md#2025-08) - Enhancements: Added `cert` and `key` options for authentication (available for redis-cli >= 6.x), based on community contribution [PR 5555](https://github.com/centreon/centreon-plugins/pull/5555).
+
+{/* CHANGELOG:END */}

@@ -8,3 +8,11 @@ import TabItem from '@theme/TabItem';
 
 > Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. 
 > Il a été remplacé par le connecteur [VMware vCenter v6](virtualization-vmware2-vcenter-6.md).
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.05](../releases/release-notes.md#2025-05) - Enhancements: Deprecated VMware vCenter v5.
+
+{/* CHANGELOG:END */}

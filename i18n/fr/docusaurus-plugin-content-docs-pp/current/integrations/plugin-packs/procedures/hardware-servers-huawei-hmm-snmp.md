@@ -411,3 +411,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=chassis \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed `no-component` option.
+- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Removed experimental keys on scalar in **blade** mode components.
+
+{/* CHANGELOG:END */}

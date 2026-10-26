@@ -452,3 +452,14 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=get-metrics \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Combined two filters in **listmetrics** mode, from community contribution (PR [#4743](https://github.com/centreon/centreon-plugins/pull/4743)).
+- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed **get-alarms** mode to handle multiple alarms (issue [#5731](https://github.com/centreon/centreon-plugins/issues/5731)).
+- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Fixed an issue with the `zeroed` option, occurring when metrics were empty in **get-metrics** mode.
+
+{/* CHANGELOG:END */}

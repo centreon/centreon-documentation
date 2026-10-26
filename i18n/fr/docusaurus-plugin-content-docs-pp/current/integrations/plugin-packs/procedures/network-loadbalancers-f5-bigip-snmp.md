@@ -1004,3 +1004,15 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=pool-status \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: fixed unknown status returned if no trunk was configured in **trunks** mode.
+- [25.06](../releases/release-notes.md#2025-06) - Enhancements: Added new **certificates** mode, from a [The Watch idea](https://thewatch.centreon.com/ideas/monitor-certificate-with-f5-bigip-3074).
+- [25.04](../releases/release-notes.md#2025-04) - Enhancements: Added new **cpu-usage** mode, based on community contribution [PR 4701](https://github.com/centreon/centreon-plugins/pull/4701).
+- [25.04](../releases/release-notes.md#2025-04) - Breaking changes: Switched metrics to v2, leading to a breaking-change state.
+- [23.09](../releases/release-notes.md#2023-09) - Bug fixes: Fixed a bug causing a failure when the pool name was too long.
+
+{/* CHANGELOG:END */}

@@ -804,3 +804,16 @@ All available options for a given mode can be displayed by adding the
 	--mode=service \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [24.06](../releases/release-notes.md#2024-06) - Bug fixes: Fixed an issue with windows services containing parenthesis blocking discovery exportation. This parenthesis will automatically be replaced by square brackets to avoid this issue.
+- [24.04](../releases/release-notes.md#2024-04) - Enhancements: The 'services' mode can now filter using non-ASCII characters.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancements: Added the `--check-overload` option in the `EXTRAOPTIONS` macro.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: Fixed the bug on Windows SNMP Services monitoring returning "UNKNOWN: No service found." instead of CRITICAL.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: added options for Service-Generic mode (may change the behaviour of existing services).
+
+{/* CHANGELOG:END */}

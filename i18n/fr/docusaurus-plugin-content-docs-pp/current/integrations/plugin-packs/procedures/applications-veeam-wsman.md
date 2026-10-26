@@ -537,3 +537,20 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vsb-jobs \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancements: Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed `job-type` and `session` values in **job-status** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Enhanced message displayed when using wrong powershell version with veeam 13.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fixes: Fixed Veeam job retrieval in **job-status** mode.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancements: Allow compatibility with version 13.
+- [26.02](../releases/release-notes.md#2026-02) - Bug fixes: Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases.
+- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Improved execution time in **job-status** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Bug fixes: Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [24.04](../releases/release-notes.md#2024-04) - New connectors: First release of Veeam WSMAN.
+
+{/* CHANGELOG:END */}

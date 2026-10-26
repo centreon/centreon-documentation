@@ -520,3 +520,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=write-statistics \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.10](../releases/release-notes.md#2025-10) - Bug fixes: Fixed an error in **query** mode command.
+- [23.09](../releases/release-notes.md#2023-09) - Bug fixes: Fixed a bug causing unknown status with "uninitialized values" when running multiple queries.
+
+{/* CHANGELOG:END */}

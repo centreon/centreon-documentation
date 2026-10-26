@@ -507,3 +507,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=traffic \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [22.07](../releases/release-notes.md#2022-07) - New connectors: Added Linux Node Exporter Monitoring Pack.
+
+{/* CHANGELOG:END */}

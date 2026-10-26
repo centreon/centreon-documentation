@@ -449,3 +449,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=apdex \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.07](../releases/release-notes.md#2022-07) - Enhancements: Enhanced Dynatrace Restapi Packs with new services and new metrics.
+
+{/* CHANGELOG:END */}

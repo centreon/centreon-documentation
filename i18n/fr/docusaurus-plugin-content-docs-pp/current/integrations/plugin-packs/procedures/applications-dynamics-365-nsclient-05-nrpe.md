@@ -322,3 +322,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query' --help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking changes: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [22.01](../releases/release-notes.md#2022-01) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

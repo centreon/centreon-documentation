@@ -1213,3 +1213,19 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=voice-call \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
+- [26.05](../releases/release-notes.md#2026-05) - Enhancements: added MAC address normalization in **vpc** mode.
+- [26.01](../releases/release-notes.md#2026-01) - Enhancements: Added completion time to **ipsla** mode.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Fixed percentage calculation in interfaces mode.
+- [25.04](../releases/release-notes.md#2025-04) - Breaking changes: The `status` metric has been changed in `config-running-ahead`, leading to a breaking-change state.
+- [25.04](../releases/release-notes.md#2025-04) - Bug fixes: Fixed an issue concerning wrong calculations after reboot (sysuptime was not considered) in **configuration** mode, from community contribution [PR 5282](https://github.com/centreon/centreon-plugins/pull/5282).
+- [24.10](../releases/release-notes.md#2024-10) - Enhancements: Added `add-fc-fe-errors` option to **interfaces** mode.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancements: added interfaces monitoring.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Add BGP modes with IPv6 support.
+
+{/* CHANGELOG:END */}

@@ -902,3 +902,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed **Disk-Usage-Cloud-Global** command.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Removed unrelated service templates.
+
+{/* CHANGELOG:END */}

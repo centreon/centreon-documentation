@@ -479,3 +479,13 @@ All available options for a given mode can be displayed by adding the
 	--mode=site-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Change service template aliases to avoid service deployment issues.
+- [25.06](../releases/release-notes.md#2025-06) - Enhancements: Added template for **users-activity** and service discovery rule for **site-usage**.
+- [25.06](../releases/release-notes.md#2025-06) - Bug fixes: Fixed service discovery mode for **site-usage**.
+
+{/* CHANGELOG:END */}

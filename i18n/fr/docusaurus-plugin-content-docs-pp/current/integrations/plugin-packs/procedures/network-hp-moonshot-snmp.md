@@ -488,3 +488,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.09](../releases/release-notes.md#2022-09) - New connectors: initial release.
+
+{/* CHANGELOG:END */}

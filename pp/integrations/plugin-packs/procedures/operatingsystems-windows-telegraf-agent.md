@@ -501,3 +501,15 @@ All available options for a given mode can be displayed by adding the
 ```bash
 "\Program Files\InfluxData\telegraf\telegraf-1.30.3\centreon_plugins.exe" --plugin=os::windows::local::plugin --mode=certificates --help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - Enhancements: `centreon_plugins.exe` now supports the curl HTTP backend.
+- [26.09](../releases/release-notes.md#2026-09) - Bug fixes: Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [24.11](../releases/release-notes.md#2024-11) - Breaking changes: The default inherited templates are now passive.
+- [24.06](../releases/release-notes.md#2024-06) - New connectors: Initial release of Windows Telegraf Agent.
+
+{/* CHANGELOG:END */}

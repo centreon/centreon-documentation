@@ -703,3 +703,19 @@ All available options for a given mode can be displayed by adding the
 	--custommode='azcli' \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.10](../releases/release-notes.md#2026-10) - Bug fixes: Fixed an issue with **health** mode by adding the `--server` option. This was causing an invalid Azure Resource ID and resulted in a host being permanently DOWN / ResourceNotFound.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Updated help section on **storage** mode.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
+- [24.09](../releases/release-notes.md#2024-09) - Bug fixes: Added the missing `--server` option in some checks.
+- [24.04](../releases/release-notes.md#2024-04) - Bug fixes: Fixed the Cloud-Azure-Database-SqlDatabase-Api-Cpu command.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancements: added CPU and Memory monitoring.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancements: add EXTRAOPTIONS on health template.
+- [22.01](../releases/release-notes.md#2022-01) - Breaking changes: Rewrite and extend.
+
+{/* CHANGELOG:END */}

@@ -868,3 +868,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=tasks \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Bug fixes: Fixed display of job details in long output in **jobs** mode.
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added **SLA Unprotected** service and misc enhancements.
+- [26.05](../releases/release-notes.md#2026-05) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

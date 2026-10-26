@@ -623,3 +623,16 @@ All available options for a given mode can be displayed by adding the
 	--mode=jobs \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Improved cache naming and **job** mode filtering, from a [The Watch idea](https://thewatch.centreon.com/ideas/code-optimization-for-mode-apps-backup-rubrik-restapi-mode-jobs-4911) (issue [#5865](https://github.com/centreon/centreon-plugins/issues/5865)).
+- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Removed `App-Rubrik-Restapi-Agent-Status` discovery rule that didn't exist.
+- [25.06](../releases/release-notes.md#2025-06) - Bug fixes: Fixed an issue affecting token renewal.
+- [24.10](../releases/release-notes.md#2024-10) - Enhancements: Added a host macro to support several ways to authenticate to the API.
+- [24.02](../releases/release-notes.md#2024-02) - Enhancements: Enhanced jobs and cache modes.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancements: added job monitoring.
+
+{/* CHANGELOG:END */}

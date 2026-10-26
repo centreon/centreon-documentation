@@ -589,3 +589,18 @@ All available options for a given mode can be displayed by adding the
 	--mode=response \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.05](../releases/release-notes.md#2026-05) - Enhancements: added boolean2integer function to **collection** mode  based on community contribution [PR 5218](https://github.com/centreon/centreon-plugins/pull/5218).
+- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Handled nested json path in **collection** mode (issue [#5118](https://github.com/centreon/centreon-plugins/issues/5118) & [The Watch issue](https://thewatch.centreon.com/infra-monitoring-data-collection-6/http-data-collection-path-depth-3639)).
+- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [24.06](../releases/release-notes.md#2024-06) - Enhancements: Added possibility for collection mode to use the `full_url` and `functions` attributes ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4915)).
+- [24.06](../releases/release-notes.md#2024-06) - Bug fixes: Fixed in collection mode an infinite looping if the `parse` attribute was not defined and of another anomaly resulting in an “Unknown” error ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4915)).
+- [24.05](../releases/release-notes.md#2024-05) - Bug fixes: Fixed the package version of perl-JSON-Path and added missing perl-Exporter-Easy package.
+- [23.11](../releases/release-notes.md#2023-11) - Enhancements: Improved the troubleshooting/debug messages of HTTP Collections.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Add Collection service template.
+
+{/* CHANGELOG:END */}

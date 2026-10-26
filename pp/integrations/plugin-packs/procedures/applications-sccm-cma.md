@@ -300,3 +300,11 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--mode=site-status \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

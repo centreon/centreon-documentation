@@ -399,3 +399,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=ssid-status \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
+- [24.02](../releases/release-notes.md#2024-02) - Bug fixes: Fixed an "uninitialized value in concatenation" issue on AP-Usage.
+
+{/* CHANGELOG:END */}

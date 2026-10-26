@@ -356,3 +356,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=peerings-status \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [22.01](../releases/release-notes.md#2022-01) - Bug fixes: Fix resource macro.
+
+{/* CHANGELOG:END */}

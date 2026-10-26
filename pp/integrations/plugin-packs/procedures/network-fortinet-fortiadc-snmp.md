@@ -643,3 +643,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=security \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [22.02](../releases/release-notes.md#2022-02) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

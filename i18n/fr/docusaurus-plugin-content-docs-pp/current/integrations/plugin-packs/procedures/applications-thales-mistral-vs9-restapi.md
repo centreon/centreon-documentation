@@ -964,3 +964,14 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=mmc-certificates \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added support for API version 9.2.4.18.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
+- [22.12](../releases/release-notes.md#2022-12) - Enhancements: add service clusters.
+- [22.11](../releases/release-notes.md#2022-11) - New connectors: New monitoring pack.
+
+{/* CHANGELOG:END */}

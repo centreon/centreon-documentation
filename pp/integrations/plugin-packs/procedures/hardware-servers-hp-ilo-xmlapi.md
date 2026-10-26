@@ -302,3 +302,13 @@ All available options for a given mode can be displayed by adding the
 	--mode=hardware \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed ILO3 incorrect temperature thresholds in **hardware** mode.
+- [26.02](../releases/release-notes.md#2026-02) - Enhancements: The connector now uses warning and critical thresholds provided by ILO data when no custom thresholds are defined.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: Fixed the plugin that returned a CRITICAL state instead of a WARNING state.
+
+{/* CHANGELOG:END */}

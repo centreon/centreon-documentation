@@ -554,3 +554,14 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancements: Added **disks** mode and its service discovery rule.
+- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Added native SNMP v3 host macro.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added support for new devices for temperature metrics.
+- [25.05](../releases/release-notes.md#2025-05) - New connectors: Initial release of F5OS SNMP.
+
+{/* CHANGELOG:END */}

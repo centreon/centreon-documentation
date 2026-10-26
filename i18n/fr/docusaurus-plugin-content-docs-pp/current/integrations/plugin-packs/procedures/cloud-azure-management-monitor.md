@@ -408,3 +408,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=get-metrics \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Removed unrelated **Loganalytics** service template.
+
+{/* CHANGELOG:END */}

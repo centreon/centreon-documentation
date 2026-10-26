@@ -423,3 +423,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=serviceclass-usage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [23.12](../releases/release-notes.md#2023-12) - Bug fixes: Fixed incorrect carriage return in Service Discovery commands.
+
+{/* CHANGELOG:END */}

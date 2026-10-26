@@ -282,3 +282,11 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
     --mode=hardware \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

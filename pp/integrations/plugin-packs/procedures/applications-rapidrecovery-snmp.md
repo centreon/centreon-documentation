@@ -387,3 +387,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=repository \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [24.10](../releases/release-notes.md#2024-10) - Bug fixes: Fixed in typo in commands for the **repository** and **agent** modes.
+
+{/* CHANGELOG:END */}

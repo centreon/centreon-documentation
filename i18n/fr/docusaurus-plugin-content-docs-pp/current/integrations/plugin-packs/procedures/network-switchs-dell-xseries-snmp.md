@@ -548,3 +548,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [24.01](../releases/release-notes.md#2024-01) - Bug fixes: Fixed the wrong options in the Net-Dell-Xseries-SNMP-Cpu command.
+
+{/* CHANGELOG:END */}

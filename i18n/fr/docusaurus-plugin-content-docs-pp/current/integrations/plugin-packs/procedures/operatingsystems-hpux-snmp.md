@@ -543,3 +543,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancements: Added the `--check-overload` option to the **uptime** service template.
+
+{/* CHANGELOG:END */}

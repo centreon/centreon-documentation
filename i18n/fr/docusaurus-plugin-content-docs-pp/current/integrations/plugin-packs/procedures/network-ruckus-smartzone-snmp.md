@@ -699,3 +699,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=system \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - Bug fixes: Remove extra space in Access Points check command.
+
+{/* CHANGELOG:END */}

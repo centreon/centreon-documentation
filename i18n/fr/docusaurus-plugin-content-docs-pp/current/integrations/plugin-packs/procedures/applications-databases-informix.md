@@ -819,3 +819,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--host=10.0.0.1 \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [22.12](../releases/release-notes.md#2022-12) - Breaking changes: change sql-statement option protection.
+
+{/* CHANGELOG:END */}

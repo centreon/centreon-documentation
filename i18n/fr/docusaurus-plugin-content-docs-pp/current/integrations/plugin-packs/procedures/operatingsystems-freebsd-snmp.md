@@ -928,3 +928,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [25.01](../releases/release-notes.md#2025-01) - Enhancements: Refreshed service template descriptions.
+
+{/* CHANGELOG:END */}

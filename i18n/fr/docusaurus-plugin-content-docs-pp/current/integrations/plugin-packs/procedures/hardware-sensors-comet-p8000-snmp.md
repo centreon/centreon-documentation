@@ -335,3 +335,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=sensors \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Removed 'geist' from connector name.
+
+{/* CHANGELOG:END */}

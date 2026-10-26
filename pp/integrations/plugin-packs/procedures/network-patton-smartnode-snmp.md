@@ -422,3 +422,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=system \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **Net-Patton-Smartnode-SNMP-Call** command.
+- [22.12](../releases/release-notes.md#2022-12) - New connectors: Add Patton Snmp Monitoring Connector.
+
+{/* CHANGELOG:END */}

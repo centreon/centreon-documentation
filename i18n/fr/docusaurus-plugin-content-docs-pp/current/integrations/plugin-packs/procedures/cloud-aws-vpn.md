@@ -436,3 +436,15 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=traffic \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [24.12](../releases/release-notes.md#2024-12) - Enhancements: Added default value `awscli` for host template custom mode.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fixes: Fix bug with assume-role option.
+
+{/* CHANGELOG:END */}

@@ -481,3 +481,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=antivirus \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.03](../releases/release-notes.md#2025-03) - Enhancements: Added handling of new OIDs for **antivirus** mode.
+- [23.11](../releases/release-notes.md#2023-11) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

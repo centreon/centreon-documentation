@@ -539,3 +539,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage-volumes \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Fixed `cmd` component count in **hardware** mode.
+
+{/* CHANGELOG:END */}

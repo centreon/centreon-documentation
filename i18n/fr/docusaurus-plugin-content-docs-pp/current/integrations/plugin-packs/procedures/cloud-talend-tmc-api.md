@@ -492,3 +492,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=remote-engines \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [23.01](../releases/release-notes.md#2023-01) - New connectors: initial release.
+
+{/* CHANGELOG:END */}

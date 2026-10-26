@@ -735,3 +735,17 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vacuum \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed an issue where internal PostgreSQL lock types (virtualxid, transactionid) incorrectly counted as exclusive locks.
+- [26.02](../releases/release-notes.md#2026-02) - Breaking changes: Added support for applying thresholds to the total number of connections, not just per database. This breaking change replaces the `*FILTER` macros in the **Query-Time**, **Locks**, **Backend** and **Hitratio** templates with more explicit `*INCLUDE*` and `*EXCLUDE*` macros (issue [#5350](https://github.com/centreon/centreon-plugins/issues/5350)).
+- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
+- [24.11](../releases/release-notes.md#2024-11) - Breaking changes: Fixed `exclude` option working as "include".
+- [23.10](../releases/release-notes.md#2023-10) - Breaking changes: Added `--database` option to the SQL statement command.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking changes: change sql-statement option protection.
+- [22.07](../releases/release-notes.md#2022-07) - Breaking changes: Added services bloat and collection to PostgreSQL.
+
+{/* CHANGELOG:END */}

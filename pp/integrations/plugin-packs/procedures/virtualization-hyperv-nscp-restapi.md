@@ -672,3 +672,13 @@ All available options for a given mode can be displayed by adding the
 	--arg='scvmm-vm-status' \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed an issue with **scvmm-discovery** stats.
+- [24.09](../releases/release-notes.md#2024-09) - Bug fixes: Fixed the default `--filter-status` value on VM status.
+- [22.04](../releases/release-notes.md#2022-04) - New connectors: Initial release.
+
+{/* CHANGELOG:END */}

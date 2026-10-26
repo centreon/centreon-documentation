@@ -314,3 +314,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=health \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancements: Deprecated, replaced by [**VMware8 VCSA REST API**](./applications-virtualization-vmware8-vcsa-restapi.md).
+
+{/* CHANGELOG:END */}

@@ -1511,3 +1511,17 @@ All available options for a given mode can be displayed by adding the
 	--mode=countvm-host \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: fixed host macro `ESXNAME` default value.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
+- [25.06](../releases/release-notes.md#2025-06) - Bug fixes: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: Fixed a bug in VMware health.
+- [23.03](../releases/release-notes.md#2023-03) - Enhancements: new attributes and fixed types.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Add a new "tags" attributes in discovery results.
+- [22.05](../releases/release-notes.md#2022-05) - Enhancements: Use custom_attributes in VMWare Discovery providers.
+
+{/* CHANGELOG:END */}

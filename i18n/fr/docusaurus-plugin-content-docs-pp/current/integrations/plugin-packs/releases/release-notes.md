@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
-### Octobre
+### Octobre {#2026-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -41,7 +41,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Septembre
+### Septembre {#2026-09}
 
 > **Attention, information importante :** Nous avons corrigé un problème touchant à tous les connecteurs qui causait des `OK:` vides. Ceux-ci retourneront désormais la valeur correcte, `UNKNOWN`.
 
@@ -84,7 +84,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Août
+### Août {#2026-08}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -133,7 +133,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Juillet
+### Juillet {#2026-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -243,7 +243,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Juin
+### Juin {#2026-06}
 
 > **Attention information importante :** [**Nmap CLI**](../procedures/applications-nmap-cli.md) - `nmap` does not install automatically anymore.
 
@@ -334,7 +334,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Mai
+### Mai {#2026-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -381,7 +381,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Avril
+### Avril {#2026-04}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -450,7 +450,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Mars
+### Mars {#2026-03}
 
 > **Attention :** Comme vous l'aurez constaté, la quasi-totalité des connecteurs de supervision apparaîtront comme à mettre à jour suite à cette release.
 > Pour la majorité d'entre eux, il s'agit d'une release technique. Si vous ne les trouvez pas dans les onglets ci-dessous, il n'y aura pas d'autre changement mis à part que la version requise du plugin sera disponible sur les plateformes Debian 13 et EL10 pour préparer la future disponibilité de Centreon sur ces OS.
@@ -496,7 +496,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Février
+### Février {#2026-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -541,7 +541,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Janvier
+### Janvier {#2026-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -588,7 +588,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
-### Décembre
+### Décembre {#2025-12}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -638,7 +638,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Novembre
+### Novembre {#2025-11}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -699,7 +699,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Octobre
+### Octobre {#2025-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -742,7 +742,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Septembre
+### Septembre {#2025-09}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -783,7 +783,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Août
+### Août {#2025-08}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -873,7 +873,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Juillet
+### Juillet {#2025-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -908,7 +908,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Juin
+### Juin {#2025-06}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -988,7 +988,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Mai
+### Mai {#2025-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1018,7 +1018,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Avril
+### Avril {#2025-04}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1063,7 +1063,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Mars
+### Mars {#2025-03}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1101,7 +1101,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Février
+### Février {#2025-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1130,7 +1130,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Janvier
+### Janvier {#2025-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1197,7 +1197,7 @@ systemctl restart centreon_vmware
 
 ## 2024
 
-### Décembre
+### Décembre {#2024-12}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1232,7 +1232,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Novembre
+### Novembre {#2024-11}
 
 <Tabs groupId="sync">
 <TabItem value="Enhancements" label="Enhancements">
@@ -1262,7 +1262,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Octobre
+### Octobre {#2024-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1300,7 +1300,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Septembre
+### Septembre {#2024-09}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1324,7 +1324,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Août
+### Août {#2024-08}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1353,7 +1353,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Juillet
+### Juillet {#2024-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1376,7 +1376,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Juin
+### Juin {#2024-06}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1408,7 +1408,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Mai
+### Mai {#2024-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1430,7 +1430,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Avril
+### Avril {#2024-04}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1462,7 +1462,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Mars
+### Mars {#2024-03}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1492,7 +1492,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Février
+### Février {#2024-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1514,7 +1514,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Janvier
+### Janvier {#2024-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1537,7 +1537,7 @@ systemctl restart centreon_vmware
 
 ## 2023
 
-### Décembre
+### Décembre {#2023-12}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1576,7 +1576,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Novembre
+### Novembre {#2023-11}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1614,7 +1614,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Octobre
+### Octobre {#2023-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1651,7 +1651,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Septembre
+### Septembre {#2023-09}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1691,7 +1691,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Août
+### Août {#2023-08}
 
 > **Changement majeur concernant les règles de découverte d'hôte** : Host Discovery utilisait des modèles en lecture seule comme modèles par défaut. Désormais ce sont les modèles "-custom", qui sont en lecture-écriture, qui sont utilisés. Par exemple, `generic-active-host-custom` sera utilisé à la place de `generic-active-host`. Voir la section "Breaking changes" pour plus d'informations.
 
@@ -1762,7 +1762,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Juillet
+### Juillet {#2023-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1794,7 +1794,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Juin
+### Juin {#2023-06}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1821,7 +1821,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Mai
+### Mai {#2023-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1852,7 +1852,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Avril
+### Avril {#2023-04}
 
 > Dans la page de gestion des connecteurs de supervision, vous constaterez que ceux-ci ont tous été mis à jour. S’ils n’apparaissent pas dans le tableau ci-dessous, aucune modification n’a été faite : il s’agissait seulement de prendre en compte la toute dernière version de leur plugin.
 
@@ -1877,7 +1877,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Mars
+### Mars {#2023-03}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1904,7 +1904,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Février
+### Février {#2023-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1929,7 +1929,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Janvier
+### Janvier {#2023-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -1965,7 +1965,7 @@ systemctl restart centreon_vmware
 
 ## 2022
 
-### Décembre
+### Décembre {#2022-12}
 
 
 <Tabs groupId="sync">
@@ -2001,7 +2001,7 @@ systemctl restart centreon_vmware
 
 </Tabs>
 
-### Novembre
+### Novembre {#2022-11}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2043,7 +2043,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Octobre
+### Octobre {#2022-10}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2092,7 +2092,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Septembre
+### Septembre {#2022-09}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2147,7 +2147,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Juillet 
+### Juillet {#2022-07}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2184,7 +2184,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Juin 
+### Juin {#2022-06}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2235,7 +2235,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Mai
+### Mai {#2022-05}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2272,7 +2272,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Avril
+### Avril {#2022-04}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2316,7 +2316,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Février
+### Février {#2022-02}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">
@@ -2350,7 +2350,7 @@ systemctl restart centreon_vmware
 </TabItem>
 </Tabs>
 
-### Janvier
+### Janvier {#2022-01}
 
 <Tabs groupId="sync">
 <TabItem value="New connectors" label="New connectors">

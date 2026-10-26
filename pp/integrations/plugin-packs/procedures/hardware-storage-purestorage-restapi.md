@@ -7,3 +7,11 @@ description: "This deprecated connector monitored Pure Storage arrays via REST A
 ## **WARNING** This Pack is deprecated
 
 This Pack has been deprecated and replaced by [Pure Storage FlashArray Legacy Rest API](hardware-storage-purestorage-flasharray-legacy-restapi.md) or [Pure Storage FlashArray Rest API v2](hardware-storage-purestorage-flasharray-v2-restapi.md).
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Changelog
+
+- [23.01](../releases/release-notes.md#2023-01) - Enhancements: refactoring purestorage rest api.
+
+{/* CHANGELOG:END */}

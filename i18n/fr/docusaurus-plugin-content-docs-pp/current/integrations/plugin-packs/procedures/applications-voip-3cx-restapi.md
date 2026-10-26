@@ -401,3 +401,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=system \
 	--help
 ```
+
+{/* CHANGELOG:START - generated from the release notes by update_changelog.py, do not edit manually */}
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added support for versions 20 and above and added **license** mode, based on a [community idea](https://thewatch.centreon.com/ideas/request-to-upgrade-connector-3cx-4418) and community contribution.
+- [24.08](../releases/release-notes.md#2024-08) - Enhancements: Added support for authentication on versions higher than 18.0.5 and made the default values more explicit.
+
+{/* CHANGELOG:END */}
