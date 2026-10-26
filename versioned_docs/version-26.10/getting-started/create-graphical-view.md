@@ -63,7 +63,7 @@ The editor is organized as follows:
 ### Build the map
 
 1. Add your Centreon resources:
-    - To add one resource, drag a **Host**, **Service**, **Host group**, **Service group**, **Meta service** or **Business activity** element from the **Shapes** panel onto the canvas, right-click it, select **Edit data**, choose the resource and click **Submit**.
+    - To add one resource, drag a **Host**, **Service**, **Host group**, **Service group**, **Metaservice** or **Business activity** element from the **Shapes** panel onto the canvas, right-click it, select **Edit data**, choose the resource and click **Submit**.
     - To add several resources at once, use the **Search a resource** bar above the canvas, select the resources you want, then click **Add to map**.
 2. Add context to your map:
     - **Widgets** display data about your resources, such as a pie chart of statuses, a line chart of performance data, a gauge or the output of a service.

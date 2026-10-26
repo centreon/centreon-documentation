@@ -63,7 +63,7 @@ L'éditeur est organisé de la manière suivante :
 ### Concevoir la carte
 
 1. Ajoutez vos ressources Centreon :
-    - Pour ajouter une ressource, faites glisser un élément **Host**, **Service**, **Host group**, **Service group**, **Meta service** ou **Business activity** du panneau **Formes** vers l'espace de travail, faites un clic droit dessus, sélectionnez **Modifier les paramètres...**, choisissez la ressource, puis cliquez sur **Soumettre**.
+    - Pour ajouter une ressource, faites glisser un élément **Host**, **Service**, **Host group**, **Service group**, **Metaservice** ou **Business activity** du panneau **Formes** vers l'espace de travail, faites un clic droit dessus, sélectionnez **Modifier les paramètres...**, choisissez la ressource, puis cliquez sur **Soumettre**.
     - Pour ajouter plusieurs ressources à la fois, utilisez la barre **Rechercher une ressource** située au-dessus de l'espace de travail, sélectionnez les ressources voulues, puis cliquez sur **Ajouter à la carte**.
 2. Donnez du contexte à votre carte :
     - Les **widgets** affichent des données sur vos ressources, par exemple un graphique à camembert des statuts, un graphique linéaire des données de performance, une jauge ou l'output d'un service.
