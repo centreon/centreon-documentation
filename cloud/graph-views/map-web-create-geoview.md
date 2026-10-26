@@ -1,7 +1,7 @@
 ---
 id: map-web-create-geoview
 title: Create a geographic view
-description: "Create geographic views in Centreon MAP by adding geo-coordinates to resources and positioning them on a map"
+description: "How to create geographic views in Centreon MAP by adding geo-coordinates to resources, with details on clustering, blinking resources, and datalayers"
 ---
 
 This topic provides information about how to create geographic views from the Centreon MAP interface.

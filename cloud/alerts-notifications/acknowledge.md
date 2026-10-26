@@ -1,7 +1,7 @@
 ---
 id: acknowledge
 title: Acknowledging an alert
-description: "How to acknowledge an alert to pause notifications, and how to disacknowledge it from the Resources Status page"
+description: "How to acknowledge an alert on a host or service to stop notifications until it recovers, its effect on Business Activities, and how to disacknowledge it"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: pluginpacks
 title: Monitoring Connectors
-description: "What a Monitoring Connector is, how to install one, and how to apply it to monitor a host or service"
+description: "What a Monitoring Connector is, how to install one and manage its dependencies, and how to apply it to monitor a host or service in Centreon"
 ---
 
 ## What is a Monitoring Connector?

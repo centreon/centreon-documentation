@@ -1,6 +1,7 @@
 ---
 id: ot-mail
 title: Mail
+description: "How to configure the Mail open-tickets provider, which uses an SMTP server to send incidents about your alerts by email, with a test command"
 ---
 
 The Mail Open Tickets provider uses the SMTP server to open incidents about your monitoring alerts.

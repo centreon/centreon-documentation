@@ -1,7 +1,7 @@
 ---
 id: chart-management
 title: Chart management
-description: "Overview of performance and status graphs in Centreon and the different ways to view and interact with them"
+description: "Overview of performance and status graphs in Centreon, the different ways to view them, and how to display and filter multiple graphs over a time period"
 ---
 
 Centreon can be used to generate graphs from monitoring information. There are two types of graph:

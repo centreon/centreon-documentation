@@ -1,7 +1,7 @@
 ---
 id: ot-glpi
 title: GLPI
-description: "Configure the GLPI open-tickets provider using the legacy webservice plugin, compatible with GLPI 8.5 to 9.0"
+description: "How to configure the GLPI open-tickets provider using the legacy webservice plugin, compatible with GLPI 8.5 to 9.0, now superseded by the REST API"
 ---
 
 > GLPI web services are no longer maintained, so we recommend that you use the Rest API version to benefit from the latest enhancements and features.

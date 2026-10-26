@@ -1,7 +1,7 @@
 ---
 id: cma-migratenscpp
 title: Centreon Monitoring Agent - Migrate from NSClient++
-description: "Guide for migrating hosts monitored with NSClient++ or NRPE to the Centreon Monitoring Agent"
+description: "Guide for migrating hosts monitored with NSClient++ or NRPE to the Centreon Monitoring Agent: deploy the agent, change host templates, and adapt services"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

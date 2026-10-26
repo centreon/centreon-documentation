@@ -1,6 +1,7 @@
 ---
 id: ot-bmc-remedy
 title: BMC Remedy
+description: "Comment configurer le fournisseur de tickets BMC Remedy (BMC ITSM), qui ouvre des incidents via l'API SOAP, avec prérequis et commandes de test"
 ---
 
 > This provider is called **BMC ITSM** in the Centreon web interface.

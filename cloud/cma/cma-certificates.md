@@ -1,7 +1,7 @@
 ---
 id: cma-certificates
 title: Configuring certificates
-description: "Configure TLS, insecure TLS, and unencrypted test connections between the Centreon Monitoring Agent and the poller"
+description: "Configure TLS, insecure TLS, or unencrypted test connections between the Centreon Monitoring Agent and the poller, and generate a self-signed certificate"
 ---
 
 import Tabs from '@theme/Tabs';

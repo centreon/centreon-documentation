@@ -1,7 +1,7 @@
 ---
 id: services-create-disco
 title: Creating services automatically
-description: "How services are created automatically, via Monitoring Connectors or the services discovery feature"
+description: "How services are created automatically in Centreon, either when you create a host with a Monitoring Connector or via the services discovery feature"
 ---
 
 Services can be created automatically in several ways:

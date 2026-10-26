@@ -1,7 +1,7 @@
 ---
 id: chart-management
 title: Gestion des graphiques
-description: "Présentation des graphiques de performance et de statut dans Centreon et des différentes façons de les consulter"
+description: "Présentation des graphiques de performance et de statut dans Centreon, des différentes façons de les consulter et de l'affichage de plusieurs graphiques"
 ---
 
 Centreon permet de générer des graphiques à partir des informations de supervision. Il existe deux types de graphiques :

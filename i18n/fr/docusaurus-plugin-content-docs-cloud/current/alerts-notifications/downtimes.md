@@ -1,7 +1,7 @@
 ---
 id: downtimes
 title: Planifier un temps d'arrêt
-description: "Comment définir un temps d'arrêt fixe ou flexible sur des ressources, et configurer des temps d'arrêt récurrents"
+description: "Comment définir un temps d'arrêt fixe ou flexible sur des ressources pour suspendre les notifications pendant une maintenance, et le rendre récurrent"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

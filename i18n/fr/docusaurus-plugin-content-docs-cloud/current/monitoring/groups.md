@@ -1,7 +1,7 @@
 ---
 id: groups
 title: Groupes
-description: "Comment créer des groupes d'hôtes et de services pour organiser les ressources et gérer les règles d'accès"
+description: "Comment créer des groupes d'hôtes et de services pour organiser les ressources, filtrer les vues et rapports, et gérer les règles d'accès aux ressources"
 ---
 
 Il est possible de regrouper des hôtes ou des services au sein de groupes.
@@ -23,7 +23,7 @@ Les groupes d’hôtes et de services sont utilisés pour :
   Hôtes Linux, Windows... On cherche également à regrouper les services par applications métiers. Exemple : application de
   gestion de la paie, application ERP, ...
 
-## Créer un groupes d’hôtes
+## Créer un groupe d’hôtes
 
 Allez à la page **Configuration > Hôtes > Groupes d'hôtes** et cliquez sur **Ajouter**.
 

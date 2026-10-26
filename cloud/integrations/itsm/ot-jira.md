@@ -1,7 +1,7 @@
 ---
 id: ot-jira
 title: Jira
-description: "Configure the Jira open-tickets provider that connects to Jira Cloud through the Jira REST API"
+description: "How to configure the Jira open-tickets provider that connects to Jira Cloud through the Jira REST API, with account requirements and test commands"
 ---
 
 ## How it works

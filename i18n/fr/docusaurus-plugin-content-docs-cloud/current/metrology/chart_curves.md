@@ -1,7 +1,7 @@
 ---
 id: chart-curves
 title: Courbes
-description: "Comment configurer et personnaliser les courbes affichées sur les graphiques de performance Centreon"
+description: "Comment configurer et personnaliser les courbes des graphiques de performance Centreon : source de données, empilement, couleur, remplissage et légende"
 ---
 
 ## Définition

@@ -1,7 +1,7 @@
 ---
 id: ticketing-advanced-mapping
 title: Argument mapping
-description: "How to configure mapping ticket arguments, lists, and custom list definitions for the Open Tickets popup"
+description: "How to configure the mapping ticket arguments, lists, and custom list definitions that define the fields of the Open Tickets popup and the data sent"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -10,7 +10,7 @@ When you create an [Open Tickets rule (on the **Configuration > Notifications > 
 
 In the [default ticket body example](ticketing-body.md), this information will be imported into the ticket via the following line: `{include file="file:$centreon_open_tickets_path/providers/Abstract/templates/display_selected_lists.ihtml" separator=""}`.
 
-Use the following sections of the form to customize the ticket creaton popup:
+Use the following sections of the form to customize the ticket creation popup:
 
 - [**Mapping ticket arguments**](#mapping-ticket-arguments)
 - [**Lists**](#lists)

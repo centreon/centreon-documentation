@@ -1,7 +1,7 @@
 ---
 id: metrics
 title: Understanding metrics
-description: "Understanding metrics, their format as performance data, and how to define thresholds for a specific metric"
+description: "Understanding metrics, their format as performance data, and how to define thresholds for a specific metric, with examples of commands and their output"
 ---
 
 ## What is a metric?

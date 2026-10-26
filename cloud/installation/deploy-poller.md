@@ -1,7 +1,7 @@
 ---
 id: deploy-poller
 title: Deploying a poller
-description: "Step-by-step procedure to install a poller on your infrastructure and export the configuration to activate it"
+description: "Step-by-step procedure to install a poller on your infrastructure and export the configuration to activate it, or reinstall it and use a private repository"
 ---
 
 import Tabs from '@theme/Tabs';
