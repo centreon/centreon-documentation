@@ -515,4 +515,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.10](../releases/release-notes.md#2023-10) - Bug fix: Fixed a **Use of uninitialized value** error on Container-Usage mode.
+- [23.10](../releases/release-notes.md#2023-10) - Bug fix: Fixed a **Use of uninitialized value** error in **container-usage** mode.

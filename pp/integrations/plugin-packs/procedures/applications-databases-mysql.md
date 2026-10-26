@@ -890,7 +890,7 @@ All available options for a given mode can be displayed by adding the
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed an unsafe eval for unknown status option in **collection** mode, based on a community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
 - [24.11](../releases/release-notes.md#2024-11) - Enhancement: Used the correct MariaDB message when checking MySQL replication state.
 - [24.07](../releases/release-notes.md#2024-07) - Breaking change: The way fragmentation is calculated has changed to avoid getting values above 100.
-- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed a regression on sql-string mode.
-- [23.10](../releases/release-notes.md#2023-10) - Enhancement: Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed a regression in **sql-string** mode.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancement: Option `--printf-value` of mode **sql-string** supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
 - [23.05](../releases/release-notes.md#2023-05) - Enhancement: Added a collection service.
-- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed sql-statement option protection.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed `sql-statement` option protection.

@@ -582,4 +582,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.06](../releases/release-notes.md#2023-06) - Bug fix: Fixed options for interfaces mode.
+- [23.06](../releases/release-notes.md#2023-06) - Bug fix: Fixed options for **interfaces** mode.

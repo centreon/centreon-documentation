@@ -1220,8 +1220,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
 - [26.04](../releases/release-notes.md#2026-04) - Enhancement: Added option in **sdwan** mode to filter by interface name (from a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-network-fortinet-fortigate-snmp-plugin-mode-sdwan-interface-filter-3023)). Handled more than one VPN phase 2 connection status in **vpn** mode (issue [#4337](https://github.com/centreon/centreon-plugins/issues/4337)). Added service discovery for **sdwan** (based on a [The Watch idea](https://thewatch.centreon.com/ideas/fortigate-s-sdwan-service-discovery-5071)) and **vpn** modes (based on a [The Watch idea](https://thewatch.centreon.com/ideas/network-fortinet-fortigate-snmp-plugin-mode-vpn-service-discovery-3910)).
 - [26.02](../releases/release-notes.md#2026-02) - Bug fix: Fixed an error in the bandwidth calculation for the **SDWan** service (issue [#5959](https://github.com/centreon/centreon-plugins/issues/5959)).
-- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
-- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in interfaces mode.
+- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in **interfaces** mode.
 - [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added **ap-usage** service template.
 - [25.06](../releases/release-notes.md#2025-06) - Enhancement: Added **uptime** service template.
 - [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added **switch-usage** mode, **switch discovery rule** and **vdom discovery rule**, from community contribution [PR 5474](https://github.com/centreon/centreon-plugins/pull/5474).

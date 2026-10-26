@@ -743,5 +743,5 @@ All available options for a given mode can be displayed by adding the
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
 - [24.11](../releases/release-notes.md#2024-11) - Breaking change: Fixed `exclude` option working as "include".
 - [23.10](../releases/release-notes.md#2023-10) - Breaking change: Added `--database` option to the SQL statement command.
-- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed sql-statement option protection.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed `sql-statement` option protection.
 - [22.07](../releases/release-notes.md#2022-07) - Breaking change: Added services bloat and collection to PostgreSQL.

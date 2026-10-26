@@ -392,6 +392,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed typo in jobs mode.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed typo in **jobs** mode.
 - [23.04](../releases/release-notes.md#2023-04) - Enhancement: Added option `--job-name` in **jobs** mode.
 - [23.03](../releases/release-notes.md#2023-03) - New connector: Initial release.

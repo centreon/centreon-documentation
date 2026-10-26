@@ -725,8 +725,8 @@ All available options for a given mode can be displayed by adding the
 ## Changelog
 
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
-- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
-- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in interfaces mode.
+- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in **interfaces** mode.
 - [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added **uptime**, **spanning-tree** modes and **spanning-tree** service discovery from community contribution [PR 5198](https://github.com/centreon/centreon-plugins/pull/5198).
 - [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added new mode **stack** from community contribution [PR 5082](https://github.com/centreon/centreon-plugins/pull/5082).
 - [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added service virtual-chassis.

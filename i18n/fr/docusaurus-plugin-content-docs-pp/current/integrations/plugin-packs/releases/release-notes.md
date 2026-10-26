@@ -327,7 +327,7 @@ import TabItem from '@theme/TabItem';
 - [**Fritz!Box UPnP**](../procedures/network-fritzbox-upnp.md) - Fixed **system** mode status thresholds.
 - [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Fixed handling of `--insecure` option.
 - [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed daemon CVEs related to Log4j.
-- [**Phoenixtec UPS SNMP**](../procedures/hardware-ups-phoenixtec-snmp.md) - Removed thresholds for non-existent counters in --help section.
+- [**Phoenixtec UPS SNMP**](../procedures/hardware-ups-phoenixtec-snmp.md) - Removed thresholds for non-existent counters in `--help` section.
 - [**Powerware UPS SNMP**](../procedures/hardware-ups-powerware-snmp.md) - Fixed the output when the plugin does not detect the absence of an input line in **input-lines** mode.
 - [**Veritas Backup Exec NSCP API**](../procedures/applications-backupexec-nscp-restapi.md) - Fixed discovery macro command.
 
@@ -470,13 +470,13 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**HAProxy SNMP**](../procedures/applications-haproxy-snmp.md) - Allow compatibility with version 17 OIDs.
-- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added the number and percent of open files per process in process mode.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Added the number and percent of open files per process in **process** mode.
 - [**Veeam Backup Enterprise Manager Rest API**](../procedures/applications-veeam-vbem-restapi.md) - Allow compatibility with version 13.
 - [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Allow compatibility with version 13.
 - [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Allow compatibility with version 13.
 - [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Allow compatibility with version 13.
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Allow compatibility with version 13.
-- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added certificates mode.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added **certificates** mode.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -487,9 +487,9 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed a `No peers detected` error with `--ntp-mode=ntpq`.
-- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Fixed edge cases size calculation in database mode.
-- [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed edge cases size calculation in database mode.
-- [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed edge cases size calculation in database mode.
+- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Fixed edge cases size calculation in **database** mode.
+- [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed edge cases size calculation in **database** mode.
+- [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed edge cases size calculation in **database** mode.
 - [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Replaced obsolete '\C' pattern in regular expressions in Cpu, Psu and Temperature.
 - [**SecurActive SNMP**](../procedures/network-securactive-snmp.md) - Fixed the **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
 - [**Splunk API**](../procedures/applications-monitoring-splunk-api.md) - Fixed the **App-Monitoring-Splunk-Api-String-Value** command that used a wrong mode.
@@ -537,7 +537,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Centreon Experience Monitoring (formerly Quanta) Rest API**](../procedures/applications-monitoring-centreon-experience-monitoring-restapi.md) - The connector now returns an OK status when no incidents are found (instead of UNKNOWN).
 - [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases. 
-- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as `updates` and `pending-reboot` modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)). 
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as **updates** and **pending-reboot** modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)). 
 - [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Fixed a mix-up between `data-write-ops` and `data-write-bytes` for the **Fsx-DataUsage** service (issue [#5944](https://github.com/centreon/centreon-plugins/issues/5944)).
 - [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed an error in the bandwidth calculation for the **SDWan** service (issue [#5959](https://github.com/centreon/centreon-plugins/issues/5959)).
 
@@ -577,14 +577,14 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**D-Link DGS 3100 SNMP**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
-- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
-- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [**D-Link DGS 3100 SNMP**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
 - [**HP MSA2000 SNMP**](../procedures/hardware-storage-hp-msa2000-snmp.md) - Fixed GitHub [issue 5899](https://github.com/centreon/centreon-plugins/issues/5899), also talked about on [TheWatch](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
-- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
 - [**Lenovo S Series SNMP**](../procedures/hardware-storage-lenovo-sseries-snmp.md) - Fixed GitHub [issue 5899](https://github.com/centreon/centreon-plugins/issues/5899), also talked about on [TheWatch](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
 - [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Forced the version of a dependency, to fix a segmentation fault issue. 
-- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
 
 </TabItem>
 </Tabs>
@@ -622,21 +622,21 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - Fixed typo in jobs mode.
+- [**Control-M Rest API**](../procedures/applications-controlm-restapi.md) - Fixed typo in **jobs** mode.
 - [**NetApp Ontap Rest API**](../procedures/hardware-storage-netapp-ontap-restapi.md) - Added state to the requested fields in volume query [PR 5851](https://github.com/centreon/centreon-plugins/pull/5851).
 - [**Netbackup NSClient++ API**](../procedures/applications-netbackup-nsclient-05-restapi.md) - Removed exchange command.
-- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed wrong tablespace size calculation in tablespace-usage mode.
-- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
-- [**D-Link DGS 3100**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed percentage calculation in interfaces mode.
-- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
-- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed percentage calculation in interfaces mode.
-- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed percentage calculation in interfaces mode.
-- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed wrong output unit in locks-wait mode.
-- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed percentage calculation in interfaces mode.
-- [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
-- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
-- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
-- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed wrong tablespace size calculation in **tablespace-usage** mode.
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - Fixed percentage calculation in **interfaces** mode.
+- [**D-Link DGS 3100**](../procedures/network-dlink-dgs3100-snmp.md) - Fixed percentage calculation in **interfaces** mode.
+- [**D-Link Network**](../procedures/network-dlink-standard-snmp.md) - Fixed percentage calculation in **interfaces** mode.
+- [**Fortinet Fortigate SNMP**](../procedures/network-firewalls-fortinet-fortigate-snmp.md) - Fixed percentage calculation in **interfaces** mode.
+- [**HP Procurve SNMP**](../procedures/network-switchs-hp-procurve-snmp.md) - Fixed percentage calculation in **interfaces** mode.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed wrong output unit in **locks-wait** mode.
+- [**Palo Alto firewall SNMP**](../procedures/network-firewalls-paloalto-standard-snmp.md) - Fixed percentage calculation in **interfaces** mode.
+- [**Windows NSClient 0.5 NRPE**](../procedures/operatingsystems-windows-nsclient-05-nrpe.md) - Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
+- [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
 
 </TabItem>
 </Tabs>
@@ -1338,7 +1338,7 @@ systemctl restart centreon_vmware
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**3CX**](../procedures/applications-voip-3cx-restapi.md) - Added support for authentication on versions higher than 18.0.5 and made the default values more explicit.
-- [**Teldat Edge Routers SNMP**](../procedures/network-teldat-snmp.md) - Enhanced the cells-radio mode.
+- [**Teldat Edge Routers SNMP**](../procedures/network-teldat-snmp.md) - Enhanced the **cells-radio** mode.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -1392,7 +1392,7 @@ systemctl restart centreon_vmware
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**HashiCorp Vault Rest API**](../procedures/applications-hashicorp-vault-restapi.md) - Added an option `auth-path` to handle variable path for hashicorp vault authentication ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4764)). This option will be available for the monitoring connectors of the current release and those to come. 
-- [**HTTP Server**](../procedures/applications-protocol-http.md) - Added possibility for collection mode to use the `full_url` and `functions` attributes ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4915)). 
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Added possibility for **collection** mode to use the `full_url` and `functions` attributes ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4915)). 
 - [**TrendMicro Iwsva**](../procedures/applications-trendmicro-iwsva-snmp.md) - Added disk partition discovery rule.
 
 </TabItem>
@@ -1405,7 +1405,7 @@ systemctl restart centreon_vmware
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Datacore SANsymphony RESTAPI**](../procedures/hardware-storage-datacore-api.md) - Fixed API path in pools check and added verbosity in monitoring Datacore “monitors” objects.
-- [**HTTP Server**](../procedures/applications-protocol-http.md) - Fixed in collection mode an infinite looping if the `parse` attribute was not defined and of another anomaly resulting in an “Unknown” error ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4915)). 
+- [**HTTP Server**](../procedures/applications-protocol-http.md) - Fixed in **collection** mode an infinite looping if the `parse` attribute was not defined and of another anomaly resulting in an “Unknown” error ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4915)). 
 - [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Fixed an issue with windows services containing parenthesis blocking discovery exportation. This parenthesis will automatically be replaced by square brackets to avoid this issue.
 
 </TabItem>
@@ -1424,10 +1424,10 @@ systemctl restart centreon_vmware
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Citrix Netscaler**](../procedures/network-loadbalancers-netscaler-snmp.md) - Fixed status mapping on Citrix PSU ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4722)).
-- [**FTP Server**](../procedures/applications-protocol-ftp.md) - Fixed file processing when both --filter-file and --max-depth options were used.
+- [**FTP Server**](../procedures/applications-protocol-ftp.md) - Fixed file processing when both `--filter-file` and `--max-depth` options were used.
 - [**HTTP Server**](../procedures/applications-protocol-http.md) - Fixed the package version of perl-JSON-Path and added missing perl-Exporter-Easy package.
-- [**Protocol CIFS**](../procedures/applications-protocol-cifs.md) - Fixed file processing when both --filter-file and --max-depth options were used.
-- [**Protocol SFTP**](../procedures/applications-protocol-sftp.md) - Fixed file processing when both --filter-file and --max-depth options were used.
+- [**Protocol CIFS**](../procedures/applications-protocol-cifs.md) - Fixed file processing when both `--filter-file` and `--max-depth` options were used.
+- [**Protocol SFTP**](../procedures/applications-protocol-sftp.md) - Fixed file processing when both `--filter-file` and `--max-depth` options were used.
 - [**Windows WSMAN**](../procedures/operatingsystems-windows-wsman.md) - Fixed the OS-Windows-WSMAN-Services-Macro command and its discovery rule.
 
 </TabItem>
@@ -1446,8 +1446,8 @@ systemctl restart centreon_vmware
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Dell S-series**](../procedures/network-dell-sseries-snmp.md) - New filtering option supported for the SNMP IDs of the interfaces.
-- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Enhanced the functionality provided by the '--convert-custom-values' option of the 'string-value' mode.
-- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - The 'services' mode can now filter using non-ASCII characters.
+- [**Generic SNMP**](../procedures/applications-protocol-snmp.md) - Enhanced the functionality provided by the `--convert-custom-values` option of the **string-value** mode.
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - The **services** mode can now filter using non-ASCII characters.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -1459,8 +1459,8 @@ systemctl restart centreon_vmware
 
 - [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Fixed the Cloud-Azure-Database-SqlDatabase-Api-Cpu command.
 - [**Elasticsearch**](../procedures/applications-databases-elasticsearch.md) - Removed two useless macros from the App-DB-Elasticsearch-Indice-Statistics-custom service template.
-- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - The 'storage' mode now takes the reserved space of the file systems into account.
-- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - The 'storage' mode now takes the reserved space of the file systems into account.
+- [**Linux NRPE4**](../procedures/operatingsystems-linux-nrpe4.md) - The **storage** mode now takes the reserved space of the file systems into account.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - The **storage** mode now takes the reserved space of the file systems into account.
 
 </TabItem>
 </Tabs>
@@ -1507,7 +1507,7 @@ systemctl restart centreon_vmware
 <TabItem value="Enhancements" label="Enhancements">
 
 - [**Azure Kubernetes Service**](../procedures/cloud-azure-compute-aks.md) - Added Memory, Node-State, Pod-State and Unschedulable-Pods service templates to Azure AKS.
-- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Enhanced jobs and cache modes.
+- [**Rubrik Rest API**](../procedures/applications-rubrik-restapi.md) - Enhanced **jobs** and **cache** modes.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
@@ -1530,9 +1530,9 @@ systemctl restart centreon_vmware
 
 - [**Dell Xseries**](../procedures/network-switchs-dell-xseries-snmp.md) - Fixed the wrong options in the Net-Dell-Xseries-SNMP-Cpu command.
 - [**IBM Storwize**](../procedures/hardware-storage-ibm-storwize-ssh.md) - Fixed date issue and added replication service template.
-- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed a regression on sql-string mode.
-- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed a regression on sql-string mode.
-- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed a regression on sql-string mode.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Fixed a regression in **sql-string** mode.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Fixed a regression in **sql-string** mode.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed a regression in **sql-string** mode.
 - [**Warp10 Sensision**](../procedures/applications-databases-warp10-sensision.md) - Fixed an issue that blocked the uninstallation process and a broker command.
 
 </TabItem>
@@ -1574,7 +1574,7 @@ systemctl restart centreon_vmware
 - [**Citrix Acceleration**](../procedures/network-citrix-appacceleration-snmp.md) - Fixed incorrect carriage return in Service Discovery commands.
 - [**Stormshield API**](../procedures/network-stormshield-api.md) - Fixed an incorrect option in the HA command.
 - [**Synology**](../procedures/hardware-storage-synology-snmp.md) - Fixed an issue with the status that was returned when disks were failing.
-- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - Fixed the plugin's input-lines mode when all lines were at 0.
+- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - Fixed the plugin's **input-lines** mode when all lines were at 0.
 
 </TabItem>
 </Tabs>
@@ -1603,8 +1603,8 @@ systemctl restart centreon_vmware
 - [**Cisco Wap**](../procedures/network-cisco-wap-snmp.md) - Fixed the Net-Cisco-Wap-SNMP-Clients command.
 - [**HP Ilo XMLAPI**](../procedures/hardware-servers-hp-ilo-xmlapi.md) - Fixed the plugin that returned a CRITICAL state instead of a WARNING state.
 - [**Hitachi HCP SNMP**](../procedures/hardware-storage-hitachi-hcp-snmp.md) - Fixed the service discovery macro commands.
-- [**Juniper ISG**](../procedures/network-juniper-isg-snmp.md) - The Hardware mode no longer returns an UNKNOWN state for fans in a failed state.
-- [**Juniper SSG**](../procedures/network-firewalls-juniper-ssg-snmp.md) - The Hardware mode no longer returns an UNKNOWN state for fans in a failed state.
+- [**Juniper ISG**](../procedures/network-juniper-isg-snmp.md) - The **hardware** mode no longer returns an UNKNOWN state for fans in a failed state.
+- [**Juniper SSG**](../procedures/network-firewalls-juniper-ssg-snmp.md) - The **hardware** mode no longer returns an UNKNOWN state for fans in a failed state.
 - [**Netbackup SSH**](../procedures/applications-netbackup-ssh.md) - Fixed the App-Netbackup-SSH-Drive-Cleaning command.
 - [**SmarterMail Server**](../procedures/applications-smartermail-api.md) - Fixed the App-Smartermail-Api-Spools command.
 - [**VMware ESX**](../procedures/virtualization-vmware2-esx.md) - Fixed a bug in VMware health.
@@ -1630,10 +1630,10 @@ systemctl restart centreon_vmware
 
 - [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - New host check commands to monitor EC2 instances and auto-scaling groups.
 - [**Amazon RDS**](../procedures/cloud-aws-rds.md) - New host check command to monitor all RDS host templates.
-- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Option `--printf-value` of mode **sql-string** supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
 - [**MongoDB**](../procedures/applications-databases-mongodb.md) - Added the ability to collect shards statistics in Collection-Statistics and Database-Statistics.
-- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
-- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Option `--printf-value` of mode **sql-string** supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Option `--printf-value` of mode **sql-string** supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
 - [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - Added the unit to jitter service.
 
 </TabItem>
@@ -1646,10 +1646,10 @@ systemctl restart centreon_vmware
 
 - [**AWS Discover**](../procedures/cloud-aws-cloudwatch-discover.md) - Added the missing is\_password attribute to the host discovery provider.
 - [**Amazon FSx**](../procedures/cloud-aws-fsx.md) - Linked the freespace template to the right check command.
-- [**ArubaOS-CX SNMP**](../procedures/network-aruba-aoscx-snmp.md) - Fixed the hardware mode: "ready" states now give OK status.
+- [**ArubaOS-CX SNMP**](../procedures/network-aruba-aoscx-snmp.md) - Fixed the **hardware** mode, "ready" states now give OK status.
 - [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - Linked Executions template to the right check command.
-- [**cAdvisor API**](../procedures/cloud-cadvisor-api.md) - Fixed a **Use of uninitialized value** error on Container-Usage mode.
-- [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Fixed a **Not an ARRAY reference** error on System mode.
+- [**cAdvisor API**](../procedures/cloud-cadvisor-api.md) - Fixed a **Use of uninitialized value** error in **container-usage** mode.
+- [**Fortinet Fortigate Rest API**](../procedures/network-fortinet-fortigate-restapi.md) - Fixed a **Not an ARRAY reference** error in **system** mode.
 
 </TabItem>
 </Tabs>
@@ -1683,7 +1683,7 @@ systemctl restart centreon_vmware
 - [**Citrix Netscaler**](../procedures/network-loadbalancers-netscaler-snmp.md) - Fixed the status mapping for power supplies in Health service template.
 - [**F5 BigIP**](../procedures/network-loadbalancers-f5-bigip-snmp.md) - Fixed a bug causing a failure when the pool name was too long.
 - [**InfluxDB**](../procedures/applications-databases-influxdb.md) - Fixed a bug causing unknown status with "uninitialized values" when running multiple queries.
-- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed an issue on the cpu mode causing stats calculation to fail when there was only one processor.
+- [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed an issue in the **cpu** mode causing stats calculation to fail when there was only one processor.
 - [**Mikrotik SNMP**](../procedures/network-mikrotik-snmp.md) - Fixed interfaces service template.
 - [**Peplink Pepwave SNMP**](../procedures/network-peplink-pepwave-snmp.md) - Fixed interfaces service template.
 - [**Perle IDS SNMP**](../procedures/network-perle-ids-snmp.md) - Fixed interfaces service template.
@@ -1715,9 +1715,9 @@ systemctl restart centreon_vmware
 - [**Azure Functions**](../procedures/cloud-azure-compute-functions.md) - Removed privatebytes threshold from Memory service.
 - [**Azure Management Costs**](../procedures/cloud-azure-management-costs.md) - Moved to correct pack category.
 - [**IP Fabric API**](../procedures/applications-ipfabric-api.md) - Updated the logo.
-- [**IP-Label Newtest Rest API**](../procedures/applications-monitoring-iplabel-newtest-restapi.md) - Added the **--timeframe** option to scenario mode.
+- [**IP-Label Newtest Rest API**](../procedures/applications-monitoring-iplabel-newtest-restapi.md) - Added the `--timeframe` option to **scenario** mode.
 - [**Speedtest**](../procedures/applications-monitoring-speedtest.md) - Enhanced to use Ookla's speedtest.
-- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - Added thresholds for output-lines and alarms modes.
+- [**UPS Standard**](../procedures/hardware-ups-standard-rfc1628-snmp.md) - Added thresholds for **output-lines** and **alarms** modes.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -1808,7 +1808,7 @@ systemctl restart centreon_vmware
 </TabItem>
 <TabItem value="Enhancements" label="Enhancements">
 
-- [**Palo Alto firewall SSH**](../procedures/network-firewalls-paloalto-standard-ssh.md) - Added new licences mode.
+- [**Palo Alto firewall SSH**](../procedures/network-firewalls-paloalto-standard-ssh.md) - Added new **licences** mode.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -1818,8 +1818,8 @@ systemctl restart centreon_vmware
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Adva FSP 3000 SNMP**](../procedures/network-adva-fsp3000-snmp.md) - Fixed options for interfaces mode.
-- [**Hitachi NAS**](../procedures/hardware-storage-hitachi-hnas-snmp.md) - Fixed option in virtual-volumes-quotas mode.
+- [**Adva FSP 3000 SNMP**](../procedures/network-adva-fsp3000-snmp.md) - Fixed options for **interfaces** mode.
+- [**Hitachi NAS**](../procedures/hardware-storage-hitachi-hnas-snmp.md) - Fixed option in **virtual-volumes-quotas** mode.
 
 </TabItem>
 </Tabs>
@@ -1921,8 +1921,8 @@ systemctl restart centreon_vmware
 - [**Alcatel Omniswitch**](../procedures/network-switchs-alcatel-omniswitch-snmp.md) - Added interfaces service.
 - [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Added EXTRAOPTIONS on health template.
 - [**Dell PowerStore Rest API**](../procedures/hardware-storage-dell-powerstore-restapi.md) - Added service memory.
-- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added **--namespace** option.
-- [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - Added external-sensors mode.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added `--namespace` option.
+- [**Raritan PDU**](../procedures/hardware-pdu-raritan-snmp.md) - Added **external-sensors** mode.
 
 </TabItem>
 <TabItem value="Breaking changes" label="Breaking changes">
@@ -1955,7 +1955,7 @@ systemctl restart centreon_vmware
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Fixed typo cloud-aws-rds instance-status mode.
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Fixed typo cloud-aws-rds **instance-status** mode.
 - [**AWS Billing**](../procedures/cloud-aws-billing.md) - Unlocked host discovery parameters.
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Unlocked host discovery parameters.
 - [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Fixed the discovery commands and arguments.
@@ -1992,12 +1992,12 @@ systemctl restart centreon_vmware
 
 <TabItem value="Breaking changes" label="Breaking changes">
 
-- [**Informix DB**](../procedures/applications-databases-informix.md) - Changed sql-statement option protection.
-- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Changed sql-statement option protection.
-- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Changed sql-statement option protection.
-- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Changed sql-statement option protection.
-- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Changed sql-statement option protection.
-- [**Sybase**](../procedures/applications-databases-sybase.md) - Changed sql-statement option protection.
+- [**Informix DB**](../procedures/applications-databases-informix.md) - Changed `sql-statement` option protection.
+- [**Microsoft SQL Server**](../procedures/applications-databases-mssql.md) - Changed `sql-statement` option protection.
+- [**MySQL/MariaDB**](../procedures/applications-databases-mysql.md) - Changed `sql-statement` option protection.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Changed `sql-statement` option protection.
+- [**PostgreSQL**](../procedures/applications-databases-postgresql.md) - Changed `sql-statement` option protection.
+- [**Sybase**](../procedures/applications-databases-sybase.md) - Changed `sql-statement` option protection.
 - [**Antivirus ClamAV**](../procedures/applications-antivirus-clamav-ssh.md) - Changed to use new ssh backend.
 
 </TabItem>
@@ -2118,7 +2118,7 @@ systemctl restart centreon_vmware
 - [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Added platformDetails attribute in EC2 discovery.
 - [**Azure Recovery**](../procedures/cloud-azure-management-recovery.md) - Added command option to filter on period for Azure backup job status.
 - [**Azure Recovery**](../procedures/cloud-azure-management-recovery.md) - Added site replication service.
-- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - Added BGP modes with IPv6 support.
+- [**Cisco Standard**](../procedures/network-cisco-standard-snmp.md) - Added **bgp** modes with IPv6 support.
 - [**Efficient IP**](../procedures/network-efficientip-snmp.md) - Added SOLID server service template.
 - [**HP 3PAR SSH**](../procedures/hardware-storage-hp-3par-ssh.md) - Added services afc, cages, capacity, nodes to HP 3par SSH Pack.
 - [**HTTP Server**](../procedures/applications-protocol-http.md) - Added Collection service template.
@@ -2144,7 +2144,7 @@ systemctl restart centreon_vmware
 - [**Huawei**](../procedures/network-huawei-snmp.md) - Make regex more restrictive when using interface discovery scan.
 - [**IBM AS400 Connector**](../procedures/operatingsystems-as400-connector.md) - Fixed typo in AS400-Command command thresholds.
 - [**IP-Label Ekara Rest API**](../procedures/applications-monitoring-iplabel-ekara-restapi.md) - Discovery provider didn't obfuscate correctly sensitive macros.
-- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Fixed outdated command option for nettracer mode.
+- [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Fixed outdated command option for **nettracer** mode.
 - [**Silverpeak**](../procedures/network-silverpeak-snmp.md) - Fixed Uptime command thresholds.
 
 </TabItem>
@@ -2181,7 +2181,7 @@ systemctl restart centreon_vmware
 
 - [**Active Directory WSMAN**](../procedures/applications-active-directory-wsman.md) - Fixed typos in Active Directory WSMan commands.
 - [**AWS ELB**](../procedures/cloud-aws-elb.md) - Added missing Classic and Applications ELB Discovery rules.
-- [**Azure Database for MySQL**](../procedures/cloud-azure-database-mysql.md) - Fixed typo in serverlog-usage option label.
+- [**Azure Database for MySQL**](../procedures/cloud-azure-database-mysql.md) - Fixed typo in `serverlog-usage` option label.
 - [**Ruckus ICX SNMP**](../procedures/network-ruckus-icx-snmp.md) - Fixed macro in Ruckus ICX Memory service template.
 
 </TabItem>
@@ -2303,7 +2303,7 @@ systemctl restart centreon_vmware
 - [**Amazon EC2**](../procedures/cloud-aws-ec2.md) - Fixed discovery mapper and wrong HTPL/STPL association.
 - [**Aruba Standard**](../procedures/network-switchs-aruba-standard-snmp.md) - Fixed extra space in disco commands.
 - [**Centreon MBI**](../procedures/applications-monitoring-centreon-mbi.md) - Fixed MariaDB service name.
-- [**Docker RestAPI**](../procedures/applications-docker-restapi.md) - Fixed macro in Node-status mode.
+- [**Docker RestAPI**](../procedures/applications-docker-restapi.md) - Fixed macro in **node-status** mode.
 - [**Microsoft IIS NSClient 0.5**](../procedures/applications-webservers-iis-nsclient-05-restapi.md) - Aligned pack status with documentation (deprecated).
 - [**Microsoft IIS NRPE**](../procedures/applications-webservers-iis-nrpe.md) - Aligned pack status with documentation (deprecated).
 - [**Azure Virtual Machine Scale Sets**](../procedures/cloud-azure-compute-vmscalesets.md) - Fixed discovery provider description.

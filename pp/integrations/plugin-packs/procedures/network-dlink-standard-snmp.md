@@ -573,5 +573,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings on interfaces mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
-- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in interfaces mode.
+- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in **interfaces** mode.

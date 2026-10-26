@@ -549,4 +549,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [26.08](../releases/release-notes.md#2026-08) - Enhancement: Enhanced services monitoring & added discovery for Docker Swarm.
 - [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed memory usage calculation in **container-usage** mode.
 - [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed memory usage calculation in **container-usage** mode.
-- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed macro in Node-status mode.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed macro in **node-status** mode.

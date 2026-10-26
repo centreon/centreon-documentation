@@ -1658,4 +1658,4 @@ All available options for a given mode can be displayed by adding the
 - [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed an issue occurring when a pod IP was empty in the **list-pods** discovery rule.
 - [24.08](../releases/release-notes.md#2024-08) - Breaking change: Endpoint changed from beta to v1 and split the host templates into API and CLI to make both easier to use.
 - [23.03](../releases/release-notes.md#2023-03) - Bug fix: Fixed node host discovery.
-- [23.02](../releases/release-notes.md#2023-02) - Enhancement: Added **--namespace** option.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: Added `--namespace` option.

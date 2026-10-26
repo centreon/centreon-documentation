@@ -575,7 +575,7 @@ All available options for a given mode can be displayed by adding the
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added service template for **response-time** mode and added native SNMP v3 host macro.
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Added missing mandatory parameter in SNMP collection discovery command.
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
-- [24.04](../releases/release-notes.md#2024-04) - Enhancement: Enhanced the functionality provided by the '--convert-custom-values' option of the 'string-value' mode.
+- [24.04](../releases/release-notes.md#2024-04) - Enhancement: Enhanced the functionality provided by the `--convert-custom-values` option of the **string-value** mode.
 - [24.03](../releases/release-notes.md#2024-03) - Bug fix: Fixed the App-Protocol-SNMP-Host command and a random behaviour on SNMP-Collection.
 - [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
 - [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added dependencies to avoid errors when using host discovery.

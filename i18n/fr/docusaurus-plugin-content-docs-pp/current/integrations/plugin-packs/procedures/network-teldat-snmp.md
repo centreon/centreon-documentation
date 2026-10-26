@@ -582,5 +582,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.08](../releases/release-notes.md#2024-08) - Enhancement: Enhanced the cells-radio mode.
+- [24.08](../releases/release-notes.md#2024-08) - Enhancement: Enhanced the **cells-radio** mode.
 - [24.01](../releases/release-notes.md#2024-01) - New connector: Initial release of Teldat Edge Routers SNMP.

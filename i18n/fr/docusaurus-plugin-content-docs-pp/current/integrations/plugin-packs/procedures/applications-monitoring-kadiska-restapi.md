@@ -865,5 +865,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [23.04](../releases/release-notes.md#2023-04) - Breaking change: Added various improvements.
 - [23.01](../releases/release-notes.md#2023-01) - Bug fix: Fixed the discovery commands and arguments.
 - [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added new STPL.
-- [22.09](../releases/release-notes.md#2022-09) - Bug fix: Fixed outdated command option for nettracer mode.
+- [22.09](../releases/release-notes.md#2022-09) - Bug fix: Fixed outdated command option for **nettracer** mode.
 - [22.05](../releases/release-notes.md#2022-05) - New connector: Initial release.
