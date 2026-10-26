@@ -1,6 +1,7 @@
 ---
 id: user-rights
 title: User rights in Centreon Log Management
+description: "User, Editor and Administrator roles in Centreon Log Management, what each role can do, and how to add users to or remove them from an organization."
 ---
 
 In Centreon Log Management, users can:
