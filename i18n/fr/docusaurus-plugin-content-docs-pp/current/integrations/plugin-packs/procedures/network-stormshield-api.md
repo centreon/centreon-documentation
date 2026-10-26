@@ -677,4 +677,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added new **vpn-tunnels** mode and **list-vpn-tunnels** discovery rule, based on community contribution [PR 5048](https://github.com/centreon/centreon-plugins/pull/5048).
 - [25.01](../releases/release-notes.md#2025-01) - Breaking change: Fixed mapped values for **state** and **plugged in interfaces** modes.
 - [23.12](../releases/release-notes.md#2023-12) - Bug fix: Fixed an incorrect option in the HA command.
-- [22.12](../releases/release-notes.md#2022-12) - New connector: initial release.
+- [22.12](../releases/release-notes.md#2022-12) - New connector: Initial release.

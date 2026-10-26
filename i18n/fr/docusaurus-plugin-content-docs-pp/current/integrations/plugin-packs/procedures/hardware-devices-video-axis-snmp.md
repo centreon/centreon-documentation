@@ -412,4 +412,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed wrong fan status mapping leading to false positives, from community contribution [PR 5356](https://github.com/centreon/centreon-plugins/pull/5356)
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed wrong fan status mapping leading to false positives, from community contribution [PR 5356](https://github.com/centreon/centreon-plugins/pull/5356).

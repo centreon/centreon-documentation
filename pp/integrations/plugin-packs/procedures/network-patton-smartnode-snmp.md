@@ -426,4 +426,4 @@ All available options for a given mode can be displayed by adding the
 ## Changelog
 
 - [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Patton-Smartnode-SNMP-Call** command.
-- [22.12](../releases/release-notes.md#2022-12) - New connector: Add Patton Snmp Monitoring Connector.
+- [22.12](../releases/release-notes.md#2022-12) - New connector: Added Patton Snmp Monitoring Connector.

@@ -968,6 +968,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ## Historique des modifications
 
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added support for API version 9.2.4.18.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
-- [22.12](../releases/release-notes.md#2022-12) - Enhancement: add service clusters.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.12](../releases/release-notes.md#2022-12) - Enhancement: Added service clusters.
 - [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

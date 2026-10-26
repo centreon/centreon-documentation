@@ -390,4 +390,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed in typo in commands for the **repository** and **agent** modes.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed typo in commands for the **repository** and **agent** modes.

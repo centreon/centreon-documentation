@@ -1137,4 +1137,4 @@ All available options for a given mode can be displayed by adding the
 - [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added the **snapmirrorlag** service template.
 - [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added **uptime** mode and service template.
 - [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Disk-Failed** command.
-- [23.08](../releases/release-notes.md#2023-08) - Bug fix: fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: Fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.

@@ -578,8 +578,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed an unsafe eval for unknown status option in **collection** mode, based on community contribution [PR 5151](https://github.com/centreon/centreon-plugins/pull/5151).
 - [24.04](../releases/release-notes.md#2024-04) - Enhancement: Enhanced the functionality provided by the '--convert-custom-values' option of the 'string-value' mode.
 - [24.03](../releases/release-notes.md#2024-03) - Bug fix: Fixed the App-Protocol-SNMP-Host command and a random behaviour on SNMP-Collection.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
-- [23.07](../releases/release-notes.md#2023-07) - Enhancement: added dependencies to avoid errors when using host discovery.
-- [23.05](../releases/release-notes.md#2023-05) - Enhancement: added a SNMP-based host template.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added dependencies to avoid errors when using host discovery.
+- [23.05](../releases/release-notes.md#2023-05) - Enhancement: Added a SNMP-based host template.
 - [22.11](../releases/release-notes.md#2022-11) - Enhancement: New SNMP Host discovery for IP protocol (rfc4293).
-- [22.05](../releases/release-notes.md#2022-05) - Enhancement: Add Cisco ASA support in SNMP discovery providers.
+- [22.05](../releases/release-notes.md#2022-05) - Enhancement: Added Cisco ASA support in SNMP discovery providers.

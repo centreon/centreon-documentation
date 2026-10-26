@@ -567,4 +567,4 @@ All available options for a given mode can be displayed by adding the
 ## Changelog
 
 - [24.12](../releases/release-notes.md#2024-12) - Enhancement: Enhanced **ports** mode and added **license** mode.
-- [23.05](../releases/release-notes.md#2023-05) - New connector: initial release.
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

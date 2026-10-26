@@ -524,5 +524,5 @@ All available options for a given mode can be displayed by adding the
 
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
 - [23.12](../releases/release-notes.md#2023-12) - Bug fix: Fixed the plugin's input-lines mode when all lines were at 0.
-- [23.08](../releases/release-notes.md#2023-08) - Enhancement: added thresholds for output-lines and alarms modes.
-- [23.03](../releases/release-notes.md#2023-03) - Enhancement: add thresholds for alarm services.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Added thresholds for output-lines and alarms modes.
+- [23.03](../releases/release-notes.md#2023-03) - Enhancement: Added thresholds for alarm services.

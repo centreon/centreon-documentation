@@ -576,4 +576,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.09](../releases/release-notes.md#2023-09) - New connector: First release.
+- [23.09](../releases/release-notes.md#2023-09) - New connector: Initial release.

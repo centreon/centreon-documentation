@@ -853,4 +853,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Add SOLID server service template.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added SOLID server service template.

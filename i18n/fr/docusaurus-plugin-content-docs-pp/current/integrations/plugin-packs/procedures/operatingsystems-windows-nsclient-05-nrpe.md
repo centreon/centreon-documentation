@@ -1137,5 +1137,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.02](../releases/release-notes.md#2025-02) - Enhancement: Changed pack display name to make it clear that it uses the NRPE protocol.
 - [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the certificate check command.
 - [23.06](../releases/release-notes.md#2023-06) - Breaking change: Updated default NRPE client and options.
-- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Fix erroneous mode name in Updates command.
-- [22.10](../releases/release-notes.md#2022-10) - Enhancement: add service updates for windows pack.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Fixed erroneous mode name in Updates command.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added service updates for windows pack.

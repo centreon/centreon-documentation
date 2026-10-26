@@ -431,4 +431,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.05](../releases/release-notes.md#2023-05) - New connector: initial release.
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

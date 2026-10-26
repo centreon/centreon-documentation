@@ -686,4 +686,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.03](../releases/release-notes.md#2023-03) - Enhancement: add disk service.
+- [23.03](../releases/release-notes.md#2023-03) - Enhancement: Added disk service.

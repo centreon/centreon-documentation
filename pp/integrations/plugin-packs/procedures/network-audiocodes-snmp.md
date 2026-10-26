@@ -638,4 +638,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.08](../releases/release-notes.md#2023-08) - Enhancement: added Sbc-Calls service.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Added Sbc-Calls service.

@@ -557,4 +557,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ## Historique des modifications
 
 - [26.04](../releases/release-notes.md#2026-04) - Enhancement: Enhanced compatibility with Dell SAN for **interfaces** mode, based on community contribution (PR [#5912](https://github.com/centreon/centreon-plugins/pull/5912)).
-- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fix controller-statistics command options.
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fixed controller-statistics command options.

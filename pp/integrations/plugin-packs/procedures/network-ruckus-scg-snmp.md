@@ -941,4 +941,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fix cpu command options.
+- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fixed cpu command options.

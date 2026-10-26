@@ -680,6 +680,6 @@ All available options for a given mode can be displayed by adding the
 - [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed total space calculation error and missing snapshot info in **volumes** mode.
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed hardware API requests for bays.
 - [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added default values for **Volumes** and **Aggregates** service templates.
-- [23.09](../releases/release-notes.md#2023-09) - Enhancement: now skipping empty FRUs (Field Replaceable Units).
-- [22.12](../releases/release-notes.md#2022-12) - Enhancement: add service quotas.
-- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Adding Aggregates service template.
+- [23.09](../releases/release-notes.md#2023-09) - Enhancement: Added a way to skip empty FRUs (Field Replaceable Units).
+- [22.12](../releases/release-notes.md#2022-12) - Enhancement: Added service quotas.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Added Aggregates service template.

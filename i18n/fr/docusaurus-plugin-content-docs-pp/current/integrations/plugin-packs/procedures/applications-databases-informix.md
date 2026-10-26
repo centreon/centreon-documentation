@@ -822,4 +822,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.12](../releases/release-notes.md#2022-12) - Breaking change: change sql-statement option protection.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed sql-statement option protection.

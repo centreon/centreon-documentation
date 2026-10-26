@@ -1422,7 +1422,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.05](../releases/release-notes.md#2026-05) - Enhancement: added EL10 and Debian13 prerequisites.
+- [26.05](../releases/release-notes.md#2026-05) - Enhancement: Added EL10 and Debian13 prerequisites.
 - [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
 - [24.10](../releases/release-notes.md#2024-10) - Bug fix: Added an `--output-fields` option for some OSs in the **systemd-journal** mode, when journalctl is in version 236 or higher.
 - [24.04](../releases/release-notes.md#2024-04) - Bug fix: The 'storage' mode now takes the reserved space of the file systems into account.

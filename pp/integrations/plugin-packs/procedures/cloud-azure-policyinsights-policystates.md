@@ -349,6 +349,6 @@ All available options for a given mode can be displayed by adding the
 ## Changelog
 
 - [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
-- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Add policy-name macro.
-- [23.05](../releases/release-notes.md#2023-05) - Bug fix: changed command name.
-- [23.03](../releases/release-notes.md#2023-03) - New connector: initial release.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Added policy-name macro.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Changed command name.
+- [23.03](../releases/release-notes.md#2023-03) - New connector: Initial release.

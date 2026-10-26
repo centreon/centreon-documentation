@@ -563,10 +563,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [26.07](../releases/release-notes.md#2026-07) - Enhancement: Enhanced message displayed when using wrong powershell version with veeam 13.
 - [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed Veeam job retrieval in **job-status** mode.
 - [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
-- [26.05](../releases/release-notes.md#2026-05) - Bug fix: fixed warnings about uninitialized values in **job-status** mode.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed warnings about uninitialized values in **job-status** mode.
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed a regression causing an "Undefined subroutine" error.
 - [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
 - [25.11](../releases/release-notes.md#2025-11) - Enhancement: Improved execution time in **job-status** mode.
 - [25.11](../releases/release-notes.md#2025-11) - Bug fix: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
 - [25.09](../releases/release-notes.md#2025-09) - Bug fix: Added Veeam Agent compatibility for job monitoring in **job-status** mode.
-- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Add new services: Repositories and Licenses.
-- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Add vsb-jobs service.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Added new services: Repositories and Licenses.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added vsb-jobs service.

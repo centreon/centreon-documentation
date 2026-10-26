@@ -430,4 +430,4 @@ All available options for a given mode can be displayed by adding the
 
 - [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
 - [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added handling of replication jobs to **jobs** mode.
-- [23.07](../releases/release-notes.md#2023-07) - New connector: initial release.
+- [23.07](../releases/release-notes.md#2023-07) - New connector: Initial release.

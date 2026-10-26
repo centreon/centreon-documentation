@@ -1426,8 +1426,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [24.12](../releases/release-notes.md#2024-12) - Breaking change: Fixed an issue with the **process** mode that wasn't returning the process in some cases. We added a column size limit to avoid filter issues.
 - [24.10](../releases/release-notes.md#2024-10) - Bug fix: Added an `--output-fields` option for some OSs in the **systemd-journal** mode, when journalctl is in version 236 or higher.
 - [24.04](../releases/release-notes.md#2024-04) - Bug fix: The 'storage' mode now takes the reserved space of the file systems into account.
-- [23.09](../releases/release-notes.md#2023-09) - Enhancement: New service template: systemd-journal + new service discovery rule: systemd-service.
+- [23.09](../releases/release-notes.md#2023-09) - Enhancement: New service template: systemd-journal and new service discovery rule: systemd-service.
 - [23.09](../releases/release-notes.md#2023-09) - Breaking change: Replaced **directlvm-usage** mode with new **lvm** mode (breaks only if used with custom command).
 - [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed an issue on the cpu mode causing stats calculation to fail when there was only one processor.
-- [23.05](../releases/release-notes.md#2023-05) - Enhancement: updated diskio command options.
-- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Adding missing Memory service template.
+- [23.05](../releases/release-notes.md#2023-05) - Enhancement: Updated diskio command options.
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Added missing Memory service template.

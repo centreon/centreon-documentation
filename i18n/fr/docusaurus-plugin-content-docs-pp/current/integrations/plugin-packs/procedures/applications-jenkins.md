@@ -335,4 +335,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.02](../releases/release-notes.md#2023-02) - Breaking change: changed service name and options.
+- [23.02](../releases/release-notes.md#2023-02) - Breaking change: Changed service name and options.

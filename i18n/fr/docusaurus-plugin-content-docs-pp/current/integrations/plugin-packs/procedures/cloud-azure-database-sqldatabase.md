@@ -713,6 +713,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
 - [24.09](../releases/release-notes.md#2024-09) - Bug fix: Added the missing `--server` option in some checks.
 - [24.04](../releases/release-notes.md#2024-04) - Bug fix: Fixed the Cloud-Azure-Database-SqlDatabase-Api-Cpu command.
-- [23.07](../releases/release-notes.md#2023-07) - Enhancement: added CPU and Memory monitoring.
-- [23.02](../releases/release-notes.md#2023-02) - Enhancement: add EXTRAOPTIONS on health template.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added CPU and Memory monitoring.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: Added EXTRAOPTIONS on health template.
 - [22.01](../releases/release-notes.md#2022-01) - Breaking change: Rewrite and extend.

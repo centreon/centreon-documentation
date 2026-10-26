@@ -474,5 +474,5 @@ All available options for a given mode can be displayed by adding the
 ## Changelog
 
 - [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
-- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Add command option to filter on period for Azure backup job status.
-- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Add site replication service.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added command option to filter on period for Azure backup job status.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added site replication service.

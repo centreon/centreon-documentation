@@ -637,4 +637,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed an issue affecting token renewal.
 - [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added a host macro to support several ways to authenticate to the API.
 - [24.02](../releases/release-notes.md#2024-02) - Enhancement: Enhanced jobs and cache modes.
-- [23.07](../releases/release-notes.md#2023-07) - Enhancement: added job monitoring.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added job monitoring.

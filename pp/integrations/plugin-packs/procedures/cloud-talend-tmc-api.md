@@ -494,4 +494,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.01](../releases/release-notes.md#2023-01) - New connector: initial release.
+- [23.01](../releases/release-notes.md#2023-01) - New connector: Initial release.

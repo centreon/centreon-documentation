@@ -509,5 +509,5 @@ All available options for a given mode can be displayed by adding the
 - [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed authentication failures and caching issues.
 - [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added option `include-node-name` in **vm-usage** mode, from community contribution [Issue 5642](https://github.com/centreon/centreon-plugins/issues/5642).
 - [25.08](../releases/release-notes.md#2025-08) - Enhancement: Added OS and IP info retrieval to **host discovery**.
-- [23.01](../releases/release-notes.md#2023-01) - Bug fix: fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters.
-- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Add a host discovery rule for virtual machines.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Unlocked host discovery parameters.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Added a host discovery rule for virtual machines.

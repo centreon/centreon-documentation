@@ -941,4 +941,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fix cpu command options.
+- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fixed cpu command options.

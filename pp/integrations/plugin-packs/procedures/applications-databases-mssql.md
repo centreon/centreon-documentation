@@ -826,14 +826,14 @@ All available options for a given mode can be displayed by adding the
 - [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed empty output for mssql **database-size** mode.
 - [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed a bad query issue revealed by a previous fix.
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Enhanced status threshold for **failed-jobs** mode.
-- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Added new filtering and threshold options
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Added new filtering and threshold options.
 - [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added an option to the **connected-users** mode to filter by database name ([PR 5195](https://github.com/centreon/centreon-plugins/pull/5195)).
 - [26.01](../releases/release-notes.md#2026-01) - Bug fix: Forced the version of a dependency, to fix a segmentation fault issue.
 - [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed wrong output unit in locks-wait mode.
 - [25.10](../releases/release-notes.md#2025-10) - Bug fix: Fixed an issue where **deadlocks** mode returned false positives.
 - [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed a regression on sql-string mode.
 - [23.10](../releases/release-notes.md#2023-10) - Enhancement: Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
-- [22.12](../releases/release-notes.md#2022-12) - Breaking change: change sql-statement option protection.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed sql-statement option protection.
 - [22.11](../releases/release-notes.md#2022-11) - Breaking change: Replace a standard command by dedicated ones.
-- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Add new threshold to Backup-age service.
-- [22.01](../releases/release-notes.md#2022-01) - Breaking change: Change thresholds for Backup-age service.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Added new threshold to Backup-age service.
+- [22.01](../releases/release-notes.md#2022-01) - Breaking change: Changed thresholds for Backup-age service.

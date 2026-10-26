@@ -474,5 +474,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Mismatch between template and command regarding host EXTRAOPTIONS.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Fixed mismatch between template and command regarding host EXTRAOPTIONS.
 - [22.05](../releases/release-notes.md#2022-05) - New connector: Initial release.

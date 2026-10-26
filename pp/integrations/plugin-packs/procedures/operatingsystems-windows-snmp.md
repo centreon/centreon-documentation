@@ -812,4 +812,4 @@ All available options for a given mode can be displayed by adding the
 - [24.04](../releases/release-notes.md#2024-04) - Enhancement: The 'services' mode can now filter using non-ASCII characters.
 - [23.12](../releases/release-notes.md#2023-12) - Enhancement: Added the `--check-overload` option in the `EXTRAOPTIONS` macro.
 - [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the bug on Windows SNMP Services monitoring returning "UNKNOWN: No service found." instead of CRITICAL.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking change: added options for Service-Generic mode (may change the behaviour of existing services).
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Added options for Service-Generic mode (may change the behaviour of existing services).

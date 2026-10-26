@@ -319,4 +319,4 @@ sudo /usr/lib/centreon/plugins/centreon_protocol_udp.pl \
 
 ## Historique des modifications
 
-- [23.05](../releases/release-notes.md#2023-05) - Enhancement: added a UDP-based host template.
+- [23.05](../releases/release-notes.md#2023-05) - Enhancement: Added a UDP-based host template.

@@ -382,8 +382,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 - [26.01](../releases/release-notes.md#2026-01) - Enhancement: Handle the pagination brought by version 7.5.
 - [24.09](../releases/release-notes.md#2024-09) - Enhancement: Added the missing SNMP community in host discovery.
-- [23.08](../releases/release-notes.md#2023-08) - Enhancement: updated the logo.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
-- [23.07](../releases/release-notes.md#2023-07) - Enhancement: updated path verification service.
-- [22.05](../releases/release-notes.md#2022-05) - Enhancement: Add new discovery capabilities (aruba, cisco, checkpoint, ...).
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Updated the logo.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Updated path verification service.
+- [22.05](../releases/release-notes.md#2022-05) - Enhancement: Added new discovery capabilities (aruba, cisco, checkpoint, ...).
 - [22.04](../releases/release-notes.md#2022-04) - New connector: Initial release.

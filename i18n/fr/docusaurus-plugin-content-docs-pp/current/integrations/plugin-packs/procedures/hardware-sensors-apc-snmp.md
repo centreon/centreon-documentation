@@ -346,4 +346,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ## Historique des modifications
 
 - [24.03](../releases/release-notes.md#2024-03) - Bug fix: Fixed an issue causing Perl warnings for 'use of uninitialized value'.
-- [22.12](../releases/release-notes.md#2022-12) - New connector: initial release.
+- [22.12](../releases/release-notes.md#2022-12) - New connector: Initial release.

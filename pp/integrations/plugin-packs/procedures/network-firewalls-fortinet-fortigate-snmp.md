@@ -1219,7 +1219,7 @@ All available options for a given mode can be displayed by adding the
 - [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added **ap-usage** service template.
 - [25.06](../releases/release-notes.md#2025-06) - Enhancement: Added **uptime** service template.
 - [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added **switch-usage** mode, **switch discovery rule** and **vdom discovery rule**, from community contribution [PR 5474](https://github.com/centreon/centreon-plugins/pull/5474).
-- [25.03](../releases/release-notes.md#2025-03) - Enhancement: Added ` ipsec-tunnels-count` in **vpn** mode, from community contribution [PR 5382](https://github.com/centreon/centreon-plugins/pull/5382).
+- [25.03](../releases/release-notes.md#2025-03) - Enhancement: Added `ipsec-tunnels-count` in **vpn** mode, from community contribution [PR 5382](https://github.com/centreon/centreon-plugins/pull/5382).
 - [25.02](../releases/release-notes.md#2025-02) - Bug fix: Fixed **sdwan** mode incorrect traffic calculation and units, based on a community contribution ([PR 5343](https://github.com/centreon/centreon-plugins/pull/5343)).
-- [23.04](../releases/release-notes.md#2023-04) - Enhancement: added default value for CRITICALSTATUS macro in Traffic-Global.
-- [22.01](../releases/release-notes.md#2022-01) - Enhancement: Change threshold options.
+- [23.04](../releases/release-notes.md#2023-04) - Enhancement: Added default value for CRITICALSTATUS macro in Traffic-Global.
+- [22.01](../releases/release-notes.md#2022-01) - Enhancement: Changed threshold options.

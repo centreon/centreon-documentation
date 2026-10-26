@@ -397,4 +397,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fix host template used.
+- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fixed host template used.

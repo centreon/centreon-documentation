@@ -252,6 +252,6 @@ All available options for a given mode can be displayed by adding the
 - [26.06](../releases/release-notes.md#2026-06) - Warning: `nmap` does not install automatically anymore.
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: `nmap` does not install automatically anymore.
 - [25.06](../releases/release-notes.md#2025-06) - Enhancement: Enhanced secure execution of commands.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
-- [23.01](../releases/release-notes.md#2023-01) - Bug fix: fix(pp): increased release number.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Increased release number.
 - [22.07](../releases/release-notes.md#2022-07) - Enhancement: Added WSMAN ports to Nmap discovery.

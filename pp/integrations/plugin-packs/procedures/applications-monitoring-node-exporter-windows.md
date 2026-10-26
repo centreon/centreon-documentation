@@ -509,4 +509,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.09](../releases/release-notes.md#2022-09) - New connector: Adding Windows node exporter Pack.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Windows node exporter Pack.

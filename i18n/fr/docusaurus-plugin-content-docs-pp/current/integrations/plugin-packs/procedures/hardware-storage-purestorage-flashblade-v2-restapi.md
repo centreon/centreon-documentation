@@ -490,4 +490,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.01](../releases/release-notes.md#2023-01) - Enhancement: refactoring purestorage rest api.
+- [23.01](../releases/release-notes.md#2023-01) - Enhancement: Refactored the purestorage rest api connectors.

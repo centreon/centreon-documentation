@@ -544,4 +544,4 @@ All available options for a given mode can be displayed by adding the
 ## Changelog
 
 - [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed macro in Ruckus ICX Memory service template.
-- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Add new thresholds to Memory service.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Added new thresholds to Memory service.

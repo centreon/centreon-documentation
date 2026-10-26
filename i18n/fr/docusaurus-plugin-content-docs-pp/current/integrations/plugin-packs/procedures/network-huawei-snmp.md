@@ -806,9 +806,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ## Historique des modifications
 
 - [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
-- [26.05](../releases/release-notes.md#2026-05) - Enhancement: added a way to handle missing fans in **hardware** mode.
+- [26.05](../releases/release-notes.md#2026-05) - Enhancement: Added a way to handle missing fans in **hardware** mode.
 - [26.04](../releases/release-notes.md#2026-04) - Enhancement: Extended Huawei network devices with GPON ONT module monitoring, from community contribution (PR [#5675](https://github.com/centreon/centreon-plugins/pull/5675)).
 - [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed missing fan state in short output.
 - [25.01](../releases/release-notes.md#2025-01) - Breaking change: Renamed, refactored, and added a new service template.
 - [22.09](../releases/release-notes.md#2022-09) - Bug fix: Make regex more restrictive when using interface discovery scan.
-- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Add optical monitoring in interfaces check.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Added optical monitoring in interfaces check.

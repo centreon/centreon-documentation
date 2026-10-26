@@ -687,4 +687,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.03](../releases/release-notes.md#2023-03) - Enhancement: add disk service.
+- [23.03](../releases/release-notes.md#2023-03) - Enhancement: Added disk service.

@@ -547,6 +547,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 - [26.10](../releases/release-notes.md#2026-10) - Bug fix: Fixed the desired replicas count for services: it was always reported as 0 and now matches the number of tasks Docker expects to run.
 - [26.08](../releases/release-notes.md#2026-08) - Enhancement: Enhanced services monitoring & added discovery for Docker Swarm.
-- [26.05](../releases/release-notes.md#2026-05) - Bug fix: fixed memory usage calculation in **container-usage** mode.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed memory usage calculation in **container-usage** mode.
 - [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed memory usage calculation in **container-usage** mode.
-- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fix macro in Node-status mode.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed macro in Node-status mode.

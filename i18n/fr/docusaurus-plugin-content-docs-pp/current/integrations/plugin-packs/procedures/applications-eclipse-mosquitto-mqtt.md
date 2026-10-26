@@ -491,4 +491,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed `format-custom` option.
 - [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed a syntax error and an issue with encoding occurring when topic names contained accents.
 - [25.04](../releases/release-notes.md#2025-04) - Bug fix: Fixed perfdata options in **numeric-value** mode, from community contribution [PR 5462](https://github.com/centreon/centreon-plugins/pull/5462).
+- [24.11](../releases/release-notes.md#2024-11) - Bug fix: Fixed `warning-regexp` and `critical-regexp` options.
 - [24.06](../releases/release-notes.md#2024-06) - New connector: Initial release of Eclipse Mosquitto MQTT.

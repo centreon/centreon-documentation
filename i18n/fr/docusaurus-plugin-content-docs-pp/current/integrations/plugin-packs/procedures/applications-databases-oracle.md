@@ -1372,6 +1372,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed segmentation fault that occurred with glibc's latest version.
 - [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed a regression on sql-string mode.
 - [23.10](../releases/release-notes.md#2023-10) - Enhancement: Option --printf-value of mode sql-string supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
-- [22.12](../releases/release-notes.md#2022-12) - Breaking change: change sql-statement option protection.
-- [22.09](../releases/release-notes.md#2022-09) - Breaking change: Add more thresholds to fra-usage service.
-- [22.02](../releases/release-notes.md#2022-02) - Breaking change: Change threshold options for service rman-backup-problems.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed sql-statement option protection.
+- [22.09](../releases/release-notes.md#2022-09) - Breaking change: Added more thresholds to fra-usage service.
+- [22.02](../releases/release-notes.md#2022-02) - Breaking change: Changed threshold options for service rman-backup-problems.

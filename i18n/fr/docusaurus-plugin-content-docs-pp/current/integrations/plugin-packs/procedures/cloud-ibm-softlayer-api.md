@@ -368,4 +368,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fix commands options.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed commands options.

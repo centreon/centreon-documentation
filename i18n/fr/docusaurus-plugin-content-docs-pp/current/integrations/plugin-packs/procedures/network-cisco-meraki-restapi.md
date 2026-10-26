@@ -956,8 +956,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.01](../releases/release-notes.md#2025-01) - Breaking change: Fixed the attributes for VPN statuses.
 - [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added Centreon user-agent key to Meraki API calls.
 - [24.07](../releases/release-notes.md#2024-07) - Enhancement: Added new mode to monitor VPN tunnels and its associated discovery rule using their network name.
-- [23.07](../releases/release-notes.md#2023-07) - Enhancement: added thresholds for devices monitoring.
-- [23.01](../releases/release-notes.md#2023-01) - Bug fix: fix (virtualization-proxmox-ve-restapi): unlock host discovery parameters.
-- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fix host disco attributes.
-- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Add new cache system.
-- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Add a variable to autodiscovery attributes.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added thresholds for devices monitoring.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Unlocked host discovery parameters.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed host disco attributes.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added new cache system.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added a variable to autodiscovery attributes.

@@ -572,4 +572,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.06](../releases/release-notes.md#2022-06) - Breaking change: Deprecate n4000, and initial release of nseries.
+- [22.06](../releases/release-notes.md#2022-06) - Breaking change: Deprecated n4000, and initial release of nseries.

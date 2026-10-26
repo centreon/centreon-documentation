@@ -647,5 +647,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ## Historique des modifications
 
 - [24.08](../releases/release-notes.md#2024-08) - Bug fix: Fixed the plugin's packaging.
-- [23.07](../releases/release-notes.md#2023-07) - Enhancement: added swap monitoring.
-- [23.04](../releases/release-notes.md#2023-04) - New connector: initial release.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added swap monitoring.
+- [23.04](../releases/release-notes.md#2023-04) - New connector: Initial release.

@@ -454,4 +454,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.08](../releases/release-notes.md#2023-08) - Bug fix: fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: Fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.

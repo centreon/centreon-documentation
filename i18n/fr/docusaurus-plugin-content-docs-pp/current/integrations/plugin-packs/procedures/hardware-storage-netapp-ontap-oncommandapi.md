@@ -1016,4 +1016,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.04](../releases/release-notes.md#2022-04) - Breaking change: Refactoring volumes services.
+- [22.04](../releases/release-notes.md#2022-04) - Breaking change: The volume services have been refactored

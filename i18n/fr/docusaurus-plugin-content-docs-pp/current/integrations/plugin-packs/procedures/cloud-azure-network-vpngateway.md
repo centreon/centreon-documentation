@@ -491,4 +491,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 - [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed wrong variable assignment in **vpn-gateway-status** mode.
-- [22.09](../releases/release-notes.md#2022-09) - Breaking change: Upgrage Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines.
+- [22.09](../releases/release-notes.md#2022-09) - Breaking change: Upgraded Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines.

@@ -609,4 +609,4 @@ All available options for a given mode can be displayed by adding the
 
 - [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
 - [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added **interfaces discovery rule**.
-- [22.09](../releases/release-notes.md#2022-09) - Bug fix: Fix Uptime command thresholds.
+- [22.09](../releases/release-notes.md#2022-09) - Bug fix: Fixed Uptime command thresholds.

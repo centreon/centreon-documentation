@@ -515,4 +515,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.11](../releases/release-notes.md#2022-11) - New connector: Adding Himoinsa Monitoring Connector.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Added Himoinsa Monitoring Connector.

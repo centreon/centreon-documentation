@@ -8,4 +8,4 @@ description: "Ce connecteur de supervision déprécié surveillait Microsoft IIS
 
 ## Historique des modifications
 
-- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Align pack status with documentation (deprecated).
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Aligned pack status with documentation (deprecated).

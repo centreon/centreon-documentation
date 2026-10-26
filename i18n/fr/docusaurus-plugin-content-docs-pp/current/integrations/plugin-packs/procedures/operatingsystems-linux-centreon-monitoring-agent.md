@@ -1296,7 +1296,7 @@ sudo -u centreon-monitoring-agent /usr/lib/centreon/plugins/centreon_linux_local
 
 ## Historique des modifications
 
-- [26.05](../releases/release-notes.md#2026-05) - Enhancement: added EL 10 and Debian 13 support.
+- [26.05](../releases/release-notes.md#2026-05) - Enhancement: Added EL 10 and Debian 13 support.
 - [26.02](../releases/release-notes.md#2026-02) - Enhancement: Added a **Custom-Script** service template to run custom commands.
 - [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
 - [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).

@@ -871,5 +871,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [24.11](../releases/release-notes.md#2024-11) - Bug fix: Fixed wrong unit for roundtrip-time.
 - [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added host macros to the AP host template to make configuration easier.
 - [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed host template used in the host discovery template mapper.
-- [23.07](../releases/release-notes.md#2023-07) - Enhancement: added a host discovery rule.
-- [23.03](../releases/release-notes.md#2023-03) - Enhancement: add AP discovery.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added a host discovery rule.
+- [23.03](../releases/release-notes.md#2023-03) - Enhancement: Added AP discovery.

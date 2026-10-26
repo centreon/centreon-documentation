@@ -1513,10 +1513,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.05](../releases/release-notes.md#2026-05) - Bug fix: fixed host macro `ESXNAME` default value.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed host macro `ESXNAME` default value.
 - [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
 - [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
 - [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed a bug in VMware health.
-- [23.03](../releases/release-notes.md#2023-03) - Enhancement: new attributes and fixed types.
-- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Add a new "tags" attributes in discovery results.
-- [22.05](../releases/release-notes.md#2022-05) - Enhancement: Use custom_attributes in VMWare Discovery providers.
+- [23.03](../releases/release-notes.md#2023-03) - Enhancement: Added new attributes and fixed types.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added a new `tags` attributes in discovery results.
+- [22.05](../releases/release-notes.md#2022-05) - Enhancement: Added the use of custom_attributes in VMWare Discovery providers.

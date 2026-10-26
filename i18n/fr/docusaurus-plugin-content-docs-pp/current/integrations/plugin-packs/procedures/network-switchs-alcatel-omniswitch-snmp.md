@@ -630,5 +630,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ## Historique des modifications
 
 - [23.12](../releases/release-notes.md#2023-12) - Breaking change: The Traffic-Global service template is now replaced by Interfaces.
-- [23.02](../releases/release-notes.md#2023-02) - Enhancement: add interfaces service.
-- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Add new service to check virtual chassis.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: Added interfaces service.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added new service to check virtual chassis.

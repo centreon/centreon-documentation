@@ -8,4 +8,4 @@ description: "Deprecated connector that monitored IP-Label Datamétrie via its R
 
 ## Changelog
 
-- [23.07](../releases/release-notes.md#2023-07) - Bug fix: marked as deprecated (service end of life).
+- [23.07](../releases/release-notes.md#2023-07) - Bug fix: Marked as deprecated (service end of life).

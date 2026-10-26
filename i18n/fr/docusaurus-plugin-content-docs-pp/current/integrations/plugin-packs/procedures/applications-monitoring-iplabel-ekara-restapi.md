@@ -462,9 +462,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.04](../releases/release-notes.md#2025-04) - Enhancement: Steps are now displayed in the actual step order instead of alphabetical.
 - [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed step metrics when scenario failed in **scenario** mode.
 - [25.02](../releases/release-notes.md#2025-02) - Enhancement: Changed status default thresholds and `--timeframe` option default value in **scenario** mode.
-- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added `--filter-workspaceid` and ` --filter-siteid` options for **incidents** and **scenarios** modes.
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added `--filter-workspaceid` and `--filter-siteid` options for **incidents** and **scenarios** modes.
 - [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed scenario monitoring where scenarios names were not correctly ordered.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
-- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Fix PASSWORD and FILTER macros attributes.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Fixed PASSWORD and FILTER macros attributes.
 - [22.09](../releases/release-notes.md#2022-09) - Bug fix: Discovery provider didn't obfuscate correctly sensitive macros.
 - [22.02](../releases/release-notes.md#2022-02) - New connector: Initial release.

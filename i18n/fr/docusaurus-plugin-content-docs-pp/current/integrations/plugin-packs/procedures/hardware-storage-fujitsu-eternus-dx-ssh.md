@@ -532,4 +532,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.10](../releases/release-notes.md#2022-10) - Breaking change: use new ssh backend.
+- [22.10](../releases/release-notes.md#2022-10) - Breaking change: Changed to use new ssh backend.

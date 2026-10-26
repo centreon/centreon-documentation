@@ -527,4 +527,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.10](../releases/release-notes.md#2022-10) - Breaking change: use new ssh backend.
+- [22.10](../releases/release-notes.md#2022-10) - Breaking change: Changed to use new ssh backend.

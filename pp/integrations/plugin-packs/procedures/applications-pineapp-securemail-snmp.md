@@ -388,4 +388,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.11](../releases/release-notes.md#2022-11) - New connector: Add new Pineapp Secure mail Pack.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Added new Pineapp Secure mail Pack.

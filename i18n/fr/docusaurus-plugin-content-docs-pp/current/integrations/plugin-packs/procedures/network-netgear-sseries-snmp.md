@@ -529,4 +529,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.09](../releases/release-notes.md#2022-09) - New connector: Add Netgear sseries switches Pack.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Netgear sseries switches Pack.

@@ -615,5 +615,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.05](../releases/release-notes.md#2026-05) - Bug fix: added missing `--credentials` option.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Added missing `--credentials` option.
 - [25.02](../releases/release-notes.md#2025-02) - New connector: Initial release of HAProxy Web.
