@@ -30,8 +30,8 @@ To monitor centreon-map JVM, please use following macro values:
 | :---------------------- | :------------------------------ |
 | ACTUATORCUSTOMMODE      | ```centreonmap```               |
 | ACTUATORAPIURLPATH      | ```/centreon-map/api/latest```    |
-| ACTUATORAPIUSERNAME     | Api username must be set        |
-| ACTUATORAPIPASSWORD     | Api password must be set        |
+| ACTUATORAPIUSERNAME     | API username must be set        |
+| ACTUATORAPIPASSWORD     | API password must be set        |
 
 > Remember to check the "Create Services linked to the Template too" checkbox.
 
