@@ -80,6 +80,8 @@ All these resources are described in the table below.
 | `ms_mysql-master`       | location             | Defines which database is the active node            |
 | `vip_mysql`             | primitive service    | VIP address for the database cluster                 |
 
-## Active/passive nodes or master/slave nodes?
+## Active/passive nodes, master/slave, promoted/demoted
 
-In this chapter, we will refer to active/passive nodes. You may notice that the output of some commands use the terms master and slave: these are Pacemaker and Corosync terms. Master means the active node and slave the passive node.
+In this chapter, we will refer to active/passive nodes. You may notice that for old versions of Pacemaker/Corosync, the output of some commands use the terms master and slave: these are Pacemaker and Corosync terms. Master means the active node and slave the passive node. More recent versions of Pacemaker/Corosync use the terms "Promoted/demoted".
+
+> Note that some commands, options or outputs may differ with your version of Pacemaker/Corosync. Refer to the official documentation of your version.

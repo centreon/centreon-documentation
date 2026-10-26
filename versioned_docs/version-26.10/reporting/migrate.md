@@ -39,7 +39,7 @@ mysql_upgrade
 -   If you see errors, especially on the following tables mysql
     innodb_index_stats, innodb_table_stats, gtid_slave_pos, it
     might be caused by an incompatibility between MySQL/MariaDB 5.5 and
-    MariaDB 10.11. In that case, follow the procedure below:
+    MariaDB 11.8. In that case, follow the procedure below:
 
     ```shell
     service mysql stop

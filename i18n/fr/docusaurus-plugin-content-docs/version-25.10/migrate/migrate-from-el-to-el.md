@@ -245,6 +245,8 @@ rsync -avz /usr/share/centreon/www/img/media root@<IP_NEW_CENTREON>:/usr/share/c
          password: "@GORGONE_PASSWORD@"
    ```
 
+   > Si vous avez [personnalisé l'URI de Centreon](../administration/secure-platform.md#uri-personnalisée), remplacez **/centreon** par votre chemin personnalisé dans la valeur **base_url**.
+
 7. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) de tous vos serveurs de supervision (y compris celle du central).
 
 8. Redémarrez les processus suivants :

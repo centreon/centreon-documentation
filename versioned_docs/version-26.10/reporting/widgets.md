@@ -23,98 +23,22 @@ A list of available widgets appears below.
 
 ## Availability & events
 
-### Hostgroups availability by hostgroups by month
+### Hostgroup availability history
 
 #### Description
 
-This widget displays the availability of hosts belonging to a host
-group, by month.
+This widget displays the past availability of a hostgroup by hosts, by host categories or by hostgroups.
 
-![image](../assets/reporting/guide/mbi-hgs-availability-by-hg-graph-month.png)
+![image](../assets/reporting/guide/mbi-hg-availability-history.png)
 
 #### Parameters
 
 **Menu description**
 
--   Select the group: Specify host group for displaying statistics.
--   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma.
--   Type the name of the reporting period you want to use (must be
-    calculated by Centreon BI): Make sure the reporting period is
-    preconfigured in MBI.
--   Chart type: Indicate type of graph.
--   Min value for graph (leave empty for self-adjustment): Minimum
-    value for Y-axis height.
--   Max value for graph (leave empty for self-adjustment): Maximum
-    value for Y-axis height.
--   Refresh Interval (seconds): Sets automatic refresh time for widgets.
-
-**Example**
-
-![image](../assets/reporting/guide/mbi-hgs-availability-by-hg-graph-month_param.png)
-
-
-
-### Hostgroup availability by host by day
-
-#### Description
-
-This widget displays the availability of hosts belonging to a host
-group, by day.
-
-![image](../assets/reporting/guide/mbi-hg-availability-by-host-graph-day.png)
-
-#### Parameters
-
-**Menu description**
-
--   Select the group: Specify host group for displaying statistics.
--   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma.
--   Type the name of the reporting period you want to use (must be
-    calculated by Centreon MBI): Make sure the reporting period must be
-    preconfigured in MBI.
--   Select the reporting period.
--   Chart type: Indicate type of graph.
--   Min value for graph (leave empty for self-adjustment): Minimum
-    value for Y-axis height.
--   Max value for graph (leave empty for self-adjustment): Maximum
-    value for Y-axis height.
--   Refresh Interval (seconds): Sets automatic refresh time for widgets.
-
-**Example**
-
-![image](../assets/reporting/guide/mbi-hg-availability-by-host-graph-day_param.png)
-
-### Hostgroup availability by host categories by month
-
-#### Description
-
-This widget displays the availability of hosts belonging to a host
-group, segmenting the hosts by category and by month.
-
-![image](../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month.png)
-
-#### Parameters
-
-**Menu description**
-
--   Select the group: Specify host group for displaying statistics.
--   Type the name of host categories to filter on: Indicate one or more
-    host categories. Separate multiple entries by a comma.
--   Type the name of the reporting period you want to use (must be
-    calculated by Centreon BI): Make sure the reporting period is
-    preconfigured in MBI.
--   Chart type: Indicate type of graph.
--   Min value for graph (leave empty for self-adjustment): Minimum
-    value for Y-axis height.
--   Max value for graph (leave empty for self-adjustment): Maximum
-    value for Y-axis height.
--   Refresh Interval (seconds): Sets automatic refresh time for widgets.
-
-**Example**
-
-![image](../assets/reporting/guide/mbi-hg-availability-by-hc-graph-month_param.png)
+- Calculations based on time period: Select the [time period](../monitoring/basic-objects/timeperiods.md) that will be used for the calculations.
+- Display with this resource type: Choose to display data for host groups, host categories or hosts.
+- Thresholds: Enable or disable thresholds and set their values.
+- Refresh interval: Set how often the displayed data should be refreshed.
 
 ### MTBF and MTRS by service {#mbi-hgs-hc-by-service-mtbf-mtrs}
 

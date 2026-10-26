@@ -250,9 +250,9 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | AZURECLIENTID      | Set Azure client ID                                                                                                        |                   | X           |
 | AZURECLIENTSECRET  | Set Azure client secret                                                                                                    |                   | X           |
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or ID (required). It is the database name                                                                |                   |             |
+| AZURERESOURCE      | Set resource name or ID (required). It is the database name                                                                |                   | X           |
 | AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   |             |
-| AZURESQLSERVERNAME | Set resource name or ID. It is the database name.                                                                      |                   | X           |
+| AZURESQLSERVERNAME | Set server name (required if resource's name is used)                                                                      |                   |             |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | AZURETENANT        | Set Azure tenant ID                                                                                                        |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
@@ -267,9 +267,9 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | Macro              | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or id. It is the database name.                                                                |                   |             |
+| AZURERESOURCE      | Set resource name or ID. It is the database name.                                                                |                   | X           |
 | AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   |             |
-| AZURESQLSERVERNAME | Set server name (required if resource's name is used)                                                                      |                   | X           |
+| AZURESQLSERVERNAME | Set server name (required if resource's name is used)                                                                      |                   |             |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
@@ -280,7 +280,9 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 > Deux méthodes peuvent être utilisées pour définir l'authentification :
 >
 > * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro **AZURERESOURCE**.
-> * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
+> * Utilisation du nom de la ressource dans la macro **AZURERESOURCE**, du nom
+>   du groupe de ressources dans la macro **AZURERESOURCEGROUP** et du nom du
+>   serveur dans la macro **AZURESQLSERVERNAME**.
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -639,6 +641,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --resource        | Set resource name or ID (required).                                                                                                                                   |
 | --resource-group  | Set resource group (required if resource's name is used).                                                                                                             |
+| --server          | Set server name (required if resource's name is used).                                                                                                                |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: '').  You can use the following variables: %\{status\}, %\{summary\}                                |
 | --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^Unavailable$/').  You can use the following variables: %\{status\}, %\{summary\}   |
 | --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /^Unknown$/').  You can use the following variables: %\{status\}, %\{summary\}        |

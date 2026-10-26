@@ -219,7 +219,7 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
-Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256M. If it isn't, insert it manually. 
 
 Then, finish upgrading the Centreon solution.
 

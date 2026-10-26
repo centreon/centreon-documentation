@@ -9,6 +9,81 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
+### Octobre
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Atlassian Statuspage API**](../procedures/applications-atlassian-statuspage-api.md) - Initial release.
+- [**Veeam Backup & Replication Rest API**](../procedures/applications-veeam-vbr-restapi.md) - Initial release.
+- [**Zscaler Zero Trust Branch API**](../procedures/cloud-zscaler-ztb-restapi.md) - Initial release.
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**cAdvisor w/ Prometheus API**](../procedures/cloud-prometheus-cadvisor-api.md) - Added host discovery and template features for **pods** and **containers**.
+- [**Centreon Experience Monitoring Rest API**](../procedures/applications-monitoring-centreon-experience-monitoring-restapi.md) - Changed the default value of the `timeframe` option (from 3600 to 86400 seconds).
+- [**F5OS SNMP**](../procedures/operatingsystems-f5os-snmp.md) - Added **disks** mode and its service discovery rule.
+- [**Veeam CMA**](../procedures/applications-veeam-centreon-monitoring-agent.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [**Veeam NRPE**](../procedures/applications-veeam-nrpe.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [**Veeam NSClient API**](../procedures/applications-veeam-nsclient-05-restapi.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [**Veeam WSMAN**](../procedures/applications-veeam-wsman.md) - Improved job execution performance when filtering by specific jobs in **job-status** mode.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Azure SQL Database**](../procedures/cloud-azure-database-sqldatabase.md) - Fixed an issue with **health** mode by adding the `--server` option. This was causing an invalid Azure Resource ID and resulted in a host being permanently DOWN / ResourceNotFound.
+- [**Docker Rest API**](../procedures/applications-docker-restapi.md) - Fixed the desired replicas count for services: it was always reported as 0 and now matches the number of tasks Docker expects to run.
+- [**Oracle Database**](../procedures/applications-databases-oracle.md) - Fixed **rman** mode unusable with the option `--sqlmode` set to `sqlpluscmd`.
+- [**Prometheus Server API**](../procedures/cloud-prometheus-api.md) - Fixed missing `query` option in the **Cloud-Prometheus-Api-Expression** service.
+- [**VMware8 VM REST API**](../procedures/applications-virtualization-vmware8-vm-restapi.md) - Discovery: the default template no longer maps the VM name to the host address when no IP is reported. This used to create hosts with invalid addresses that could not be edited or deleted.
+
+</TabItem>
+</Tabs>
+
+### Septembre
+
+> **Attention, information importante :** Nous avons corrigé un problème touchant à tous les connecteurs qui causait des `OK:` vides. Ceux-ci retourneront désormais la valeur correcte, `UNKNOWN`.
+
+> Centreon lance un programme bêta pour sa nouvelle collection SNMP Rust.
+> Le principe reste le même que pour la collection SNMP existante: un connecteur est décrit dans un fichier JSON
+> (requêtes SNMP, macros, seuils), sans écrire de code Perl. Cependant, le moteur est désormais un binaire Rust.
+> Nous recherchons des utilisateurs prêts à tester cette nouvelle collection sur leurs propres équipements et à nous faire part de leurs retours avant la sortie officielle.
+> Un groupe dédié pour les testeurs bêta est disponible sur The Watch [ici](https://thewatch.centreon.com/latest-news-37/data-driven-monitoring-checks-powered-by-rust-join-the-beta-5974).
+
+<Tabs groupId="sync">
+<TabItem value="New connectors" label="New connectors">
+
+- [**Generic SNMP (Rust)**](../procedures/applications-protocol-snmp-rs.md) - Initial release (experimental).
+- [**Linux SNMP (Rust)**](../procedures/operatingsystems-linux-snmp-rs.md) - Initial release (experimental).
+- [**Vates Pool REST API**](../procedures/applications-virtualization-vates-pool-restapi.md) - Initial release.
+- [**Vates VM REST API**](../procedures/applications-virtualization-vates-vm-restapi.md) - Initial release.
+- [**Vates XCPng Host REST API**](../procedures/applications-virtualization-vates-host-restapi.md) - Initial release.
+- [**Vates Xen Orchestra REST API**](../procedures/applications-virtualization-vates-xenorchestra-restapi.md) - Initial release.
+- [**Windows SNMP (Rust)**](../procedures/operatingsystems-windows-snmp-rs.md) - Initial release (experimental).
+
+</TabItem>
+<TabItem value="Enhancements" label="Enhancements">
+
+- [**Azure Load Balancer**](../procedures/cloud-azure-network-loadbalancer.md) - Added `tags` attribute to **host discovery**.
+- [**Kubernetes API**](../procedures/cloud-kubernetes-api.md) - Added new **pod-usage** mode and the associated service discovery rule.
+- [**Qnap SNMP**](../procedures/hardware-storage-qnap-snmp.md) - Enhanced the error message dipslayed when OIDs return `undef` in **hardware** mode. 
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - `centreon_plugins.exe` now supports the curl HTTP backend.
+
+</TabItem>
+<TabItem value="Bug fixes" label="Bug fixes">
+
+- [**Aviat Networks SNMP**](../procedures/network-aviat-snmp.md) - Fixed connector referencing a plugin version that doesn't exist on Debian 13.
+- [**Windows CMA**](../procedures/operatingsystems-windows-centreon-monitoring-agent.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [**Windows NSClient API**](../procedures/operatingsystems-windows-nsclient-05-restapi.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [**Windows Telegraf Agent**](../procedures/operatingsystems-windows-telegraf-agent.md) - Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [**HP Ilo Rest API**](../procedures/hardware-servers-hp-ilo-restapi.md) - Removed perl warnings displayed when running the command in some modes.
+
+</TabItem>
+</Tabs>
+
 ### Août
 
 <Tabs groupId="sync">

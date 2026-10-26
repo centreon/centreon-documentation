@@ -1,0 +1,27 @@
+## Montée de version des serveurs distants
+
+Cette procédure est identique à celle utilisée pour monter de version un serveur Centreon Central, avec en plus la nécessité de récupérer la clé de déchiffrement à la fin.
+
+### Récupération de la clé de déchiffrement
+
+Exécutez le script suivant avec l'adresse IP du serveur central afin de permettre au serveur distant de recevoir et de traiter des données chiffrées : 
+
+```shell
+/usr/share/centreon/bin/writeEngineSecrets.sh <BASE_URL> <API_ACCOUNT> <PASSWORD>
+```
+
+Exemple :
+
+``` shell
+/usr/share/centreon/bin/writeEngineSecrets.sh https://10.10.10.10/centreon admin password
+```
+
+> Vous devez utiliser **admin** comme valeur pour **\<API_ACCOUNT\>**.
+
+Redémarrez **centengine** :
+
+```shell
+systemctl restart centengine
+```
+
+> En fin de mise à jour, la configuration doit être déployée depuis le serveur central.

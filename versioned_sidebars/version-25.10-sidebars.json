@@ -322,7 +322,7 @@
             },
             {
               "type": "doc",
-              "id": "monitoring/basic-objects/meta-services"
+              "id": "monitoring/basic-objects/metaservices"
             }
           ]
         },
@@ -573,19 +573,54 @@
           ]
         },
         {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing-install"
+            },
+         {
           "type": "category",
           "label": "Managing tickets",
           "link": {
-            "type": "generated-index"
+            "type": "doc",
+            "id": "alerts-notifications/ticketing-overview"
           },
           "items": [
             {
               "type": "doc",
-              "id": "alerts-notifications/ticketing-install"
+              "id": "alerts-notifications/ticketing"
+            },
+            {
+              "type": "category",
+              "label": "Customizing tickets",
+              "link": {
+                "type": "doc",
+                "id": "alerts-notifications/ticketing/ticketing-advanced-body"
+              },
+              "items": [
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "type": "doc",
+                  "id": "alerts-notifications/ticketing/glossary"
+                }
+              ]
             },
             {
               "type": "doc",
-              "id": "alerts-notifications/ticketing"
+              "id": "alerts-notifications/ticketing-use"
+            },
+            {
+              "type": "doc",
+              "id": "alerts-notifications/ticketing/ticketing-advanced-architecture"
             }
           ]
         }
@@ -1192,6 +1227,10 @@
             },
             {
               "type": "doc",
+              "id": "upgrade/upgrade-matrix"
+            },
+            {
+              "type": "doc",
               "id": "upgrade/upgrade-from-24-10"
             },
             {
@@ -1380,6 +1419,10 @@
             },
             {
               "type": "doc",
+              "id": "integrations/data-analytics/sc-graphite-metrics"
+            },
+            {
+              "type": "doc",
               "id": "integrations/event-management/sc-hp-omi"
             },
             {
@@ -1438,7 +1481,7 @@
           "items": [
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-bmc-footprints"
+              "id": "integrations/itsm/ot-bmc-footprints-11"
             },
             {
               "type": "doc",
@@ -1466,6 +1509,10 @@
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/ot-ivanti"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-jira"
             },
             {
@@ -1478,15 +1525,19 @@
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-request-tracker-restapi"
+              "id": "integrations/itsm/ot-request-tracker-2"
             },
             {
               "type": "doc",
-              "id": "integrations/itsm/ot-serena"
+              "id": "integrations/itsm/ot-serena-itsm"
             },
             {
               "type": "doc",
               "id": "integrations/itsm/ot-servicenow"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-simple"
             }
           ]
         },

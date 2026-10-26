@@ -26,15 +26,8 @@ Vous devez disposer :
 
     - Si vous avez une licence en ligne, les connecteurs de supervision sont déjà disponibles dans l'interface.
     - Si vous avez une licence hors ligne, dans le terminal de votre serveur central, entrez :
-     
+
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-pack-*
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -42,7 +35,14 @@ dnf install centreon-pack-*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-pack-*
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-pack-*

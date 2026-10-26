@@ -1,34 +1,32 @@
 ---
 id: ot-mail
 title: Mail
-description: "Create tickets in any ITSM tool by sending alert emails"
 ---
 
-## How it works
+The Mail Open Tickets provider uses the SMTP server to open incidents about your monitoring alerts.
 
-The Mail provider sends a mail to a mailbox that an ITSM software will read and
-create a ticket based upon it
+## Feature information
 
-![architecture](../../assets/integrations/open-tickets/ot-mail-architecture.png)
+| Open ticket | Close ticket (from email) | Handle custom fields |
+| -- | -- | -- |
+| ✓ | ✘ | ✘ |
 
-## Compatibility
+## Prerequisites
 
-This integration is compatible with any ITSM software that is able to create a
-ticket from a mail.
+### Network flow
 
-## Requirements
+| Source | Destination | Protocol/Port |
+| -- | -- | -- |
+| Centreon central server | SMTP server | TCP/25 (smtp) |
 
-Before going any further, make sure that you correctly setup
-[centreon-open-ticket](../../alerts-notifications/ticketing.md#advanced-configuration)
-into your Centreon instance
+### Mail info
 
-Our provider requires the following parameters:
+You need the following information:
 
-| Parameter | Example of value |
-| --------- | ---------------- |
-| From      | \{$user.email\}    |
-| To        |                  |
+- the receiver email address
 
-## Possibilities
+## Test commands
 
-You can add custom headers when sending your email
+```bash
+echo "This is a test" | s-nail -r "<from_address>" -s "this is a test ticket"  <to_address>
+```

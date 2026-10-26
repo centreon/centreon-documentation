@@ -493,7 +493,7 @@ Cette section décrit comment activer SSL sur un serveur MySQL/MariaDB et config
 
 Depuis la migration vers MariaDB Connector/J, le connecteur MySQL n’est plus fourni. Même si votre serveur de base de données est MySQL, l’URL JDBC utilise le schéma `jdbc:mariadb://` et le pilote `org.mariadb.jdbc.Driver`. MariaDB Connector/J 3.x prend en charge nativement les fichiers PEM via le paramètre `serverSslCert` directement dans l’URL JDBC. Aucune conversion du keystore Java n'est nécessaire pour le mode SSL simple.
 
-Un fichier keystore est requis que pour le protocole mTLS (authentification par certificat client) :
+Un fichier keystore n'est requis que pour le protocole mTLS (authentification par certificat client) :
 
 | Fichier           | Contenu         | Utilité                                      | Requis                |
 |-------------------|-----------------|----------------------------------------------|-----------------------|
@@ -577,20 +577,13 @@ Un fichier keystore n’est requis que pour mTLS (authentification par certifica
         chmod 640 /etc/mariadb/newcerts/keystore.p12
         ```
 
-**3. Définissez les permissions des fichiers.** Assurez-vous que seul l’utilisateur exécutant l’application Java peut lire les fichiers keystore.
-
-    ```shell
-    chown your_java_user: /etc/mariadb/newcerts/*.jks
-    chmod 640 /etc/mariadb/newcerts/*.jks
-    ```
-
-**4. Définissez l’URL JDBC.** Ajoutez ce qui suit à votre fichier de configuration (/etc/centreon-map/*-database.properties) :
+**3. Définissez l’URL JDBC.** Ajoutez ce qui suit à votre fichier de configuration (/etc/centreon-map/*-database.properties) :
 
     ```shell
     *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mariadb/newcerts/ca-cert.pem&rewriteBatchedStatements=true
     ```
 
-**5. Optionnel — uniquement si mTLS est activé (REQUIRE X509).** Ajoutez les options keyStore, keyStorePassword et keyStoreType :
+**4. Optionnel — uniquement si mTLS est activé (REQUIRE X509).** Ajoutez les options keyStore, keyStorePassword et keyStoreType :
 
         ```shell
         *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mariadb/newcerts/ca-cert.pem&keyStore=/etc/mariadb/newcerts/keystore.p12&keyStorePassword=changeit&keyStoreType=PKCS12&rewriteBatchedStatements=true
