@@ -349,7 +349,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.02](../releases/release-notes.md#2026-02) - Breaking changes: The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
-- [24.09](../releases/release-notes.md#2024-09) - Enhancements: Added Italian and German language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)).
-
-{/* CHANGELOG:END */}
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [24.09](../releases/release-notes.md#2024-09) - Enhancement: Added Italian and German language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)).

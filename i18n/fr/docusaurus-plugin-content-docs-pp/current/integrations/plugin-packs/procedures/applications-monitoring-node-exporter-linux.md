@@ -512,6 +512,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.07](../releases/release-notes.md#2022-07) - New connectors: Added Linux Node Exporter Monitoring Pack.
-
-{/* CHANGELOG:END */}
+- [22.07](../releases/release-notes.md#2022-07) - New connector: Added Linux Node Exporter Monitoring Pack.

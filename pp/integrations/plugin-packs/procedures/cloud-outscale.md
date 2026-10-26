@@ -951,6 +951,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.05](../releases/release-notes.md#2023-05) - New connectors: initial release.
-
-{/* CHANGELOG:END */}
+- [23.05](../releases/release-notes.md#2023-05) - New connector: initial release.

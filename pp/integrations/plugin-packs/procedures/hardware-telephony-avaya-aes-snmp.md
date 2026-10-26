@@ -646,6 +646,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **HW-Telephony-Avaya-Aes-SNMP-Services** command.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **HW-Telephony-Avaya-Aes-SNMP-Services** command.

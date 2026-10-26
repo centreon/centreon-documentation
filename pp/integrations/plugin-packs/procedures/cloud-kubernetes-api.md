@@ -1653,13 +1653,11 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.09](../releases/release-notes.md#2026-09) - Enhancements: Added new **pod-usage** mode and the associated service discovery rule.
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added **ResourceQuota-Status** service and enhanced **Deployment-Status** service with label filter, based on a community contribution [PR 5812](https://github.com/centreon/centreon-plugins/pull/5812).
-- [26.05](../releases/release-notes.md#2026-05) - Enhancements: added `include-status` and `exclude-status` options in **node-usage** mode.
-- [25.09](../releases/release-notes.md#2025-09) - Enhancements: Added default values in **API custom** help section.
-- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Fixed an issue occurring when a pod IP was empty in the **list-pods** discovery rule.
-- [24.08](../releases/release-notes.md#2024-08) - Breaking changes: Endpoint changed from beta to v1 and split the host templates into API and CLI to make both easier to use.
-- [23.03](../releases/release-notes.md#2023-03) - Bug fixes: fix node host discovery.
-- [23.02](../releases/release-notes.md#2023-02) - Enhancements: add **--namespace** option.
-
-{/* CHANGELOG:END */}
+- [26.09](../releases/release-notes.md#2026-09) - Enhancement: Added new **pod-usage** mode and the associated service discovery rule.
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added **ResourceQuota-Status** service and enhanced **Deployment-Status** service with label filter, based on a community contribution [PR 5812](https://github.com/centreon/centreon-plugins/pull/5812).
+- [26.05](../releases/release-notes.md#2026-05) - Enhancement: added `include-status` and `exclude-status` options in **node-usage** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added default values in **API custom** help section.
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed an issue occurring when a pod IP was empty in the **list-pods** discovery rule.
+- [24.08](../releases/release-notes.md#2024-08) - Breaking change: Endpoint changed from beta to v1 and split the host templates into API and CLI to make both easier to use.
+- [23.03](../releases/release-notes.md#2023-03) - Bug fix: fix node host discovery.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: add **--namespace** option.

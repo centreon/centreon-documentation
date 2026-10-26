@@ -584,8 +584,6 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Added native SNMP v3 host macro.
-- [26.03](../releases/release-notes.md#2026-03) - Bug fixes: Replaced obsolete '\C' pattern in regular expressions in Cpu, Psu and Temperature.
-- [22.11](../releases/release-notes.md#2022-11) - New connectors: Adding Pica8 PICOS Monitoring Connector.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Replaced obsolete '\C' pattern in regular expressions in Cpu, Psu and Temperature.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Adding Pica8 PICOS Monitoring Connector.

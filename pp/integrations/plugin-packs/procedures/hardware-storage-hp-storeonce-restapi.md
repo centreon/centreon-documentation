@@ -10,6 +10,4 @@ description: "This deprecated HP StoreOnce REST API connector has been replaced 
 
 ## Changelog
 
-- [22.06](../releases/release-notes.md#2022-06) - Enhancements: Initial release and original StoreOnce Pack deprecation.
-
-{/* CHANGELOG:END */}
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Initial release and original StoreOnce Pack deprecation.

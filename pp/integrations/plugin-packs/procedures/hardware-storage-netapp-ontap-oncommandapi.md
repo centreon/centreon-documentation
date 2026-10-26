@@ -1017,6 +1017,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.04](../releases/release-notes.md#2022-04) - Breaking changes: Refactoring volumes services.
-
-{/* CHANGELOG:END */}
+- [22.04](../releases/release-notes.md#2022-04) - Breaking change: Refactoring volumes services.

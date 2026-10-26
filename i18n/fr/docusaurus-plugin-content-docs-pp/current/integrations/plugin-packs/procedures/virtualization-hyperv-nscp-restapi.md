@@ -679,8 +679,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed an issue with **scvmm-discovery** stats.
-- [24.09](../releases/release-notes.md#2024-09) - Bug fixes: Fixed the default `--filter-status` value on VM status.
-- [22.04](../releases/release-notes.md#2022-04) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed an issue with **scvmm-discovery** stats.
+- [24.09](../releases/release-notes.md#2024-09) - Bug fix: Fixed the default `--filter-status` value on VM status.
+- [22.04](../releases/release-notes.md#2022-04) - New connector: Initial release.

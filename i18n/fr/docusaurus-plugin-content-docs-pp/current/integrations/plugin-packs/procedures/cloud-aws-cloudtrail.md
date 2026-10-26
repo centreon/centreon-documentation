@@ -418,8 +418,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [24.11](../releases/release-notes.md#2024-11) - Bug fixes: Fixed command for event lookup, from community feedback [PR 5086](https://github.com/centreon/centreon-plugins/pull/5086).
-- [23.06](../releases/release-notes.md#2023-06) - New connectors: initial release.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [24.11](../releases/release-notes.md#2024-11) - Bug fix: Fixed command for event lookup, from community feedback [PR 5086](https://github.com/centreon/centreon-plugins/pull/5086).
+- [23.06](../releases/release-notes.md#2023-06) - New connector: initial release.

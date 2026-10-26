@@ -885,14 +885,12 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Improved `gssnegotiate` authentication support.
-- [26.03](../releases/release-notes.md#2026-03) - Enhancements: Add certificates mode.
-- [26.03](../releases/release-notes.md#2026-03) - Bug fixes: The temporary files are now deleted when the execution ends.
-- [26.02](../releases/release-notes.md#2026-02) - Bug fixes: Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as `updates` and `pending-reboot` modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)).
-- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
-- [24.05](../releases/release-notes.md#2024-05) - Bug fixes: Fixed the OS-Windows-WSMAN-Services-Macro command and its discovery rule.
-- [22.10](../releases/release-notes.md#2022-10) - Enhancements: add service updates for windows pack.
-- [22.05](../releases/release-notes.md#2022-05) - Bug fixes: Fix typos in command lines options.
-- [22.04](../releases/release-notes.md#2022-04) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Improved `gssnegotiate` authentication support.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Add certificates mode.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: The temporary files are now deleted when the execution ends.
+- [26.02](../releases/release-notes.md#2026-02) - Bug fix: Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as `updates` and `pending-reboot` modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [24.05](../releases/release-notes.md#2024-05) - Bug fix: Fixed the OS-Windows-WSMAN-Services-Macro command and its discovery rule.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: add service updates for windows pack.
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fix typos in command lines options.
+- [22.04](../releases/release-notes.md#2022-04) - New connector: Initial release.

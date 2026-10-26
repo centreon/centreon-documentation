@@ -390,6 +390,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.11](../releases/release-notes.md#2022-11) - New connectors: Add new Pineapp Secure mail Pack.
-
-{/* CHANGELOG:END */}
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Add new Pineapp Secure mail Pack.

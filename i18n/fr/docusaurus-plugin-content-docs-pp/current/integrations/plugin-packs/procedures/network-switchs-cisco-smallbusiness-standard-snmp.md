@@ -788,7 +788,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
-- [25.05](../releases/release-notes.md#2025-05) - Enhancements: Added a new **stack** mode, based on community contribution [PR 5317](https://github.com/centreon/centreon-plugins/pull/5317).
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added a new **stack** mode, based on community contribution [PR 5317](https://github.com/centreon/centreon-plugins/pull/5317).

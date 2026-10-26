@@ -1135,10 +1135,8 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
-- [26.01](../releases/release-notes.md#2026-01) - Enhancements: Added the **snapmirrorlag** service template.
-- [25.01](../releases/release-notes.md#2025-01) - Enhancements: Added **uptime** mode and service template.
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **Disk-Failed** command.
-- [23.08](../releases/release-notes.md#2023-08) - Bug fixes: fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added the **snapmirrorlag** service template.
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added **uptime** mode and service template.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Disk-Failed** command.
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.

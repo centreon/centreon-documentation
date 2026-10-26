@@ -517,6 +517,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.01](../releases/release-notes.md#2024-01) - Bug fixes: Fixed an issue that blocked the uninstallation process and a broker command.
-
-{/* CHANGELOG:END */}
+- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed an issue that blocked the uninstallation process and a broker command.

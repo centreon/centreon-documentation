@@ -10,6 +10,4 @@ description: "Connecteur déprécié qui surveillait IP-Label Datamétrie via so
 
 ## Historique des modifications
 
-- [23.07](../releases/release-notes.md#2023-07) - Bug fixes: marked as deprecated (service end of life).
-
-{/* CHANGELOG:END */}
+- [23.07](../releases/release-notes.md#2023-07) - Bug fix: marked as deprecated (service end of life).

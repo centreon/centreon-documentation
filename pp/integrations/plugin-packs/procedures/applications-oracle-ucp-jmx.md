@@ -330,7 +330,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed the plugin dependencies.
-- [23.02](../releases/release-notes.md#2023-02) - New connectors: initial release.
-
-{/* CHANGELOG:END */}
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.
+- [23.02](../releases/release-notes.md#2023-02) - New connector: initial release.

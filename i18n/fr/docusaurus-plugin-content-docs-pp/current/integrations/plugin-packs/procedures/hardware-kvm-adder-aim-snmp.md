@@ -414,6 +414,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **HW-Kvm-Adder-Aim-SNMP-Server-Usage** command.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **HW-Kvm-Adder-Aim-SNMP-Server-Usage** command.

@@ -442,6 +442,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.05](../releases/release-notes.md#2026-05) - New connectors: Initial release, based on community contribution [PR 6044](https://github.com/centreon/centreon-plugins/pull/6044).
-
-{/* CHANGELOG:END */}
+- [26.05](../releases/release-notes.md#2026-05) - New connector: Initial release, based on community contribution [PR 6044](https://github.com/centreon/centreon-plugins/pull/6044).

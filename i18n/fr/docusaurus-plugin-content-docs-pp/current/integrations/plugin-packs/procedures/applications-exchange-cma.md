@@ -681,8 +681,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.03](../releases/release-notes.md#2026-03) - Bug fixes: Fixed edge cases size calculation in database mode.
-- [25.12](../releases/release-notes.md#2025-12) - Enhancements: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
-- [25.11](../releases/release-notes.md#2025-11) - New connectors: Initial release of Microsoft Exchange CMA.
-
-{/* CHANGELOG:END */}
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed edge cases size calculation in database mode.
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.11](../releases/release-notes.md#2025-11) - New connector: Initial release of Microsoft Exchange CMA.

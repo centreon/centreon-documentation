@@ -570,6 +570,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
-
-{/* CHANGELOG:END */}
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.

@@ -626,6 +626,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.06](../releases/release-notes.md#2025-06) - Bug fixes: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
-
-{/* CHANGELOG:END */}
+- [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.

@@ -618,7 +618,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: added missing `--credentials` option.
-- [25.02](../releases/release-notes.md#2025-02) - New connectors: Initial release of HAProxy Web.
-
-{/* CHANGELOG:END */}
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: added missing `--credentials` option.
+- [25.02](../releases/release-notes.md#2025-02) - New connector: Initial release of HAProxy Web.

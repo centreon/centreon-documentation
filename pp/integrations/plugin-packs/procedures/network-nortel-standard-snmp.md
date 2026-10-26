@@ -699,7 +699,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.10](../releases/release-notes.md#2025-10) - Enhancements: **Nortel standard SNMP** rebranded to Extreme SNMP.
-- [22.07](../releases/release-notes.md#2022-07) - Enhancements: Added stack service.
-
-{/* CHANGELOG:END */}
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: **Nortel standard SNMP** rebranded to Extreme SNMP.
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Added stack service.

@@ -450,7 +450,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed **Receptacles** command.
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **HW-Pdu-Emerson-SNMP-Receptacles** command.
-
-{/* CHANGELOG:END */}
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **Receptacles** command.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **HW-Pdu-Emerson-SNMP-Receptacles** command.

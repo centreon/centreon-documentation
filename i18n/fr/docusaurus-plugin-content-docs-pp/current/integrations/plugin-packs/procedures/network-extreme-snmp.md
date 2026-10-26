@@ -582,6 +582,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Added supported models in documentation.
-
-{/* CHANGELOG:END */}
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added supported models in documentation.

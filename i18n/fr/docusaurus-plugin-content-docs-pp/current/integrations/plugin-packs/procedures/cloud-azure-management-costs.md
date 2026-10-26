@@ -564,10 +564,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.07](../releases/release-notes.md#2025-07) - Enhancements: Added an option to choose `cost-metric`, from community contribution [PR 4756](https://github.com/centreon/centreon-plugins/pull/4756).
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **Cloud-Azure-Management-Costs-Api-Tags-Compliance** command.
-- [23.08](../releases/release-notes.md#2023-08) - Enhancements: moved to correct pack category.
-- [22.11](../releases/release-notes.md#2022-11) - Enhancements: Cost-Explorer, Orphan-Resources, Hybrid-Benefits, Tags-Compliance.
-- [22.09](../releases/release-notes.md#2022-09) - New connectors: New Pack to monitor Azure budgets consumptions.
-
-{/* CHANGELOG:END */}
+- [25.07](../releases/release-notes.md#2025-07) - Enhancement: Added an option to choose `cost-metric`, from community contribution [PR 4756](https://github.com/centreon/centreon-plugins/pull/4756).
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Cloud-Azure-Management-Costs-Api-Tags-Compliance** command.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: moved to correct pack category.
+- [22.11](../releases/release-notes.md#2022-11) - Enhancement: Cost-Explorer, Orphan-Resources, Hybrid-Benefits, Tags-Compliance.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: New Pack to monitor Azure budgets consumptions.

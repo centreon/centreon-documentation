@@ -13,6 +13,4 @@ import TabItem from '@theme/TabItem';
 
 ## Changelog
 
-- [25.05](../releases/release-notes.md#2025-05) - Enhancements: Deprecated VMware vCenter v5.
-
-{/* CHANGELOG:END */}
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Deprecated VMware vCenter v5.

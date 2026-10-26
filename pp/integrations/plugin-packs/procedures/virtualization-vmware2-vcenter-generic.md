@@ -2396,10 +2396,8 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
-- [25.06](../releases/release-notes.md#2025-06) - Bug fixes: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
-- [24.10](../releases/release-notes.md#2024-10) - Bug fixes: Fixed the unit for the latency for the **vsan-cluster-usage** mode.
-- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: Fixed the macro discovery command for datacenter discovery.
-- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: Fixed a bug in VMware health.
-
-{/* CHANGELOG:END */}
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
+- [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed the unit for the latency for the **vsan-cluster-usage** mode.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the macro discovery command for datacenter discovery.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed a bug in VMware health.

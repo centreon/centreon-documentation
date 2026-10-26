@@ -409,7 +409,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.10](../releases/release-notes.md#2024-10) - Enhancements: Added support for ex4100 models in **volumes**, **listvolumes** and **hardware** modes, from community contributions ([PR 4805](https://github.com/centreon/centreon-plugins/pull/4805), [PR 4806](https://github.com/centreon/centreon-plugins/pull/4806) and [PR 4807](https://github.com/centreon/centreon-plugins/pull/4807)).
-- [23.02](../releases/release-notes.md#2023-02) - New connectors: initial release.
-
-{/* CHANGELOG:END */}
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added support for ex4100 models in **volumes**, **listvolumes** and **hardware** modes, from community contributions ([PR 4805](https://github.com/centreon/centreon-plugins/pull/4805), [PR 4806](https://github.com/centreon/centreon-plugins/pull/4806) and [PR 4807](https://github.com/centreon/centreon-plugins/pull/4807)).
+- [23.02](../releases/release-notes.md#2023-02) - New connector: initial release.

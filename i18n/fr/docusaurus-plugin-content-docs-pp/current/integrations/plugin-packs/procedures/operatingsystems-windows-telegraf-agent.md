@@ -503,10 +503,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.09](../releases/release-notes.md#2026-09) - Enhancements: `centreon_plugins.exe` now supports the curl HTTP backend.
-- [26.09](../releases/release-notes.md#2026-09) - Bug fixes: Fixed qwinsta parsing fails with specific languages in **sessions** mode.
-- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
-- [24.11](../releases/release-notes.md#2024-11) - Breaking changes: The default inherited templates are now passive.
-- [24.06](../releases/release-notes.md#2024-06) - New connectors: Initial release of Windows Telegraf Agent.
-
-{/* CHANGELOG:END */}
+- [26.09](../releases/release-notes.md#2026-09) - Enhancement: `centreon_plugins.exe` now supports the curl HTTP backend.
+- [26.09](../releases/release-notes.md#2026-09) - Bug fix: Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [24.11](../releases/release-notes.md#2024-11) - Breaking change: The default inherited templates are now passive.
+- [24.06](../releases/release-notes.md#2024-06) - New connector: Initial release of Windows Telegraf Agent.

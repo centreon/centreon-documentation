@@ -466,7 +466,5 @@ cd "C:/Program Files/Centreon/Plugins/"
 
 ## Historique des modifications
 
-- [25.12](../releases/release-notes.md#2025-12) - Enhancements: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
-- [25.10](../releases/release-notes.md#2025-10) - New connectors: Initial release of WSUS Microsoft CMA.
-
-{/* CHANGELOG:END */}
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.10](../releases/release-notes.md#2025-10) - New connector: Initial release of WSUS Microsoft CMA.

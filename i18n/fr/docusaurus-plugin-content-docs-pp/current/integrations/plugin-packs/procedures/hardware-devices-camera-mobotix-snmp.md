@@ -497,6 +497,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Enhanced **system** mode with SD card availability checks.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Enhanced **system** mode with SD card availability checks.

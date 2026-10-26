@@ -571,6 +571,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.05](../releases/release-notes.md#2024-05) - New connectors: Initial release of Avigilon SNMP.
-
-{/* CHANGELOG:END */}
+- [24.05](../releases/release-notes.md#2024-05) - New connector: Initial release of Avigilon SNMP.

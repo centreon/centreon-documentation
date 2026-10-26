@@ -1051,6 +1051,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.06](../releases/release-notes.md#2025-06) - New connectors: Initial release of Juniper M-series with Netconf.
-
-{/* CHANGELOG:END */}
+- [25.06](../releases/release-notes.md#2025-06) - New connector: Initial release of Juniper M-series with Netconf.

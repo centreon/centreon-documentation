@@ -512,6 +512,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.07](../releases/release-notes.md#2022-07) - New connectors: Added Linux Node Exporter Monitoring Pack.
-
-{/* CHANGELOG:END */}
+- [22.07](../releases/release-notes.md#2022-07) - New connector: Added Linux Node Exporter Monitoring Pack.

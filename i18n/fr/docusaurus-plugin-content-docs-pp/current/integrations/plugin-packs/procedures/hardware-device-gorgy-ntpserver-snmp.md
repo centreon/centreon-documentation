@@ -457,6 +457,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.08](../releases/release-notes.md#2023-08) - Bug fixes: fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.
-
-{/* CHANGELOG:END */}
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.

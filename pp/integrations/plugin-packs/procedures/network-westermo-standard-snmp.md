@@ -778,6 +778,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.05](../releases/release-notes.md#2026-05) - New connectors: Initial release, based on community contribution [PR 5696](https://github.com/centreon/centreon-plugins/pull/5696).
-
-{/* CHANGELOG:END */}
+- [26.05](../releases/release-notes.md#2026-05) - New connector: Initial release, based on community contribution [PR 5696](https://github.com/centreon/centreon-plugins/pull/5696).

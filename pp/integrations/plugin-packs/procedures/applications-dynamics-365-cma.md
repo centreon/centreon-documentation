@@ -178,7 +178,5 @@ this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-
 
 ## Changelog
 
-- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed missing command for **New Orders** service.
-- [26.07](../releases/release-notes.md#2026-07) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed missing command for **New Orders** service.
+- [26.07](../releases/release-notes.md#2026-07) - New connector: Initial release.

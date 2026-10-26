@@ -1298,11 +1298,9 @@ sudo -u centreon-monitoring-agent /usr/lib/centreon/plugins/centreon_linux_local
 
 ## Historique des modifications
 
-- [26.05](../releases/release-notes.md#2026-05) - Enhancements: added EL 10 and Debian 13 support.
-- [26.02](../releases/release-notes.md#2026-02) - Enhancements: Added a **Custom-Script** service template to run custom commands.
-- [25.12](../releases/release-notes.md#2025-12) - Enhancements: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
-- [25.09](../releases/release-notes.md#2025-09) - Enhancements: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed wrong default values in uptime service.
-- [24.10](../releases/release-notes.md#2024-10) - New connectors: Initial release of Linux CMA.
-
-{/* CHANGELOG:END */}
+- [26.05](../releases/release-notes.md#2026-05) - Enhancement: added EL 10 and Debian 13 support.
+- [26.02](../releases/release-notes.md#2026-02) - Enhancement: Added a **Custom-Script** service template to run custom commands.
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed wrong default values in uptime service.
+- [24.10](../releases/release-notes.md#2024-10) - New connector: Initial release of Linux CMA.

@@ -784,6 +784,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.

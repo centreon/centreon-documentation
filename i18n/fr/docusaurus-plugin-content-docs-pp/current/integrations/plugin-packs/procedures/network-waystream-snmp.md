@@ -937,6 +937,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.07](../releases/release-notes.md#2026-07) - New connectors: Initial release, from a community contribution ([PR 5956](https://github.com/centreon/centreon-plugins/pull/5956)).
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - New connector: Initial release, from a community contribution ([PR 5956](https://github.com/centreon/centreon-plugins/pull/5956)).

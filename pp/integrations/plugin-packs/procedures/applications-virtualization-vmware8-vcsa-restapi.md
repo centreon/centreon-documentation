@@ -499,6 +499,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.01](../releases/release-notes.md#2026-01) - New connectors: Initial release ([Issue 5551](https://github.com/centreon/centreon-plugins/issues/5551)).
-
-{/* CHANGELOG:END */}
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release ([Issue 5551](https://github.com/centreon/centreon-plugins/issues/5551)).

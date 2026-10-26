@@ -617,8 +617,6 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Changed host status checks output.
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
-- [24.12](../releases/release-notes.md#2024-12) - Bug fixes: Fixed an issue with **storage** mode where thresholds weren't taken into account.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [24.12](../releases/release-notes.md#2024-12) - Bug fix: Fixed an issue with **storage** mode where thresholds weren't taken into account.

@@ -1046,7 +1046,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
-- [25.09](../releases/release-notes.md#2025-09) - Enhancements: Added **vrrp-status** mode, from community contribution [PR 4842](https://github.com/centreon/centreon-plugins/pull/4842).
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added **vrrp-status** mode, from community contribution [PR 4842](https://github.com/centreon/centreon-plugins/pull/4842).

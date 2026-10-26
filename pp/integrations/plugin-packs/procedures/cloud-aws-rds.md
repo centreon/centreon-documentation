@@ -1088,13 +1088,11 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
-- [23.10](../releases/release-notes.md#2023-10) - Enhancements: New host check command to monitor all RDS host templates.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
-- [23.01](../releases/release-notes.md#2023-01) - Bug fixes: fix typo cloud-aws-rds instance-status mode.
-- [22.10](../releases/release-notes.md#2022-10) - Bug fixes: Fix bug with assume-role option.
-- [22.06](../releases/release-notes.md#2022-06) - Bug fixes: Support new attributes in host discovery provider.
-- [22.05](../releases/release-notes.md#2022-05) - Bug fixes: Discovery jobs several fixes.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancement: New host check command to monitor all RDS host templates.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: fix typo cloud-aws-rds instance-status mode.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fix bug with assume-role option.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Support new attributes in host discovery provider.
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Discovery jobs several fixes.

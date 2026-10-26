@@ -337,6 +337,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.02](../releases/release-notes.md#2023-02) - Breaking changes: changed service name and options.
-
-{/* CHANGELOG:END */}
+- [23.02](../releases/release-notes.md#2023-02) - Breaking change: changed service name and options.

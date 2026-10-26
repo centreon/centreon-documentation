@@ -314,6 +314,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.05](../releases/release-notes.md#2022-05) - Bug fixes: Fix translation.
-
-{/* CHANGELOG:END */}
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fix translation.

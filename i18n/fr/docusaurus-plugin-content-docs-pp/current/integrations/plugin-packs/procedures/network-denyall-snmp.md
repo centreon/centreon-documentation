@@ -711,6 +711,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Fixed `FILTERSTORAGE` default macro value.
-
-{/* CHANGELOG:END */}
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed `FILTERSTORAGE` default macro value.

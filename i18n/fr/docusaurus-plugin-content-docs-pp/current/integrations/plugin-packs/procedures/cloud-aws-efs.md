@@ -447,10 +447,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
-- [22.10](../releases/release-notes.md#2022-10) - Bug fixes: Fix bug with assume-role option.
-- [22.06](../releases/release-notes.md#2022-06) - Enhancements: Add a host discovery rule.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fix bug with assume-role option.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Add a host discovery rule.

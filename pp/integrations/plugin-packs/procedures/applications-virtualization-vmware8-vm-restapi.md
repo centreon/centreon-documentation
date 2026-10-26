@@ -534,11 +534,9 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.10](../releases/release-notes.md#2026-10) - Bug fixes: Discovery: the default template no longer maps the VM name to the host address when no IP is reported. This used to create hosts with invalid addresses that could not be edited or deleted.
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added tags to host discovery.
-- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: plugin can now recover from a corrupted cache.
-- [26.03](../releases/release-notes.md#2026-03) - Bug fixes: Fixed host ID macro in **Virt-VMWare8-VM-Restapi-Network-Throughput** command.
-- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Added new modes: **disk-io**, **network** and **power**. Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
-- [25.09](../releases/release-notes.md#2025-09) - New connectors: Initial release of VMware8 VM REST API.
-
-{/* CHANGELOG:END */}
+- [26.10](../releases/release-notes.md#2026-10) - Bug fix: Discovery: the default template no longer maps the VM name to the host address when no IP is reported. This used to create hosts with invalid addresses that could not be edited or deleted.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added tags to host discovery.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: plugin can now recover from a corrupted cache.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed host ID macro in **Virt-VMWare8-VM-Restapi-Network-Throughput** command.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added new modes: **disk-io**, **network** and **power**. Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
+- [25.09](../releases/release-notes.md#2025-09) - New connector: Initial release of VMware8 VM REST API.

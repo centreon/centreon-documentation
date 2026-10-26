@@ -737,9 +737,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
-- [24.02](../releases/release-notes.md#2024-02) - Enhancements: Added Memory, Node-State, Pod-State and Unschedulable-Pods service templates to Azure AKS.
-- [22.01](../releases/release-notes.md#2022-01) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [24.02](../releases/release-notes.md#2024-02) - Enhancement: Added Memory, Node-State, Pod-State and Unschedulable-Pods service templates to Azure AKS.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

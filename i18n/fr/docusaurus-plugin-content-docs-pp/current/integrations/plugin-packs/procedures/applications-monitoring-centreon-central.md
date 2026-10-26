@@ -1392,10 +1392,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.05](../releases/release-notes.md#2026-05) - Enhancements: added centreonvault support to **metaservice** mode.
-- [25.05](../releases/release-notes.md#2025-05) - Enhancements: Added the detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
-- [24.03](../releases/release-notes.md#2024-03) - Enhancements: Updated host template logo.
-- [23.12](../releases/release-notes.md#2023-12) - Enhancements: Replace the old logo with the current one.
-- [22.06](../releases/release-notes.md#2022-06) - Enhancements: Broker-Stats: support yes/no value in queue file status / Proc-Centengine: avoid wrong match resulting in annoying results.
-
-{/* CHANGELOG:END */}
+- [26.05](../releases/release-notes.md#2026-05) - Enhancement: added centreonvault support to **metaservice** mode.
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added the detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
+- [24.03](../releases/release-notes.md#2024-03) - Enhancement: Updated host template logo.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replace the old logo with the current one.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Broker-Stats: support yes/no value in queue file status / Proc-Centengine: avoid wrong match resulting in annoying results.

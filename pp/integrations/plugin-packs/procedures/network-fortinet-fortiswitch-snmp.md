@@ -600,7 +600,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.04](../releases/release-notes.md#2025-04) - Enhancements: Added the `--check-overload` option to the **uptime** service template.
-- [22.01](../releases/release-notes.md#2022-01) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

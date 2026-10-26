@@ -342,7 +342,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Added native SNMP v3 host macro.
-- [25.12](../releases/release-notes.md#2025-12) - Breaking changes: Fixed errors related to thresholds.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [25.12](../releases/release-notes.md#2025-12) - Breaking change: Fixed errors related to thresholds.

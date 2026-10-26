@@ -648,6 +648,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.02](../releases/release-notes.md#2022-02) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [22.02](../releases/release-notes.md#2022-02) - New connector: Initial release.

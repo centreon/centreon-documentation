@@ -548,6 +548,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.06](../releases/release-notes.md#2023-06) - Enhancements: added new licences mode.
-
-{/* CHANGELOG:END */}
+- [23.06](../releases/release-notes.md#2023-06) - Enhancement: added new licences mode.

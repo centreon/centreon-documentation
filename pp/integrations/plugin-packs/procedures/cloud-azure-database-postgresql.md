@@ -644,8 +644,6 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Changed host status checks output.
-- [25.02](../releases/release-notes.md#2025-02) - Bug fixes: Fixed **storage** command by adding spaces before warning options.
-- [24.04](../releases/release-notes.md#2024-04) - New connectors: First release of Azure PostgreSQL.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.02](../releases/release-notes.md#2025-02) - Bug fix: Fixed **storage** command by adding spaces before warning options.
+- [24.04](../releases/release-notes.md#2024-04) - New connector: First release of Azure PostgreSQL.

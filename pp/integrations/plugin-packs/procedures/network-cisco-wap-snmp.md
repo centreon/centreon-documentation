@@ -640,7 +640,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Added native SNMP v3 host macro.
-- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: Fixed the Net-Cisco-Wap-SNMP-Clients command.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the Net-Cisco-Wap-SNMP-Clients command.

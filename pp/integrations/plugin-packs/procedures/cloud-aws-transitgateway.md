@@ -416,7 +416,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [24.12](../releases/release-notes.md#2024-12) - Enhancements: Added default value `awscli` for host template custom mode.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added default value `awscli` for host template custom mode.

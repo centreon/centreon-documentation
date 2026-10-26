@@ -453,6 +453,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.07](../releases/release-notes.md#2022-07) - Enhancements: Enhanced Dynatrace Restapi Packs with new services and new metrics.
-
-{/* CHANGELOG:END */}
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Enhanced Dynatrace Restapi Packs with new services and new metrics.

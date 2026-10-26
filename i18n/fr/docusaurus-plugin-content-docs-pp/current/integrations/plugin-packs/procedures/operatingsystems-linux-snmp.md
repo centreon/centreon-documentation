@@ -1301,11 +1301,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
-- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Added `--force-rfc` option to allow choosing a specific RFC in **tcpcon** mode (issue [#5693](https://github.com/centreon/centreon-plugins/issues/5693)).
-- [24.10](../releases/release-notes.md#2024-10) - Enhancements: Added an option `force-64bits-counters` to switch to 64-bit counters for **memory** mode.
-- [23.12](../releases/release-notes.md#2023-12) - Enhancements: Added the `--check-overload` option in the `EXTRAOPTIONS` macro.
-- [23.12](../releases/release-notes.md#2023-12) - Enhancements: The Uptime service now supports floating numbers in thresholds.
-- [23.09](../releases/release-notes.md#2023-09) - Enhancements: New service discovery rule: disk-io.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Added `--force-rfc` option to allow choosing a specific RFC in **tcpcon** mode (issue [#5693](https://github.com/centreon/centreon-plugins/issues/5693)).
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added an option `force-64bits-counters` to switch to 64-bit counters for **memory** mode.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Added the `--check-overload` option in the `EXTRAOPTIONS` macro.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: The Uptime service now supports floating numbers in thresholds.
+- [23.09](../releases/release-notes.md#2023-09) - Enhancement: New service discovery rule: disk-io.

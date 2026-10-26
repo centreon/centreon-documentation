@@ -478,6 +478,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.06](../releases/release-notes.md#2026-06) - Bug fixes: Fixed discovery macro command.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Bug fix: Fixed discovery macro command.

@@ -476,6 +476,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.09](../releases/release-notes.md#2025-09) - Bug fixes: Fixed `daemonset-status` incorrect key causing skips in **daemonset-status** mode.
-
-{/* CHANGELOG:END */}
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed `daemonset-status` incorrect key causing skips in **daemonset-status** mode.

@@ -385,7 +385,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.10](../releases/release-notes.md#2024-10) - Enhancements: Added `phase-voltage` metric to **load** mode.
-- [24.10](../releases/release-notes.md#2024-10) - Bug fixes: Fixed power value in **load** mode (the value is no longer multiplied by 10).
-
-{/* CHANGELOG:END */}
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added `phase-voltage` metric to **load** mode.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed power value in **load** mode (the value is no longer multiplied by 10).

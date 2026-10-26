@@ -10,6 +10,4 @@ description: "Ce connecteur HP StoreOnce Rest API est déprécié ; il a été r
 
 ## Historique des modifications
 
-- [22.06](../releases/release-notes.md#2022-06) - Enhancements: Initial release and original StoreOnce Pack deprecation.
-
-{/* CHANGELOG:END */}
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Initial release and original StoreOnce Pack deprecation.

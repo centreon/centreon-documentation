@@ -495,6 +495,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Added missing mandatory parameters for discovery rules and fixed storage discovery rule.
-
-{/* CHANGELOG:END */}
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Added missing mandatory parameters for discovery rules and fixed storage discovery rule.

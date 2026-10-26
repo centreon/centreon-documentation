@@ -572,7 +572,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.10](../releases/release-notes.md#2026-10) - Bug fixes: Fixed missing `query` option in the **Cloud-Prometheus-Api-Expression** service.
-- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Add discovery rule for Prometheus targets.
-
-{/* CHANGELOG:END */}
+- [26.10](../releases/release-notes.md#2026-10) - Bug fix: Fixed missing `query` option in the **Cloud-Prometheus-Api-Expression** service.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Add discovery rule for Prometheus targets.

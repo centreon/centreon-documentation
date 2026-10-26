@@ -530,6 +530,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.02](../releases/release-notes.md#2025-02) - Bug fixes: Fixed `--add-duplex-status` option in **interface** mode.
-
-{/* CHANGELOG:END */}
+- [25.02](../releases/release-notes.md#2025-02) - Bug fix: Fixed `--add-duplex-status` option in **interface** mode.

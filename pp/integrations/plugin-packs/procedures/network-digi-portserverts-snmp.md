@@ -454,6 +454,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.04](../releases/release-notes.md#2022-04) - Bug fixes: Rename Pack.
-
-{/* CHANGELOG:END */}
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Rename Pack.

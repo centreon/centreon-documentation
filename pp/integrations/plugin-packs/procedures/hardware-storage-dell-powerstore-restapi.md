@@ -507,7 +507,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.07](../releases/release-notes.md#2023-07) - Bug fixes: fixed bug on Memory.
-- [23.02](../releases/release-notes.md#2023-02) - Enhancements: add service memory.
-
-{/* CHANGELOG:END */}
+- [23.07](../releases/release-notes.md#2023-07) - Bug fix: fixed bug on Memory.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: add service memory.

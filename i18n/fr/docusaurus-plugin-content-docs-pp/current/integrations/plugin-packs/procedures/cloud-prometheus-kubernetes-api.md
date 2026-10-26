@@ -476,6 +476,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.09](../releases/release-notes.md#2025-09) - Bug fixes: Fixed `daemonset-status` incorrect key causing skips in **daemonset-status** mode.
-
-{/* CHANGELOG:END */}
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed `daemonset-status` incorrect key causing skips in **daemonset-status** mode.

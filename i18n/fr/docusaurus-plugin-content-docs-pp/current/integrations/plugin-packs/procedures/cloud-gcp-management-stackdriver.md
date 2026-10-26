@@ -356,8 +356,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Enhanced compatibility with DISTRIBUTION type values in **getmetrics** mode.
-- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed the minimum aggregation calculation.
-- [25.07](../releases/release-notes.md#2025-07) - Enhancements: Allowed compatibility with `distribution` type values in **get-metrics** mode.
-
-{/* CHANGELOG:END */}
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Enhanced compatibility with DISTRIBUTION type values in **getmetrics** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed the minimum aggregation calculation.
+- [25.07](../releases/release-notes.md#2025-07) - Enhancement: Allowed compatibility with `distribution` type values in **get-metrics** mode.

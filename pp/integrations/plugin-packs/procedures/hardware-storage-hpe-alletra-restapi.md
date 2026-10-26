@@ -729,6 +729,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.07](../releases/release-notes.md#2025-07) - New connectors: Initial release of HPE Alletra REST API, from a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-baie-hp-alletra-mp-3721) and based on community contribution [PR 5174](https://github.com/centreon/centreon-plugins/pull/5174).
-
-{/* CHANGELOG:END */}
+- [25.07](../releases/release-notes.md#2025-07) - New connector: Initial release of HPE Alletra REST API, from a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-baie-hp-alletra-mp-3721) and based on community contribution [PR 5174](https://github.com/centreon/centreon-plugins/pull/5174).

@@ -395,6 +395,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.11](../releases/release-notes.md#2023-11) - Enhancements: Updated the logo.
-
-{/* CHANGELOG:END */}
+- [23.11](../releases/release-notes.md#2023-11) - Enhancement: Updated the logo.

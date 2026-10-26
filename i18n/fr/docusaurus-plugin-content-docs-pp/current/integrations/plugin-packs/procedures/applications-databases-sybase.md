@@ -455,7 +455,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **App-DB-Sybase-Databases-Size** command.
-- [22.12](../releases/release-notes.md#2022-12) - Breaking changes: change sql-statement option protection.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **App-DB-Sybase-Databases-Size** command.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: change sql-statement option protection.

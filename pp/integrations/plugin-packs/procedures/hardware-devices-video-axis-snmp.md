@@ -414,6 +414,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed wrong fan status mapping leading to false positives, from community contribution [PR 5356](https://github.com/centreon/centreon-plugins/pull/5356)
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed wrong fan status mapping leading to false positives, from community contribution [PR 5356](https://github.com/centreon/centreon-plugins/pull/5356)

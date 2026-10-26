@@ -463,7 +463,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.05](../releases/release-notes.md#2025-05) - Enhancements: Added the `battery.temperatureambient.celsius` counter in **battery** service, from community contribution [PR 5493](https://github.com/centreon/centreon-plugins/pull/5493).
-- [24.03](../releases/release-notes.md#2024-03) - Bug fixes: Fixed the Netvision version detection in the plugin.
-
-{/* CHANGELOG:END */}
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added the `battery.temperatureambient.celsius` counter in **battery** service, from community contribution [PR 5493](https://github.com/centreon/centreon-plugins/pull/5493).
+- [24.03](../releases/release-notes.md#2024-03) - Bug fix: Fixed the Netvision version detection in the plugin.

@@ -544,7 +544,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.06](../releases/release-notes.md#2025-06) - Enhancements: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
-- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: The Hardware mode no longer returns an UNKNOWN state for fans in a failed state.
-
-{/* CHANGELOG:END */}
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: The Hardware mode no longer returns an UNKNOWN state for fans in a failed state.

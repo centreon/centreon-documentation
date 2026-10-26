@@ -433,7 +433,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: fixed issues with perl paws custom mode.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: fixed issues with perl paws custom mode.

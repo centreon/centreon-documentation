@@ -546,10 +546,8 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.10](../releases/release-notes.md#2026-10) - Bug fixes: Fixed the desired replicas count for services: it was always reported as 0 and now matches the number of tasks Docker expects to run.
-- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Enhanced services monitoring & added discovery for Docker Swarm.
-- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: fixed memory usage calculation in **container-usage** mode.
-- [25.09](../releases/release-notes.md#2025-09) - Bug fixes: Fixed memory usage calculation in **container-usage** mode.
-- [22.04](../releases/release-notes.md#2022-04) - Bug fixes: Fix macro in Node-status mode.
-
-{/* CHANGELOG:END */}
+- [26.10](../releases/release-notes.md#2026-10) - Bug fix: Fixed the desired replicas count for services: it was always reported as 0 and now matches the number of tasks Docker expects to run.
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Enhanced services monitoring & added discovery for Docker Swarm.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: fixed memory usage calculation in **container-usage** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed memory usage calculation in **container-usage** mode.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fix macro in Node-status mode.

@@ -401,6 +401,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: Fixed the App-Smartermail-Api-Spools command.
-
-{/* CHANGELOG:END */}
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the App-Smartermail-Api-Spools command.

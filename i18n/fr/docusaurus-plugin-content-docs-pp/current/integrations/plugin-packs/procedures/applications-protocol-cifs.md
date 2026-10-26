@@ -470,7 +470,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.05](../releases/release-notes.md#2024-05) - Bug fixes: Fixed file processing when both --filter-file and --max-depth options were used.
-- [22.05](../releases/release-notes.md#2022-05) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [24.05](../releases/release-notes.md#2024-05) - Bug fix: Fixed file processing when both --filter-file and --max-depth options were used.
+- [22.05](../releases/release-notes.md#2022-05) - New connector: Initial release.

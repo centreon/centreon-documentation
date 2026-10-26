@@ -640,6 +640,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.08](../releases/release-notes.md#2023-08) - Enhancements: added Sbc-Calls service.
-
-{/* CHANGELOG:END */}
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: added Sbc-Calls service.

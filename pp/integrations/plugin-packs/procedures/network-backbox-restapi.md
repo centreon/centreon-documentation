@@ -463,7 +463,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.01](../releases/release-notes.md#2025-01) - Enhancements: Added **device-backup** mode and its service discovery.
-- [24.09](../releases/release-notes.md#2024-09) - New connectors: Initial release of Backbox REST API.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added **device-backup** mode and its service discovery.
+- [24.09](../releases/release-notes.md#2024-09) - New connector: Initial release of Backbox REST API.

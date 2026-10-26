@@ -518,6 +518,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.10](../releases/release-notes.md#2023-10) - Bug fixes: Fixed a **Use of uninitialized value** error on Container-Usage mode.
-
-{/* CHANGELOG:END */}
+- [23.10](../releases/release-notes.md#2023-10) - Bug fix: Fixed a **Use of uninitialized value** error on Container-Usage mode.

@@ -476,7 +476,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.02](../releases/release-notes.md#2026-02) - Breaking changes: The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
-- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Removed exchange command.
-
-{/* CHANGELOG:END */}
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Removed exchange command.

@@ -522,9 +522,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
-- [22.04](../releases/release-notes.md#2022-04) - Bug fixes: Fix discovery provider description.
-- [22.01](../releases/release-notes.md#2022-01) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fix discovery provider description.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

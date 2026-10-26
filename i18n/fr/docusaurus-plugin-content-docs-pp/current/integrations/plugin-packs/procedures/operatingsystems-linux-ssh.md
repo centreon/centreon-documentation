@@ -1420,18 +1420,16 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed sudoers file.
-- [26.03](../releases/release-notes.md#2026-03) - Enhancements: Added the number and percent of open files per process in process mode.
-- [26.03](../releases/release-notes.md#2026-03) - Bug fixes: Fixed a `No peers detected` error with `--ntp-mode=ntpq`.
-- [25.09](../releases/release-notes.md#2025-09) - Enhancements: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
-- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Fixed OS-Linux-SSH-Lvm command.
-- [24.12](../releases/release-notes.md#2024-12) - Breaking changes: Fixed an issue with the **process** mode that wasn't returning the process in some cases. We added a column size limit to avoid filter issues.
-- [24.10](../releases/release-notes.md#2024-10) - Bug fixes: Added an `--output-fields` option for some OSs in the **systemd-journal** mode, when journalctl is in version 236 or higher.
-- [24.04](../releases/release-notes.md#2024-04) - Bug fixes: The 'storage' mode now takes the reserved space of the file systems into account.
-- [23.09](../releases/release-notes.md#2023-09) - Enhancements: New service template: systemd-journal + new service discovery rule: systemd-service.
-- [23.09](../releases/release-notes.md#2023-09) - Breaking changes: Replaced **directlvm-usage** mode with new **lvm** mode (breaks only if used with custom command).
-- [23.09](../releases/release-notes.md#2023-09) - Bug fixes: Fixed an issue on the cpu mode causing stats calculation to fail when there was only one processor.
-- [23.05](../releases/release-notes.md#2023-05) - Enhancements: updated diskio command options.
-- [22.05](../releases/release-notes.md#2022-05) - Bug fixes: Adding missing Memory service template.
-
-{/* CHANGELOG:END */}
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed sudoers file.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Added the number and percent of open files per process in process mode.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed a `No peers detected` error with `--ntp-mode=ntpq`.
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed OS-Linux-SSH-Lvm command.
+- [24.12](../releases/release-notes.md#2024-12) - Breaking change: Fixed an issue with the **process** mode that wasn't returning the process in some cases. We added a column size limit to avoid filter issues.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Added an `--output-fields` option for some OSs in the **systemd-journal** mode, when journalctl is in version 236 or higher.
+- [24.04](../releases/release-notes.md#2024-04) - Bug fix: The 'storage' mode now takes the reserved space of the file systems into account.
+- [23.09](../releases/release-notes.md#2023-09) - Enhancement: New service template: systemd-journal + new service discovery rule: systemd-service.
+- [23.09](../releases/release-notes.md#2023-09) - Breaking change: Replaced **directlvm-usage** mode with new **lvm** mode (breaks only if used with custom command).
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed an issue on the cpu mode causing stats calculation to fail when there was only one processor.
+- [23.05](../releases/release-notes.md#2023-05) - Enhancement: updated diskio command options.
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Adding missing Memory service template.

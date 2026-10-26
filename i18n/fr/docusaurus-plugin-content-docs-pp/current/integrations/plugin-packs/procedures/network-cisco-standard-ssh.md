@@ -377,6 +377,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.11](../releases/release-notes.md#2022-11) - Breaking changes: Migrate and secure the underlying modes.
-
-{/* CHANGELOG:END */}
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

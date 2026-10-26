@@ -537,6 +537,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Added **uptime** mode, **storage** mode and its discovery and **interfaces** mode and its discovery.
-
-{/* CHANGELOG:END */}
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added **uptime** mode, **storage** mode and its discovery and **interfaces** mode and its discovery.

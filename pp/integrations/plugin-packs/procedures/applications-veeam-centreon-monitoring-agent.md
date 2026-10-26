@@ -495,18 +495,16 @@ cd "C:/Program Files/Centreon/Plugins/"
 
 ## Changelog
 
-- [26.10](../releases/release-notes.md#2026-10) - Enhancements: Improved job execution performance when filtering by specific jobs in **job-status** mode.
-- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed `job-type` and `session` values in **job-status** mode.
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Enhanced message displayed when using wrong powershell version with veeam 13.
-- [26.07](../releases/release-notes.md#2026-07) - Bug fixes: Fixed Veeam job retrieval in **job-status** mode.
-- [26.05](../releases/release-notes.md#2026-05) - Bug fixes: fixed warnings about uninitialized values in **job-status** mode.
-- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed a regression causing an "Undefined subroutine" error.
-- [26.03](../releases/release-notes.md#2026-03) - Enhancements: Allow compatibility with version 13.
-- [25.12](../releases/release-notes.md#2025-12) - Enhancements: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
-- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Improved execution time in **job-status** mode.
-- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
-- [25.09](../releases/release-notes.md#2025-09) - Bug fixes: Added Veeam Agent compatibility for job monitoring in **job-status** mode.
-- [25.08](../releases/release-notes.md#2025-08) - Enhancements: Converted into stable and added default timeout service macro, set to 120s.
-- [25.03](../releases/release-notes.md#2025-03) - New connectors: Initial release of Veeam using the CMA, from a [The Watch idea](https://thewatch.centreon.com/ideas/prepare-veeam-template-with-centreon-monitoring-agent-4024).
-
-{/* CHANGELOG:END */}
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed `job-type` and `session` values in **job-status** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Enhanced message displayed when using wrong powershell version with veeam 13.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed Veeam job retrieval in **job-status** mode.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: fixed warnings about uninitialized values in **job-status** mode.
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed a regression causing an "Undefined subroutine" error.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Improved execution time in **job-status** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [25.08](../releases/release-notes.md#2025-08) - Enhancement: Converted into stable and added default timeout service macro, set to 120s.
+- [25.03](../releases/release-notes.md#2025-03) - New connector: Initial release of Veeam using the CMA, from a [The Watch idea](https://thewatch.centreon.com/ideas/prepare-veeam-template-with-centreon-monitoring-agent-4024).

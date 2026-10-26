@@ -422,6 +422,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.04](../releases/release-notes.md#2025-04) - New connectors: Initial release of Exense Step REST API.
-
-{/* CHANGELOG:END */}
+- [25.04](../releases/release-notes.md#2025-04) - New connector: Initial release of Exense Step REST API.

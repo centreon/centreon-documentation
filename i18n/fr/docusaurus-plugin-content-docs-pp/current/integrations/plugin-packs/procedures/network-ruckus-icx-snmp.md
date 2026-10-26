@@ -546,7 +546,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.07](../releases/release-notes.md#2022-07) - Bug fixes: Fixed macro in Ruckus ICX Memory service template.
-- [22.04](../releases/release-notes.md#2022-04) - Enhancements: Add new thresholds to Memory service.
-
-{/* CHANGELOG:END */}
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed macro in Ruckus ICX Memory service template.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Add new thresholds to Memory service.

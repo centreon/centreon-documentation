@@ -398,6 +398,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.04](../releases/release-notes.md#2024-04) - New connectors: First release of Infor Ion Grid RESTAPI.
-
-{/* CHANGELOG:END */}
+- [24.04](../releases/release-notes.md#2024-04) - New connector: First release of Infor Ion Grid RESTAPI.

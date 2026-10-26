@@ -774,8 +774,6 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Added native SNMP v3 host macro.
-- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed an issue causing a parsing error.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed an issue causing a parsing error.

@@ -598,6 +598,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.07](../releases/release-notes.md#2024-07) - New connectors: Initial release of Nokia formerly Alcatel Isam SNMP.
-
-{/* CHANGELOG:END */}
+- [24.07](../releases/release-notes.md#2024-07) - New connector: Initial release of Nokia formerly Alcatel Isam SNMP.

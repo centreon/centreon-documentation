@@ -252,10 +252,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ## Historique des modifications
 
 - [26.06](../releases/release-notes.md#2026-06) - Attention: `nmap` does not install automatically anymore.
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: `nmap` does not install automatically anymore.
-- [25.06](../releases/release-notes.md#2025-06) - Enhancements: Enhanced secure execution of commands.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
-- [23.01](../releases/release-notes.md#2023-01) - Bug fixes: fix(pp): increased release number.
-- [22.07](../releases/release-notes.md#2022-07) - Enhancements: Added WSMAN ports to Nmap discovery.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: `nmap` does not install automatically anymore.
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Enhanced secure execution of commands.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: fix(pp): increased release number.
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Added WSMAN ports to Nmap discovery.

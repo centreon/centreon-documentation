@@ -745,6 +745,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **Net-Dell-Os10-SNMP-Disk-usage** command.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Dell-Os10-SNMP-Disk-usage** command.

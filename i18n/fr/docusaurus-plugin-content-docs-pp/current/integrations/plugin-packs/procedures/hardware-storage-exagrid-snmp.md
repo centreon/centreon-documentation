@@ -345,6 +345,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed landing_used calculation to prevent negative values in **server-usage** mode, from community contribution (PR [#5863](https://github.com/centreon/centreon-plugins/pull/5863)).
-
-{/* CHANGELOG:END */}
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed landing_used calculation to prevent negative values in **server-usage** mode, from community contribution (PR [#5863](https://github.com/centreon/centreon-plugins/pull/5863)).

@@ -838,6 +838,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.12](../releases/release-notes.md#2024-12) - Enhancements: Added new **sas-alarm** mode from community contribution [PR 5083](https://github.com/centreon/centreon-plugins/pull/5083).
-
-{/* CHANGELOG:END */}
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added new **sas-alarm** mode from community contribution [PR 5083](https://github.com/centreon/centreon-plugins/pull/5083).

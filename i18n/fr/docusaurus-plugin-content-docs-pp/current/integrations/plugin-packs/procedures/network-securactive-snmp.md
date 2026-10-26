@@ -397,7 +397,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.03](../releases/release-notes.md#2026-03) - Bug fixes: Fixed the **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
-
-{/* CHANGELOG:END */}
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed the **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.

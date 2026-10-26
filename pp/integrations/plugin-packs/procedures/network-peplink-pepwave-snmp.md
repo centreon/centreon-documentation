@@ -592,6 +592,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.09](../releases/release-notes.md#2023-09) - Bug fixes: Fixed interfaces service template.
-
-{/* CHANGELOG:END */}
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

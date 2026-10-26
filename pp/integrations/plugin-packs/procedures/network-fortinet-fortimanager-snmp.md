@@ -485,7 +485,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
-- [24.12](../releases/release-notes.md#2024-12) - Enhancements: Added `device-policy-package-status thresholds` to the `Net-Fortinet-Fortimanager-SNMP-Device-Status` command (from an idea on [TheWatch](https://thewatch.centreon.com/ideas/fortimanager-monitoring-connector-device-status-integrate-policy-package-in-monitoring-connector-4022)).
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added `device-policy-package-status thresholds` to the `Net-Fortinet-Fortimanager-SNMP-Device-Status` command (from an idea on [TheWatch](https://thewatch.centreon.com/ideas/fortimanager-monitoring-connector-device-status-integrate-policy-package-in-monitoring-connector-4022)).

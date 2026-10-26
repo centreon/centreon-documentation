@@ -404,7 +404,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
-- [24.02](../releases/release-notes.md#2024-02) - Bug fixes: Fixed an "uninitialized value in concatenation" issue on AP-Usage.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [24.02](../releases/release-notes.md#2024-02) - Bug fix: Fixed an "uninitialized value in concatenation" issue on AP-Usage.

@@ -482,8 +482,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Change service template aliases to avoid service deployment issues.
-- [25.06](../releases/release-notes.md#2025-06) - Enhancements: Added template for **users-activity** and service discovery rule for **site-usage**.
-- [25.06](../releases/release-notes.md#2025-06) - Bug fixes: Fixed service discovery mode for **site-usage**.
-
-{/* CHANGELOG:END */}
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Change service template aliases to avoid service deployment issues.
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Added template for **users-activity** and service discovery rule for **site-usage**.
+- [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed service discovery mode for **site-usage**.

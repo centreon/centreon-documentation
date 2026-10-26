@@ -559,7 +559,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Enhanced compatibility with Dell SAN for **interfaces** mode, based on community contribution (PR [#5912](https://github.com/centreon/centreon-plugins/pull/5912)).
-- [22.05](../releases/release-notes.md#2022-05) - Bug fixes: Fix controller-statistics command options.
-
-{/* CHANGELOG:END */}
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Enhanced compatibility with Dell SAN for **interfaces** mode, based on community contribution (PR [#5912](https://github.com/centreon/centreon-plugins/pull/5912)).
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fix controller-statistics command options.

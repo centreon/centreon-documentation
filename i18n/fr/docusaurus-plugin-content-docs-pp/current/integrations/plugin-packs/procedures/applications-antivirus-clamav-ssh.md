@@ -336,6 +336,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.12](../releases/release-notes.md#2022-12) - Breaking changes: use new ssh backend.
-
-{/* CHANGELOG:END */}
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: use new ssh backend.

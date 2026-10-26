@@ -10,6 +10,4 @@ description: "This deprecated JMX-based Monitoring Connector for Centreon Map4 h
 
 ## Changelog
 
-- [23.12](../releases/release-notes.md#2023-12) - Enhancements: Replace the old logo with the current one.
-
-{/* CHANGELOG:END */}
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replace the old logo with the current one.

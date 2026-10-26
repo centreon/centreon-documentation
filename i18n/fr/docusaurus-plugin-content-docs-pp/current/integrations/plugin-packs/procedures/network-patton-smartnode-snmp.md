@@ -427,7 +427,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **Net-Patton-Smartnode-SNMP-Call** command.
-- [22.12](../releases/release-notes.md#2022-12) - New connectors: Add Patton Snmp Monitoring Connector.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Patton-Smartnode-SNMP-Call** command.
+- [22.12](../releases/release-notes.md#2022-12) - New connector: Add Patton Snmp Monitoring Connector.

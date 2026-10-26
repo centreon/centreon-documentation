@@ -397,6 +397,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.11](../releases/release-notes.md#2024-11) - Enhancements: Added service discovery rule for **connections** mode.
-
-{/* CHANGELOG:END */}
+- [24.11](../releases/release-notes.md#2024-11) - Enhancement: Added service discovery rule for **connections** mode.

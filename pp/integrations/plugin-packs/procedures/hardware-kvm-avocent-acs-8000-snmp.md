@@ -515,6 +515,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.01](../releases/release-notes.md#2024-01) - New connectors: Initial release of Avocent 8000.
-
-{/* CHANGELOG:END */}
+- [24.01](../releases/release-notes.md#2024-01) - New connector: Initial release of Avocent 8000.

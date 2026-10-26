@@ -443,7 +443,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.09](../releases/release-notes.md#2026-09) - Bug fixes: Fixed connector referencing a plugin version that doesn't exist on Debian 13.
-- [26.03](../releases/release-notes.md#2026-03) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [26.09](../releases/release-notes.md#2026-09) - Bug fix: Fixed connector referencing a plugin version that doesn't exist on Debian 13.
+- [26.03](../releases/release-notes.md#2026-03) - New connector: Initial release.

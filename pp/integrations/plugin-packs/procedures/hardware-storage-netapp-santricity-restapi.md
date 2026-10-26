@@ -543,6 +543,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Fixed `cmd` component count in **hardware** mode.
-
-{/* CHANGELOG:END */}
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed `cmd` component count in **hardware** mode.

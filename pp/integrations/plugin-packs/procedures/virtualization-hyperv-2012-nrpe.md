@@ -613,7 +613,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.06](../releases/release-notes.md#2026-06) - Breaking changes: Replaced `check_centreon_nrpe3` with `check_nrpe`.
-- [24.09](../releases/release-notes.md#2024-09) - Bug fixes: Fixed the default `--filter-status` value on VM status.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [24.09](../releases/release-notes.md#2024-09) - Bug fix: Fixed the default `--filter-status` value on VM status.

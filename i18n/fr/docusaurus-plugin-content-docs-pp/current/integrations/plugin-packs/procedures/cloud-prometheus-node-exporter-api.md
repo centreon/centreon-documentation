@@ -538,6 +538,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Added **uptime** mode, **storage** mode and its discovery and **interfaces** mode and its discovery.
-
-{/* CHANGELOG:END */}
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added **uptime** mode, **storage** mode and its discovery and **interfaces** mode and its discovery.

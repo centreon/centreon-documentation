@@ -431,8 +431,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.03](../releases/release-notes.md#2026-03) - Enhancements: Allow compatibility with version 13.
-- [25.04](../releases/release-notes.md#2025-04) - Enhancements: Added handling of replication jobs to **jobs** mode.
-- [23.07](../releases/release-notes.md#2023-07) - New connectors: initial release.
-
-{/* CHANGELOG:END */}
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added handling of replication jobs to **jobs** mode.
+- [23.07](../releases/release-notes.md#2023-07) - New connector: initial release.

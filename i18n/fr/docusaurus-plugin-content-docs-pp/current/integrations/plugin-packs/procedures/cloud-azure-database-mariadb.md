@@ -662,8 +662,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Changed host status checks output.
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
-- [22.05](../releases/release-notes.md#2022-05) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [22.05](../releases/release-notes.md#2022-05) - New connector: Initial release.

@@ -908,7 +908,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed **Disk-Usage-Cloud-Global** command.
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Removed unrelated service templates.
-
-{/* CHANGELOG:END */}
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **Disk-Usage-Cloud-Global** command.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Removed unrelated service templates.

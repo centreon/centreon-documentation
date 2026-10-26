@@ -336,6 +336,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Fixed the plugin dependencies.
-
-{/* CHANGELOG:END */}
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

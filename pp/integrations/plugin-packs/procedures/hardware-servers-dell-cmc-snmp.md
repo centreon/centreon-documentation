@@ -397,6 +397,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.01](../releases/release-notes.md#2022-01) - Bug fixes: Fix host template used.
-
-{/* CHANGELOG:END */}
+- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fix host template used.

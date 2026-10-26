@@ -1044,8 +1044,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
-- [26.04](../releases/release-notes.md#2026-04) - Enhancements: **License** mode now handles new status ES, from community contribution (PR [#5922](https://github.com/centreon/centreon-plugins/pull/5922)).
-- [22.04](../releases/release-notes.md#2022-04) - Bug fixes: Fixing extra space in disco commands.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: **License** mode now handles new status ES, from community contribution (PR [#5922](https://github.com/centreon/centreon-plugins/pull/5922)).
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixing extra space in disco commands.

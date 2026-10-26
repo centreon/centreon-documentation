@@ -413,6 +413,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Removed unrelated **Loganalytics** service template.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Removed unrelated **Loganalytics** service template.

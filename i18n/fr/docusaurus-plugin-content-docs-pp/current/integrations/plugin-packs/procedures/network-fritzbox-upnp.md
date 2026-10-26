@@ -357,6 +357,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.06](../releases/release-notes.md#2026-06) - Bug fixes: Fixed **system** mode status thresholds.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Bug fix: Fixed **system** mode status thresholds.

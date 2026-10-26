@@ -1186,12 +1186,10 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.09](../releases/release-notes.md#2026-09) - Enhancements: `centreon_plugins.exe` now supports the curl HTTP backend.
-- [26.09](../releases/release-notes.md#2026-09) - Bug fixes: Fixed qwinsta parsing fails with specific languages in **sessions** mode.
-- [26.02](../releases/release-notes.md#2026-02) - Breaking changes: The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
-- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
-- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Added **Disk-Name** service discovery rule.
-- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: Fixed the certificate check command.
-- [22.10](../releases/release-notes.md#2022-10) - Enhancements: add service updates for windows pack.
-
-{/* CHANGELOG:END */}
+- [26.09](../releases/release-notes.md#2026-09) - Enhancement: `centreon_plugins.exe` now supports the curl HTTP backend.
+- [26.09](../releases/release-notes.md#2026-09) - Bug fix: Fixed qwinsta parsing fails with specific languages in **sessions** mode.
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added **Disk-Name** service discovery rule.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the certificate check command.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: add service updates for windows pack.

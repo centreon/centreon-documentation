@@ -418,6 +418,4 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 
 ## Changelog
 
-- [26.04](../releases/release-notes.md#2026-04) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [26.04](../releases/release-notes.md#2026-04) - New connector: Initial release.

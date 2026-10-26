@@ -463,7 +463,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [25.05](../releases/release-notes.md#2025-05) - Bug fixes: Removed deprecated `StorageSyncRecallIOTotalSizeBytes` metric in **recalls** mode.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.05](../releases/release-notes.md#2025-05) - Bug fix: Removed deprecated `StorageSyncRecallIOTotalSizeBytes` metric in **recalls** mode.

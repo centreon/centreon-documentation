@@ -11,6 +11,4 @@ description: "Ce connecteur de supervision JMX pour Centreon Map4 est dépréci�
 
 ## Historique des modifications
 
-- [23.12](../releases/release-notes.md#2023-12) - Enhancements: Replace the old logo with the current one.
-
-{/* CHANGELOG:END */}
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replace the old logo with the current one.

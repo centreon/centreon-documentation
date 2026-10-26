@@ -331,7 +331,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Fixed typo in `App-Iis-WSMAN-Application-Pools` command.
-- [22.06](../releases/release-notes.md#2022-06) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed typo in `App-Iis-WSMAN-Application-Pools` command.
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

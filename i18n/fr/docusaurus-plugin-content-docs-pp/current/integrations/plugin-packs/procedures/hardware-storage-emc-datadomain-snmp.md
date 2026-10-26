@@ -844,12 +844,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.07](../releases/release-notes.md#2025-07) - Bug fixes: Fixed an issue where default value for `timezone` option was empty, leading to an unknown status being returned in **cleaning** mode.
-- [25.05](../releases/release-notes.md#2025-05) - Enhancements: Added new threshold macro `SERVICEWARNINGSPACEUSAGEPRCT` and `SERVICECRITICALSPACEUSAGEPRCT` in filesystems template.
-- [25.05](../releases/release-notes.md#2025-05) - Bug fixes: Fixed wrong threshold default values in filesystems template.
-- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Added `--timezone` option for equipment in **cleaning** mode to avoid misinterpreting the clean time frame.
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed wrong output when cleaning is running and cleaned unused macros in **Filesystem** service template.
-- [24.11](../releases/release-notes.md#2024-11) - Enhancements: Added several new modes and service discovery rules.
-- [24.11](../releases/release-notes.md#2024-11) - Breaking changes: Changed mode names and dependencies paths.
-
-{/* CHANGELOG:END */}
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed an issue where default value for `timezone` option was empty, leading to an unknown status being returned in **cleaning** mode.
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added new threshold macro `SERVICEWARNINGSPACEUSAGEPRCT` and `SERVICECRITICALSPACEUSAGEPRCT` in filesystems template.
+- [25.05](../releases/release-notes.md#2025-05) - Bug fix: Fixed wrong threshold default values in filesystems template.
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Added `--timezone` option for equipment in **cleaning** mode to avoid misinterpreting the clean time frame.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed wrong output when cleaning is running and cleaned unused macros in **Filesystem** service template.
+- [24.11](../releases/release-notes.md#2024-11) - Enhancement: Added several new modes and service discovery rules.
+- [24.11](../releases/release-notes.md#2024-11) - Breaking change: Changed mode names and dependencies paths.

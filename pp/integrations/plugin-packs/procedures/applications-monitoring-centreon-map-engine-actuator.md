@@ -546,6 +546,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.02](../releases/release-notes.md#2024-02) - New connectors: First release of Centreon Map Engine monitoring connector.
-
-{/* CHANGELOG:END */}
+- [24.02](../releases/release-notes.md#2024-02) - New connector: First release of Centreon Map Engine monitoring connector.

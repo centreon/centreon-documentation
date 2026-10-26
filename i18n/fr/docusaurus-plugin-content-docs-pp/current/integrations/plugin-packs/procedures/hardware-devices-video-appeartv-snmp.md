@@ -352,6 +352,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.12](../releases/release-notes.md#2024-12) - New connectors: Initial release of AppearTV SNMP.
-
-{/* CHANGELOG:END */}
+- [24.12](../releases/release-notes.md#2024-12) - New connector: Initial release of AppearTV SNMP.

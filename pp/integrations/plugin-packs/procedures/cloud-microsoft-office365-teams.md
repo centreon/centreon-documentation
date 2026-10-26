@@ -446,7 +446,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.11](../releases/release-notes.md#2025-11) - Enhancements: Change service template aliases to avoid service deployment issues.
-- [24.08](../releases/release-notes.md#2024-08) - Breaking changes: Added a new mode for notifications to face the [approaching deprecation of the webhook in favor of workflows](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/).
-
-{/* CHANGELOG:END */}
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Change service template aliases to avoid service deployment issues.
+- [24.08](../releases/release-notes.md#2024-08) - Breaking change: Added a new mode for notifications to face the [approaching deprecation of the webhook in favor of workflows](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/).

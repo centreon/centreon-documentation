@@ -583,7 +583,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Added native SNMP v3 host macro.
-- [22.09](../releases/release-notes.md#2022-09) - New connectors: Add Cisco Umbrella Pack.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Add Cisco Umbrella Pack.

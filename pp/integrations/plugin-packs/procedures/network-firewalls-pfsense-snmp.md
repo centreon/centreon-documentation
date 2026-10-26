@@ -870,8 +870,6 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
-- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Added new modes: **cpu**, **cpu-detailed**, **load**, **memory**, **swap** and **uptime**.
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Split **Net-FW-Pfsense-SNMP-Packet-Stats** into 6 dedicated commands.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added new modes: **cpu**, **cpu-detailed**, **load**, **memory**, **swap** and **uptime**.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Split **Net-FW-Pfsense-SNMP-Packet-Stats** into 6 dedicated commands.

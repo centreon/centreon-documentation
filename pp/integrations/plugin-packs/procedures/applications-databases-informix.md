@@ -824,6 +824,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.12](../releases/release-notes.md#2022-12) - Breaking changes: change sql-statement option protection.
-
-{/* CHANGELOG:END */}
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: change sql-statement option protection.

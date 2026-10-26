@@ -815,7 +815,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.01](../releases/release-notes.md#2026-01) - Enhancements: Added **bgp** service template.
-- [22.04](../releases/release-notes.md#2022-04) - Enhancements: Change threshold options for Memory service.
-
-{/* CHANGELOG:END */}
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added **bgp** service template.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Change threshold options for Memory service.

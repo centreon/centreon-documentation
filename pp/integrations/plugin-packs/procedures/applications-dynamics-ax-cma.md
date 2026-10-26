@@ -454,6 +454,4 @@ this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-
 
 ## Changelog
 
-- [26.08](../releases/release-notes.md#2026-08) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - New connector: Initial release.

@@ -707,6 +707,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.02](../releases/release-notes.md#2025-02) - Enhancements: Added **HA**, **license**, **VPN** and **VPN discovery** modes, based on a community contribution ([PR 5144](https://github.com/centreon/centreon-plugins/pull/5144)).
-
-{/* CHANGELOG:END */}
+- [25.02](../releases/release-notes.md#2025-02) - Enhancement: Added **HA**, **license**, **VPN** and **VPN discovery** modes, based on a community contribution ([PR 5144](https://github.com/centreon/centreon-plugins/pull/5144)).

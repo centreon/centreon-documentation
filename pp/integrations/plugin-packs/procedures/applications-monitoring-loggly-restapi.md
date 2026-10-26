@@ -361,6 +361,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.06](../releases/release-notes.md#2024-06) - New connectors: Initial release of Loggly Rest API.
-
-{/* CHANGELOG:END */}
+- [24.06](../releases/release-notes.md#2024-06) - New connector: Initial release of Loggly Rest API.

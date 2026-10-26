@@ -335,7 +335,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.10](../releases/release-notes.md#2022-10) - Bug fixes: Fixing typo in check command.
-- [22.09](../releases/release-notes.md#2022-09) - New connectors: Add AzureAD Pack (graphapi).
-
-{/* CHANGELOG:END */}
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixing typo in check command.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Add AzureAD Pack (graphapi).

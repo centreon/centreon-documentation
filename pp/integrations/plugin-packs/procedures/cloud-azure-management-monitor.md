@@ -413,6 +413,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Removed unrelated **Loganalytics** service template.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Removed unrelated **Loganalytics** service template.

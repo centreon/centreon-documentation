@@ -627,6 +627,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.08](../releases/release-notes.md#2025-08) - New connectors: Initial release of LatenceTech RestAPI.
-
-{/* CHANGELOG:END */}
+- [25.08](../releases/release-notes.md#2025-08) - New connector: Initial release of LatenceTech RestAPI.

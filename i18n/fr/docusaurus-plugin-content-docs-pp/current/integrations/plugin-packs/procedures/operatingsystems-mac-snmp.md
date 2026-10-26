@@ -931,7 +931,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
-- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).

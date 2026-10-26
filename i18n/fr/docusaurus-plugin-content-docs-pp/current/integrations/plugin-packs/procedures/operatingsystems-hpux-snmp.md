@@ -548,7 +548,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Added native SNMP v3 host macro.
-- [25.04](../releases/release-notes.md#2025-04) - Enhancements: Added the `--check-overload` option to the **uptime** service template.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.

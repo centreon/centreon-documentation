@@ -884,10 +884,8 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
-- [23.10](../releases/release-notes.md#2023-10) - Bug fixes: Linked Executions template to the right check command.
-- [23.08](../releases/release-notes.md#2023-08) - Enhancements: removed privatebytes threshold from Memory service.
-- [22.06](../releases/release-notes.md#2022-06) - Bug fixes: Fix extra newlines in commands definition causing failures during CLAPI import.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [23.10](../releases/release-notes.md#2023-10) - Bug fix: Linked Executions template to the right check command.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: removed privatebytes threshold from Memory service.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Fix extra newlines in commands definition causing failures during CLAPI import.

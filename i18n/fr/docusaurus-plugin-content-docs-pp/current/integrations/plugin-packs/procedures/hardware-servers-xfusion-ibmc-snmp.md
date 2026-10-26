@@ -411,7 +411,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.05](../releases/release-notes.md#2023-05) - Bug fixes: wrong command.
-- [22.11](../releases/release-notes.md#2022-11) - New connectors: New monitoring pack.
-
-{/* CHANGELOG:END */}
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: wrong command.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

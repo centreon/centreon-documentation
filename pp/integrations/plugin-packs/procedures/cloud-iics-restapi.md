@@ -380,6 +380,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.09](../releases/release-notes.md#2022-09) - New connectors: Add Informatica Intelligent Cloud Services Pack.
-
-{/* CHANGELOG:END */}
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Add Informatica Intelligent Cloud Services Pack.

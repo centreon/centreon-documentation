@@ -970,6 +970,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Authentication to API now requires a bearer header.
-
-{/* CHANGELOG:END */}
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Authentication to API now requires a bearer header.

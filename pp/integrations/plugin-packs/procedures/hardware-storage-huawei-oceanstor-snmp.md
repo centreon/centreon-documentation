@@ -506,6 +506,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.11](../releases/release-notes.md#2022-11) - Enhancements: Add new service to check luns.
-
-{/* CHANGELOG:END */}
+- [22.11](../releases/release-notes.md#2022-11) - Enhancement: Add new service to check luns.

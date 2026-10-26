@@ -194,6 +194,4 @@ mode/plugin to work properly.
 
 ## Changelog
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **Net-IBM-Bladecenter-SNMP-Time** command.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-IBM-Bladecenter-SNMP-Time** command.

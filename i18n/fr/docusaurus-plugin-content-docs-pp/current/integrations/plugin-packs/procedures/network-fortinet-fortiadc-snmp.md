@@ -648,6 +648,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.02](../releases/release-notes.md#2022-02) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [22.02](../releases/release-notes.md#2022-02) - New connector: Initial release.

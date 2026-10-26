@@ -339,6 +339,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Removed 'geist' from connector name.
-
-{/* CHANGELOG:END */}
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Removed 'geist' from connector name.

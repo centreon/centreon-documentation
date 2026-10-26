@@ -854,6 +854,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Add SOLID server service template.
-
-{/* CHANGELOG:END */}
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Add SOLID server service template.

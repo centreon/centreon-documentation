@@ -773,6 +773,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.04](../releases/release-notes.md#2026-04) - Enhancements: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).
-
-{/* CHANGELOG:END */}
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).

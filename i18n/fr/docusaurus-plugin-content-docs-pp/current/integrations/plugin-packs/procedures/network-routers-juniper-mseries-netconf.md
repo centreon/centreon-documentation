@@ -1052,6 +1052,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.06](../releases/release-notes.md#2025-06) - New connectors: Initial release of Juniper M-series with Netconf.
-
-{/* CHANGELOG:END */}
+- [25.06](../releases/release-notes.md#2025-06) - New connector: Initial release of Juniper M-series with Netconf.

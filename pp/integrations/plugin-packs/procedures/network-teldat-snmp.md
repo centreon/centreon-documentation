@@ -583,7 +583,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.08](../releases/release-notes.md#2024-08) - Enhancements: Enhanced the cells-radio mode.
-- [24.01](../releases/release-notes.md#2024-01) - New connectors: Initial release of Teldat Edge Routers SNMP.
-
-{/* CHANGELOG:END */}
+- [24.08](../releases/release-notes.md#2024-08) - Enhancement: Enhanced the cells-radio mode.
+- [24.01](../releases/release-notes.md#2024-01) - New connector: Initial release of Teldat Edge Routers SNMP.

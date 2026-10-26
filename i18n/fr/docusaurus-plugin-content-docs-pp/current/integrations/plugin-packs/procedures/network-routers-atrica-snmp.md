@@ -397,6 +397,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.11](../releases/release-notes.md#2024-11) - Enhancements: Added service discovery rule for **connections** mode.
-
-{/* CHANGELOG:END */}
+- [24.11](../releases/release-notes.md#2024-11) - Enhancement: Added service discovery rule for **connections** mode.

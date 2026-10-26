@@ -635,12 +635,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Added native SNMP v3 host macro.
-- [25.11](../releases/release-notes.md#2025-11) - Bug fixes: Fixed localized time calculation using the ` timezone` option.
-- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Added `timezone` option in **time** mode, based on community contribution [PR 5690](https://github.com/centreon/centreon-plugins/pull/5690).
-- [25.09](../releases/release-notes.md#2025-09) - Enhancements: Added support for APC Galaxy in **sensors** mode, based on community contribution [PR 5692](https://github.com/centreon/centreon-plugins/pull/5692).
-- [25.04](../releases/release-notes.md#2025-04) - Enhancements: Enhance **replace-lasttime** output to be humanly readable in **battery-status** mode, from a [The Watch idea](https://thewatch.centreon.com/ideas/hardware-ups-apc-snmp-plugin-warn-crit-output-with-options-warning-replace-lasttime-critical-replace-lasttime-3427).
-- [23.09](../releases/release-notes.md#2023-09) - Bug fixes: Fixed **input-lines** mode.
-- [23.08](../releases/release-notes.md#2023-08) - Enhancements: added Time and Uptime services.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed localized time calculation using the ` timezone` option.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added `timezone` option in **time** mode, based on community contribution [PR 5690](https://github.com/centreon/centreon-plugins/pull/5690).
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added support for APC Galaxy in **sensors** mode, based on community contribution [PR 5692](https://github.com/centreon/centreon-plugins/pull/5692).
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Enhance **replace-lasttime** output to be humanly readable in **battery-status** mode, from a [The Watch idea](https://thewatch.centreon.com/ideas/hardware-ups-apc-snmp-plugin-warn-crit-output-with-options-warning-replace-lasttime-critical-replace-lasttime-3427).
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed **input-lines** mode.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: added Time and Uptime services.

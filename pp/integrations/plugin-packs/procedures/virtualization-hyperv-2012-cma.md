@@ -580,7 +580,5 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.12](../releases/release-notes.md#2025-12) - Enhancements: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
-- [25.09](../releases/release-notes.md#2025-09) - New connectors: Initial release of Hyper-V 2012 CMA.
-
-{/* CHANGELOG:END */}
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.09](../releases/release-notes.md#2025-09) - New connector: Initial release of Hyper-V 2012 CMA.

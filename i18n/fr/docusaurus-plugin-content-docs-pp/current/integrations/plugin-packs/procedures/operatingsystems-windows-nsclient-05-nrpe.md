@@ -1134,12 +1134,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.06](../releases/release-notes.md#2026-06) - Breaking changes: Replaced `check_centreon_nrpe3` with `check_nrpe`.
-- [25.12](../releases/release-notes.md#2025-12) - Bug fixes: Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
-- [25.02](../releases/release-notes.md#2025-02) - Enhancements: Changed pack display name to make it clear that it uses the NRPE protocol.
-- [23.11](../releases/release-notes.md#2023-11) - Bug fixes: Fixed the certificate check command.
-- [23.06](../releases/release-notes.md#2023-06) - Breaking changes: Updated default NRPE client and options.
-- [22.11](../releases/release-notes.md#2022-11) - Bug fixes: Fix erroneous mode name in Updates command.
-- [22.10](../releases/release-notes.md#2022-10) - Enhancements: add service updates for windows pack.
-
-{/* CHANGELOG:END */}
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the NTP mode, causing zombie processes of `centreon_plugins.exe`.
+- [25.02](../releases/release-notes.md#2025-02) - Enhancement: Changed pack display name to make it clear that it uses the NRPE protocol.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the certificate check command.
+- [23.06](../releases/release-notes.md#2023-06) - Breaking change: Updated default NRPE client and options.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Fix erroneous mode name in Updates command.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: add service updates for windows pack.

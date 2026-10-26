@@ -1056,6 +1056,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.10](../releases/release-notes.md#2026-10) - Enhancements: Added host discovery and template features for **pods** and **containers**.
-
-{/* CHANGELOG:END */}
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Added host discovery and template features for **pods** and **containers**.

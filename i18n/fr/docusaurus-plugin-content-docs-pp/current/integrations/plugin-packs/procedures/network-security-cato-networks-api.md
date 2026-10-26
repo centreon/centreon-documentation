@@ -530,6 +530,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.12](../releases/release-notes.md#2025-12) - New connectors: Initial release, based on a [The Watch idea](https://thewatch.centreon.com/ideas/create-a-new-cato-network-connector-4025).
-
-{/* CHANGELOG:END */}
+- [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release, based on a [The Watch idea](https://thewatch.centreon.com/ideas/create-a-new-cato-network-connector-4025).

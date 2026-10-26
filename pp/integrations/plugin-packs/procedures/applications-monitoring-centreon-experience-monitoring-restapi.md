@@ -562,8 +562,6 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.10](../releases/release-notes.md#2026-10) - Enhancements: Changed the default value of the `timeframe` option (from 3600 to 86400 seconds).
-- [26.02](../releases/release-notes.md#2026-02) - Bug fixes: The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
-- [26.01](../releases/release-notes.md#2026-01) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Changed the default value of the `timeframe` option (from 3600 to 86400 seconds).
+- [26.02](../releases/release-notes.md#2026-02) - Bug fix: The connector now returns an OK status when no are incidents found (instead of UNKNOWN).
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release.

@@ -862,12 +862,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.06](../releases/release-notes.md#2024-06) - Breaking changes: Will no longer be supported and will be deprecated.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
-- [23.04](../releases/release-notes.md#2023-04) - Breaking changes: added various improvements.
-- [23.01](../releases/release-notes.md#2023-01) - Bug fixes: fix(kadiska): fix the discovery commands and arguments.
-- [22.10](../releases/release-notes.md#2022-10) - Enhancements: Adding new STPL.
-- [22.09](../releases/release-notes.md#2022-09) - Bug fixes: Fix outdated command option for nettracer mode.
-- [22.05](../releases/release-notes.md#2022-05) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [24.06](../releases/release-notes.md#2024-06) - Breaking change: Will no longer be supported and will be deprecated.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
+- [23.04](../releases/release-notes.md#2023-04) - Breaking change: added various improvements.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: fix(kadiska): fix the discovery commands and arguments.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Adding new STPL.
+- [22.09](../releases/release-notes.md#2022-09) - Bug fix: Fix outdated command option for nettracer mode.
+- [22.05](../releases/release-notes.md#2022-05) - New connector: Initial release.

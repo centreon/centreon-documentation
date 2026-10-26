@@ -709,14 +709,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.10](../releases/release-notes.md#2026-10) - Bug fixes: Fixed an issue with **health** mode by adding the `--server` option. This was causing an invalid Azure Resource ID and resulted in a host being permanently DOWN / ResourceNotFound.
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [26.06](../releases/release-notes.md#2026-06) - Enhancements: Updated help section on **storage** mode.
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed host discovery issue.
-- [24.09](../releases/release-notes.md#2024-09) - Bug fixes: Added the missing `--server` option in some checks.
-- [24.04](../releases/release-notes.md#2024-04) - Bug fixes: Fixed the Cloud-Azure-Database-SqlDatabase-Api-Cpu command.
-- [23.07](../releases/release-notes.md#2023-07) - Enhancements: added CPU and Memory monitoring.
-- [23.02](../releases/release-notes.md#2023-02) - Enhancements: add EXTRAOPTIONS on health template.
-- [22.01](../releases/release-notes.md#2022-01) - Breaking changes: Rewrite and extend.
-
-{/* CHANGELOG:END */}
+- [26.10](../releases/release-notes.md#2026-10) - Bug fix: Fixed an issue with **health** mode by adding the `--server` option. This was causing an invalid Azure Resource ID and resulted in a host being permanently DOWN / ResourceNotFound.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Updated help section on **storage** mode.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [24.09](../releases/release-notes.md#2024-09) - Bug fix: Added the missing `--server` option in some checks.
+- [24.04](../releases/release-notes.md#2024-04) - Bug fix: Fixed the Cloud-Azure-Database-SqlDatabase-Api-Cpu command.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: added CPU and Memory monitoring.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: add EXTRAOPTIONS on health template.
+- [22.01](../releases/release-notes.md#2022-01) - Breaking change: Rewrite and extend.

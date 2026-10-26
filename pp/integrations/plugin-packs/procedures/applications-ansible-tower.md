@@ -626,9 +626,7 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.09](../releases/release-notes.md#2025-09) - Enhancements: Improve UUID generation to make it unique in **host discovery**.
-- [24.10](../releases/release-notes.md#2024-10) - Enhancements: Added `filter-time` option to **jobs** mode, redesigned from community contribution [PR 4990](https://github.com/centreon/centreon-plugins/pull/4990).
-- [24.10](../releases/release-notes.md#2024-10) - Enhancements: The host discovery now returns a Host IP field.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
-
-{/* CHANGELOG:END */}
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Improve UUID generation to make it unique in **host discovery**.
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added `filter-time` option to **jobs** mode, redesigned from community contribution [PR 4990](https://github.com/centreon/centreon-plugins/pull/4990).
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: The host discovery now returns a Host IP field.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.

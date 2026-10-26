@@ -396,10 +396,8 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
-- [22.10](../releases/release-notes.md#2022-10) - Bug fixes: Fix bug with assume-role option.
-- [22.07](../releases/release-notes.md#2022-07) - Enhancements: Migrated AWS SNS & SQS Service Disco to Host Disco.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fix bug with assume-role option.
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Migrated AWS SNS & SQS Service Disco to Host Disco.

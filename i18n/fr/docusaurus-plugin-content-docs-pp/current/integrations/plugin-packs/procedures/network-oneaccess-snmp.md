@@ -581,10 +581,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Added native SNMP v3 host macro.
-- [23.07](../releases/release-notes.md#2023-07) - Enhancements: added options to Cells-Radio monitoring.
-- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Add new rtt-probes service.
-- [22.06](../releases/release-notes.md#2022-06) - Bug fixes: Fix interfaces command options.
-- [22.04](../releases/release-notes.md#2022-04) - Breaking changes: Add new services: Interfaces and cells-radio.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: added options to Cells-Radio monitoring.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Add new rtt-probes service.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Fix interfaces command options.
+- [22.04](../releases/release-notes.md#2022-04) - Breaking change: Add new services: Interfaces and cells-radio.

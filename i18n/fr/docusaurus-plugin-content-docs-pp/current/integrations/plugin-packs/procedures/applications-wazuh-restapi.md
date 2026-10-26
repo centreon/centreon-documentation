@@ -395,6 +395,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.11](../releases/release-notes.md#2023-11) - Enhancements: Updated the logo.
-
-{/* CHANGELOG:END */}
+- [23.11](../releases/release-notes.md#2023-11) - Enhancement: Updated the logo.

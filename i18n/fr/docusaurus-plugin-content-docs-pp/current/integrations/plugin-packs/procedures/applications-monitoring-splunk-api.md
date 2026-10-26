@@ -530,8 +530,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.03](../releases/release-notes.md#2026-03) - Bug fixes: Fixed the **App-Monitoring-Splunk-Api-String-Value** command that used a wrong mode.
-- [25.10](../releases/release-notes.md#2025-10) - Enhancements: Extended **query** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-for-splunk-return-value-of-spl-request-3734).
-- [22.10](../releases/release-notes.md#2022-10) - New connectors: Adding Splunk Monitoring Connector.
-
-{/* CHANGELOG:END */}
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed the **App-Monitoring-Splunk-Api-String-Value** command that used a wrong mode.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Extended **query** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-for-splunk-return-value-of-spl-request-3734).
+- [22.10](../releases/release-notes.md#2022-10) - New connector: Adding Splunk Monitoring Connector.

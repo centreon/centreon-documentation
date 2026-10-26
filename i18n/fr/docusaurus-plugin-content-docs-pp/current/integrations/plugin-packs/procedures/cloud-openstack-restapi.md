@@ -1436,6 +1436,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.12](../releases/release-notes.md#2025-12) - New connectors: Initial release.
-
-{/* CHANGELOG:END */}
+- [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release.

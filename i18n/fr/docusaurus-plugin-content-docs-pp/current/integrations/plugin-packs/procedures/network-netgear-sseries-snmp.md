@@ -531,6 +531,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [22.09](../releases/release-notes.md#2022-09) - New connectors: Add Netgear sseries switches Pack.
-
-{/* CHANGELOG:END */}
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Add Netgear sseries switches Pack.

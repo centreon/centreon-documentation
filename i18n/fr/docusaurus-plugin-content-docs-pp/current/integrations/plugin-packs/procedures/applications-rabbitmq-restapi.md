@@ -446,6 +446,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.01](../releases/release-notes.md#2023-01) - Bug fixes: Update MACROS values.
-
-{/* CHANGELOG:END */}
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Update MACROS values.

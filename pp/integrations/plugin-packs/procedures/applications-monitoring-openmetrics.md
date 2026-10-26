@@ -336,6 +336,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.01](../releases/release-notes.md#2025-01) - Bug fixes: Fixed **App-Monitoring-Openmetrics-File-Scrape-Metrics** command.
-
-{/* CHANGELOG:END */}
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **App-Monitoring-Openmetrics-File-Scrape-Metrics** command.

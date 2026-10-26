@@ -268,6 +268,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.09](../releases/release-notes.md#2026-09) - New connectors: Initial release (experimental).
-
-{/* CHANGELOG:END */}
+- [26.09](../releases/release-notes.md#2026-09) - New connector: Initial release (experimental).

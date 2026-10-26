@@ -706,11 +706,9 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [25.08](../releases/release-notes.md#2025-08) - Bug fixes: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
-- [23.08](../releases/release-notes.md#2023-08) - Breaking changes: now using "*-custom" host templates as Host Discovery default template.
-- [23.07](../releases/release-notes.md#2023-07) - Bug fixes: fixed the host discovery unicity.
-- [22.10](../releases/release-notes.md#2022-10) - Bug fixes: Fix bug with assume-role option.
-- [22.07](../releases/release-notes.md#2022-07) - Bug fixes: Added missing Classic and Applications ELB Discovery rules.
-- [22.05](../releases/release-notes.md#2022-05) - Breaking changes: Adding a service disco rule and modify uuid attributes for Network ELB discovery.
-
-{/* CHANGELOG:END */}
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: now using "*-custom" host templates as Host Discovery default template.
+- [23.07](../releases/release-notes.md#2023-07) - Bug fix: fixed the host discovery unicity.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fix bug with assume-role option.
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Added missing Classic and Applications ELB Discovery rules.
+- [22.05](../releases/release-notes.md#2022-05) - Breaking change: Adding a service disco rule and modify uuid attributes for Network ELB discovery.

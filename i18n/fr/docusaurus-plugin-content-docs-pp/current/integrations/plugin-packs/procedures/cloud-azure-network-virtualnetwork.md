@@ -361,7 +361,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.07](../releases/release-notes.md#2026-07) - Enhancements: Changed host status checks output.
-- [22.01](../releases/release-notes.md#2022-01) - Bug fixes: Fix resource macro.
-
-{/* CHANGELOG:END */}
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fix resource macro.

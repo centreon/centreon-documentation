@@ -384,6 +384,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [23.08](../releases/release-notes.md#2023-08) - Enhancements: added the **--timeframe** option to scenario mode.
-
-{/* CHANGELOG:END */}
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: added the **--timeframe** option to scenario mode.

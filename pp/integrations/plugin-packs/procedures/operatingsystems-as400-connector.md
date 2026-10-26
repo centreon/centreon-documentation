@@ -748,13 +748,11 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.08](../releases/release-notes.md#2026-08) - Bug fixes: Fixed AS400 daemon CVEs related to Log4j and Undertow.
-- [26.06](../releases/release-notes.md#2026-06) - Bug fixes: Fixed daemon CVEs related to Log4j.
-- [26.04](../releases/release-notes.md#2026-04) - Bug fixes: Handled exceptions in refresh.
-- [25.08](../releases/release-notes.md#2025-08) - Enhancements: Added options to ignore acknowledged messages, from community contribution [PR 5487](https://github.com/centreon/centreon-plugins/pull/5487).
-- [25.03](../releases/release-notes.md#2025-03) - Enhancements: Added capability to use AS400 SSL connection.
-- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Fixed previous pending error.
-- [22.09](../releases/release-notes.md#2022-09) - Enhancements: Add FILTERSTATUS capability to Jobs check.
-- [22.09](../releases/release-notes.md#2022-09) - Bug fixes: Fix typo in AS400-Command command thresholds.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed AS400 daemon CVEs related to Log4j and Undertow.
+- [26.06](../releases/release-notes.md#2026-06) - Bug fix: Fixed daemon CVEs related to Log4j.
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Handled exceptions in refresh.
+- [25.08](../releases/release-notes.md#2025-08) - Enhancement: Added options to ignore acknowledged messages, from community contribution [PR 5487](https://github.com/centreon/centreon-plugins/pull/5487).
+- [25.03](../releases/release-notes.md#2025-03) - Enhancement: Added capability to use AS400 SSL connection.
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed previous pending error.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Add FILTERSTATUS capability to Jobs check.
+- [22.09](../releases/release-notes.md#2022-09) - Bug fix: Fix typo in AS400-Command command thresholds.

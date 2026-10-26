@@ -339,7 +339,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [24.09](../releases/release-notes.md#2024-09) - Enhancements: Added Italian and German language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)).
-- [24.04](../releases/release-notes.md#2024-04) - Breaking changes: Changed the default NRPE plugin and options for Active Directory.
-
-{/* CHANGELOG:END */}
+- [24.09](../releases/release-notes.md#2024-09) - Enhancement: Added Italian and German language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)).
+- [24.04](../releases/release-notes.md#2024-04) - Breaking change: Changed the default NRPE plugin and options for Active Directory.

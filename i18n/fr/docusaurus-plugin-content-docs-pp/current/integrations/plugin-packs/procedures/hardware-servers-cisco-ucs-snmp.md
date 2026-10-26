@@ -588,7 +588,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [26.08](../releases/release-notes.md#2026-08) - Enhancements: Added native SNMP v3 host macro.
-- [25.03](../releases/release-notes.md#2025-03) - Bug fixes: Fixed wrong count when memory component is not equipped in **equipment** mode.
-
-{/* CHANGELOG:END */}
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed wrong count when memory component is not equipped in **equipment** mode.

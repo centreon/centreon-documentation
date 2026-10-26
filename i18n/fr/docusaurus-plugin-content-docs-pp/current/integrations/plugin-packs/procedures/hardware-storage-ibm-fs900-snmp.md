@@ -483,6 +483,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 
 ## Historique des modifications
 
-- [25.04](../releases/release-notes.md#2025-04) - Bug fixes: Fixed wrong default value for CRITICALSTATUS in **arrays-status** template.
-
-{/* CHANGELOG:END */}
+- [25.04](../releases/release-notes.md#2025-04) - Bug fix: Fixed wrong default value for CRITICALSTATUS in **arrays-status** template.

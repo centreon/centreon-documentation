@@ -398,6 +398,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [24.04](../releases/release-notes.md#2024-04) - New connectors: First release of Infor Ion Grid RESTAPI.
-
-{/* CHANGELOG:END */}
+- [24.04](../releases/release-notes.md#2024-04) - New connector: First release of Infor Ion Grid RESTAPI.
