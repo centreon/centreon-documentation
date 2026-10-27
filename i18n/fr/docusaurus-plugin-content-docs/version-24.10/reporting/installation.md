@@ -81,7 +81,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 25.10
+- Centreon Web 24.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -98,7 +98,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Centreon Web 25.10
+- Centreon Web 24.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -115,7 +115,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-- Centreon Web 25.10
+- Centreon Web 24.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php/8.2/mods-available/centreon.ini` ou `/etc/php/8.2/mods-available/timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -643,7 +643,7 @@ Pendant l'installation de la base de données, notez le mot de passe du compte *
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -653,7 +653,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
