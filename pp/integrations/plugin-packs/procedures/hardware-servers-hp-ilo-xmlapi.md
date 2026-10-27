@@ -40,7 +40,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-The list of metrics can vary from one model to another. Here is the list of possible components:
+The list of metrics can vary from one model to another, according to the included components. Here is the list of possible components:
 
 | Name                   | Unit  | 
 |:-----------------------|:------|

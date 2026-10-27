@@ -41,7 +41,7 @@ Voici le tableau des services pour ce connecteur, détaillant les métriques et 
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-La liste des métriques varie d'un modèle à l'autre. Mais voici la liste des composants possibles :
+La liste des métriques varie d'un modèle à l'autre, suivant les composants inclus. Voici la liste des composants possibles :
 
 | Nom                    | Unité | 
 |:-----------------------|:------|
