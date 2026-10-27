@@ -13,7 +13,7 @@ The probes are able to cache their results to cover for an eventual temporary ne
 
 ## Prerequisites
 
-- A machine that can access the application you wish to monitor for hosting the probe. We recommend this machine have at least 2 dedicated logical cores with at least 3 GHz and at least 4 GB of RAM. To fine-tune the resources available for your probes, check our [dedicated topic about the hardware requirements](stm-hardware.md).
+- A machine inside your infrastructure to host the probe. The machine must be able to access the application you will monitor.
 - A user journey configured on the internal application to monitor.
 
 ## Step 1: Create a new STM zone
