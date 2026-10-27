@@ -1010,5 +1010,5 @@ All available options for a given mode can be displayed by adding the
 - [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed unknown status returned if no trunk was configured in **trunks** mode.
 - [25.06](../releases/release-notes.md#2025-06) - Enhancement: Added new **certificates** mode, from a [The Watch idea](https://thewatch.centreon.com/ideas/monitor-certificate-with-f5-bigip-3074).
 - [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added new **cpu-usage** mode, based on community contribution [PR 4701](https://github.com/centreon/centreon-plugins/pull/4701).
-- [25.04](../releases/release-notes.md#2025-04) - Breaking change: Switched metrics to v2, leading to a breaking-change state.
+- [25.04](../releases/release-notes.md#2025-04) - Breaking change: Switched metrics to v2.
 - [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed a bug causing a failure when the pool name was too long.

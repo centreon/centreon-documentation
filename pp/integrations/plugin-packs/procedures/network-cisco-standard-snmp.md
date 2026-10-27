@@ -1230,7 +1230,7 @@ All available options for a given mode can be displayed by adding the
 - [26.05](../releases/release-notes.md#2026-05) - Enhancement: Added MAC address normalization in **vpc** mode.
 - [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added completion time to **ipsla** mode.
 - [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in **interfaces** mode.
-- [25.04](../releases/release-notes.md#2025-04) - Breaking change: The `status` metric has been changed in `config-running-ahead`, leading to a breaking-change state.
+- [25.04](../releases/release-notes.md#2025-04) - Breaking change: The `status` metric has been changed in `config-running-ahead`.
 - [25.04](../releases/release-notes.md#2025-04) - Bug fix: Fixed an issue concerning wrong calculations after reboot (sysuptime was not considered) in **configuration** mode, from community contribution [PR 5282](https://github.com/centreon/centreon-plugins/pull/5282).
 - [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added `add-fc-fe-errors` option to **interfaces** mode.
 - [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added interfaces monitoring.

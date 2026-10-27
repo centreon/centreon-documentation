@@ -718,6 +718,6 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed edge cases size calculation in **database** mode.
-- [26.02](../releases/release-notes.md#2026-02) - Breaking change: The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed size calculation in edge cases in **database** mode.
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: This connector is now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). A breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
 - [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed typo for custom perfdata in **databases** mode.

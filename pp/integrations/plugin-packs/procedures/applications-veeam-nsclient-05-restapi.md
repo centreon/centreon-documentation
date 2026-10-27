@@ -573,7 +573,7 @@ All available options for a given mode can be displayed by adding the
 - [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed warnings about uninitialized values in **job-status** mode.
 - [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed a regression causing an "Undefined subroutine" error.
 - [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
-- [26.02](../releases/release-notes.md#2026-02) - Breaking change: The following connectors are now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). The breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: This connector is now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). A breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
 - [25.11](../releases/release-notes.md#2025-11) - Enhancement: Improved execution time in **job-status** mode.
 - [25.11](../releases/release-notes.md#2025-11) - Bug fix: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
 - [25.09](../releases/release-notes.md#2025-09) - Bug fix: Added Veeam Agent compatibility for job monitoring in **job-status** mode.

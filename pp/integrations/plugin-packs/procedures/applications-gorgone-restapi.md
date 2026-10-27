@@ -375,4 +375,4 @@ All available options for a given mode can be displayed by adding the
 
 ## Changelog
 
-- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replace the old logo with the current one.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replaced the old logo with the current one.

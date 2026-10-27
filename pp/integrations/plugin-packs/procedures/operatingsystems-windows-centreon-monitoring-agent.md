@@ -1141,5 +1141,5 @@ All available options for a given mode can be displayed by adding the
 - [25.08](../releases/release-notes.md#2025-08) - Enhancement: Added native checks for **Process**, **Counter**, **Tasksched** and **Files**. Added default timeout service macro, set to 120s.
 - [25.08](../releases/release-notes.md#2025-08) - Breaking change: Converted into stable with the new CMA version leading to breaking changes for earlier versions.
 - [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added new native checks: **cma-health**, **eventlog** and **services**.
-- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added native checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (these native checks will be available with the upcoming Collect 24.10.3 release).
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added native checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (requires Collect 24.10.3 or later).
 - [24.10](../releases/release-notes.md#2024-10) - New connector: Initial release of Windows CMA.

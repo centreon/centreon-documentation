@@ -488,8 +488,8 @@ import TabItem from '@theme/TabItem';
 
 - [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed a `No peers detected` error with `--ntp-mode=ntpq`.
 - [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Fixed size calculation in edge cases in **database** mode.
-- [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed edge cases size calculation in **database** mode.
-- [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed edge cases size calculation in **database** mode.
+- [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed size calculation in edge cases in **database** mode.
+- [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed size calculation in edge cases in **database** mode.
 - [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Replaced obsolete '\C' pattern in regular expressions in Cpu, Psu and Temperature.
 - [**SecurActive SNMP**](../procedures/network-securactive-snmp.md) - Fixed the **Net-Securactive-SNMP-Bca** and **Net-Securactive-SNMP-Bcn** commands.
 - [**Splunk API**](../procedures/applications-monitoring-splunk-api.md) - Fixed the **App-Monitoring-Splunk-Api-String-Value** command that used a wrong mode.
@@ -1753,7 +1753,7 @@ systemctl restart centreon_vmware
 - [**Nmap CLI**](../procedures/applications-nmap-cli.md) - Now using "*-custom" host templates as Host Discovery default template.
 - [**Rudder**](../procedures/applications-rudder-restapi.md) - Now using "*-custom" host templates as Host Discovery default template.
 - [**Thales Mistral VS9 Rest API**](../procedures/applications-thales-mistral-vs9-restapi.md) - Now using "*-custom" host templates as Host Discovery default template.
-- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Added options for Service-Generic mode (may change the behaviour of existing services).
+- [**Windows SNMP**](../procedures/operatingsystems-windows-snmp.md) - Added options for Service-Generic mode (may change the behavior of existing services).
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
@@ -1955,7 +1955,7 @@ systemctl restart centreon_vmware
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Fixed typo cloud-aws-rds **instance-status** mode.
+- [**Amazon RDS**](../procedures/cloud-aws-rds.md) - Fixed a typo in cloud-aws-rds **instance-status** mode.
 - [**AWS Billing**](../procedures/cloud-aws-billing.md) - Unlocked host discovery parameters.
 - [**Cisco Meraki Rest API**](../procedures/network-cisco-meraki-restapi.md) - Unlocked host discovery parameters.
 - [**Kadiska Rest API**](../procedures/applications-monitoring-kadiska-restapi.md) - Fixed the discovery commands and arguments.
