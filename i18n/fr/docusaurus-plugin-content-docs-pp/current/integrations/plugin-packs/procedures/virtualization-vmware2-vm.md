@@ -996,5 +996,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed an issue leading to `Cannot find 'ComputeResource' object` message.
 - [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
 - [23.04](../releases/release-notes.md#2023-04) - Enhancement: Added **ip_vmanagement** and **ip_vmotion** to Host Discovery attributes.
-- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added a new `tags` attributes in discovery results.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added a new `tags` attribute in discovery results.
 - [22.05](../releases/release-notes.md#2022-05) - Enhancement: Added the use of custom_attributes in VMWare Discovery providers.

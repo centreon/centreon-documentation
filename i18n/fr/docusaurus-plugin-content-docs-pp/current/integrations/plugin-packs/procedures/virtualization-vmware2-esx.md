@@ -1518,5 +1518,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.
 - [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed a bug in VMware health.
 - [23.03](../releases/release-notes.md#2023-03) - Enhancement: Added new attributes and fixed types.
-- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added a new `tags` attributes in discovery results.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added a new `tags` attribute in discovery results.
 - [22.05](../releases/release-notes.md#2022-05) - Enhancement: Added the use of custom_attributes in VMWare Discovery providers.

@@ -712,5 +712,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ## Historique des modifications
 
 - [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
-- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed edge cases size calculation in **database** mode.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed size calculation in edge cases in **database** mode.
 - [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed typo for custom perfdata in **databases** mode.

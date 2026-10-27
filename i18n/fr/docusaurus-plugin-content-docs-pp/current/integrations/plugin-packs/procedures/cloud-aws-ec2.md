@@ -833,4 +833,4 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
 - [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed bug with assume-role option.
 - [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added platformDetails attribute in EC2 discovery.
-- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed discovery mapper and wrong HTPL/STPL association.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed discovery mapper and wrong host template/service template association.

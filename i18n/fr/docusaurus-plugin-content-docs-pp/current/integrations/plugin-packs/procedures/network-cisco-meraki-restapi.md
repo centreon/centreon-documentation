@@ -958,6 +958,6 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [24.07](../releases/release-notes.md#2024-07) - Enhancement: Added new mode to monitor VPN tunnels and its associated discovery rule using their network name.
 - [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added thresholds for devices monitoring.
 - [23.01](../releases/release-notes.md#2023-01) - Bug fix: Unlocked host discovery parameters.
-- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed host disco attributes.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed host discovery attributes.
 - [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added new cache system.
 - [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added a variable to autodiscovery attributes.
