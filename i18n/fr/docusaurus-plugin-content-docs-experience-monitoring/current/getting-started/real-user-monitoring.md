@@ -14,4 +14,4 @@ Consultez notre [article dédié](../rum/rum-intro.md) pour en savoir plus sur c
 
 La différence essentielle avec les [parcours utilisateurs](synthetic-monitoring.md) est que, tandis que ces derniers vérifient les performances d'une navigation prédéfinie sur le site, le RUM mesure l'expérience de vrais utilisateurs.
 
-> Le RUM enregistre et stocke uniquement des données purement techniques, impossibles à identifier, conformément au périmètre du [RGPD](https://gdpr.eu/) de l'Union européenne.
+> Le RUM enregistre et stocke uniquement des données anonymisées purement techniques, impossibles à identifier, conformément au périmètre du [RGPD](https://gdpr.eu/) de l'Union européenne.

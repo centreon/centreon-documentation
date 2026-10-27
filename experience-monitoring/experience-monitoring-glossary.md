@@ -71,7 +71,7 @@ Time To First Byte (TTFB) is the metric of the interval between the browser's in
 
 ## User Journey
 
-[User Journey](./getting-started/synthetic-monitoring.md) is a module of Experience Monitoring.
+[User Journey](./getting-started/synthetic-monitoring.md) is the synthetic monitoring (or "STM") module of Experience Monitoring.
 A probe is configured to follow a set navigation path of your site and measure the loading times of the pages.
 
 ## Webhook
