@@ -487,7 +487,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Linux SSH**](../procedures/operatingsystems-linux-ssh.md) - Fixed a `No peers detected` error with `--ntp-mode=ntpq`.
-- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Fixed edge cases size calculation in **database** mode.
+- [**Microsoft Exchange CMA**](../procedures/applications-exchange-cma.md) - Fixed size calculation in edge cases in **database** mode.
 - [**Microsoft Exchange NSClient NRPE**](../procedures/applications-exchange-nrpe.md) - Fixed edge cases size calculation in **database** mode.
 - [**Microsoft Exchange NSClient RestAPI**](../procedures/applications-exchange-nsclient-restapi.md) - Fixed edge cases size calculation in **database** mode.
 - [**PICOS SNMP**](../procedures/operatingsystems-picos-snmp.md) - Replaced obsolete '\C' pattern in regular expressions in Cpu, Psu and Temperature.
