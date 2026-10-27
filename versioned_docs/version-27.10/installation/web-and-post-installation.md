@@ -54,6 +54,7 @@ Then click **Next**.
 Provide the information needed to connect to the database instance.
 
 - **Database Host Address**: If you are using a local database, leave the field blank (the default value is **localhost**). Otherwise, enter the IP address of your remote database.
+   > If you have [configured TLS](installation-of-a-central-server/using-packages.md#step-3-set-up-the-tls-configuration) for a local database, enter **127.0.0.1** instead of leaving the field blank. Otherwise, the connection fails with the message "Cannot connect to MySQL using SSL".
 - **Root user/password**: this is the account that will be used to install the databases.
    - if this is the default account (**root**), the root password of the database is the password [you have defined](installation-of-a-central-server/using-packages.md#step-2-install-the-central-server-and-the-database) when executing `mysql_secure_installation` or `mariadb-secure-installation`.
    - if you have defined a custom user with root privileges on all databases (e.g. during the process of installing a [remote database](../installation/installation-of-a-central-server/using-packages.md#step-2-install-the-central-server-and-the-database)), use this one. This user can be deleted once the web installation process is finished.
