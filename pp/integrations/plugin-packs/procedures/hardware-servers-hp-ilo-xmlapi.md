@@ -40,7 +40,25 @@ Here is the list of services for this connector, detailing all metrics linked to
 <Tabs groupId="sync">
 <TabItem value="Hardware-Global" label="Hardware-Global">
 
-The list of metrics can vary from one model to another.
+The list of metrics can vary from one model to another, according to the included components. Here is the list of possible components:
+
+| Name                   | Unit  | 
+|:-----------------------|:------|
+| battery.status         | N/A   |
+| bios.status            | N/A   |
+| cpu.status             | N/A   |
+| controller.status      | N/A   |
+| drive.enclosure.status | N/A   |
+| fan.status             | N/A   |
+| fan.speed.unit         | UNIT  |
+| logical.drive.status   | N/A   |
+| memory.status          | N/A   |
+| nic.status             | N/A   |
+| physical.drive.status  | N/A   |
+| power.supply.status    | N/A   |
+| temperature.status     | N/A   |
+| temperature.unit       | UNIT  |
+| vrm.status             | N/A   |
 
 </TabItem>
 </Tabs>
