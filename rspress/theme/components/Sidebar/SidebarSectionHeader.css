@@ -1,0 +1,39 @@
+.rp-sidebar-section-header {
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding: 4px 12px;
+  display: flex;
+}
+
+.rp-sidebar-section-header:first-child {
+  margin-top: 0;
+}
+
+.rp-sidebar-section-header__left {
+  color: var(--rp-c-text-1);
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+}
+
+.rp-sidebar-section-header__icon {
+  object-fit: contain;
+  flex: 0 0 16px;
+  width: 16px;
+  height: 16px;
+}
+
+.rp-sidebar-section-header__icon > svg, .rp-sidebar-section-header__icon > img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+.rp-sidebar-section-header__right {
+  align-items: center;
+  display: flex;
+}
+
