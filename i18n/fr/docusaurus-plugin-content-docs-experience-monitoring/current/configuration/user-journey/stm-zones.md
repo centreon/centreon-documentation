@@ -13,7 +13,7 @@ Les sondes peuvent stocker leurs données en cache pour couvrir d'éventuelles c
 
 ## Prérequis
 
-- Une machine située dans votre infrastructure devra héberger une sonde. Elle devra pouvoir accéder à l'application à superviser.
+- Une machine pouvant accéder à l'application à superviser pour héberger la sonde. Cette machine devrait avoir au moins deux coeurs logiques de 3 GHz dédiés et 4Go de RAM (8Go dans l'idéal). Ces valeurs sont le standard pour un seul parcours utilisateur.
 - Un parcours utilisateur doit être configuré sur l'application interne à superviser.
 
 ## Étape 1 : Créer une nouvelle zone STM
