@@ -565,5 +565,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.07](../releases/release-notes.md#2025-07) - Enhancement: Added an option to choose `cost-metric`, from community contribution [PR 4756](https://github.com/centreon/centreon-plugins/pull/4756).
 - [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Cloud-Azure-Management-Costs-Api-Tags-Compliance** command.
 - [23.08](../releases/release-notes.md#2023-08) - Enhancement: Moved to correct pack category.
-- [22.11](../releases/release-notes.md#2022-11) - Enhancement: Cost-Explorer, Orphan-Resources, Hybrid-Benefits, Tags-Compliance.
+- [22.11](../releases/release-notes.md#2022-11) - Enhancement: added new modes **costs-explorer**, **orphan-resources**, **hybrid-benefits** and **tags-compliance**.
 - [22.09](../releases/release-notes.md#2022-09) - New connector: New Pack to monitor Azure budgets consumptions.
