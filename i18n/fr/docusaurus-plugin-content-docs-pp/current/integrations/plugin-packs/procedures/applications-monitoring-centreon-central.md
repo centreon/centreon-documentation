@@ -1394,4 +1394,5 @@ affichée en ajoutant le paramètre `--help` à la commande :
 - [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added the detection of systemd-timesyncd into `SERVICEPROCESSNAME` macro default value in proc-ntpd service.
 - [24.03](../releases/release-notes.md#2024-03) - Enhancement: Updated host template logo.
 - [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replace the old logo with the current one.
-- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Broker-Stats: support yes/no value in queue file status / Proc-Centengine: avoid wrong match resulting in annoying results.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Broker-Stats: added support for yes/no values in the queue file status.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Proc-Centengine: fixed process matching to avoid false positives.
