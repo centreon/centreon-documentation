@@ -1,7 +1,7 @@
 ---
 id: dashboards
 title: Creating dashboards
-description: Build dashboards with widgets to visualize log data and trends
+description: "Create and edit dashboards in Centreon Log Management, and add text, log viewer and metrics graph widgets to visualize log volumes and trends over time."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
