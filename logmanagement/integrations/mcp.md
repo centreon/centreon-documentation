@@ -48,7 +48,7 @@ Run the following command:
 claude mcp add --transport http centreon-logs https://api.euwest1.obs.mycentreon.com/v1/orgs/<organization>/log-analysis/mcp --header "X-Api-Key: <token>"
 ```
 
-Or add the server to the `.mcp.json` file of your project. This file is meant to be shared with your team, so it reads the token from the `CLM_API_KEY` environment variable instead of containing it: set this variable to your token before you start Claude Code.
+Or add the server to the `.mcp.json` file of your project. This file is meant to be shared with your team, so the configuration below takes the token from the `CLM_API_KEY` environment variable instead of containing it: set this variable to your token before you start Claude Code.
 
 ```json
 {
@@ -147,7 +147,7 @@ Once connected, your client lists 6 tools and 3 prompts for the server. To check
 You do not call the tools yourself: you ask a question, and the assistant chooses the tools and chains them. Knowing what each tool does helps you phrase your questions.
 
 - **search_logs** accepts either a question in natural language ("errors from the billing service in the last hour") or a query written with the [query syntax](../query-syntax.md). A question is translated into a query, and the tool returns that query, so the assistant can refine it or reuse it with the other tools. The tool returns the number of matching logs and up to 1,000 of them (20 by default), each with its timestamp, severity, service and message only: attributes are not returned.
-- **summarize_logs** returns a written summary of the logs that match a query, by default over the last hour. Only the 2,000 most recent logs of the time window are read, so keep the window narrow.
+- **summarize_logs** returns a written summary of the logs that match a query, by default over the last hour. It reads at most 2,000 logs of the time window, so keep the window narrow.
 - **aggregate_logs** returns the number of logs over time, as one curve in total, one curve per severity, or one curve per service (the 20 largest). This is how the assistant spots a peak or a trend without reading every log.
 - **forecast_logs** counts the logs that match a query over a time window (by default the last 24 hours) and forecasts the next points at the same interval.
 - **list_log_fields** lists the fields of your logs, with their types and whether they can be searched or aggregated. The assistant uses it before writing a query on a field it does not know.
@@ -172,4 +172,4 @@ The MCP server also provides prompts: ready-made instructions that guide the ass
 ## Troubleshooting
 
 - **401 Unauthorized**: the `X-Api-Key` header is missing or its token is invalid, an `Authorization` header was sent, or the name of the organization in the address is wrong (the token belongs to a different organization).
-- **404 Not Found**: the token was accepted, so either the path is wrong (check `/log-analysis/mcp`, without a trailing slash), or the MCP server is not enabled for your organization. In that case, contact Centreon support.
+- **404 Not Found**: either the path is wrong (check `/log-analysis/mcp`, without a trailing slash), or the token was accepted but the MCP server is not enabled for your organization. In that case, contact Centreon support.

@@ -48,7 +48,7 @@ Exécutez la commande suivante :
 claude mcp add --transport http centreon-logs https://api.euwest1.obs.mycentreon.com/v1/orgs/<organization>/log-analysis/mcp --header "X-Api-Key: <token>"
 ```
 
-Vous pouvez aussi ajouter le serveur au fichier `.mcp.json` de votre projet. Ce fichier est destiné à être partagé avec votre équipe : il lit donc le jeton dans la variable d'environnement `CLM_API_KEY` au lieu de le contenir. Définissez cette variable avec votre jeton avant de lancer Claude Code.
+Vous pouvez aussi ajouter le serveur au fichier `.mcp.json` de votre projet. Ce fichier est destiné à être partagé avec votre équipe : la configuration ci-dessous récupère donc le jeton dans la variable d'environnement `CLM_API_KEY` au lieu de l'inclure. Définissez cette variable avec votre jeton avant de lancer Claude Code.
 
 ```json
 {
@@ -147,7 +147,7 @@ Une fois connecté, votre client affiche 6 outils et 3 prompts pour le serveur. 
 Vous n'appelez pas les outils vous-même : vous posez une question, et l'assistant choisit les outils et les enchaîne. Savoir ce que fait chaque outil vous aide à formuler vos questions.
 
 - **search_logs** accepte soit une question en langage naturel (« les erreurs du service de facturation dans la dernière heure »), soit une requête écrite avec la [syntaxe des requêtes](../query-syntax.md). Une question est traduite en requête, et l'outil renvoie cette requête : l'assistant peut ainsi l'affiner ou la réutiliser avec les autres outils. L'outil renvoie le nombre de logs correspondants et jusqu'à 1 000 d'entre eux (20 par défaut), chacun avec seulement son timestamp, sa sévérité, son service et son message : les attributs ne sont pas renvoyés.
-- **summarize_logs** renvoie un résumé rédigé des logs correspondant à une requête, par défaut sur la dernière heure. Seuls les 2 000 logs les plus récents de la période sont lus : gardez donc une période courte.
+- **summarize_logs** renvoie un résumé rédigé des logs correspondant à une requête, par défaut sur la dernière heure. Il lit au plus 2 000 logs de la période : gardez donc une période courte.
 - **aggregate_logs** renvoie le nombre de logs dans le temps, sous la forme d'une courbe totale, d'une courbe par sévérité ou d'une courbe par service (les 20 plus importants). C'est ainsi que l'assistant repère un pic ou une tendance sans lire chaque log.
 - **forecast_logs** compte les logs correspondant à une requête sur une période (par défaut les dernières 24 heures) et prévoit les points suivants au même intervalle.
 - **list_log_fields** liste les champs de vos logs, avec leurs types et la possibilité de les rechercher ou de les agréger. L'assistant l'utilise avant d'écrire une requête sur un champ qu'il ne connaît pas.
@@ -172,4 +172,4 @@ Le serveur MCP fournit aussi des prompts : des instructions toutes prêtes qui g
 ## Dépannage
 
 - **401 Unauthorized** : l'en-tête `X-Api-Key` est absent ou son jeton est invalide, un en-tête `Authorization` a été envoyé, ou le nom de l'organisation dans l'adresse est erroné (le jeton appartient à une autre organisation).
-- **404 Not Found** : le jeton a été accepté. Soit le chemin est erroné (vérifiez `/log-analysis/mcp`, sans barre oblique finale), soit le serveur MCP n'est pas activé pour votre organisation : dans ce cas, contactez le support Centreon.
+- **404 Not Found** : soit le chemin est erroné (vérifiez `/log-analysis/mcp`, sans barre oblique finale), soit le jeton a été accepté mais le serveur MCP n'est pas activé pour votre organisation : dans ce cas, contactez le support Centreon.
