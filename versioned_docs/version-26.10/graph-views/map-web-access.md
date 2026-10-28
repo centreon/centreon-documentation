@@ -21,7 +21,7 @@ Perform the following procedure to check whether you are allowed to create a map
 
 1. Go to **Monitoring > Map**.
 
-2. On the **Map** homepage, the **+** button means that you are allowed to create a map. This means you belong to an access group that is granted the creator role.
+2. If the **Add a Map** button is displayed, you belong to an access group that is granted the creator role, and you can create maps.
 
 ### Granting creator role
  
@@ -31,10 +31,10 @@ Perform the following procedure to allow users to create maps by granting rights
 
 1. As an administrator, go to **Monitoring > Map**.
 
-2. Click on **Edit creators**.
+2. Click **Edit creators**.
 A list of existing access groups is displayed.
 
 3. Select the access group(s) you want.
 
-4. Click Save to confirm.
+4. Click **Save** to confirm.
 Users belonging to the selected access group are now able to create maps.
