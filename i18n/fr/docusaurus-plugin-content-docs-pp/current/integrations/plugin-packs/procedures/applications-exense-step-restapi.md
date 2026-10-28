@@ -417,3 +417,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode=api \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - New connector: Initial release of Exense Step REST API.

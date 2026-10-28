@@ -869,3 +869,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=tasks \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed display of job details in long output in **jobs** mode.
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added **SLA Unprotected** service and misc enhancements.
+- [26.05](../releases/release-notes.md#2026-05) - New connector: Initial release.

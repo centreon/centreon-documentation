@@ -394,3 +394,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=hardware \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added new components in the **hardware** mode: **cpu**, **memory** and **health**. Planned from a [The Watch idea](https://thewatch.centreon.com/ideas/hardware-server-lenovo-xcc-snmp-plugin-mode-hardware-system-health-memory-and-cpu-table-not-checked-2636).

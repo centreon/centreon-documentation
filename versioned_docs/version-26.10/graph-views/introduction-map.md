@@ -4,13 +4,13 @@ title: Introduction to Centreon MAP
 description: "Introduction to Centreon MAP and its graphical monitoring views"
 ---
 
-Centreon MAP is a solution fully available in the Centreon web interface while offering you the best possible experience in creating, visualizing and sharing graphical representations of your monitored infrastructure.
+Centreon MAP lets you create, view and share graphical representations of your monitored infrastructure, directly in the Centreon web interface.
 
 > Centreon MAP is a Centreon extension that requires a valid [license](../administration/licenses.md). To purchase one and retrieve the necessary repositories, contact [Centreon](mailto:sales@centreon.com).
 
-> From Centreon 24.10, MAP Legacy is no longer available. Whether you were still using MAP Legacy or not, see [MAP Legacy end of life](https://docs.centreon.com/docs/graph-views/map-legacy-eol/).
+> From Centreon 24.10, MAP Legacy is no longer available. Whether you were still using MAP Legacy or not, see [MAP Legacy end of life](https://docs.centreon.com/docs/24.10/graph-views/map-legacy-eol/).
 
-> See how to manage views using the Centreon MAP REST API [here](https://docs-api.centreon.com/api/centreon-map/25.10/).
+> To manage maps using the Centreon MAP REST API, see [Automating MAP via API](../api/map-api.md).
 
 ## Overview
 
@@ -36,7 +36,7 @@ Use the following procedures to use and administer Centreon MAP.
   - [Installing MAP](map-web-install.md) describes prerequisites and procedures to install MAP.
   - [Installing MAP on a remote server](map-web-install-remote.md) explains how to install MAP on a remote server.
   - [Updating MAP](map-web-update.md) describes the update process for MAP.
-  - [Managing access rights in MAP](map-web-manage.md) describes the different rights and permissions on maps.
+  - [Managing access rights in MAP](map-web-access.md) describes the different rights and permissions on maps.
   
 ### Using MAP
   - [Managing maps in MAP](map-web-manage.md) gives you information about how to manage maps from the Centreon MAP interface.

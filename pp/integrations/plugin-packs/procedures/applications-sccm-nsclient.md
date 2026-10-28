@@ -398,3 +398,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=query \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: This connector is now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). A breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed wrong argument in `App-Sccm-Site-Status` command.

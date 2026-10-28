@@ -965,3 +965,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=http-hits \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Authentication to API now requires a bearer header.

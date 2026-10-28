@@ -706,7 +706,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    systemctl restart mariadb
    ```
 
-Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 25) sera automatiquement installé, si nécessaire.
+L'installation du serveur MAP installe également Java (OpenJDK 25) si nécessaire.
 
 #### Prérequis Java
   > Assurez-vous qu'une version de Java 25 est installée avant de commencer la procédure.
@@ -819,7 +819,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    systemctl restart mysql
    ```
 
-Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 25) sera automatiquement installé, si nécessaire.
+L'installation du serveur MAP installe également Java (OpenJDK 25) si nécessaire.
 
 #### Prérequis Java
   > Assurez-vous qu'une version de Java 25 est installée avant de commencer la procédure.

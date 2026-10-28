@@ -393,3 +393,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=node \
 	--help
 ```
+
+## Changelog
+
+- [24.04](../releases/release-notes.md#2024-04) - New connector: First release of Infor Ion Grid RESTAPI.

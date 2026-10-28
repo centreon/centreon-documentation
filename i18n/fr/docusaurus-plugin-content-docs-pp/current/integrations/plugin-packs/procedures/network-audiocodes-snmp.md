@@ -635,3 +635,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=cpu \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Added Sbc-Calls service.

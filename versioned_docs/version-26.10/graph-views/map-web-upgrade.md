@@ -14,8 +14,6 @@ import TabItem from '@theme/TabItem';
 
 ## Prerequisites
 
-> You can upgrade from 
-
 ### Check your operating system
 
 Make sure that the central server and the MAP server run an [operating system supported by this version](../installation/compatibility.md#operating-systems).

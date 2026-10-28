@@ -672,3 +672,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
     --help
 ```
+
+## Historique des modifications
+
+- [23.06](../releases/release-notes.md#2023-06) - Bug fix: Fixed option in **virtual-volumes-quotas** mode.
+- [22.12](../releases/release-notes.md#2022-12) - Enhancement: Added service virtual-volumes-quotas.

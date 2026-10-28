@@ -378,3 +378,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode=api \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - New connector: Initial release.

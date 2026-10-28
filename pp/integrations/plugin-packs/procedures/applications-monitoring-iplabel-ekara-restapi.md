@@ -454,3 +454,17 @@ All available options for a given mode can be displayed by adding the
 	--mode=scenarios \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed host discovery macros (based on a community feedback on [The Watch](https://thewatch.centreon.com/infra-monitoring-product-how-to-21/tutorial-connect-centreon-with-ekara-by-ip-label-to-track-users-digital-experience-and-infrastructure-and-applications-health-736)).
+- [25.08](../releases/release-notes.md#2025-08) - Enhancement: Added a new authentication method using the `api-key` option.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Steps are now displayed in the actual step order instead of alphabetical order.
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed step metrics when scenario failed in **scenario** mode.
+- [25.02](../releases/release-notes.md#2025-02) - Enhancement: Changed status default thresholds and `--timeframe` option default value in **scenario** mode.
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added `--filter-workspaceid` and `--filter-siteid` options for **incidents** and **scenarios** modes.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed scenario monitoring where scenario names were not correctly ordered.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Fixed PASSWORD and FILTER macros attributes.
+- [22.09](../releases/release-notes.md#2022-09) - Bug fix: Discovery provider did not correctly  obfuscate sensitive macros.
+- [22.02](../releases/release-notes.md#2022-02) - New connector: Initial release.

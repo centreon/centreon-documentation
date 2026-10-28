@@ -403,3 +403,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=raft-storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Bug fix: Fixed handling of `--insecure` option.
+- [25.07](../releases/release-notes.md#2025-07) - Enhancement: Enhanced standby-status counter and added code parameters options in **health** mode, from community contributions [PR 5522](https://github.com/centreon/centreon-plugins/pull/5522) and [PR 4839](https://github.com/centreon/centreon-plugins/pull/4839).
+- [24.06](../releases/release-notes.md#2024-06) - Enhancement: Added an option `auth-path` to handle variable path for hashicorp vault authentication ([Community contribution](https://github.com/centreon/centreon-plugins/pull/4764)).

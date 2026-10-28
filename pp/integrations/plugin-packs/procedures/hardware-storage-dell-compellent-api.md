@@ -381,3 +381,8 @@ All available options for a given mode can be displayed by adding the
 	--cem-password="" \
 	--help
 ```
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - Breaking change: The pack has been renamed and the default NRPECLIENT macro changed to use the official Nagios NRPE4 client.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Made NSClient and NRPE usage more explicit.

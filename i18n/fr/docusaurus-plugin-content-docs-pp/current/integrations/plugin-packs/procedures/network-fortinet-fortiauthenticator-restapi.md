@@ -347,3 +347,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=fortitoken \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.02](../releases/release-notes.md#2026-02) - New connector: Initial release.

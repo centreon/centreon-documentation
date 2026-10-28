@@ -351,3 +351,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--dyn-mode=apps::centreon::sql::mode::partitioning \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.11](../releases/release-notes.md#2024-11) - Enhancement: Used the correct MariaDB message when checking MySQL replication state.
+- [24.03](../releases/release-notes.md#2024-03) - Enhancement: Updated host template logo.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replaced the old logo with the current one.

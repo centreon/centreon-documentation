@@ -411,3 +411,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=container-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.10](../releases/release-notes.md#2023-10) - New connector: Initial release.

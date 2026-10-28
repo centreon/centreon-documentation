@@ -540,3 +540,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='standard' \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.02](../releases/release-notes.md#2024-02) - New connector: First release of Centreon Map Engine monitoring connector.

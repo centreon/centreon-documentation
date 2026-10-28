@@ -335,3 +335,8 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 30 -u -2 -P 8192 -c check_centreon_plugins -a 'apps::microsoft::activedirectory::local::plugin' 'dfsr-backlog' --help
 ```
+
+## Changelog
+
+- [24.09](../releases/release-notes.md#2024-09) - Enhancement: Added Italian and German language support from community contributions ([PR 5073](https://github.com/centreon/centreon-plugins/pull/5073), [PR 5072](https://github.com/centreon/centreon-plugins/pull/5072) and [PR 5070](https://github.com/centreon/centreon-plugins/pull/5070)).
+- [24.04](../releases/release-notes.md#2024-04) - Breaking change: Changed the default NRPE plugin and options for Active Directory.

@@ -399,3 +399,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=ssid-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [24.02](../releases/release-notes.md#2024-02) - Bug fix: Fixed an "uninitialized value in concatenation" issue on AP-Usage.

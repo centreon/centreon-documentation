@@ -405,3 +405,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=hardware \
 	--help
 ```
+
+## Changelog
+
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Fixed wrong command.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

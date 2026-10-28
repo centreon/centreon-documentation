@@ -467,3 +467,7 @@ All available options for a given mode can be displayed by adding the
 	--critical-status="not %\{status\} =~ /up/i" \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.

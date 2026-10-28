@@ -510,3 +510,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=serial-ports \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.01](../releases/release-notes.md#2024-01) - New connector: Initial release of Avocent 8000.

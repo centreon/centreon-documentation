@@ -1,7 +1,7 @@
 ---
 id: collector-troubleshooting
 title: Troubleshooting your installation
-description: Troubleshoot OpenTelemetry collector installation and log collection issues
+description: "Fix OpenTelemetry collector issues when logs don't reach Centreon Log Management: check collector logs, configuration, rights, network and debug settings."
 ---
 
 ## Initial checks

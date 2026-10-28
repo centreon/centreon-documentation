@@ -801,3 +801,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=panorama \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added new **sensors** mode, from a community contribution ([PR 6293](https://github.com/centreon/centreon-plugins/pull/6293)).
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in **interfaces** mode.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added interfaces monitoring.

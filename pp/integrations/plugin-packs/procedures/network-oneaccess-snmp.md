@@ -575,3 +575,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=rtt-probes \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added options to Cells-Radio monitoring.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added new rtt-probes service.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Fixed interfaces command options.
+- [22.04](../releases/release-notes.md#2022-04) - Breaking change: Added new services: Interfaces and cells-radio.

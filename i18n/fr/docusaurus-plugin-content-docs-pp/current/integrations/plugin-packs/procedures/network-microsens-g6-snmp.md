@@ -691,3 +691,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=sfp \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

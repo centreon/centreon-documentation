@@ -331,3 +331,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=update-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed to use new ssh backend.

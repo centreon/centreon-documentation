@@ -965,3 +965,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=http-hits \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Authentication to API now requires a bearer header.

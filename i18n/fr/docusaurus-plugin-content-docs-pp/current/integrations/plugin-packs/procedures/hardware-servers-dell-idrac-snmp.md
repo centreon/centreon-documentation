@@ -439,3 +439,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=hardware \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed ready status for `pdisk.state` in **hardware** mode.

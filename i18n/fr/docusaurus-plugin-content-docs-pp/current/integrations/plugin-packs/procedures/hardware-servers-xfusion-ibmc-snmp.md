@@ -406,3 +406,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=hardware \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Fixed wrong command.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

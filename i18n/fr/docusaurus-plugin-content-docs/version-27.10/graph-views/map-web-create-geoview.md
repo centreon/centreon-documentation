@@ -17,7 +17,7 @@ L'affichage du bouton **Ajouter une carte** signifie que vous êtes autorisé à
 
 ## Prérequis
 
-Afin d'appliquer les coordonnées géographiques lors de la configuration d'une nouvelle vue géographique, il est nécessaire de les fournir dans l'onglet **Informations détaillées** correspondant à la ressource que vous voulez superviser (un hôte, un groupe d'hôtes, ou une activité métier).
+Pour placer une ressource (hôte, groupe d'hôtes ou activité métier) sur une vue géographique, renseignez d'abord ses coordonnées géographiques dans l'onglet **Informations détaillées** de la ressource.
 
 Par exemple, pour renseigner les coordonnées géographiques de l'hôte **Central** :
 
@@ -32,7 +32,7 @@ Par exemple, pour renseigner les coordonnées géographiques de l'hôte **Centra
 1. Dans la page **Supervision > Map**, cliquez sur le bouton **Ajouter une vue géographique** situé dans la section **Vues géographiques**.
 
 2. Remplissez la section **Nom** :
-   - Nom et image : attribuez un nom à la vue géographique et sélectionnez une image dans la liste déroulante.
+   - Nom et image : saisissez un nom pour la vue géographique et sélectionnez une image dans la liste déroulante.
 
 3. Remplissez la section **Ajouter des ressources** en sélectionnant les ressources listées par type. Chaque champ propose une liste des ressources disponibles :
    - Cartes
@@ -59,7 +59,7 @@ Inconnu (gris) \> Injoignable (gris) \> OK (vert) \> Disponible (vert) \> En att
 
 ### Regroupement
 
-Lorsque plusieurs ressources sont géographiquement proches et que vous êtes à un "certain" niveau de zoom, elles sont regroupées en un seul cercle en affichant deux éléments :
+Lorsque des ressources sont proches les unes des autres au niveau de zoom actuel, elles sont regroupées en un seul cercle qui affiche :
 
 - L'état de l'objet le plus mauvais (affiché via une couleur, soit le vert, l'orange, le rouge ou le gris).
 - Le nombre de ressources dans cet état.
@@ -75,4 +75,4 @@ Ce comportement peut être désactivé dans les options globales de Centreon MAP
 
 Centreon MAP vous donne la possibilité d'afficher des couches de données supplémentaires sur les cartes afin d'ajouter un contexte à l'état de votre infrastructure informatique en temps réel.
 
-Vous devez d'abord ajouter des couches de données dans les options de Centreon MAP, dans la section **Services de couches de données géographiques**. Puis, si la couche de données est activée, vous pouvez la rendre visible ou non en la cochant à l'aide de l'icône en haut à gauche.
+Vous devez d'abord ajouter des couches de données dans les options de Centreon MAP, dans la section **Services de couches de données géographiques**. Une fois la couche de données activée, utilisez l'icône en haut à gauche pour l'afficher ou la masquer.

@@ -392,3 +392,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=connections \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.11](../releases/release-notes.md#2024-11) - Enhancement: Added service discovery rule for **connections** mode.

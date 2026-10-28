@@ -470,3 +470,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=vm-count \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Removed 4000 VMs limit for `vm-count` counter.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Plugin can now recover from a corrupted cache.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **Clusters** and **Datastores** discovery macros.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
+- [25.07](../releases/release-notes.md#2025-07) - New connector: Initial release of VMware8 vCenter REST API.

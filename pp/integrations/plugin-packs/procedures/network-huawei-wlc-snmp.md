@@ -942,3 +942,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed missing fan state in short output.
+- [25.01](../releases/release-notes.md#2025-01) - New connector: Initial release of Huawei WLC SNMP from community contribution [PR 5146](https://github.com/centreon/centreon-plugins/pull/5146) and [The Watch idea](https://thewatch.centreon.com/ideas/new-plugin-for-huawei-wlc-controller-2763).

@@ -977,3 +977,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=hypervisor-usage \
 	--help
 ```
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added support of Nutanix 6.10 (fixes 'No disk found' error in **disk-usage** service template).
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Nutanix host discovery & new templates.

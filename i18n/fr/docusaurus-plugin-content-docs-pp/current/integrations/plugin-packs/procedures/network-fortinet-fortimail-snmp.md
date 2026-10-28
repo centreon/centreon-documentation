@@ -678,3 +678,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=cpu \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [23.07](../releases/release-notes.md#2023-07) - New connector: Initial release.

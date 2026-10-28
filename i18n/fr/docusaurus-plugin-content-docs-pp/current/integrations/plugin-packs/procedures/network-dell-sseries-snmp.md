@@ -541,3 +541,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.04](../releases/release-notes.md#2024-04) - Enhancement: New filtering option supported for the SNMP IDs of the interfaces.

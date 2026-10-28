@@ -545,3 +545,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

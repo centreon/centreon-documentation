@@ -479,3 +479,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode=unix \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.05](../releases/release-notes.md#2024-05) - New connector: Initial release of RRDCached.

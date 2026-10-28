@@ -329,3 +329,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=message \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed a Perl warning in **App-Protocol-SMTP-Message** and **App-Protocol-SMTP-Login** commands.

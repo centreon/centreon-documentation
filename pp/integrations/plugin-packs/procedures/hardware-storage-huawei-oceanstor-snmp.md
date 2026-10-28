@@ -501,3 +501,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=controllers \
 	--help
 ```
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - Enhancement: Added new service to check luns.

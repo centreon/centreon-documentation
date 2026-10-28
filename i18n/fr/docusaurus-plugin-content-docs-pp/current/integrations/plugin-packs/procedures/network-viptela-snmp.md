@@ -730,3 +730,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=gre-tunnels \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [22.02](../releases/release-notes.md#2022-02) - New connector: Initial release.

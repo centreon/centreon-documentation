@@ -381,3 +381,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=outlets \
 	--help
 ```
+
+## Changelog
+
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added `phase-voltage` metric to **load** mode.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed power value in **load** mode (the value is no longer multiplied by 10).

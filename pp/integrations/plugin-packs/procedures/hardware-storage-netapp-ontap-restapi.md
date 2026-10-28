@@ -672,3 +672,14 @@ All available options for a given mode can be displayed by adding the
 	--mode=volumes \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed latency values in **cluster** mode (issue [#5929](https://github.com/centreon/centreon-plugins/issues/5929)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Added state to the requested fields in volume query [PR 5851](https://github.com/centreon/centreon-plugins/pull/5851).
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed total space calculation error and missing snapshot info in **volumes** mode.
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed hardware API requests for bays.
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added default values for **Volumes** and **Aggregates** service templates.
+- [23.09](../releases/release-notes.md#2023-09) - Enhancement: Added a way to skip empty FRUs (Field Replaceable Units).
+- [22.12](../releases/release-notes.md#2022-12) - Enhancement: Added service quotas.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Added Aggregates service template.
