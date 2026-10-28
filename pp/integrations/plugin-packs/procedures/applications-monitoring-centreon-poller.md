@@ -735,4 +735,5 @@ All available options for a given mode can be displayed by adding the
 - [24.03](../releases/release-notes.md#2024-03) - Enhancement: Updated host template logo.
 - [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replaced the old logo with the current one.
 - [23.05](../releases/release-notes.md#2023-05) - Bug fix: Fixed options for Broker stats.
-- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Broker-Stats: support yes/no value in queue file status / Proc-Centengine: avoid wrong match resulting in annoying results.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Broker-Stats: added support for yes/no values in the queue file status.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Proc-Centengine: fixed process matching to avoid false positives.
