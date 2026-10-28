@@ -721,3 +721,8 @@ All available options for a given mode can be displayed by adding the
 	--custommode='azcli' \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed typo in `serverlog-usage` option label.

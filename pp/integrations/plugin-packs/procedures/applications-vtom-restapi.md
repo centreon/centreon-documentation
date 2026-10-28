@@ -418,3 +418,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=jobs \
 	--help
 ```
+
+## Changelog
+
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed an issue leading to `Unknown option --token` in **jobs** mode.
+- [22.02](../releases/release-notes.md#2022-02) - Breaking change: Use official and latest API.

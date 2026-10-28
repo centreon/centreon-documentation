@@ -710,3 +710,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added service cluster.

@@ -314,3 +314,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=health \
 	--help
 ```
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Deprecated, replaced by [**VMware8 VCSA REST API**](./applications-virtualization-vmware8-vcsa-restapi.md).

@@ -459,3 +459,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu \
 	--help
 ```
+
+## Changelog
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.

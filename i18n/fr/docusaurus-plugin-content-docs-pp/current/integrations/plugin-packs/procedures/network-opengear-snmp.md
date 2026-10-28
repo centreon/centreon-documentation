@@ -672,3 +672,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=serial-ports \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added CM8100 series compatibility.
+- [23.04](../releases/release-notes.md#2023-04) - New connector: Initial release.

@@ -320,3 +320,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=hardware \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed ILO3 incorrect temperature thresholds in **hardware** mode.
+- [26.02](../releases/release-notes.md#2026-02) - Enhancement: The connector now uses warning and critical thresholds provided by ILO data when no custom thresholds are defined.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the plugin that returned a CRITICAL state instead of a WARNING state.

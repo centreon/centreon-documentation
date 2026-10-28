@@ -711,3 +711,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=requests \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

@@ -478,3 +478,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=fc-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - Bug fix: Fixed wrong default value for CRITICALSTATUS in **arrays-status** template.

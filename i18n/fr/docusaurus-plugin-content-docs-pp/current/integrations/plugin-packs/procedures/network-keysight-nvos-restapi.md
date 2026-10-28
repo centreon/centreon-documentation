@@ -563,3 +563,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=dynamic-filters \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Enhanced **ports** mode and added **license** mode.
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

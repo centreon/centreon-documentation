@@ -507,3 +507,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=workers \
 	--help
 ```
+
+## Changelog
+
+- [25.07](../releases/release-notes.md#2025-07) - Enhancement: Reworked **requests** mode and enhanced **slot-states** mode, based on community contribution [PR 4920](https://github.com/centreon/centreon-plugins/pull/4920).

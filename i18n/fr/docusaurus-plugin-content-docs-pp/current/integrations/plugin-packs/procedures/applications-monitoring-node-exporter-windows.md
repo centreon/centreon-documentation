@@ -506,3 +506,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=traffic \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Windows node exporter Pack.

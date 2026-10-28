@@ -5,3 +5,7 @@ description: "Connecteur déprécié qui surveillait IP-Label Datamétrie via so
 ---
 
 > Ce connecteur est obsolète, car le service Datamétrie online n'est plus disponible.
+
+## Historique des modifications
+
+- [23.07](../releases/release-notes.md#2023-07) - Bug fix: Marked as deprecated (service end of life).

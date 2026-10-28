@@ -609,3 +609,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=routes \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - New connector: Initial release.

@@ -529,3 +529,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu \
 	--help
 ```
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Added support for all Raisecom xPON series.

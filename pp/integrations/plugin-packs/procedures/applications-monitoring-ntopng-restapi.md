@@ -470,3 +470,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=probe-health \
 	--help
 ```
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Fixed mismatch between template and command regarding host EXTRAOPTIONS.
+- [22.05](../releases/release-notes.md#2022-05) - New connector: Initial release.

@@ -366,3 +366,7 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--mode=resourcegroup-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release.

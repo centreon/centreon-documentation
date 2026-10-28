@@ -356,3 +356,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=fields \
 	--help
 ```
+
+## Changelog
+
+- [24.06](../releases/release-notes.md#2024-06) - New connector: Initial release of Loggly Rest API.

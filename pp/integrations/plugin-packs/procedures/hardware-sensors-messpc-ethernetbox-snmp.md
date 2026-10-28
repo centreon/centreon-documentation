@@ -436,3 +436,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=sensors \
 	--help
 ```
+
+## Changelog
+
+- [26.05](../releases/release-notes.md#2026-05) - New connector: Initial release, based on community contribution [PR 6044](https://github.com/centreon/centreon-plugins/pull/6044).

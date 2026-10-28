@@ -441,3 +441,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vhost-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Updated MACROS values.

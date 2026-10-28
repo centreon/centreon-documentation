@@ -510,3 +510,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=serial-ports \
 	--help
 ```
+
+## Changelog
+
+- [24.01](../releases/release-notes.md#2024-01) - New connector: Initial release of Avocent 8000.

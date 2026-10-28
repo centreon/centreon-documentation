@@ -536,3 +536,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=node-statistics \
 	--help
 ```
+
+## Changelog
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added new **query** mode.
+- [25.10](../releases/release-notes.md#2025-10) - Breaking change: The `ELASTICSEARCHPROTO` host macro's default value is now `https` to follow Elasticsearch recommendations (see [here](https://www.elastic.co/docs/deploy-manage/security/set-up-minimal-security)).
+- [24.04](../releases/release-notes.md#2024-04) - Bug fix: Removed two useless macros from the App-DB-Elasticsearch-Indice-Statistics-custom service template.

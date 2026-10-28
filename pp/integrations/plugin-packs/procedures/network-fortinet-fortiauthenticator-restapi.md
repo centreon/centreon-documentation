@@ -346,3 +346,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=fortitoken \
 	--help
 ```
+
+## Changelog
+
+- [26.02](../releases/release-notes.md#2026-02) - New connector: Initial release.

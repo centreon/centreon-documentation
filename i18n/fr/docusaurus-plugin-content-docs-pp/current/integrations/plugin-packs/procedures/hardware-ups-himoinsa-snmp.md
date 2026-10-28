@@ -512,3 +512,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=voltage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Added Himoinsa Monitoring Connector.

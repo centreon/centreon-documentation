@@ -393,3 +393,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=node \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.04](../releases/release-notes.md#2024-04) - New connector: First release of Infor Ion Grid RESTAPI.

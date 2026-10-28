@@ -709,3 +709,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=requests \
 	--help
 ```
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
