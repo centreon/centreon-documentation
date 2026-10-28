@@ -1,7 +1,7 @@
 ---
 id: applications-databases-sap-hana
 title: SAP HANA
-description: "Supervisez les bases SAP HANA via SQL : transactions bloquées, utilisateurs connectés, temps de connexion, utilisation disque/volume, CPU et mémoire du système."
+description: "Supervisez SAP HANA via SQL : transactions bloquées, utilisateurs connectés, temps de connexion, utilisation disque et volumes, CPU et mémoire des hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-smartermail-api
 title: Smartermail Server
-description: "Monitor SmarterMail Server via its REST API: license status, service health, and message spool queues."
+description: "Monitor SmarterMail Server via its REST API: license upgrade protection status and expiration, service status, and number of messages in spools."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

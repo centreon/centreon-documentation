@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-dell-fluidfs-snmp
 title: Dell FluidFS SNMP
-description: "Monitor Dell FluidFS storage systems via SNMP, tracking component status and volume usage in Centreon."
+description: "Monitor Dell FluidFS storage systems via SNMP: overall, Active Directory, external server, and subsystem status, plus used space per volume."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

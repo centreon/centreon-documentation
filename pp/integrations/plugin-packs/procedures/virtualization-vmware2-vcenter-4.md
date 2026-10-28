@@ -1,7 +1,7 @@
 ---
 id: virtualization-vmware2-vcenter-4
 title: VMware vCenter v4 (deprecated)
-description: "Deprecated: this VMware vCenter v4 Monitoring Connector is no longer maintained; use VMware vCenter v6 instead."
+description: "Deprecated VMware vCenter v4 monitoring connector: no longer maintained and should not be used. Use the VMware vCenter v6 connector instead."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

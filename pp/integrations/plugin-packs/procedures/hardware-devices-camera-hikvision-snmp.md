@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-camera-hikvision-snmp
 title: Hikvision camera SNMP
-description: "Monitor Hikvision cameras via SNMP, tracking CPU, disk, and memory usage plus system time offset."
+description: "Monitor Hikvision cameras via SNMP, tracking CPU, disk, and memory usage plus system time offset, with automatic discovery of SNMP hosts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

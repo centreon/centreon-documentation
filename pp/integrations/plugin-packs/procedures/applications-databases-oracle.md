@@ -1,6 +1,7 @@
 ---
 id: applications-databases-oracle
 title: Oracle Database
+description: "Monitor Oracle Database via SQL queries: tablespace usage, RMAN backups, ASM disk groups, sessions, connections, cache hit ratios, and corrupted blocks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

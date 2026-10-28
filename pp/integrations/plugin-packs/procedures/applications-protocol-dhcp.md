@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-dhcp
 title: Protocol DHCP
-description: "Monitor DHCP servers with Centreon's Protocol DHCP connector: check server connection and response time."
+description: "Monitor DHCP servers with Centreon's Protocol DHCP connector: check the connection to a DHCP server and measure its response time in seconds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

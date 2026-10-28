@@ -1,7 +1,7 @@
 ---
 id: applications-vmware-vcsa-snmp
 title: VMware VCSA SNMP
-description: "Monitor VMware VCSA appliances via SNMP: CPU, memory, uptime, network interfaces, and storage."
+description: "Monitor VMware VCSA appliances via SNMP: CPU, memory, uptime, network interface traffic and errors, and storage partitions, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

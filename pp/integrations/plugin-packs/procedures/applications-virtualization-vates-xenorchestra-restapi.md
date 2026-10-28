@@ -1,7 +1,7 @@
 ---
 id: applications-virtualization-vates-xenorchestra-restapi
 title: Vates Xen Orchestra REST API
-description: Monitor VM statuses and storage repositories usage of a Xen Orchestra vitualization environment
+description: "Monitor a Vates Xen Orchestra virtualization environment via REST API: VM counts by state and storage repository usage, with service discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

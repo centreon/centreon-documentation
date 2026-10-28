@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-ibm-ts3500-snmp
 title: IBM TS3500 SNMP
-description: "Monitor IBM TS3500 tape libraries via SNMP: chassis, drive, changer, and PSU hardware status."
+description: "Monitor IBM TS3500 tape libraries via SNMP: chassis, drive, changer, and power supply hardware status, with host discovery via SNMP scan."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

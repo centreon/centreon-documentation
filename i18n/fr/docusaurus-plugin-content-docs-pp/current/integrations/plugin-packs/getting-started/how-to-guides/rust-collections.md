@@ -1,7 +1,7 @@
 ---
 id: rust-collections
 title: Collections Rust (expérimental)
-description: "Obtenir de nouvelles possibilités de supervision en configurant un fichier JSON plutôt qu'en développant un plugin Perl"
+description: "Créez de nouvelles fonctionnalités de supervision SNMP avec le plugin Rust expérimental en écrivant une collection JSON plutôt qu'en codant un plugin Perl."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

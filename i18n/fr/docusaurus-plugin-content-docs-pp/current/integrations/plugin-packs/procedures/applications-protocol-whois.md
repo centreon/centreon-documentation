@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-whois
 title: Protocol WHOIS
-description: "Supervisez le statut des domaines, leur date d'expiration et le temps de réponse WHOIS via la commande système whois."
+description: "Supervisez des noms de domaine via la commande système whois : statut des domaines, temps restant avant expiration et temps de réponse WHOIS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

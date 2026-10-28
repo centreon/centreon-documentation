@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-snmpv3
 title: Linux SNMP v3
-description: "Ce connecteur de supervision Linux via SNMP v3 est obsolète et a été remplacé par le connecteur Linux SNMP."
+description: "Le connecteur de supervision Linux SNMP v3 est obsolète : il n'est plus maintenu et ne doit plus être utilisé. Il est remplacé par Linux SNMP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

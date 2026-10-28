@@ -1,7 +1,7 @@
 ---
 id: network-routers-juniper-mseries-netconf
 title: Juniper M-Series Netconf
-description: "Supervisez les routeurs Juniper M-Series via Netconf : CPU, mémoire, matériel, interfaces, BGP, OSPF, LDP, LSP et RSVP."
+description: "Supervisez les routeurs Juniper M-Series via Netconf : CPU, mémoire, matériel, disques, interfaces, BGP, OSPF, LDP, LSP, RSVP et services RPM."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-ups-socomec-netvision-snmp
 title: UPS Socomec Net Vision SNMP
-description: "Monitor Socomec Net Vision UPS devices via SNMP: alarms, battery status, and input/output line metrics."
+description: "Monitor Socomec Net Vision UPS devices via SNMP: alarms, battery status, input and output line voltage, current, and load, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

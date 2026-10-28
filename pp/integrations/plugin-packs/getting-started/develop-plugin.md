@@ -1,6 +1,7 @@
 ---
 id: develop-plugin
 title: Developing your own plugins
+description: "Find GitHub resources to build your own Centreon plugins: Perl framework basics, advanced concepts, REST API and SNMP tutorials, and contribution tips."
 ---
 
 import Tabs from '@theme/Tabs';

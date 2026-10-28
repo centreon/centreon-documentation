@@ -1,7 +1,7 @@
 ---
 id: network-dell-n4000
 title: Dell N4000 (déprécié)
-description: "Ce connecteur de supervision Dell N4000 est déprécié ; utilisez plutôt le connecteur Dell N-series SNMP."
+description: "Ce connecteur de supervision Dell N4000 est déprécié et n'est plus maintenu ; utilisez plutôt le connecteur Dell N-series SNMP pour vos commutateurs."
 ---
 
 > Ce connecteur de supervision n'est plus maintenu et ne doit pas être utilisé. Il a été remplacé par le connecteur [Dell N-series SNMP](network-dell-nseries-snmp.md).

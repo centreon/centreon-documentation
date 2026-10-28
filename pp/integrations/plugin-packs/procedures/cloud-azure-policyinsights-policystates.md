@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-policyinsights-policystates
 title: Azure Policy States
-description: "Monitor Azure Policy compliance via REST API, tracking non-compliant policy counts and overall compliance state."
+description: "Monitor Azure Policy compliance via REST API or Azure CLI: number of non-compliant policies and compliance state, optionally filtered by policy name."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

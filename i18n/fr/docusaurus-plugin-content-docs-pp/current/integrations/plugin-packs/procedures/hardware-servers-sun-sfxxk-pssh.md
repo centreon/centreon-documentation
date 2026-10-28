@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-sun-sfxxk-pssh
 title: Sun SFxxK PSSH
-description: "Supervisez les serveurs Sun SFxxK via SSH : statut des cartes, environnement et basculement du contrôleur système."
+description: "Supervisez les serveurs Sun SFxxK via SSH sur le contrôleur système (SC) : statut des cartes, environnement et état du basculement du contrôleur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

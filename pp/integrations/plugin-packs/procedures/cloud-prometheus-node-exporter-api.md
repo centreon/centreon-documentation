@@ -1,7 +1,7 @@
 ---
 id: cloud-prometheus-node-exporter-api
 title: Node Exporter w/ Prometheus API
-description: "Monitor Node Exporter via the Prometheus API: track CPU, load, memory, and storage usage on Linux nodes."
+description: "Monitor Linux nodes through Node Exporter via the Prometheus API: global and detailed CPU usage, load, memory usage, and storage usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

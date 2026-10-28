@@ -1,7 +1,7 @@
 ---
 id: applications-voip-3cx-restapi
 title: 3CX Rest API
-description: "Monitor 3CX phone systems via REST API: track active calls, extension registrations, and system health."
+description: "Monitor 3CX phone systems via REST API: active call usage, registered extensions, and the status of 3CX services to assess system health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

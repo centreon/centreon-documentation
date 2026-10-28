@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-nrpe3
 title: Linux NRPE3 (deprecated)
-description: "This deprecated Linux NRPE3 Monitoring Connector is no longer maintained; use the Linux NRPE4 connector instead."
+description: "Deprecated Linux NRPE3 monitoring connector: no longer maintained and should not be used. Use the Linux NRPE4 connector instead to monitor Linux hosts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

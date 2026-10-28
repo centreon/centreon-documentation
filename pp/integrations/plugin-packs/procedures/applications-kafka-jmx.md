@@ -1,7 +1,7 @@
 ---
 id: applications-kafka-jmx
 title: Kafka
-description: "Monitor Apache Kafka via JMX/Jolokia: track leader count, partitions, replication, and traffic statistics."
+description: "Monitor Apache Kafka via JMX/Jolokia: leader and active controller counts, offline and under-replicated partitions, unclean leader elections, and traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

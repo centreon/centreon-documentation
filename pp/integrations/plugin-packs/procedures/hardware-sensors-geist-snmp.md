@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-geist-snmp
 title: Geist Sensor SNMP
-description: "Monitor Geist environmental sensors via SNMP, tracking temperature, humidity, dew point, airflow, light, and sound."
+description: "Monitor Geist environmental sensors via SNMP: temperature, humidity, dew point, airflow, light, and sound levels, with SNMP-based host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

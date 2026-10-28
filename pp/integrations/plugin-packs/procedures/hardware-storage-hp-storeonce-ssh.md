@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hp-storeonce-ssh
 title: HP StoreOnce SSH
-description: "Monitor HP StoreOnce storage systems via SSH, tracking hardware and service-set component status."
+description: "Monitor HP StoreOnce storage systems via SSH: status of hardware components and service sets, using SSH key exchange or user and password login."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

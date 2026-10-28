@@ -1,7 +1,7 @@
 ---
 id: network-audiocodes-snmp
 title: AudioCodes SNMP
-description: "Monitor AudioCodes SBC devices via SNMP: CPU, memory, hardware, interfaces, trunk status, and SBC calls."
+description: "Monitor AudioCodes SBC devices via SNMP: CPU, memory, hardware, interfaces, trunk status, and SBC calls, with discovery of network interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

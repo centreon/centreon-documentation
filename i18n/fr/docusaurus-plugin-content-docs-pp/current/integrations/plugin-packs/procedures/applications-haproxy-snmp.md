@@ -1,7 +1,7 @@
 ---
 id: applications-haproxy-snmp
 title: Haproxy SNMP
-description: "Supervisez HAProxy via SNMP : utilisation des backends et frontends, sessions, trafic et file d'attente."
+description: "Supervisez HAProxy via SNMP : statut des backends et frontends, sessions en cours et totales, trafic entrant et sortant, et file d'attente des backends."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

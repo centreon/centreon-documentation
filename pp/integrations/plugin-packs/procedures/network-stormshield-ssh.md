@@ -1,7 +1,7 @@
 ---
 id: network-stormshield-ssh
 title: Stormshield SSH
-description: "Monitor Stormshield firewalls via SSH to track QoS usage, traffic, and peak bandwidth metrics."
+description: "Monitor Stormshield firewalls via SSH: QoS usage, with inbound and outbound traffic and peak bandwidth per QoS, using SSH key or password login."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

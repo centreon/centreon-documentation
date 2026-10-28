@@ -1,7 +1,7 @@
 ---
 id: applications-vernemq-restapi
 title: VerneMQ Restapi
-description: "Supervisez les brokers MQTT VerneMQ via l'API REST : statut et nombre des clusters, listeners, plugins et sessions."
+description: "Supervisez les brokers MQTT VerneMQ via l'API REST : statut des clusters et des listeners, nombre de plugins et de sessions totales et en ligne."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

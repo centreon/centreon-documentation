@@ -1,7 +1,7 @@
 ---
 id: applications-databases-informix
 title: Informix DB
-description: "Monitor IBM Informix databases via SQL queries: checkpoints, dbspace usage, sessions, and table locks."
+description: "Monitor IBM Informix databases via SQL queries: archives, checkpoints, down chunks, dbspace and log usage, cache, locks, long transactions, and sessions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

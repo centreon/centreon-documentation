@@ -1,7 +1,7 @@
 ---
 id: applications-drbd-ssh
 title: DRBD SSH
-description: "Monitor DRBD replicated storage resources via SSH: disk status, replication role, and peer connection health."
+description: "Monitor DRBD replicated resources via SSH: resource count, local and peer roles, disk status, read and write throughput, and peer connection status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

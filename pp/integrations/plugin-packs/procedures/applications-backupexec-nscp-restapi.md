@@ -1,7 +1,7 @@
 ---
 id: applications-backupexec-nscp-restapi
 title: Veritas Backup Exec NSCP API
-description: "Monitor Veritas Backup Exec via NSClient++ REST API: alerts, disks, and backup jobs."
+description: "Monitor Veritas Backup Exec via the NSClient++ REST API: alerts by severity, disk space usage with discovery, and backup job status and duration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

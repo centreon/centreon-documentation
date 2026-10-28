@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-centreon-database
 title: Centreon Database
-description: "Monitor the Centreon monitoring database (MySQL) via SQL queries, checking table partitioning status."
+description: "Monitor the Centreon monitoring database (MySQL) via SQL queries: table partitioning status, plus services inherited from the MariaDB/MySQL connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

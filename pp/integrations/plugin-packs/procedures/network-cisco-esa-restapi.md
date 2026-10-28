@@ -1,7 +1,7 @@
 ---
 id: network-cisco-esa-restapi
 title: Cisco ESA Rest API
-description: "Monitor Cisco Email Security Appliance (ESA) via REST API: track CPU, memory, swap, and message queue usage."
+description: "Monitor Cisco Email Security Appliance (ESA) via REST API: CPU, memory, and swap usage, resource conservation, and message queue utilization."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

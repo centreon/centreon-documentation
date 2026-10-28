@@ -1,7 +1,7 @@
 ---
 id: applications-exchange-nrpe
 title: Microsoft Exchange NSClient NRPE
-description: "Monitor Microsoft Exchange via NRPE and NSClient++: databases, mailboxes, queues, replication health, and services."
+description: "Monitor Microsoft Exchange via NRPE and NSClient++: databases, services, queues, replication health, and ActiveSync, IMAP, MAPI, OWA, and mailbox checks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

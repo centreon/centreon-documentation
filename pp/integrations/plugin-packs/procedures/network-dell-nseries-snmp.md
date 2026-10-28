@@ -1,7 +1,7 @@
 ---
 id: network-dell-nseries-snmp
 title: Dell N-series SNMP
-description: "Monitor Dell N-series switches via SNMP: CPU, memory, environment, interfaces, uptime, and global status."
+description: "Monitor Dell N-series switches via SNMP: CPU, memory, environment, interfaces, uptime, and global status, with host and network interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

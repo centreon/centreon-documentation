@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-polycom-rprm-snmp
 title: Polycom RPRM SNMP
-description: "Monitor Polycom RPRM servers via SNMP: cluster status, license usage, provisioning, SiteLinks, sites, and updates."
+description: "Monitor Polycom RPRM servers via SNMP: SuperCluster status, license usage, provisioning jobs, SiteLinks, sites, and updates, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
