@@ -1,7 +1,7 @@
 ---
 id: migrate-from-el-to-debian
 title: Migrate from an EL-type OS to Debian
-description: "Migrate a Centreon platform from an EL-type OS to Debian"
+description: "Migrate a Centreon 18.10 or newer platform from an EL-type OS such as CentOS 7 to Debian on a new server, synchronize data and databases, then upgrade."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

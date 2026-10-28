@@ -1,7 +1,7 @@
 ---
 id: profiling-reports
 title: Profiling reports
-description: "Detailed per-host reports on availability, CPU, memory and storage usage"
+description: "Centreon MBI profiling reports: detailed statistics per host or host group on availability, alarms, storage usage, memory, and CPU."
 ---
 
 ### Host-Detail-2

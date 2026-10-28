@@ -1,7 +1,7 @@
 ---
 id: map-web-backup-restore
 title: Backing up and restoring your MAP server
-description: "Back up and restore your Centreon MAP server configuration and database"
+description: "Back up the Centreon MAP server configuration files and centreon_map database with the daily cron job, set backup parameters, and restore your data."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

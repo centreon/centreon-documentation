@@ -1,7 +1,7 @@
 ---
 id: first-supervision
 title: Prérequis
-description: "Installez les connecteurs de supervision et déployez votre configuration"
+description: "Installez gratuitement les modèles de supervision de base (Base Generic) dans Centreon, puis déployez la configuration pour superviser un équipement."
 ---
 
 Ce topic vous propose d'installer les modèles de supervision fournis gratuitement avec la solution Centreon, puis de les implémenter afin de mettre votre premier équipement en supervision.

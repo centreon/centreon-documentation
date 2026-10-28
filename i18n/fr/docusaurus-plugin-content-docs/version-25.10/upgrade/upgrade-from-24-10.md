@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-24-10
 title: Montée de version depuis Centreon 24.10
-description: "Passer une plateforme Centreon de la version 24.10 à la 25.10"
+description: "Mettez à jour Centreon de la 24.10 vers la 25.10 : sauvegardez, mettez à jour et finalisez le serveur central, puis les serveurs distants et collecteurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

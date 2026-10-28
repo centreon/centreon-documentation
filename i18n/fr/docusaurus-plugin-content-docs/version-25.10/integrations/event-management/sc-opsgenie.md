@@ -1,7 +1,7 @@
 ---
 id: sc-opsgenie-events
 title: Opsgenie Events
-description: "Envoyer les événements d'hôtes et de services de Centreon vers Opsgenie"
+description: "Configurez le stream connector Opsgenie Events pour envoyer les évènements des hôtes et services Centreon vers Opsgenie, en alertes ou en incidents."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

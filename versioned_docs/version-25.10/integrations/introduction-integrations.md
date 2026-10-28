@@ -1,7 +1,7 @@
 ---
 id: introduction-integrations
 title: Integrations
-description: "Introduction to third-party integrations available in Centreon"
+description: "Overview of the ways to integrate Centreon with third-party tools, using stream connectors to send events and metrics and Centreon Open Tickets for ITSM."
 ---
 
 ## Introduction to third-party integrations

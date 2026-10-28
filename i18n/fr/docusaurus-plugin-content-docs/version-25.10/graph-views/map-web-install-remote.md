@@ -1,7 +1,7 @@
 ---
 id: map-web-install-remote
 title: Installer MAP sur un serveur distant
-description: "Installer Centreon MAP sur un serveur distant"
+description: "Installez Centreon MAP sur un serveur distant Centreon, configurez Centreon Broker, gérez les images et désinstallez l'extension si nécessaire."
 ---
 
 ## Installation de Centreon MAP sur un serveur distant

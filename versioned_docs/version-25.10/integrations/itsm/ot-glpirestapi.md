@@ -1,7 +1,7 @@
 ---
 id: ot-glpi-restapi
 title: GLPI RestAPI
-description: "Configure the GLPI open-tickets provider using the GLPI REST API, compatible with GLPI versions 9.1 to 11"
+description: "Configure the GLPI provider in Centreon Open Tickets using the GLPI REST API to open tickets from alerts, compatible with GLPI 9.1 to 11."
 ---
 
 ## How it works

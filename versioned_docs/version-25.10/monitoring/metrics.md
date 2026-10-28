@@ -1,7 +1,7 @@
 ---
 id: metrics
 title: Understanding metrics
-description: "How metrics, thresholds, and performance data work in Centreon services"
+description: "Understand how metrics (performance data) work in Centreon: their format, threshold syntax, how to set per-metric thresholds, and command examples."
 ---
 
 ## What is a metric?

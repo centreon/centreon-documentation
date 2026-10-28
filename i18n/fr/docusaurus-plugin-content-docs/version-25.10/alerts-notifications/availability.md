@@ -1,7 +1,7 @@
 ---
 id: availability
 title: Rapports de disponibilité
-description: "Consulter les taux de disponibilité des hôtes et groupes de ressources"
+description: "Consultez dans Centreon les taux de disponibilité d'un hôte, d'un groupe d'hôtes ou de services sur une période, jour par jour, avec export CSV."
 ---
 
 ## Rapports de disponibilité

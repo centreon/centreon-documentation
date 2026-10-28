@@ -1,7 +1,7 @@
 ---
 id: sc-logstash-events
 title: Logstash Events
-description: "Transmettre les évènements d'état hôtes et services vers le plugin HTTP Logstash"
+description: "Installez et configurez le stream connector Logstash Events pour transmettre les évènements des hôtes et services Centreon à l'entrée HTTP de Logstash."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

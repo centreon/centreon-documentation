@@ -1,7 +1,7 @@
 ---
 id: other
 title: Autres actions
-description: "Ajouter des commentaires, gérer les contrôles et reprogrammer les vérifications"
+description: "Ajoutez des commentaires aux hôtes et services dans Centreon, activez ou désactivez leurs contrôles et notifications, et reprogrammez un contrôle immédiat."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

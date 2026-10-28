@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Troubleshooting MBI
-description: "Diagnose and fix common issues with Centreon MBI"
+description: "Troubleshoot Centreon MBI: run a diagnostic, find missing data or partitions, fix CBIS startup issues, locate logs, and solve empty or missing reports."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

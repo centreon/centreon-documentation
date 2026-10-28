@@ -1,7 +1,7 @@
 ---
 id: ticketing-advanced-body
 title: Customizing tickets
-description: "How to customize the Open Tickets body template using Smarty syntax, static text, and dynamic fields"
+description: "Customize the body of tickets created with Centreon Open Tickets using Smarty syntax, starting from the default template with static and dynamic fields."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

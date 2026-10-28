@@ -1,7 +1,7 @@
 ---
 id: ntopng
 title: Widget NtopNG
-description: "Display network usage data from NtopNG in a custom view widget"
+description: "Configure the NtopNG widget in Centreon custom views to display network usage data, such as top local and remote hosts, flows and applications."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

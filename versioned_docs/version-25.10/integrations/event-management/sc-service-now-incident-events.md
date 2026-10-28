@@ -1,7 +1,7 @@
 ---
 id: sc-service-now-incident-events
 title: ServiceNow Incident Events
-description: "Create ServiceNow incidents from Centreon host and service events"
+description: "Install and configure the ServiceNow Incident Events stream connector to create ServiceNow incidents from Centreon host and service status events."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

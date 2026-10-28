@@ -1,7 +1,7 @@
 ---
 id: rebuilding-data
 title: Reconstruire les données MBI
-description: "Reconstruire les données MBI après un changement de configuration ou pour réparer des trous"
+description: "Reconstruisez les données Centreon MBI en exécutant l'ETL, entièrement en écrasant toutes les données, ou partiellement en conservant l'historique."
 ---
 
 ## En quoi consiste la reconstruction des données ?

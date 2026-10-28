@@ -1,7 +1,7 @@
 ---
 id: storage-reports
 title: Rapports de stockage
-description: "Rapports sur la capacité de stockage disque allouée et utilisée par groupe d'hôtes"
+description: "Rapports de stockage Centreon MBI : espace disque alloué et utilisé pour un ou plusieurs groupes d'hôtes, sous forme de graphiques ou de liste."
 ---
 
 ### Hostgroups-Storage-Capacity-1

@@ -1,7 +1,7 @@
 ---
 id: poller-display-to-remote-server
 title: Migration d'une plate-forme avec Poller Display
-description: "Migrer une plateforme utilisant le module obsolète Poller Display"
+description: "Migrez une plateforme Centreon utilisant le module obsolète Poller Display : désinstallez le module, puis enregistrez le collecteur en Remote Server."
 ---
 
 ## Migrer le serveur Centreon Central
