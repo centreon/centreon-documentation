@@ -1,6 +1,6 @@
 ---
 id: map-web-create-standard-map
-title: Create a standard map
+title: Creating a standard map
 description: "Create and customize standard maps using the Centreon MAP editor, shapes, widgets, and resource elements"
 ---
 
@@ -51,7 +51,7 @@ This is the MAP editor:
 
 **1. Breadcrumb:** shows where you are in the map, when the map has several levels.
 **2. Toolbar:** lets you show or hide panels, undo or redo actions, and fit, zoom in or zoom out on the drawing canvas.
-**3. IP address:** this is the MAP server address specified in the Centreon MAP settings.
+**3. Search a resource:** lets you search for resources to add to your map.
 **4. Shapes panel:** this panel offers all elements you need to build a map, from the basics to the Centreon resources.
 **5. Format panel:** this panel allows you to apply a format to a selected element.
 **6. Drawing canvas:** this is the space in the middle of the editor, where you draw your diagram.

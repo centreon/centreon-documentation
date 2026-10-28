@@ -1,6 +1,6 @@
 ---
 id: map-web-access
-title: Manage access rights in MAP
+title: Managing access rights in MAP
 description: "Manage MAP user roles and privileges to control who can view, edit, share, or delete maps"
 ---
 

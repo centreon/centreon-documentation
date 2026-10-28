@@ -51,7 +51,7 @@ Voici comment se présente l'éditeur MAP :
 
 **1. Fil d'Ariane :** indique où vous vous trouvez dans la carte, lorsque celle-ci comporte plusieurs niveaux.
 **2. Barre d'outils :** permet de masquer ou d'afficher des panneaux, d'annuler ou de rétablir des actions, et d'adapter, zoomer ou dézoomer l'espace de travail.
-**3. Adresse IP :** il s'agit de l'adresse du serveur MAP spécifiée dans les paramètres de Centreon MAP.
+**3. Rechercher une ressource :** permet de rechercher des ressources à ajouter à votre carte.
 **4. Panneau Formes :** ce panneau présente tous les éléments dont vous avez besoin pour concevoir une carte, des formes basiques aux ressources Centreon.
 **5. Panneau Format :** ce panneau vous permet d'appliquer un format sur un élément sélectionné.
 **6. Espace de travail :** c'est l'espace situé au milieu de l'éditeur, pour concevoir votre diagramme.

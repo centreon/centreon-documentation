@@ -26,9 +26,9 @@ Your maps can be displayed in two ways in the interface:
 
 The following topics explain how to use and administer Centreon MAP.
 
-- [Manage access rights in MAP](map-web-access.md) describes the various rights and permissions on maps.
-- [Manage maps in MAP](map-web-manage.md) explains how to manage maps from the Centreon MAP interface.
-- [Create a standard map](map-web-create-standard-map.md) describes how to create standard maps and how to customize them using the MAP editor.
-- [Create a geographic view](map-web-create-geoview.md) explains how to display your resources across a defined geographical area.
 - [Best practices for using maps](map-best-practices.md) gives tips to build clear maps that are easy to maintain.
+- [Managing access rights in MAP](map-web-access.md) describes the various rights and permissions on maps.
+- [Managing maps in MAP](map-web-manage.md) explains how to manage maps from the Centreon MAP interface.
+- [Creating a standard map](map-web-create-standard-map.md) describes how to create standard maps and how to customize them using the MAP editor.
+- [Creating a geographic view](map-web-create-geoview.md) explains how to display your resources across a defined geographical area.
 - [MAP known issues](map-web-known-issues.md) lists issues you may encounter when using MAP.

@@ -1,6 +1,6 @@
 ---
 id: map-web-manage
-title: Manage maps in MAP
+title: Managing maps in MAP
 description: "Duplicate, delete, edit, share, and view status information for standard maps and geographic views in Centreon MAP"
 ---
 
@@ -9,7 +9,7 @@ This topic explains how to perform actions on your maps from the Centreon MAP in
 - **Standard maps:** to view graphical representations of your monitored infrastructure.
 - **Geographic views:** to display the resources of your IT environment across a defined geographical area.
 
-> Options that are available in the MAP interface depend on the permissions assigned to you by your administrator. See [Manage access rights in MAP](map-web-access.md) to learn more about rights and permissions.
+> Options that are available in the MAP interface depend on the permissions assigned to you by your administrator. See [Managing access rights in MAP](map-web-access.md) to learn more about rights and permissions.
 
 If you see the **Add a Map** or **Add a Geographic view** button, you belong to an access group that is granted the creator role, and you can create maps.
 

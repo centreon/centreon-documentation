@@ -46,7 +46,7 @@ You can include one map inside another, for example an application map inside an
 
 ## Manage access rights
 
-You give access to maps through access groups. Administrators and Editors can create maps, and can see, edit, delete, and share all maps. Users (Operators) only see the maps that are shared with them. See [Manage access rights in MAP](map-web-access.md).
+You give access to maps through access groups. Administrators and Editors can create maps, and can see, edit, delete, and share all maps. Users (Operators) only see the maps that are shared with them. See [Managing access rights in MAP](map-web-access.md).
 
 - When you share a map with Users, grant the lowest privilege they need: **Viewer** in most cases, **Editor** only if they must change the map.
 - Check what a map contains before you share it. With the **Viewer** privilege, users can see all the resources in the map, even if they do not have the corresponding ACL.
