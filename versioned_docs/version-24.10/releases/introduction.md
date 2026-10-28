@@ -15,4 +15,4 @@ Security fixes are listed [in bulletins on our community platform The Watch](htt
 
 If you have [feature requests](https://thewatch.centreon.com/ideas) or want to report a bug, please visit our community platform [The Watch](https://thewatch.centreon.com/).
 
-Read more about version 25.10 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/).
+Read more about version 24.10 in our [blog post](https://www.centreon.com/centreon-announces-its-latest-software-release-centreon-24-10/).
