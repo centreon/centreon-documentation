@@ -1,7 +1,7 @@
 ---
 id: security
 title: Centreon and Security
-description: "Overview of Centreon's approach to product and data security"
+description: "How Centreon secures its products and your data: secure development, security testing, vulnerability disclosure, and how to secure your installation."
 ---
 
 Organizations around the world turn to Centreon to provide business-aware monitoring of their IT

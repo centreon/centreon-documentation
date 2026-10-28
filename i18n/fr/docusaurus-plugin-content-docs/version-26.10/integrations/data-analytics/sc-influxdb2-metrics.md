@@ -1,7 +1,7 @@
 ---
 id: sc-influxdb2-metrics
 title: InfluxDB 2 Metrics
-description: "Envoyer les métriques de performance hôtes et services vers un bucket InfluxDB 2"
+description: "Installez et configurez le stream connector InfluxDB 2 Metrics pour envoyer les métriques des hôtes et services Centreon vers un bucket InfluxDB 2."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

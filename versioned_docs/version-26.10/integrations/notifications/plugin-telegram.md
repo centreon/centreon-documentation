@@ -1,7 +1,7 @@
 ---
 id: plugin-telegram
 title: Telegram notifications
-description: "Send host and service alerts to Telegram using a bot"
+description: "Send Centreon host and service notifications to Telegram through a bot with the community Telegram plugin: install it, get your chat ID, create commands."
 ---
 
 ## Introduction

@@ -1,7 +1,7 @@
 ---
 id: commands
 title: Les commandes
-description: "Comment créer des commandes de contrôle personnalisées, gérer la liste blanche de commandes, et utiliser les connecteurs d'optimisation SSH et Perl"
+description: "Créez des commandes de contrôle personnalisées dans Centreon, ajoutez-les à la liste blanche et optimisez les sondes avec les connecteurs SSH et Perl."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

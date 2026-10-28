@@ -1,7 +1,7 @@
 ---
 id: upgrade-centreon-ha-from-25-10
 title: Upgrade Centreon HA from Centreon 25.10
-description: "Upgrade a Centreon HA cluster from version 25.10 to 26.10"
+description: "Upgrade a Centreon HA cluster from 25.10 to 26.10: enable maintenance mode, back up your servers, upgrade the nodes, then resume resource management."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

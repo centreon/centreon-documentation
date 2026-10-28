@@ -1,7 +1,7 @@
 ---
 id: create-custom-view
 title: Créer une vue personnalisée
-description: "Créez votre première vue personnalisée avec des widgets"
+description: "Créez votre première vue personnalisée depuis le menu Accueil > Vues personnalisées de Centreon, choisissez le nombre de colonnes et ajoutez des widgets."
 ---
 
 ## Qu'est-ce qu'une vue personnalisée?

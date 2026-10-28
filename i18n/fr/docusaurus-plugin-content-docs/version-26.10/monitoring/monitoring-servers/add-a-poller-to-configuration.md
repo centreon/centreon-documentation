@@ -1,7 +1,7 @@
 ---
 id: add-a-poller-to-configuration
 title: Rattacher un collecteur à un serveur central ou distant
-description: "Configurer et connecter un nouveau collecteur à un serveur central ou distant"
+description: "Rattachez un nouveau collecteur à un serveur central ou distant Centreon avec l'assistant de configuration, activez la communication et exportez."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

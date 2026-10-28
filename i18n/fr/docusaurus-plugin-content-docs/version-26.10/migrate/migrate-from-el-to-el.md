@@ -1,7 +1,7 @@
 ---
 id: migrate-from-el-to-el
 title: Migrer depuis un OS de type EL vers un autre OS de type EL (depuis un Centreon 18.10 ou plus récent)
-description: "Migrer une plateforme Centreon entre deux OS de type EL"
+description: "Migrez une plateforme Centreon 18.10 ou plus récente d'un OS de type EL vers un autre, par exemple de CentOS 7 vers Alma 9, puis mettez à jour Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

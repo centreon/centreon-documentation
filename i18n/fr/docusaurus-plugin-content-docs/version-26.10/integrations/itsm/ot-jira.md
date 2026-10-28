@@ -1,7 +1,7 @@
 ---
 id: ot-jira
 title: Jira
-description: "Configurez le fournisseur de tickets Jira qui se connecte à Jira Cloud via l'API REST de Jira"
+description: "Configurez le fournisseur Jira de Centreon Open Tickets pour créer des tickets dans Jira Cloud à partir des alertes de supervision via l'API REST de Jira."
 ---
 
 ## How it works

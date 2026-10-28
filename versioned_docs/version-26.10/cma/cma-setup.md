@@ -1,7 +1,7 @@
 ---
 id: cma-setup
 title: Setting up the agent's environment
-description: "Set up and configure Centreon Monitoring Agent on pollers and hosts"
+description: "Set up the Centreon Monitoring Agent (CMA) environment with the ready-to-run installation command or the installation scripts, and manage certificates."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

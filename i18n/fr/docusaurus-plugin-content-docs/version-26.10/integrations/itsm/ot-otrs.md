@@ -1,7 +1,7 @@
 ---
 id: ot-otrs-restapi
 title: OTRS RestAPI
-description: "Configurez le fournisseur de tickets OTRS utilisant l'API REST d'OTRS, avec import du webservice pour OTRS 4 et 5"
+description: "Configurez le fournisseur OTRS de Centreon Open Tickets basé sur l'API REST d'OTRS, y compris l'import du webservice et la configuration pour OTRS 4 et 5."
 ---
 
 ## How it works

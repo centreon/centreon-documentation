@@ -1,7 +1,7 @@
 ---
 id: hosts-create
 title: Monitoring a host
-description: "How to monitor a host using templates or automatic discovery"
+description: "Start monitoring a host in Centreon by applying a Monitoring Connector template, manually or through autodiscovery, then deploying the configuration."
 ---
 
 A host is any entity that has an IP address corresponding to a resource of the information system. e.g.: A server, network printer, NAS server, temperature sensor, IP camera, etc.

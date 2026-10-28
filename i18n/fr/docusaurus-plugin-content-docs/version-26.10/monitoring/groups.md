@@ -1,7 +1,7 @@
 ---
 id: groups
 title: Groupes
-description: "Regrouper les hôtes et services pour les ACLs, rapports et filtres"
+description: "Créez des groupes d'hôtes et de services dans Centreon pour rassembler des objets ayant une propriété commune, utiles pour les ACL, rapports et filtres."
 ---
 
 Il est possible de regrouper des hôtes ou des services au sein de groupes.

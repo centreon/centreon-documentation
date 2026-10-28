@@ -1,7 +1,7 @@
 ---
 id: model-it-services
 title: Modéliser un service IT
-description: "Comment modéliser des services IT avec Centreon BAM"
+description: "Modélisez vos services IT avec Centreon BAM : agrégez des indicateurs en activités métier, suivez leur statut en temps réel et mesurez vos SLA."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

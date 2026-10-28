@@ -1,7 +1,7 @@
 ---
 id: debug-snmp-traps-management
 title: Debug SNMP Traps management
-description: "Troubleshoot the SNMP trap processing chain from sender to Centreon UI"
+description: "Troubleshoot SNMP trap processing in Centreon by checking each link in the chain: sender, firewall, snmptrapd, centreontrapd, Gorgone, Engine, and UI."
 ---
 
 ## Debug SNMP Traps

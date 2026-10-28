@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction à la montée de version
-description: "Introduction à la montée de version de Centreon entre versions majeures"
+description: "Passez Centreon à une nouvelle version majeure : vérifiez que votre OS est supporté, sauvegardez-la et mettez à jour les dépôts BAM, MAP, MBI."
 ---
 
 Ce chapitre décrit comment monter de version votre plateforme de supervision Centreon, c'est-à-dire passer d'une version majeure à une autre (par exemple, de 23.10 à 26.10).

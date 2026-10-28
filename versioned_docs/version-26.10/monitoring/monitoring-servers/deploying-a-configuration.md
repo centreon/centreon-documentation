@@ -1,7 +1,7 @@
 ---
 id: deploying-a-configuration
 title: Deploying a configuration
-description: "Export and deploy configuration changes to pollers and remote servers"
+description: "Export and deploy Centreon configuration changes to the central server, remote servers, and pollers, choose export options, and use quick export."
 ---
 
 When you create, delete or edit objects in the **Configuration** menu, changes are not applied automatically (either on the central server on which you have made the change or on any remote server or poller linked to it). For the changes to be taken into account, you must export the configuration.

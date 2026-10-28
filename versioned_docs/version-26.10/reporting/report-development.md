@@ -1,7 +1,7 @@
 ---
 id: report-development
 title: Creating custom reports
-description: "Develop custom report designs for Centreon MBI using BIRT"
+description: "Develop custom Centreon MBI report designs with BIRT: learn the key concepts, set up your workspace, project, and database connections, and build reports."
 ---
 
 Compatibility: BIRT 4.20.0+

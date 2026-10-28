@@ -1,7 +1,7 @@
 ---
 id: event-console
 title: Consoles d'évènements
-description: "Interfaces dépréciées pour visualiser le statut des hôtes et services"
+description: "Référence des consoles d'évènements dépréciées de Centreon : colonnes et filtres des vues hôtes, services et groupes, et pages de détails des ressources."
 ---
 
 > Certaines de ces interfaces sont **dépréciées** et remplacées par la page

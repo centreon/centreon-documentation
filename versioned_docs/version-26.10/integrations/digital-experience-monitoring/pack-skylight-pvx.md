@@ -1,7 +1,7 @@
 ---
 id: accedian-pvx-skylight
 title: Accedian PVX Skylight
-description: "Connect Centreon to Accedian PVX Skylight via its XML API"
+description: "Connect Centreon to Accedian PVX Skylight through its XML API, check the compatible versions, generate an API access key and set up monitoring."
 ---
 
 ## How it works

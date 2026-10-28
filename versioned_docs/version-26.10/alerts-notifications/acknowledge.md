@@ -1,7 +1,7 @@
 ---
 id: acknowledge
 title: Acknowledging an alert
-description: "Acknowledge an alert to pause notifications until the issue is resolved"
+description: "Acknowledge a host or service alert in Centreon to stop notifications while you fix the issue, learn how it works for Business Activities, and undo it."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

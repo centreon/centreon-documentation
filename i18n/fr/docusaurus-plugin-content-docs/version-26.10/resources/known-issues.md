@@ -1,7 +1,7 @@
 ---
 id: known-issues
 title: Problèmes connus
-description: "Problèmes connus et contournements pour la plateforme Centreon"
+description: "Problèmes connus de Centreon et contournements disponibles, notamment pour les tableaux de bord, Anomaly Detection, Centreon Web et Centreon MBI."
 ---
 
 Voici une liste de problèmes connus et/ou bugs que vous pouvez rencontrer.
