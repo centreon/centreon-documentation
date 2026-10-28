@@ -13,13 +13,13 @@ import TabItem from '@theme/TabItem';
 
 Model Context Protocol (MCP) is an open standard that lets an AI assistant use external tools. The Centreon Log Management MCP server connects an AI assistant to the logs of your organization. Claude, Visual Studio Code, or any other client compatible with MCP can then search your logs, summarize them, chart their volume and forecast it, directly from the conversation.
 
-The MCP server does not store any data. However, the logs returned by its tools are sent to the language model your assistant uses. Only use the MCP server with an assistant whose terms of use fit your data policy, for example a local model or a service that does not train on your data.
+The MCP server does not store any data. However, the logs returned by its tools are sent to the language model your assistant uses. Only use the MCP server with an assistant whose terms of use fit your data policy, for example a local model or a service that does not train on your data. Questions in natural language and log summaries are also processed by Log Management itself, as with the **Ask AI** and **Log summary** features of the [Log explorer](../log-explorer.md).
 
 ## Prerequisites
 
-- An **API token** for your organization. Tokens are created by an Administrator on the **Administration > Token management** page: see [Managing authentication tokens](../administration/tokens.md). The token gives access to all the logs of your organization: store it as a secret and do not share it.
+- An **API token** for your organization. Tokens are created by an Administrator on the **Administration > Token management** page: see [Managing authentication tokens](../administration/tokens.md). The token gives access to all the logs of your organization: store it as a secret and do not share it. Create a token dedicated to the MCP server rather than reusing the token of your collectors: you can then delete it without stopping log collection.
 - The **name of your organization**. It appears in the address of the Log Management interface, after `/organizations/`: for `https://obs.mycentreon.com/organizations/acme/...`, the organization is `acme`.
-- If you connect with your own user account instead of an API token, you need the **Editor** role or higher (see [User rights](../user-rights.md)).
+- The MCP server must be **enabled for your organization**. If the server answers with a 404 error, contact Centreon support (see [Troubleshooting](#troubleshooting)).
 
 ## Endpoint and authentication
 
@@ -29,10 +29,7 @@ The MCP server is reachable at the following address, where `<organization>` is 
 https://api.euwest1.obs.mycentreon.com/v1/orgs/<organization>/log-analysis/mcp
 ```
 
-Every request must carry exactly one credential:
-
-- `X-Api-Key: <token>`, with an API token (recommended).
-- `Authorization: Bearer <token>`, with the access token of a user account.
+Every request must carry your API token in the `X-Api-Key: <token>` header. Do not send an `Authorization` header as well: the request would be rejected.
 
 The organization is fixed by the address: a connection gives access to one organization only, and a token only works with the organization it was created in. To work with several organizations, add one connection per organization.
 
@@ -51,7 +48,7 @@ Run the following command:
 claude mcp add --transport http centreon-logs https://api.euwest1.obs.mycentreon.com/v1/orgs/<organization>/log-analysis/mcp --header "X-Api-Key: <token>"
 ```
 
-Or add the server to the `.mcp.json` file of your project:
+Or add the server to the `.mcp.json` file of your project. This file is meant to be shared with your team, so it reads the token from the `CLM_API_KEY` environment variable instead of containing it: set this variable to your token before you start Claude Code.
 
 ```json
 {
@@ -60,7 +57,7 @@ Or add the server to the `.mcp.json` file of your project:
       "type": "http",
       "url": "https://api.euwest1.obs.mycentreon.com/v1/orgs/<organization>/log-analysis/mcp",
       "headers": {
-        "X-Api-Key": "<token>"
+        "X-Api-Key": "${CLM_API_KEY}"
       }
     }
   }
@@ -149,8 +146,8 @@ Once connected, your client lists 6 tools and 3 prompts for the server. To check
 
 You do not call the tools yourself: you ask a question, and the assistant chooses the tools and chains them. Knowing what each tool does helps you phrase your questions.
 
-- **search_logs** accepts either a question in natural language ("errors from the billing service in the last hour") or a query written with the [query syntax](../query-syntax.md). A question is translated into a query, and the tool returns that query, so the assistant can refine it or reuse it with the other tools. The tool returns the number of matching logs and up to 1,000 of them (20 by default).
-- **summarize_logs** returns a written summary of the logs that match a query, by default over the last hour.
+- **search_logs** accepts either a question in natural language ("errors from the billing service in the last hour") or a query written with the [query syntax](../query-syntax.md). A question is translated into a query, and the tool returns that query, so the assistant can refine it or reuse it with the other tools. The tool returns the number of matching logs and up to 1,000 of them (20 by default), each with its timestamp, severity, service and message only: attributes are not returned.
+- **summarize_logs** returns a written summary of the logs that match a query, by default over the last hour. Only the 2,000 most recent logs of the time window are read, so keep the window narrow.
 - **aggregate_logs** returns the number of logs over time, as one curve in total, one curve per severity, or one curve per service (the 20 largest). This is how the assistant spots a peak or a trend without reading every log.
 - **forecast_logs** counts the logs that match a query over a time window (by default the last 24 hours) and forecasts the next points at the same interval.
 - **list_log_fields** lists the fields of your logs, with their types and whether they can be searched or aggregated. The assistant uses it before writing a query on a field it does not know.
@@ -174,6 +171,5 @@ The MCP server also provides prompts: ready-made instructions that guide the ass
 
 ## Troubleshooting
 
-- **401 Unauthorized**: the credential is missing or invalid, both `X-Api-Key` and `Authorization` were sent, or the token belongs to a different organization from the one in the address.
-- **403 Forbidden**: the credential is valid, but the user account has a role lower than **Editor** in the organization.
-- **404 Not Found**: check the address, in particular the name of the organization and the `/log-analysis/mcp` path.
+- **401 Unauthorized**: the `X-Api-Key` header is missing or its token is invalid, an `Authorization` header was sent, or the name of the organization in the address is wrong (the token belongs to a different organization).
+- **404 Not Found**: the token was accepted, so either the path is wrong (check `/log-analysis/mcp`, without a trailing slash), or the MCP server is not enabled for your organization. In that case, contact Centreon support.

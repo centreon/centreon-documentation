@@ -13,13 +13,13 @@ import TabItem from '@theme/TabItem';
 
 Model Context Protocol (MCP) est un standard ouvert qui permet à un assistant IA d'utiliser des outils externes. Le serveur MCP de Centreon Log Management connecte un assistant IA aux logs de votre organisation. Claude, Visual Studio Code ou tout autre client compatible MCP peut alors rechercher vos logs, les résumer, tracer leur volume et le prévoir, directement depuis la conversation.
 
-Le serveur MCP ne stocke aucune donnée. En revanche, les logs que renvoient ses outils sont transmis au modèle de langage qu'utilise votre assistant. N'utilisez le serveur MCP qu'avec un assistant dont les conditions d'utilisation respectent votre politique de données, par exemple un modèle local ou un service qui n'entraîne pas ses modèles sur vos données.
+Le serveur MCP ne stocke aucune donnée. En revanche, les logs que renvoient ses outils sont transmis au modèle de langage qu'utilise votre assistant. N'utilisez le serveur MCP qu'avec un assistant dont les conditions d'utilisation respectent votre politique de données, par exemple un modèle local ou un service qui n'entraîne pas ses modèles sur vos données. Les questions en langage naturel et les résumés de logs sont également traités par Log Management lui-même, comme avec les fonctionnalités **Ask AI** et **Log summary** du [Log explorer](../log-explorer.md).
 
 ## Prérequis
 
-- Un **jeton d'API** pour votre organisation. Les jetons sont créés par un administrateur à la page **Administration > Token management** : voir [Gérer les jetons d'authentification](../administration/tokens.md). Le jeton donne accès à tous les logs de votre organisation : conservez-le comme un secret et ne le partagez pas.
+- Un **jeton d'API** pour votre organisation. Les jetons sont créés par un administrateur à la page **Administration > Token management** : voir [Gérer les jetons d'authentification](../administration/tokens.md). Le jeton donne accès à tous les logs de votre organisation : conservez-le comme un secret et ne le partagez pas. Créez un jeton dédié au serveur MCP plutôt que de réutiliser celui de vos collecteurs : vous pourrez ainsi le supprimer sans interrompre la collecte des logs.
 - Le **nom de votre organisation**. Il figure dans l'adresse de l'interface de Log Management, après `/organizations/` : pour `https://obs.mycentreon.com/organizations/acme/...`, l'organisation est `acme`.
-- Si vous vous connectez avec votre propre compte utilisateur plutôt qu'avec un jeton d'API, vous devez avoir le rôle **Editor** ou un rôle supérieur (voir [Droits utilisateur](../user-rights.md)).
+- Le serveur MCP doit être **activé pour votre organisation**. Si le serveur répond par une erreur 404, contactez le support Centreon (voir [Dépannage](#dépannage)).
 
 ## Adresse et authentification
 
@@ -29,10 +29,7 @@ Le serveur MCP est accessible à l'adresse suivante, où `<organization>` est le
 https://api.euwest1.obs.mycentreon.com/v1/orgs/<organization>/log-analysis/mcp
 ```
 
-Chaque appel au serveur doit comporter un seul identifiant :
-
-- `X-Api-Key: <token>`, avec un jeton d'API (recommandé) ;
-- `Authorization: Bearer <token>`, avec le jeton d'accès d'un compte utilisateur.
+Chaque appel au serveur doit comporter votre jeton d'API dans l'en-tête `X-Api-Key: <token>`. N'envoyez pas d'en-tête `Authorization` en plus : l'appel serait refusé.
 
 L'adresse détermine l'organisation : une connexion donne accès à une seule organisation, et un jeton ne fonctionne qu'avec l'organisation dans laquelle il a été créé. Pour travailler avec plusieurs organisations, ajoutez une connexion par organisation.
 
@@ -51,7 +48,7 @@ Exécutez la commande suivante :
 claude mcp add --transport http centreon-logs https://api.euwest1.obs.mycentreon.com/v1/orgs/<organization>/log-analysis/mcp --header "X-Api-Key: <token>"
 ```
 
-Vous pouvez aussi ajouter le serveur au fichier `.mcp.json` de votre projet :
+Vous pouvez aussi ajouter le serveur au fichier `.mcp.json` de votre projet. Ce fichier est destiné à être partagé avec votre équipe : il lit donc le jeton dans la variable d'environnement `CLM_API_KEY` au lieu de le contenir. Définissez cette variable avec votre jeton avant de lancer Claude Code.
 
 ```json
 {
@@ -60,7 +57,7 @@ Vous pouvez aussi ajouter le serveur au fichier `.mcp.json` de votre projet :
       "type": "http",
       "url": "https://api.euwest1.obs.mycentreon.com/v1/orgs/<organization>/log-analysis/mcp",
       "headers": {
-        "X-Api-Key": "<token>"
+        "X-Api-Key": "${CLM_API_KEY}"
       }
     }
   }
@@ -149,11 +146,11 @@ Une fois connecté, votre client affiche 6 outils et 3 prompts pour le serveur. 
 
 Vous n'appelez pas les outils vous-même : vous posez une question, et l'assistant choisit les outils et les enchaîne. Savoir ce que fait chaque outil vous aide à formuler vos questions.
 
-- **search_logs** accepte soit une question en langage naturel (« les erreurs du service de facturation dans la dernière heure »), soit une requête écrite avec la [syntaxe des requêtes](../query-syntax.md). Une question est traduite en requête, et l'outil renvoie cette requête : l'assistant peut ainsi l'affiner ou la réutiliser avec les autres outils. L'outil renvoie le nombre de logs correspondants et jusqu'à 1 000 d'entre eux (20 par défaut).
-- **summarize_logs** renvoie un résumé rédigé des logs correspondant à une requête, par défaut sur la dernière heure.
+- **search_logs** accepte soit une question en langage naturel (« les erreurs du service de facturation dans la dernière heure »), soit une requête écrite avec la [syntaxe des requêtes](../query-syntax.md). Une question est traduite en requête, et l'outil renvoie cette requête : l'assistant peut ainsi l'affiner ou la réutiliser avec les autres outils. L'outil renvoie le nombre de logs correspondants et jusqu'à 1 000 d'entre eux (20 par défaut), chacun avec seulement son timestamp, sa sévérité, son service et son message : les attributs ne sont pas renvoyés.
+- **summarize_logs** renvoie un résumé rédigé des logs correspondant à une requête, par défaut sur la dernière heure. Seuls les 2 000 logs les plus récents de la période sont lus : gardez donc une période courte.
 - **aggregate_logs** renvoie le nombre de logs dans le temps, sous la forme d'une courbe totale, d'une courbe par sévérité ou d'une courbe par service (les 20 plus importants). C'est ainsi que l'assistant repère un pic ou une tendance sans lire chaque log.
 - **forecast_logs** compte les logs correspondant à une requête sur une période (par défaut les dernières 24 heures) et prévoit les points suivants au même intervalle.
-- **list_log_fields** liste les champs de vos logs, avec leur type et la possibilité de les rechercher ou de les agréger. L'assistant l'utilise avant d'écrire une requête sur un champ qu'il ne connaît pas.
+- **list_log_fields** liste les champs de vos logs, avec leurs types et la possibilité de les rechercher ou de les agréger. L'assistant l'utilise avant d'écrire une requête sur un champ qu'il ne connaît pas.
 - **list_field_values** liste les valeurs les plus fréquentes d'un champ, avec leur nombre d'occurrences. Par exemple, la sévérité d'un log peut s'écrire `ERROR` ou `Error` selon l'application qui l'a envoyé : cet outil montre toutes les variantes.
 
 ## Prompts
@@ -174,6 +171,5 @@ Le serveur MCP fournit aussi des prompts : des instructions toutes prêtes qui g
 
 ## Dépannage
 
-- **401 Unauthorized** : l'identifiant est absent ou invalide, `X-Api-Key` et `Authorization` ont été envoyés ensemble, ou le jeton appartient à une autre organisation que celle de l'adresse.
-- **403 Forbidden** : l'identifiant est valide, mais le compte utilisateur a un rôle inférieur à **Editor** dans l'organisation.
-- **404 Not Found** : vérifiez l'adresse, en particulier le nom de l'organisation et le chemin `/log-analysis/mcp`.
+- **401 Unauthorized** : l'en-tête `X-Api-Key` est absent ou son jeton est invalide, un en-tête `Authorization` a été envoyé, ou le nom de l'organisation dans l'adresse est erroné (le jeton appartient à une autre organisation).
+- **404 Not Found** : le jeton a été accepté. Soit le chemin est erroné (vérifiez `/log-analysis/mcp`, sans barre oblique finale), soit le serveur MCP n'est pas activé pour votre organisation : dans ce cas, contactez le support Centreon.
