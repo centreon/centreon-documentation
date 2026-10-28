@@ -30,4 +30,5 @@ Les procédures suivantes permettent de gérer et d'utiliser Centreon MAP.
 - [Gérer les cartes dans MAP](map-web-manage.md) explique comment gérer les cartes à partir de l'interface Centreon MAP.
 - [Créer une carte standard](map-web-create-standard-map.md) décrit comment créer des cartes standard et comment les personnaliser à l'aide de l'éditeur MAP.
 - [Créer une vue géographique](map-web-create-geoview.md) explique comment afficher vos ressources dans une zone géographique définie.
+- [Bonnes pratiques pour utiliser les cartes](map-best-practices.md) donne des conseils pour créer des cartes claires et faciles à maintenir.
 - [Problèmes connus dans MAP](map-web-known-issues.md) répertorie les problèmes que vous pouvez rencontrer en utilisant MAP.

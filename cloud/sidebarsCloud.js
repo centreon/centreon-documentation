@@ -600,6 +600,10 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "graph-views/map-best-practices"
+            },
+            {
+              "type": "doc",
               "id": "graph-views/map-web-known-issues"
             }
           ]
