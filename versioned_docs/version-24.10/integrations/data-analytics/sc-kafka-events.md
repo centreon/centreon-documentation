@@ -1,7 +1,7 @@
 ---
 id: sc-kafka-events
 title: Kafka Events
-description: "Publish host, service, and business activity events to a Kafka topic"
+description: "Install and configure the Kafka Events stream connector to publish Centreon host, service and business activity status events to a Kafka topic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

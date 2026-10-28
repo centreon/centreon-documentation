@@ -1,7 +1,7 @@
 ---
 id: cluster-elements
 title: Elements of a Centreon HA cluster
-description: "Introduction to the components and processes of a Centreon HA cluster"
+description: "Learn what makes up a Centreon HA cluster: central and database nodes, quorum device, processes managed by the cluster, and active and passive node roles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

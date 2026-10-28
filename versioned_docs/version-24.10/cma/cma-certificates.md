@@ -1,7 +1,7 @@
 ---
 id: cma-certificates
 title: Configuring certificates
-description: "Configure TLS certificates for secure CMA agent-poller communication"
+description: "Configure TLS certificates to secure communication between Centreon Monitoring Agent (CMA) and the poller, use insecure TLS, or test without encryption."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: communications
 title: Communications
-description: "Overview of communication modes between Central, Remote, and pollers"
+description: "Overview of Gorgone communication modes between the Centreon central server, remote servers, and pollers, and how to switch from SSH to ZMQ."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: install
 title: Install the Centreon BAM extension
-description: "Install and license the Centreon BAM extension on your platform"
+description: "Install the Centreon BAM extension on the central server: check the prerequisites, install the package, upload the license, and install the interface."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: monitor-windows-server-with-snmp
 title: Monitor your first Windows host
-description: "Monitor a Windows server using the SNMP protocol"
+description: "Monitor a Windows server with Centreon over SNMP: set up the SNMP service on Windows, install the Windows SNMP connector, then create and deploy the host."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

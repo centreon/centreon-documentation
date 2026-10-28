@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: "Overview of the Auto Discovery module and how it works"
+description: "Overview of the Centreon Auto Discovery extension, which detects new hosts and services and creates them automatically using Monitoring Connectors."
 ---
 
 > Centreon Auto Discovery is a Centreon **extension** that requires a valid

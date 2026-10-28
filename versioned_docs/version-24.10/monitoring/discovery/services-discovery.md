@@ -1,7 +1,7 @@
 ---
 id: services-discovery
 title: Discovering services automatically
-description: "Configure discovery rules and commands to create services automatically"
+description: "Discover services automatically in Centreon: run manual scans, configure discovery rules and commands, use discovery plugins, and test rules manually."
 ---
 
 ## Launch a manual scan

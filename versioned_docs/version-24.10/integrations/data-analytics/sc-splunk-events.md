@@ -1,7 +1,7 @@
 ---
 id: sc-splunk-events
 title: Splunk Events
-description: "Send host and service status events to Splunk's HTTP Event Collector"
+description: "Install and configure the Splunk Events stream connector to send Centreon host and service status events to the Splunk HTTP Event Collector (HEC)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

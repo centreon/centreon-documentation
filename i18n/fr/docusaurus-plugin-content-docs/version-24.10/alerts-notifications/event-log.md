@@ -1,7 +1,7 @@
 ---
 id: event-log
 title: Journal des évènements
-description: "Consulter les changements de statut et les notifications envoyées"
+description: "Consultez le journal des évènements de Centreon pour voir les changements de statut et les notifications envoyées, par période, ressource ou groupe."
 ---
 
 Le journal d'évènements permet de :

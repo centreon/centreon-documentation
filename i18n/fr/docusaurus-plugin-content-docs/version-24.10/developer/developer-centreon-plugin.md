@@ -1,5 +1,5 @@
 ---
 id: developer-centreon-plugin
 title : How to wite a Centreon Plugin
-description: "Comment écrire un plugin de supervision personnalisé pour Centreon"
+description: "Écrivez votre propre sonde de supervision pour Centreon lorsqu'aucune sonde ni aucun connecteur de supervision existant ne couvre votre besoin."
 ---

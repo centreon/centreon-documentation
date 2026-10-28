@@ -1,7 +1,7 @@
 ---
 id: using-packages
 title: Using packages 
-description: "Install and register a poller using RPM or DEB packages"
+description: "Install a Centreon poller from RPM or DEB packages, attach it to a central or remote server and secure it, with the main error messages explained."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

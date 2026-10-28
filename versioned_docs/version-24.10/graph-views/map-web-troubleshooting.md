@@ -1,7 +1,7 @@
 ---
 id: map-web-troubleshooting
 title: MAP troubleshooting
-description: "Troubleshoot common installation and configuration issues in MAP"
+description: "Troubleshoot Centreon MAP: fix installation, authentication, and HTTPS issues, check RPMs, raise the log level, and run the diagnostic tool."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

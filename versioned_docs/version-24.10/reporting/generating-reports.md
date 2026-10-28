@@ -1,7 +1,7 @@
 ---
 id: generating-reports
 title: Generating reports using jobs
-description: "Create and configure jobs to generate MBI reports"
+description: "Generate Centreon MBI reports with jobs: create a job, set its main parameters and schedule, define report parameters, and choose publication rules."
 ---
 
 > MBI is a Centreon extension that has some terms you may not have heard elsewhere in our documentation. We strongly suggest you read the [**Concepts** page](concepts.md) before following MBI-related procedures.

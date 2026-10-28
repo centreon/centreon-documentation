@@ -1,7 +1,7 @@
 ---
 id: postfix
 title: Configuring your Centreon to send emails
-description: "Configure Postfix so Centreon can send notification emails"
+description: "Configure Postfix as a local SMTP relay so that Centreon can send notification emails, set the sender account credentials, test it, and configure Gmail."
 ---
 
 import Tabs from '@theme/Tabs';

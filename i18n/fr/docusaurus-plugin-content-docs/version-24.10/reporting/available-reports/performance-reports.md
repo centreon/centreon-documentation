@@ -1,7 +1,7 @@
 ---
 id: performance-reports
 title: Rapports de performance
-description: "Rapports sur la performance des métriques d'hôtes et de services via des graphes RRD"
+description: "Rapports de performance Centreon MBI : graphiques RRD des métriques, planification de capacité par régression linéaire et rationalisation des ressources."
 ---
 
 ### Host-Graphs-V2

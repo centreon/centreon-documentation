@@ -1,7 +1,7 @@
 ---
 id: sc-splunk-events
 title: Splunk Events
-description: "Envoyer les évènements d'état hôtes et services vers le collecteur de services Splunk"
+description: "Installez et configurez le stream connector Splunk Events pour envoyer les évènements des hôtes et services Centreon vers le collecteur HTTP de Splunk."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

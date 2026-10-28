@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction à la montée de version
-description: "Introduction à la montée de version de Centreon entre versions majeures"
+description: "Passez Centreon à une nouvelle version majeure : vérifiez que votre OS est supporté, sauvegardez-la et mettez à jour les dépôts BAM, MAP, MBI."
 ---
 
 Ce chapitre décrit le processus de montée de version (upgrade) d'une plateforme Centreon, c'est-à-dire le passage d'une version majeure à une autre (par exemple, 21.10 à 24.10).

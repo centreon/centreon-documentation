@@ -1,7 +1,7 @@
 ---
 id: using-virtual-machines
 title: À partir d'une VM
-description: "Installer un serveur central à partir d'une machine virtuelle prête à l'emploi"
+description: "Installez un serveur central Centreon à partir d'une machine virtuelle VMware ou VirtualBox prête à l'emploi, pour tester la solution ou utiliser IT-100."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

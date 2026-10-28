@@ -1,7 +1,7 @@
 ---
 id: add-a-remote-server-to-configuration
 title: Attach a remote server to a central server
-description: "Configure and connect a new remote server to a central server"
+description: "Attach a new remote server to a Centreon central server with the configuration wizard, enable communication between them, and export the configuration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

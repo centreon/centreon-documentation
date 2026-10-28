@@ -1,7 +1,7 @@
 ---
 id: developer-broker-stream-connector
 title : Stream connectors
-description: "Reference for the Centreon Broker Lua stream connector API"
+description: "Reference for the Centreon Broker Lua stream connector API: the broker_log, broker, and broker_cache objects, the TCP socket, and the connector functions."
 ---
 
 Centreon Broker provides a stream connector. If no suitable connector is

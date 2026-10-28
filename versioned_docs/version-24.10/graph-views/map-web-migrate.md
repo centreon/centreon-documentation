@@ -1,7 +1,7 @@
 ---
 id: map-web-migrate
 title: Migrating the extension
-description: "Migrate your Centreon MAP server to a new server"
+description: "Move your Centreon MAP server to another server, e.g. from Alma 8 to Alma 9: install the new server, then export and import the centreon_map database."
 ---
 
 This section explains how to move Centreon MAP server over to another server.

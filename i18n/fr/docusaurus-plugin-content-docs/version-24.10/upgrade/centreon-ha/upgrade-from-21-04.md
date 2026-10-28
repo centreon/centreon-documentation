@@ -1,7 +1,7 @@
 ---
 id: upgrade-centreon-ha-from-21-04
 title: Montée de version de Centreon HA depuis Centreon 21.04
-description: "Mettre à niveau un cluster Centreon HA depuis la version 21.04 vers la 24.10"
+description: "Mettez à jour un cluster Centreon HA de la 21.04 vers la 24.10 : passez-le en maintenance, sauvegardez, mettez à jour les nœuds, recréez les ressources."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
