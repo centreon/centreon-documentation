@@ -7,5 +7,5 @@ description: "List of known issues in Centreon MAP - Anomaly Detection services,
 This topic lists known issues the MAP team is currently working on:
 
 - Anomaly detection services are not yet available for you to use in maps.
-- When migrating Geo Maps (standard maps with a geographical background using a tile provider such as MapBox), these map objects will be migrated, but tiles will not appear in the background.
+- When you migrate Geo Maps (standard maps with a background provided by a tile service such as Mapbox), the map objects are migrated but the background tiles are not displayed.
 - Curve colors for line charts are constantly changing.
