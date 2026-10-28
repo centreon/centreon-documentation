@@ -1,7 +1,7 @@
 ---
 id: chart-virtual-metrics
 title: Virtual metrics
-description: "Create virtual metrics using CDEF and VDEF aggregation"
+description: "Create virtual metrics in Centreon by combining existing metrics with RPN expressions, using CDEF or VDEF functions, and display them on graphs."
 ---
 
 ## Definition

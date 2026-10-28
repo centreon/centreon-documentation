@@ -1,7 +1,7 @@
 ---
 id: using-packages
 title: Using packages (central server)
-description: "Install a Centreon central server using RPM or DEB packages"
+description: "Install a Centreon central server and its database from RPM or DEB packages, enable TLS for the database and web interface, then run the web installation."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

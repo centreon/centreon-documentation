@@ -1,7 +1,7 @@
 ---
 id: download
 title: Téléchargements
-description: "Formats disponibles pour télécharger et installer Centreon"
+description: "Téléchargez Centreon sous forme de paquets RPM ou DEB (recommandé), de machine virtuelle prête à l'emploi au format OVA ou OVF, ou d'archives des sources."
 ---
 
 De manière générale, les logiciels Open Source fournis par Centreon sont disponibles sous [3 formats](../installation/compatibility.md#système-dexploitation) :

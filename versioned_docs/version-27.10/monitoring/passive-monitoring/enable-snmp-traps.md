@@ -1,7 +1,7 @@
 ---
 id: enable-snmp-traps
 title: Enable SNMP Traps
-description: "Configure the architecture and services that process incoming SNMP traps"
+description: "Enable SNMP traps in Centreon: see how the central server or a poller processes traps, and configure snmptrapd, centreontrapdforward, and centreontrapd."
 ---
 
 ## Description

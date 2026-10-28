@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: "Introduction à l'installation de votre plateforme de supervision Centreon"
+description: "Préparez l'installation de Centreon : vérifiez la compatibilité, choisissez une architecture, consultez les prérequis, puis installez les paquets."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

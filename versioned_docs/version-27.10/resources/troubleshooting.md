@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Troubleshooting your Centreon platform
-description: "Index of troubleshooting resources for your Centreon platform"
+description: "Index of troubleshooting resources for your Centreon platform: debugging, plugin errors, MAP, email, licenses, host discovery, and The Watch community."
 ---
 
 This page lists the troubleshooting items available in this documentation. Click an item to access more detailed content.

@@ -1,7 +1,7 @@
 ---
 id: ha-small
 title: Centreon HA for small infrastuctures
-description: "Set up a simplified two-node Centreon HA architecture"
+description: "Set up a simplified two-node Centreon HA architecture for small platforms, with databases on the central servers, and compare it with a 4-node cluster."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

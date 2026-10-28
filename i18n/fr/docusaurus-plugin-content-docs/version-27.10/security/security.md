@@ -1,7 +1,7 @@
 ---
 id: security
 title: Centreon et la sécurité 
-description: "Présentation de l'approche de Centreon en matière de sécurité"
+description: "Comment Centreon sécurise ses produits et vos données : développement sécurisé, tests, publication des vulnérabilités et sécurisation de l'installation."
 ---
 
 Les organisations du monde entier font appel à Centreon pour assurer une supervision de leur informatique adaptée à leur activité,

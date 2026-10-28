@@ -1,7 +1,7 @@
 ---
 id: notif-dependencies
 title: Dependencies
-description: "Reduce alert fatigue with physical and logical object dependencies"
+description: "Configure physical and logical dependencies between hosts, services, groups, and metaservices in Centreon to avoid unnecessary checks and notifications."
 ---
 
 ## Principle

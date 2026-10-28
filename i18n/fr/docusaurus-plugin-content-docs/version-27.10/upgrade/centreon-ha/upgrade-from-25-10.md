@@ -1,6 +1,7 @@
 ---
 id: upgrade-centreon-ha-from-25-10
 title: Montée de version de Centreon HA depuis Centreon 26.10
+description: "Mettez à jour un cluster Centreon HA de la 25.10 vers la 27.10 : passez-le en maintenance, sauvegardez, mettez à jour les nœuds et relancez-le."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

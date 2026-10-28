@@ -1,7 +1,7 @@
 ---
 id: upgrade-mysql
 title: Mettre à jour MySQL
-description: "Mettre à jour MySQL vers une version compatible avec Centreon 25.10"
+description: "Vérifiez votre version de MySQL et mettez-la à jour vers une version compatible avec Centreon 27.10 (8.4), indépendamment de la montée de version."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

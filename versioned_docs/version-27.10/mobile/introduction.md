@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: "Introduction to the Centreon mobile application"
+description: "Use Centreon mobile on a phone or tablet to view and filter resource statuses, acknowledge or set downtime, and see charts, with prerequisites to connect."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

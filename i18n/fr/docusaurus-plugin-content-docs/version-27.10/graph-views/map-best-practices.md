@@ -1,7 +1,7 @@
 ---
 id: map-best-practices
 title: Bonnes pratiques pour utiliser les cartes
-description: "Concevez des vues Centreon MAP claires et faciles à maintenir : adaptez chaque carte à son public, choisissez le bon type de carte et les bons widgets, gérez les accès et les mises à jour."
+description: "Concevez des vues Centreon MAP claires et faciles à maintenir : adaptez chaque carte à son public, choisissez le bon type de carte et gérez les accès."
 ---
 
 Suivez ces conseils pour créer des cartes claires, faciles à maintenir et utiles aux personnes qui les consultent.

@@ -1,7 +1,7 @@
 ---
 id: active-passive-checks
 title: Active vs passive checks
-description: "Compare active and passive checks and how to combine them"
+description: "Compare active checks run by the Centreon monitoring engine with passive checks sent by the equipment, and learn how to combine both in your strategy."
 ---
 
 A check is an operation that determines the [status](../alerts-notifications/concepts.md) of a resource, and may also produce [metrics](./metrics.md) (performance data).The result of a check updates the corresponding resource's row on the **Resource Status** page.

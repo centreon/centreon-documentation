@@ -1,7 +1,7 @@
 ---
 id: self-signed-certificate
 title: Create a self-signed certificate
-description: "Create a self-signed certificate with OpenSSL"
+description: "Create a root CA and a self-signed server certificate with OpenSSL to set up TLS connections to the Centreon web interface and database, step by step."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: gorgone
 title: Gorgone
-description: "Configure Gorgone connection parameters and command settings"
+description: "Configure the parameters Centreon uses to communicate with Gorgone, including connection settings and the characters removed from forwarded commands."
 ---
 
 This lets you set the parameters needed by Centreon to interact with Gorgone.

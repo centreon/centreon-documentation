@@ -1,7 +1,7 @@
 ---
 id: secure-your-map-platform
 title: Sécuriser votre plateforme MAP
-description: "Sécuriser Centreon MAP avec HTTPS/TLS et des connexions chiffrées à la base de données"
+description: "Sécurisez Centreon MAP avec HTTPS/TLS sur le serveur MAP et TLS sur les connexions au Broker, au serveur central et à la base de données MySQL ou MariaDB."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

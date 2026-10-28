@@ -1,7 +1,7 @@
 ---
 id: enable-snmp-traps
 title: Activer les Traps SNMP
-description: "Configurer l'architecture et les services de traitement des traps SNMP entrants"
+description: "Activez les traps SNMP dans Centreon : traitement par le serveur central ou un collecteur, et configuration de snmptrapd et de centreontrapd."
 ---
 
 ## Description

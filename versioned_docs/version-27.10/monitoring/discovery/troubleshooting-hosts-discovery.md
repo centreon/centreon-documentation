@@ -1,7 +1,7 @@
 ---
 id: troubleshooting-hosts-discovery
 title: Troubleshooting host discovery issues
-description: "Fix common errors encountered during host discovery jobs"
+description: "Fix common host discovery issues in Centreon Auto Discovery: jobs missing from the Discovery page, scans stuck in a scheduled state, and no provider found."
 ---
 
 ## No more host discovery jobs appear in the Discovery page

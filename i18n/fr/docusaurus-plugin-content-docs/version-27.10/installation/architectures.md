@@ -1,7 +1,7 @@
 ---
 id: architectures
 title: Architectures
-description: "Choisir l'architecture de supervision adaptée à la taille de votre plateforme"
+description: "Comparez les architectures Centreon (central seul, distribuée avec collecteurs et serveurs distants, SGBD déporté) et choisissez la plus adaptée."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

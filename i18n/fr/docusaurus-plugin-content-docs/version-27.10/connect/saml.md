@@ -1,7 +1,7 @@
 ---
 id: saml
 title: Configurer une authentification par SAML
-description: "Configurer l'authentification via un fournisseur SAML"
+description: "Configurez l'authentification SAML dans Centreon : paramétrez votre fournisseur d'identité, activez SAMLv2 et gérez la création des utilisateurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

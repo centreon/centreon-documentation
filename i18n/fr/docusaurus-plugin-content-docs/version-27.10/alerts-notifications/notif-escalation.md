@@ -1,7 +1,7 @@
 ---
 id: notif-escalation
 title: Les escalades de notifications
-description: "Faire remonter les notifications vers différents groupes de contacts"
+description: "Configurez des escalades de notifications dans Centreon pour prévenir d'autres groupes de contacts quand une alerte persiste sur un hôte ou un service."
 ---
 
 ## Definition

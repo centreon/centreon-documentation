@@ -1,7 +1,7 @@
 ---
 id: pollers-containers-prerequisites
 title: Prérequis pour les collecteurs installés par commande générée
-description: "Configurer Centreon pour recevoir les connexions des collecteurs installés par commande générée (installés sur une VM, une machine physique ou un conteneur)"
+description: "Configurez Gorgone et Apache sur le central Centreon pour accepter les collecteurs installés par commande générée (VM, machine physique ou conteneur)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

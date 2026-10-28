@@ -1,7 +1,7 @@
 ---
 id: debug
 title: Debug
-description: "Enable debug-level logging for Centreon processes"
+description: "Enable debug-level logging for Centreon processes from Administration > Parameters > Debug, and choose which components write debug logs."
 ---
 
 This section describes how to enable debug level logging of Centreon processes.

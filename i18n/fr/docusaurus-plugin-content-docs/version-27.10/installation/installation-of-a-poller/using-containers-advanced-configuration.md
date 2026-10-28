@@ -1,7 +1,7 @@
 ---
 id: using-containers-advanced-configuration
 title: Configuration avancée des conteneurs
-description: "Configuration optionnelle d'un collecteur en conteneur : supervision VMware, plugins personnalisés, prise en charge de l'agent CMA et notifications par email"
+description: "Options de configuration d'un collecteur Centreon en conteneur : notifications par email, plugins personnalisés, supervision VMware et agent CMA."
 ---
 
 Cette page décrit la configuration optionnelle d'un collecteur [déployé dans un

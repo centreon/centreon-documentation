@@ -1,7 +1,7 @@
 ---
 id: notif-dependencies
 title: Les dépendances
-description: "Réduire le nombre d'alertes grâce aux dépendances physiques et logiques"
+description: "Configurez des dépendances physiques et logiques entre hôtes, services, groupes et méta-services Centreon pour éviter des notifications inutiles."
 ---
 
 ## Principe

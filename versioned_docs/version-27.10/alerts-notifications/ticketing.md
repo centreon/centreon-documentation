@@ -1,7 +1,7 @@
 ---
 id: ticketing
 title: Configuring Open Tickets
-description: "Configure Open Tickets providers, widgets, and advanced settings"
+description: "Configure Centreon Open Tickets: add a provider, set up hosts, services, and widgets, open or close tickets, and define lists, rules, and commands."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
