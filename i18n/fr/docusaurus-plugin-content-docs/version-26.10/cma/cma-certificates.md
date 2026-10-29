@@ -15,6 +15,16 @@ Selon le sens de connexion, l'agent/le collecteur vérifie que l'IP/DNS utilisé
 Si ce n'est pas le cas, la connexion est refusée.
 La vérification est faite sur les blocs **subject** et **alt_names** du certificat, qui peuvent contenir plusieurs DNS, IP ou CN.
 
+> **Important** : en mode TLS, le nom d'hôte ou l'IP que vous déclarez comme endpoint (le paramètre **Poller endpoint**/**endpoint** côté agent, ou l'adresse de l'hôte côté collecteur) ne sert pas uniquement à établir la connexion réseau : c'est aussi la valeur vérifiée par rapport aux SAN (SubjectAltNames) ou au CN du certificat lors de la négociation TLS. Un test de connectivité telnet/TCP réussi sur un nom d'hôte donné ne garantit **pas** que la négociation TLS aboutira avec ce même nom d'hôte : si la valeur ne correspond à aucune entrée SAN/CN du certificat, la connexion sera refusée au niveau TLS, même si le chemin réseau est ouvert.
+>
+> Nous recommandons de déclarer l'endpoint avec une valeur (FQDN ou IP) réellement présente dans la liste des SAN du certificat. Consultez [comment générer un certificat autosigné](#comment-générer-un-certificat-autosigné-facultatif) pour savoir comment les noms alternatifs DNS et IP sont déclarés et pris en compte.
+
+> **Certificats automatiques** : le certificat que Centreon génère automatiquement pour un collecteur (voir [Comment sont gérés les certificats ?](cma-setup.md#comment-sont-gérés-les-certificats-)) contient uniquement le **nom d'hôte** du collecteur (par exemple `ip-10-25-10-99.eu-west-1.compute.internal`), et non son adresse IP. Par conséquent :
+>
+> * Utilisez le nom d'hôte du collecteur comme endpoint de l'agent, et assurez-vous que la machine sur laquelle l'agent est installé peut résoudre ce nom (DNS ou fichier `hosts`).
+> * Si l'agent se connecte au collecteur en utilisant son adresse IP, la connexion est refusée. La commande d'installation prête à l'emploi affichée dans Centreon peut proposer l'adresse IP du collecteur comme endpoint : remplacez-la par le nom d'hôte du collecteur avant d'exécuter la commande.
+> * Pour vous connecter avec une adresse IP, utilisez un certificat personnalisé qui contient cette adresse IP dans ses SAN (voir [comment générer un certificat autosigné](#comment-générer-un-certificat-autosigné-facultatif)).
+
 ### Fichiers de certificat
 
 Les formats supportés sont :
