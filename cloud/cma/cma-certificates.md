@@ -184,6 +184,8 @@ You can leave the connection unencrypted **for test purposes only**. In this mod
 
 > Note that this connection will only last for one hour. Do not use this setting in production!
 
+> **Security warning**: in **No TLS** mode, all traffic between the agent and the poller is sent in clear text, including the authentication token. Anyone able to intercept this traffic can read the token and reuse it.
+
 To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration** window](cma-setup-manual.md#configure-polleragent-communication).
 
 The agent will be configured the following way on the host:
@@ -222,3 +224,13 @@ The agent will be configured the following way on the host:
 
 </TabItem>
 </Tabs>
+
+### Switching from No TLS to TLS
+
+Because the authentication token was sent in clear text while the connection was unencrypted, we recommend that you replace it when you switch to an encrypted mode (TLS or insecure TLS):
+
+1. [Create a new authentication token](cma-setup-manual.md#authentication-token) with the **Centreon Monitoring Agent** type.
+2. In the [**Agent configuration** window](cma-setup-manual.md#configure-polleragent-communication), select the new encryption level and enter the paths to the certificate files (see the [TLS](#tls) and [Insecure TLS](#insecure-tls) sections). If the poller connects to the agent, also select the new token for each host.
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+4. On each host, [update the agent configuration](cma-setup-manual.md#updating-an-existing-configuration) with the new token and the encryption parameters.
+5. Once all agents use the new token, go to **Administration > Authentication tokens** and delete or disable the old token, then [deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) again.
