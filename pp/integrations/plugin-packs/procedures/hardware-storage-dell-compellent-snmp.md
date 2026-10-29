@@ -492,3 +492,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added SNMP in title to be more explicit.

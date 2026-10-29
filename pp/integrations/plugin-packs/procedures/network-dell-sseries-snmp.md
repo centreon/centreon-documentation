@@ -540,3 +540,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [24.04](../releases/release-notes.md#2024-04) - Enhancement: New filtering option supported for the SNMP IDs of the interfaces.

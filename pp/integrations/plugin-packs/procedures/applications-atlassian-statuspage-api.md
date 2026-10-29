@@ -383,3 +383,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=components \
 	--help
 ```
+
+## Changelog
+
+- [26.10](../releases/release-notes.md#2026-10) - New connector: Initial release.

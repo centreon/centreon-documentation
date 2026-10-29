@@ -532,3 +532,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added **uptime** mode, **storage** mode and its discovery and **interfaces** mode and its discovery.

@@ -328,3 +328,7 @@ All available options for a given mode can be displayed by adding the
 	--dyn-mode=apps::dynamics::ax::mode::ediorder \
 	--help
 ```
+
+## Changelog
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

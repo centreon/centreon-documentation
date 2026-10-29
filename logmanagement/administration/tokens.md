@@ -1,7 +1,7 @@
 ﻿---
 id: tokens
 title: Managing authentication tokens
-description: Generate and manage authentication tokens for log-sending hosts
+description: "Create and delete the authentication tokens that let hosts send logs to Centreon Log Management securely, and that you need to use the API."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

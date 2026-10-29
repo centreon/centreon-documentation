@@ -525,3 +525,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=hardware-device \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [23.11](../releases/release-notes.md#2023-11) - Enhancement: The plugin now handles marker supplies of type "other".

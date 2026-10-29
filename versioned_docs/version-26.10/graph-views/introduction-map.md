@@ -14,33 +14,34 @@ Centreon MAP lets you create, view and share graphical representations of your m
 
 ## Overview
 
-Create, customize, and view your maps within a single web interface.
+Create, customize, and display your maps within a single web interface.
 
-First, you need to create logical views using the MAP editor:
+First, create your maps in the MAP editor:
 
 ![image](../assets/graph-views/ng/map-web-editor-view.png)
 
-Then you can view your map directly in viewing mode:
+Then display your map in viewing mode:
 
 ![image](../assets/graph-views/ng/map-web-global-view.png)
 
 Your maps can be displayed in two ways in the interface:
-- In the **Monitoring > Map** page, in view mode.
-- In the **Home > Custom Views** page, using a dedicated MAP [widget](../alerts-notifications/custom-views.md).
+- On the **Monitoring > Map** page, in viewing mode.
+- On the **Home > Custom Views** page, using a dedicated MAP [widget](../alerts-notifications/custom-views.md).
 
 ## Procedures
 
-Use the following procedures to use and administer Centreon MAP.
+The following topics explain how to use and administer Centreon MAP.
 
 ### Administrating MAP
   - [Installing MAP](map-web-install.md) describes prerequisites and procedures to install MAP.
   - [Installing MAP on a remote server](map-web-install-remote.md) explains how to install MAP on a remote server.
   - [Updating MAP](map-web-update.md) describes the update process for MAP.
-  - [Managing access rights in MAP](map-web-access.md) describes the different rights and permissions on maps.
+  - [Managing access rights in MAP](map-web-access.md) describes the various rights and permissions on maps.
   
 ### Using MAP
-  - [Managing maps in MAP](map-web-manage.md) gives you information about how to manage maps from the Centreon MAP interface.
+  - [Best practices for using maps](map-best-practices.md) gives tips to build clear maps that are easy to maintain.
+  - [Managing maps in MAP](map-web-manage.md) explains how to manage maps from the Centreon MAP interface.
   - [Creating a standard map](map-web-create-standard-map.md) describes how to create standard maps and how to customize them using the MAP editor.
   - [Creating a geographic view](map-web-create-geoview.md) explains how to display your resources across a defined geographical area.
-  - [MAP known issues](map-web-known-issues.md) is a list of issues you may encounter using MAP.
+  - [MAP known issues](map-web-known-issues.md) lists issues you may encounter when using MAP.
   - [MAP troubleshooting](map-web-troubleshooting.md) helps you to solve some issues occurring in MAP.

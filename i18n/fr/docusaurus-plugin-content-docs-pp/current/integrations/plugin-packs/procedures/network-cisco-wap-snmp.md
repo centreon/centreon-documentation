@@ -636,3 +636,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=virtual-access-points \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the Net-Cisco-Wap-SNMP-Clients command.

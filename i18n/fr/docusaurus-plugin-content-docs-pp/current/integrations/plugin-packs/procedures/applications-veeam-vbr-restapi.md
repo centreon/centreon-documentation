@@ -574,3 +574,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=licenses \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - New connector: Initial release.

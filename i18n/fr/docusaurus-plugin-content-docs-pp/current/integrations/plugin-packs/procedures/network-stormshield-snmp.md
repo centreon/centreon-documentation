@@ -1179,3 +1179,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vpn-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added new **uptime**, **licenses**, **ha-cluster** and **auto-update** modes. Enhanced **connections** mode, based on community contributions: [PR 6113](https://github.com/centreon/centreon-plugins/pull/6113), [PR 6179](https://github.com/centreon/centreon-plugins/pull/6179) and [PR 6258](https://github.com/centreon/centreon-plugins/pull/6258).
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: The temperature value is now correctly used in the **hardware** mode.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Added VPN-Status check for latest firmware and add several thresholds.

@@ -440,3 +440,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=vhost-usage \
 	--help
 ```
+
+## Changelog
+
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Updated MACROS values.

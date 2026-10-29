@@ -390,3 +390,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query'  ' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

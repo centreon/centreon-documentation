@@ -943,3 +943,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed missing fan state in short output.
+- [25.01](../releases/release-notes.md#2025-01) - New connector: Initial release of Huawei WLC SNMP from community contribution [PR 5146](https://github.com/centreon/centreon-plugins/pull/5146) and [The Watch idea](https://thewatch.centreon.com/ideas/new-plugin-for-huawei-wlc-controller-2763).

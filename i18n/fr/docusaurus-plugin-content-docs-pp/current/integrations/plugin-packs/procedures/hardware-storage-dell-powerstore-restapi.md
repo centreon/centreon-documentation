@@ -502,3 +502,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.07](../releases/release-notes.md#2023-07) - Bug fix: Fixed bug on Memory.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: Added service memory.

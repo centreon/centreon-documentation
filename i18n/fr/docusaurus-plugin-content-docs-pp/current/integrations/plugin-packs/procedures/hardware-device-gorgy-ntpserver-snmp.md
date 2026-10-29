@@ -452,3 +452,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: Fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.

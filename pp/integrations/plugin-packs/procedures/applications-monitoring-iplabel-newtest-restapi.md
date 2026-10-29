@@ -382,3 +382,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=scenarios \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Added the `--timeframe` option to **scenario** mode.

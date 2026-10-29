@@ -327,3 +327,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=failover \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

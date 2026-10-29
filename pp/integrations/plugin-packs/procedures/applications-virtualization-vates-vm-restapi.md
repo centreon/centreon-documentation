@@ -379,3 +379,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu \
 	--help
 ```
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - New connector: Initial release.

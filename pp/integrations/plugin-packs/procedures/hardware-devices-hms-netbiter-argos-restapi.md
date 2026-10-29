@@ -427,3 +427,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=alarms \
 	--help
 ```
+
+## Changelog
+
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

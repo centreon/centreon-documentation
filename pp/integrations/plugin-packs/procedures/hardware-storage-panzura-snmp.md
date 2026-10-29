@@ -902,3 +902,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **Disk-Usage-Cloud-Global** command.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Removed unrelated service templates.

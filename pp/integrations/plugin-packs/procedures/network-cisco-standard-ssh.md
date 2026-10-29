@@ -368,3 +368,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu \
 	--help
 ```
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

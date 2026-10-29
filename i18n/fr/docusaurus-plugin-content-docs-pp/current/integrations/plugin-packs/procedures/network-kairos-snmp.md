@@ -808,3 +808,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.03](../releases/release-notes.md#2026-03) - New connector: Initial release.

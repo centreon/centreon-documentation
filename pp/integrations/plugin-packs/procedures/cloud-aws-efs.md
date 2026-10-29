@@ -440,3 +440,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=datausage \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed bug with assume-role option.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Added a host discovery rule.

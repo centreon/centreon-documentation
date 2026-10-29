@@ -643,3 +643,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=security \
 	--help
 ```
+
+## Changelog
+
+- [22.02](../releases/release-notes.md#2022-02) - New connector: Initial release.

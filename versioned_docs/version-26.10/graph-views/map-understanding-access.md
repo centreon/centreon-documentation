@@ -6,7 +6,7 @@ description: "Understand how access control and privileges work for Centreon MAP
 
 This topic explains how users can access maps according to well-defined privileges.
 
-Rights to access a map – also called privileges – are not managed at user level, but through access groups. You can access a map because you belong to an access group that has privileges to access that map. Privileges allow you to perform some specific actions on maps.
+Rights to access a map (also called privileges) are not managed at user level, but through access groups. You can access a map if you belong to an access group that has privileges on that map. Privileges allow you to perform specific actions on maps.
 
 ## Privileges on a map
 
@@ -18,10 +18,10 @@ Users must belong to the right group to get access to specific maps. Use the [Cr
 ### Granting privileges on a map
 You grant privileges when you share a map. At map level, you can specify which access group is allowed to access that map, with specific privileges as well.
 
-Perform the following procedure to grant privileges using the sharing action.
+Perform the following procedure to grant privileges by sharing a map.
 
 1. Go to **Monitoring > Map**.
-The Map homepage is displayed with the list of available maps.
+The **Map** page is displayed with the list of available maps.
 
 2. Click the **share** button corresponding to the map you want to share.
 The list of available access groups is displayed.
@@ -45,4 +45,4 @@ This table describes the types of privileges and related permissions:
 - Users with Owner privileges can also set or change map properties (name and icon).
 - Sharing a map allows the recipient to acquire privileges on that map.
 
-Access control to maps is only enforced at the map level. When you have the “Viewer” privilege, you can view a map and all its included resources, even if you do not have the corresponding ACL. When editing a map, you can only add resources if you have the corresponding ACL.
+Access control to maps is only enforced at the map level. When you have the **Viewer** privilege, you can view a map and all its included resources, even if you do not have the corresponding ACL. When editing a map, you can only add resources if you have the corresponding ACL.

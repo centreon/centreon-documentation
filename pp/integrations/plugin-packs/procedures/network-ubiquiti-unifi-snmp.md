@@ -854,3 +854,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=virtual-access-points \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.

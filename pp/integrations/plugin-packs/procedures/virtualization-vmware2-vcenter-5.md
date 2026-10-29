@@ -8,3 +8,7 @@ import TabItem from '@theme/TabItem';
 
 > This Monitoring Connector is no longer maintained and should not be used. 
 > It has been replaced by the [VMware vCenter v6](virtualization-vmware2-vcenter-6.md) connector.
+
+## Changelog
+
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Deprecated VMware vCenter v5.

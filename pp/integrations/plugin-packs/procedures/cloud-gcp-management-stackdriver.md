@@ -350,3 +350,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=get-metrics \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Enhanced compatibility with DISTRIBUTION type values in **getmetrics** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed the minimum aggregation calculation.
+- [25.07](../releases/release-notes.md#2025-07) - Enhancement: Allowed compatibility with `distribution` type values in **get-metrics** mode.

@@ -1083,3 +1083,14 @@ All available options for a given mode can be displayed by adding the
 	--custommode='paws' \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancement: New host check command to monitor all RDS host templates.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Fixed a typo in cloud-aws-rds **instance-status** mode.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed bug with assume-role option.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Added support for new attributes in host discovery provider.
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Several fixes in discovery jobs.

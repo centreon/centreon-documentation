@@ -516,3 +516,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=proxies \
 	--help
 ```
+
+## Changelog
+
+- [26.03](../releases/release-notes.md#2026-03) - New connector: Initial release.

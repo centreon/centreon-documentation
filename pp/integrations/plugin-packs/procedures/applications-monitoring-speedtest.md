@@ -303,3 +303,10 @@ All available options for a given mode can be displayed by adding the
 	--mode=internet-bandwidth  \
 	--help
 ```
+
+## Changelog
+
+- [24.11](../releases/release-notes.md#2024-11) - Bug fix: Fixed packaging issue leading to conflict between speedtest and speedtest-cli binaries.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancement: Added the unit to jitter service.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Enhanced to use Ookla's speedtest.
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

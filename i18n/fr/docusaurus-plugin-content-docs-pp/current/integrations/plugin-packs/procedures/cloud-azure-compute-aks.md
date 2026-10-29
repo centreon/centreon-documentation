@@ -733,3 +733,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='azcli' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [24.02](../releases/release-notes.md#2024-02) - Enhancement: Added Memory, Node-State, Pod-State and Unschedulable-Pods service templates to Azure AKS.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.
