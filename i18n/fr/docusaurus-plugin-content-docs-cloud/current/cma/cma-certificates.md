@@ -184,6 +184,8 @@ Vous pouvez configurer une connexion non chiffrée **à des fins de test uniquem
 
 > Notez que cette connexion ne durera qu'une heure. N'utilisez pas ce paramètre en production !
 
+> **Avertissement de sécurité** : en mode **No TLS**, tout le trafic entre l'agent et le collecteur circule en clair, y compris le jeton d'authentification. Toute personne capable d'intercepter ce trafic peut lire le jeton et le réutiliser.
+
 Pour configurer ce mode, sélectionnez **No TLS** dans la liste **Niveau de chiffrement** de la fenêtre [**Configuration collecteur/agent**](cma-setup-manual.md#configurez-la-communication-collecteuragent).
 
 L'agent sera configuré de la manière suivante sur l'hôte :
@@ -222,3 +224,13 @@ L'agent sera configuré de la manière suivante sur l'hôte :
 
 </TabItem>
 </Tabs>
+
+### Passer du mode No TLS au mode TLS
+
+Le jeton d'authentification ayant circulé en clair tant que la connexion n'était pas chiffrée, nous vous recommandons de le remplacer lorsque vous passez à un mode chiffré (TLS ou TLS non sécurisé) :
+
+1. [Créez un nouveau jeton d'authentification](cma-setup-manual.md#jeton-dauthentification) de type **Centreon Monitoring Agent**.
+2. Dans la fenêtre [**Configuration collecteur/agent**](cma-setup-manual.md#configurez-la-communication-collecteuragent), sélectionnez le nouveau niveau de chiffrement et renseignez les chemins des fichiers de certificat (voir les sections [TLS](#tls) et [TLS non sécurisé](#tls-non-sécurisé)). Si le collecteur se connecte à l'agent, sélectionnez également le nouveau jeton pour chaque hôte.
+3. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+4. Sur chaque hôte, [mettez à jour la configuration de l'agent](cma-setup-manual.md#mettre-à-jour-une-configuration-existante) avec le nouveau jeton et les paramètres de chiffrement.
+5. Une fois que tous les agents utilisent le nouveau jeton, allez à la page **Administration > Jetons d'authentification** et supprimez ou désactivez l'ancien jeton, puis [déployez à nouveau la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
