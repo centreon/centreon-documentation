@@ -19,6 +19,12 @@ La vérification est faite sur les blocs **subject** et **alt_names** du certifi
 >
 > Nous recommandons de déclarer l'endpoint avec une valeur (FQDN ou IP) réellement présente dans la liste des SAN du certificat. Consultez [comment générer un certificat autosigné](#comment-générer-un-certificat-autosigné-facultatif) pour savoir comment les noms alternatifs DNS et IP sont déclarés et pris en compte.
 
+> **Certificats automatiques** : le certificat que Centreon génère automatiquement pour un collecteur (voir [Comment sont gérés les certificats ?](cma-setup.md#comment-sont-gérés-les-certificats-)) contient uniquement le **nom d'hôte** du collecteur (par exemple `ip-10-25-10-99.eu-west-1.compute.internal`), et non son adresse IP. Par conséquent :
+>
+> * Utilisez le nom d'hôte du collecteur comme endpoint de l'agent, et assurez-vous que la machine sur laquelle l'agent est installé peut résoudre ce nom (DNS ou fichier `hosts`).
+> * Si l'agent se connecte au collecteur en utilisant son adresse IP, la connexion est refusée. La commande d'installation prête à l'emploi affichée dans Centreon peut proposer l'adresse IP du collecteur comme endpoint : remplacez-la par le nom d'hôte du collecteur avant d'exécuter la commande.
+> * Pour vous connecter avec une adresse IP, utilisez un certificat personnalisé qui contient cette adresse IP dans ses SAN (voir [comment générer un certificat autosigné](#comment-générer-un-certificat-autosigné-facultatif)).
+
 ### Fichiers de certificat
 
 Les formats supportés sont :

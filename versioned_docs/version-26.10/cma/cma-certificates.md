@@ -19,6 +19,12 @@ The verification is performed on the **alt_names** block of the certificate, whi
 >
 > We recommend declaring the endpoint using a value (FQDN or IP) that is actually present in the certificate's SAN list. See [how to generate a self-signed certificate](#how-to-generate-a-self-signed-certificate-optional) for details on how DNS and IP alternative names are declared and taken into account.
 
+> **Automatic certificates**: The certificate that Centreon generates automatically for a poller (see [How are certificates managed?](cma-setup.md#how-are-certificates-managed)) only contains the **host name** of the poller (for example `ip-10-25-10-99.eu-west-1.compute.internal`), not its IP address. As a consequence:
+>
+> * Use the host name of the poller as the agent's endpoint, and make sure the machine where the agent is installed can resolve this name (DNS or `hosts` file).
+> * If the agent connects to the poller using its IP address, the connection is refused. The ready-to-run installation command displayed in Centreon may propose the IP address of the poller as the endpoint: replace it with the host name of the poller before running the command.
+> * To connect using an IP address, use a custom certificate that contains this IP address in its SANs (see [how to generate a self-signed certificate](#how-to-generate-a-self-signed-certificate-optional)).
+
 ### Certificate files
 
 Supported formats are :
