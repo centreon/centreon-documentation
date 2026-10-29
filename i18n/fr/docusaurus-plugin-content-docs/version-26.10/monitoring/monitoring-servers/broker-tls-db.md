@@ -97,6 +97,14 @@ ssl_key=/chemin/vers/server-key.pem
 > - Authentification serveur uniquement : `ALTER USER 'centreon'@'%' REQUIRE SSL;`
 > - TLS mutuel (certificat client requis) : `ALTER USER 'centreon'@'%' REQUIRE X509;`
 
+> Pour imposer une connexion sécurisée à tous les clients, ajoutez le paramètre suivant dans la section `[mysqld]` du fichier de configuration :
+>
+> ```ini
+> require_secure_transport = ON
+> ```
+>
+> Le serveur refuse alors toute connexion TCP non chiffrée : assurez-vous que tous les clients de la base de données (y compris les autres composants Centreon) sont configurés pour utiliser TLS.
+
 Redémarrez le service de base de données après toute modification de la configuration :
 
 ```bash

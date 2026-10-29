@@ -97,6 +97,14 @@ ssl_key=/path/to/server-key.pem
 > - Server authentication only: `ALTER USER 'centreon'@'%' REQUIRE SSL;`
 > - Mutual TLS (client certificate required): `ALTER USER 'centreon'@'%' REQUIRE X509;`
 
+> To require a secure connection for all clients, add the following parameter to the `[mysqld]` section of the configuration file:
+>
+> ```ini
+> require_secure_transport = ON
+> ```
+>
+> The server then rejects any unencrypted TCP connection: make sure all database clients (including other Centreon components) are configured to use TLS.
+
 Restart the database service after any configuration change:
 
 ```bash
