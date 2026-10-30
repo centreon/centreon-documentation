@@ -1,7 +1,7 @@
 ---
 id: developer-broker-mapping
 title: Mapping d’évènements Centreon Broker
-description: "Référence des propriétés des événements NEB et Storage de Centreon Broker"
+description: "Référence des propriétés des évènements NEB, Storage, BBDO et BAM échangés par Centreon Broker, avec la liste des propriétés disponibles pour chaque type."
 ---
 
 import Tabs from '@theme/Tabs';

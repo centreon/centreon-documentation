@@ -1,7 +1,7 @@
 ---
 id: sc-canopsis-events
 title: Canopsis Events
-description: "Envoyer les évènements hôtes, services, acquittements et maintenances vers Canopsis"
+description: "Configurez le stream connector Canopsis Events pour envoyer à Canopsis les évènements d'hôtes, de services, d'acquittements et de plages de maintenance."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

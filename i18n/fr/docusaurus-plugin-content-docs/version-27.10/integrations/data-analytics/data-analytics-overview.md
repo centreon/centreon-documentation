@@ -1,7 +1,7 @@
 ---
 id: data-analytics-overview
 title: Data Analytics
-description: "Présentation des stream connectors Centreon pour l'analyse de données"
+description: "Envoyez les données de supervision Centreon via les stream connectors vers des plateformes qui stockent, indexent et gèrent de gros volumes de données."
 ---
 
 Envoyez vos données vers des solutions spécialisées dans le traitement,

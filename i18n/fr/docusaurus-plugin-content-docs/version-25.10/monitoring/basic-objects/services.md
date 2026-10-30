@@ -1,7 +1,7 @@
 ---
 id: services
 title: Créer un service manuellement
-description: "Référence détaillée des champs de configuration, notifications et relations d'un service"
+description: "Créez un service manuellement dans Centreon : référence des champs de configuration, notifications, relations, traitement des données et détachement."
 ---
 
 Pour créer un service, allez à la page **Configuration > Services > Services par hôtes**, puis cliquez sur **Ajouter**.

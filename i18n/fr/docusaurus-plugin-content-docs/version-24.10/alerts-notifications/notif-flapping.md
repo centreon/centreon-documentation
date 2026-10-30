@@ -1,7 +1,7 @@
 ---
 id: notif-flapping
 title: Bagotement (flapping)
-description: "Détecter et configurer le bagotement pour réduire les notifications répétées"
+description: "Configurez la détection du bagotement dans Centreon Engine pour que les hôtes et services qui changent souvent de statut n'envoient qu'une notification."
 ---
 
 ## Introduction

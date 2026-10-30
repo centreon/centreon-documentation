@@ -1,7 +1,7 @@
 ---
 id: pollers-containers-prerequisites
 title: Prerequisites for pollers installed via a generated command
-description: "Configure Centreon to receive connections from pollers installed via a generated command (installed on a VM, a physical machine or a container)"
+description: "Configure Centreon to receive connections from pollers installed via a generated command (installed on a VM, a physical machine or a container)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

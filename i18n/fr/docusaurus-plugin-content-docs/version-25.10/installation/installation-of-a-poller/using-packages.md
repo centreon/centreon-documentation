@@ -1,7 +1,7 @@
 ---
 id: using-packages
 title: À partir des paquets
-description: "Installer et enregistrer un collecteur à partir des paquets RPM ou DEB"
+description: "Installez un collecteur Centreon à partir des paquets RPM ou DEB, rattachez-le à un serveur central ou distant, puis sécurisez-le."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

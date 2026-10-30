@@ -1,7 +1,7 @@
 ---
 id: compatibility
 title: Compatibility
-description: "Supported browsers, operating systems, and DBMS versions for Centreon"
+description: "Check which web browsers, screen resolutions, operating systems and DBMS versions Centreon supports before you install or upgrade your monitoring platform."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

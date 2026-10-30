@@ -1,7 +1,7 @@
 ---
 id: loginpwd
 title: Configuring a local authentication
-description: "Configure local authentication and the password security policy"
+description: "Authorize users to access the Centreon web interface with local authentication, and define the password security policy for case, expiration and blocking."
 ---
 
 ## Authorize users to access Centreon

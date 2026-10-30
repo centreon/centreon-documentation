@@ -1,7 +1,7 @@
 ---
 id: ha-faq
 title: FAQ générale Centreon HA
-description: "Questions fréquentes sur Centreon HA"
+description: "Questions fréquentes sur Centreon HA : quand en avoir besoin, qui l'installe, licences des extensions, OS et SGBD supportés, modules compatibles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

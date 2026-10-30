@@ -1,7 +1,7 @@
 ---
 id: create-snmp-traps-definitions
 title: Create SNMP Traps definitions
-description: "Import or manually create SNMP trap definitions and manufacturers"
+description: "Create SNMP trap definitions in Centreon: add manufacturers, import traps from MIB files, or configure traps manually with advanced options and code."
 ---
 
 ## Add a manufacturer

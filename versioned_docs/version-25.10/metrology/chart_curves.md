@@ -1,7 +1,7 @@
 ---
 id: chart-curves
 title: Curves
-description: "Configure curves to customize how performance graphs are displayed"
+description: "Customize the curves of Centreon performance graphs: define how each metric is drawn, set colors and display options, and see configuration examples."
 ---
 
 ## Definition

@@ -1,7 +1,7 @@
 ---
 id: developer-broker-bbdo-switch-versions
 title: Changer de version de BBDO
-description: "Procédure pour changer manuellement la version du protocole BBDO"
+description: "Changez manuellement la version du protocole BBDO sur le serveur central Centreon, les serveurs distants et les collecteurs, qui doivent tous l'utiliser."
 ---
 
 BBDO v2 est déprécié à partir de Centreon 25.10. Lorsque vous montez de version votre Centreon, le central passe automatiquement en BBDO V3 (les serveurs distants et les collecteurs passeront en BBDO v3 après déploiement de la configuration). Cependant, voici une procédure pour changer de version manuellement si besoin.

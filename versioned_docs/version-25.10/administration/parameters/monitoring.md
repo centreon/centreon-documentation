@@ -1,7 +1,7 @@
 ---
 id: monitoring
 title: Monitoring
-description: "Configure general options for the real-time monitoring interface"
+description: "Configure the general options of the Centreon real-time monitoring interface, such as default settings for acknowledgments and downtimes."
 ---
 
 This section covers the general options of the real-time monitoring interface.

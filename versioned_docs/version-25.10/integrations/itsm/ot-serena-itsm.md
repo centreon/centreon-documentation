@@ -1,6 +1,7 @@
 ---
 id: ot-serena-itsm
 title: Serena ITSM
+description: "Configure the Serena ITSM provider in Centreon Open Tickets to open incidents from monitoring alerts through the Serena ITSM SOAP API, with test commands."
 ---
 
 The Serena ITSM Open Tickets provider uses the Serena ITSM server to open incidents about your monitoring alerts.

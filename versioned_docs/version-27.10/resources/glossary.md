@@ -1,7 +1,7 @@
 ---
 id: glossary
 title: Glossary of Centreon concepts
-description: "Definitions of key Centreon monitoring concepts and terms"
+description: "Definitions of key Centreon monitoring concepts and terms, such as ACLs, acknowledgements, Broker, Engine, Gorgone, hosts, checks, and downtimes."
 ---
 
 ## ACL

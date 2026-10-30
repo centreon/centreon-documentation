@@ -1,7 +1,7 @@
 ---
 id: ba-management
 title: Manage Business Activities
-description: "Configure Business Activities, KPIs, calculation methods, and Business Views"
+description: "Configure Business Activities in Centreon BAM: choose a calculation method, add indicators (KPIs) and Boolean rules, and group BAs into Business Views."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

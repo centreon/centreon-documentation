@@ -1,7 +1,7 @@
 ---
 id: debug
 title: Débogage
-description: "Activer la journalisation de débogage des processus Centreon"
+description: "Activez la journalisation de débogage des processus Centreon depuis Administration > Paramètres > Débogage et choisissez les composants à journaliser."
 ---
 
 Cette partie permet d'activer le niveau *debug* de la journalisation

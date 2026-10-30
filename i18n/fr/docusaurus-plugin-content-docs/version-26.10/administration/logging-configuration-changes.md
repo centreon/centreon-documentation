@@ -1,7 +1,7 @@
 ---
 id: logging-configuration-changes
 title: Journalisation des modifications de configuration
-description: "Suivre et auditer les modifications de configuration des utilisateurs"
+description: "Suivez et auditez les modifications de configuration faites par les utilisateurs Centreon dans Administration > Logs, et activez les logs d'audit."
 ---
 
 ## Principe

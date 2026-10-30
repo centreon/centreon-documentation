@@ -1,7 +1,7 @@
 ---
 id: sc-kafka-events
 title: Kafka Events
-description: "Publier les évènements hôtes, services et BA vers un topic Kafka"
+description: "Installez et configurez le stream connector Kafka Events pour publier dans un topic Kafka les évènements des hôtes, services et activités métier Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

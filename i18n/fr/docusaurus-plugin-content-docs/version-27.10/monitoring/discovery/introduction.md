@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: "Présentation du module Auto Discovery et de son fonctionnement"
+description: "Présentation de l'extension Centreon Auto Discovery, qui détecte les nouveaux hôtes et services et les crée automatiquement grâce aux connecteurs."
 ---
 
 > Centreon Auto Discovery est une **extension** Centreon qui nécessite une [licence](../../administration/licenses.md) valide.

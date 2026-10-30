@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Dépannage de la plateforme Centreon
-description: "Index des ressources de dépannage pour votre plateforme Centreon"
+description: "Index des ressources de dépannage de Centreon : débogage, erreurs de plugins, MAP, e-mails, licences, découverte d'hôtes et communauté The Watch."
 ---
 
 Cette page répertorie les rubriques de dépannage disponibles dans cette documentation. Cliquez sur un élément pour accéder à un contenu plus détaillé. 

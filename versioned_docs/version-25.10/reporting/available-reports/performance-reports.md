@@ -1,7 +1,7 @@
 ---
 id: performance-reports
 title: Performance reports
-description: "Reports on host and service metric performance using RRD graphs"
+description: "Centreon MBI performance reports: RRD graphs of metrics, capacity planning by linear regression, resource rationalization, and metric performance lists."
 ---
 
 ### Host-Graphs-V2

@@ -1,7 +1,7 @@
 ---
 id: share
 title: Giving access to jobs and reports in Centreon
-description: "Share MBI jobs and generated reports with non-admin users"
+description: "Give non-admin users access to Centreon MBI jobs and generated reports through ACLs and job groups, or send them reports with a publication rule."
 ---
 * Administrators can see and edit all jobs (created by all users on the platform), and can see all generated reports.
 * By default, non-admin users can see no jobs and no generated reports. If you want to make it possible for a user to download a report from the Centreon interface and/or to edit jobs, you need first to [link a job group to an MBI ACL rule](#preparing-acls), then [link the job group to the job you want to share](#using-a-job-group-in-a-job-definition).

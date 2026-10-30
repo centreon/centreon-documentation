@@ -1,7 +1,7 @@
 ---
 id: interface
 title: Discover the Centreon web interface
-description: "Overview of the Centreon web interface, menus, and customization"
+description: "Log in to the Centreon web interface for the first time, then find your way around the menus, the top banner and its counters, and customization."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: services
 title: Creating services manually
-description: "Detailed reference for service configuration fields, notifications, and relations"
+description: "Create a service manually in Centreon: reference for service configuration fields, notifications, relations, data processing, and detaching a service."
 ---
 
 To create a service manually, go to **Configuration \> Services > Services by host** and then click **Add**.

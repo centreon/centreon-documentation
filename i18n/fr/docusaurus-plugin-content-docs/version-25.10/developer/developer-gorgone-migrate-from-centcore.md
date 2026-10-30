@@ -1,7 +1,7 @@
 ---
 id: developer-gorgone-migrate-from-centcore
 title : Migrer depuis Centreon Centcore
-description: "Procédure de migration de Centreon Centcore vers Centreon Gorgone"
+description: "Migrez de Centreon Centcore vers Centreon Gorgone en générant le fichier de configuration Gorgone depuis /etc/centreon/conf.pm avec gorgone_config_init."
 ---
 
 Cette procédure décrit comment migrer de Centreon Centcore vers Centreon Gorgone.

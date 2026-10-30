@@ -1,7 +1,7 @@
 ---
 id: sc-datadog-events
 title: Datadog Events
-description: "Fonctionnement de l'envoi des évènements hôtes et services vers Datadog"
+description: "Installez et configurez le stream connector Datadog Events pour envoyer les évènements des hôtes et services Centreon vers Datadog, puis testez l'envoi."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

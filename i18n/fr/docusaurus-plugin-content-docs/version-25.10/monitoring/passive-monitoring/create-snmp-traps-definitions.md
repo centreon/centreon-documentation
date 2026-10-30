@@ -1,7 +1,7 @@
 ---
 id: create-snmp-traps-definitions
 title: Définition des Traps SNMP
-description: "Importer ou créer manuellement des définitions de traps SNMP et de constructeurs"
+description: "Créez des définitions de traps SNMP dans Centreon : ajoutez des constructeurs, importez des traps depuis un fichier MIB ou configurez-les manuellement."
 ---
 
 ## Ajouter un constructeur

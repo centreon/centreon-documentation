@@ -1,7 +1,7 @@
 ---
 id: customize-centreon
 title: Customize Centreon
-description: "Customize the login page and platform name with IT Edition Extensions"
+description: "Customize your Centreon platform with IT Edition Extensions: change the login page background and logo, set a platform name, and update the extension."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: create-dashboard
 title: Creating your first dashboard
-description: "Build your first dashboard and add data visualization widgets"
+description: "Start building Centreon dashboards with an interactive tutorial: create a dashboard, add widgets to view your resources in real time, and manage playlists."
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.

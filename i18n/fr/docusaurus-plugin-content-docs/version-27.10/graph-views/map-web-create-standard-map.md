@@ -1,7 +1,7 @@
 ---
 id: map-web-create-standard-map
 title: Créer une carte standard
-description: "Créer et personnaliser des cartes standard à l'aide de l'éditeur MAP"
+description: "Créez des cartes standard dans Centreon MAP, de zéro ou depuis un conteneur existant, puis construisez-les avec les éléments graphiques de l'éditeur MAP."
 ---
 
 Cette page décrit comment créer des cartes standard et comment les personnaliser avec l'éditeur MAP.

@@ -1,7 +1,7 @@
 ---
 id: update
 title: Update the extension
-description: "Update the Centreon BAM extension package and interface module"
+description: "Update the Centreon BAM extension to a new minor version: update the centreon-bam-server package, then update the module from the Centreon interface."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

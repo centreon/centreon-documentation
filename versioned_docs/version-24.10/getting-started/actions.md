@@ -1,7 +1,7 @@
 ---
 id: actions
 title: What actions can you take?
-description: "Acknowledge resources, plan downtime, or force a check from Resources Status"
+description: "Act on monitored resources from the Resources Status page in Centreon: acknowledge an incident, plan downtime to stop notifications, or force a check."
 ---
 
 Once you have [set up your monitoring](first-supervision.md) and resources are being successfully monitored, go to **Monitoring > Resources Status** to track the status of resources in real time.

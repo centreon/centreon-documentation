@@ -1,7 +1,7 @@
 ---
 id: gorgone
 title: Gorgone
-description: "Configurer les paramètres de connexion et de commandes de Gorgone"
+description: "Configurez les paramètres utilisés par Centreon pour communiquer avec Gorgone : connexion et caractères retirés des commandes transmises."
 ---
 
 Cette partie permet de définir les paramètres nécessaires à Centreon pour

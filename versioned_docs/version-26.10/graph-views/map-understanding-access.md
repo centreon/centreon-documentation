@@ -1,7 +1,7 @@
 ---
 id: map-understanding-access
 title: Understanding map access (ACL)
-description: "Understand how access control and privileges work for Centreon MAP views"
+description: "Understand access to Centreon MAP views: privileges are granted through access groups, not users, and define which actions you can perform on maps."
 ---
 
 This topic explains how users can access maps according to well-defined privileges.

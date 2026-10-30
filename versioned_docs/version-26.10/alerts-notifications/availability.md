@@ -1,7 +1,7 @@
 ---
 id: availability
 title: Availability reports
-description: "View availability rates for hosts, host groups, or service groups"
+description: "View availability reports in Centreon showing the availability rates of hosts, host groups, or service groups over a period, by day, with export to CSV."
 ---
 
 ## Availability reports

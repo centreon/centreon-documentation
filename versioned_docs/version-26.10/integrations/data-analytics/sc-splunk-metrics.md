@@ -1,7 +1,7 @@
 ---
 id: sc-splunk-metrics
 title: Splunk Metrics
-description: "Host and service performance metrics delivery to Splunk's Event Collector"
+description: "Install and configure the Splunk Metrics stream connector to send Centreon host and service performance metrics to the Splunk HTTP Event Collector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

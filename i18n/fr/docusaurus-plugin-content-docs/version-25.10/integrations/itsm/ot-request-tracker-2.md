@@ -1,6 +1,7 @@
 ---
 id: ot-request-tracker-2
 title: Request Tracker 2
+description: "Configurez le fournisseur Request Tracker de Centreon Open Tickets pour ouvrir des tickets via l'API REST 2.0, avec gestion des champs personnalisés."
 ---
 
 ## How it works

@@ -1,7 +1,7 @@
 ---
 id: macros
 title: Macros
-description: "Reference for standard, custom, and global macros used in commands"
+description: "Reference for Centreon macros: standard, custom, global, and environment macros used in commands, nested macros, and the full list of available macros."
 ---
 
 A macro is a variable used to retrieve certain values.

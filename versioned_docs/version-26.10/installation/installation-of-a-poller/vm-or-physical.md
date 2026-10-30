@@ -1,7 +1,7 @@
 ---
 id: vm-or-physical
 title: Using a generated command (virtual or physical machine)
-description: "Install a poller on a virtual or physical machine using a command generated in the Centreon interface"
+description: "Install a Centreon poller on a virtual or physical machine using an installation command generated in the central server's interface (beta feature)."
 ---
 
 > The following feature is in beta.

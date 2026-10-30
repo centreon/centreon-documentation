@@ -1,7 +1,7 @@
 ---
 id: contacts-templates
 title: Utiliser des modèles de contacts
-description: "Créer des modèles de contacts pour standardiser la configuration des utilisateurs et les imports LDAP"
+description: "Créez des modèles de contacts dans Centreon pour harmoniser les paramètres des utilisateurs et appliquez-les aux contacts ou aux imports LDAP par héritage."
 ---
 
 ## Les modèles de contacts

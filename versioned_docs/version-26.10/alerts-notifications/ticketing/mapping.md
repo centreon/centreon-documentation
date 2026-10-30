@@ -1,7 +1,7 @@
 ---
 id: ticketing-advanced-mapping
 title: Argument mapping
-description: "How to configure mapping ticket arguments, lists, and custom list definitions for the Open Tickets popup"
+description: "Configure mapping ticket arguments, lists, and custom list definitions in Centreon Open Tickets to define the fields shown in the ticket creation popup."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

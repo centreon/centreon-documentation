@@ -1,7 +1,7 @@
 ---
 id: hosts-switch-poller
 title: Modifier le serveur de supervision pour un hôte
-description: "Changer le serveur de supervision attribué à un ou plusieurs hôtes"
+description: "Changez le collecteur qui supervise un ou plusieurs hôtes dans Centreon en modifiant leur configuration, puis déployez-la sur les deux collecteurs."
 ---
 
 Si vous voulez modifier le serveur de supervision qui supervise un hôte, vous devez éditer la configuration de l'hôte, puis déployer la configuration de l'ancien et du nouveau serveur de supervision.

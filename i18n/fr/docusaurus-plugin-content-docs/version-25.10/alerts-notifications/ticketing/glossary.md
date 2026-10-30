@@ -1,7 +1,7 @@
 ---
 id: glossary
 title: Glossaire Open Tickets
-description: "Définitions des termes Open Tickets - custom lists, lists, mapping arguments, provider et rule"
+description: "Définitions des termes de Centreon Open Tickets : custom lists, lists, mapping arguments, provider et rule, utilisés pour créer des tickets ITSM."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

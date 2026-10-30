@@ -1,7 +1,7 @@
 ---
 id: first-supervision
 title: Prerequisites
-description: "Install monitoring connectors and deploy your first configuration"
+description: "Install the free Base Generic monitoring connector and other basic templates in Centreon, then deploy the configuration to monitor your first device."
 ---
 
 This tutorial describes how to install the monitoring templates supplied free of charge with the Centreon solution

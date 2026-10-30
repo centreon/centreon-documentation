@@ -1,7 +1,7 @@
 ---
 id: notif-configuration
 title: Configurer les notifications
-description: "Configurer et dépanner les notifications pour hôtes, services et contacts"
+description: "Configurez les notifications Centreon sur les hôtes, services et contacts, comprenez les règles d'héritage et résolvez les notifications non envoyées."
 ---
 
 ## Prérequis

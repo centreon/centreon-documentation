@@ -1,7 +1,7 @@
 ---
 id: monitor-linux-server-with-snmp
 title: Superviser votre premier serveur Linux
-description: "Superviser un serveur Linux à l'aide du protocole SNMP"
+description: "Supervisez un serveur Linux en SNMP avec Centreon : configurez l'agent snmpd, installez le connecteur Linux SNMP, puis créez l'hôte et déployez-le."
 ---
 
 import Tabs from '@theme/Tabs';

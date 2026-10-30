@@ -1,7 +1,7 @@
 ---
 id: stream-connectors
 title: Stream connectors
-description: "Transfer monitoring data in real time to third-party tools"
+description: "Use Centreon stream connectors to transfer the flow of monitoring data, events or metrics, in real time from your Centreon platform to a third-party tool."
 ---
 
 Stream connectors transfer in real time the flow of monitoring data coming from the Centreon platform to a third-party tool. This flow can contain events or metrics.

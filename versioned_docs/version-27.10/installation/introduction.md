@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: "Introduction to installing your Centreon monitoring platform"
+description: "Prepare your Centreon installation: check compatibility, choose an architecture, review the prerequisites, then install your platform from packages."
 ---
 
 import Tabs from '@theme/Tabs';

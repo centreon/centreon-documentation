@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: "Présentation de l'application mobile Centreon"
+description: "Utilisez Centreon mobile sur téléphone ou tablette pour consulter et filtrer le statut des ressources, acquitter, planifier un temps d'arrêt."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

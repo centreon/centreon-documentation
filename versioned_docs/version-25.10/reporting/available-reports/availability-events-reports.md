@@ -1,7 +1,7 @@
 ---
 id: availability-events-reports
 title: Availability and Events reports
-description: "Reports covering host and service availability, outages, and exception events"
+description: "Centreon MBI availability and events reports for host groups: host and service availability, incidents, event lists, Pareto charts, and current events."
 ---
 
 ### Hostgroups-Incidents-1

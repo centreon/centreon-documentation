@@ -1,7 +1,7 @@
 ---
 id: known-issues
 title: Known issues
-description: "Known issues and workarounds for the Centreon platform"
+description: "Known issues you may encounter with Centreon, including Dashboards, Anomaly Detection, Centreon Web, and MBI, with available workarounds."
 ---
 
 Below is a list of known issues and/or bugs you may encounter.

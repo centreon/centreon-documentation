@@ -1,7 +1,7 @@
 ---
 id: ba-settings
 title: Paramètres
-description: "Configurer les paramètres par défaut et personnalisés des activités métier"
+description: "Configurez les paramètres par défaut de Centreon BAM pour les impacts, les activités métier et les règles booléennes, et vos préférences utilisateur."
 ---
 
 ## Paramètres par défaut

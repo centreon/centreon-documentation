@@ -1,7 +1,7 @@
 ---
 id: rrdtool
 title: RRDTool
-description: "Définir le chemin du binaire RRDTool utilisé par Centreon"
+description: "Définissez le chemin du binaire RRDTool que Centreon utilise pour générer les graphiques de performance, dans Administration > Paramètres."
 ---
 
 Cette partie permet de configurer le chemin vers le moteur de génération des

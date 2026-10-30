@@ -1,7 +1,7 @@
 ---
 id: ha-small
 title: Centreon HA pour les petites infrastructures
-description: "Mettre en place une architecture Centreon HA simplifiée à deux nœuds"
+description: "Mettez en place une architecture Centreon HA simplifiée à deux nœuds pour les petites plateformes, avec les bases de données sur les serveurs centraux."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

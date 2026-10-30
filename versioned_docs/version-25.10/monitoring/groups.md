@@ -1,7 +1,7 @@
 ---
 id: groups
 title: Groups
-description: "Group hosts and services together for ACLs, reports, and filtering"
+description: "Create host groups and service groups in Centreon to gather objects that share a common property, for use in ACLs, reports, views, and filters."
 ---
 
 ## Description

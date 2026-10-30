@@ -1,7 +1,7 @@
 ---
 id: widgets
 title: Widgets
-description: "Afficher le statut des activités métier via des widgets de tableau de bord"
+description: "Utilisez le widget Live Business Activity Status sur la page d'accueil Centreon pour lister les activités métier avec leur statut et leur niveau actuels."
 ---
 
 ## Live Business Activity Status

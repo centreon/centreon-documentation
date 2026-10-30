@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Notes de release Centreon Infra Monitoring 26.10
-description: "Présentation des notes de release Centreon Infra Monitoring 26.10"
+description: "Notes de version de Centreon Infra Monitoring 27.10 : consultez les changelogs et les changements de comportement avant de mettre à jour votre plateforme."
 ---
 import DocCardList from '@theme/DocCardList';
 

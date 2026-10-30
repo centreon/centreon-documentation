@@ -1,7 +1,7 @@
 ---
 id: monitor-mysql-server
 title: Monitor a MySQL or MariaDB database
-description: "Monitor a MySQL or MariaDB database using Centreon"
+description: "Monitor a MySQL or MariaDB database with Centreon: create a user with the required privileges, install the connector, then create and deploy the host."
 ---
 
 import Tabs from '@theme/Tabs';

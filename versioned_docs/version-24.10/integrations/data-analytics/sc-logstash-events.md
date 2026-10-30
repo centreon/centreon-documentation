@@ -1,7 +1,7 @@
 ---
 id: sc-logstash-events
 title: Logstash Events
-description: "Forward host and service status events to a Logstash HTTP endpoint"
+description: "Install and configure the Logstash Events stream connector to forward Centreon host and service status events to a Logstash HTTP input endpoint."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

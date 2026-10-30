@@ -1,7 +1,7 @@
 ---
 id: monitor-printer-snmp
 title: Monitor a printer with SNMP
-description: "Monitor a network printer using the SNMP protocol"
+description: "Monitor a network printer with Centreon over SNMP: install the Printer Standard monitoring connector, create the host with its SNMP settings and deploy it."
 ---
 
 Go to the **Configuration \> Monitoring Connectors** menu and install the **Printer Standard** Monitoring Connector:

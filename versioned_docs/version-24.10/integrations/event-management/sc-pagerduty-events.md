@@ -1,7 +1,7 @@
 ---
 id: sc-pagerduty-events
 title: PagerDuty Events
-description: "Send host and service status events from Centreon to PagerDuty"
+description: "Install and configure the PagerDuty Events stream connector to send Centreon host and service status events to PagerDuty, then filter and test them."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

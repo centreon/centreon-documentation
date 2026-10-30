@@ -1,7 +1,7 @@
 ---
 id: sc-graphite-metrics
 title: Graphite Metrics
-description: "Send Centreon host and service performance metrics to Graphite, with optional min/max, thresholds, state and hostgroup tags"
+description: "Send Centreon host and service performance metrics to Graphite, with optional min/max, thresholds, state and hostgroup tags."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

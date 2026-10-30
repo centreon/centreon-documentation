@@ -1,7 +1,7 @@
 ---
 id: map-web-upgrade
 title: Monter de version MAP
-description: "Monter de version Centreon MAP vers une nouvelle version majeure"
+description: "Montez de version Centreon MAP : vérifiez le système d'exploitation et la base de données, mettez à jour la clé de signature RPM, puis le paquet."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

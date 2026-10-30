@@ -1,7 +1,7 @@
 ---
 id: openid
 title: Configuring connection via OpenId Connect
-description: "Configure authentication via OpenID Connect identity providers"
+description: "Configure OpenID Connect authentication in Centreon with identity providers like Azure AD, Okta or Keycloak, and manage user creation and authorizations."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

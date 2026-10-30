@@ -1,7 +1,7 @@
 ---
 id: which-install
 title: Quelle installation choisir ?
-description: "Choisissez la méthode d'installation Centreon adaptée à vos besoins"
+description: "Choisissez comment installer Centreon : machine virtuelle pour tester ou utiliser IT-100, script d'installation silencieuse ou paquets RPM et DEB."
 ---
 
 Centreon propose plusieurs modes d'installation. Lequel choisir ?

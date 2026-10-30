@@ -1,6 +1,7 @@
 ---
 id: ot-mail
 title: Mail
+description: "Configurez le fournisseur Mail de Centreon Open Tickets pour ouvrir des tickets sur vos alertes de supervision par e-mail, via votre serveur SMTP."
 ---
 
 The Mail Open Tickets provider uses the SMTP server to open incidents about your monitoring alerts.

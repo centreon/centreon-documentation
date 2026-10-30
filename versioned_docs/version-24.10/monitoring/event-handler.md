@@ -1,7 +1,7 @@
 ---
 id: event-handler
 title: Auto Remediation
-description: "Configure event handlers to automatically fix problems on state changes"
+description: "Configure event handlers in Centreon to run auto remediation scripts when a host or service state changes: create the command, enable and assign it."
 ---
 
 ## Introduction

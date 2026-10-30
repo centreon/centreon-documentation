@@ -1,7 +1,7 @@
 ---
 id: add-a-poller-to-configuration
 title: Attach a poller to a central or a remote server
-description: "Configure and connect a new poller to a central or remote server"
+description: "Attach a new poller to a Centreon central or remote server with the configuration wizard, enable communication, and export the configuration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

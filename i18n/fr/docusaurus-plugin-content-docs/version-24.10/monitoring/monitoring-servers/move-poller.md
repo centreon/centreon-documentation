@@ -1,7 +1,7 @@
 ---
 id: move-poller
 title: Rattacher un collecteur à un serveur distant différent
-description: "Rattacher un collecteur d'un serveur distant à un autre"
+description: "Rattachez un collecteur à un autre serveur distant, ou du serveur central à un serveur distant, en mettant à jour sa configuration Gorgone et Broker."
 ---
 
 Voici la procédure pour attacher un collecteur du serveur Centreon Central à un serveur distant, ou à partir d'un

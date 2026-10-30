@@ -1,7 +1,7 @@
 ---
 id: autodisco-aws
 title: Utiliser Autodiscovery pour découvrir des instances AWS EC2
-description: "Utiliser Autodiscovery pour détecter et superviser des instances AWS EC2"
+description: "Détectez vos instances AWS EC2 avec Centreon Autodiscovery : installez le plugin Amazon EC2, lancez une tâche de découverte et supervisez les hôtes."
 ---
 
 import Tabs from '@theme/Tabs';

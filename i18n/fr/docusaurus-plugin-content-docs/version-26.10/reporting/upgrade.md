@@ -1,7 +1,7 @@
 ---
 id: upgrade
 title: Monter de version l'extension
-description: "Monter de version Centreon MBI vers une nouvelle version majeure"
+description: "Montez de version Centreon MBI : mettez à jour le dépôt, l'interface de l'extension et le serveur de reporting, puis la base de données."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

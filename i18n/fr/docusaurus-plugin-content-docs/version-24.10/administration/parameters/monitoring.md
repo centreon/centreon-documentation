@@ -1,7 +1,7 @@
 ---
 id: monitoring
 title: Supervision
-description: "Configurer les options générales de l'interface de supervision temps réel"
+description: "Configurez les options générales de l'interface de supervision temps réel de Centreon, dont les réglages par défaut des acquittements."
 ---
 
 Cette partie traite des options générales de l'interface de supervision temps

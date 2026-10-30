@@ -1,7 +1,7 @@
 ---
 id: communications
 title: Communications
-description: "Présentation des modes de communication entre Central, Remote et les collecteurs"
+description: "Présentation des modes de communication Gorgone entre le serveur central Centreon, les serveurs distants et les collecteurs, et passage de SSH à ZMQ."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

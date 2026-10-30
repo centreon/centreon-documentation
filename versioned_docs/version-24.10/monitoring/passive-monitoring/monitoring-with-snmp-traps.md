@@ -1,7 +1,7 @@
 ---
 id: monitoring-with-snmp-traps
 title: Monitoring with SNMP Traps
-description: "Create passive services and customize outputs for SNMP trap monitoring"
+description: "Create passive services to monitor SNMP traps in Centreon, apply the changes, customize the output, route traps, and ignore traps during downtimes."
 ---
 
 ## Monitoring configuration

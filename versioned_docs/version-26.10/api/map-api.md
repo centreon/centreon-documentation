@@ -1,7 +1,7 @@
 ---
 id: map-api
 title: Automating MAP via API
-description: "Automate creation and maintenance of standard maps via API"
+description: "Automate the creation and maintenance of standard maps with the Centreon MAP API: required permissions, authentication, and examples to create maps."
 ---
 
 import Tabs from '@theme/Tabs';

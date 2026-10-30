@@ -1,7 +1,7 @@
 ---
 id: commands
 title: Les commandes
-description: "Configurer les commandes, listes blanches et connecteurs utilisés pour les contrôles de supervision"
+description: "Créez des commandes dans Centreon, ajoutez-les à la liste blanche et optimisez l'exécution des sondes avec les connecteurs SSH et Perl."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

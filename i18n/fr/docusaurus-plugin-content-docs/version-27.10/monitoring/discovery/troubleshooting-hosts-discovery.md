@@ -1,7 +1,7 @@
 ---
 id: troubleshooting-hosts-discovery
 title: Dépanner les incidents sur la découverte des hôtes
-description: "Résoudre les erreurs courantes rencontrées lors de la découverte des hôtes"
+description: "Résolvez les incidents courants de découverte d'hôtes avec Centreon Auto Discovery : tâches non affichées, scans bloqués, fournisseur introuvable."
 ---
 
 ## Les tâches de découverte ne s'affichent plus

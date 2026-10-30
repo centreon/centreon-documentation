@@ -1,7 +1,7 @@
 ---
 id: templates
 title: Templates
-description: "Use host, service, and contact templates to speed up configuration"
+description: "Use host, service, and contact templates in Centreon to define default values, manage inheritance, and speed up configuration with best practices."
 ---
 
 ## Definition

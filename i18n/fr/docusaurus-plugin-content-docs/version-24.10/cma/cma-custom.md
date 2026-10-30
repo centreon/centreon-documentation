@@ -1,6 +1,7 @@
 ---
 id: cma-custom
 title: Utiliser des plugins personnalisés avec CMA
+description: "Exécutez des plugins Bash, Perl, Python ou PowerShell personnalisés avec Centreon Monitoring Agent (CMA) si les contrôles natifs ne suffisent pas."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

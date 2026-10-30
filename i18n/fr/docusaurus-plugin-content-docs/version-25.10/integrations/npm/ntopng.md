@@ -1,7 +1,7 @@
 ---
 id: ntopng
 title: Widget NtopNG
-description: "Afficher les données d'utilisation réseau NtopNG dans un widget de vue personnalisée"
+description: "Configurez le widget NtopNG des vues personnalisées Centreon pour afficher l'utilisation du réseau : principaux hôtes, flux et applications."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

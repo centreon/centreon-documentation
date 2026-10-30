@@ -1,6 +1,7 @@
 ---
 id: ot-bmc-footprints-11
 title: BMC Footprints 11
+description: "Configurez le fournisseur BMC Footprints 11 de Centreon Open Tickets pour ouvrir des incidents à partir des alertes via l'API SOAP de BMC Footprints."
 ---
 
 ## How it works
