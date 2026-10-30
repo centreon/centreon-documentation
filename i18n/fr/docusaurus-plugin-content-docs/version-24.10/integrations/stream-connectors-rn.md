@@ -219,7 +219,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
 
-- [**Opsgenie Events**](data-analytics/sc-opsgenie-events.md) - Initial release of InfluxDB2 Metrics.
+- [**Opsgenie Events**](data-analytics/sc-opsgenie-events.md) - Initial release of Opsgenie Events.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
@@ -229,12 +229,12 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Janvier
+### January
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
 
-- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Initial release of InfluxDB2 Metrics.
+- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Initial release of Canopsis Events.
 
 </TabItem>
 <TabItem value="Enhancement" label="Enhancement">
