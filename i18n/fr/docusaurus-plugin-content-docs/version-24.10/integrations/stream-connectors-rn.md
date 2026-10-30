@@ -38,7 +38,7 @@ import TabItem from '@theme/TabItem';
 
 - [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Optimized the stream connector to avoid DOS.
 - New OpenTelemetry otelhttp community stream connector for metrics, provided by a community contribution [PR 290](https://github.com/centreon/centreon-stream-connector-scripts/pull/290).
-- Reduced unnecessary logging when Broker has no new messages to process.
+- [**All stream connectors**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/docs/README.md) - Reduced unnecessary logging when Broker has no new messages to process.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
