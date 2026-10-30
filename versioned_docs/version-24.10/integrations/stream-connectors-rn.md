@@ -75,7 +75,8 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed downtimes.
-- [**ServiceNow Incident**](event-management/sc-service-now-em-events.md) - Fixed oauth refresh token parameters.
+- [**ServiceNow Incident**](event-management/sc-service-now-incident-events.md) - Fixed oauth refresh token parameters.
+- [**ServiceNow Event Manager Events**](event-management/sc-service-now-em-events.md) - Fixed oauth refresh token parameters.
 - [**InfluxDB 2 Metrics**](data-analytics/sc-influxdb2-metrics.md) - Fixed subinstances.
 
 </TabItem>
