@@ -96,10 +96,6 @@ Nothing to do for this OS.
 </TabItem>
 </Tabs>
 
-</TabItem>
-</Tabs>
-
-
 <!-- Your poller should always be in the latest available version (i.e. in the latest minor version of the latest major version). Currently, the only exception is pollers on Alma/RHEL/Oracle Linux 8, which only need to be updated to the latest minor version. Read the table below carefully before you do anything.
 
 | If your poller runs on... | What to do |
