@@ -219,7 +219,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
 
-- [**Opsgenie Events**](data-analytics/sc-opsgenie-events.md) - Initial release of Opsgenie Events.
+- [**Opsgenie Events**](event-management/sc-opsgenie.md) - New version of the stream connector based on the Centreon stream connectors library.
 
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
