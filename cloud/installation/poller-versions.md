@@ -12,8 +12,9 @@ To know your poller's version, go to **Configuration > Pollers > Pollers**. The 
 
 * Fresh poller installations use version 26.10.
 * Existing pollers must have [the latest minor 25.10 version](../installation/poller-update-upgrade.md).
+* All older versions are no longer supported.
 <!-- * Your poller should be in the latest available version or its n-1: currently, 26.10.x (or 25.10.x, which is mandatory if you are using Alma/RHEL/Oracle Linux 8). -->
-* All older versions are no longer supported. <!-- and should be [upgraded](../installation/poller-update-upgrade.md). -->
+ <!-- and should be [upgraded](../installation/poller-update-upgrade.md). -->
 
 ## What happens if I do not update?
 
