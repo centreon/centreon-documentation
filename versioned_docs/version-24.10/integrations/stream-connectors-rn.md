@@ -229,7 +229,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Centreon library: sc_logger**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_logger.lua) - Allowed the possibility to log curl commands with a new method called **log_curl_command**.
-- [**sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a new **log_curl_commands** parameter to enable logging curl commands.
+- [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a new **log_curl_commands** parameter to enable logging curl commands.
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Handled event flapping with a new method (**is_valid_event_flapping_state**).
 - [**Centreon library: sc_params**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_params.lua) - Added a new **flapping** parameter to filter flapping events.
 - [**Centreon library: sc_flush**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_flush.lua) - Added a new **add_queue_metadata** method to properly add metadata to a queue.
