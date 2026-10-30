@@ -43,7 +43,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed cases where the stream connector Mai not work with self signed certificates, based on a community contribution [PR 311](https://github.com/centreon/centreon-stream-connector-scripts/pull/311).
+- [**Splunk Metrics**](data-analytics/sc-splunk-metrics.md) - Fixed cases where the stream connector may not work with self signed certificates, based on a community contribution [PR 311](https://github.com/centreon/centreon-stream-connector-scripts/pull/311).
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Fixed crashes on host acknowledgement events.
 
 </TabItem>
