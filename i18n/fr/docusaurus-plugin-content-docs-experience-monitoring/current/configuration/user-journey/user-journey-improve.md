@@ -1,7 +1,7 @@
 ---
 id: user-journey-improve
 title: Optimiser votre site
-description: Utiliser des recommandations étape par étape pour optimiser la performance du site
+description: "Exploitez les recommandations de la sonde pour chaque étape d'un parcours utilisateur afin d'optimiser votre site, puis mesurez l'impact des changements."
 ---
 
 En utilisant les données collectées par la [sonde de recommandations](./create-a-scenario.md#audits-de-recommandations-quotidiens), Experience Monitoring vous propose des suggestions pour optimiser votre site web.

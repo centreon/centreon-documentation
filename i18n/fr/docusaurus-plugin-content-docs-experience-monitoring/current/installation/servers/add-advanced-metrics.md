@@ -1,6 +1,6 @@
 ﻿---
 id: add-advanced-metrics
-description: Installer des agents d'application pour Apache, MySQL, Redis, et plus
+description: "Installez des agents d'application pour collecter les métriques d'Apache, MySQL, PostgreSQL, Nginx, Varnish, Redis et Memcached, y compris en cloud géré."
 title: Installer des agents d'application
 --- 
 

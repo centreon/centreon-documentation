@@ -1,6 +1,6 @@
 ﻿---
 id: real-user-monitoring-installation
-description: Installer la balise JavaScript RUM manuellement ou via GTM
+description: "Insérez le tag JavaScript RUM dans les pages de votre site, manuellement ou via Google Tag Manager, et vérifiez les règles de consentement RGPD."
 title: Installer le Real User Monitoring
 --- 
 

@@ -1,7 +1,7 @@
 ﻿---
 id: create-a-scenario
 title: Creating a User Journey
-description: Configure a user journey probe and its individual steps
+description: "Create a user journey in Experience Monitoring: configure probe settings, define steps and actions, add verifications and handle failed steps."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

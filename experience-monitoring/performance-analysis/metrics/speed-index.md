@@ -1,7 +1,7 @@
 ---
 id: speed-index
 title: Speed Index
-description: Speed Index metric for how fast visual content renders
+description: "Speed Index scores how fast a page's visual content is displayed during loading. How to improve it by cutting TTFB and JavaScript work, and its thresholds."
 ---
 
 ## What Speed Index measures

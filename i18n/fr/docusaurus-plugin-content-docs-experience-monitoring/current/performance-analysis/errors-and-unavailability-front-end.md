@@ -1,6 +1,6 @@
 ﻿---
 id: errors-and-unavailability-front-end
-description: Diagnostiquer les incidents de parcours utilisateur grâce aux captures d'écran d'échec
+description: "Analysez les incidents de vos parcours utilisateurs grâce aux captures d'écran et au HAR, et identifiez la cause des erreurs courantes comme les timeouts."
 title: Comprendre les erreurs & indisponibilités dans Experience Monitoring
 --- 
 

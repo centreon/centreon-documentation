@@ -1,7 +1,7 @@
 ---
 id: total-blocking-time
 title: TBT - Total Blocking Time (Web Vitals)
-description: TBT Web Vitals metric for main thread blocking time
+description: "TBT is a Web Vitals metric that measures how long the main thread is blocked by long tasks between FCP and TTI, delaying user input. Includes thresholds."
 ---
 
 > TBT is documented on [Google's Web Dev](https://web.dev/tbt/) site. This page summarizes that documentation.

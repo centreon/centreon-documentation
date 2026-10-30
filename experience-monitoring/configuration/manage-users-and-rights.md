@@ -1,7 +1,7 @@
 ﻿---
 id: manage-users-and-rights
 title: Manage users and their rights
-description: Manage organization members, roles, and permission levels
+description: "Invite users to your Experience Monitoring organization, assign Member, Administrator or Owner roles, and set a password expiration policy."
 ---
 
 Experience Monitoring licenses have no user count limits. We recommend inviting everyone involved in the project, regardless of their role. Go to the **Organization** page to invite users.

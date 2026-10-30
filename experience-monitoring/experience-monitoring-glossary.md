@@ -1,7 +1,7 @@
 ---
 id: experience-monitoring-glossary
 title: Experience Monitoring glossary
-description: Definitions of key Experience Monitoring terms
+description: "Definitions of key Experience Monitoring terms, from user journeys, steps and actions to metrics such as Hero Time, Speed Index, LCP and TTFB."
 ---
 
 ## Action

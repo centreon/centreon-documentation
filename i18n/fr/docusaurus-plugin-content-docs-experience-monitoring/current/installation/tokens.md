@@ -1,7 +1,7 @@
 ---
 id: tokens
 title: Gérer les jetons d'accès
-description: "Découvrez comment créer, définir la portée et révoquer les jetons d'accès qui authentifient les agents, les sondes et les appels d'API de Centreon Experience Monitoring."
+description: "Créez, limitez et révoquez les jetons d'accès d'organisation et personnels qui authentifient les agents système, les sondes STM et les appels d'API."
 ---
 
 Certaines fonctionnalités d'Experience Monitoring nécessitent des jetons d'accès pour fonctionner.

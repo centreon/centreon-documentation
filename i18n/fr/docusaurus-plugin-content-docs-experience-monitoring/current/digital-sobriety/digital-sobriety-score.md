@@ -1,7 +1,7 @@
 ---
 id: digital-sobriety-score
 title: Calcul du Score de Sobriété Numérique
-description: Comment le Score de Sobriété Numérique est calculé à partir des données RUM ou parcours
+description: "Calcul du Score de Sobriété Numérique à partir des données RUM ou des parcours utilisateurs, et différences entre audit simple et audit complet."
 ---
 
 ## Score de Sobriété Numérique

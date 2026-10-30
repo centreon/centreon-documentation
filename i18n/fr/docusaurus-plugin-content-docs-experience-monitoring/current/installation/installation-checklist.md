@@ -1,6 +1,6 @@
 ﻿---
 id: installation-checklist
-description: Prérequis et adresses IP à autoriser avant d'activer les fonctionnalités
+description: "Prérequis de chaque fonctionnalité d'Experience Monitoring : adresses IP à autoriser pour les sondes STM, tag RUM, agents système, données business."
 title: Checklist d'installation Experience Monitoring
 ---
 

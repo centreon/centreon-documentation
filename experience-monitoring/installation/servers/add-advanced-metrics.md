@@ -1,7 +1,7 @@
 ---
 id: add-advanced-metrics
 title: Install application agents
-description: Install application agents for Apache, MySQL, Redis, and more
+description: "Install application agents to collect metrics from Apache, MySQL, PostgreSQL, Nginx, Varnish, Redis, and Memcached, including managed cloud services."
 ---
 
 import Tabs from '@theme/Tabs';

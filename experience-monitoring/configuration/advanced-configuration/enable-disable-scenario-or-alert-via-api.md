@@ -1,7 +1,7 @@
 ﻿---
 id: enable-disable-scenario-or-alert-via-api
 title: Automate enabling/disabling a journey or an alert via API
-description: Automate enabling or disabling journeys and alerts via API calls
+description: "Enable or disable a user journey or alert automatically through the Experience Monitoring API, with a curl request example and a reusable shell script."
 ---
 
 In some situations it can be useful to modify Experience Monitoring's configuration automatically. Use cases are many, but the most common are:

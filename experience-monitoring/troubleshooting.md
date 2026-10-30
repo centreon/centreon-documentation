@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Troubleshooting Experience Monitoring
-description: Fix common login and account access issues
+description: "Fix Experience Monitoring sign-in issues: reset a forgotten password, find the email address used, get an account, or contact Centreon support."
 ---
 
 ## I am unable to connect

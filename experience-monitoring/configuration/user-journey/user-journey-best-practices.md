@@ -1,7 +1,7 @@
 ﻿---
 id: user-journey-best-practices
 title: User Journey Best Practices
-description: Best practices for choosing CSS selectors, including with iframes
+description: "Build reliable user journeys: choose robust CSS selectors, handle iframes correctly, add the right verifications and avoid fragile actions like wait."
 ---
 
 ## Managing iframes

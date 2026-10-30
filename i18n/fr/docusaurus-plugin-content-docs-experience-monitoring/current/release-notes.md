@@ -1,6 +1,6 @@
 ---
 id: release-notes
-description: Journal des évolutions fonctionnelles et techniques d'Experience Monitoring
+description: "Nouveautés et améliorations de chaque version de Centreon Experience Monitoring : gestion des jetons, sondes internes, parcours utilisateurs, etc."
 title: Centreon Experience Monitoring - notes de release
 ---
 
