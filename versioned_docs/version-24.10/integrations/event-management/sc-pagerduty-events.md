@@ -231,3 +231,8 @@ curl -X POST -H 'content-type: application/json' 'https://events.pagerduty.com/v
 You must replace all the *`<xxxx>`* inside the above command with their appropriate value. \<my_host\>* may become *linuxServerA*.
 
 3. Check that the event has been received by PagerDuty.
+
+## Changelog
+
+- [21.10](../stream-connectors-rn.md#2021-10) - Enhancement: New version of the stream connector based on the Centreon stream connectors library.
+- [21.10](../stream-connectors-rn.md#2021-10) - Bug fix: Fixed a wrong mapping and removed event bulking (not supported by the PagerDuty API).

@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2026
 
-### Octobre
+### Octobre {#2026-10}
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
@@ -31,7 +31,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Août
+### Août {#2026-08}
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -49,7 +49,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Juillet
+### Juillet {#2026-07}
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -70,7 +70,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2025
 
-### Février
+### Février {#2025-02}
 
 <Tabs groupId="sync">
 <TabItem value="Bug fixes" label="Bug fixes">
@@ -85,7 +85,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2024
 
-### Septembre
+### Septembre {#2024-09}
 
 <Tabs groupId="sync">
 <TabItem value="Bug fixes" label="Bug fixes">
@@ -95,7 +95,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Août
+### Août {#2024-08}
 
 <Tabs groupId="sync">
 <TabItem value="Bug fixes" label="Bug fixes">
@@ -114,7 +114,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Mai
+### Mai {#2024-05}
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -127,7 +127,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Avril
+### Avril {#2024-04}
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -138,7 +138,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Février
+### Février {#2024-02}
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
@@ -148,7 +148,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Janvier
+### Janvier {#2024-01}
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -162,7 +162,7 @@ import TabItem from '@theme/TabItem';
 
 ## 2023
 
-### Novembre
+### Novembre {#2023-11}
 
 <Tabs groupId="sync">
 <TabItem value="Breaking-change" label="Breaking-change">
@@ -177,7 +177,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Octobre
+### Octobre {#2023-10}
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -187,7 +187,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Septembre
+### Septembre {#2023-09}
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
@@ -197,7 +197,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Juillet
+### Juillet {#2023-07}
 
 <Tabs groupId="sync">
 <TabItem value="Enhancement" label="Enhancement">
@@ -214,7 +214,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### Février
+### Février {#2023-02}
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
@@ -229,7 +229,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 </Tabs>
 
-### January
+### January {#2023-01}
 
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">

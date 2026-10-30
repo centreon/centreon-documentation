@@ -195,3 +195,7 @@ curl -u elastic:centreon-es-passwd --header 'content-type: application/json'  -X
 > Remplacez tous les *`<xxxx>`* dans la commande ci-dessus par la valeur correcte.
 
 3. Vérifiez que les données ont été reçues par Elasticsearch.
+
+## Historique des modifications
+
+- [21.12](../stream-connectors-rn.md#2021-12) - Enhancement: New version of the stream connector based on the Centreon stream connectors library.

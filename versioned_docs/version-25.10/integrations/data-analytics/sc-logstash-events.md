@@ -191,3 +191,7 @@ curl -X PUT -H "accept: application/json" curl -X PUT 'http://<logstash_address>
 You must replace all the *`<xxxx>`* inside the above command with their appropriate value. \<logstash_port\>* may become *8080*.
 
 3. Check that the event has been received by Logstash.
+
+## Changelog
+
+- [22.06](../stream-connectors-rn.md#2022-06) - New stream connector: Initial release of Logstash Events.
