@@ -217,6 +217,11 @@ import TabItem from '@theme/TabItem';
 ### February
 
 <Tabs groupId="sync">
+<TabItem value="New Stream connector" label="New Stream connector">
+
+- [**Opsgenie Events**](data-analytics/sc-opsgenie-events.md) - Initial release of InfluxDB2 Metrics.
+
+</TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
 - [**Centreon library: sc_event**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_event.lua) - Fixed an issue occuring when checking if an event was monitored by an accepted poller.
@@ -227,6 +232,11 @@ import TabItem from '@theme/TabItem';
 ### January
 
 <Tabs groupId="sync">
+<TabItem value="New Stream connector" label="New Stream connector">
+
+- [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Initial release of InfluxDB2 Metrics.
+
+</TabItem>
 <TabItem value="Enhancement" label="Enhancement">
 
 - [**Centreon library: sc_logger**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_logger.lua) - Allowed the possibility to log curl commands with a new method called **log_curl_command**.
