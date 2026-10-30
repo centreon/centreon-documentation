@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-iplabel-newtest-restapi
 title: IP-Label Newtest Rest API
-description: "Monitor IP-Label Newtest scenarios via REST API, tracking green/red/orange/grey status percentages and execution time."
+description: "Monitor IP-Label Newtest scenarios via REST API: green, red, orange, and grey status percentages and execution time, with scenario discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

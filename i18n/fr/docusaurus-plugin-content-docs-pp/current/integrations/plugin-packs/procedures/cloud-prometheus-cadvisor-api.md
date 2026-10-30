@@ -1,8 +1,7 @@
 ---
 id: cloud-prometheus-cadvisor-api
 title: cAdvisor w/ Prometheus API
-description: "Supervisez les pods et conteneurs Kubernetes, ainsi que les conteneurs Docker ou Podman, 
-via cAdvisor et l'API Prometheus : découverte d'hôtes, présence, CPU, charge, mémoire, stockage et état des tâches."
+description: "Supervisez pods et conteneurs Kubernetes, Docker ou Podman via cAdvisor et l'API Prometheus : découverte, CPU, charge, mémoire, stockage et tâches."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

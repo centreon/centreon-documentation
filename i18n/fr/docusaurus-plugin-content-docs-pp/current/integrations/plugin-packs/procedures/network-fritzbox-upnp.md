@@ -1,7 +1,7 @@
 ---
 id: network-fritzbox-upnp
 title: Fritz!Box UPnP
-description: "Supervisez les routeurs Fritz!Box via UPnP : état de la connexion, temps de fonctionnement du système et trafic WAN."
+description: "Supervisez les routeurs Fritz!Box via UPnP : état de la connexion et du lien, temps de fonctionnement du système et trafic de l'interface WAN."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

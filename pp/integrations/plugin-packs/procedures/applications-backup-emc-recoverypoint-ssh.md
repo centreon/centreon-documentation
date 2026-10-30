@@ -1,7 +1,7 @@
 ---
 id: applications-backup-emc-recoverypoint-ssh
 title: EMC RecoveryPoint SSH
-description: "Monitor EMC RecoveryPoint appliances via SSH: system status and monitored parameters checks."
+description: "Monitor EMC RecoveryPoint appliances via SSH: track the number of problems reported by the system status and by the monitored parameters."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

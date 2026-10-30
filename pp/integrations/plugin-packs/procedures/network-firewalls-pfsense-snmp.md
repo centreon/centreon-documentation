@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-pfsense-snmp
 title: pfSense SNMP
-description: "Monitor pfSense firewalls via SNMP: CPU, memory, load, uptime, and firewall packet statistics."
+description: "Monitor pfSense firewalls via SNMP: CPU, memory, swap, load, uptime, and packet statistics (blocked, matched, fragmented, bad offset, short)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

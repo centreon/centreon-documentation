@@ -1,7 +1,7 @@
 ---
 id: applications-ansible-cli
 title: Ansible CLI
-description: "Discover hosts automatically via Ansible's command-line interface with the Ansible CLI monitoring connector."
+description: "Discover hosts automatically with the Ansible CLI connector, which queries Ansible from the command line using its setup module. No metrics are collected."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

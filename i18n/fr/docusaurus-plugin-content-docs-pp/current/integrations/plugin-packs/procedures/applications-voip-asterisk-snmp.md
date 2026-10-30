@@ -1,7 +1,7 @@
 ---
 id: applications-voip-asterisk-snmp
 title: Asterisk VoIP SNMP
-description: "Supervisez les serveurs VoIP Asterisk via SNMP : appels actifs et utilisation des canaux."
+description: "Supervisez les serveurs VoIP Asterisk via SNMP : nombre de canaux actifs, d'appels actifs et d'appels traités, avec découverte d'hôtes SNMP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

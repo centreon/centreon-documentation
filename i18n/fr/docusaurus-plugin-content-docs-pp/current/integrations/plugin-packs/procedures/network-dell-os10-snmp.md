@@ -1,7 +1,7 @@
 ---
 id: network-dell-os10-snmp
 title: Dell OS10 SNMP
-description: "Supervisez vos commutateurs réseau Dell OS10 via SNMP : CPU, mémoire, matériel, interfaces, charge, disque et uptime."
+description: "Supervisez vos commutateurs réseau Dell OS10 via SNMP : CPU, mémoire, matériel, interfaces, charge, swap, disque, inodes et uptime, avec découverte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

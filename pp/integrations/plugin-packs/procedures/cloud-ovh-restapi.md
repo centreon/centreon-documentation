@@ -1,7 +1,7 @@
 ---
 id: cloud-ovh-restapi
 title: OVH Rest API
-description: "Monitor OVH cloud services via REST API: web hosting quota usage and remaining SMS credits."
+description: "Monitor OVH services via the OVH REST API: web hosting space quota usage per service and number of remaining SMS credits on your SMS accounts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

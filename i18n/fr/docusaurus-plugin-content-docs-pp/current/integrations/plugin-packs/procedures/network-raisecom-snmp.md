@@ -1,7 +1,7 @@
 ---
 id: network-raisecom-snmp
 title: Raisecom SNMP
-description: "Supervisez les équipements réseau Raisecom via SNMP : CPU, matériel, mémoire et trafic des interfaces."
+description: "Supervisez les équipements réseau Raisecom via SNMP : CPU, matériel, mémoire et trafic des interfaces, avec règles de découverte d'hôtes et de services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

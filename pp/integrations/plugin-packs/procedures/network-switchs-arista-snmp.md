@@ -1,7 +1,7 @@
 ---
 id: network-switchs-arista-snmp
 title: Arista Switch SNMP
-description: "Monitor Arista switches via SNMP: BGP peers, CPU, memory, sensors, interface traffic, and packet errors."
+description: "Monitor Arista switches via SNMP: BGP peers, CPU, memory, sensors, uptime, TCP connections, and interface traffic and packet errors, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

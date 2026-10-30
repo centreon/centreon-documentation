@@ -1,6 +1,7 @@
 ---
 id: develop-plugin
 title: Développer vos propres plugins
+description: "Ressources GitHub pour développer vos plugins Centreon : bases du framework Perl, concepts avancés, tutoriels API REST et SNMP, conseils de contribution."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: virtualization-vmware2-esx
 title: VMware ESX
-description: "Monitor VMware ESX hosts via the vCenter API: CPU, memory, health, storage, datastores, and network traffic."
+description: "Monitor VMware ESX hosts via the vCenter API: CPU, memory, health, status, swap, VM count, uptime, alarms, datastores, and network traffic, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-snmp-rs
 title: Generic SNMP (Rust)
-description: Monitor any SNMP-enabled device via generic OID checks using the Rust SNMP plugin
+description: "Monitor any SNMP-enabled device with the Rust SNMP plugin, currently in beta: generic OID checks, including the time since the host has been running."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

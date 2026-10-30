@@ -1,7 +1,7 @@
 ---
 id: applications-varnish-nrpe
 title: Varnish NRPE
-description: "Monitor Varnish cache servers via NRPE, tracking cache hits, backend connections, sessions, and thread statistics."
+description: "Monitor Varnish cache servers via NRPE: client and backend connections, cache hits and misses, sessions, objects, threads, and shared memory statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

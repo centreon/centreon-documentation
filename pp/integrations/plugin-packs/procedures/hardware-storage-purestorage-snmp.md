@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-purestorage-snmp
 title: Pure Storage SNMP
-description: "Monitor Pure Storage arrays via SNMP: track read/write bandwidth, IOPS, and latency statistics."
+description: "Monitor Pure Storage arrays via SNMP: track read and write bandwidth, IOPS, and latency statistics, and discover arrays through an SNMP subnet scan."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

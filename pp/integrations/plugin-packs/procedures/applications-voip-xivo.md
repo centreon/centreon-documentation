@@ -1,7 +1,7 @@
 ---
 id: applications-voip-xivo
 title: XiVO VoIP Server
-description: "Monitor XiVO VoIP Server via SNMP: check critical process status for nginx, postgres, and xivo services."
+description: "Monitor XiVO VoIP Server via SNMP: check critical processes such as nginx, postgres, and xivo services, with process count, CPU, and memory usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

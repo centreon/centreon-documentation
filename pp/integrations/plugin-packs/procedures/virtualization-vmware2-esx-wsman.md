@@ -1,7 +1,7 @@
 ---
 id: virtualization-vmware2-esx-wsman
 title: VMware ESX WS-MAN
-description: "Monitor VMware ESXi hardware via WS-MAN: battery, fan, memory, processor, storage, and other component statuses."
+description: "Monitor VMware ESXi hardware via WS-MAN: batteries, fans, memory, processors, power supplies, controllers, sensors, storage volumes, and more."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

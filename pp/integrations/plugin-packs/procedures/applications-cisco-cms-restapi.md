@@ -1,7 +1,7 @@
 ---
 id: applications-cisco-cms-restapi
 title: Cisco CMS
-description: "Monitor Cisco Meeting Server (CMS) via REST API: track alarms, calls, database status, licenses, and system status."
+description: "Monitor Cisco Meeting Server (CMS) via REST API: alarms, active calls and participants, call legs and media rates, database status, and licenses."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

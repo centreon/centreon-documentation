@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-hms-netbiter-argos-restapi
 title: HMS Netbiter Argos RestAPI
-description: "Monitor HMS Netbiter Argos systems via REST API: track alarms and sensor readings from Centreon."
+description: "Monitor HMS Netbiter Argos systems via REST API: system alarms and sensor readings, with automatic discovery of systems as hosts and of sensors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

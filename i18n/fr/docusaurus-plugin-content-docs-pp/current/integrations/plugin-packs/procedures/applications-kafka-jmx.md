@@ -1,7 +1,7 @@
 ---
 id: applications-kafka-jmx
 title: Kafka
-description: "Superviser Apache Kafka via JMX/Jolokia : nombre de leaders, partitions, réplication et statistiques de trafic."
+description: "Supervisez Apache Kafka via JMX/Jolokia : leaders, contrôleurs actifs, partitions hors ligne ou sous-répliquées, trafic entrant/sortant et requêtes fetch."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

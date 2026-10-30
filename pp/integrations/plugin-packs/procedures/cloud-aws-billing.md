@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-billing
 title: AWS Billing
-description: "Monitor AWS estimated billing charges via CloudWatch, using the AWS CLI or the Perl Paws SDK."
+description: "Monitor AWS estimated billing charges per service via CloudWatch, using the AWS CLI or the Perl Paws SDK, with host discovery of billing accounts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

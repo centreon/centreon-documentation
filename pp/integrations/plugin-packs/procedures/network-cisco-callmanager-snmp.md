@@ -1,6 +1,7 @@
 ---
 id: network-cisco-callmanager-snmp
 title: Cisco Call Manager SNMP
+description: "Monitor Cisco Call Manager via SNMP: registration status of phones, gateways, and voicemail devices, plus CallManager status, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

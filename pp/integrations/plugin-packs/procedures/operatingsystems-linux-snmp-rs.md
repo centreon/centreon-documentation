@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-snmp-rs
 title: Linux SNMP (Rust)
-description: "Monitor Linux servers via SNMP. Experimental: Rust plugin in beta"
+description: "Monitor Linux servers via SNMP with an experimental Rust plugin in beta: CPU, memory, swap, uptime, disk space, and processes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

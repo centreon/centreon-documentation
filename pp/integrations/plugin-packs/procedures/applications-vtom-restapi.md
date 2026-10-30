@@ -1,7 +1,7 @@
 ---
 id: applications-vtom-restapi
 title: Absyss VTOM Rest API
-description: "Monitor Absyss VTOM job scheduling via REST API, tracking job status, execution counts, and success rates."
+description: "Monitor Absyss VTOM job scheduling via REST API: running, failed, waiting, and finished job counts, job status, and success rates, with job discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

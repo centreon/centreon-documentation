@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-ssh
 title: Linux SSH
-description: "Monitor Linux servers via SSH: CPU, memory, disk, load, processes, uptime, and other system metrics."
+description: "Monitor Linux servers via SSH: CPU, memory, swap, storage, load, inodes, processes, connections, uptime, NTP, pending updates, and systemd services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

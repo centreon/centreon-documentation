@@ -1,7 +1,7 @@
 ---
 id: applications-cisco-ssms-restapi
 title: Cisco SSMS
-description: "Monitor Cisco Smart Software Manager On-Prem via REST API: track license usage, compliance status, and alerts."
+description: "Monitor Cisco Smart Software Manager On-Prem via REST API: minor and major alerts per account, plus license status, used and free licenses."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

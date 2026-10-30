@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-quanta-restapi
 title: Quanta Rest API (déprécié)
-description: "Ce connecteur Quanta REST API est déprécié et remplacé par le connecteur Centreon Experience Monitoring Rest API."
+description: "Connecteur Quanta REST API déprécié : il n'est plus maintenu et ne doit plus être utilisé. Utilisez le connecteur Centreon Experience Monitoring Rest API."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

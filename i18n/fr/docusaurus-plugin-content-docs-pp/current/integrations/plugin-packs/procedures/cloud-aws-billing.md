@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-billing
 title: AWS Billing
-description: "Supervisez les charges de facturation estimées AWS via CloudWatch, avec l'AWS CLI ou le SDK Perl paws."
+description: "Supervisez les charges de facturation estimées AWS par service via CloudWatch, avec l'AWS CLI ou le SDK Perl Paws, et découverte d'hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

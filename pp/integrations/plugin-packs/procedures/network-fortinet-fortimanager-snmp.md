@@ -1,7 +1,7 @@
 ---
 id: network-fortinet-fortimanager-snmp
 title: Fortinet Fortimanager SNMP
-description: "Monitor Fortinet FortiManager via SNMP: track CPU, disk, and memory usage, plus device status."
+description: "Monitor Fortinet FortiManager via SNMP: track CPU, disk, and memory usage, plus the status of Fortinet devices, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-rabbitmq-restapi
 title: RabbitMQ RestAPI
-description: "Monitor RabbitMQ via REST API: node, queue, vhost, and system usage, message counts, and status."
+description: "Monitor RabbitMQ via REST API: node I/O, queue and vhost message counts, and system usage including queued messages and disk IOPS, with status checks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

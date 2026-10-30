@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-hms-ewon-snmp
 title: HMS Ewon SNMP
-description: "Monitor HMS Ewon devices via SNMP: track tag status and values with this Centreon connector."
+description: "Monitor HMS Ewon devices via SNMP: tag status and values, with automatic discovery of SNMP hosts and of the tags to monitor as services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-jenkins
 title: Jenkins API
-description: "Supervisez les jobs Jenkins via l'API REST : statut des jobs, pourcentage de score et nombre de violations."
+description: "Supervisez les jobs Jenkins via l'API REST : statut, pourcentage de score et nombre de violations de chaque job, avec découverte automatique des jobs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

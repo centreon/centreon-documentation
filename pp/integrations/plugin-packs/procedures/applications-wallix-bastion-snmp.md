@@ -1,7 +1,7 @@
 ---
 id: applications-wallix-bastion-snmp
 title: Wallix Bastion SNMP
-description: "Monitor Wallix Bastion via SNMP: license status and expiration, session counts, and pending requests."
+description: "Monitor Wallix Bastion via SNMP: license status, expiration, and usage, services status, session counts, and pending requests, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

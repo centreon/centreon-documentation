@@ -1,7 +1,7 @@
 ---
 id: applications-docker-ssh
 title: Docker SSH
-description: "Monitor Docker containers via SSH: container status and CPU, memory, disk, and network usage metrics."
+description: "Monitor Docker containers via SSH: container status, CPU, memory, disk throughput, and network traffic, with automatic discovery of containers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

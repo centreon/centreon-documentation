@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-whois
 title: Protocol WHOIS
-description: "Monitor domain status, expiration date, and WHOIS response time using the system whois command."
+description: "Monitor domains with the system whois command: domain status, time left before expiration, and WHOIS response time for each domain."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

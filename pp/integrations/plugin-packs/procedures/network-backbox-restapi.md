@@ -1,7 +1,7 @@
 ---
 id: network-backbox-restapi
 title: Backbox Rest API
-description: "Monitor Backbox devices via REST API: track backup status, configuration status, and intellichecks."
+description: "Monitor Backbox via REST API: backup results (success, suspect, failure), configuration changes, intellichecks, and per-device backup status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

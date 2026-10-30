@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-apc-snmp
 title: APC Sensor SNMP
-description: "Supervisez les sondes APC via SNMP : température, humidité et statut fluide de chaque module de capteurs."
+description: "Supervisez les sondes environnementales APC via SNMP : température, humidité et statut fluide de chaque module, avec découverte des hôtes par scan SNMP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

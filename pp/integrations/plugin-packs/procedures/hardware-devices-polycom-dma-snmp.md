@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-polycom-dma-snmp
 title: Polycom DMA SNMP
-description: "Monitor Polycom DMA via SNMP: cluster status, conference manager, device registrations, server usage, and alerts."
+description: "Monitor Polycom DMA via SNMP: cluster status, conference manager, device registrations, server system metrics, and alerts, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

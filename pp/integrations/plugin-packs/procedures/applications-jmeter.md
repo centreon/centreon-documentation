@@ -1,7 +1,7 @@
 ---
 id: applications-jmeter
 title: JMeter
-description: "Monitor Apache JMeter scenarios via the CLI plugin: execution time, steps count, and availability percentage."
+description: "Monitor Apache JMeter scenarios by running them from the command line: scenario execution time, number of steps, and availability percentage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

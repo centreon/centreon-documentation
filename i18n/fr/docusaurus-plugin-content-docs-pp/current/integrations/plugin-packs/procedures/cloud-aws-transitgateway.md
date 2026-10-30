@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-transitgateway
 title: AWS Transit Gateway
-description: "Supervisez le trafic, les paquets et les paquets perdus d'AWS Transit Gateway via l'API CloudWatch."
+description: "Supervisez AWS Transit Gateway via l'API CloudWatch : trafic et paquets entrants/sortants, paquets perdus (blackhole, sans route), avec découverte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

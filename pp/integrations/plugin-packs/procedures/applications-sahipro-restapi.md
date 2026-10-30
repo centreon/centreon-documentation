@@ -1,7 +1,7 @@
 ---
 id: applications-sahipro-restapi
 title: Sahi Pro Rest API
-description: "Monitor Sahi Pro test automation scenarios via REST API: execution status, steps, failures, and errors."
+description: "Monitor Sahi Pro test automation scenarios via REST API: scenario status, execution time, number of steps, failures, and errors, and per-step duration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

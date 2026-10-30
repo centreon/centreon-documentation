@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-huawei-hmm-snmp
 title: Huawei HMM SNMP
-description: "Monitor Huawei HMM servers via SNMP to check chassis and blade component status."
+description: "Monitor Huawei HMM (Hardware Management Module) via SNMP: component status of chassis and blades, with host discovery through an SNMP scan."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

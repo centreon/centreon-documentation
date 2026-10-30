@@ -1,7 +1,7 @@
 ---
 id: applications-wazuh-restapi
 title: Wazuh Rest API
-description: "Monitor Wazuh via its REST API: track agent connection status and manager processes, and log error/warning counts."
+description: "Monitor Wazuh via its REST API: agent connection status and counts, manager process status, and error, critical, and warning log counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

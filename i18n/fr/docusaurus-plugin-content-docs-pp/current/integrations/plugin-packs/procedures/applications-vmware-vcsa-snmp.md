@@ -1,7 +1,7 @@
 ---
 id: applications-vmware-vcsa-snmp
 title: VMware VCSA SNMP
-description: "Supervisez les appliances VMware VCSA en SNMP : CPU, mémoire, uptime, interfaces réseau et stockage."
+description: "Supervisez les appliances VMware VCSA en SNMP : CPU, mémoire, uptime, trafic et erreurs des interfaces réseau, partitions de stockage, avec découverte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

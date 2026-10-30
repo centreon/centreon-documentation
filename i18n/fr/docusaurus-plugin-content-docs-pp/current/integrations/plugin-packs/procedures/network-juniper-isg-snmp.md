@@ -1,7 +1,7 @@
 ---
 id: network-juniper-isg-snmp
 title: Juniper ISG SNMP
-description: "Supervisez les pare-feux Juniper ISG via SNMP : CPU, mémoire, état matériel, sessions et trafic des interfaces réseau."
+description: "Supervisez les pare-feux Juniper ISG via SNMP : CPU, mémoire, état matériel, sessions et trafic des interfaces, avec découverte d'hôtes et de services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

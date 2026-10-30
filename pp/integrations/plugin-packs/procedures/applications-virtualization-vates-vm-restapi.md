@@ -1,7 +1,7 @@
 ---
 id: applications-virtualization-vates-vm-restapi
 title: Vates VM REST API
-description: "Monitor Vates Xen Orchestra virtual machines via the REST API: CPU, memory, and VM status"
+description: "Monitor Vates virtual machines through the Xen Orchestra REST API: VM CPU usage and memory usage, with host discovery of the virtual machines."
 
 ---
 import Tabs from '@theme/Tabs';

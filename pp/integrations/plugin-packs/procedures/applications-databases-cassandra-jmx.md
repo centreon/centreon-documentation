@@ -1,7 +1,7 @@
 ---
 id: applications-databases-cassandra-jmx
 title: Cassandra
-description: "Monitor Apache Cassandra via JMX/Jolokia: cache usage, client request latency and failures, and thread pool activity."
+description: "Monitor Apache Cassandra via JMX/Jolokia: cache usage and hit rate, client request latency, timeouts and failures, and thread pool task activity."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-scom-restapi
 title: SCOM Rest API
-description: "Monitor Microsoft SCOM 2012/2016 alerts via REST API, tracking new, resolved, scheduled, and acknowledged states."
+description: "Monitor Microsoft SCOM 2012/2016 alerts via REST API: track new, resolved, scheduled, acknowledged, and assigned-to-engineering alerts with thresholds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

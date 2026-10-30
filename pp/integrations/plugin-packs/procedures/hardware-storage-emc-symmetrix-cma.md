@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-symmetrix-cma
 title: EMC Symmetrix CMA
+description: "Monitor EMC Symmetrix DMX3/DMX4 and VMAX arrays with the Centreon Monitoring Agent: directors, disks, memory, power, temperature, and fabric status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

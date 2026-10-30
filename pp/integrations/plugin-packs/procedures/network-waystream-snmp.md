@@ -1,6 +1,7 @@
 ---
 id: network-waystream-snmp
 title: Waystream SNMP
+description: "Monitor Waystream network devices via SNMP: CPU, memory, hardware, ARP table, NTP offset, uptime, interfaces, and SFP ports, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

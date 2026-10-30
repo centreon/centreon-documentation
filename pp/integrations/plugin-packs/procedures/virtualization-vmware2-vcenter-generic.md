@@ -1,7 +1,7 @@
 ---
 id: virtualization-vmware2-vcenter-generic
 title: VMware vCenter
-description: "Monitor VMware vCenter via its API: VM, ESX host, datastore, cluster, and datacenter status, CPU, memory, and alarms."
+description: "Monitor VMware vCenter via its API: VMs, ESX hosts, datastores, clusters, vSAN, and datacenters, including status, CPU, memory, IOPS, and alarms."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: applications-voip-3cx-restapi
 title: 3CX Rest API
-description: "Supervisez les systèmes téléphoniques 3CX via l'API REST : appels actifs, extensions enregistrées et état du système."
+description: "Supervisez les systèmes téléphoniques 3CX via l'API REST : utilisation des appels actifs, extensions enregistrées et statut des services 3CX."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

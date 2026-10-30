@@ -1,7 +1,7 @@
 ---
 id: applications-openvpn-omi
 title: OpenVPN OMI
-description: "Supervisez les serveurs OpenVPN via l'interface de gestion OMI : nombre de clients connectés et trafic entrant/sortant."
+description: "Supervisez les serveurs OpenVPN via l'interface de gestion OMI : nombre de clients connectés et trafic entrant et sortant du serveur, en bits par seconde."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

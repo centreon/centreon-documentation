@@ -1,7 +1,7 @@
 ---
 id: network-ubiquiti-edge-snmp
 title: Ubiquiti Edge SNMP
-description: "Monitor Ubiquiti Edge switches via SNMP, tracking CPU, memory, hardware health, and interface traffic."
+description: "Monitor Ubiquiti Edge switches via SNMP: CPU, memory, hardware environment, and network interface traffic, with automatic discovery of interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
