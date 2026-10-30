@@ -191,7 +191,7 @@ import TabItem from '@theme/TabItem';
 <Tabs groupId="sync">
 <TabItem value="New Stream connector" label="New Stream connector">
 
-- **InfluxDB2 Metrics** - Initial release of InfluxDB2 Metrics.
+- [**InfluxDB2 Metrics**](data-analytics/sc-elasticsearch-metrics.md) - Initial release of InfluxDB2 Metrics.
 
 </TabItem>
 </Tabs>
