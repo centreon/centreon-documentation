@@ -235,6 +235,7 @@ import TabItem from '@theme/TabItem';
 <TabItem value="New Stream connector" label="New Stream connector">
 
 - [**Canopsis Events**](data-analytics/sc-canopsis-events.md) - Initial release of Canopsis Events.
+
 </TabItem>
 <TabItem value="Enhancement" label="Enhancement">
 
