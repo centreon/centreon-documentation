@@ -1,7 +1,7 @@
 ---
 id: centreon-hub
 title: User portal (Centreon Hub)
-description: "How to create an organization, invite users, and manage login methods using the Centreon Hub user portal"
+description: "How to create an account and organization in Centreon Hub, invite users with a role, and accept an invitation to access your Centreon Cloud applications"
 ---
 
 Centreon Hub is a module that:

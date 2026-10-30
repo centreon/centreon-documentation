@@ -1,7 +1,7 @@
 ---
 id: map-web-create-standard-map
-title: Creating a standard map
-description: "Create and customize standard maps using the Centreon MAP editor, shapes, widgets, and resource elements"
+title: Create a standard map
+description: "How to create and customize standard maps using the Centreon MAP editor, with shapes, widgets, media, links, Centreon resources, and bulk mode"
 ---
 
 This topic describes how to create standard maps and how to customize them using the MAP editor.

@@ -1,10 +1,10 @@
 ---
 id: autodisco-aws
 title: Découvrir des instances AWS EC2 avec autodiscovery
-description: "Tutoriel pas à pas pour détecter et superviser automatiquement des instances AWS EC2 grâce au module Auto Discovery"
+description: "Tutoriel pas à pas pour détecter et superviser automatiquement des instances AWS EC2 avec le module Auto Discovery, des dépendances à l'ajout des hôtes"
 ---
 
-Dans ce tutoriel, nous allons utiliser le module Auto Discovery pour détecter des instances AWS EC2 et les mettre en supervision.
+Dans ce tutoriel, nous allons utiliser le module Autodiscovery pour détecter des instances AWS EC2 et les mettre en supervision.
 
 ## Prérequis
 

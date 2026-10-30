@@ -1,7 +1,7 @@
 ---
 id: chart-template
 title: Graph template
-description: "How to create graph templates to configure the layout, scale, and colors of Centreon performance graphs"
+description: "How to create graph templates to configure the layout, scale, and colors of Centreon performance graphs, and apply them to services or service templates"
 ---
 
 ## Definition

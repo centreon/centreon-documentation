@@ -1,14 +1,14 @@
 ---
 id: ram
 title: Granting users rights on resources
-description: "How to create and manage resource access rules that determine which users can see specific resources in Centreon Cloud"
+description: "How to create and manage resource access rules that determine which users and user groups can see specific resources and image folders in Centreon Cloud"
 ---
 
 Resource access rules allow you to grant users the right to see specific [resources](../resources/glossary.md#resource) and image folders.
 
 By default, all users can see all resources. This is because a default access rule called "ALL" is created automatically when the platform is installed. Users with the **Administrator** role can see all resources in all cases, even if no rule grants them this right explicitly.
 
-Administrators can create more specific rules to determine which users can see which resources. Only administrators can access the **Resource Acces Management** screen.
+Administrators can create more specific rules to determine which users can see which resources. Only administrators can access the **Resource Access Management** screen.
 
 You can create as many rules as you want. If a user is mentioned in two access rules with different rights, they will be granted all rights.
 

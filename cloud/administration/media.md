@@ -1,7 +1,7 @@
 ---
 id: media
 title: Managing media
-description: "How to add and manage image files used by the Centreon web interface, such as resource icons and map backgrounds"
+description: "How to add and manage the image files used in the Centreon web interface, such as resource icons and map backgrounds, and who can access them"
 ---
 
 Media are images used by the Centreon web interface. These images are used to

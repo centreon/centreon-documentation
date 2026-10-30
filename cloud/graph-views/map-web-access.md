@@ -1,7 +1,7 @@
 ---
 id: map-web-access
-title: Managing access rights in MAP
-description: "Manage MAP user roles and privileges to control who can view, edit, share, or delete maps"
+title: Manage access rights in MAP
+description: "How to manage MAP user roles and privileges through access groups to control who can view, edit, share, or delete maps in Centreon MAP"
 ---
 
 This topic explains how users can access maps according to well-defined privileges.

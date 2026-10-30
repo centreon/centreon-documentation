@@ -1,6 +1,7 @@
 ---
 id: cma-setup-manual
 title: Configurer CMA manuellement
+description: "Comment configurer manuellement l'agent de supervision Centreon : configuration de Centreon, préparation du collecteur (pare-feu, chiffrement) et de l'hôte"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

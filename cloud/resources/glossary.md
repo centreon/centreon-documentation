@@ -1,7 +1,7 @@
 ---
 id: glossary
 title: Glossary of Centreon concepts
-description: "Definitions of the key concepts and terms used throughout the Centreon Cloud documentation"
+description: "Definitions of the key concepts and terms used in the Centreon Cloud documentation, such as hosts, services, statuses, checks, pollers, and notifications"
 ---
 
 ## Acknowledgement

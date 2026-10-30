@@ -1,7 +1,7 @@
 ---
 id: poller-remove
 title: Removing a poller from your architecture
-description: "How to safely remove a poller from your architecture after moving its monitored resources to another poller"
+description: "How to safely remove a poller from your architecture after moving its monitored resources to another poller, then deploy the Central poller's configuration"
 ---
 
 import Tabs from '@theme/Tabs';
