@@ -13,6 +13,9 @@ Currently, there is no need to upgrade pollers running version 25.10. Just updat
 
 ## Update a poller to the latest 25.10 version
 
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
 1. Clean the cache:
 
   ```shell
