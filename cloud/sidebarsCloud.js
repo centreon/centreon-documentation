@@ -172,8 +172,25 @@ module.exports = {
           id: 'installation/prerequisites',
         },
         {
-          type: 'doc',
-          id: 'installation/deploy-poller',
+          type: 'category',
+          label: 'Deploying a poller',
+          link: {
+            type: 'generated-index',
+          },
+          items: [
+            {
+              type: 'doc',
+              id: 'installation/deploy-poller',
+            },
+            {
+              type: 'doc',
+              id: 'installation/using-containers',
+            },
+            {
+              type: 'doc',
+              id: 'installation/using-containers-advanced-configuration',
+            },
+          ],
         },
         {
           type: 'doc',
