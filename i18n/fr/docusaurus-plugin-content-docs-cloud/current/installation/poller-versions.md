@@ -10,8 +10,11 @@ Pour connaître la version de votre collecteur, allez à la page **Configuration
 
 ## En quelle version doit être mon collecteur ?
 
-* Votre collecteur doit être dans la dernière version disponible : actuellement, 25.10.x.
-* Les versions antérieures à celles-ci ne sont plus supportées et doivent être [montées de version](../installation/poller-update-upgrade.md).
+* Les nouvelles installations de collecteurs utilisent la version 26.10.
+* Les collecteurs existants doivent être [dans la dernière version mineure de la 25.10](../installation/poller-update-upgrade.md).
+* Les versions antérieures à celles-ci ne sont plus supportées.
+
+ <!-- et doivent être [montées de version](../installation/poller-update-upgrade.md). -->
 
 ## Que se passe-t-il si je ne mets pas mon collecteur à jour ?
 

@@ -9,7 +9,95 @@ import TabItem from '@theme/TabItem';
 
 > **IMPORTANT** : [Mettre à jour l'OS de la machine hôte du collecteur](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136) relève de la responsabilité du client. D'autre part, Centreon fournit des mises à jour applicatives pour les collecteurs, mais il revient au client d'appliquer ces mises à jour sur leurs collecteurs.
 
-Votre collecteur doit toujours avoir la dernière version disponible (c'est-à-dire la dernière version mineure de la dernière version majeure).
+Actuellement, il n'est pas nécessaire de monter de version les collecteurs en version 25.10. Mettez-les simplement à jour vers la dernière version mineure 25.10.
+
+## Mettre à jour un collecteur vers la dernière version 25.10
+
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+1. Videz le cache :
+
+  ```shell
+  dnf clean all --enablerepo=*
+  ```
+
+2. Mettez à jour l'ensemble des composants :
+
+  ```shell
+  dnf update centreon\* --exclude=centreon-plugin*
+  ```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+1. Videz le cache :
+
+  ```shell
+  dnf clean all --enablerepo=*
+  ```
+
+2. Mettez à jour l'ensemble des composants :
+
+  ```shell
+  dnf update centreon\* --exclude=centreon-plugin*
+  ```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+1. Videz le cache :
+
+  ```shell
+  apt clean
+  apt update
+  ```
+
+2. Mettez à jour l'ensemble des composants :
+
+  ```shell
+  apt-get update && apt-mark hold centreon-plugin* && apt-get install --only-upgrade 'centreon*' 
+  ```
+
+</TabItem>
+</Tabs>
+
+  > Acceptez les nouvelles clés GPG des dépôts si nécessaire.
+
+3. Déployez la configuration du collecteur depuis l'interface web en suivant [cette
+procédure](../monitoring/monitoring-servers/deploying-a-configuration.md), et
+en choisissant la méthode **Redémarrer** pour le processus Engine.
+
+4. Redémarrez enfin le service Gorgone s'il est utilisé sur le collecteur :
+
+  ```shell
+  systemctl restart centengine gorgoned
+  ```
+
+5. Exécutez la commande suivante :
+
+<Tabs groupId="os">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+Rien à faire pour cet OS.
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Rien à faire pour cet OS.
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+  ```shell
+  apt-mark unhold centreon-plugin*
+  ```
+
+</TabItem>
+</Tabs>
+
+<!-- Votre collecteur doit toujours avoir la dernière version disponible (c'est-à-dire la dernière version mineure de la dernière version majeure).
 
 * Si votre collecteur a déjà la dernière version majeure mais pas la dernière version mineure, effectuer cette procédure le mettra à jour vers la dernière version mineure. Exemple : si la dernière version est 23.10.y et que votre collecteur est en 23.10.x, alors il sera mis à jour vers la version 23.10.y.
 * Si votre collecteur a une version autre que la dernière version majeure, effectuer cette procédure ne le mettra pas à jour vers la dernière version mineure de cette version majeure. Le collecteur sera mis à niveau vers la dernière version majeure disponible (par exemple, il sera mis à niveau de la 23.04.x à la 23.10.y).
@@ -30,3 +118,4 @@ en choisissant la méthode **Redémarrer** pour le processus Engine.
   ```shell
   systemctl restart gorgoned
   ```
+ -->
