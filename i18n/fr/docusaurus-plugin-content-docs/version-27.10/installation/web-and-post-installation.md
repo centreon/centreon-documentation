@@ -56,6 +56,7 @@ Puis cliquez sur **Next**.
 Fournissez les informations de connexion à l'instance de base de données.
 
 - **Database Host Address** : si vous utilisez une base de données locale, laissez ce champ vide (la valeur par défaut étant **localhost**). Sinon, renseignez l'adresse IP de votre base de données déportée.
+   > Si vous avez [configuré TLS](./installation-of-a-central-server/using-packages.md#étape-3--mettre-en-place-la-configuration-tls) pour une base de données locale, saisissez **127.0.0.1** au lieu de laisser le champ vide. Sinon, la connexion échoue avec le message « Cannot connect to MySQL using SSL ».
 - **Root user/password** : ce compte sera utilisé pour installer les bases de données.
    - S'il s'agit du compte par défaut (**root**), le mot de passe root de la base de données est [celui que vous avez défini](./installation-of-a-central-server/using-packages.md#étape-2--installer-le-serveur-central-et-la-base-de-données) lorsque vous avez exécuté `mysql_secure_installation`/`mariadb-secure-installation`.
    - Si vous avez défini un utilisateur dédié avec des privilèges root sur toutes les bases, (par exemple pendant [l'installation d'une base de donnée déportée](../installation/installation-of-a-central-server/using-packages.md#étape-2--installer-le-serveur-central-et-la-base-de-données)), utilisez celui-ci. Cet utilisateur pourra être supprimé une fois l'installation web terminée.
