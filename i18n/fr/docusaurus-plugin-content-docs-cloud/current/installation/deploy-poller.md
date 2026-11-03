@@ -10,14 +10,14 @@ Une commande personnalisée pour installer un collecteur sur une machine virtuel
 
 ## Prérequis
 
-* La machine sur laquelle vous allez installer le collecteur doit satisfaire les [prérequis d'installation d'un collecteur](../prerequisites.md#dimensionnement-dun-collecteur).
+* La machine sur laquelle vous allez installer le collecteur doit satisfaire les [prérequis d'installation d'un collecteur](prerequisites.md).
 * Vous devez disposer d'un jeton d'authentification de type collecteur (les plateformes Cloud en ont un par défaut, appelé **poller-default**).
 
 ## Étape 1 : Générer la commande d'installation
 
 1. Sur l'interface du serveur central, cliquez sur la zone des collecteurs en haut à gauche de l'écran puis sur **Créer un collecteur**.
 
-   ![image](../../assets/installation/create-poller-banner.png)
+   ![image](../assets/installation/create-poller-banner.png)
 
 2. Remplissez le formulaire avec les informations concernant le collecteur :
 
