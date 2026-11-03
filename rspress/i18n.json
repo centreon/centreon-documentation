@@ -28,5 +28,9 @@
   "promptCopyText": { "en": "Copy prompt", "fr": "Copier le prompt" },
   "promptCopiedText": { "en": "Copied", "fr": "Copié" },
   "promptExpandText": { "en": "Expand", "fr": "Développer" },
-  "promptCollapseText": { "en": "Collapse", "fr": "Réduire" }
+  "promptCollapseText": { "en": "Collapse", "fr": "Réduire" },
+  "errorTitleText": { "en": "Something went wrong", "fr": "Une erreur est survenue" },
+  "errorDescriptionText": { "en": "This page could not be loaded. Try reloading it or return to the home page.", "fr": "Impossible de charger cette page. Rechargez-la ou revenez à la page d'accueil." },
+  "reloadPageText": { "en": "Reload page", "fr": "Recharger la page" },
+  "errorDetailsText": { "en": "Error details", "fr": "Détails de l'erreur" }
 }

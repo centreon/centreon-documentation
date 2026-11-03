@@ -65,6 +65,9 @@ export default defineConfig({
     versions: ['26.10', '25.10'],
   },
   siteOrigin: 'https://docs.centreon.com',
+  // On by default since rspress 2.1: llms-full.txt (77 MB) exceeds Cloudflare Pages'
+  // 25 MiB file limit, and SSG-MD adds a third compilation to the build.
+  llms: false,
   // Built-in image zoom; its overlay uses --rp-c-bg (white / Centreon navy), like Docusaurus.
   mediumZoom: { options: { margin: 24 } },
   plugins: [
@@ -85,8 +88,9 @@ export default defineConfig({
       checkDeadLinks: {
         excludes: (url) => DOWNLOAD_LINK.test(url) || KNOWN_DEAD_LINKS.includes(url),
       },
-      // No anchor check: rspress misses headings nested in JSX (Tabs), which
-      // would report false positives across the docs.
+      // On by default since rspress 2.1, but it misses headings nested in JSX
+      // (Tabs) and would report false positives across the docs.
+      checkAnchors: false,
     },
     image: {
       // Skip dead-image verification on preview builds for speed; keep it on for

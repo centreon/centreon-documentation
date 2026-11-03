@@ -94,3 +94,11 @@
   opacity: 1;
 }
 
+
+/* rspress 2.1.0 (web-infra-dev/rspress#3777): wrap long labels. */
+.rp-sidebar-item__left {
+  overflow-wrap: anywhere;
+}
+.rp-sidebar-item__left > .rp-doc code {
+  overflow-wrap: anywhere;
+}

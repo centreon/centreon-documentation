@@ -37,3 +37,8 @@
   display: flex;
 }
 
+
+/* rspress 2.1.0 (web-infra-dev/rspress#3777): wrap long section headers. */
+.rp-sidebar-section-header__left {
+  overflow-wrap: anywhere;
+}
