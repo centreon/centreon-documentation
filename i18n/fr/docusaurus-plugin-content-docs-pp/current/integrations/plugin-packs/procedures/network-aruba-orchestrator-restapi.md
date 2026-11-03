@@ -374,3 +374,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=appliances \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.10](../releases/release-notes.md#2022-10) - New connector: New Pack monitoring the orchestrator using its restapi.

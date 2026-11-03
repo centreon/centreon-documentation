@@ -11,6 +11,7 @@ import TabItem from '@theme/TabItem';
 Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Veeam NSClient API** 
 depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
 * [Base Pack](./base-generic.md)
+* [Windows NSClient API](./operatingsystems-windows-nsclient-05-restapi.md)
 
 ## Contenu du pack
 
@@ -26,11 +27,13 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Veeam-NSClient-05-Restapi-custom" label="App-Veeam-NSClient-05-Restapi-custom">
 
-| Alias      | Modèle de service                              | Description                                                   |
-|:-----------|:-----------------------------------------------|:--------------------------------------------------------------|
-| Job-Status | App-Veeam-Job-Status-NSClient05-Restapi-custom | Contrôle permettant de vérifier l'état des jobs de sauvegarde |
+| Alias      | Modèle de service                              | Description                                                   | Découverte |
+|:-----------|:-----------------------------------------------|:--------------------------------------------------------------|:----------:|
+| Job-Status | App-Veeam-Job-Status-NSClient05-Restapi-custom | Contrôle permettant de vérifier l'état des jobs de sauvegarde | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Veeam-NSClient-05-Restapi-custom** est utilisé.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -46,6 +49,17 @@ Le connecteur apporte les modèles de service suivants
 
 </TabItem>
 </Tabs>
+
+### Règles de découverte
+
+#### Découverte de services
+
+| Nom de la règle                       | Description       |
+|:--------------------------------------|:------------------|
+| App-Veeam-NSClient05-Restapi-Job-Name | Découvre les Jobs |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
@@ -551,3 +565,17 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=query \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed `job-type` and `session` values in **job-status** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Enhanced message displayed when using wrong powershell version with veeam 13.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed Veeam job retrieval in **job-status** mode.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed warnings about uninitialized values in **job-status** mode.
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed a regression causing an "Undefined subroutine" error.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: This connector is now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). A breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Improved execution time in **job-status** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Added Veeam Agent compatibility for job monitoring in **job-status** mode.

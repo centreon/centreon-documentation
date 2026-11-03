@@ -586,3 +586,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage \
 	--help
 ```
+
+## Changelog
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Colubris-SNMP-Memory** and **Net-Colubris-SNMP-Load** commands. Also fixed plugin to support options from **Net-Colubris-SNMP-Load** command.

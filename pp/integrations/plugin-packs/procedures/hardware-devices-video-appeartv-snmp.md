@@ -347,3 +347,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=alarms \
 	--help
 ```
+
+## Changelog
+
+- [24.12](../releases/release-notes.md#2024-12) - New connector: Initial release of AppearTV SNMP.

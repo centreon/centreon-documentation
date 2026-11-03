@@ -1,7 +1,7 @@
 ---
 id: network-data
 title: Network Data
-description: Introduction to the Network Data module's ping-based checks
+description: "Network Data tracks your website's responsiveness over time with a probe that sends regular ICMP and TCP pings, and measures response latency."
 ---
 
 The **Network Data** module allows for an overview of the site's responsiveness over time using a network probe that regularly pings the site.

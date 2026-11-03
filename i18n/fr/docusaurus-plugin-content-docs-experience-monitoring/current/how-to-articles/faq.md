@@ -1,7 +1,7 @@
 ﻿---
 id: faq
 title: FAQ agents
-description: Ports de pare-feu et adresses IP requis pour l'agent de supervision
+description: "Réponses aux questions fréquentes sur l'agent : ports de pare-feu et adresses IP, instances Redis ou Varnish multiples, serveurs partagés et sécurité."
 ---
 
 ## Quels ports du pare-feu doivent être ouverts pour l'agent Experience Monitoring ?

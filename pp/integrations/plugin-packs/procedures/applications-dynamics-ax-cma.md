@@ -449,3 +449,7 @@ CRITICAL= 0
 
 Please find the troubleshooting documentation for the API-based plugins in
 this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks) if you cannot find the solution to your issue below.
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - New connector: Initial release.

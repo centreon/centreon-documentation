@@ -577,3 +577,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=requests \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed an issue in metric configuration in **namespaces** mode.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

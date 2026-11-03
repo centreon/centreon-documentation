@@ -643,3 +643,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
     --help
 ```
+
+## Changelog
+
+- [24.08](../releases/release-notes.md#2024-08) - Bug fix: Fixed the plugin's packaging.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added swap monitoring.
+- [23.04](../releases/release-notes.md#2023-04) - New connector: Initial release.

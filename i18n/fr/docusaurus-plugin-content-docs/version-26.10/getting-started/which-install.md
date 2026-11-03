@@ -12,8 +12,10 @@ Centreon propose plusieurs modes d'installation. Lequel choisir ?
 
 ## Pour installer Centreon en production
 
-- À partir des [paquets RPM ou DEB](../installation/installation-of-a-central-server/using-packages.md) : si vous avez déjà
-  l'OS et vous souhaitez juste installer Centreon. Voir la [liste des OS supportés par Centreon](../installation/compatibility.md#système-dexploitation).
+Si vous avez déjà l'OS et vous souhaitez juste installer Centreon, utilisez l'une de ces solutions :
+
+* [Installation silencieuse](../installation/installation-of-a-central-server/unattended.md), réalisée par un script.
+* À partir des [paquets RPM ou DEB](../installation/installation-of-a-central-server/using-packages.md) : . Voir la [liste des OS supportés par Centreon](../installation/compatibility.md#système-dexploitation).
 
 ## Voir aussi
 

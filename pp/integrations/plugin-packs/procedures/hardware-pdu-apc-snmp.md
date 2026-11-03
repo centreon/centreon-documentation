@@ -517,3 +517,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=outlet \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added **NTP** and **uptime** service templates.

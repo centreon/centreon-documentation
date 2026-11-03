@@ -1,7 +1,7 @@
 ﻿---
 id: load-tests
 title: Les tests de montée en charge
-description: Introduction à la simulation de trafic important avec les tests de montée en charge
+description: "Les tests de montée en charge simulent un trafic intense sur votre site pour évaluer sa tenue face à de nombreux utilisateurs et repérer les congestions."
 ---
 
 Les **Tests de montée en Charge** génèrent un trafic intense sur votre site afin d'évaluer sa réponse.

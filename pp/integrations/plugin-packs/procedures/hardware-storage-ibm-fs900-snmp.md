@@ -477,3 +477,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=fc-usage \
 	--help
 ```
+
+## Changelog
+
+- [25.04](../releases/release-notes.md#2025-04) - Bug fix: Fixed wrong default value for CRITICALSTATUS in **arrays-status** template.

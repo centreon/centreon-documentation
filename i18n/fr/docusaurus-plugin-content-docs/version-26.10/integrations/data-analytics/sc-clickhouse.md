@@ -67,31 +67,6 @@ PRIMARY KEY (timestamp, host, service, metric_name, metric_id)
 Faites l'installation sur le serveur qui enverra les données à Clickhouse (serveur central, serveur distant, collecteur).
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-1. Connectez-vous en tant que `root` en utilisant votre client SSH préféré.
-
-2. Installez le dépôt **Epel**.
-
-```shell
-dnf install epel-release
-```
-
-3. Installez les modules lua Centreon.
-
-```shell
-dnf install centreon-stream-connectors-lib
-```
-
-4. Téléchargez le stream connector Clickhouse :
-
-```shell
-wget -O /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/develop/centreon-certified/clickhouse/clickhouse-metrics-apiv2.lua
-chmod 644 /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 1. Connectez-vous en tant que `root` en utilisant votre client SSH préféré.
@@ -117,7 +92,32 @@ chmod 644 /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+1. Connectez-vous en tant que `root` en utilisant votre client SSH préféré.
+
+2. Installez le dépôt **Epel**.
+
+```shell
+dnf install epel-release
+```
+
+3. Installez les modules lua Centreon.
+
+```shell
+dnf install centreon-stream-connectors-lib
+```
+
+4. Téléchargez le stream connector Clickhouse :
+
+```shell
+wget -O /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua https://raw.githubusercontent.com/centreon/centreon-stream-connector-scripts/develop/centreon-certified/clickhouse/clickhouse-metrics-apiv2.lua
+chmod 644 /usr/share/centreon-broker/lua/clickhouse-metrics-apiv2.lua
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 1. Connectez-vous en tant que `root` en utilisant votre client SSH préféré.
 

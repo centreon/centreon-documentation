@@ -1,0 +1,16 @@
+---
+id: introduction
+title: Introduction
+description: "Présentation des API disponibles pour la configuration et les données temps réel"
+---
+
+Centreon met à disposition plusieurs API pour manipuler ou récupérer la
+configuration ou des données temps réel.
+
+En fonction du type de script ou de vos besoins d'*automation*, vous pouvez
+choisir parmis les documentations suivantes :
+
+- [API en ligne de commande (CLAPI)](clapi.md) pour gérer la configuration
+- [Rest API (v1)](rest-api-v1.md) pour gérer la configuration ou [Rest API
+  (v2)](rest-api-v2.md) pour gérer la configuration et les données temps réel
+- [MAP API](map-api.md) pour automatiser la création et gestion de maps à l'aide de notre API.

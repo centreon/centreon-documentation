@@ -405,3 +405,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=mail \
 	--help
 ```
+
+## Changelog
+
+- [25.02](../releases/release-notes.md#2025-02) - Bug fix: Fixed host macros typo.

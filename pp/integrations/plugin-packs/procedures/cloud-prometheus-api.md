@@ -567,3 +567,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=target-status \
 	--help
 ```
+
+## Changelog
+
+- [26.10](../releases/release-notes.md#2026-10) - Bug fix: Fixed missing `query` option in the **Cloud-Prometheus-Api-Expression** service.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added discovery rule for Prometheus targets.

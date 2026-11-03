@@ -1,7 +1,7 @@
 ---
 id: opentelemetry-collector
 title: How an OpenTelemetry collector works
-description: How OpenTelemetry collectors receive, process, and export logs
+description: "How an OpenTelemetry collector receives, processes and exports logs to Centreon Log Management, how to set up its pipeline, and when to use gateway mode."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: notifications
 title: Paramétrer des notifications
-description: Configurer des canaux de notification par webhook pour les évènements d'alerte
+description: "Envoyez des notifications par webhook vers des outils comme Slack quand une règle d'alerte génère un évènement : créez un canal et liez-le à vos règles."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

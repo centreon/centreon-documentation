@@ -710,3 +710,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added service cluster.

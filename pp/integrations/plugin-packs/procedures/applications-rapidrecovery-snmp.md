@@ -387,3 +387,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=repository \
 	--help
 ```
+
+## Changelog
+
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed typo in commands for the **repository** and **agent** modes.

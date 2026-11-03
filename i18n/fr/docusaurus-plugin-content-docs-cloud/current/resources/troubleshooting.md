@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Dépanner Centreon Cloud
-description: "Liste des liens vers les ressources de dépannage dans la documentation Centreon Cloud"
+description: "Liste des rubriques de dépannage de la documentation Centreon Cloud (agent CMA, collecteurs, licences, problèmes connus) et lien vers la base The Watch"
 ---
 
 Cette page répertorie les rubriques de dépannage disponibles dans cette documentation. Cliquez sur un élément pour accéder à un contenu plus détaillé.
@@ -14,6 +14,6 @@ Cette page répertorie les rubriques de dépannage disponibles dans cette docume
 | [Problèmes connus sur Centreon Cloud](../resources/known-issues.md) | Problèmes connus sur : la gestion des accès aux ressources, les notifications (exceptions de périodes temporelles), la configuration (Stream Connectors, services en doublon, déploiement des services, collecteur par défaut, Business Activities), la connexion (bouton OpenID Connect) |
 | [Problèmes connus dans MAP](../graph-views/map-web-known-issues.md) | 3 problèmes connus : services de détection d'anomalies indisponibles dans les vues, migration des Geo Maps sans tuiles, couleurs de courbes instables |
 
-## Sur notre platforme communautaire The Watch
+## Sur notre plateforme communautaire The Watch
 
 * Retrouvez [plus d'articles de dépannage](https://thewatch.centreon.com/troubleshooting-41) dans notre base de connaissances.

@@ -381,3 +381,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=response-time  \
 	--help
 ```
+
+## Changelog
+
+- [23.05](../releases/release-notes.md#2023-05) - Enhancement: Added a TCP-based host template.
+- [22.06](../releases/release-notes.md#2022-06) - Breaking change: Renamed response-time to Connection-Status and add new service Response-Time.

@@ -821,3 +821,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=signal \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: New LTE service template.
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added new **lte-interfaces** mode and service discovery rules for **list-interfaces** and **list-lte-interfaces**, from a [The Watch idea](https://thewatch.centreon.com/ideas/mikrotik-lte-signal-strength-support-2579).
+- [25.02](../releases/release-notes.md#2025-02) - Bug fix: Fixed **Interfaces** service template that had too many default macros.
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Remove wrong options from the uptime command.
