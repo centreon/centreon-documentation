@@ -1,7 +1,7 @@
 ---
 id: rust-collections
 title: Rust Collections (experimental)
-description: "Create new SNMP monitoring features with the experimental Rust SNMP plugin by writing a JSON collection (collect, compute, output), not a Perl plugin."
+description: "Create new SNMP monitoring features with the experimental Rust SNMP plugin by writing a JSON file (collect, compute, output), not a Perl plugin."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
