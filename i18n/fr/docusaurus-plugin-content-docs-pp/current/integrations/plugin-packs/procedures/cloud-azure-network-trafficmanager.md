@@ -445,3 +445,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=queries \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

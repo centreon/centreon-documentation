@@ -1,7 +1,7 @@
 ---
 id: custom-views
 title: Custom views (legacy)
-description: "How to create, edit, share, and rotate legacy Custom Views dashboards built with widgets"
+description: "How to create, edit, and share legacy custom views built with widgets, rearrange widgets, set a default view, and configure the rotation of views"
 ---
 
 > Please note that the **Custom views** page will no longer be available on new installations.

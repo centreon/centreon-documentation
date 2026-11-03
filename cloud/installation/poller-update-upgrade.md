@@ -1,7 +1,7 @@
 ---
 id: poller-update-upgrade
 title: Updating/upgrading a poller
-description: "How to update or upgrade a poller to the latest minor or major version using the install command"
+description: "How to update or upgrade a poller to the latest minor or major version using the install command, then deploy its configuration and restart Gorgone"
 ---
 
 import Tabs from '@theme/Tabs';

@@ -190,26 +190,26 @@ cliquez sur **Add**.
 
 ![image](../assets/alerts/03metaservicedependance.png)
 
-Deux types de méta-services : Un méta-service est dit maître s'il
-contrôle l'exécution et la notification d'autres méta-services (dit
+Deux types de métaservices : Un métaservice est dit maître s'il
+contrôle l'exécution et la notification d'autres métaservices (dit
 dépendants).
 
 -   Les champs **Name** et **Description** indiquent le nom et la
     description de la dépendance
 -   Le champ **Parent relationship** est à ignorer si vous utilisez
     Centreon Engine. S'il est activé, alors si les liens de dépendances
-    du méta-service maître deviennent indisponibles la dépendance en
+    du métaservice maître deviennent indisponibles la dépendance en
     cours de création n'est plus prise en compte.
 -   Le champ **Execution Failure Criteria** indique quels sont les
-    statuts du ou des méta-services maîtres qui empêcheront la
-    vérification des méta-services dépendants
+    statuts du ou des métaservices maîtres qui empêcheront la
+    vérification des métaservices dépendants
 -   Le champ **Notification Failure Criteria** indique quels sont les
-    statuts du ou des méta-services qui empêcheront l'envoi de
-    notifications pour des méta-services dépendants
--   La liste **Meta-service name** définie le (ou les) méta-service(s)
+    statuts du ou des métaservices qui empêcheront l'envoi de
+    notifications pour des métaservices dépendants
+-   La liste **Meta-service name** définie le (ou les) métaservice(s)
     maître(s)
 -   La liste **Dependent meta-service** définie le (ou les)
-    méta-service(s) dépendant(s)
+    métaservice(s) dépendant(s)
 -   Le champ **Comments** permet de commenter la dépendance
 
 ## Exemples

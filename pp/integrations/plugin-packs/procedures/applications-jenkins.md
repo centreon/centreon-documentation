@@ -330,3 +330,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=jobs \
 	--help
 ```
+
+## Changelog
+
+- [23.02](../releases/release-notes.md#2023-02) - Breaking change: Changed service name and options.

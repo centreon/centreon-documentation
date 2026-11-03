@@ -32,13 +32,6 @@ GRANT SELECT ON *.* TO 'username'@'IP_POLLER';
 Install the following plugin on the poller that will monitor your database:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-plugin-Applications-Databases-Mysql
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -46,7 +39,14 @@ dnf install centreon-plugin-Applications-Databases-Mysql
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-plugin-Applications-Databases-Mysql
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-plugin-applications-databases-mysql

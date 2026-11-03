@@ -371,3 +371,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage-pools \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Added API pagination.

@@ -1,7 +1,7 @@
 ﻿---
 id: log-explorer
 title: Utiliser Log explorer
-description: Rechercher et filtrer les logs dans Log explorer pour analyser les causes profondes
+description: "Recherchez et filtrez les logs dans Log explorer pour trouver la cause d'un incident, affichez leur détail, enregistrez des vues et générez des résumés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

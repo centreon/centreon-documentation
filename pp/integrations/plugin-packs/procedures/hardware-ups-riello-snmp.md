@@ -430,3 +430,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=output-lines \
 	--help
 ```
+
+## Changelog
+
+- [23.03](../releases/release-notes.md#2023-03) - New connector: Initial release.

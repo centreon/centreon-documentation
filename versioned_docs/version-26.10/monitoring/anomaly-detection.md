@@ -56,13 +56,6 @@ To use Anomaly Detection, you will need:
 Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-anomaly-detection
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -70,7 +63,14 @@ dnf install centreon-anomaly-detection
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-anomaly-detection
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt update && apt install centreon-anomaly-detection

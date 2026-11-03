@@ -451,3 +451,10 @@ All available options for a given mode can be displayed by adding the
 	--mode=get-metrics \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Combined two filters in **listmetrics** mode, from community contribution (PR [#4743](https://github.com/centreon/centreon-plugins/pull/4743)).
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed **get-alarms** mode to handle multiple alarms (issue [#5731](https://github.com/centreon/centreon-plugins/issues/5731)).
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed an issue with the `zeroed` option, occurring when metrics were empty in **get-metrics** mode.

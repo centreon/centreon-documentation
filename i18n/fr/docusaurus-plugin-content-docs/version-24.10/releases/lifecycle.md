@@ -37,11 +37,11 @@ version.
 
 Le cycle de vie d'une version est divisé en 3 phases :
 
-1. Première phase : bogues de toute criticité (minor, major, critical, blocking) et correction de sécurité seront traités par priorité. Des améliorations fonctionnelles seront ajoutées.
-2. Seconde phase : bogues et correction de sécurité de criticité major, critical et blocking seront traités par priorité.
-3. Troisième phase : bogues et correction de sécurité de criticité blocking seront traités par priorité.
+1. Première phase : bugs de toute criticité (minor, major, critical, blocking) et correction de sécurité seront traités par priorité. Des améliorations fonctionnelles seront ajoutées.
+2. Seconde phase : bugs et correction de sécurité de criticité major, critical et blocking seront traités par priorité.
+3. Troisième phase : bugs bloquants et correction de sécurité seront traités par priorité. Une vulnérabilité dont le délai de remédiation dépasse la date de fin de support de la version n'est pas corrigée sur cette version: passez à une version supportée pour bénéficier du correctif.
 
-> La priorisation des bogues est faite par l'équipe produit Centreon.
+> Les vulnérabilités sont traitées selon un [plan de remédiation CVSS v3](../security/security.md#notation-des-vulnérabilités). Les bugs sont priorisés par l'équipe Produit Centreon.
 
 La première phase du cycle de vie commence le jour de la sortie de la version.
 
@@ -70,14 +70,13 @@ version.
 
 Jusqu'à la version 21.04 incluse, les versions étaient supportées pendant 18 mois. Le cycle de vie d'une version est divisé en 3 phases :
 
-1.  Première phase : bogues de toute criticité (minor, major, critical,
+1.  Première phase : bugs de toute criticité (minor, major, critical,
     blocking) et correction de sécurité seront traités par priorité
-2.  Seconde phase : bogues et correction de sécurité de criticité major,
+2.  Seconde phase : bugs et correction de sécurité de criticité major,
     critical et blocking seront traités par priorité.
 3. Troisième phase : bogues et correction de sécurité de criticité blocking seront traités par priorité.
 
 > La priorisation des bogues est faite par l'équipe produit
-> Centreon.
 
 La première phase du cycle de vie commence le jour de la sortie de la version.
 
@@ -93,13 +92,12 @@ troisième phase de Centreon 20.04 et la deuxième phase de Centreon 20.10.
 
 À partir de la version 21.10, les versions sont supportées pendant 2 ans. Le cycle de vie d'une version est divisé en 2 phases de douze mois chacune.
 
-1.  Première phase : bogues de toute criticité (minor, major, critical,
+1.  Première phase : bugs de toute criticité (minor, major, critical,
     blocking) et correction de sécurité seront traités par priorité
-2.  Seconde phase : bogues et correction de sécurité de criticité major,
+2.  Seconde phase : bugs et correction de sécurité de criticité major,
     critical et blocking seront traités par priorité.
 
-> La priorisation des bogues est faite par l'équipe produit
-> Centreon.
+> La priorisation des bogues est faite par l'équipe produit Centreon.
 
 ### Schéma
 

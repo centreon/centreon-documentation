@@ -706,13 +706,13 @@ This procedure is to ensure that the configuration file can be used for both MAP
    systemctl restart mariadb
    ```
 
-When installing Centreon MAP Engine server, it will automatically install java
+When installing Centreon MAP Engine server, it will automatically install Java
 (OpenJDK 17) if needed.
 
 > Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-engine from being installed](./map-web-troubleshooting.md#centreon-map-engine-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
 
 #### Java requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  > Ensure OpenJDK 17 is installed before you start the procedure. It is automatically installed with the centreon-map-engine package if not already present.
   
   - If you need to check the Java version, enter the following command:
   
@@ -720,14 +720,14 @@ When installing Centreon MAP Engine server, it will automatically install java
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+  - If you need to install or upgrade to OpenJDK 17, use your distribution's package manager (e.g. `dnf install java-17-openjdk` on Alma/RHEL/Oracle Linux, `apt install openjdk-17-jdk` on Debian). If you specifically need Oracle JDK instead of OpenJDK, go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 version:
   ```shell
   sudo update-alternatives --config java
   ```
   
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
@@ -822,13 +822,13 @@ This procedure is to ensure that the configuration file can be used for both MAP
    systemctl restart mysql
    ```
 
-When installing Centreon MAP Engine server, it will automatically install java
+When installing Centreon MAP Engine server, it will automatically install Java
 (OpenJDK 17) if needed.
 
 > Go to this troubleshooting procedure if OpenJDK 17 causes an issue [preventing centreon-map-engine from being installed](./map-web-troubleshooting.md#centreon-map-engine-and-all-its-dependencies-cannot-get-installed-on-alma-linux-8).
 
 #### Java requirement
-  > Ensure a version of Java 17 (or 18) is installed before you start the procedure.
+  > Ensure OpenJDK 17 is installed before you start the procedure. It is automatically installed with the centreon-map-engine package if not already present.
   
   - If you need to check the Java version, enter the following command:
   
@@ -836,14 +836,14 @@ When installing Centreon MAP Engine server, it will automatically install java
   java -version
   ```
   
-  - If you need to upgrade the Java installation to Java 17 (or 18), go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
+  - If you need to install or upgrade to OpenJDK 17, use your distribution's package manager (e.g. `dnf install java-17-openjdk` on Alma/RHEL/Oracle Linux, `apt install openjdk-17-jdk` on Debian). If you specifically need Oracle JDK instead of OpenJDK, go to the [Oracle official download](https://www.oracle.com/java/technologies/downloads/#java17) page.
 
-  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 (or 18) version:
+  - If several Java versions are installed, you need to activate the right version. Display the installed versions using the following command and select the Java 17 version:
   ```shell
   sudo update-alternatives --config java
   ```
   
-  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 (or 18) version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
+  - If you need to use your platform in HTTPS, you will have to generate a keystore file for the Java 17 version ([see the procedure](./secure-your-map-platform.md#httpstls-configuration-with-a-recognized-key)).
 
 </TabItem>
 </Tabs>

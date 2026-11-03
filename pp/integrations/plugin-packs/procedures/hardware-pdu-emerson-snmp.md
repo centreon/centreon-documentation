@@ -444,3 +444,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=receptacles \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **Receptacles** command.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **HW-Pdu-Emerson-SNMP-Receptacles** command.

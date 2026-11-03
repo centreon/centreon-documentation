@@ -1,7 +1,7 @@
 ---
 id: ticketing-advanced-mapping
 title: Mapping des arguments
-description: "Comment configurer le mapping des arguments, les lists et les custom list definitions de la popup Open Tickets"
+description: "Comment configurer les sections Mapping ticket arguments, Lists et Custom list definition qui définissent les champs de la popup Open Tickets"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

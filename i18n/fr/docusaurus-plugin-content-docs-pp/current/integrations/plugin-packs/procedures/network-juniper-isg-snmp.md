@@ -539,3 +539,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: The **hardware** mode no longer returns an UNKNOWN state for fans in a failed state.

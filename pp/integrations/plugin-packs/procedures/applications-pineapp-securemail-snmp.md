@@ -385,3 +385,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=system \
 	--help
 ```
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Added new Pineapp Secure mail Pack.

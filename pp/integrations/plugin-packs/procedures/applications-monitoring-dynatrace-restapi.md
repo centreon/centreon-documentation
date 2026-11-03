@@ -448,3 +448,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=apdex \
 	--help
 ```
+
+## Changelog
+
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Enhanced Dynatrace Restapi Packs with new services and new metrics.

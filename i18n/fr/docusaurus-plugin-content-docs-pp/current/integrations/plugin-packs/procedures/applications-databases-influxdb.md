@@ -520,3 +520,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=write-statistics \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.10](../releases/release-notes.md#2025-10) - Bug fix: Fixed an error in **query** mode command.
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed a bug causing unknown status with "uninitialized values" when running multiple queries.
