@@ -206,7 +206,7 @@ L'option `--with-cma` ajoute les éléments suivants au service `centengine` dan
 
 Générez ensuite les certificats TLS correspondants et configurez le côté agent en suivant les pages
 [Configurer les certificats](../cma/cma-certificates.md) et
-[Configurer l'environnement de l'agent](..cma/cma-setup.md).
+[Configurer l'environnement de l'agent](../cma/cma-setup.md).
 
 <!--
 Fichier écrit : _translation/versioned_docs/version-26.10/installation/installation-of-a-poller/using-containers-advanced-configuration.md
