@@ -160,6 +160,11 @@ export default defineConfig({
       },
     },
     performance: {
+      // The search index depends on PREVIEW_BUILD (code blocks) but its hash
+      // module is cached by Markdown dependencies only: key the cache on it.
+      buildCache: {
+        cacheDigest: [process.env.PREVIEW_BUILD],
+      },
       // Skip the per-asset gzip-size computation at the end of the build
       // (costly across thousands of files, no functional impact).
       printFileSize: {
