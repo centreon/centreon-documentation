@@ -1055,7 +1055,11 @@ Sur Debian/Ubuntu, remplacez `dnf update` par `apt-get update && apt-get upgrade
    * **Mise à jour** : permet de mettre à jour à la fois les binaires et la configuration. Sélectionnez l'instance à mettre à jour — les champs de configuration sont pré-remplis avec les valeurs actuelles et peuvent être modifiés.
 2. Sélectionnez **Mise à jour**, choisissez l'instance à mettre à jour, ajustez la configuration si nécessaire, et terminez l'assistant.
 
-Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent, décochez l'agent dans la liste des composants (binaires) et laissez uniquement **Plugins** coché avant de terminer l'assistant.
+Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent :
+
+1. Arrêtez d'abord le service de l'agent (par exemple depuis la console **Services** de Windows, ou avec `net stop "ServiceName"` dans une invite de commande lancée en tant qu'administrateur).
+2. Lancez l'installeur, décochez l'agent dans la liste des composants (binaires) et laissez uniquement **Plugins** coché avant de terminer l'assistant.
+3. Redémarrez le service de l'agent (par exemple `net start "ServiceName"`).
 
 </TabItem>
 <TabItem value="Mode silencieux" label="Mode silencieux (console)">
@@ -1068,10 +1072,12 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATE /AGENTINSTANCE="ServiceNam
 
 Cette commande met à jour les binaires et la configuration de l'instance spécifiée.
 
-Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent, ajoutez `/COMPONENTS=plugins` :
+Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent, arrêtez d'abord le service de l'agent, lancez l'installeur avec `/COMPONENTS=plugins`, puis redémarrez le service :
 
 ```shell
-centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+net stop "ServiceName"
+start /wait centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+net start "ServiceName"
 ```
 
 </TabItem>

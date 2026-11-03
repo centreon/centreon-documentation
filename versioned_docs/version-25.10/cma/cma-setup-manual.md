@@ -1059,7 +1059,11 @@ On Debian/Ubuntu, replace `dnf update` with `apt-get update && apt-get upgrade`.
    * **Update**: allows you to update both the agent binaries and the configuration. Select the instance to update — the configuration fields are pre-filled with the current values and can be modified.
 2. Select **Update**, choose the instance to update, adjust the configuration if needed, and complete the wizard.
 
-To update only the plugins, without updating the agent binaries, uncheck the agent in the list of components (binaries) and leave only **Plugins** checked before completing the wizard.
+To update only the plugins, without updating the agent binaries:
+
+1. Stop the agent service first (e.g. from the Windows **Services** console, or with `net stop "ServiceName"` in a command prompt run as administrator).
+2. Launch the installer, uncheck the agent in the list of components (binaries) and leave only **Plugins** checked before completing the wizard.
+3. Start the agent service again (e.g. `net start "ServiceName"`).
 
 </TabItem>
 <TabItem value="Silent mode" label="Silent mode (console)">
@@ -1072,10 +1076,12 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /AGENTINSTANCE="Servic
 
 This updates both the agent binaries and the configuration of the specified instance.
 
-To update only the plugins, without updating the agent binaries, add `/COMPONENTS=plugins`:
+To update only the plugins, without updating the agent binaries, stop the agent service first, run the installer with `/COMPONENTS=plugins`, then start the service again:
 
 ```shell
-centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+net stop "ServiceName"
+start /wait centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+net start "ServiceName"
 ```
 
 </TabItem>
