@@ -15,6 +15,10 @@ The TLS (1.3) connection is negotiated by the client (poller or agent, depending
 Depending on the connection direction, the agent/the poller checks that the IP/DNS used to reach the server strictly matches the information in the certificate. If this is not the case, the connection is not allowed.
 The verification is performed on the **alt_names** block of the certificate, which may contain several DNS, IP, or CN entries.
 
+> **Important**: In TLS mode, the hostname or IP you declare as the endpoint (the **Poller endpoint**/**endpoint** parameter on the agent side, or the host's address on the poller side) is not only used to open the network connection: it is also the value checked against the certificate's SubjectAltNames (SAN) or CN during the TLS handshake. A successful `telnet`/TCP connectivity test on a given hostname does **not** guarantee that the TLS handshake will succeed with that same hostname — if the value doesn't match any SAN/CN entry in the certificate, the connection will be refused at the TLS layer even though the network path is open.
+>
+> We recommend declaring the endpoint using a value (FQDN or IP) that is actually present in the certificate's SAN list. See [how to generate a self-signed certificate](#how-to-generate-a-self-signed-certificate-optional) for details on how DNS and IP alternative names are declared and taken into account.
+
 ### Certificate files
 
 Supported formats are :

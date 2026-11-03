@@ -28,6 +28,8 @@ When a poller is created, certificates are managed automatically:
 
 If you want to manually configure certificates, the agent configuration, and/or tokens, refer to the [dedicated documentation](cma-setup-manual.md).
 
+> The automatically generated certificate only contains the host name of the poller, not its IP address. In the installation command, the endpoint must therefore be the host name of the poller (resolvable from the host where the agent is installed): if the command proposes the IP address of the poller, replace it with its host name. See [Configuring certificates](cma-certificates.md#how-it-works) for more details.
+
 
 ## Using the installation scripts
 

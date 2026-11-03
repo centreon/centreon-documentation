@@ -27,6 +27,8 @@ A la création d'un collecteur, les certificats sont gérés automatiquement :
 
 Si vous souhaitez configurer manuellement les certificats, la configuration d'agent et/ou les jetons, reportez-vous à le [documentation dédiée](cma-setup-manual.md).
 
+> Le certificat généré automatiquement contient uniquement le nom d'hôte du collecteur, et non son adresse IP. Dans la commande d'installation, l'endpoint doit donc être le nom d'hôte du collecteur (résolvable depuis l'hôte sur lequel l'agent est installé) : si la commande propose l'adresse IP du collecteur, remplacez-la par son nom d'hôte. Voir [Configurer les certificats](cma-certificates.md#principe-de-fonctionnement) pour plus de détails.
+
 
 ## Utilisation des scripts d'installation
 
