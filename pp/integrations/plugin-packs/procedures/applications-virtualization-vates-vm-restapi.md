@@ -108,17 +108,10 @@ dnf install centreon-pack-applications-virtualization-vates-vm-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-pack-applications-virtualization-vates-vm-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-virtualization-vates-vm-restapi
 ```
 
 </TabItem>
@@ -155,17 +148,10 @@ dnf install centreon-plugin-Virtualization-Vates-Vm-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-plugin-virtualization-vates-vm-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Virtualization-Vates-Vm-Restapi
 ```
 
 </TabItem>
@@ -248,7 +234,7 @@ is able to monitor a resource using a command like this one (replace the sample 
 The expected command output is shown below:
 
 ```bash
-OK: CPU usage is 31496 % | 'vm.cpu.usage.percentage'=31496%;;;0;100 
+OK: CPU usage is 31 % | 'vm.cpu.usage.percentage'=31%;;;0;100 
 ```
 
 ### Troubleshooting
@@ -393,3 +379,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu \
 	--help
 ```
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - New connector: Initial release.

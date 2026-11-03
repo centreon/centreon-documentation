@@ -511,3 +511,7 @@ All available options for a given mode can be displayed by adding the
 	--custommode='web' \
 	--help
 ```
+
+## Changelog
+
+- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed an issue that blocked the uninstallation process and a broker command.

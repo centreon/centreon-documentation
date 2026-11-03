@@ -380,3 +380,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=outlets \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added `phase-voltage` metric to **load** mode.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed power value in **load** mode (the value is no longer multiplied by 10).

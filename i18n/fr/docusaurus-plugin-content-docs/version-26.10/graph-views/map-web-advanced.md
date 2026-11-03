@@ -13,7 +13,7 @@ Vous pouvez utiliser les paramètres suivants pour adapter le comportement du ca
 
 Un statut hérité est un statut personnalisé de Centreon MAP associé à certains objets, et qui est basé sur le pire statut de ses enfants. Voici les règles :
 
-- Un hôte a deux statuts : son propre statut (disponible/indisponible/en attente) et un statut hérité qui est basé sur le pire statut de ses services. Pour simplifier la lecture, le statut affiché est le résultat du calcul du pire statut des deux.
+- Un hôte a deux statuts : son propre statut (disponible/indisponible/en attente) et un statut hérité qui est basé sur le pire statut de ses services. Le statut affiché est le pire de ces deux statuts.
 - Un groupe d'hôtes n'a qu'un statut hérité correspondant au pire statut de ses enfants (hôtes, services).
 - Un groupe de services n'a qu'un statut hérité : le pire statut de ses enfants (services).
 - Un conteneur n'a qu'un statut hérité : le pire statut de ses enfants (hôtes, services, métaservices, groupes d'hôtes, groupes de services, BA, widgets).

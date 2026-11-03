@@ -1,7 +1,7 @@
 ﻿---
 id: using-charts
 title: Using graphs
-description: Zoom, filter, annotate, and export Experience Monitoring graphs
+description: "Zoom, filter, annotate, comment on, and export Experience Monitoring graphs, and understand what the red and grey zones on a graph mean."
 ---
 
 A lot of the information gathered by Experience Monitoring is converted into graphs to make it easier to read.

@@ -676,3 +676,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=queues \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed size calculation in edge cases in **database** mode.
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.11](../releases/release-notes.md#2025-11) - New connector: Initial release of Microsoft Exchange CMA.

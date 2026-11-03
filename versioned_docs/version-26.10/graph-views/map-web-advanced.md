@@ -12,7 +12,7 @@ Centreon MAP Engine gives you the possibility to customize how the inherited sta
 
 An inherited status is a Centreon MAP custom status associated with some objects that is based on the worst status of its children. Here are the rules:
 
-- A host has two statuses: its own status (up/down/pending) and an inherited status that is based on the worst status of its services. For more readability, the status displayed is the result of calculating the worst status between the two statuses.
+- A host has two statuses: its own status (up/down/pending) and an inherited status that is based on the worst status of its services. The status displayed is the worse of these two statuses.
 - A hostgroup only has an inherited status corresponding to the worst status of its children (hosts, services).
 - A servicegroup has only an inherited status: the worst status of its children (services).
 - A container has only an inherited status: the worst status of its children (hosts, services, metaservices, hotsgroups, servicegroups, BA, widgets).

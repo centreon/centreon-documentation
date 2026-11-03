@@ -251,3 +251,12 @@ Just select the elements you want to add to the Centreon configuration and click
 ### Troubleshooting
 
 Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md) for Centreon Plugins typical issues.
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Combined two filters in **listmetrics** mode, from community contribution (PR [#4743](https://github.com/centreon/centreon-plugins/pull/4743)).
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.10](../releases/release-notes.md#2023-10) - Bug fix: Added the missing is\_password attribute to the host discovery provider.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed bug with assume-role option.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added unified AWS host discovery and add assume-role support.

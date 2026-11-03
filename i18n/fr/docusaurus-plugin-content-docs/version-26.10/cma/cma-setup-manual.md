@@ -265,7 +265,7 @@ dnf install -y centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 1. Exécutez les commandes suivantes :
 
@@ -1002,7 +1002,7 @@ dnf update centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11 ,12 & 13">
+<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
 
 ```shell
 apt-get update && apt-get upgrade centreon-monitoring-agent
@@ -1024,6 +1024,22 @@ Redémarrez ensuite l'agent :
 systemctl restart centagent
 ```
 
+Cette commande met à jour uniquement l'agent. Les plugins (paquets `centreon-plugin-*`) sont des paquets distincts qui ne sont pas concernés par cette commande.
+
+Pour ne mettre à jour que les plugins, sans toucher à l'agent, utilisez votre gestionnaire de paquets sur le ou les paquets `centreon-plugin-*` concernés, par exemple :
+
+```shell
+dnf update centreon-plugin-Operatingsystems-Linux-Local
+```
+
+Ou, pour mettre à jour tous les plugins Centreon installés sur l'hôte :
+
+```shell
+dnf update 'centreon-plugin-*'
+```
+
+Sur Debian/Ubuntu, remplacez `dnf update` par `apt-get update && apt-get upgrade`. Aucun redémarrage de l'agent n'est nécessaire après une mise à jour des plugins uniquement.
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
@@ -1039,6 +1055,12 @@ systemctl restart centagent
    * **Mise à jour** : permet de mettre à jour à la fois les binaires et la configuration. Sélectionnez l'instance à mettre à jour — les champs de configuration sont pré-remplis avec les valeurs actuelles et peuvent être modifiés.
 2. Sélectionnez **Mise à jour**, choisissez l'instance à mettre à jour, ajustez la configuration si nécessaire, et terminez l'assistant.
 
+Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent :
+
+1. Arrêtez d'abord le service de l'agent (par exemple depuis la console **Services** de Windows, ou avec `net stop "ServiceName"` dans une invite de commande lancée en tant qu'administrateur).
+2. Lancez l'installeur, décochez l'agent dans la liste des composants (binaires) et laissez uniquement **Plugins** coché avant de terminer l'assistant.
+3. Redémarrez le service de l'agent (par exemple `net start "ServiceName"`).
+
 </TabItem>
 <TabItem value="Mode silencieux" label="Mode silencieux (console)">
 
@@ -1050,11 +1072,97 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATE /AGENTINSTANCE="ServiceNam
 
 Cette commande met à jour les binaires et la configuration de l'instance spécifiée.
 
+Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent, arrêtez d'abord le service de l'agent, lancez l'installeur avec `/COMPONENTS=plugins`, puis redémarrez le service :
+
+```shell
+net stop "ServiceName"
+start /wait centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+net start "ServiceName"
+```
+
 </TabItem>
 </Tabs>
 
 </TabItem>
 </Tabs>
+
+### Automatiser la mise à jour
+
+Pour un déploiement à grande échelle, il peut être utile de planifier la mise à jour plutôt que de l'exécuter manuellement sur chaque hôte. Les exemples ci-dessous utilisent cron (Linux) et le Planificateur de tâches (Windows) ; adaptez-les à votre outil de gestion de configuration (Ansible, Puppet, GPO, etc.) si vous gérez un grand nombre d'hôtes.
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+1. Créez un script de mise à jour, par exemple **/usr/local/bin/update-centagent.sh** :
+
+```bash
+#!/bin/bash
+LOGFILE=/var/log/centreon-monitoring-agent/update.log
+{
+  echo "$(date) - Checking for centreon-monitoring-agent updates"
+  if command -v dnf >/dev/null 2>&1; then
+    dnf -y update centreon-monitoring-agent
+  elif command -v apt-get >/dev/null 2>&1; then
+    apt-get update && apt-get -y upgrade centreon-monitoring-agent
+  fi
+  systemctl restart centagent
+  echo "$(date) - Update completed"
+} >> "$LOGFILE" 2>&1
+```
+
+```shell
+chmod 750 /usr/local/bin/update-centagent.sh
+```
+
+2. Planifiez son exécution avec cron, par exemple tous les dimanches à 3 h, en créant **/etc/cron.d/centreon-monitoring-agent-update** :
+
+```
+0 3 * * 0 root /usr/local/bin/update-centagent.sh
+```
+
+> Si plusieurs instances sont déployées sur l'hôte, adaptez le script pour redémarrer chaque service **centagentX**.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+1. Déposez le dernier installer CMA sur un partage de fichiers interne (une exécution silencieuse automatisée ne doit pas dépendre du portail de téléchargement public).
+
+2. Créez un script de mise à jour, par exemple **C:\Scripts\update-centagent.ps1** :
+
+```powershell
+$installer = "\\fileserver\centreon\centreon-monitoring-agent-latest.exe"
+$logFile   = "C:\ProgramData\Centreon\update-centagent.log"
+
+"$(Get-Date) - Starting CMA update" | Out-File -Append $logFile
+Start-Process -FilePath $installer `
+  -ArgumentList "/VERYSILENT","/UPDATEONLY","/AGENTINSTANCE=CentreonMonitoringAgent" `
+  -Wait -PassThru | ForEach-Object {
+    "$(Get-Date) - Installer exited with code $($_.ExitCode)" | Out-File -Append $logFile
+  }
+```
+
+> Si plusieurs instances sont déployées sur l'hôte, répétez l'appel à `Start-Process` pour chaque nom `/AGENTINSTANCE`.
+
+3. Enregistrez une tâche planifiée pour exécuter ce script, par exemple tous les dimanches à 3 h :
+
+```powershell
+$action    = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-ExecutionPolicy Bypass -File C:\Scripts\update-centagent.ps1"
+$trigger   = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 3am
+$principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
+
+Register-ScheduledTask -TaskName "Centreon Monitoring Agent Update" -Action $action -Trigger $trigger -Principal $principal
+```
+
+Vous pouvez également utiliser `schtasks.exe` :
+
+```shell
+schtasks /create /tn "CentreonMonitoringAgentUpdate" /tr "powershell.exe -ExecutionPolicy Bypass -File C:\Scripts\update-centagent.ps1" /sc weekly /d SUN /st 03:00 /ru SYSTEM /rl highest
+```
+
+</TabItem>
+</Tabs>
+
+> La mise à jour redémarre le service de l'agent, ce qui provoque une brève interruption de la supervision. Planifiez-la en dehors des heures critiques pour votre activité, testez-la d'abord sur un groupe pilote d'hôtes, et consultez les notes de version avant de la déployer sur l'ensemble du parc.
 
 ### Désinstaller l'agent
 

@@ -33,13 +33,6 @@ Customizing your Centreon platform required the **Centreon IT Edition Extensions
 Execute the following command to update the extension:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf update centreon-it-edition-extensions
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -47,7 +40,14 @@ dnf update centreon-it-edition-extensions
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf update centreon-it-edition-extensions
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update && apt install --only-upgrade centreon-it-edition-extensions

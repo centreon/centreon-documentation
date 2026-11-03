@@ -1477,3 +1477,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode=api \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added the common system checks from Prometheus node exporter.
+- [25.11](../releases/release-notes.md#2025-11) - New connector: Initial release of HPE Athonet w/ Prometheus API.

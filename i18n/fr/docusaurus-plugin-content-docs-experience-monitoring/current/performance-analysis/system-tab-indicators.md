@@ -1,6 +1,6 @@
 ﻿---
 id: system-tab-indicators
-description: Interpréter les indicateurs d'infrastructure serveur comme la bande passante et la RAM
+description: "Suivez l'état de santé des serveurs hébergeant votre application web (bande passante, RAM, disque, agents d'application) et corrélez-le aux performances."
 title: Comprendre les indicateurs de l’onglet Système
 --- 
 

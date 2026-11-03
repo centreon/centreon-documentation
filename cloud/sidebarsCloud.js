@@ -575,13 +575,17 @@ module.exports = {
         },
         {
           "type": "category",
-          "label": "Guide",
+          "label": "Using MAP",
           "key": "graph-views-guide",
           "link": {
             "type": "generated-index",
             "slug": "graph-views-guide"
           },
           "items": [
+            {
+              "type": "doc",
+              "id": "graph-views/map-best-practices"
+            },
             {
               "type": "doc",
               "id": "graph-views/map-web-access"
@@ -597,13 +601,24 @@ module.exports = {
             {
               "type": "doc",
               "id": "graph-views/map-web-create-geoview"
-            },
+            }
+          ]
+        },
+        {
+          "type": "category",
+          "label": "Fixing MAP issues",
+          "key": "graph-views-fixing-issues",
+          "link": {
+            "type": "generated-index",
+            "slug": "graph-views-fixing-issues"
+          },
+          "items": [
             {
               "type": "doc",
               "id": "graph-views/map-web-known-issues"
             }
           ]
-          }
+        }
         ]
       },
     {

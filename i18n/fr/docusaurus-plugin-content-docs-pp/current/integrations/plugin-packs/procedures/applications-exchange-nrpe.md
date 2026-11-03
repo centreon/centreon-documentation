@@ -708,3 +708,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 /usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::exchange::local::plugin' 'queues'  '  \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed size calculation in edge cases in **database** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed typo for custom perfdata in **databases** mode.

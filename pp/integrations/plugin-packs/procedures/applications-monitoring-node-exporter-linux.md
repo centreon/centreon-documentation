@@ -507,3 +507,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=traffic \
 	--help
 ```
+
+## Changelog
+
+- [22.07](../releases/release-notes.md#2022-07) - New connector: Added Linux Node Exporter Monitoring Pack.

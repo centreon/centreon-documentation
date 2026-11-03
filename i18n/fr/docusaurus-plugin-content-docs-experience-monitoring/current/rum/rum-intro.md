@@ -1,6 +1,6 @@
 ---
 id: rum-intro
-description: Comment le RUM capture 100 % du trafic réel sans échantillonnage
+description: "Le RUM mesure les performances sur 100 % du trafic réel grâce à un tag léger : fonctionnement, différences avec le monitoring synthétique et avantages."
 title: Qu'est-ce que le Real User Monitoring?
 ---
 

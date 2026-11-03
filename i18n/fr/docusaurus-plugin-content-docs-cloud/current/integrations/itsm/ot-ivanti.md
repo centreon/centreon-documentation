@@ -1,6 +1,7 @@
 ---
 id: ot-ivanti
 title: Ivanti
+description: "Comment configurer le fournisseur de tickets Ivanti pour ouvrir et fermer des incidents depuis vos alertes, avec champs personnalisés et tests"
 ---
 
 The Ivanti Open Tickets provider uses the Ivanti server to open incidents about your monitoring alerts.

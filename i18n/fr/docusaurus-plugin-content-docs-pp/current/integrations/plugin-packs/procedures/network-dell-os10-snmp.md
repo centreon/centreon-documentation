@@ -740,3 +740,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Dell-Os10-SNMP-Disk-usage** command.

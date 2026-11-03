@@ -1,7 +1,7 @@
 ---
 id: meta-services
 title: Creating Metaservices
-description: "How to configure a metaservice to aggregate metrics from multiple services using a mathematical operation"
+description: "How to configure a metaservice to aggregate metrics from multiple services using a mathematical operation, by computing type and data source type"
 ---
 
 ## Definition
