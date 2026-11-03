@@ -1,6 +1,7 @@
 ---
 id: cma-setup-manual
 title: Setting up CMA manually
+description: "How to set up the Centreon Monitoring Agent manually: configure Centreon, prepare the poller (firewall, encryption, whitelists), and install the agent"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1034,6 +1035,22 @@ Then restart the agent:
 systemctl restart centagent
 ```
 
+This updates the agent only. Plugins (`centreon-plugin-*` packages) are separate packages that are not affected by this command.
+
+To update only the plugins, without touching the agent, use your package manager on the relevant `centreon-plugin-*` package(s), e.g.:
+
+```shell
+dnf update centreon-plugin-Operatingsystems-Linux-Local
+```
+
+Or, to update all the Centreon plugins installed on the host:
+
+```shell
+dnf update 'centreon-plugin-*'
+```
+
+On Debian/Ubuntu, replace `dnf update` with `apt-get update && apt-get upgrade`. No agent restart is required after updating plugins only.
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
@@ -1049,6 +1066,12 @@ systemctl restart centagent
    * **Update**: allows you to update both the agent binaries and the configuration. Select the instance to update — the configuration fields are pre-filled with the current values and can be modified.
 2. Select **Update**, choose the instance to update, adjust the configuration if needed, and complete the wizard.
 
+To update only the plugins, without updating the agent binaries:
+
+1. Stop the agent service first (e.g. from the Windows **Services** console, or with `net stop "ServiceName"` in a command prompt run as administrator).
+2. Launch the installer, uncheck the agent in the list of components (binaries) and leave only **Plugins** checked before completing the wizard.
+3. Start the agent service again (e.g. `net start "ServiceName"`).
+
 </TabItem>
 <TabItem value="Silent mode" label="Silent mode (console)">
 
@@ -1060,11 +1083,97 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /AGENTINSTANCE="Servic
 
 This updates both the agent binaries and the configuration of the specified instance.
 
+To update only the plugins, without updating the agent binaries, stop the agent service first, run the installer with `/COMPONENTS=plugins`, then start the service again:
+
+```shell
+net stop "ServiceName"
+start /wait centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+net start "ServiceName"
+```
+
 </TabItem>
 </Tabs>
 
 </TabItem>
 </Tabs>
+
+### Automating the upgrade
+
+For fleet-wide deployments, you may want to schedule the upgrade instead of running it manually on each host. The examples below use cron (Linux) and Task Scheduler (Windows); adapt them to your configuration management tool (Ansible, Puppet, GPO, etc.) if you manage a large number of hosts.
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+1. Create an upgrade script, for example **/usr/local/bin/update-centagent.sh**:
+
+```bash
+#!/bin/bash
+LOGFILE=/var/log/centreon-monitoring-agent/update.log
+{
+  echo "$(date) - Checking for centreon-monitoring-agent updates"
+  if command -v dnf >/dev/null 2>&1; then
+    dnf -y update centreon-monitoring-agent
+  elif command -v apt-get >/dev/null 2>&1; then
+    apt-get update && apt-get -y upgrade centreon-monitoring-agent
+  fi
+  systemctl restart centagent
+  echo "$(date) - Update completed"
+} >> "$LOGFILE" 2>&1
+```
+
+```shell
+chmod 750 /usr/local/bin/update-centagent.sh
+```
+
+2. Schedule it with cron, for example every Sunday at 3 a.m., by creating **/etc/cron.d/centreon-monitoring-agent-update**:
+
+```
+0 3 * * 0 root /usr/local/bin/update-centagent.sh
+```
+
+> If several instances are deployed on the host, adapt the script to restart each **centagentX** service.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+1. Host the latest CMA installer on an internal file share (silent unattended runs should not rely on the public download portal).
+
+2. Create an upgrade script, for example **C:\Scripts\update-centagent.ps1**:
+
+```powershell
+$installer = "\\fileserver\centreon\centreon-monitoring-agent-latest.exe"
+$logFile   = "C:\ProgramData\Centreon\update-centagent.log"
+
+"$(Get-Date) - Starting CMA update" | Out-File -Append $logFile
+Start-Process -FilePath $installer `
+  -ArgumentList "/VERYSILENT","/UPDATEONLY","/AGENTINSTANCE=CentreonMonitoringAgent" `
+  -Wait -PassThru | ForEach-Object {
+    "$(Get-Date) - Installer exited with code $($_.ExitCode)" | Out-File -Append $logFile
+  }
+```
+
+> If several instances are deployed on the host, repeat the `Start-Process` call for each `/AGENTINSTANCE` name.
+
+3. Register a scheduled task to run the script, for example every Sunday at 3 a.m.:
+
+```powershell
+$action    = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-ExecutionPolicy Bypass -File C:\Scripts\update-centagent.ps1"
+$trigger   = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 3am
+$principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
+
+Register-ScheduledTask -TaskName "Centreon Monitoring Agent Update" -Action $action -Trigger $trigger -Principal $principal
+```
+
+Alternatively, using `schtasks.exe`:
+
+```shell
+schtasks /create /tn "CentreonMonitoringAgentUpdate" /tr "powershell.exe -ExecutionPolicy Bypass -File C:\Scripts\update-centagent.ps1" /sc weekly /d SUN /st 03:00 /ru SYSTEM /rl highest
+```
+
+</TabItem>
+</Tabs>
+
+> The upgrade restarts the agent service, causing a brief monitoring gap. Schedule it outside business-critical hours, test it on a pilot group of hosts first, and check the release notes before rolling it out fleet-wide.
 
 ### Uninstalling the agent
 

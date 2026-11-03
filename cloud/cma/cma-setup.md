@@ -1,7 +1,7 @@
 ---
 id: cma-setup
 title: Setting up the agent's environment
-description: "Step-by-step guide to configure, install, and deploy the Centreon Monitoring Agent on Linux and Windows hosts"
+description: "Step-by-step guide to configure, install, and deploy the Centreon Monitoring Agent on Linux and Windows hosts using the ready-to-run command or scripts"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -27,6 +27,8 @@ When a poller is created, certificates are managed automatically:
 * Once deployed, CMA will use this fingerprint to retrieve and validate the public key and establish the TLS connection with the poller.
 
 If you want to manually configure certificates, the agent configuration, and/or tokens, refer to the [dedicated documentation](cma-setup-manual.md).
+
+> The automatically generated certificate only contains the host name of the poller, not its IP address. In the installation command, the endpoint must therefore be the host name of the poller (resolvable from the host where the agent is installed): if the command proposes the IP address of the poller, replace it with its host name. See [Configuring certificates](cma-certificates.md#how-it-works) for more details.
 
 ### What happens on the host at the first connection?
 

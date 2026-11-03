@@ -1,7 +1,7 @@
 ---
 id: release-notes
 title: Centreon Experience Monitoring release notes
-description: Changelog of Experience Monitoring feature and platform updates
+description: "New features and improvements in each Centreon Experience Monitoring release, such as token management, internal probes and user journey actions."
 ---
 
 ## September 8th, 2026

@@ -1,7 +1,7 @@
 ---
 id: ot-glpi-restapi
 title: GLPI RestAPI
-description: "Configure the GLPI open-tickets provider using the GLPI REST API, compatible with GLPI versions 9.1 to 11"
+description: "How to configure the GLPI open-tickets provider using the GLPI REST API, compatible with GLPI 9.1 to 11, with retrieved data and test commands"
 ---
 
 ## How it works
