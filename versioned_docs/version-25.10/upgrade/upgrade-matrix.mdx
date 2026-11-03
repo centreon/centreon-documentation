@@ -1,0 +1,163 @@
+---
+id: upgrade-matrix
+title: Upgrade matrix
+---
+
+import React, { useState } from 'react';
+import Link from '@docusaurus/Link';
+import { useLocation } from '@docusaurus/router';
+
+export const UpgradeTable = () => {
+  const [version, setVersion] = useState('');
+  const [os, setOs] = useState('');
+  const [compat, setCompat] = useState('');
+
+  // Resolve links against the docs root of the current version/locale instead of
+  // the browser URL: with trailingSlash, relative hrefs resolve one level too deep.
+  const docsRoot = useLocation().pathname.split('/upgrade/upgrade-matrix')[0] + '/';
+
+  const rows = [
+    { version: '24.10', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-24-10' },
+    { version: '24.10', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-24-10' },
+    { version: '24.10', os: 'Debian 12 "bookworm"', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-24-10' },
+    { version: '24.04', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-24-04' },
+    { version: '24.04', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-24-04' },
+    { version: '24.04', os: 'Debian 11 "bullseye"', compat: 'NO', proc: 'Migration procedure from Debian', href: 'migrate/introduction' },
+    { version: '24.04', os: 'Debian 12 "bookworm"', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-24-04' },
+    { version: '23.10', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-23-10' },
+    { version: '23.10', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-23-10' },
+    { version: '23.10', os: 'Debian 11 "bullseye"', compat: 'NO', proc: 'Migration procedure from Debian', href: 'migrate/introduction' },
+    { version: '23.04', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-23-04' },
+    { version: '23.04', os: 'RHEL/OracleLinux/AlmaLinux 9', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-23-04' },
+    { version: '23.04', os: 'Debian 11 "bullseye"', compat: 'NO', proc: 'Migration procedure from Debian', href: 'migrate/introduction' },
+    { version: '22.10', os: 'CentOS 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '22.10', os: 'RHEL/OracleLinux 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '22.10', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-22-10' },
+    { version: '22.10', os: 'Debian 11 "bullseye"', compat: 'NO', proc: 'Migration procedure from Debian', href: 'migrate/introduction' },
+    { version: '22.04', os: 'RHEL/OracleLinux/AlmaLinux 8', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-22-04' },
+    { version: '22.04', os: 'CentOS 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '22.04', os: 'RHEL/OracleLinux 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '22.04', os: 'Debian 11 "bullseye"', compat: 'NO', proc: 'Migration procedure from Debian', href: 'migrate/introduction' },
+    { version: '21.10', os: 'CentOS 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '21.10', os: 'RHEL/OracleLinux 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '21.10', os: 'RHEL/OracleLinux 8', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-21-10' },
+    { version: '21.04', os: 'CentOS 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '21.04', os: 'RHEL/OracleLinux 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '21.04', os: 'RHEL/OracleLinux 8', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-21-04' },
+    { version: '20.10', os: 'CentOS 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '20.10', os: 'RHEL/OracleLinux 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '20.10', os: 'RHEL/OracleLinux 8', compat: 'YES', proc: 'Upgrade procedure', href: 'upgrade/upgrade-from-20-10' },
+    { version: '20.04', os: 'CentOS 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+    { version: '20.04', os: 'RHEL 7', compat: 'NO', proc: 'Migration procedure from EL', href: 'migrate/introduction' },
+  ];
+
+  const versions = [...new Set(rows.map(r => r.version))];
+  const osList = [...new Set(rows.map(r => r.os))];
+
+  const filtered = rows.filter(r =>
+    (!version || r.version === version) &&
+    (!os || r.os === os) &&
+    (!compat || r.compat === compat)
+  );
+
+  const selectStyle = {
+    fontSize: 13,
+    padding: '6px 12px',
+    borderRadius: 4,
+    border: '1px solid var(--ifm-color-emphasis-300)',
+    background: 'var(--ifm-background-surface-color)',
+    color: 'var(--ifm-font-color-base)',
+    cursor: 'pointer',
+  };
+
+  const thStyle = {
+    textAlign: 'left',
+    padding: '10px 16px',
+    background: 'var(--ifm-color-emphasis-100)',
+    color: 'var(--ifm-color-emphasis-700)',
+    fontWeight: 600,
+    fontSize: 12,
+    textTransform: 'uppercase',
+    letterSpacing: '0.04em',
+    borderBottom: '1px solid var(--ifm-color-emphasis-300)',
+  };
+
+  const tdStyle = {
+    padding: '10px 16px',
+    borderBottom: '1px solid var(--ifm-color-emphasis-200)',
+    verticalAlign: 'middle',
+  };
+
+  return (
+    <div style={{ margin: '1.5rem 0' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginBottom: '1rem' }}>
+        <select style={selectStyle} value={version} onChange={e => setVersion(e.target.value)}>
+          <option value="">All versions</option>
+          {versions.map(v => <option key={v}>{v}</option>)}
+        </select>
+        <select style={selectStyle} value={os} onChange={e => setOs(e.target.value)}>
+          <option value="">All OSs</option>
+          {osList.map(o => <option key={o}>{o}</option>)}
+        </select>
+        <select style={selectStyle} value={compat} onChange={e => setCompat(e.target.value)}>
+          <option value="">25.10 compatibility</option>
+          <option value="YES">Supported</option>
+          <option value="NO">Not supported</option>
+        </select>
+      </div>
+
+      <p style={{ fontSize: 12, color: 'var(--ifm-color-emphasis-500)', marginBottom: 8 }}>
+        {filtered.length} result{filtered.length > 1 ? 's' : ''}
+      </p>
+
+      <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 14 }}>
+        <thead>
+          <tr>
+            <th style={thStyle}>Starting version</th>
+            <th style={thStyle}>OS supported at the time</th>
+            <th style={thStyle}>OS still supported in 25.10?</th>
+            <th style={thStyle}>Procedure to follow</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filtered.map((r, i) => (
+            <tr key={i}>
+              <td style={{ ...tdStyle, fontWeight: 600 }}>{r.version}</td>
+              <td style={tdStyle}>{r.os}</td>
+              <td style={tdStyle}>
+                <span style={{
+                  display: 'inline-block',
+                  padding: '2px 10px',
+                  borderRadius: 12,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  background: r.compat === 'YES' ? 'var(--ifm-color-success-contrast-background)' : 'var(--ifm-color-danger-contrast-background)',
+                  color: r.compat === 'YES' ? 'var(--ifm-color-success-dark)' : 'var(--ifm-color-danger-dark)',
+                }}>
+                  {r.compat}
+                </span>
+              </td>
+              <td style={tdStyle}><Link to={docsRoot + r.href}>{r.proc}</Link></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+As a reminder, the OSs supported in version 25.10 are the following:
+
+* RHEL/Oracle Linux/Alma Linux 8
+* RHEL/Oracle Linux/Alma Linux 9
+* Debian 12 (bookworm)
+
+This means that an upgrade is only possible if you were using version 20.10 or later, on RHEL/Oracle Linux/Alma Linux 8 or 9, or Debian 12. For any other version or OS, you will need to perform a [migration](../migrate/introduction.md).
+
+## Upgrade or migration?
+
+<UpgradeTable />
+
+{/* ## Version lifecycle
+
+[See the table of supported Centreon versions](../releases/lifecycle.md#maintenance-table-for-centreon-versions). */}

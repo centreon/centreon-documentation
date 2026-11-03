@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://docs.centreon.com/sitemap.xml
+Sitemap: https://docs.centreon.com/fr/sitemap.xml

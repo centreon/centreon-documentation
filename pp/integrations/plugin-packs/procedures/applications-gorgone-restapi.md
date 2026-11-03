@@ -372,3 +372,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=nodes \
 	--help
 ```
+
+## Changelog
+
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replaced the old logo with the current one.

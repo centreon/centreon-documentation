@@ -282,3 +282,7 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
     --mode=hardware \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - New connector: Initial release.

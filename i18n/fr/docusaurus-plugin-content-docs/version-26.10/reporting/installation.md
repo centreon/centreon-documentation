@@ -54,14 +54,6 @@ entre le serveur BI dédié, le serveur Centreon et les bases de données :
 | CBIS            | Serveur de reporting     | Serveur Centreon                     | 80       | HTTP*        |
 | CBIS            | Centreon                 | Serveur de reporting                 | 1234     | TCP          |
 | Widgets         | Serveur central Centreon | Serveur de reporting                 | 3306     | TCP          |
-=======
-| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocole**      | **Objet**                                                  |
-|-----------------|--------------------------|--------------------------------------|--------------|--------------------|------------------------------------------------------------|
-| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Récupérer la configuration et d'autres données de Centreon |
-| SSH             | Reporting server         | Centreon Server                      | 22           | TCP                | Envoyer les rapports générés au serveur central            |
-| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentification et récupération des données               |
-| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Utilisé pour contacter CBIS afin de créer des jobs         |
-| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Récupération des données agrégées pour les widgets        |
 
 \**Uniquement requis pour les rapports Host-Graph-v2 et Hostgroup-Graph-v2 qui utilisent l'API Centreon pour générer des graphiques.*
 
@@ -87,26 +79,9 @@ performances & d'isolation.
 Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiques-des-serveurs).
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-- Centreon Web 25.10
-- Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
-  `timedatectl status`)
-- Evitez l'utilisation des variables ci-dessous dans le fichier de
-  configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
-  - wait_timeout
-  - interactive_timeout
-  
-| Utilisateur          | Groupe                     |
-|----------------------|----------------------------|
-| centreonBI (nouveau) | apache,centreon,centreonBI |
-| apache (existant)    | centreonBI                 |
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Centreon Web 25.10
+- Centreon Web 26.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
   `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
@@ -114,6 +89,8 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
   configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
+
+  Cette recommandation concerne uniquement la base de données de supervision. Le [fichier de configuration optimisé](#optimiser-la-base-de-données) de la base de données de reporting définit volontairement ces variables à 28800 secondes.
   
 | Utilisateur          | Groupe                     |
 |----------------------|----------------------------|
@@ -121,24 +98,45 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 | apache (existant)    | centreonBI                 |
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-- Centreon Web 25.10
+- Centreon Web 26.10
 - Vérifiez que `date.timezone` est correctement configurée dans le fichier
-  `/etc/php/8.2/mods-available/centreon.ini` ou `/etc/php/8.2/mods-available/timezone.ini` (même que celui retourné par la commande
+  `/etc/php.d/50-centreon.ini` ou `/etc/php.d/20-timezone.ini` (même que celui retourné par la commande
+  `timedatectl status`)
+- Evitez l'utilisation des variables ci-dessous dans le fichier de
+  configuration MariaDB `/etc/my.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
+  - wait_timeout
+  - interactive_timeout
+
+  Cette recommandation concerne uniquement la base de données de supervision. Le [fichier de configuration optimisé](#optimiser-la-base-de-données) de la base de données de reporting définit volontairement ces variables à 28800 secondes.
+  
+| Utilisateur          | Groupe                     |
+|----------------------|----------------------------|
+| centreonBI (nouveau) | apache,centreon,centreonBI |
+| apache (existant)    | centreonBI                 |
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+- Centreon Web 26.10
+- Vérifiez que `date.timezone` est correctement configurée dans le fichier
+  `/etc/php/8.4/mods-available/centreon.ini` ou `/etc/php/8.4/mods-available/timezone.ini` (même que celui retourné par la commande
   `timedatectl status`)
 - Evitez l'utilisation des variables ci dessous dans le fichier de
   configuration MariaDB `/etc/mysql/mariadb.cnf`. Elles interrompent l'exécution de longues requêtes et peuvent arrêter les jobs d'ETL ou de génération de rapports :
   - wait_timeout
   - interactive_timeout
-- Lors de la création de l'utilisateur CentreonBI, éxecutez la commande suivante : `adduser centreonBI --force-badname`
+
+  Cette recommandation concerne uniquement la base de données de supervision. Le [fichier de configuration optimisé](#optimiser-la-base-de-données) de la base de données de reporting définit volontairement ces variables à 28800 secondes.
+- Lors de la création de l'utilisateur CentreonBI, éxecutez la commande suivante : `adduser centreonBI --allow-bad-names`
 
 #### Utilisateurs et groupes
 
 | Utilisateur          | Groupe                       |
 |----------------------|------------------------------|
 | centreonBI (nouveau) | www-data,centreon,centreonBI |
-| apache (existant)    | centreonBI                   |
+| www-data (existant)  | centreonBI                   |
 
 </TabItem>
 </Tabs>
@@ -153,7 +151,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 
 #### Couche Matériel
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
 | Élément                     | Valeur     |
@@ -254,7 +252,27 @@ Votre serveur MBI doit être partitionné de la manière suivante :
 | vg_data |   | Espace libre (non alloué) | 5 Go                               |
 
 </TabItem>
-<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
+<TabItem value="Jusqu'à 20 000 hôtes" label="Jusqu'à 20 000 hôtes">
+
+| Élément | Valeur  |
+| ------- | ------- |
+| CPU     | 16 vCPU |
+| RAM     | 64 Go   |
+
+Voici comment votre serveur MBI doit être partitionné :
+
+| Groupe de volumes (LVM) | Partition | Description                         | Taille   |
+| ----------------------- | ------------------- | ----------------------------------- | -------- |
+|                         | /boot               | images de boot                 | 2 Go     |
+| vg_root                 | /                   | racine du système                   | 20 Go    |
+| vg_root                 | swap                | swap             | 8 Go     |
+| vg_root                 | /var/log            | contient tous les fichiers de log | 10 Go    |
+| vg_data                 | /var/lib/mysql      | base de données                     | 8 462 Go |
+| vg_data                 | /var/backup         | répertoire de sauvegarde            | 10 Go    |
+| vg_data                 |                     | espace libre (non alloué)           | 5 Go     |
+
+</TabItem>
+<TabItem value="Plus de 20 000 hôtes" label="Plus de 20 000 hôtes">
 
 Pour de grosses volumétries de données, contactez votre commercial Centreon.
 
@@ -275,38 +293,122 @@ vgdisplay vg_data | grep -i free*
 - Firewalld : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#configurer-ou-désactiver-le-pare-feu))
 - SELinux : Désactivé ([voir ici](../installation/installation-of-a-central-server/using-packages.md#désactiver-selinux))
 
-> Assurez-vous que le fuseau horaire du serveur de reporting est le même que celui du serveur central, sinon les publications de rapports échoueront (lien vers le téléchargement manquant).
-> Le même fuseau horaire doit être affiché avec la commande `timedatectl`.
-> Vous pouvez changer le fuseau horaire avec cette commande :
->
->```shell
->timedatectl set-timezone Europe/Paris
->```
+Assurez-vous que le fuseau horaire du serveur de reporting est le même que celui du serveur central, sinon les publications de rapports échoueront (lien vers le téléchargement manquant). Le fichier `/etc/localtime` doit également exister sur le serveur de reporting, sinon le script `install.sh` ne pourra pas créer le schéma de la base de données.
 
-Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez besoin
-d'au moins 12GB de mémoire vive afin d'utiliser le
-[fichier suivant](../assets/reporting/installation/centreon.cnf).
+1. Définissez le fuseau horaire du serveur de reporting pour qu'il soit le même que celui du serveur central (par exemple, `Europe/Paris`) :
 
-> Si vous souhaitez utiliser un répertoire autre que `/var/lib/mysql/`, éditez les variables **datadir** et **tmpdir** du fichier centreon.cnf.
+   ```shell
+   timedatectl set-timezone Europe/Paris
+   ```
+
+   Si le serveur central utilise UTC, utilisez `Etc/UTC` plutôt que `UTC`. Si le serveur de reporting indique déjà UTC, la commande `timedatectl set-timezone UTC` n'a aucun effet et ne crée pas le fichier `/etc/localtime`.
+
+2. Vérifiez que le fichier `/etc/localtime` existe et pointe vers le bon fuseau horaire :
+
+   ```shell
+   ls -l /etc/localtime
+   ```
+
+   Le résultat doit ressembler à ceci : `/etc/localtime -> ../usr/share/zoneinfo/Europe/Paris`.
+
+Veillez à optimiser MariaDB/MySQL sur votre serveur de reporting. Vous aurez BESOIN
+d'au moins 12GB de mémoire vive afin d'utiliser le fichier de configuration optimisé. Autrement la base de données ne démarrera pas. Téléchargez le fichier correspondant à votre base de données :
+
+- MariaDB : [centreon.cnf](../assets/reporting/installation/centreon.cnf)
+- MySQL : [centreon-mysql.cnf](../assets/reporting/installation/centreon-mysql.cnf)
+
+Vous enregistrerez ce fichier sous le nom `85-centreon-bi.cnf` lors de l'étape [Optimiser la base de données](#optimiser-la-base-de-données). Conservez ce nom : le préfixe `85-` garantit que le fichier est lu après le fichier `80-centreon.cnf` installé par les paquets Centreon, afin que ses valeurs ne soient pas écrasées.
+
+> Si vous souhaitez utiliser un répertoire autre que `/var/lib/mysql/`, éditez les variables **datadir** et **tmpdir** du fichier `85-centreon-bi.cnf`.
 
 Assurez-vous que le dossier **tmp** soit créé dans la même partition que **/var/lib/mysql**.
 
 > Ne définissez pas ces optimisations MariaDB/MySQL sur votre serveur de supervision.
 
-Si vous utilisez MySQL :
+Utilisateurs et groupes :
+
+| Utilisateur | Groupe     |
+|-------------|------------|
+| centreonBI  | centreonBI |
+
+Description des utilisateurs, umask et répertoire utilisateur :
+
+| Utilisateur | umask | home             |
+|-------------|-------|------------------|
+| centreonBI  | 0002  | /home/centreonBI |
+
+## Étape 2 : Installez l'interface Centreon MBI dans l'application Centreon
+
+Les actions listées à cette étape doivent être exécutées **sur le serveur central Centreon**.
+
+1. Installez le dépôt Business : vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
+
+2. Puis lancez la commande suivante :
+
+<Tabs groupId="os" queryString>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install centreon-bi-server
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-bi-server
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+Installez **gpg** :
+
+```shell
+apt install gpg
+```
+
+Importez la clé du dépôt :
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+```
+
+Puis installez Centreon MBI :
+
+```shell
+apt install centreon-bi-server
+```
+
+</TabItem>
+</Tabs>
+
+### Donner des droits à l'utilisateur centreon
+
+Dans la base de données du central, donnez des droits trigger à l'utilisateur **centreon** :
+
+1. Identifiez le ou les hôtes sur lesquels l'utilisateur **centreon** existe :
+
+   ```shell
+   SELECT user, host FROM mysql.user WHERE user = 'centreon';
+   ```
+
+2. Donnez les droits à l'utilisateur **centreon** :
+
+   ```shell
+   GRANT TRIGGER ON centreon.* TO 'centreon'@'<host>';
+   GRANT TRIGGER ON centreon_storage.* TO 'centreon'@'<host>';
+   ```
+
+   Remplacez **&lt;host&gt;** par la valeur renvoyée par la requête précédente (par exemple, `localhost` si la base de données est locale au serveur central, ou `%` ou une adresse IP si elle est distante). Si la requête renvoie plusieurs hôtes, exécutez ces commandes pour chacun d'entre eux.
+
+### Autoriser la création de fonctions (MySQL uniquement)
+
+Si la base de données du central utilise MySQL, effectuez les actions suivantes sur le serveur qui l'héberge avant d'activer l'extension. Sinon, l'installation échoue avec l'erreur `ERROR 1419` : l'extension apparaît comme installée, mais son menu et ses options sont absents.
 
 1. Effectuez l'action suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
-
-```shell
-log_bin_trust_function_creators=1
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
@@ -316,9 +418,18 @@ log_bin_trust_function_creators=1
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-Dans le fichier `/etc/mysql/mysql.cnf`, ajoutez:
+Dans le fichier `/etc/my.cnf.d/mysql-server.cnf`, ajoutez :
+
+```shell
+log_bin_trust_function_creators=1
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
+
+Créez le fichier `/etc/mysql/conf.d/90-centreon-bi.cnf` et ajoutez :
 
 ```shell
 [mysqld]
@@ -346,73 +457,6 @@ Si la variable n'est pas appliquée, activez-la manuellement :
 mysql> SET GLOBAL log_bin_trust_function_creators = 1;
 ```
 
-Utilisateurs et groupes :
-
-| Utilisateur | Groupe     |
-|-------------|------------|
-| centreonBI  | centreonBI |
-
-Description des utilisateurs, umask et répertoire utilisateur :
-
-| Utilisateur | umask | home             |
-|-------------|-------|------------------|
-| centreonBI  | 0002  | /home/centreonBI |
-
-## Étape 2 : Installez l'interface Centreon MBI dans l'application Centreon
-
-Les actions listées à cette étape doivent être exécutées **sur le serveur central Centreon**.
-
-1. Installez le dépôt Business : vous pouvez le trouver sur le [portail support](https://support.centreon.com/hc/fr/categories/10341239833105-D%C3%A9p%C3%B4ts).
-
-2. Puis lancez la commande suivante :
-
-<Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-bi-server
-```
-
-</TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install centreon-bi-server
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-Installez **gpg** :
-
-```shell
-apt install gpg
-```
-
-Importez la clé du dépôt :
-
-```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-```
-
-Puis installez Centreon MBI :
-
-```shell
-apt install centreon-bi-server
-```
-
-</TabItem>
-</Tabs>
-
-### Donner des droits à l'utilisateur centreon
-
-Dans la base de données du central, donnez des droits trigger à l'utilisateur **centreon** :
-
-```shell
-GRANT TRIGGER ON centreon.* TO `centreon`@'%';
-GRANT TRIGGER ON centreon_storage.* TO `centreon`@'%';
-```
-
 ### Activer l'extension
 
 Le menu **Administration > Extension > Gestionnaire** vous permet
@@ -428,14 +472,17 @@ MBI, menu **Rapports > Monitoring Business Intelligence > Paramètres globaux** 
 | Onglet                                                                                 | Option                     | Value                                                                                |
 |----------------------------------------------------------------------------------------|----------------------------|--------------------------------------------------------------------------------------|
 | Options de  l'ordonnanceur                                                             | Hôte de CBIS               | Adresse IP du serveur de reporting                                                   |
-| Options de l'ETL | Une base de données MySQL dédiée au reporting a été mise en place | Oui                        |                                                                                      |
+| Options de l'ETL                                                                       | Une base de données MySQL dédiée au reporting a été mise en place | Oui                                           |
 | Widgets de reporting*                                                                  | Reporting MySQL database | Adresse IP de la base de reporting (par défaut = adresse IP du serveur de reporting) |
+| Widgets de reporting*                                                                  | Mot de passe             | Mot de passe de l'utilisateur de base de données **centreonbi** sur le serveur de reporting |
 
-\* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation*
+\* *Le test de connexion ne fonctionnera pas encore à ce moment de l'installation.*
+
+> Le champ **Mot de passe** de l'onglet **Widgets de reporting** est prérempli avec **centreonbi**. Ce n'est pas le mot de passe que les scripts d'installation (**centreonMysqlRights.pl** et **install.sh**) définissent pour l'utilisateur **centreonbi**. Si vous conservez la valeur par défaut, les widgets ne peuvent pas se connecter à la base de reporting, et le test de connexion échoue avec l'erreur suivante : `Access denied for user 'centreonbi'@'<IP_CENTRAL>'`.
+
+Le mot de passe peut être mis à jour dans **Rapports > Monitoring Business Intelligence > Paramètres globaux > Widgets de reporting**.
 
 ### Accès à la base de données centrale
-
-Téléchargez la licence envoyée par l'équipe Centreon pour pouvoir commencer à configurer les options générales.
 
 <Tabs groupId="sync">
 <TabItem value="Base de supervision locale au central" label="Base de supervision locale au central">
@@ -448,10 +495,13 @@ La base de données de supervision MariaDB est hébergée sur le serveur de supe
 Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter aux bases de données du serveur de supervision. Utilisez l'option suivante :
 
 ```shell
-perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@MYSQLROOTPASSWORD@
 ```
 
-**@ROOTPWD@**: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
+Ce script retournera le mot de passe de l'utilisateur CentreonBI.
+Le mot de passe peut être mis à jour dans **Rapports > Monitoring Business Intelligence > Paramètres globaux > Widgets de reporting**.
+
+@MYSQLROOTPASSWORD@: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option root-password.
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
@@ -461,10 +511,13 @@ La base de données de supervision MySQL est hébergée sur le serveur de superv
 Lancez la commande ci-dessous pour autoriser le serveur de reporting à se connecter aux bases de données du serveur de supervision. Utilisez l'option suivante :
 
 ```shell
-perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@ROOTPWD@
+perl /usr/share/centreon/www/modules/centreon-bi-server/tools/centreonMysqlRights.pl --root-password=@MYSQLROOTPASSWORD@
 ```
 
-**@ROOTPWD@**: Mot de passe root de la base MySQL de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option **root-password**.
+Ce script retournera le mot de passe de l'utilisateur CentreonBI.
+Le mot de passe peut être mis à jour dans **Rapports > Monitoring Business Intelligence > Paramètres globaux > Widgets de reporting**.
+
+@MYSQLROOTPASSWORD@: Mot de passe root de la base MariaDB de supervision. S'il n'y a pas de mot de passe pour l'utilisateur "root", ne spécifiez pas l'option root-password.
 
 </TabItem>
 </Tabs>
@@ -511,7 +564,7 @@ GRANT ALL PRIVILEGES ON centreon_storage.* TO 'centreonbi'@'$BI_ENGINE_IP$';
 <Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 
-Si vous utilisez la réplication MariaDB pour vos **bases de données de supervision**, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 12.
+Si vous utilisez la réplication MariaDB pour vos **bases de données de supervision**, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier **my.cnf** du serveur esclave ou mariadb.cnf sur Debian 13.
 
 ```shell
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
@@ -526,7 +579,7 @@ Ensuite, créez les vues manuellement sur le serveur esclave :
 mysql centreon < /tmp/view_creation.sql
 ```
 
-#### Configuration spécifique à Debian 12
+#### Configuration spécifique à Debian 13
 
 MariaDB doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant :
 
@@ -543,7 +596,7 @@ systemctl restart mariadb
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 
-Si vous utilisez la réplication MySQL pour vos bases de données de supervision, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier my.cnf du serveur esclave ou mysql.cnf sur Debian 12.
+Si vous utilisez la réplication MySQL pour vos bases de données de supervision, certaines vues sont créées lors de l'installation de Centreon MBI. Vous devez les exclure de la réplication en ajoutant la ligne suivante dans le fichier my.cnf du serveur esclave. Sur Debian 13, ajoutez-la dans la section **[mysqld]** d'un fichier situé dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`).
 
 ```shell
 replicate-wild-ignore-table=centreon.mod_bi_%v01,centreon.mod_bi_%V01
@@ -559,15 +612,16 @@ Ensuite, créez les vues manuellement sur le serveur esclave :
 mysql centreon < /tmp/view_creation.sql
 ```
 
-#### Configuration spécifique à Debian 12
+#### Configuration spécifique à Debian 13
 
-MySQL doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Éditez le fichier suivant ::
+MySQL doit écouter sur toutes les interfaces au lieu d'écouter sur localhost/127.0.0.1 (valeur par défaut). Ajoutez les lignes suivantes dans un fichier situé dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`) :
 
 ```shell
-/etc/mysql/mysql.conf.d/mysqld.cnf
+[mysqld]
+bind-address=0.0.0.0
 ```
 
-Donnez au paramètre **bind-address** la valeur **0.0.0.0** et redémarrez **mysql**.
+Puis redémarrez **mysql**.
 
 ```shell
 systemctl restart mysql
@@ -627,39 +681,51 @@ Pendant l'installation de la base de données, notez le mot de passe du compte *
 1. Installez le dépôt standard :
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
-dnf clean all --enablerepo=*
-dnf update
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 Installez les paquets prérequis :
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+apt update && apt install -y lsb-release ca-certificates apt-transport-https wget gnupg2 curl cron
+systemctl enable --now cron
 ```
 
-Ensuite, importez la clé du dépôt :
+Vérifiez que le service **cron** est actif :
 
 ```shell
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+systemctl is-active cron
+```
+
+La commande doit renvoyer `active`.
+
+Installez les dépôts Centreon :
+
+```shell
+install -d /etc/apt/keyrings
+wget -O /etc/apt/keyrings/centreon.asc https://apt-key.centreon.com
+
+echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee /etc/apt/sources.list.d/centreon-26.10-stable.list
+echo "deb [signed-by=/etc/apt/keyrings/centreon.asc] https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 apt update
 ```
 
@@ -675,50 +741,6 @@ apt update
 #### Installer les dépendances
 
 <Tabs groupId="os" queryString>
-<TabItem value="RHEL 8" label="RHEL 8">
-
-Installez le dépôt **epel** :
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Activer les dépôts **codeready-builder** :
-
-```shell
-subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
-```
-
-</TabItem>
-<TabItem value="Oracle Linux 8" label="Oracle Linux 8">
-
-Installez le dépôt **epel** :
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Activer les dépôts **codeready-builder** :
-
-```shell
-dnf config-manager --set-enabled ol8_codeready_builder
-```
-
-</TabItem>
-<TabItem value="Alma 8" label="Alma 8">
-
-Installez le dépôt **epel** :
-
-```shell
-dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
-```
-
-Activez les dépôts powertools :
-
-```shell
-dnf config-manager --set-enabled 'powertools'
-```
-</TabItem>
 <TabItem value="RHEL 9" label="RHEL 9">
 
 Installez le dépôt **epel** :
@@ -742,11 +764,12 @@ Installez le dépôt **epel** :
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
-Activez les dépôts **codeready-builder** :
+Activer les dépôts **codeready-builder** :
 
 ```shell
 dnf config-manager --set-enabled ol9_codeready_builder
 ```
+
 </TabItem>
 <TabItem value="Alma 9" label="Alma 9">
 
@@ -756,6 +779,49 @@ Installez le dépôt **epel** :
 dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
 ```
 
+Activez les dépôts **crb** :
+
+```shell
+dnf config-manager --set-enabled 'crb'
+```
+</TabItem>
+<TabItem value="RHEL 10" label="RHEL 10">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+```
+
+Activer les dépôts **codeready-builder** :
+
+```shell
+subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
+```
+
+</TabItem>
+<TabItem value="Oracle Linux 10" label="Oracle Linux 10">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+```
+
+Activez les dépôts **codeready-builder** :
+
+```shell
+dnf config-manager --set-enabled ol10_codeready_builder
+```
+</TabItem>
+<TabItem value="Alma 10" label="Alma 10">
+
+Installez le dépôt **epel** :
+
+```shell
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+```
+
 Exécutez la commande suivante :
 
 ```shell
@@ -763,7 +829,7 @@ dnf config-manager --set-enabled 'crb'
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 Pas de dépendances requises.
 
@@ -775,13 +841,6 @@ Pas de dépendances requises.
 <Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install MariaDB-server MariaDB-client
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -789,7 +848,14 @@ dnf install MariaDB-server MariaDB-client
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install MariaDB-server MariaDB-client
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
@@ -803,10 +869,10 @@ apt install mariadb-server mariadb-client
 <TabItem value="MySQL 8.4" label="MySQL 8.4">
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
-dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm
+dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm
 dnf config-manager --enable mysql-8.4-lts-community
 dnf module disable mysql
 dnf install mysql-community-server
@@ -814,7 +880,7 @@ systemctl start mysqld
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```shell
 dnf install -y mysql-server mysql
@@ -824,18 +890,14 @@ echo "default-authentication-plugin=mysql_native_password" >> /etc/my.cnf.d/mysq
 systemctl daemon-reload
 systemctl restart mysqld
 systemctl list-units --type=service | grep -i mysql
-sudo sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld
-sudo systemctl start mysqld
-sudo systemctl status mysqld
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
 apt install -y centreon-mysql
-# Sélectionner "Use Legacy Authentication Method"
 systemctl daemon-reload
 systemctl restart mysql
 ```
@@ -849,13 +911,6 @@ systemctl restart mysql
 #### Installer le module MBI sur le serveur MBI
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-bi-reporting-server
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -863,7 +918,14 @@ dnf install centreon-bi-reporting-server
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-bi-reporting-server
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt update
@@ -873,21 +935,7 @@ apt install centreon-bi-reporting-server
 </TabItem>
 </Tabs>
 
-Assurez-vous qu'une version de Java 17 (ou 18) est installée.
-   
-   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
-   
-   ```shell
-   java -version
-   ```
-   
-   - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
-   
-   - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
-   
-   ```shell
-   sudo update-alternatives --config java
-   ```
+Lors de l'installation des paquets MBI, java (OpenJDK 25) sera automatiquement installé en tant que dépendance, si nécessaire. Le service **cbis** utilise toujours **/usr/lib/jvm/java-25-openjdk** sur Alma / RHEL / Oracle Linux et **/usr/lib/jvm/java-25-openjdk-amd64** sur Debian 13.
 
 #### Activer les services
 
@@ -908,9 +956,9 @@ systemctl start gorgoned && systemctl enable gorgoned
 <Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB">
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
+Copiez le [fichier de configuration optimisé](../assets/reporting/installation/centreon.cnf) fourni dans les prérequis vers `/etc/my.cnf.d/85-centreon-bi.cnf`, puis redémarrez le service MariaDB :
 
 ```shell
 systemctl restart mariadb
@@ -939,9 +987,9 @@ socket=$PATH_TO_SOCKET$
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
+Copiez le [fichier de configuration optimisé](../assets/reporting/installation/centreon.cnf) fourni dans les prérequis vers `/etc/my.cnf.d/85-centreon-bi.cnf`, puis redémarrez le service MariaDB :
 
 ```shell
 systemctl restart mariadb
@@ -950,7 +998,10 @@ systemctl restart mariadb
 Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+mkdir -p  /etc/systemd/system/mariadb.service.d/
+echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mariadb.service.d/limits.conf
+systemctl daemon-reload
+systemctl restart mariadb
 ```
 
 Si le service MariaDB échoue lors du démarrage, supprimer les fichiers *ib_logfile* (MariaDB doit absolument être stoppé) puis redémarrer à nouveau MariaDB :
@@ -966,15 +1017,9 @@ socket=$PATH_TO_SOCKET$
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MariaDB :
-
-Renommez le fichier en `80-centreon.cnf`:
-
-```shell
-mv centreon.cnf 80-centreon.cnf
-```
+Copiez le [fichier de configuration optimisé](../assets/reporting/installation/centreon.cnf) fourni dans les prérequis vers `/etc/mysql/mariadb.conf.d/85-centreon-bi.cnf`.
 
 MariaDB doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut. Éditez le fichier suivant :
 
@@ -1015,40 +1060,9 @@ socket=$PATH_TO_SOCKET$
 </TabItem>
 <TabItem value="MySQL" label="MySQL">
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
-
-```shell
-systemctl restart mysql
-```
-
-Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/my.cnf` NE fonctionnera PAS.
-
-```shell
-mkdir -p  /etc/systemd/system/mysql.service.d/
-echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
-systemctl daemon-reload
-systemctl restart mysql
-```
-
-Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
-
-```shell
-rm -f /var/lib/mysql/ib_logfile*
-systemctl start mysql
-```
-
-Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
-
-```shell
-socket=$PATH_TO_SOCKET$
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf) de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/my.cnf.d/`, puis redémarrez le service MySQL :
+Copiez le [fichier de configuration optimisé](../assets/reporting/installation/centreon-mysql.cnf) fourni dans les prérequis vers `/etc/my.cnf.d/85-centreon-bi.cnf`, puis redémarrez le service MySQL :
 
 ```shell
 systemctl restart mysql
@@ -1060,6 +1074,28 @@ Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette opti
 mkdir -p  /etc/systemd/system/mysql.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
+systemctl enable mysql
+```
+
+Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
+
+```shell
+rm -f /var/lib/mysql/ib_logfile*
+systemctl start mysql
+```
+
+Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/my.cnf` et dans la section [client], ajoutez :
+
+```shell
+socket=$PATH_TO_SOCKET$
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+Copiez le [fichier de configuration optimisé](../assets/reporting/installation/centreon-mysql.cnf) fourni dans les prérequis vers `/etc/my.cnf.d/85-centreon-bi.cnf`, puis redémarrez le service MySQL :
+
+```shell
 systemctl restart mysql
 ```
 
@@ -1077,36 +1113,30 @@ socket=$PATH_TO_SOCKET$
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
-Assurez vous que [le fichier](../assets/reporting/installation/centreon.cnf)
-de configuration optimisé fourni dans les pré-requis est bien présent dans `/etc/mysql/mysql.conf.d/`.
+Copiez le [fichier de configuration optimisé](../assets/reporting/installation/centreon-mysql.cnf) fourni dans les prérequis vers `/etc/mysql/conf.d/85-centreon-bi.cnf`. Ne le nommez pas `80-centreon.cnf` : cela écraserait le fichier installé par le paquet **centreon-mysql**.
 
-Renommez le fichier en `80-centreon.cnf`:
-
-```shell
-mv centreon.cnf 80-centreon.cnf
-```
-
-MySQL doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut. Éditez le fichier suivant :
+MySQL doit écouter toutes les interfaces au lieu de localhost/127.0.0.1, qui est la valeur par défaut. Ajoutez les lignes suivantes dans un fichier situé dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`) :
 
 ```shell
-/etc/mysql/mysql.conf.d/mysqld.cnf
+[mysqld]
+bind-address=0.0.0.0
 ```
 
-Définissez le paramètre **bind-address** à **0.0.0.0** et redémarrez mysql.
+Puis redémarrez mysql.
 
 ```shell
 systemctl restart mysql
 ```
 
-Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans `/etc/mysql/mysql.cnf` NE fonctionnera PAS.
+Il est nécessaire de modifier la limitation **LimitNOFILE**. Changer cette option dans les fichiers de configuration MySQL (`/etc/mysql/my.cnf` ou `/etc/mysql/conf.d/`) NE fonctionnera PAS.
 
 ```shell
 mkdir -p  /etc/systemd/system/mysql.service.d/
 echo -ne "[Service]\nLimitNOFILE=32000\n" | tee /etc/systemd/system/mysql.service.d/limits.conf
 systemctl daemon-reload
-systemctl restart mysql
+systemctl enable mysql
 ```
 
 Si le service MySQL échoue lors du démarrage, supprimez les fichiers *ib_logfile* (MySQL doit absolument être stoppé) puis redémarrez à nouveau MySQL :
@@ -1116,7 +1146,7 @@ rm -f /var/lib/mysql/ib_logfile*
 systemctl start mysql
 ```
 
-Si vous utilisez un fichier de socket spécifique pour MySQL, modifiez le fichier `/etc/mysql/mysql.cnf` et dans la section [client], ajoutez :
+Si vous utilisez un fichier de socket spécifique pour MySQL, ajoutez la ligne suivante dans la section [client] d'un fichier situé dans `/etc/mysql/conf.d/` (par exemple `/etc/mysql/conf.d/centreon.cnf`) :
 
 ```shell
 socket=$PATH_TO_SOCKET$
@@ -1131,7 +1161,7 @@ socket=$PATH_TO_SOCKET$
 ### Sécuriser la base de données
 
 Il est obligatoire de sécuriser l'accès root de la base de données avant d'installer Centreon.
-Si vous utilisez une base de données locale, exécutez la commande suivante sur le serveur central, sinon sur le serveur de base de données :
+Exécutez les commandes suivantes sur le serveur de reporting :
 
 <Tabs groupId="db" queryString>
 <TabItem value="MariaDB" label="MariaDB"> 
@@ -1140,17 +1170,43 @@ Si vous utilisez une base de données locale, exécutez la commande suivante sur
 mariadb-secure-installation
 ```
 
+Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
+
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
 
-```shell
-mysql_secure_installation
-```
+1. Définissez le mot de passe de votre choix pour l'utilisateur **root** de la base de données (dans la commande suivante, remplacez **my_password** par votre propre mot de passe) :
+
+   ```shell
+   db_root_password='my_password'
+   mysql_root_auth=(--ssl-mode=DISABLED -u root)
+   if ! mysql --ssl-mode=DISABLED -u root -e "SELECT 1" >/dev/null 2>&1; then
+     mysql_temp_pw=$(grep 'temporary password is generated for root@localhost' /var/log/mysqld.log \
+       2>/dev/null | tail -1 | sed -E 's/.*root@localhost: //')
+     if [ -z "$mysql_temp_pw" ]; then
+       echo "Could not authenticate to MySQL as root" >&2
+       exit 1
+     fi
+     mysql_root_auth=(--ssl-mode=DISABLED --connect-expired-password -u root -p"${mysql_temp_pw}")
+   fi
+   ```
+
+2. Remplacez ensuite le mot de passe généré automatiquement par défaut par le vôtre :
+
+   ```shell
+   mysql "${mysql_root_auth[@]}" --verbose <<EOF
+   ALTER USER 'root'@'localhost' IDENTIFIED WITH 'caching_sha2_password' BY '${db_root_password}';
+   DELETE FROM mysql.user WHERE User='';
+   DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');
+   DROP DATABASE IF EXISTS test;
+   DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+   FLUSH PRIVILEGES;
+   EOF
+   ```
 
 </TabItem>
 </Tabs>
 
-- Répondez **oui** à toutes les questions, sauf à "Disallow root login remotely?"
 - Il est obligatoire de définir un mot de passe pour l'utilisateur **root** de la base de données. Vous aurez besoin de ce mot de passe pendant l'[installation web](../installation/web-and-post-installation.md).
 
 > Voir les procédures avancées pour [sécuriser votre plateforme MBI](../reporting/secure-your-mbi-platform.md).
@@ -1158,7 +1214,7 @@ mysql_secure_installation
 #### Commencer à configurer
 
 Vérifiez que la base de reporting est bien démarrée puis lancez les
-commandes ci dessous et répondez aux questions:
+commandes ci dessous et répondez aux questions. Pour la question "database type for reporting database", sélectionnez MySQL ou MariaDB, ne laissez pas l'option par défaut "Automatic Discovery", cela cause une erreur.
 
 ```shell
 /usr/share/centreon-bi/config/install.sh
@@ -1171,7 +1227,7 @@ Une fois l'installation terminée, poursuivez au chapitre suivant pour configure
 
 #### Problème avec l'échange de la clé SSH
 
-Dans quelques cas, l'échange de clés SSH échoue.
+Dans quelques cas, l'échange de clés SSH échoue, par exemple lorsque l'authentification par mot de passe est désactivée sur le serveur de supervision (`PasswordAuthentication no` dans `/etc/ssh/sshd_config`).
 Afin de résoudre le problème, procédez manuellement comme suit :
 
 Connectez-vous avec l'utilisateur `centreonBI` :
@@ -1194,10 +1250,10 @@ cat /home/centreonBI/.ssh/id_ed25519.pub
 
 Maintenant, **sur le serveur de supervision** :
 
-Créez un dossier `.ssh` dont `centreonBI` sera propriétaire, restreingez les droits sur ce fichier et collez dans le fichier `authorized_keys` le contenu de sa clé publique sur le serveur de reporting (affichée précédemment) :
+Créez un dossier `.ssh` dont `centreonBI` sera propriétaire, restreignez les droits sur ce dossier et sur le fichier `authorized_keys`, et collez dans le fichier `authorized_keys` le contenu de sa clé publique sur le serveur de reporting (affichée précédemment) :
 
 ```bash
-mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@contenu de la clé publique@" > /home/centreonBI/.ssh/authorized_keys
+mkdir -p /home/centreonBI/.ssh/ && chown centreonBI: /home/centreonBI/.ssh/ && chmod 700 /home/centreonBI/.ssh/ && echo "@contenu de la clé publique@" > /home/centreonBI/.ssh/authorized_keys && chown centreonBI: /home/centreonBI/.ssh/authorized_keys && chmod 600 /home/centreonBI/.ssh/authorized_keys
 ```
 
 L'échange de clés doit enfin être validé par une première connexion qui acceptera la signature du serveur SSH.
@@ -1210,7 +1266,6 @@ ssh centreonBI@@MONITORING_SERVER@
 Vous pouvez maintenant quitter la session `centreonBI` avec `exit` ou `Ctrl-D`.
 
 Pour continuer, relancez le script d'installation (`/usr/share/centreon-bi/config/install.sh`) comme ci-dessus et répondez **Oui** lorsqu'on vous demande de procéder à l'échange de clés SSH.
-Vous aurez une erreur lors de la création de l'USER car il existe déjà. Ce n'est pas une étape bloquante.
 
 ## Étape 4 : Configurez l'ETL dans l'interface de Centreon
 
@@ -1222,8 +1277,7 @@ Centreon MBI intègre un ETL qui permet de :
   données statistiques
 - Contrôler la rétention des données sur le serveur de reporting
 
-<!--Avant de passer aux étapes suivantes, il est nécessaire de lire le chapitre des bonnes pratiques afin de
-vous assurer que la configuration des objets dans Centreon (groupes, catégories...) est conforme aux attentes de Centreon MBI.-->
+#### Configuration générale de l'ETL
 
 Dans le menu `Rapports > Monitoring Business Intelligence > Options générales > Options de l'ETL`, spécifiez les options
 suivantes :
@@ -1234,7 +1288,7 @@ suivantes :
 | Une base de données MariaDB dédiée au reporting a été mise en place.                                                                     | Oui. Vous devez avoir un serveur de reporting dédié.                                                                                                                                                                                                                                                                                               |
 | Espace de stockage des fichiers temporaires sur le serveur de reporting *                                                                | Dossier sur le serveur de reporting dans lequel les dumps de données seront positionnés                                                                                                                                                                                                                                                            |
 | Type de statistiques à traiter                                                                                                           | Sélectionnez « Disponibilité uniquement » si vous utilisez uniquement les rapports de disponibilité.  Sélectionnez « Performance et capacité uniquement» si vous souhaitez utiliser uniquement les rapports de capacité et de performance. Sélectionnez «Tous» afin de calculer les statistiques pour les deux types de rapports.                  |
-| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Crée des tables temporaires en utilisant de la RAM plutôt que de les créer sur disque. Non recommandé si vous disposez de bases de données avec moins de 64Go de RAM.                                                                                                                                                                  |
+| Activer le stockage des tables temporaires en mémoire (uniquement si la mémoire physique allouée au serveur de reporting est suffisante) | Crée des tables temporaires en utilisant de la RAM plutôt que de les créer sur disque. Non recommandé si vous disposez de bases de données avec moins de 64Go de RAM.                                                                                           |
 | **Sélection du périmètre du reporting**                                                                                                  |                                                                                                                                                                                                                                                                                                                                                    |
 | Groupes d'hôtes                                                                                                                          | Sélectionnez les groupes d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                          |
 | Catégories d'hôtes                                                                                                                       | Sélectionnez les catégories d’hôtes pour lesquels vous souhaitez conserver les statistiques.                                                                                                                                                                                                                                                       |
@@ -1317,7 +1371,7 @@ Pour activer la purge automatique des anciennes données, modifiez le fichier cr
 Vous pouvez exécuter ce cron quotidiennement ou hebdomadairement, en fonction du temps d'exécution du batch et de la charge générée sur le serveur.
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 Redémarrez le service cron :
 
@@ -1326,7 +1380,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 Redémarrez le service cron :
 
@@ -1355,25 +1409,23 @@ Veuillez passer à la section suivante pour continuer l'installation.
 * Configurez et activez la rétention des données afin que seules les données requises soient importées et calculées.
 * Assurez-vous que [les données soient prêtes sur le serveur central](how-mbi-works.md#phase-1--les-données-sont-préparées-par-le-serveur-central). 
 * Assurez-vous que le processus **gorgoned** finctionne correctement : `systemctl status gorgoned`. Si besoin, redémarrez-le: `systemctl restart gorgoned`.
-* Attention, si vous créez la base de données MBI pour la première fois, vous devez importer toutes les données en une seule fois. Si vous disposez d'une grande quantité de données et/ou si vous démarrez le processus tard dans la journée, il est important de savoir que la phase de création de la base de données peut prendre un temps considérable, pouvant même se prolonger jusqu'au lendemain. Dans ce cas, vous devez désactiver [temporairement](#réactiver-lexécution-quotidienne-du-script) l'exécution quotidienne de l'ETL, jusqu'à ce que le provisionnement initial soit terminé, afin d'éviter les doublons ou d'autres problèmes.
+* Attention, si vous créez la base de données MBI pour la première fois, vous devez importer toutes les données en une seule fois. Si vous disposez d'une grande quantité de données et/ou si vous démarrez le processus tard dans la journée, il est important de savoir que la phase de création de la base de données peut prendre un temps considérable, pouvant même se prolonger jusqu'au lendemain. C'est pourquoi l'exécution quotidienne de l'ETL est désactivée par défaut : dans le fichier cron **/etc/cron.d/centreon-bi-engine**, la ligne suivante est commentée. Elle doit le rester jusqu'à ce que le provisionnement initial soit terminé, afin d'éviter les doublons ou d'autres problèmes. Vous la [réactiverez](#réactiver-lexécution-quotidienne-du-script) à la fin de la procédure.
 
-   1. Éditez le fichier cron **/etc/cron.d/centreon-bi-engine** et commentez la ligne suivante :
+   ```shell
+   #30 4 * * * root /usr/share/centreon-bi//bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+   ```
 
-      ```shell
-      #30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
-      ```
-
-   2. Redémarrez **crond**.
+   Si cette ligne n'est pas commentée (par exemple, si vous reconstruisez la base de données), commentez-la, puis redémarrez le service cron :
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 systemctl restart cron
@@ -1401,7 +1453,7 @@ Vous pouvez l'exécuter en arrière-plan et rediriger la sortie du script vers u
 nohup /usr/share/centreon-bi//bin/centreonBIETL -r >> /var/log/centreon-bi/centreonBIETL.log 2>&1 &
 ```
 
-Regardez le fichier de log **/var/log/centreon-bi/centreonBIETL.log** : vous devriez voir des lignes avec les 4 parties suivantes :
+La sortie s'affiche dans votre terminal ou, si vous avez exécuté la commande en arrière-plan, dans le fichier de log **/var/log/centreon-bi/centreonBIETL.log** (par exemple, utilisez `tail -f /var/log/centreon-bi/centreonBIETL.log` pour la suivre). Vous devriez voir des lignes avec les 4 parties suivantes :
 
 ```shell
 2025-08-01 13:34:16 - INFO - [SCHEDULER] >>>>>>> start
@@ -1422,27 +1474,33 @@ Regardez le fichier de log **/var/log/centreon-bi/centreonBIETL.log** : vous dev
 
 ### Réactiver l'exécution quotidienne du script
 
-Une fois le processus de reconstruction des données terminé, vous pouvez activer le calcul des
-statistiques.
-Sur le serveur de reporting, éditez le fichier **/etc/cron.d/centreon-bi-engine** et décommentez la ligne suivante :
+> **Cette étape est obligatoire.** Le calcul quotidien des statistiques est désactivé par défaut. Si vous ignorez cette étape, aucune statistique quotidienne ne sera calculée, et aucune erreur ne sera affichée.
 
-```shell
-#30 4 * * * root /usr/share/centreon-bi/bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
-```
+Une fois le processus de reconstruction des données terminé, réactivez le calcul quotidien des statistiques :
+
+1. Sur le serveur de reporting, éditez le fichier **/etc/cron.d/centreon-bi-engine** et décommentez la ligne suivante (supprimez le `#` initial) :
+
+   ```shell
+   #30 4 * * * root /usr/share/centreon-bi//bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+   ```
+
+   La ligne doit maintenant ressembler à ceci :
+
+   ```shell
+   30 4 * * * root /usr/share/centreon-bi//bin/centreonBIETL -d >> /var/log/centreon-bi/centreonBIETL.log 2>&1
+   ```
+
+2. Redémarrez le service cron sur le serveur de reporting :
 
 <Tabs groupId="os" queryString>
-<TabItem value="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7" label="Alma / RHEL / Oracle Linux 8 / RHEL 7 / CentOS 7">
-
-Redémarrez le service cron sur le serveur de reporting :
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
 systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
-
-Redémarrez le service cron sur le serveur de reporting :
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 systemctl restart cron

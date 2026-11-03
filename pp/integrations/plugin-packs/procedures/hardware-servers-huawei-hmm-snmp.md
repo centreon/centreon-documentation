@@ -410,3 +410,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=chassis \
 	--help
 ```
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed `no-component` option.
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Removed experimental keys on scalar in **blade** mode components.

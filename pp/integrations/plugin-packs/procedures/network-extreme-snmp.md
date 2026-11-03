@@ -577,3 +577,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added supported models in documentation.

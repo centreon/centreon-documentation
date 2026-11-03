@@ -638,3 +638,12 @@ All available options for a given mode can be displayed by adding the
 	--dyn-mode=apps::centreon::sql::mode::countservices \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed hardcoded `centreon_storage` database name.
+- [24.03](../releases/release-notes.md#2024-03) - Enhancement: Updated host template logo.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replaced the old logo with the current one.
+- [23.11](../releases/release-notes.md#2023-11) - Enhancement: Added execution-time template and cleaned up duplicate templates.
+- [23.03](../releases/release-notes.md#2023-03) - Bug fix: Fixed partitioning mode.
+- [23.01](../releases/release-notes.md#2023-01) - Enhancement: Added poller delay.

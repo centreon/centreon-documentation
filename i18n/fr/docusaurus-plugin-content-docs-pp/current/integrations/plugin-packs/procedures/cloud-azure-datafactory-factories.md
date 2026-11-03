@@ -428,3 +428,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=integration-runtime \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the required plugin's package name.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

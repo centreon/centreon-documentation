@@ -579,3 +579,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [23.06](../releases/release-notes.md#2023-06) - Bug fix: Fixed options for **interfaces** mode.

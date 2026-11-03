@@ -413,3 +413,7 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--mode=quorum \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - New connector: Initial release.

@@ -621,3 +621,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=snapshot-vm \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.

@@ -341,3 +341,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=scenario \
 	--help
 ```
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - New connector: Initial release.

@@ -224,7 +224,7 @@ pour ce critère (par exemple, pour le critère **Type**, les valeurs peuvent
 être **Hôte**, **Service** ou **Métaservice**). Sélectionnez la valeur désirée 
 avec les flèches haut et bas, puis appuyez sur **Tab** ou **Entrée** pour valider la sélection.
 Un même critère peut avoir plusieurs valeurs possibles. Les valeurs doivent être séparées par des virgules.
-La recherche ramènera toutes les valeurs selon un critère OU, par exemple, **type:service,metaservice** ramènera 
+La recherche ramènera toutes les valeurs selon un critère OU, par exemple, **type:service,métaservice** ramènera 
 toutes les ressources de type services et métaservices.
 
   ![image](../assets/alerts/resources-status/search_tab.gif)

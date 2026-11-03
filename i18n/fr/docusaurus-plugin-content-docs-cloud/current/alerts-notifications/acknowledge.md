@@ -37,7 +37,7 @@ nominal après changement du disque.
 > Si vous utilisez le module **Business Activity Monitoring**, les acquittements d'une alerte s'appliquent uniquement à l'objet concerné (activité métier ou KPI).
 
 Les acquittements s'appliquent aux activités métier (BA) comme suit :
-- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un méta-service).
+- L'acquittement d'une activité métier n'entraîne pas l'acquittement de ses KPIs sous-jacents (que ces KPIs soient une activité métier, un service ou un métaservice).
 - L'acquittement d'un KPI n'entraîne pas l'acquittement de l'activité métier qui en dépend.
 
 ### En pratique

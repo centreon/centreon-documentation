@@ -10,10 +10,6 @@ import TabItem from '@theme/TabItem';
 
 HP OMI stream connector sends events related data to HP OMI
 
-## Compatibility
-
-**to be determined**
-
 ### Installation
 
 Se connecter en tant que `root` au serveur central Centreon avec votre client SSH favori.

@@ -595,20 +595,13 @@ A keystore file is only needed for mTLS (client certificate authentication):
         chmod 640 /etc/mariadb/newcerts/keystore.p12
         ```
 
-**3. Set file permissions.** Ensure only the user running the Java application can read the keystore files.
-
-    ```shell
-    chown your_java_user: /etc/mariadb/newcerts/*.jks
-    chmod 640 /etc/mariadb/newcerts/*.jks
-    ```
-
-**4. Set the JDBC URL.** Add the following to your configuration file (/etc/centreon-map/*-database.properties):
+**3. Set the JDBC URL.** Add the following to your configuration file (/etc/centreon-map/*-database.properties):
 
     ```shell
     *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mariadb/newcerts/ca-cert.pem&rewriteBatchedStatements=true
     ```
 
-**5. Optional — only if mTLS is enabled (REQUIRE X509).** Add options keyStore, keyStorePassword and keyStoreType:
+**4. Optional — only if mTLS is enabled (REQUIRE X509).** Add options keyStore, keyStorePassword and keyStoreType:
 
         ```shell
         *.connection.url=jdbc:mariadb://<ip_or_hostname>:3306/centreon_map?sslMode=verify-ca&serverSslCert=/etc/mariadb/newcerts/ca-cert.pem&keyStore=/etc/mariadb/newcerts/keystore.p12&keyStorePassword=changeit&keyStoreType=PKCS12&rewriteBatchedStatements=true

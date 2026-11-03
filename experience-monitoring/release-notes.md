@@ -1,8 +1,18 @@
 ---
 id: release-notes
 title: Centreon Experience Monitoring release notes
-description: Changelog of Experience Monitoring feature and platform updates
+description: "New features and improvements in each Centreon Experience Monitoring release, such as token management, internal probes and user journey actions."
 ---
+
+## September 8th, 2026
+
+**Redesigned token management**
+
+Access tokens can now be created, tracked, and revoked from a single, centralized interface, providing a greater visibility while strengthening overall security. 
+
+**Internal probes (STM zones) now available for all users**
+
+Internal and intranet applications can now be monitored with the same level of detail as public-facing sites, using a probe deployed directly within your infrastructure.
 
 ## June 22nd, 2026
 

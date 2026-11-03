@@ -686,28 +686,32 @@ CRITICAL= 0
 | CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |               |           |
 | TIMEOUT              | Set timeout for command execution                                                                                                         | 120           |           |
 
+> `FILTERNAME`, `EXCLUDENAME`, `FILTERDISPLAY`, and `EXCLUDEDISPLAY` accept regular expressions that are sent to the agent as part of a JSON payload. To match a literal special character (e.g. a `$` in a service name), you must escape it for **both** JSON and regex. For example, to match a service named `SQLAgent$SAGEV12PRD`, use `^SQLAgent\\\\$SAGEV12PRD` (double backslash escaping) or `^SQLAgent\[$\]SAGEV12PRD` (character class).
+
 </TabItem>
 <TabItem value="Services-Auto" label="Services-Auto">
 
-| Macro                | Description                                                                                                                               | Valeur par défaut | Obligatoire |
-|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
-| STARTAUTO            | Only services that start automatically will be counted                                                                                    | true              |             |
-| FILTERNAME           | Regex to filter service names                                                                                                             | .*                |             |
-| EXCLUDENAME          | Regex to exclude service names                                                                                                            |                   |             |
-| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |                   |             |
-| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |                   |             |
-| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service           |             |
-| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |                   |             |
-| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |                   |             |
-| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |                   |             |
-| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |                   |             |
-| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |                   |             |
-| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |                   |             |
-| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |                   |             |
-| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |                   |             |
-| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |                   |             |
-| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |                   |             |
-| TIMEOUT              | Set timeout for command execution                                                                                                         | 120               |             |
+| Macro                | Description                                                                                                                               | Default value | Mandatory |
+|:---------------------|:------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| STARTAUTO            | Only services that start automatically will be counted                                                                                    | true          |           |
+| FILTERNAME           | Regex to filter service names                                                                                                             | .*            |           |
+| EXCLUDENAME          | Regex to exclude service names                                                                                                            |               |           |
+| FILTERDISPLAY        | Regex to filter service display names as they appear in service manager                                                                   |               |           |
+| EXCLUDEDISPLAY       | Regex to exclude service display names                                                                                                    |               |           |
+| SERVICE_TYPE         | Regex to filter by service type                                                                                                           | service       |           |
+| START_TYPE           | Regex to filter by service startup type. Can be auto, boot, system, demand, disabledn or empty to match all modes.                        |               |           |
+| DELAYED              | Regex to filter by delayed startup services. Can be true, false or empty to match all services.                                           |               |           |
+| WARNINGSTATE         | Regex to match service state that will trigger a warning. States are (stopped, starting, stopping, running, continuing, pausing, paused)  |               |           |
+| CRITICALSTATE        | Regex to match service state that will trigger a critical. States are (stopped, starting, stopping, running, continuing, pausing, paused) |               |           |
+| WARNINGTOTALRUNNING  | Running service number threshold below which the service will pass in the warning state                                                   |               |           |
+| CRITICALTOTALRUNNING | Running service number threshold below which the service will pass in the critical state                                                  |               |           |
+| WARNINGTOTALPAUSED   | Number of services in the pause state above which the service goes into the warning state                                                 |               |           |
+| CRITICALTOTALPAUSED  | Number of services in the pause state above which the service goes into the critical state                                                |               |           |
+| WARNINGTOTALSTOPPED  | Number of services in a stopped state above which the service takes on a warning status                                                   |               |           |
+| CRITICALTOTALSTOPPED | Number of services in a stopped state above which the service takes on a critical status                                                  |               |           |
+| TIMEOUT              | Set timeout for command execution                                                                                                         | 120           |           |
+
+> `FILTERNAME`, `EXCLUDENAME`, `FILTERDISPLAY`, and `EXCLUDEDISPLAY` accept regular expressions that are sent to the agent as part of a JSON payload. To match a literal special character (e.g. a `$` in a service name), you must escape it for **both** JSON and regex. For example, to match a service named `SQLAgent$SAGEV12PRD`, use `^SQLAgent\\\\$SAGEV12PRD` (double backslash escaping) or `^SQLAgent\[$\]SAGEV12PRD` (character class).
 
 </TabItem>
 <TabItem value="Sessions" label="Sessions">
@@ -1124,3 +1128,18 @@ All available options for a given mode can be displayed by adding the
 ```bash
 "C:\Program Files\Centreon\Plugins\centreon_plugins.exe" --plugin=os::windows::local::plugin --mode=certificates --help
 ```
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - Enhancement: `centreon_plugins.exe` now supports the curl HTTP backend.
+- [26.09](../releases/release-notes.md#2026-09) - Bug fix: Fixed qwinsta parsing failures with specific languages in **sessions** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added timeout macro to all native CMA checks.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed `CRITICALSTATUS` macro default value.
+- [26.03](../releases/release-notes.md#2026-03) - Breaking change: Handle extended thresholds on CMA native checks.
+- [26.02](../releases/release-notes.md#2026-02) - Enhancement: Added new parameters for the **Services** service template and added a **Custom-Script** service template to run custom commands.
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.08](../releases/release-notes.md#2025-08) - Enhancement: Added native checks for **Process**, **Counter**, **Tasksched** and **Files**. Added default timeout service macro, set to 120s.
+- [25.08](../releases/release-notes.md#2025-08) - Breaking change: Converted into stable with the new CMA version leading to breaking changes for earlier versions.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added new native checks: **cma-health**, **eventlog** and **services**.
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added native checks for CPU, Cpu-detailed, Memory, Storage, Swap and Uptime (requires Collect 24.10.3 or later).
+- [24.10](../releases/release-notes.md#2024-10) - New connector: Initial release of Windows CMA.

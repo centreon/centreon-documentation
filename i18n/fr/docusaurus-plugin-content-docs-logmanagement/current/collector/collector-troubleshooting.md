@@ -1,7 +1,7 @@
 ﻿---
 id: collector-troubleshooting
 title: Dépanner votre installation
-description: Dépanner l'installation du collector OpenTelemetry et les problèmes de collecte de logs
+description: "Résolvez les problèmes de collecteur OpenTelemetry si vos logs n'arrivent pas dans Centreon Log Management : logs, configuration, droits et réseau."
 ---
 
 ## Vérifications initiales

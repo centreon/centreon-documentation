@@ -487,3 +487,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=arrays \
 	--help
 ```
+
+## Changelog
+
+- [23.01](../releases/release-notes.md#2023-01) - Enhancement: Refactored the purestorage rest api connectors.
