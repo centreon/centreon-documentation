@@ -1,6 +1,6 @@
 ﻿---
 id: cloud-configuration-of-agents
-description: Configurer un hostid unique pour les agents en environnement autoscaling
+description: "Installez l'agent Experience Monitoring sur Docker ou dans un environnement en autoscaling en définissant un hostid unique au démarrage de chaque instance."
 title: Installer l'agent dans un environnement en autoscaling
 --- 
 

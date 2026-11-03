@@ -1,7 +1,7 @@
 ---
 id: dashboards
 title: Dashboards
-description: "How to create, edit, share, and manage dashboards, widgets, and playlists in Centreon Cloud"
+description: "How to create, edit, share, and manage dashboards and their widgets in Centreon Cloud, set access rights, and display them in playlists"
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.

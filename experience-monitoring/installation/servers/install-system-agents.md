@@ -1,7 +1,7 @@
 ---
 id: install-system-agents
 title: Install the agent on a static server
-description: Install the monitoring agent on a static Linux server
+description: "Install the Experience Monitoring agent on Debian, Ubuntu, or CentOS servers to collect system data, troubleshoot it, and allow its endpoint addresses."
 ---
 
 import Tabs from '@theme/Tabs';

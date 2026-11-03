@@ -1,6 +1,7 @@
 ---
 id: ot-bmc-footprints-11
 title: BMC Footprints 11
+description: "How to configure the BMC Footprints 11 open-tickets provider, which uses the SOAP API to open incidents from alerts, with requirements and test commands"
 ---
 
 ## How it works

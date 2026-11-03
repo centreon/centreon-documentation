@@ -1,6 +1,7 @@
 ---
 id: ot-bmc-remedy
 title: BMC Remedy
+description: "How to configure the BMC Remedy (BMC ITSM) open-tickets provider, which opens incidents through the SOAP API, with prerequisites and test commands"
 ---
 
 > This provider is called **BMC ITSM** in the Centreon web interface.

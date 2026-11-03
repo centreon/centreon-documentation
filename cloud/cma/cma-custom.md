@@ -1,7 +1,7 @@
 ---
 id: cma-custom
 title: Using custom plugins with CMA
-description: "Configure the Centreon Monitoring Agent to execute custom Nagios-compatible plugins not covered by native checks"
+description: "Configure the Centreon Monitoring Agent to execute custom plugins in PowerShell, Perl, Python, or Bash when native checks don't cover your monitoring needs"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
