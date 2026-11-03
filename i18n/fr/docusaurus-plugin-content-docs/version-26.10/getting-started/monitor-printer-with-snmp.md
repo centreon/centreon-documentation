@@ -1,6 +1,7 @@
 ---
 id: monitor-printer-snmp
 title: Superviser une imprimante en SNMP
+description: "Superviser une imprimante réseau à l'aide du protocole SNMP"
 ---
 
 Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervision** et installez le connecteur de supervision **Printer Standard** :

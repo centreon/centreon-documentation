@@ -1,7 +1,7 @@
 ---
 id: monitor-windows-server-with-snmp
 title: Monitor your first Windows host
-description: Monitoring a Windows server with SNMP
+description: "Monitor a Windows server using the SNMP protocol"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

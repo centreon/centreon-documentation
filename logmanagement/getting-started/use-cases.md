@@ -1,6 +1,7 @@
 ﻿---
 id: use-cases
 title: Use cases
+description: "Examples of IT issues Centreon Log Management helps detect from logs, from API failures and application errors to security incidents, with sample queries."
 ---
 
 <!-- évaluer un nombre de lignes de logs basé sur un pattern, seuil fixe (ou anomaly detection). -->

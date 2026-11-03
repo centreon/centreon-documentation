@@ -1,6 +1,7 @@
 ---
 id: services-create-disco
 title: Créer des services automatiquement
+description: "Comment les services sont créés automatiquement, via les connecteurs de supervision ou la fonctionnalité de découverte automatique de services"
 ---
 
 Les services peuvent être créés automatiquement de plusieurs façons :

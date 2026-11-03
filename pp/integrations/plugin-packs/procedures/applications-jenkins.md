@@ -1,6 +1,7 @@
 ---
 id: applications-jenkins
 title: Jenkins API
+description: "Monitor Jenkins jobs via the REST API, tracking job status, score percentage, and violation counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -329,3 +330,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=jobs \
 	--help
 ```
+
+## Changelog
+
+- [23.02](../releases/release-notes.md#2023-02) - Breaking change: Changed service name and options.

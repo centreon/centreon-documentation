@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-compute-vmscalesets
 title: Azure Virtual Machine Scale Sets
+description: "Monitor Azure Virtual Machine Scale Sets via the Azure API: CPU, disk I/O, health status, memory, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -516,3 +517,10 @@ All available options for a given mode can be displayed by adding the
 	--mode=traffic \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed discovery provider description.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

@@ -1,6 +1,7 @@
 ---
 id: network-dlink-dgs3100-snmp
 title: D-Link DGS 3100 SNMP
+description: "Supervisez les switches D-Link DGS 3100 via SNMP : utilisation CPU, état du matériel (alimentation, ventilateur) et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -458,3 +459,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in **interfaces** mode.

@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-directconnect
 title: Amazon Direct Connect
+description: "Supervisez les connexions et interfaces virtuelles AWS Direct Connect via l'API AWS : bande passante, paquets, statut et niveau optique."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -466,3 +467,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=connections \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

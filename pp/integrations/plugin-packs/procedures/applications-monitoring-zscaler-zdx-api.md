@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-zscaler-zdx-api
 title: Zscaler ZDX API
+description: "Monitor Zscaler ZDX applications via REST API: track user counts, ZDX scores, and page fetch time by location."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -390,3 +391,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=application
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Breaking change: The former authentication method is no longer supported. Only OneAPI is now supported.
+- [26.02](../releases/release-notes.md#2026-02) - New connector: Initial release.

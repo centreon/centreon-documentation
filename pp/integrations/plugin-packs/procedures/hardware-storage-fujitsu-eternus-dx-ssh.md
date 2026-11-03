@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-fujitsu-eternus-dx-ssh
 title: Fujitsu Eternus DX SSH
+description: "Monitor Fujitsu Eternus DX storage bays via SSH, covering CPU usage, disks, ports, power supply, RAID groups, and volume I/O stats."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -523,3 +524,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=volume-stats \
 	--help
 ```
+
+## Changelog
+
+- [22.10](../releases/release-notes.md#2022-10) - Breaking change: Changed to use new ssh backend.

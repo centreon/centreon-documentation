@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-experience-monitoring-restapi
 title: Centreon Experience Monitoring (formerly Quanta) Rest API
+description: "Monitor Centreon Experience Monitoring (formerly Quanta) via REST API: RUM sessions, site performance scores, and user journey incidents/statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -114,8 +115,8 @@ Here is the list of services for this connector, detailing all metrics and statu
 
 ## Prerequisites
 
-In order to monitor Centreon Experience Monitoring, you must have [a valid API token](/experience-monitoring/installation/monitor-production-events#authentication-and-token-generation), and [have user journeys configured in Centreon Experience Monitoring](/experience-monitoring/configuration/user-journey/create-a-scenario).
-Data from Real User Monitoring will only be accessible if you have completed [the integration of Centreon Experience Monitoring's RUM tag](/experience-monitoring/installation/real-user-monitoring-installation#find-the-tag-to-insert-on-my-site).
+In order to monitor Centreon Experience Monitoring, you must have [a valid API-type access token](/experience-monitoring/installation/tokens), and [have user journeys configured in Centreon Experience Monitoring](/experience-monitoring/configuration/user-journey/create-a-scenario).
+Data from Real User Monitoring will only be accessible if you have completed [the integration of Centreon Experience Monitoring's RUM tag](/experience-monitoring/installation/real-user-monitoring-installation).
 
 ## Installing the monitoring connector
 
@@ -259,7 +260,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-DEM-Restapi
 
 | Macro                        | Description                                                                                                                                      | Default value | Mandatory |
 |:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| TIMEFRAME                    | Set timeframe in seconds                                                                                                                         | 3600          |           |
+| TIMEFRAME                    | Set timeframe in seconds                                                                                                                         | 86400         |           |
 | WARNINGCARBONFOOTPRINT       | Warning threshold for carbon footprint                                                                                                           |               |           |
 | CRITICALCARBONFOOTPRINT      | Critical threshold for carbon footprint                                                                                                          |               |           |
 | WARNINGDIGITALSOBRIETYSCORE  | Warning threshold for digital sobriety score                                                                                                     |               |           |
@@ -490,7 +491,7 @@ All available options for each service template are listed below:
 | Option                            | Description                                    |
 |:----------------------------------|:-----------------------------------------------|
 | --site-id                         | Set ID of the site (mandatory option).         |
-| --timeframe                       | Set timeframe in seconds (default: 3600).      |
+| --timeframe                       | Set timeframe in seconds (default: 86400).     |
 | --warning-performance-score       | Warning threshold for performance score.       |
 | --critical-performance-score      | Critical threshold for performance score.      |
 | --warning-digital-sobriety-score  | Warning threshold for digital sobriety score.  |
@@ -556,3 +557,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=user-journey-statistics  \
 	--help
 ```
+
+## Changelog
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Changed the default value of the `timeframe` option (from 3600 to 86400 seconds).
+- [26.02](../releases/release-notes.md#2026-02) - Bug fix: The connector now returns an OK status when no incidents are found (instead of UNKNOWN).
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release.

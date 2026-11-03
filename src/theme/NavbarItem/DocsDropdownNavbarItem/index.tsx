@@ -11,7 +11,7 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
       sections.push({
         ...item,
         label: 'Infrastructure Monitoring',
-        initials: 'IM',
+        initials: 'CIM',
         color: '#0c00ff',
         activeBaseRegex: 'cloud|pp|docs/',
         type: undefined,
@@ -21,14 +21,14 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
       sections.push({
         ...item,
         label: 'Log Management',
-        initials: 'LM',
+        initials: 'CLM',
         color:  '#611485ff'
       });
     } else if ('to' in item && item.to && item.to.includes('experience-monitoring')) {
       sections.push({
         ...item,
         label: 'Experience Monitoring',
-        initials: 'XM',
+        initials: 'CXM',
         color:  '#259788ff'
       });
     }

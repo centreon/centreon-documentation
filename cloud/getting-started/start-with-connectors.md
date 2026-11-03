@@ -1,6 +1,7 @@
 ---
 id: start-with-connectors
 title: Getting started with Monitoring Connectors
+description: "Introduction to Monitoring Connectors in Centreon Cloud: what they are, how to install them to monitor your resources, and how to troubleshoot issues"
 ---
 
 ## Definition

@@ -1,6 +1,7 @@
 ---
 id: network-citrix-appacceleration-snmp
 title: Citrix Acceleration SNMP
+description: "Supervisez les appliances Citrix Acceleration via SNMP en suivant l'utilisation du CPU et des classes de service."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -422,3 +423,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=serviceclass-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.12](../releases/release-notes.md#2023-12) - Bug fix: Fixed incorrect carriage return in Service Discovery commands.

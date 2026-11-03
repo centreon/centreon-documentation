@@ -1,6 +1,7 @@
 ---
 id: monitor-in-real-time
 title: Superviser vos ressources en temps réel
+description: "Comment suivre le statut des ressources en temps réel, acquitter des alertes, planifier des temps d'arrêt et relancer des contrôles"
 ---
 
 Une fois votre premier hôte mis en supervision, allez à la page **Supervision > Statut des ressources** pour suivre le statut de vos ressources en temps réel.

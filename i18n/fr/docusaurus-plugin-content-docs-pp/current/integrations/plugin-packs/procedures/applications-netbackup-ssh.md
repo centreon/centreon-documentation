@@ -1,6 +1,7 @@
 ---
 id: applications-netbackup-ssh
 title: Symantec Netbackup SSH
+description: "Supervisez Symantec NetBackup via SSH : état de la déduplication, état et nettoyage des lecteurs, statut des jobs de sauvegarde et utilisation des bandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -490,3 +491,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=drive-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the App-Netbackup-SSH-Drive-Cleaning command.

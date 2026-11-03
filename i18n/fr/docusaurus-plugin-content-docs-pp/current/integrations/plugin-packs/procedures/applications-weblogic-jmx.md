@@ -1,6 +1,7 @@
 ---
 id: applications-weblogic-jmx
 title: Weblogic Server
+description: "Supervisez WebLogic Server via JMX/Jolokia : mémoire Java (Heap/NonHeap), nombre de classes, threads et work managers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -475,3 +476,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=work-manager \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

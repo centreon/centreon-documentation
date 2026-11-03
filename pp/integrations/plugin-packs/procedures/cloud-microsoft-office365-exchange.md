@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-exchange
 title: Office365 Exchange
+description: "Monitor Microsoft Office 365 Exchange Online via the Office 365 Management API: email activity and mailbox usage/quota status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -429,3 +430,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=email-activity \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Changed service template aliases to avoid service deployment issues.

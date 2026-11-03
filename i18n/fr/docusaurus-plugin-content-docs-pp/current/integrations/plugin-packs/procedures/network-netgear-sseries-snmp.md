@@ -1,6 +1,7 @@
 ---
 id: network-netgear-sseries-snmp
 title: Netgear SSeries SNMP
+description: "Supervisez les commutateurs Netgear S-Series via SNMP : utilisation CPU, mémoire, état matériel et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -525,3 +526,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Netgear sseries switches Pack.

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-security-keyvault
 title: Azure Key Vault
+description: "Supervisez Azure Key Vault via l'API REST ou Azure CLI : suivez l'utilisation de l'API, la disponibilité et la capacité des coffres."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -449,3 +450,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vault-capacity \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.

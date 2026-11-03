@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-avid-isis-snmp
 title: Avid Isis SNMP
+description: "Monitor Avid ISIS shared storage systems via SNMP: hardware health, performance, status, and storage usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

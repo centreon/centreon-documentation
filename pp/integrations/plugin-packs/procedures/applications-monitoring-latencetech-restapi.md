@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-latencetech-restapi
 title: LatenceTech RestAPI
+description: "Monitor LatenceTech network probes via REST API: connectivity, latency, throughput, radio, and TWAMP metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -620,3 +621,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=twamp \
 	--help
 ```
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - New connector: Initial release of LatenceTech RestAPI.

@@ -1,9 +1,16 @@
 ---
 id: cloud-azure-database-sqldatabase
 title: Azure SQL Database
+description: "Supervisez Azure SQL Database via l'API Azure Monitor ou Azure CLI : CPU, mémoire, stockage, sessions, connexions, deadlocks et workers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+## Dépendances du connecteur de supervision
+
+Les connecteurs de supervision suivants sont automatiquement installés lors de l'installation du connecteur **Azure SQL Database** 
+depuis la page **Configuration > Connecteurs > Connecteurs de supervision** :
+* [Base Pack](./base-generic.md)
 
 ## Contenu du pack
 
@@ -243,9 +250,9 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | AZURECLIENTID      | Set Azure client ID                                                                                                        |                   | X           |
 | AZURECLIENTSECRET  | Set Azure client secret                                                                                                    |                   | X           |
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or ID (required). It is the database name                                                                |                   |             |
+| AZURERESOURCE      | Set resource name or ID (required). It is the database name                                                                |                   | X           |
 | AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   |             |
-| AZURESQLSERVERNAME | Set resource name or ID. It is the database name.                                                                      |                   | X           |
+| AZURESQLSERVERNAME | Set server name (required if resource's name is used)                                                                      |                   |             |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | AZURETENANT        | Set Azure tenant ID                                                                                                        |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
@@ -260,9 +267,9 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 | Macro              | Description                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | AZURECUSTOMMODE    | When a plugin offers several ways (CLI, library, etc.) to get information the desired one must be defined with this option | api               |             |
-| AZURERESOURCE      | Set resource name or id. It is the database name.                                                                |                   |             |
+| AZURERESOURCE      | Set resource name or ID. It is the database name.                                                                |                   | X           |
 | AZURERESOURCEGROUP | Set resource group (required if resource's name is used)                                                                   |                   |             |
-| AZURESQLSERVERNAME | Set server name (required if resource's name is used)                                                                      |                   | X           |
+| AZURESQLSERVERNAME | Set server name (required if resource's name is used)                                                                      |                   |             |
 | AZURESUBSCRIPTION  | Set Azure subscription (required if logged to several subscriptions)                                                       |                   | X           |
 | PROXYURL           | Proxy URL if any                                                                                                           |                   |             |
 | EXTRAOPTIONS       | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                       |                   |             |
@@ -273,7 +280,9 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 > Deux méthodes peuvent être utilisées pour définir l'authentification :
 >
 > * Utilisation de l'ID complet de la ressource (de type `/subscriptions/<subscription_id>/resourceGroups/<resourcegroup_id>/providers/XXXXXX/XXXXXXX/<resource_name>`) dans la macro **AZURERESOURCE**.
-> * Utilisation du nom de la ressource dans la macro **AZURERESOURCE** et du nom du groupe de ressources dans la macro **AZURERESOURCEGROUP**.
+> * Utilisation du nom de la ressource dans la macro **AZURERESOURCE**, du nom
+>   du groupe de ressources dans la macro **AZURERESOURCEGROUP** et du nom du
+>   serveur dans la macro **AZURESQLSERVERNAME**.
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -366,11 +375,16 @@ yum install centreon-plugin-Cloud-Azure-Database-SqlDatabase-Api
 
 | Macro                | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:---------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| FILTER_METRIC        | Define metrics to exclude from queries.                                                             |               |           |
 | WARNINGUSAGEBYTES    | Warning threshold for usage-bytes                                                                   |                   |             |
 | CRITICALUSAGEBYTES   | Critical threshold for usage-bytes                                                                  |                   |             |
 | WARNINGUSAGEPERCENT  | Warning threshold for usage-percent                                                                 |                   |             |
 | CRITICALUSAGEPERCENT | Critical threshold for usage-percent                                                                |                   |             |
 | EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
+
+> By default, the storage mode of this monitoring connector queries the storage and storage_percent metrics.
+> Note that the storage_percent metric (Data space used percent) is not available for data warehouses and hyperscale databases. Using this metric on these environments will cause the plugin to report a "Bad Request" error.
+> For these environments, add storage_percent to the `FILTER_METRIC` macro to exclude it from the query and use this mode successfully.
 
 </TabItem>
 <TabItem value="Workers" label="Workers">
@@ -627,6 +641,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --resource        | Set resource name or ID (required).                                                                                                                                   |
 | --resource-group  | Set resource group (required if resource's name is used).                                                                                                             |
+| --server          | Set server name (required if resource's name is used).                                                                                                                |
 | --warning-status  | Define the conditions to match for the status to be WARNING (default: '').  You can use the following variables: %\{status\}, %\{summary\}                                |
 | --critical-status | Define the conditions to match for the status to be CRITICAL (default: '%\{status\} =~ /^Unavailable$/').  You can use the following variables: %\{status\}, %\{summary\}   |
 | --unknown-status  | Define the conditions to match for the status to be UNKNOWN (default: '%\{status\} =~ /^Unknown$/').  You can use the following variables: %\{status\}, %\{summary\}        |
@@ -658,6 +673,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 
 | Option           | Description                                                            |
 |:-----------------|:-----------------------------------------------------------------------|
+| --filter-metric          | Define metrics to exclude from queries.  By default, the storage mode of this monitoring connector queries the `storage` and `storage\_percent` metrics, no metrics are excluded.  Note that the `storage\_percent` metric (Data space used percent) is not available for `data warehouses` and `hyperscale` databases. Using this metric on these environments will cause the plugin to report a "Bad Request" error.  For these environments, you must use `--filter-metric=storage\_percent` to use this mode successfully. |
 | --resource       | Set resource name or ID (required). It is the database name.           |
 | --resource-group | Set resource group (required if resource's name is used).              |
 | --server         | Set server name (required if resource's name is used).                 |
@@ -688,3 +704,15 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='azcli' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - Bug fix: Fixed an issue with **health** mode by adding the `--server` option. This was causing an invalid Azure Resource ID and resulted in a host being permanently DOWN / ResourceNotFound.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Updated help section on **storage** mode.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [24.09](../releases/release-notes.md#2024-09) - Bug fix: Added the missing `--server` option in some checks.
+- [24.04](../releases/release-notes.md#2024-04) - Bug fix: Fixed the Cloud-Azure-Database-SqlDatabase-Api-Cpu command.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added CPU and Memory monitoring.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: Added EXTRAOPTIONS on health template.
+- [22.01](../releases/release-notes.md#2022-01) - Breaking change: Rewrite and extend.

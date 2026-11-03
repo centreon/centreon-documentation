@@ -1,6 +1,7 @@
 ---
 id: applications-vtom-restapi
 title: Absyss VTOM Rest API
+description: "Supervisez l'ordonnanceur de jobs Absyss VTOM via l'API REST : statut des jobs, compteurs d'exécution et taux de succès."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -418,3 +419,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=jobs \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed an issue leading to `Unknown option --token` in **jobs** mode.
+- [22.02](../releases/release-notes.md#2022-02) - Breaking change: Use official and latest API.

@@ -1,6 +1,7 @@
 ---
 id: applications-solr-jmx
 title: Solr
+description: "Monitor Apache Solr via JMX (Jolokia agent): cache usage and request handler performance metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -377,3 +378,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=request-handler-usage \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

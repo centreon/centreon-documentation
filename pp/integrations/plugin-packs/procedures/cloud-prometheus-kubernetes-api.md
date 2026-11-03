@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-kubernetes-api
 title: Kubernetes w/ Prometheus API
+description: "Monitor Kubernetes clusters via the Prometheus API, tracking container, daemonset, deployment, namespace, and node status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -470,3 +471,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=node-status \
 	--help
 ```
+
+## Changelog
+
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed `daemonset-status` incorrect key causing skips in **daemonset-status** mode.

@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-hikvision-nvr-snmp
 title: Hikvision NVR SNMP
+description: "Supervisez les enregistreurs NVR Hikvision via SNMP : espace disque, utilisation mémoire et disponibilité du système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -450,3 +451,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=disks \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

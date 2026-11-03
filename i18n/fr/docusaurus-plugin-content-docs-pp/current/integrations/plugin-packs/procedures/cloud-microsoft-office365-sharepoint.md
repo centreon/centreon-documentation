@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-sharepoint
 title: Office365 SharePoint
+description: "Supervisez Microsoft Office 365 SharePoint via l'API REST : usage des sites, stockage, activité des fichiers et engagement des utilisateurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -480,3 +481,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=site-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Changed service template aliases to avoid service deployment issues.

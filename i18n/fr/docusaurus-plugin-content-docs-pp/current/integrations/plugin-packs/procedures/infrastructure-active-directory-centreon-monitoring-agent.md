@@ -1,6 +1,7 @@
 ---
 id: infrastructure-active-directory-centreon-monitoring-agent
 title: Microsoft Active Directory CMA
+description: "Supervisez Microsoft Active Directory via CMA : diagnostic du contrôleur de domaine (dcdiag) et backlog de réplication DFSR."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -339,3 +340,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode dcdiag \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.08](../releases/release-notes.md#2025-08) - New connector: Initial release of Active Directory CMA.

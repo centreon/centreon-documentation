@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-camera-avigilon-snmp
 title: Avigilon camera SNMP
+description: "Supervisez les caméras Avigilon en SNMP : mémoire, stockage, température, disponibilité et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -565,3 +566,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.05](../releases/release-notes.md#2024-05) - New connector: Initial release of Avigilon SNMP.

@@ -1,10 +1,10 @@
 ---
 id: licenses
 title: Licences
+description: "Obtenir, ajouter et dépanner les licences Centreon en ligne ou hors ligne"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-
 
 ## Comment obtenir une licence?
 
@@ -131,3 +131,57 @@ chmod 640 /etc/centreon/license.d/*
   ```
 
   > Les hôtes désactivés sont pris en compte par la licence. Assurez-vous que le total des hôtes existants (activés + désactivés) est inférieur à la limite fixée par votre licence.
+
+### Licence expirée ou limite d'hôtes dépassée
+
+Lorsqu'une licence expire ou que le nombre d'hôtes sur votre plateforme dépasse la limite autorisée par la licence, certains modules cessent de fonctionner correctement. Cette section explique comment identifier le problème et quel comportement anticiper.
+
+#### Vérifier le nombre d'hôtes enregistrés
+
+Votre licence comptabilise tous les hôtes présents dans la base de données, y compris ceux qui sont désactivés. Pour connaître le nombre total d'hôtes enregistrés, exécutez la requête SQL suivante sur le serveur central :
+
+```sql
+SELECT COUNT(*) FROM centreon.host WHERE host_register='1';
+```
+
+Le résultat doit être strictement inférieur à la limite de votre licence. Si le nombre d'hôtes dépasse cette limite, vous devez soit supprimer les hôtes inutilisés, soit mettre à niveau votre licence vers une limite supérieure.
+
+> Les hôtes désactivés sont pris en compte par la licence. Assurez-vous que le nombre total d'hôtes existants (activés + désactivés) reste inférieur à la limite définie par votre licence.
+
+#### Vérifier la limite de votre licence
+
+Les fichiers de licence sont stockés dans le répertoire suivant :
+
+```shell
+/etc/centreon/license.d/
+```
+
+Pour afficher la limite d'hôtes définie dans votre licence, examinez le fichier de licence concerné :
+
+```shell
+less /etc/centreon/license.d/epp.license
+```
+
+Le fichier contient des informations sur le nombre maximal d'hôtes autorisés par votre licence.
+
+#### Comportement des modules lorsque la licence n'est pas valide
+
+Lorsque votre licence est expirée ou que la limite d'hôtes est dépassée, les comportements suivants sont observés dans l'interface :
+
+| Module | Comportement |
+|---|---|
+| Service Mapping (BAM) | Affiche le message : "Oops! License Invalid or Expired" |
+| Vues graphiques (MAP) | Affiche une page blanche, ou le message : "Map server license is not valid, please contact Centreon support service" |
+| Monitoring Connectors (EPP) | Affiche le message : "Your EPP License is not valid" |
+| Auto Discovery (Host/Service Discovery) | Affiche le message : "Oops! License Invalid or Expired" |
+
+> Lorsque le nombre d'hôtes de la licence est dépassé, il est toujours possible d'ajouter de nouveaux hôtes, mais ceux-ci ne pourront plus hériter des modèles d'hôtes issues des connecteurs de supervision.
+
+#### Résoudre le problème
+
+Pour rétablir le fonctionnement normal des modules :
+
+* Si votre licence est expirée : contactez l'équipe support Centreon pour la renouveler.
+* Si la limite d'hôtes est dépassée, vous pouvez :
+   * Supprimer les hôtes inutilisés (y compris ceux qui sont désactivés) afin de ramener le total sous la limite de la licence.
+   * Mettre à niveau votre licence vers une limite d'hôtes supérieure en contactant votre représentant commercial.

@@ -1,6 +1,7 @@
 ---
 id: applications-pvx-restapi
 title: PVX
+description: "Monitor PVX (Accedian Skylight) via REST API: HTTP hits, network connections, traffic, and end-user experience."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -964,3 +965,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=http-hits \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Authentication to API now requires a bearer header.

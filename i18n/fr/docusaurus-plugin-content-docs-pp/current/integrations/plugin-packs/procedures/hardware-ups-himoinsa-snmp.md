@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-himoinsa-snmp
 title: Himoinsa SNMP
+description: "Supervisez les onduleurs/groupes électrogènes Himoinsa via SNMP : fréquence, niveau de fuel, courant de phase, statut et tension."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -511,3 +512,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=voltage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Added Himoinsa Monitoring Connector.

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-msa2000-snmp
 title: HP MSA2000 SNMP
+description: "Supervisez les baies de stockage HP MSA2000 via SNMP : état des composants matériels et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -479,3 +480,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed GitHub [issue 5899](https://github.com/centreon/centreon-plugins/issues/5899), also talked about on [TheWatch](https://thewatch.centreon.com/infra-monitoring-platform-7/hp-msa-plugin-issue-5219).
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **hardware** mode missing in plugin packaging.

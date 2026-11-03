@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-resource
 title: Azure Resource
+description: "Monitor Azure resource groups via the Azure API: deployment status and resource counts by type (compute, storage, network)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -413,3 +414,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=items \
 	--help
 ```
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

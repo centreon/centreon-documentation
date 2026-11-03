@@ -1,6 +1,7 @@
 ---
 id: network-moxa-switch-snmp
 title: Moxa Switch SNMP
+description: "Monitor Moxa switches via SNMP: track CPU and memory usage, interface traffic and status, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -524,3 +525,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.02](../releases/release-notes.md#2025-02) - Bug fix: Fixed `--add-duplex-status` option in **interface** mode.

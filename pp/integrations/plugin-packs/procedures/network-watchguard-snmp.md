@@ -1,6 +1,7 @@
 ---
 id: network-watchguard-snmp
 title: Watchguard SNMP
+description: "Monitor WatchGuard firewalls via SNMP: CPU, hardware, cluster status, IPsec tunnels, policy usage, and traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -709,3 +710,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added service cluster.

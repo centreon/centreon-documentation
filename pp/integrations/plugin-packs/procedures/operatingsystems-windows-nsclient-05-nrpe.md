@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NSClient 0.5 NRPE
+description: "Monitor Windows servers via NSClient++ and NRPE: CPU, memory, disks, services, sessions, certificates, and more."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -317,12 +318,12 @@ dnf install nagios-plugins-nrpe
 3. Apply the **OS-Windows-NSClient-05-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                                                      | Default value        | Mandatory |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------|:---------------------|:---------:|
-| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                        | check_centreon_nrpe3 |           |
-| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                        | 5666                 |           |
-| NRPETIMEOUT      | Command timeout                                                                                                                  | 30                   |           |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) | -u -2 -P 8192        |           |
+| Macro            | Description                                                                                                                      | Default value | Mandatory |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                        | check_nrpe    |           |
+| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                        | 5666          |           |
+| NRPETIMEOUT      | Command timeout                                                                                                                  | 30            |           |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) | -u -2 -P 8192 |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -1126,3 +1127,13 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query' --help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
+- [25.02](../releases/release-notes.md#2025-02) - Enhancement: Changed pack display name to make it clear that it uses the NRPE protocol.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the certificate check command.
+- [23.06](../releases/release-notes.md#2023-06) - Breaking change: Updated default NRPE client and options.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Fixed erroneous mode name in Updates command.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added service updates for windows pack.

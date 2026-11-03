@@ -1,6 +1,7 @@
 ---
 id: hardware-kvm-adder-aim-snmp
 title: Adder AIM SNMP
+description: "Monitor Adder AIM KVM switches via SNMP: device and server usage, connection counts, CPU, memory, and disk metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -408,3 +409,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=server-usage \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **HW-Kvm-Adder-Aim-SNMP-Server-Usage** command.

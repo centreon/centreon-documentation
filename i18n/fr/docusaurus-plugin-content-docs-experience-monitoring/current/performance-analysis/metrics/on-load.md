@@ -1,5 +1,6 @@
 ---
 id: on-load
+description: "L'OnLoad mesure le moment où la page et ses ressources dépendantes (CSS, images) sont chargées, hors chargements différés. Seuils de notation inclus."
 title: OnLoad
 --- 
 

@@ -1,6 +1,7 @@
 ---
 id: applications-databases-cassandra-jmx
 title: Cassandra
+description: "Superviser Apache Cassandra via JMX/Jolokia : utilisation du cache, latence et échecs des requêtes clientes, activité des pools de threads."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -411,3 +412,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=thread-pools-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

@@ -1,6 +1,7 @@
 ---
 id: start-with-pollers
 title: Débuter avec les collecteurs
+description: "Introduction aux collecteurs Centreon Cloud et à leur rôle dans l'architecture, pour l'installation, la sécurisation, la mise à jour et le dépannage"
 ---
 
 ## Définition et architecture

@@ -1,6 +1,7 @@
 ---
 id: network-infoblox-snmp
 title: Infoblox SNMP
+description: "Monitor Infoblox DDI appliances via SNMP: DHCP/DNS usage, interface traffic and status, and system health (CPU, memory, HA)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

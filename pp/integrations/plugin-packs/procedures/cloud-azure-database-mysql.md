@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-mysql
 title: Azure Database for MySQL
+description: "Monitor Azure Database for MySQL via the Azure API: connections, CPU, memory, storage, replication, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -720,3 +721,8 @@ All available options for a given mode can be displayed by adding the
 	--custommode='azcli' \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed typo in `serverlog-usage` option label.

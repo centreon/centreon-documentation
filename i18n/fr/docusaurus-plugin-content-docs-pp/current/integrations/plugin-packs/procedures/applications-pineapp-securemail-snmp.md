@@ -1,6 +1,7 @@
 ---
 id: applications-pineapp-securemail-snmp
 title: PineApp Mail Secure
+description: "Supervisez PineApp Mail Secure via SNMP : charge système, files de messages (entrants, sortants, priorité), statut du stockage et des services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -384,3 +385,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=system \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - New connector: Added new Pineapp Secure mail Pack.

@@ -1,6 +1,7 @@
 ﻿---
 id: observability
 title: Centreon Log Management et l'observabilité
+description: "Comment Centreon Log Management apporte de l'observabilité à votre système d'information et en quoi l'analyse des logs complète la supervision."
 ---
 
 ## Qu'est-ce que l'observabilité?

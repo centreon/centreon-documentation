@@ -1,6 +1,7 @@
 ---
 id: timeperiods
 title: Les périodes temporelles
+description: "Définir des périodes temporelles pour planifier les contrôles et les notifications"
 ---
 
 ## Définition
@@ -14,26 +15,31 @@ Une période temporelle définit un intervalle de temps pour chacun des jours de
 
 Pour configurer des périodes temporelles, allez à la page : **Configuration > Utilisateurs > Périodes temporelles**.
 
+Le bouton situé à gauche de la description de chaque période temporelle permet de visualiser les plages horaires actives.
+
 1. Dans les champs **Nom de la période temporelle** et **Alias**, entrez un nom et une description.
-2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-de-temps). 
+2. Dans la section **Options basiques**, pour chaque jour de la semaine, définissez les plages horaires pendant lesquelles les vérifications et les notifications seront activées, en utilisant la [syntaxe décrite ci-dessous](#syntaxe-dune-période-temporelle). 
 
     - Ces définitions seront appliquées chaque semaine, indéfiniment.
-    - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période de temps.
+    - Si vous laissez un jour vide, il n'y aura pas de supervision ce jour-là pour les actions rattachées à cette période temporelle.
 
-3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure dans une période de temps des jours qui n'en feraient normalement pas partie.
+3. Utilisez [l'onglet **Période d'exception**](#onglet-période-dexception) pour inclure ou exclure d'une période temporelle des jours spécifiques.
 
-4. Une fois la période de temps définie, vous pouvez l'utiliser :
+4. Une fois la période temporelle définie, vous pouvez l'utiliser :
 
     - Dans le champ **Période de contrôle** d'un hôte, d'un modèle d'hôtes, d'un service ou d'un groupe de services.
     - Dans le champ **Période de notification** d'un hôte, d'un modèle d'hôte, d'un service, d'un groupe de services ou d'un contact, ou bien dans le champ **Période d'escalade** d'une escalade de notifications.
+   - Dans la configuration d'autres périodes temporelles. Toutes les périodes temporelles peuvent être réutilisées avec la fonctionnalité [modèles de période temporelle](#modèles-de-période-temporelle).
 
-### Syntaxe d’une période de temps
+Le bouton **Réinitialiser** efface toutes les données non sauvegardées.
+
+### Syntaxe d’une période temporelle
 
 Les caractères suivants permettent de définir les périodes temporelles :
 
 * Le caractère ”:” sépare les heures des minutes. Exemple : HH:MM
-* Le caractère “-” indique une continuité entre deux horaires
-* Le caractère ”,” permet de séparer deux plages horaires.
+* Le caractère “-” indique une continuité entre deux horaires. Exemple : 9:00-13:00
+* Le caractère ”,” permet de séparer deux plages horaires. Exemple : 9:00-13:00,14:00-17:00
 
 Quelques exemples :
 
@@ -43,11 +49,22 @@ Quelques exemples :
 
 ![image](../../assets/configuration/05timeperiod.png)
 
+### Modèles de période temporelle
+
+Le champ **Modèles de période temporelle** vous permet de réutiliser des périodes temporelles déjà créées pour ajouter leur configuration à d'autres périodes temporelles.
+
+- Par exemple, si vous avez déjà créé un période temporelle qui inclut les samedis matins, vous pouvez la sélectionner pour que la période temporelle que vous êtes en train de créer inclue également les samedis matins.
+
+- Si une période exclut les dimanches et l’autre les inclut, les dimanches seront finalement inclus.
+
 ### Onglet Période d'exception
 
-L'onglet **Période d'exception** permet d’inclure dans la plage temporelle des jours exceptionnels. Les plages définies ici surchargent la définition du fonctionnement régulier de la journée.
+L'onglet **Période d'exception** permet d’inclure ou d'exclure des jours exceptionnels.
+Les plages définies ici écrasent la définition du fonctionnement régulier des jours établi dans l'onglet **Informations générales** pour faire l'opposé.
+Par exemple, si votre période temporelle inclut les lundis, ajouter un lundi dans l'onglet d'exception aura pour effet d'exclure ce lundi.
+Cependant, si votre période temporelle n'inclut pas les lundis, ajouter un lundi dans l'onglet d'exception aura pour effet d'inclure ce lundi.
 
-Exemple : Un administrateur souhaite définir une période temporelle qui regroupe les heures de fermeture du bureau, c’est à dire :
+Cas d'usage : Un administrateur souhaite définir une période temporelle qui regroupe les heures de fermeture du bureau, c’est à dire :
 
 * De 18h00 à 07h59 les jours de semaine
 * 24 heures sur 24 les weekends
@@ -71,7 +88,7 @@ Le tableau ci-dessous présente quelques exemples possibles :
 | day 1 - 20        | 00:00-24:00             | Toute la journée du premier au 20 de chaque mois             |
 | saturday -1       | 08:00-12:00,14:00-18:45 | Tous les derniers samedi du mois les heures ouvrées          |
 | monday -2         | 00:00-24:00             | Tous les avant derniers lundi du mois toute la journée       |
-| june 6 - june 21  | 00:00-00:00             | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
+| june 6 - june 21  | 00:00-00:00 ou laisser le champ vide   | Ne pas superviser entre le 6 et le 21 juin toute la journée  |
 | june 12           | 00:00-08:00,18:00-24:00 | Superviser chaque 12 juin, sauf entre 8h et 18h              |
 
 > Les périodes d'exception ne sont pas prises en compte dans [BAM](../../service-mapping/introduction.md), et dans les rapports concernant BAM dans [MBI](../../reporting/introduction.md).

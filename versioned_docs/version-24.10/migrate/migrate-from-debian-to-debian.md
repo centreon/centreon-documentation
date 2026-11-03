@@ -1,6 +1,7 @@
 ---
 id: migrate-from-debian-to-debian
 title: Migrate from Debian 11 to Debian 12
+description: "Migrate a Centreon platform from Debian 11 to Debian 12"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -218,6 +219,8 @@ chapter for more information.
          username: "@GORGONE_USER@"
          password: "@GORGONE_PASSWORD@"
    ```
+
+      > If you have [customized the Centreon URI](../administration/secure-platform.md#custom-uri), replace **/centreon** with your custom path in the **base_url** value.
 
 7. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) for all your monitoring servers (including the central).
 

@@ -1,6 +1,7 @@
 ---
 id: applications-rudder-restapi
 title: Rudder
+description: "Monitor Rudder configuration compliance via REST API, tracking node, rule, and global compliance status plus key statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -564,3 +565,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=statistics \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.

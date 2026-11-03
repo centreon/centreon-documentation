@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-xfusion-ibmc-snmp
 title: xFusion iBMC SNMP
+description: "Supervisez les serveurs xFusion iBMC en SNMP : CPU, ventilateurs, disques durs, mémoire, PCIe, alimentations, RAID et température."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -405,3 +406,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=hardware \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Fixed wrong command.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

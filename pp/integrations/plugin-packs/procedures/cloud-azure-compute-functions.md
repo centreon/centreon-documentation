@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-compute-functions
 title: Azure Functions
+description: "Monitor Azure Functions via the Azure Monitor API or Azure CLI: CPU time, memory, HTTP requests, executions, and app status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -878,3 +879,11 @@ All available options for a given mode can be displayed by adding the
 	--custommode='azcli' \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [23.10](../releases/release-notes.md#2023-10) - Bug fix: Linked Executions template to the right check command.
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Removed privatebytes threshold from Memory service.
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Fixed extra newlines in commands definition causing failures during CLAPI import.

@@ -1,5 +1,6 @@
 ---
 id: cumulative-layout-shift
+description: "Le CLS est une métrique Web Vitals qui mesure la stabilité visuelle d'une page en additionnant les scores des décalages inattendus de ses éléments."
 title: CLS - Cumulative Layout Shift (Web Vital)
 --- 
 

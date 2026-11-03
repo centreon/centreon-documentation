@@ -1,6 +1,7 @@
 ---
 id: resources-status
 title: Resources Status page
+description: "Track, filter, and act on resource events from a unified page"
 ---
 
 The **Monitoring > Resources Status** page is your main view to track

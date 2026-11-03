@@ -1,6 +1,7 @@
 ---
 id: network-radware-alteon-snmp
 title: Radware Alteon SNMP
+description: "Monitor Radware Alteon load balancers via SNMP: CPU usage, hardware status, memory, and virtual server status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

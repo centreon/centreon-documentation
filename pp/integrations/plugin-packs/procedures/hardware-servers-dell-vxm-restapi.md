@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-dell-vxm-restapi
 title: Dell VxRail Manager Rest API
+description: "Monitor Dell VxRail Manager via REST API: chassis and power supply status, host status, NIC status, and disk status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -425,3 +426,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=chassis \
 	--help
 ```
+
+## Changelog
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added VxRail Manager Pack.

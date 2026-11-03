@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-insightsmetrics
 title: Azure InsightsMetrics
+description: "Supervisez les machines virtuelles Azure via l'API LogAnalytics et la base InsightsMetrics : CPU, mémoire et disques logiques."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -501,3 +502,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=logical-disks \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.

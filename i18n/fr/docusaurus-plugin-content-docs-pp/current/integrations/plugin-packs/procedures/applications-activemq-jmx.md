@@ -1,6 +1,7 @@
 ---
 id: applications-activemq-jmx
 title: ActiveMQ JMX
+description: "Supervisez les brokers Apache ActiveMQ via JMX avec l'API REST Jolokia : taille des files et topics, mémoire et débit des messages."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -442,3 +443,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=brokers \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

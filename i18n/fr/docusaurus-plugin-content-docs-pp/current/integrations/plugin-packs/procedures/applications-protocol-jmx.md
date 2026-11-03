@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-jmx
 title: JMX value
+description: "Supervisez des valeurs numériques JMX via l'agent Jolokia, par exemple l'utilisation du tas mémoire (heap) d'une JVM en HTTP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -321,3 +322,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=numeric-value \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

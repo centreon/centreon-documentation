@@ -1,6 +1,7 @@
 ---
 id: network-barracuda-bma-snmp
 title: Barracuda Message Archiver SNMP
+description: "Supervisez Barracuda Message Archiver via SNMP : charge processeur, activité des mails et utilisation du stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -414,3 +415,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

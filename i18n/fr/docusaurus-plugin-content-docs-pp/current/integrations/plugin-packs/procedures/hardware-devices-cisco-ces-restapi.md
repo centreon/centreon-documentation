@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-cisco-ces-restapi
 title: Cisco Collaboration Endpoint Rest API
+description: "Supervisez les équipements Cisco Collaboration Endpoint via l'API REST : appels, certificats, composants, diagnostics, périphériques et sessions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

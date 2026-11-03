@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-health
 title: AWS Health
+description: "Supervisez les événements AWS Health via l'API AWS (awscli ou paws) : suivez le nombre d'événements totaux, ouverts, fermés et à venir."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -432,3 +433,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=events \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.

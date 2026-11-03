@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-alertmanager-api
 title: Prometheus Alertmanager API
+description: "Monitor Prometheus Alertmanager via its REST API: track active, suppressed, and unprocessed alerts by severity."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -351,3 +352,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=alerts \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - New connector: Initial release of Prometheus Alertmanager API.

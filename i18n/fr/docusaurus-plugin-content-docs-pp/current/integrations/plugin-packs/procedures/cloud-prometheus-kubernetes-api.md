@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-kubernetes-api
 title: Kubernetes w/ Prometheus API
+description: "Supervisez des clusters Kubernetes via l'API Prometheus, en suivant le statut des conteneurs, daemonsets, déploiements, namespaces et nœuds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -470,3 +471,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=node-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed `daemonset-status` incorrect key causing skips in **daemonset-status** mode.

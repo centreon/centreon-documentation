@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-vone-restapi
 title: Veeam ONE Rest API
+description: "Supervisez l'infrastructure de sauvegarde Veeam ONE via API REST : jobs, proxys, dépôts et licences."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -518,3 +519,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=proxies \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.03](../releases/release-notes.md#2026-03) - New connector: Initial release.

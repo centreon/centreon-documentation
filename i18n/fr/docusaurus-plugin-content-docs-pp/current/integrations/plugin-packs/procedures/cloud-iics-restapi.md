@@ -1,6 +1,7 @@
 ---
 id: cloud-iics-restapi
 title: IICS Rest API
+description: "Supervisez Informatica Intelligent Cloud Services (IICS) via l'API Rest : statut des agents, disponibilité et état des moteurs applicatifs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -374,3 +375,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=agents \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Informatica Intelligent Cloud Services Pack.

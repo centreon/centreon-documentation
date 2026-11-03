@@ -1,6 +1,7 @@
 ---
 id: network-raisecom-snmp
 title: Raisecom SNMP
+description: "Supervisez les équipements réseau Raisecom via SNMP : CPU, matériel, mémoire et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -528,3 +529,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=cpu \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Added support for all Raisecom xPON series.

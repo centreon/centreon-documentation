@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-me4-restapi
 title: Dell ME4 Rest API
+description: "Monitor Dell ME4 storage arrays via REST API: controller statistics, hardware health, volume statistics, and interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -553,3 +554,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Enhanced compatibility with Dell SAN for **interfaces** mode, based on community contribution (PR [#5912](https://github.com/centreon/centreon-plugins/pull/5912)).
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fixed controller-statistics command options.

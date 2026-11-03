@@ -1,6 +1,7 @@
 ---
 id: applications-databases-influxdb
 title: InfluxDB
+description: "Monitor InfluxDB time series databases via REST API: connection time, database statistics, HTTP server stats, writes, and custom queries."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -519,3 +520,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=write-statistics \
 	--help
 ```
+
+## Changelog
+
+- [25.10](../releases/release-notes.md#2025-10) - Bug fix: Fixed an error in **query** mode command.
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed a bug causing unknown status with "uninitialized values" when running multiple queries.

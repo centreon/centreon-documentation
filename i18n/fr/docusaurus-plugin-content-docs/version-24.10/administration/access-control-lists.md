@@ -1,6 +1,7 @@
 ---
 id: access-control-lists
 title: Gérer les droits des utilisateurs Centreon (ACL)
+description: "Gérer les droits via les groupes d'accès et les filtres sur ressources, menus et actions"
 ---
 
 Vous pouvez donner des droits aux [utilisateurs](../monitoring/basic-objects/contacts.md) de Centreon :
@@ -21,7 +22,7 @@ nécessaire de patienter quelques instants avant de voir appliquer la
 modification sur le profil. Vous pouvez également [forcer le recalcul des ACL](#recalculer-les-acls).
 
 > Les modules Centreon
-> [MBI](../reporting/configure.md), BAM et [MAP](../graph-views/map-web-access.md) ont leurs propres ACL.
+> [MBI](../reporting/introduction.md), BAM et [MAP](../graph-views/map-web-access.md) ont leurs propres ACL.
 
 ## Donner des droits à un utilisateur
 

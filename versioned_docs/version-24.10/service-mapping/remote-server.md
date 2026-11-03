@@ -1,6 +1,7 @@
 ---
 id: remote-server
 title: Install on a Remote Server
+description: "Configure Centreon BAM and Broker on a Remote Server"
 ---
 
 The procedure for installing the Centreon BAM module on a Centreon Remote Server

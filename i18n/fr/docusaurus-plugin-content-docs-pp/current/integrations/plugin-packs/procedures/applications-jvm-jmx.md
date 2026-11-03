@@ -1,6 +1,7 @@
 ---
 id: applications-jvm-jmx
 title: JVM JMX
+description: "Supervisez les machines virtuelles Java via JMX et l'agent Jolokia : charge CPU, mémoire, garbage collection, threads et classes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -550,3 +551,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=class-count \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

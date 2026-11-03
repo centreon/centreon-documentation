@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-redis
 title: Azure Cache for Redis
+description: "Supervisez Azure Cache for Redis via l'API Azure ou Azure CLI : latence, débit, CPU, mémoire, erreurs et santé du cache."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -740,3 +741,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='azcli' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

@@ -1,6 +1,7 @@
 ---
 id: glossary
 title: Glossaire des concepts Centreon
+description: "Définitions des principaux concepts de supervision Centreon"
 ---
 
 ## ACL
@@ -88,6 +89,12 @@ Certains connecteurs ont également une option de “découverte” qui leur per
 - [Utiliser des connecteurs de supervision](../monitoring/pluginpacks.md),
 - [Introduction aux connecteurs de supervision](/pp/integrations/plugin-packs/getting-started/introduction).
 
+## Contrôle
+
+Un contrôle est une opération qui détermine le [statut](#statut) d'une ressource, et peut produire des [métriques](#statut) (données de performance). Le résultat d’un contrôle met à jour la ligne correspondant à la ressource dans la page **Statut des ressources**.
+
+Un contrôle peut être effectué soit par le moteur de supervision ([contrôle actif](../monitoring/active-passive-checks.md#contrôles-actifs)), soit par l’équipement lui-même ([contrôle passif](../monitoring/active-passive-checks.md#contrôles-passifs)).
+
 ## Donnée de performance
 
 Voir [**Métrique**](#métrique).
@@ -161,6 +168,10 @@ Lorsqu’un service comprend plusieurs métriques, le statut du service est celu
 Vous pouvez voir les métriques associées à un service dans le panneau de détails de celui-ci.
 
 **Voir aussi** : [Comprendre les métriques](../monitoring/metrics.md).
+
+## Mode
+
+Les modes sont utilisés par les [plugins](#plugin). Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
 ## Mode flux Broker inversé
 

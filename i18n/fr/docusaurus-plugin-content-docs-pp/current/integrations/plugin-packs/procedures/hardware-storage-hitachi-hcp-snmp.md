@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hitachi-hcp-snmp
 title: Hitachi HCP SNMP
+description: "Supervisez le stockage Hitachi HCP via SNMP : statut des nodes, tenants et volumes, espace disque et capteurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -490,3 +491,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=nodes \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the service discovery macro commands.

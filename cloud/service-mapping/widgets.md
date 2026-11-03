@@ -1,6 +1,7 @@
 ---
 id: widgets
 title: Widgets
+description: "How to configure the Live Business Activity Status widget to display BA status and current health level on a Centreon home page, with its parameters"
 ---
 
 ## Live Business Activity Status

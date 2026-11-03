@@ -1,6 +1,7 @@
 ---
 id: network-switchs-arista-snmp
 title: Arista Switch SNMP
+description: "Monitor Arista switches via SNMP: BGP peers, CPU, memory, sensors, interface traffic, and packet errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -809,3 +810,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added **bgp** service template.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Changed threshold options for Memory service.

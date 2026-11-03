@@ -1,6 +1,7 @@
 ---
 id: virtualization-hyperv-nscp-restapi
 title: Hyper-V NSCP Rest API
+description: "Supervisez les hôtes Hyper-V et les machines virtuelles SCVMM via l'API REST NSClient++ : statut des VM, réplication, snapshots et services d'intégration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -673,3 +674,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--arg='scvmm-vm-status' \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed an issue with **scvmm-discovery** stats.
+- [24.09](../releases/release-notes.md#2024-09) - Bug fix: Fixed the default `--filter-status` value on VM status.
+- [22.04](../releases/release-notes.md#2022-04) - New connector: Initial release.

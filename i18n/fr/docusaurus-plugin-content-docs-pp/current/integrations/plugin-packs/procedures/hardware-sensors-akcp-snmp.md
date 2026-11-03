@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-akcp-snmp
 title: AKCP Sensor SNMP
+description: "Supervisez les sondes environnementales AKCP via SNMP : température, humidité, contacts secs, port série et détection d'eau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

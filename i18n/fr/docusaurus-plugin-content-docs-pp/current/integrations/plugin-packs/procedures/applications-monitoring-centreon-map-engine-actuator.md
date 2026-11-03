@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-map-engine-actuator
 title: Centreon Map Engine
+description: "Supervisez la JVM de Centreon Map Engine via son API REST Actuator : charge CPU, mémoire, threads, descripteurs de fichiers et classes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -539,3 +540,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='standard' \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.02](../releases/release-notes.md#2024-02) - New connector: First release of Centreon Map Engine monitoring connector.

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-frontdoor
 title: Azure Front Door
+description: "Supervisez Azure Front Door via les API Azure ou Azure CLI : santé du backend, disponibilité, latence, requêtes et taille des paquets."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -542,3 +543,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=latency \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

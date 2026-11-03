@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-node-exporter-linux
 title: Node Exporter Linux Metrics
+description: "Monitor Linux servers via Prometheus Node Exporter: track CPU, load, memory, storage, and network traffic metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -506,3 +507,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=traffic \
 	--help
 ```
+
+## Changelog
+
+- [22.07](../releases/release-notes.md#2022-07) - New connector: Added Linux Node Exporter Monitoring Pack.

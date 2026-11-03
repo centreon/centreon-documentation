@@ -1,6 +1,7 @@
 ---
 id: applications-oracle-goldengate-ssh
 title: Oracle GoldenGate SSH
+description: "Monitor Oracle GoldenGate via SSH: track replication process status, lag time, and time since last checkpoint."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

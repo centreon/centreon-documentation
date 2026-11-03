@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
+description: "Monitor Palo Alto firewalls via SSH: hardware environment, high availability, interfaces, IPsec tunnels, licenses, and system status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -538,3 +539,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=environment \
 	--help
 ```
+
+## Changelog
+
+- [23.06](../releases/release-notes.md#2023-06) - Enhancement: Added new **licences** mode.

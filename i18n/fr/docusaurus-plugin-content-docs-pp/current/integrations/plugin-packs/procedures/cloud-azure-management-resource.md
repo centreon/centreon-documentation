@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-resource
 title: Azure Resource
+description: "Supervisez les groupes de ressources Azure via l'API Azure : statut des déploiements et nombre de ressources par type (compute, stockage, réseau)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -414,3 +415,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=items \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

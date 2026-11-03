@@ -1,6 +1,7 @@
 ---
 id: applications-ceph-restapi
 title: Ceph Rest API
+description: "Supervisez vos clusters Ceph via l'API REST : statut de santé du cluster, disponibilité des OSD, et utilisation, débit et capacité des pools."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -446,3 +447,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=pools \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

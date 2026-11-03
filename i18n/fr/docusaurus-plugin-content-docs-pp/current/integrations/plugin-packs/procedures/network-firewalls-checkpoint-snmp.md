@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-checkpoint-snmp
 title: CheckPoint firewall
+description: "Supervisez les pare-feux CheckPoint via SNMP : CPU, mémoire, disque, haute disponibilité, matériel, VPN, VRRP et trafic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -683,3 +684,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vrrp-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.03](../releases/release-notes.md#2023-03) - Enhancement: Added disk service.

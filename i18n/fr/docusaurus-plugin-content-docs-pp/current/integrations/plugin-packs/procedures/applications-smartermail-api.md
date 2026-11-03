@@ -1,6 +1,7 @@
 ---
 id: applications-smartermail-api
 title: Smartermail Server
+description: "Supervisez SmarterMail Server via son API REST : état des licences, des services et des files d'attente de messages."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -395,3 +396,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=spools \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the App-Smartermail-Api-Spools command.

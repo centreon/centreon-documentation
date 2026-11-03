@@ -1,6 +1,7 @@
 ---
 id: network-colubris-snmp
 title: Colubris SNMP
+description: "Supervisez les équipements Colubris via SNMP : points d'accès, CPU, mémoire, charge, stockage et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -585,3 +586,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Colubris-SNMP-Memory** and **Net-Colubris-SNMP-Load** commands. Also fixed plugin to support options from **Net-Colubris-SNMP-Load** command.

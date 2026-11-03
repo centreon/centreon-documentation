@@ -1,6 +1,7 @@
 ---
 id: virtualization-hyperv-2012-cma
 title: Hyper-V 2012 CMA
+description: "Supervisez Hyper-V 2012 (nœuds et SCVMM) via l'agent CMA : statut des VM, services d'intégration, réplication et snapshots."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -577,3 +578,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
     --mode=scvmm-vm-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.09](../releases/release-notes.md#2025-09) - New connector: Initial release of Hyper-V 2012 CMA.

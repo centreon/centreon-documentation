@@ -1,6 +1,7 @@
 ---
 id: network-hpe-athonet-alertmanager-api
 title: HPE Athonet Alertmanager w/ Prometheus
+description: "Monitor HPE Athonet Alertmanager via Prometheus API: active, critical, warning, and unprocessed alert counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -365,3 +366,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=alerts \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - New connector: Initial release of HPE Athonet Alertmanager w/ Prometheus API.

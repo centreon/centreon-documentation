@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-unisphere-restapi
 title: EMC Unisphere Rest API
+description: "Monitor Dell EMC Unisphere storage systems via REST API: hardware components, storage pools, replications, and storage resources."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -489,3 +490,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage-resources \
 	--help
 ```
+
+## Changelog
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Added missing mandatory parameters for discovery rules and fixed storage discovery rule.

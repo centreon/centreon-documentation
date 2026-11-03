@@ -1,6 +1,7 @@
 ---
 id: network-alvarion-breezeaccess-snmp
 title: Alvarion BreezeACCESS SNMP
+description: "Monitor Alvarion BreezeACCESS wireless links via SNMP: radio signal strength, noise ratio, interfaces, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -499,3 +500,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=radio-status \
 	--help
 ```
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

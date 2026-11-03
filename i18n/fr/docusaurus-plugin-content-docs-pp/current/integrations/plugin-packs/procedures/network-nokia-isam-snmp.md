@@ -1,6 +1,7 @@
 ---
 id: network-nokia-isam-snmp
 title: Nokia Isam SNMP
+description: "Supervisez les équipements Nokia ISAM via SNMP : CPU, mémoire, matériel, temps de fonctionnement, interfaces et utilisation des SAP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -592,3 +593,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.07](../releases/release-notes.md#2024-07) - New connector: Initial release of Nokia formerly Alcatel Isam SNMP.

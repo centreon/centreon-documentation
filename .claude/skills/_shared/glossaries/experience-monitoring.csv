@@ -1,0 +1,69 @@
+Source,FR
+Performance score,Score de performance
+Synthetic Monitoring,Monitoring Synthétique
+User Journey,Parcours Utilisateur
+Load Tests,Tests de montée en charge
+Digital Sobriety Monitoring,Supervision de sobriété numérique
+System View,Vue Système
+Business View,Vue Business
+Dashboards,Tableaux de bord
+Profiling,Profilage
+Event tracking,Suivi des évènements
+SEO Module,Module SEO
+Recommendations probe,Sonde de recommandations
+Experience Monitoring agent,Agent Experience Monitoring
+RUM tag,Tag RUM
+STM probe,Sonde STM
+STM Zone,Zone STM
+System agent,Agent système
+PHP module,Module PHP
+Apache agent,Agent Apache
+MySQL agent,Agent MySQL
+Nginx agent,Agent Nginx
+Redis agent,Agent Redis
+Varnish agent,Agent Varnish
+PostgreSQL agent,Agent PostgreSQL
+Memcached agent,Agent Memcached
+PHP Magento profiler,Profileur PHP Magento
+OroCommerce profiler,Profileur OroCommerce
+Probe,Sonde
+Journey,Parcours
+Page load time,Temps de chargement de la page
+Loading time,Temps de chargement
+Availability rate,Taux de disponibilité
+Scenario,Scénario
+Step,Étape
+Verification,Vérification
+Desktop mode,Mode Desktop
+Mobile mode,Mode Mobile
+User Agent,User Agent
+Bandwidth,Bande passante
+Browser cache,Cache navigateur
+Page weight,Poids de la page
+DOM size,Taille du DOM
+HTTP requests,Requêtes HTTP(S)
+Frontend execution time,Temps d'exécution Frontend
+JavaScript execution,Exécution du Javascript
+Caching,Cache
+Full-page cache,Cache complet
+Browser rendering,Rendu du navigateur
+Digital Sobriety Score,Score de Sobriété Numérique
+Eco-Design Score (EDS),Score d'éco-conception (EDS)
+Carbon footprint (CF),Empreinte carbone (EC)
+Carbon Footprint Per Click (CFPC),Empreinte Carbone Par Clic (ECPC)
+CO2 emissions,Émissions de CO2
+Eco-design,Éco-conception
+Environmental footprint,Empreinte environnementale
+HTTP Basic authentication,Authentification HTTP Basic
+JSON payload,Payload JSON
+GDPR,RGPD
+CSS selector,Sélecteur CSS
+Browser,Navigateur
+Token (authentication),Jeton (d'authentification)
+Incident detection,Détection d'incidents
+Alert threshold,Seuil d'alerte
+Resolution threshold,Seuil de résolution
+Availability alert,Alerte de disponibilité
+Conversion rate alert,Alerte sur le taux de conversion
+Scenario status alert,Alerte sur le statut du scénario
+Business data alert,Alerte métiers

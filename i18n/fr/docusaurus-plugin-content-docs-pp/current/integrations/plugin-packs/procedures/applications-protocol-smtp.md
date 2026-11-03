@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-smtp
 title: SMTP Server
+description: "Supervisez vos serveurs SMTP en contrôlant la connexion et l'envoi de messages, avec le temps de réponse pour chaque vérification."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -328,3 +329,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=message \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed a Perl warning in **App-Protocol-SMTP-Message** and **App-Protocol-SMTP-Login** commands.

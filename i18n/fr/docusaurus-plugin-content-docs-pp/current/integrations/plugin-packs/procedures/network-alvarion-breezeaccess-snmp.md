@@ -1,6 +1,7 @@
 ---
 id: network-alvarion-breezeaccess-snmp
 title: Alvarion BreezeACCESS SNMP
+description: "Supervisez les liaisons sans fil Alvarion BreezeACCESS via SNMP : signal radio, rapport signal/bruit, interfaces et uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -499,3 +500,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=radio-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

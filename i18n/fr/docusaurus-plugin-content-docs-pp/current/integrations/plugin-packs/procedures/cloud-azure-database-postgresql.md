@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-postgresql
 title: Azure Database for PostgreSQL
+description: "Supervisez Azure Database for PostgreSQL via l'API REST ou Azure CLI : connexions, CPU, mémoire, IO, réplication, stockage et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -638,3 +639,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='azcli' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.02](../releases/release-notes.md#2025-02) - Bug fix: Fixed **storage** command by adding spaces before warning options.
+- [24.04](../releases/release-notes.md#2024-04) - New connector: First release of Azure PostgreSQL.

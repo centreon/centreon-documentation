@@ -1,6 +1,7 @@
 ---
 id: applications-cisco-ssms-restapi
 title: Cisco SSMS
+description: "Supervisez Cisco Smart Software Manager On-Prem via API REST : usage des licences, conformité et alertes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

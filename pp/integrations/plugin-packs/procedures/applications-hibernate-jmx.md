@@ -1,6 +1,7 @@
 ---
 id: applications-hibernate-jmx
 title: Hibernate
+description: "Monitor Hibernate ORM statistics via JMX and the Jolokia agent, tracking connection, query, insert, update, and close counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -330,3 +331,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=stats \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

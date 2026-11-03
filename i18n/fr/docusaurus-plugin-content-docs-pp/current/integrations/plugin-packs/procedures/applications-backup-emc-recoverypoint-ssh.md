@@ -1,6 +1,7 @@
 ---
 id: applications-backup-emc-recoverypoint-ssh
 title: EMC RecoveryPoint SSH
+description: "Supervisez les appliances EMC RecoveryPoint via SSH : statut système et paramètres surveillés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -284,3 +285,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=system-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-bgp-snmp
 title: BGP Protocol SNMP
+description: "Supervisez l'état des voisins BGP en SNMP grâce au connecteur Centreon, avec le statut des peers et le délai depuis la dernière mise à jour."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

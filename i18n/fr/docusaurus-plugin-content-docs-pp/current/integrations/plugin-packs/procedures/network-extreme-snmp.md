@@ -1,6 +1,7 @@
 ---
 id: network-extreme-snmp
 title: Extreme Networks SNMP
+description: "Supervisez les commutateurs Extreme Networks via SNMP : CPU, mémoire, composants matériels, statut de la stack et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -576,3 +577,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added supported models in documentation.

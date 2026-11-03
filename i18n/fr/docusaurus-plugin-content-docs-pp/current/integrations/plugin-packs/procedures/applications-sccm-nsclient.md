@@ -1,6 +1,7 @@
 ---
 id: applications-sccm-nsclient
 title: Microsoft SCCM
+description: "Supervisez Microsoft SCCM via NRPE ou REST API (agent centreon-nsclient) : état de la réplication des bases et des sites."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -143,7 +144,7 @@ superviser les ressources *Microsoft SCCM* via l'agent *centreon-nsclient*. Util
 
 ```bash
 dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -151,7 +152,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -159,7 +160,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 apt install centreon-plugin-operatingsystems-windows-restapi
-apt install centreon-nrpe3-plugin
+apt install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -167,7 +168,7 @@ apt install centreon-nrpe3-plugin
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
-yum install centreon-nrpe3-plugin
+yum install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -395,3 +396,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=query \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: This connector is now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). A breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed wrong argument in `App-Sccm-Site-Status` command.

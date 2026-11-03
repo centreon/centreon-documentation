@@ -1,6 +1,7 @@
 ---
 id: applications-pvx-restapi
 title: PVX
+description: "Supervisez PVX (Accedian Skylight) via l'API REST : hits HTTP, connexions réseau, trafic et expérience utilisateur."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -964,3 +965,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=http-hits \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Authentication to API now requires a bearer header.

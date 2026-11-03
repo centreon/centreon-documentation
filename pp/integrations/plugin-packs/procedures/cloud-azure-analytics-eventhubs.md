@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-analytics-eventhubs
 title: Azure Event Hubs
+description: "Monitor Azure Event Hubs via REST API or Azure CLI: track backlog, connections, errors, health, messages, requests, and throughput."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -632,3 +633,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=errors \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.

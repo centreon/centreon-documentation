@@ -1,6 +1,7 @@
 ---
 id: migrate-from-3-4
 title: Migration depuis une plateforme Centreon 3.4
+description: "Migrer les données et la configuration depuis une plateforme Centreon 3.4"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

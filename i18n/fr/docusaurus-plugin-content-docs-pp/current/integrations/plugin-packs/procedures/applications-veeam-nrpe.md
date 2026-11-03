@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-nrpe
 title: Veeam NRPE
+description: "Supervisez Veeam Backup & Replication via NRPE : état des jobs, licences, dépôts, jobs sur bande et jobs SureBackup."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -25,11 +26,13 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="App-Veeam-NRPE-custom" label="App-Veeam-NRPE-custom">
 
-| Alias      | Modèle de service                | Description                                                   |
-|:-----------|:---------------------------------|:--------------------------------------------------------------|
-| Job-Status | App-Veeam-Job-Status-NRPE-custom | Contrôle permettant de vérifier l'état des jobs de sauvegarde |
+| Alias      | Modèle de service                | Description                                                   | Découverte |
+|:-----------|:---------------------------------|:--------------------------------------------------------------|:----------:|
+| Job-Status | App-Veeam-Job-Status-NRPE-custom | Contrôle permettant de vérifier l'état des jobs de sauvegarde | X          |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **App-Veeam-NRPE-custom** est utilisé.
+
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
@@ -45,6 +48,17 @@ Le connecteur apporte les modèles de service suivants
 
 </TabItem>
 </Tabs>
+
+### Règles de découverte
+
+#### Découverte de services
+
+| Nom de la règle         | Description       |
+|:------------------------|:------------------|
+| App-Veeam-NRPE-Job-Name | Découvre les jobs |
+
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
 ### Métriques & statuts collectés
 
@@ -163,28 +177,28 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
 <TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-nrpe3-plugin
+apt install nagios-plugins-nrpe
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-nrpe3-plugin
+yum install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -221,6 +235,7 @@ yum install centreon-nrpe3-plugin
 
 | Macro           | Description                                                                                                                                                               | Valeur par défaut                                       | Obligatoire |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
+| JOB_SOURCE      | Define which Veeam job source to use.  Possible values are: `all` (retrieve both standard jobs and agent jobs), `standard` (retrieve only jobs returned by `Get-VBRJob`), or `agent` (retrieve only jobs returned by `Get-VBRComputerBackupJob`)                                                                                                                                                                                   | all                                                     |           |
 | FILTERENDTIME   | Tolerance value in seconds, to avoid skipping jobs whose end time is earlier than the current time                                                                        | 86400                                                   |             |
 | FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                         |                                                         |             |
 | FILTERSTARTTIME | Tolerance value in seconds, to avoid skipping jobs whose start time is earlier than the current time                                                                      |                                                         |             |
@@ -429,6 +444,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 | Option              | Description                                                                                                                                                                                                                                     |
 |:--------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --timeout           | Set timeout time for command execution (default: 50 sec)                                                                                                                                                                                        |
+| --job-source        | Define which Veeam job source to use (default: all).  Possible values are: `all` (retrieve both standard jobs and agent jobs), `standard` (retrieve only jobs returned by `Get-VBRJob`), or `agent` (retrieve only jobs returned by `Get-VBRComputerBackupJob`).  |
 | --no-ps             | Don't encode powershell. To be used with --command and 'type' command.                                                                                                                                                                          |
 | --command           | Command to get information (default: 'powershell.exe'). Can be changed if you have output in a file. To be used with --no-ps option!!!                                                                                                          |
 | --command-path      | Command path (default: none).                                                                                                                                                                                                                   |
@@ -539,3 +555,19 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	'vsb-jobs' \
 	'--help'
 ```
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed `job-type` and `session` values in **job-status** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Enhanced message displayed when using wrong powershell version with veeam 13.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed Veeam job retrieval in **job-status** mode.
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed warnings about uninitialized values in **job-status** mode.
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed a regression causing an "Undefined subroutine" error.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Improved execution time in **job-status** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Added new services: Repositories and Licenses.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added vsb-jobs service.

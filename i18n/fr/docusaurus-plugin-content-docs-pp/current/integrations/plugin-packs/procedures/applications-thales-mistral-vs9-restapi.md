@@ -1,6 +1,7 @@
 ---
 id: applications-thales-mistral-vs9-restapi
 title: Thales Mistral VS9 Rest API
+description: "Supervisez les chiffreurs Thales Mistral VS9 via l'API REST : certificats, interfaces, système, cluster et tunnels VPN."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -393,9 +394,9 @@ yum install centreon-plugin-Applications-Thales-Mistral-Vs9-Restapi
 
 | Macro                       | Description                                                                                                                                                                                        | Valeur par défaut                              | Obligatoire |
 |:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:-----------:|
-| UNKNOWNCLUSTERSTATUS        | Define the conditions to match for the status to be UNKNOWN  (default: '%\{replicationStatus\} =~ /unknown/i'). You can use the following variables: %\{enabled\}, %\{replicationStatus\}          | %\{replicationStatus\} =~ /unknown/i           |             |
-| WARNINGCLUSTERSTATUS        | Define the conditions to match for the status to be WARNING (default: '%\{replicationStatus\} =~ /not\_synchronized/i'). You can use the following variables: %\{enabled\}, %\{replicationStatus\} | %\{replicationStatus\} =~ /not\_synchronized/i |             |
-| CRITICALCLUSTERSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                                                          |                                                |             |
+| UNKNOWNCLUSTERSTATUS        | Define the conditions to match for the status to be UNKNOWN. You can use the following variables: %\{enabled\}, %\{replicationStatus\}, %\{state\}  | %\{replicationStatus\} =~ /unknown/i                                                                         |             |
+| WARNINGCLUSTERSTATUS        | Define the conditions to match for the status to be WARNING. You can use the following variables: %\{enabled\}, %\{replicationStatus\}, %\{state\}  | %\{state\} =~ /misconfigured\|configured\_not\_started/i \|\| %\{replicationStatus\} =~ /not\_synchronized/i |             |
+| CRITICALCLUSTERSTATUS       | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{enabled\}, %\{replicationStatus\}, %\{state\} | %\{state\} =~ /split\_brain\|data\_mismatch/i                                                                |             |
 | WARNINGNODESTATUS           | Define the conditions to match for the status to be WARNING (default: '%\{status\} =~ /disconnected/i'). You can use the following variables: %\{status\}, %\{name\}                               | %\{status\} =~ /disconnected/i                 |             |
 | CRITICALNODESTATUS          | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %\{status\}, %\{name\}                                                                          |                                                |             |
 | WARNINGSYNCHRONIZATIONDONE  | Threshold                                                                                                                                                                                          |                                                |             |
@@ -963,3 +964,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=mmc-certificates \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added support for API version 9.2.4.18.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.12](../releases/release-notes.md#2022-12) - Enhancement: Added service clusters.
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

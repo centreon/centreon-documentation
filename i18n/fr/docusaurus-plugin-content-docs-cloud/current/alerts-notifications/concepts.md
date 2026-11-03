@@ -1,6 +1,7 @@
 ---
 id: concepts
 title: Statuts possibles d'une ressource
+description: "Vue d'ensemble des statuts d'hôtes et de services, des états acquitté et en maintenance, et des types de statut SOFT/HARD dans Centreon Cloud"
 ---
 
 Les statuts indiquent la disponibilité d'un hôte, et la disponibilité ou la performance d'un service. Chaque

@@ -1,6 +1,7 @@
 ---
 id: saml
 title: Configuring connection via SAML
+description: "Configure authentication via SAML identity providers"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

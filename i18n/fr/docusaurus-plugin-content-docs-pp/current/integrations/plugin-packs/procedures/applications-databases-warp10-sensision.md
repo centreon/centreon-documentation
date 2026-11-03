@@ -1,6 +1,7 @@
 ---
 id: applications-databases-warp10-sensision
 title: Warp10 Sensision
+description: "Supervisez Warp10 Sensision via son API HTTP : suivez les statistiques des requêtes fetch et l'exécution des scripts et fonctions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -511,3 +512,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='web' \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed an issue that blocked the uninstallation process and a broker command.

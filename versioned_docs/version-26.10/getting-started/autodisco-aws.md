@@ -1,6 +1,7 @@
 ---
 id: autodisco-aws
 title: Use Autodiscovery to monitor AWS EC2 instances
+description: "Use Autodiscovery to detect and monitor AWS EC2 instances"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -27,13 +28,6 @@ You must have:
     - If you have an offline license in your central server's terminal, enter:
      
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-pack-*
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -41,7 +35,14 @@ dnf install centreon-pack-*
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-pack-*
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-pack-*

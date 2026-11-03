@@ -1,6 +1,7 @@
 ---
 id: event-handler
 title: Auto Remediation
+description: "Configure event handlers to automatically fix problems on state changes"
 ---
 
 ## Introduction

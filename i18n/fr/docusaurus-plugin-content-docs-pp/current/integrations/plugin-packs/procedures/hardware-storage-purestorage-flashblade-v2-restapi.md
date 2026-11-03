@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-purestorage-flashblade-v2-restapi
 title: Pure Storage FlashBlade v2 Rest API
+description: "Supervisez Pure Storage FlashBlade via l'API REST : espace des grappes de stockage, systèmes de fichiers, alertes et état matériel."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -486,3 +487,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=arrays \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.01](../releases/release-notes.md#2023-01) - Enhancement: Refactored the purestorage rest api connectors.

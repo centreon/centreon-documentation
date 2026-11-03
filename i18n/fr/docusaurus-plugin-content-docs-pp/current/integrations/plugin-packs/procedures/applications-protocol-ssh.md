@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-ssh
 title: Protocol SSH
+description: "Supervisez la connectivité SSH d'un serveur distant : statut de connexion et temps de réponse avec le connecteur Centreon Protocol SSH."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -313,3 +314,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=login \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fixed translation.

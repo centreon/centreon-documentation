@@ -1,6 +1,7 @@
 ---
 id: reports-publication-rule
 title: Publishing your reports
+description: "Configure publication rules to share generated MBI reports automatically"
 ---
 
 import Tabs from '@theme/Tabs';

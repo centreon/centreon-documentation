@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-inmatics-sputnik-snmp
 title: Inmatics PSU Sputnik SNMP
+description: "Monitor Inmatics PSU Sputnik UPS devices via SNMP: alarms, battery status, environment, input/output lines, and output source."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -535,3 +536,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=output-lines \
 	--help
 ```
+
+## Changelog
+
+- [24.02](../releases/release-notes.md#2024-02) - New connector: First release of Inmatics PSU Sputnik monitoring connector.

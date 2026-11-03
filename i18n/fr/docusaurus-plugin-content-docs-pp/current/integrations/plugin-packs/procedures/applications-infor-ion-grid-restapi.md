@@ -1,6 +1,7 @@
 ---
 id: applications-infor-ion-grid-restapi
 title: Infor ION Grid Rest API
+description: "Supervisez les applications et noeuds Infor ION Grid via API REST : statut, CPU, utilisation de la mémoire heap, uptime et erreurs de log."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -392,3 +393,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=node \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.04](../releases/release-notes.md#2024-04) - New connector: First release of Infor Ion Grid RESTAPI.

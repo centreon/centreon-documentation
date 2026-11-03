@@ -1,6 +1,7 @@
 ---
 id: applications-sccm-cma
 title: Microsoft SCCM CMA
+description: "Monitor Microsoft SCCM via CMA: track database replication status and site status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -299,3 +300,7 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--mode=site-status \
 	--help
 ```
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release.

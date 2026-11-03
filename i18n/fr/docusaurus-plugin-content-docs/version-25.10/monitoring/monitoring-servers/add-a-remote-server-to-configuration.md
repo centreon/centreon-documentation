@@ -1,6 +1,7 @@
 ---
 id: add-a-remote-server-to-configuration
 title: Rattacher un serveur distant à un serveur central
+description: "Configurer et connecter un nouveau serveur distant à un serveur central"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -244,7 +245,7 @@ redémarrez-le avec la commande suivante depuis le **serveur Central** :
 
 ## Étape 3 : Exporter la configuration
 
-1. Depuis la liste des collecteurs, sélectionnez le serveur distant et cliquez sur
+1. Sur le serveur central, revenez au menu **Configuration > Collecteurs > Collecteurs**, sélectionnez le serveur distant et cliquez sur
 **Exporter la configuration**.
 
 2. Cochez ensuite les trois premières cases et cliquez sur  **Exporter** :

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-violin-3000-snmp
 title: Violin Memory 3000 SNMP
+description: "Monitor Violin Memory 3000 storage arrays via SNMP: hardware status for fans, PSUs, chassis alarms, temperature, and FC ports."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

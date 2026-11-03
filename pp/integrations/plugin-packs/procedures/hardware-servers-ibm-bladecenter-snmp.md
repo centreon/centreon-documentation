@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-ibm-bladecenter-snmp
 title: IBM BladeCenter SNMP
+description: "Monitor IBM BladeCenter chassis via SNMP: ambient temperature, blades, blowers, chassis status, power modules, and system health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

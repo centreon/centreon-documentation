@@ -1,6 +1,7 @@
 ---
 id: network-perle-ids-snmp
 title: Perle IDS SNMP
+description: "Supervisez les équipements Perle IDS via SNMP : alarmes, état matériel, interfaces, CPU, mémoire et espace flash."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -552,3 +553,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=system-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

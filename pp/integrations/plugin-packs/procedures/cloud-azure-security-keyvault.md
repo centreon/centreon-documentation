@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-security-keyvault
 title: Azure Key Vault
+description: "Monitor Azure Key Vault via REST API or Azure CLI: track service API usage, vault availability, and vault capacity."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -447,3 +448,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=vault-capacity \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.

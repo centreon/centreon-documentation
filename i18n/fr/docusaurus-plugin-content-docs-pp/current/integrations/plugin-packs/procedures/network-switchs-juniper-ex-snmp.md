@@ -1,6 +1,7 @@
 ---
 id: network-switchs-juniper-ex-snmp
 title: Juniper EX Series SNMP
+description: "Supervisez les commutateurs Juniper EX Series via SNMP : CPU, mémoire, état matériel, espace disque et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -667,3 +668,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.

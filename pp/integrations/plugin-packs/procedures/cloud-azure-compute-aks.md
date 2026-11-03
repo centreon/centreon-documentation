@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-compute-aks
 title: Azure Kubernetes Service
+description: "Monitor Azure Kubernetes Service (AKS) via Azure API or Azure CLI: cluster health, CPU, memory, storage, node/pod state, and traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -731,3 +732,10 @@ All available options for a given mode can be displayed by adding the
 	--custommode='azcli' \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.
+- [24.02](../releases/release-notes.md#2024-02) - Enhancement: Added Memory, Node-State, Pod-State and Unschedulable-Pods service templates to Azure AKS.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

@@ -1,6 +1,7 @@
 ---
 id: applications-webservers-tomcat-jmx
 title: Tomcat JMX
+description: "Monitor Apache Tomcat via JMX/Jolokia: JVM memory, CPU load, threads, class count, connector and datasource usage, and webapp sessions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -650,3 +651,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=webapps-sessions \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

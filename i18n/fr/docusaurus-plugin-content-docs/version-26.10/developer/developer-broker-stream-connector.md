@@ -1,6 +1,7 @@
 ---
 id: developer-broker-stream-connector
 title : Stream Connectors
+description: "Référence de l’API Lua des Stream Connectors de Centreon Broker"
 ---
 
 Centreon Broker fournit un Stream Connector. Si vous ne trouvez pas de connecteur approprié parmi ceux proposés, ce Stream Connector répondra certainement à vos besoins. Son principe est d’exposer une partie de l’API Centreon Broker par le biais de l’interpréteur Lua et l’utilisateur n’a plus qu’à la remplir selon ses besoins.

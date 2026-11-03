@@ -1,6 +1,7 @@
 ---
 id: access-control-lists
 title: Granting rights to Centreon users (ACL)
+description: "Manage user rights via access groups and filters on resources, menus, and actions"
 ---
 
 You can grant rights to Centreon [users](../monitoring/basic-objects/contacts.md): 

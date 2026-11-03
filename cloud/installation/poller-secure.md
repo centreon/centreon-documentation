@@ -1,6 +1,7 @@
 ---
 id: poller-secure
 title: Securing your pollers
+description: "Recommendations for securing your Centreon Cloud pollers: account passwords, SELinux, firewalld rules, SIEM logs, backups, and disaster recovery"
 ---
 
 import Tabs from '@theme/Tabs';

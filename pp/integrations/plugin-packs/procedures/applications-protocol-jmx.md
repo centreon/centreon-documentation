@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-jmx
 title: JMX value
+description: "Monitor JMX numeric values via the Jolokia agent, tracking metrics such as JVM heap usage over HTTP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -320,3 +321,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=numeric-value \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

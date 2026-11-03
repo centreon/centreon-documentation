@@ -1,6 +1,7 @@
 ---
 id: applications-webservers-apache-serverstatus
 title: Apache Server
+description: "Monitor Apache web servers via the mod_status page: requests, response time, worker slots, and CPU load."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -506,3 +507,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=workers \
 	--help
 ```
+
+## Changelog
+
+- [25.07](../releases/release-notes.md#2025-07) - Enhancement: Reworked **requests** mode and enhanced **slot-states** mode, based on community contribution [PR 4920](https://github.com/centreon/centreon-plugins/pull/4920).

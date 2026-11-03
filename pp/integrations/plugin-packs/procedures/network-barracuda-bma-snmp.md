@@ -1,6 +1,7 @@
 ---
 id: network-barracuda-bma-snmp
 title: Barracuda Message Archiver SNMP
+description: "Monitor Barracuda Message Archiver via SNMP: CPU load, mail activity, and storage usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -415,3 +416,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage \
 	--help
 ```
+
+## Changelog
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

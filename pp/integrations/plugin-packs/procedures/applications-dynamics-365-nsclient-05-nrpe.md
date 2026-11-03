@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-365-nsclient-05-nrpe
 title: Dynamics365 NSClient 0.5 NRPE
+description: "Monitor Microsoft Dynamics 365 new sales order files via NSClient++ and NRPE, checking their presence and age."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -109,7 +110,7 @@ Use the commands below according to your operating system's package manager:
 
 ```bash
 dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -117,7 +118,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -125,7 +126,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 apt install centreon-plugin-operatingsystems-windows-restapi
-apt install centreon-nrpe3-plugin
+apt install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -133,7 +134,7 @@ apt install centreon-nrpe3-plugin
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
-yum install centreon-nrpe3-plugin
+yum install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -148,13 +149,13 @@ yum install centreon-nrpe3-plugin
 3. Apply the **App-Dynamics-365-NRPE-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
-| Macro            | Description                                                                                                                      | Default value        | Mandatory |
-|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------|:---------------------|:---------:|
-| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                          | check_centreon_nrpe3 |           |
-| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                        | 5666                 |           |
-| NRPETIMEOUT      | Command timeout                                                                                                                  | 30                   |           |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) | -u -2 -P 8192        |           |
-| EXTRAOPTIONS     | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |                      |           |
+| Macro            | Description                                                                                                                      | Default value | Mandatory |
+|:-----------------|:---------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                          | check_nrpe    |           |
+| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                        | 5666          |           |
+| NRPETIMEOUT      | Command timeout                                                                                                                  | 30            |           |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) | -u -2 -P 8192 |           |
+| EXTRAOPTIONS     | Any extra option you may want to add to every command (E.g. a --verbose flag). All options are listed [here](#available-options) |               |           |
 
 5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
 
@@ -319,3 +320,8 @@ All available options for a given mode can be displayed by adding the
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query' --help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

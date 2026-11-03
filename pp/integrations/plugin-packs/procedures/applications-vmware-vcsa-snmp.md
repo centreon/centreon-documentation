@@ -1,6 +1,7 @@
 ---
 id: applications-vmware-vcsa-snmp
 title: VMware VCSA SNMP
+description: "Monitor VMware VCSA appliances via SNMP: CPU, memory, uptime, network interfaces, and storage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -594,3 +595,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=uptime \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed plugin package name.
+- [22.10](../releases/release-notes.md#2022-10) - New connector: New Pack to check VMWare vCenter Appliance OS with SNMP.

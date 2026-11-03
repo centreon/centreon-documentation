@@ -1,6 +1,7 @@
 ---
 id: applications-biztalk
 title: MS Biztalk
+description: "Monitor Microsoft BizTalk Server via SQL queries to the BizTalkMgmtDb database, tracking disabled receive locations."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

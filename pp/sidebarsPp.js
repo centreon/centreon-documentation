@@ -25,6 +25,10 @@ module.exports = {
             },
             {
               type: 'doc',
+              id: 'integrations/plugin-packs/getting-started/how-to-guides/rust-collections'
+            },
+            {
+              type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
             },
             {
@@ -62,31 +66,17 @@ module.exports = {
           id: 'integrations/plugin-packs/releases/release-notes'
         },
         {
-          type: 'category',
-          label: 'Developers Center',
-          link: {
-            type: 'generated-index'
-          },
-          items: [
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/introduction'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
-            }
-          ]
+          type: 'doc',
+          id: 'integrations/plugin-packs/getting-started/develop-plugin'
         }
       ]
     },
     {
       type: 'category',
       label: 'Applications',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -131,6 +121,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-voip-asterisk-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-atlassian-statuspage-api'
         },
         {
           type: 'doc',
@@ -190,7 +184,19 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-mssql'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-dynamics-365-cma'
         },
         {
           type: 'doc',
@@ -378,10 +384,6 @@ module.exports = {
         },
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/procedures/applications-dynamics-ax-nsclient-05-nrpe'
-        },
-        {
-          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-exchange-2010-nrpe'
         },
         {
@@ -550,6 +552,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-quadstor-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-quadstor-nrpe'
         },
         {
@@ -650,6 +656,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-netbackup-cma'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-netbackup-nrpe'
         },
         {
@@ -679,6 +689,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-varnish-nrpe'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-veeam-vbr-restapi'
         },
         {
           type: 'doc',
@@ -749,6 +763,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Blockchain',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -767,6 +784,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Centreon',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -779,6 +799,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-experience-monitoring-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-monitoring-centreon-clm-restapi'
         },
         {
           type: 'doc',
@@ -817,6 +841,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Cloud',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -1192,6 +1219,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-openshift-api'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-openstack-restapi'
         },
         {
@@ -1209,12 +1240,19 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/cloud-vmware-velocloud-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/cloud-zscaler-ztb-restapi'
         }
       ]
     },
     {
       type: 'category',
       label: 'Database',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -1297,6 +1335,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Hardware-server',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -1503,6 +1544,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Network',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -2222,6 +2266,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/network-waystream-snmp'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/network-westermo-standard-snmp'
         },
         {
@@ -2233,6 +2281,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Operating-system',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -2288,6 +2339,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-linux-snmp-rs'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-linux-snmpv3'
         },
         {
@@ -2332,6 +2387,10 @@ module.exports = {
         },
         {
           type: 'doc',
+          id: 'integrations/plugin-packs/procedures/operatingsystems-windows-snmp-rs'
+        },
+        {
+          type: 'doc',
           id: 'integrations/plugin-packs/procedures/operatingsystems-windows-telegraf-agent'
         },
         {
@@ -2343,6 +2402,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Printer',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -2353,6 +2415,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Protocol',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -2373,6 +2438,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-protocol-snmp'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-protocol-snmp-rs'
         },
         {
           type: 'doc',
@@ -2459,6 +2528,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Sensor',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -2517,6 +2589,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Storage',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -2593,6 +2668,10 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/applications-backup-emc-recoverypoint-ssh'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/hardware-storage-emc-symmetrix-cma'
         },
         {
           type: 'doc',
@@ -2847,6 +2926,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Toip-voip',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -2901,6 +2983,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Ups-pdu',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -3003,6 +3088,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Virtualization',
+      link: {
+        type: 'generated-index'
+      },
       items: [
         {
           type: 'doc',
@@ -3035,6 +3123,22 @@ module.exports = {
         {
           type: 'doc',
           id: 'integrations/plugin-packs/procedures/virtualization-proxmox-ve-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-host-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-vm-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-pool-restapi'
+        },
+        {
+          type: 'doc',
+          id: 'integrations/plugin-packs/procedures/applications-virtualization-vates-xenorchestra-restapi'
         },
         {
           type: 'doc',

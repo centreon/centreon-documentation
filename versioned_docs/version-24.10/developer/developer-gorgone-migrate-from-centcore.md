@@ -1,6 +1,7 @@
 ---
 id: developer-gorgone-migrate-from-centcore
 title : Migrating from Centreon Centcore
+description: "Procedure to migrate from Centreon Centcore to Centreon Gorgone"
 ---
 
 Follow this procedure to migrate from Centreon Centcore to Centreon Gorgone.

@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-sun-sfxxk-pssh
 title: Sun SFxxK PSSH
+description: "Supervisez les serveurs Sun SFxxK via SSH : statut des cartes, environnement et basculement du contrôleur système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -326,3 +327,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=failover \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

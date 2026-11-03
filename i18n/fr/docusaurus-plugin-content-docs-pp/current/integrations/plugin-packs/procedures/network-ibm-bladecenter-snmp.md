@@ -1,6 +1,7 @@
 ---
 id: network-ibm-bladecenter-snmp
 title: IBM Bladecenter Switch SNMP
+description: "Supervisez les modules de commutation IBM BladeCenter via SNMP : CPU, mémoire, stockage, trafic réseau, température et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -754,3 +755,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-IBM-Bladecenter-SNMP-Time** command.

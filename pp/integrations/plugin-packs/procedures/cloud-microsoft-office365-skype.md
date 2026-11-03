@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-skype
 title: Office365 Skype
+description: "Monitor Microsoft Office 365 Skype via the REST API: device usage by type and user activity such as sessions and conferences."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -431,3 +432,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=devices-usage \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Changed service template aliases to avoid service deployment issues.

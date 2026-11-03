@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-purestorage-flasharray-legacy-restapi
 title: Pure Storage FlashArray Legacy Rest API
+description: "Monitor Pure Storage FlashArray storage arrays via the legacy REST API, tracking alarms, hardware status, and volume usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -413,3 +414,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=volume-usage \
 	--help
 ```
+
+## Changelog
+
+- [23.01](../releases/release-notes.md#2023-01) - Enhancement: Refactored the purestorage rest api connectors.

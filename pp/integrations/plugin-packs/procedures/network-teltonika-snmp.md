@@ -1,6 +1,7 @@
 ---
 id: network-teltonika-snmp
 title: Teltonika SNMP
+description: "Monitor Teltonika routers via SNMP: interface status and traffic, plus modem signal strength, temperature, and connection status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -442,3 +443,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=modem \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Renamed System service to Modem.

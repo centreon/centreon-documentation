@@ -1,6 +1,7 @@
 ---
 id: applications-bluemind-ssh
 title: BlueMind SSH
+description: "Supervisez BlueMind (messagerie d'entreprise) via SSH : moteur principal, authentification, livraison des emails, serveur web et messagerie instantanée."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -707,3 +708,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=xmpp \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.03](../releases/release-notes.md#2024-03) - Bug fix: On Webserver service template, use storable as cache method to fix an issue.

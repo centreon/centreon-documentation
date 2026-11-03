@@ -1,6 +1,7 @@
 ---
 id: knowledge-base
 title: Base de connaissance
+description: "Lier les hôtes et services Centreon à des procédures via un wiki"
 ---
 
 ## Introduction

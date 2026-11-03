@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-ees-snmp
 title: EES UPS SNMP
+description: "Supervisez les onduleurs Emerson Energy Systems/Vertiv via SNMP : batterie, entrées, redresseur, système et température."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -515,3 +516,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=battery \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.10](../releases/release-notes.md#2023-10) - New connector: Initial release.

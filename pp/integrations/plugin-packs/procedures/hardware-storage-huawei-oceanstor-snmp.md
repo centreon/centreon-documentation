@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-huawei-oceanstor-snmp
 title: Huawei OceanStor SNMP
+description: "Monitor Huawei OceanStor storage systems via SNMP, tracking controller CPU/memory, hardware health, LUN space, and storage pool usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -500,3 +501,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=controllers \
 	--help
 ```
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - Enhancement: Added new service to check luns.

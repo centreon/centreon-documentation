@@ -1,6 +1,7 @@
 ---
 id: network-denyall-snmp
 title: DenyAll SNMP (Rohde & Schwarz)
+description: "Supervisez les équipements DenyAll (Rohde & Schwarz) via SNMP : CPU, mémoire, charge, espace disque, swap, interfaces et reverse proxy."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -705,3 +706,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed `FILTERSTORAGE` default macro value.

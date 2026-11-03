@@ -1,6 +1,7 @@
 ---
 id: network-symbol-wing-snmp
 title: Symbol WiNG SNMP
+description: "Supervisez les équipements Symbol WiNG via SNMP : trafic des interfaces, paquets en erreur et utilisation CPU/mémoire des systèmes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -555,3 +556,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed Systems command.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

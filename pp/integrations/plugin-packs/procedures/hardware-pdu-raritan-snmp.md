@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-raritan-snmp
 title: Raritan PDU SNMP
+description: "Monitor Raritan PDUs via SNMP: inlet, outlet, external, and OCPRT sensor metrics like voltage, current, power, and temperature."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -429,3 +430,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=outlet-sensors \
 	--help
 ```
+
+## Changelog
+
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed an issue with sensors when powerFactor value is missing.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: Added **external-sensors** mode.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added service inlet-sensors.

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-compellent-api
 title: Dell Compellent Nsclient NRPE
+description: "Monitor Dell Compellent storage arrays via NRPE/NSClient++, tracking HBA usage and storage volume usage metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -380,3 +381,8 @@ All available options for a given mode can be displayed by adding the
 	--cem-password="" \
 	--help
 ```
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - Breaking change: The pack has been renamed and the default NRPECLIENT macro changed to use the official Nagios NRPE4 client.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Made NSClient and NRPE usage more explicit.

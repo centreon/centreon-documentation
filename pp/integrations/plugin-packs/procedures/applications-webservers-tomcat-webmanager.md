@@ -1,6 +1,7 @@
 ---
 id: applications-webservers-tomcat-webmanager
 title: Tomcat Webmanager
+description: "Monitor Apache Tomcat via the Tomcat Manager web app over HTTP/HTTPS: application status, connector traffic/threads, and memory usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

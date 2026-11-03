@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hitachi-hcp-snmp
 title: Hitachi HCP SNMP
+description: "Monitor Hitachi HCP storage via SNMP: node, tenant, and volume status, space usage, and sensor metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -489,3 +490,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=nodes \
 	--help
 ```
+
+## Changelog
+
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the service discovery macro commands.

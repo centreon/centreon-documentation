@@ -1,6 +1,7 @@
 ---
 id: sc-kafka-events
 title: Kafka Events
+description: "Publish host, service, and business activity events to a Kafka topic"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

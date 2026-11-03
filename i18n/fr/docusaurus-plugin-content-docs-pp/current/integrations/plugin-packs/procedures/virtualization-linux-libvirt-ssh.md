@@ -1,6 +1,7 @@
 ---
 id: virtualization-linux-libvirt-ssh
 title: Linux Libvirt SSH
+description: "Supervisez les hyperviseurs et VM Linux Libvirt via SSH : pools et volumes de stockage, CPU, E/S disque, mémoire, réseau et statut."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -686,3 +687,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--hostname='10.0.0.1' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - New connector: Initial release.

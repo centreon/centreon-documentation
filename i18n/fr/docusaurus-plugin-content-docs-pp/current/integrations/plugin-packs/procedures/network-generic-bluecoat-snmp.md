@@ -1,6 +1,7 @@
 ---
 id: network-generic-bluecoat-snmp
 title: Bluecoat generic SNMP
+description: "Supervisez les proxies Bluecoat via SNMP : CPU, mémoire, disque, matériel, et connexions/trafic clients et serveurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

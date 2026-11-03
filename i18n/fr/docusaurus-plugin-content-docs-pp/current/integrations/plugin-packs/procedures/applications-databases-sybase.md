@@ -1,6 +1,7 @@
 ---
 id: applications-databases-sybase
 title: Sybase
+description: "Supervisez les bases de données Sybase via des requêtes SQL : processus bloqués, utilisateurs connectés, temps de connexion et espace utilisé."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -449,3 +450,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--hostname='10.0.0.1' \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **App-DB-Sybase-Databases-Size** command.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed `sql-statement` option protection.

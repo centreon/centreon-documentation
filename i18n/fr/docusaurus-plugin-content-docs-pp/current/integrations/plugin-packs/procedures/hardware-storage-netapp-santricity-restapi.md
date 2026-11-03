@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-netapp-santricity-restapi
 title: Netapp Santricity Restapi
+description: "Supervisez les systèmes de stockage NetApp SANtricity via l'API REST : matériel, contrôleurs, pools, systèmes et volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -538,3 +539,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage-volumes \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed `cmd` component count in **hardware** mode.

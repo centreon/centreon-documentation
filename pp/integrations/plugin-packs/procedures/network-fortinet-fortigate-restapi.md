@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortigate-restapi
 title: Fortinet Fortigate Rest API
+description: "Monitor Fortinet FortiGate firewalls via REST API: certificate expiry, health, licenses, VDOM system resources, and HA clusters."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -469,3 +470,12 @@ All available options for a given mode can be displayed by adding the
 	--mode=system \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Added support for other encodings than UTF8.
+- [25.10](../releases/release-notes.md#2025-10) - Bug fix: Fixed an issue with `resources` in **health** mode.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added a new **certificates** mode, from community contribution [PR 5473](https://github.com/centreon/centreon-plugins/pull/5473).
+- [25.02](../releases/release-notes.md#2025-02) - Enhancement: Added threshold options `--warning-last-update` and `--critical-last-update` in **license** mode, from a community contribution ([PR 4964](https://github.com/centreon/centreon-plugins/pull/4964)).
+- [23.10](../releases/release-notes.md#2023-10) - Bug fix: Fixed a **Not an ARRAY reference** error in **system** mode.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added monitoring Pack to monitor Fortinet using Rest API.

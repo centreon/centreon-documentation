@@ -1,6 +1,7 @@
 ---
 id: applications-activemq-jmx
 title: ActiveMQ JMX
+description: "Monitor Apache ActiveMQ brokers via JMX using the Jolokia REST API: queue and topic sizes, memory usage, and message throughput."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -441,3 +442,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=brokers \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

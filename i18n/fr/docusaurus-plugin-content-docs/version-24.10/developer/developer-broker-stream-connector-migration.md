@@ -1,6 +1,7 @@
 ---
 id: developer-broker-stream-connector-migration
 title : Migration des Stream Connectors vers BBDO 3.0.0
+description: "Adapter vos Stream Connectors Lua aux nouveaux événements BBDO 3.0.0"
 ---
 
 Centreon Broker 22.04.0 et suivantes comprend une nouvelle version 3.0.0 de son protocole BBDO. Ce nouveau protocole est beaucoup plus souple que le précédent :

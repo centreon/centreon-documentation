@@ -1,6 +1,7 @@
 ---
 id: hardware-kvm-avocent-acs-8000-snmp
 title: Avocent ACS 8000 SNMP
+description: "Monitor Avocent ACS 8000 KVM console servers via SNMP: CPU, memory, load, hardware, and serial port status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -509,3 +510,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=serial-ports \
 	--help
 ```
+
+## Changelog
+
+- [24.01](../releases/release-notes.md#2024-01) - New connector: Initial release of Avocent 8000.

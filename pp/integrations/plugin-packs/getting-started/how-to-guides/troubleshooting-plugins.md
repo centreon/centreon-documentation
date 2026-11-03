@@ -1,6 +1,7 @@
 ---
 id: troubleshooting-plugins
 title: Troubleshooting Plugin errors
+description: "Diagnose common Monitoring Connector errors, covering SNMP, HTTP/API, AWS, SSH, and NRPE checks, with root causes and possible fixes."
 ---
 
 When using Plugins and deploying a new monitoring probe, some errors might show up. 

@@ -1,6 +1,7 @@
 ---
 id: network-ubiquiti-edge-snmp
 title: Ubiquiti Edge SNMP
+description: "Monitor Ubiquiti Edge switches via SNMP, tracking CPU, memory, hardware health, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -548,3 +549,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

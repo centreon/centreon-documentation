@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-panzura-snmp
 title: Panzura SNMP
+description: "Supervisez les systèmes de stockage Panzura via SNMP : CPU, mémoire, espace disque, charge, swap, ratios de déduplication/compression et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -902,3 +903,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **Disk-Usage-Cloud-Global** command.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Removed unrelated service templates.

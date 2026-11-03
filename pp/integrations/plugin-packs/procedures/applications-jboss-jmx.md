@@ -1,6 +1,7 @@
 ---
 id: applications-jboss-jmx
 title: JBoss Server
+description: "Monitor JBoss Server via JMX/Jolokia: Java heap and non-heap memory, memory pools, class count, threads, and datasource usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -489,3 +490,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=threads \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Added service discovery rule for Datasources.
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

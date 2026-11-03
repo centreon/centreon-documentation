@@ -1,6 +1,7 @@
 ---
 id: network-ruckus-smartzone-snmp
 title: Ruckus Smartzone SNMP
+description: "Monitor Ruckus SmartZone controllers via SNMP: CPU, memory, load, storage, interfaces, and access points."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -695,3 +696,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=system \
 	--help
 ```
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Remove extra space in Access Points check command.

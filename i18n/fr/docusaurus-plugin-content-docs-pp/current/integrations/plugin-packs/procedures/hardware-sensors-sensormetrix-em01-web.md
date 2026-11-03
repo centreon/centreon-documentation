@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-sensormetrix-em01-web
 title: Sensormetrix
+description: "Supervisez les capteurs environnementaux Sensormetrix EM01 via l'interface web : humidité, température, illumination, contact, inondation et voltage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

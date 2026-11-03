@@ -1,6 +1,7 @@
 ---
 id: cloud-iics-restapi
 title: IICS Rest API
+description: "Monitor Informatica Intelligent Cloud Services (IICS) via REST API: agent status, readiness, and engine application health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -374,3 +375,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=agents \
 	--help
 ```
+
+## Changelog
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Informatica Intelligent Cloud Services Pack.

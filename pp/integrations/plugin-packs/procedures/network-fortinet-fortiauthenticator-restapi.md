@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiauthenticator-restapi
 title: Fortinet FortiAuthenticator RestAPI
+description: "Monitor Fortinet FortiAuthenticator via REST API: track FortiToken assignment, pending, and availability counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -345,3 +346,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=fortitoken \
 	--help
 ```
+
+## Changelog
+
+- [26.02](../releases/release-notes.md#2026-02) - New connector: Initial release.

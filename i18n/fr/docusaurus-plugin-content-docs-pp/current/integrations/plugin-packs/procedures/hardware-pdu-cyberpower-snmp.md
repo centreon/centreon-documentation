@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-cyberpower-snmp
 title: CyberPower Systems PDU SNMP
+description: "Supervisez les PDU CyberPower Systems via SNMP en suivant la charge (banks, phases) et l'état des sorties."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -379,3 +380,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=outlets \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added `phase-voltage` metric to **load** mode.
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed power value in **load** mode (the value is no longer multiplied by 10).

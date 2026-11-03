@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-windows-nsclient-05-nrpe
 title: Windows NSClient 0.5 NRPE
+description: "Supervisez les serveurs Windows via NSClient++ et NRPE : CPU, mémoire, disques, services, sessions, certificats et plus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -317,12 +318,12 @@ dnf install nagios-plugins-nrpe
 3. Appliquez le modèle d'hôte **OS-Windows-NSClient-05-NRPE-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
 4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro            | Description                                                                                                                                | Valeur par défaut    | Obligatoire |
-|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|:-----------:|
-| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                                  | check_centreon_nrpe3 |             |
-| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                                  | 5666                 |             |
-| NRPETIMEOUT      | Command timeout                                                                                                                            | 30                   |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | -u -2 -P 8192        |             |
+| Macro            | Description                                                                                                                                | Valeur par défaut | Obligatoire |
+|:-----------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
+| NRPECLIENT       | Name of the plugin to use to talk with the NRPE3 daemon                                                                                  | check_nrpe        |             |
+| NRPEPORT         | TCP port the NRPE3 daemon is listening on                                                                                                  | 5666              |             |
+| NRPETIMEOUT      | Command timeout                                                                                                                            | 30                |             |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) | -u -2 -P 8192     |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -1128,3 +1129,13 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::windows::local::plugin' 'query' --help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
+- [25.02](../releases/release-notes.md#2025-02) - Enhancement: Changed pack display name to make it clear that it uses the NRPE protocol.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the certificate check command.
+- [23.06](../releases/release-notes.md#2023-06) - Breaking change: Updated default NRPE client and options.
+- [22.11](../releases/release-notes.md#2022-11) - Bug fix: Fixed erroneous mode name in Updates command.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added service updates for windows pack.

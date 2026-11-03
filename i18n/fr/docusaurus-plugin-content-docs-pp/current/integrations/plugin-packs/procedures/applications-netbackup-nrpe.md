@@ -1,6 +1,7 @@
 ---
 id: applications-netbackup-nrpe
 title: Symantec Netbackup NSClient++ NRPE
+description: "Supervisez Symantec NetBackup via NRPE : état de la déduplication, des lecteurs, des jobs de sauvegarde et utilisation des bandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -468,3 +469,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--critical-status="not %\{status\} =~ /up/i" \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.

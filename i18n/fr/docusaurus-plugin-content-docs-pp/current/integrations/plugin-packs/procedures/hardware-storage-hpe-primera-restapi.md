@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hpe-primera-restapi
 title: HPE Primera REST API
+description: "Supervisez les baies de stockage HPE Primera via API REST : état et usage des disques, usage des volumes, capacité de stockage, licences et état des nœuds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -616,3 +617,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=licenses \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.11](../releases/release-notes.md#2024-11) - Bug fix: Fixed status handling & retry on invalid token, from community feedback [PR 5256](https://github.com/centreon/centreon-plugins/pull/5256).
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed header leading to API authentication issue, from community feedback [PR 5183](https://github.com/centreon/centreon-plugins/pull/5183).
+- [24.08](../releases/release-notes.md#2024-08) - New connector: First official release.

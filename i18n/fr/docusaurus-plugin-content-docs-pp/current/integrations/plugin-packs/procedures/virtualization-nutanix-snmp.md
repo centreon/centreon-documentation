@@ -1,6 +1,7 @@
 ---
 id: virtualization-nutanix-snmp
 title: Nutanix SNMP
+description: "Supervisez les hyperviseurs, VM, containers et le stockage Nutanix via SNMP : CPU, mémoire, IOPS, latence et statut."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -977,3 +978,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--help
 ```
 
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added support of Nutanix 6.10 (fixes 'No disk found' error in **disk-usage** service template).
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Nutanix host discovery & new templates.

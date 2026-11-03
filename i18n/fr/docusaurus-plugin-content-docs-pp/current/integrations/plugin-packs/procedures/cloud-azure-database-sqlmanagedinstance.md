@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-sqlmanagedinstance
 title: Azure SQL Managed Instance
+description: "Supervisez Azure SQL Managed Instance via l'API Azure ou Azure CLI : CPU, E/S disque, disponibilité et stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -551,3 +552,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode='azcli' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

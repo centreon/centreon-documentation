@@ -1,6 +1,7 @@
 ---
 id: create-dashboard
 title: Creating your first dashboard
+description: "Build your first dashboard and add data visualization widgets"
 ---
 
 Get started with creating dashboards and adding widgets specially designed to optimize your user experience. Then benefit from data visualization options to display and monitor your resources in real time.

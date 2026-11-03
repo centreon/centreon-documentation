@@ -1,6 +1,7 @@
 ---
 id: network-viptela-snmp
 title: Viptela SNMP
+description: "Monitor Viptela SD-WAN devices via SNMP: CPU, memory, disk, hardware, uptime, GRE tunnels, and interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -729,3 +730,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=gre-tunnels \
 	--help
 ```
+
+## Changelog
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [22.02](../releases/release-notes.md#2022-02) - New connector: Initial release.

@@ -1,6 +1,7 @@
 ---
 id: applications-weblogic-jmx
 title: Weblogic Server
+description: "Monitor WebLogic Server via JMX/Jolokia, tracking Java heap and non-heap memory, class counts, threads, and work managers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -474,3 +475,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=work-manager \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

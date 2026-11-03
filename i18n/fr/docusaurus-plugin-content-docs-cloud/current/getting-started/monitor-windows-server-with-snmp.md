@@ -1,6 +1,7 @@
 ---
 id: monitor-windows-server-with-snmp
 title: Superviser votre premier serveur Windows
+description: "Tutoriel pas à pas pour installer, configurer et superviser un serveur Windows avec SNMP et le connecteur de supervision Windows SNMP"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

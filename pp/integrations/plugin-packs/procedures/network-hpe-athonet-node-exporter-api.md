@@ -1,6 +1,7 @@
 ---
 id: network-hpe-athonet-node-exporter-api
 title: HPE Athonet w/ Prometheus API
+description: "Monitor HPE Athonet 5G core via Prometheus API: CPU, memory, load, storage, licenses, interfaces, and core network functions (CHF, DRA, MME, SMF, UPF, and more)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1475,3 +1476,8 @@ All available options for a given mode can be displayed by adding the
 	--custommode=api \
 	--help
 ```
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added the common system checks from Prometheus node exporter.
+- [25.11](../releases/release-notes.md#2025-11) - New connector: Initial release of HPE Athonet w/ Prometheus API.

@@ -1,6 +1,7 @@
 ---
 id: groups
 title: Groupes
+description: "Regrouper les hôtes et services pour les ACLs, rapports et filtres"
 ---
 
 Il est possible de regrouper des hôtes ou des services au sein de groupes.

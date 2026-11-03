@@ -1,6 +1,7 @@
 ---
 id: network-peplink-pepwave-snmp
 title: Peplink Pepwave SNMP
+description: "Supervisez les routeurs Peplink Pepwave via SNMP : CPU, mémoire, utilisation WAN et statut des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -586,3 +587,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

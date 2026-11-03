@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-storage-storagesync
 title: Azure Storage Sync
+description: "Monitor Azure Storage Sync via REST API: track file sync status, recalls, and server heartbeat."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -457,3 +458,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=server-status \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.05](../releases/release-notes.md#2025-05) - Bug fix: Removed deprecated `StorageSyncRecallIOTotalSizeBytes` metric in **recalls** mode.

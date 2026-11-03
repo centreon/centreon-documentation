@@ -1,6 +1,7 @@
 ﻿---
 id: tokens
 title: Gérer les jetons d'authentification
+description: "Créez et supprimez les jetons d'authentification dont les hôtes ont besoin pour envoyer leurs logs à Centreon Log Management, et pour utiliser l'API."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

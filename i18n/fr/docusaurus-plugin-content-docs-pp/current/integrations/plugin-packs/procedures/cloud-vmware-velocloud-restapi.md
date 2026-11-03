@@ -1,6 +1,7 @@
 ---
 id: cloud-vmware-velocloud-restapi
 title: VMware VeloCloud Rest API
+description: "Supervisez les edges SD-WAN VMware VeloCloud via l'API REST : statut et usage des liens, QoE et bande passante par application ou catégorie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -611,3 +612,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=link-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.08](../releases/release-notes.md#2024-08) - Bug fix: Fixed the listing (for discovery) and monitoring of Edges.

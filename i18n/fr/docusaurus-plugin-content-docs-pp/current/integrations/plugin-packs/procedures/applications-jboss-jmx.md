@@ -1,6 +1,7 @@
 ---
 id: applications-jboss-jmx
 title: JBoss Server
+description: "Supervisez JBoss Server via JMX/Jolokia : mémoire Java (heap et non-heap), pools de mémoire, classes, threads et utilisation des datasources."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -492,3 +493,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=threads \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Added service discovery rule for Datasources.
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

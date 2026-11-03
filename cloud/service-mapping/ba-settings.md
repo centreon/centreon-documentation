@@ -1,6 +1,7 @@
 ---
 id: ba-settings
 title: Settings
+description: "How to configure default impact values for Business Activities, KPIs, and Boolean rules, and personalize the custom overview in Centreon BAM settings"
 ---
 
 ## Default Settings

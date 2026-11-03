@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-ssh
 title: Protocol SSH
+description: "Monitor SSH connectivity to remote servers: track login status and connection response time with Centreon's Protocol SSH connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -308,3 +309,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=login \
 	--help
 ```
+
+## Changelog
+
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fixed translation.

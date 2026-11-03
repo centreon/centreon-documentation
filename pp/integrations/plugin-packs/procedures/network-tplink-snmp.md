@@ -1,6 +1,7 @@
 ---
 id: network-tplink-snmp
 title: TP-Link SNMP
+description: "Monitor TP-Link network equipment via SNMP: CPU, memory, uptime, and interface traffic and errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

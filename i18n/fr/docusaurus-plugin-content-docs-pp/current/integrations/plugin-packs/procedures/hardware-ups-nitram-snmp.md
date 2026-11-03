@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-nitram-snmp
 title: Nitram UPS SNMP
+description: "Supervisez les onduleurs Nitram UPS via SNMP : état de la batterie, tension, courant, puissance et fréquence des lignes d'entrée/sortie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

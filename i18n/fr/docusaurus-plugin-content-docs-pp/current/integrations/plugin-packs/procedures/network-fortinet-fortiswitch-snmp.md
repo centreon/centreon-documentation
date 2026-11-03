@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiswitch-snmp
 title: Fortinet FortiSwitch SNMP
+description: "Supervisez vos commutateurs Fortinet FortiSwitch via SNMP : CPU, mémoire, disque, uptime, table ARP et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -594,3 +595,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

@@ -1,6 +1,7 @@
 ---
 id: network-teldat-snmp
 title: Teldat SNMP
+description: "Supervisez les routeurs Teldat via SNMP en surveillant le CPU, la mémoire, l'uptime, les interfaces réseau et les modules radio cellulaires."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -578,3 +579,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.08](../releases/release-notes.md#2024-08) - Enhancement: Enhanced the **cells-radio** mode.
+- [24.01](../releases/release-notes.md#2024-01) - New connector: Initial release of Teldat Edge Routers SNMP.

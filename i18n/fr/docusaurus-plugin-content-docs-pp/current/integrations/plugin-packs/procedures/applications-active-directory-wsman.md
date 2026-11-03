@@ -1,6 +1,7 @@
 ---
 id: applications-active-directory-wsman
 title: Microsoft Active Directory WSMAN
+description: "Supervisez les contrôleurs de domaine Active Directory via WSMAN grâce au diagnostic dcdiag, pour suivre leur état de santé."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -301,3 +302,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=dcdiag \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added DE language support, based on community contribution [PR 5780](https://github.com/centreon/centreon-plugins/pull/5780).
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed typos in Active Directory WSMan commands.
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

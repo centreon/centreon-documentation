@@ -1,6 +1,7 @@
 ---
 id: virtualization-proxmox-ve-restapi
 title: Proxmox VE Rest API
+description: "Supervisez Proxmox VE via l'API REST : utilisation des nœuds, du stockage et des VMs avec le connecteur Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -233,6 +234,8 @@ yum install centreon-plugin-Virtualization-Proxmox-Ve-Restapi
 | PROXMOXAPIPROTO        | Specify https if needed                                                                                                                            | https             |             |
 | PROXMOXAPIPORT         | Set Proxmox VE port                                                                                                                                | 8006              |             |
 | PROXMOXAPIREALM        | Set Proxmox VE realm (pam, pve or custom)                                                                                                          | pam               |             |
+| PROXMOX_TOKEN_LIFETIME    | Token lifetime in seconds                                                                                                                          | 5400              |             |
+| PROXMOX_RELOAD_CACHE_TIME | Time to reload the cache in seconds                                                                                                                | 7200              |             |
 | PROXMOXAPIEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
@@ -316,6 +319,8 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--proto='https' \
 	--port='8006' \
 	--realm='pam'  \
+	--reload-cache-time='7200' \
+	--token-lifetime='5400'  \
 	--filter-name='.*' \
 	--node-id='' \
 	--node-name='' \
@@ -429,6 +434,8 @@ Les options génériques sont listées ci-dessous :
 | --api-username                             | Set Proxmox VE username                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --api-password                             | Set Proxmox VE password                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --realm                                    | Set Proxmox VE realm (pam, pve or custom) (default: 'pam').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --reload-cache-time                        | Time to reload the cache in seconds (default: '7200').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --token-lifetime                           | Token lifetime in seconds (default: '5400').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 | --timeout                                  | Threshold for HTTP timeout.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 #### Options des modes
@@ -495,3 +502,12 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vm-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added tags to host discovery, from a [community idea](https://thewatch.centreon.com/ideas/proxmox-ve-tags-support-5602).
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed authentication failures and caching issues.
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added option `include-node-name` in **vm-usage** mode, from community contribution [Issue 5642](https://github.com/centreon/centreon-plugins/issues/5642).
+- [25.08](../releases/release-notes.md#2025-08) - Enhancement: Added OS and IP info retrieval to **host discovery**.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Unlocked host discovery parameters.
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Added a host discovery rule for virtual machines.

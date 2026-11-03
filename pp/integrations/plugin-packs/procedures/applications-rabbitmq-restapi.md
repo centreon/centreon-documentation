@@ -1,6 +1,7 @@
 ---
 id: applications-rabbitmq-restapi
 title: RabbitMQ RestAPI
+description: "Monitor RabbitMQ via REST API: node, queue, vhost, and system usage, message counts, and status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -439,3 +440,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=vhost-usage \
 	--help
 ```
+
+## Changelog
+
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Updated MACROS values.

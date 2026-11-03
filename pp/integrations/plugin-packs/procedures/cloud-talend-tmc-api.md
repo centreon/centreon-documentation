@@ -1,6 +1,7 @@
 ---
 id: cloud-talend-tmc-api
 title: Talend TMC API
+description: "Monitor Talend TMC via its REST API: remote engines, plans, and tasks execution status, cache, and failure rates."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -490,3 +491,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=remote-engines \
 	--help
 ```
+
+## Changelog
+
+- [23.01](../releases/release-notes.md#2023-01) - New connector: Initial release.

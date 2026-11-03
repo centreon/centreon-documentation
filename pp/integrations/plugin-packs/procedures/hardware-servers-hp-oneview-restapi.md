@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-hp-oneview-restapi
 title: HP OneView Rest API
+description: "Monitor HP OneView hardware servers via REST API, tracking hardware components and storage pool usage and status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -370,3 +371,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage-pools \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Added API pagination.

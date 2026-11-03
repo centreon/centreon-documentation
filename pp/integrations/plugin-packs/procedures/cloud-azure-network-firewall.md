@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-firewall
 title: Azure Firewall
+description: "Monitor Azure Firewall via Azure API or CLI: track health, hit counts, and throughput metrics in Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -454,3 +455,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=throughput \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-purestorage-flashblade-v2-restapi
 title: Pure Storage FlashBlade v2 Rest API
+description: "Monitor Pure Storage FlashBlade via REST API: track array space usage, filesystem capacity, alerts, and hardware status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -486,3 +487,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=arrays \
 	--help
 ```
+
+## Changelog
+
+- [23.01](../releases/release-notes.md#2023-01) - Enhancement: Refactored the purestorage rest api connectors.

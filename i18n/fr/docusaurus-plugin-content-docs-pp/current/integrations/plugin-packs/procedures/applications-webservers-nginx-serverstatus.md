@@ -1,6 +1,7 @@
 ---
 id: applications-webservers-nginx-serverstatus
 title: Nginx Server
+description: "Supervisez les serveurs web Nginx via HTTP (stub_status) : connexions (actives, lecture, écriture, en attente) et débit des requêtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

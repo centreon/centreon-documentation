@@ -1,6 +1,7 @@
 ---
 id: cloud-prometheus-api
 title: Prometheus Server API
+description: "Monitor a Prometheus server via its REST API: track target status and active, dropped, up, down, and unknown target counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -566,3 +567,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=target-status \
 	--help
 ```
+
+## Changelog
+
+- [26.10](../releases/release-notes.md#2026-10) - Bug fix: Fixed missing `query` option in the **Cloud-Prometheus-Api-Expression** service.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added discovery rule for Prometheus targets.

@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-socomec-netvision-snmp
 title: UPS Socomec Net Vision SNMP
+description: "Supervisez les onduleurs Socomec Net Vision en SNMP : alarmes, état de la batterie et métriques des lignes d'entrée/sortie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -458,3 +459,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=input-lines \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added the `battery.temperatureambient.celsius` counter in **battery** service, from community contribution [PR 5493](https://github.com/centreon/centreon-plugins/pull/5493).
+- [24.03](../releases/release-notes.md#2024-03) - Bug fix: Fixed the Netvision version detection in the plugin.

@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-sun-mseries-snmp
 title: Sun Mseries SNMP
+description: "Supervisez les serveurs Sun Mseries via SNMP en surveillant le statut des domaines et l'état du matériel (capteurs, composants)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

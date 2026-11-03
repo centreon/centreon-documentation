@@ -1,6 +1,7 @@
 ---
 id: virtualization-hpe-simplivity-restapi
 title: HPE Simplivity Rest API
+description: "Monitor HPE SimpliVity via the OmniStack REST API, tracking host and RAID/drive status, cluster storage ratios, and VM health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -573,3 +574,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=hosts \
 	--help
 ```
+
+## Changelog
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

@@ -1,6 +1,7 @@
 ---
 id: network-ruckus-snmp
 title: Ruckus SNMP
+description: "Supervisez les points d'accès Ruckus en SNMP : utilisation du CPU et de la mémoire, utilisateurs connectés et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

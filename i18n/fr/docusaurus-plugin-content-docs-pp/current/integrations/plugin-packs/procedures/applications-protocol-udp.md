@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-udp
 title: Protocol UDP
+description: "Supervisez la connectivité d'un port UDP en vérifiant qu'une ressource répond bien sur le port indiqué, dans un délai donné."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -315,3 +316,7 @@ sudo /usr/lib/centreon/plugins/centreon_protocol_udp.pl \
 	--mode=connection  \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.05](../releases/release-notes.md#2023-05) - Enhancement: Added a UDP-based host template.

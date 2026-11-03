@@ -1,6 +1,7 @@
 ---
 id: applications-awa-jmx
 title: AWA (Automic Workload Automation) JMX
+description: "Monitor AWA (Automic Workload Automation) agents, queues, and servers via JMX using the Jolokia agent."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -380,3 +381,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=queue \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.
+- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fixed the filtername macro.

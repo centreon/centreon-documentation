@@ -1,6 +1,7 @@
 ---
 id: widgets
 title: Widgets MBI
+description: "Aperçu des widgets MBI disponibles pour les tableaux de bord et vues personnalisées"
 ---
 
 > Les widgets Centreon MBI suivants sont disponibles dans [Dashboards](../alerts-notifications/dashboards.md) :

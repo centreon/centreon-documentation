@@ -1,9 +1,12 @@
 ---
 id: operating-guide
 title: Guide d'utilisation
+description: "Vérifier l'état du cluster, exécuter des bascules et gérer la HA"
 ---
 
 > Sauf indication contraire, toutes les commandes de cette page doivent être exécutées en tant que « root ».
+
+> Notez que certaines commandes, options ou sorties peuvent varier selon votre version de Pacemaker/Corosync. Reportez-vous à la documentation officielle correspondant à votre version.
 
 ## Se connecter à Centreon sur le nœud actif
 

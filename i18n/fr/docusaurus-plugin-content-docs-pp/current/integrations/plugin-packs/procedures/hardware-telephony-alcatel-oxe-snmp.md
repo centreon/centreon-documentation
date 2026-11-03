@@ -1,6 +1,7 @@
 ---
 id: hardware-telephony-alcatel-oxe-snmp
 title: Alcatel OXE SNMP
+description: "Supervisez les systèmes de téléphonie Alcatel OXE via SNMP : CPU, mémoire, swap, espace disque, rôle et état du PBX, utilisation des domaines et trunks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -672,3 +673,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=trunks \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added new service Trunk and new metrics to Domain-Usage.

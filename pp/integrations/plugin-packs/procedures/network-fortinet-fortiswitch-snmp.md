@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiswitch-snmp
 title: Fortinet FortiSwitch SNMP
+description: "Monitor Fortinet FortiSwitch devices via SNMP: CPU, memory, disk, uptime, ARP table, and network interface traffic and errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -594,3 +595,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

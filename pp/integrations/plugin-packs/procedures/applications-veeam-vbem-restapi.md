@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-vbem-restapi
 title: Veeam Backup Enterprise Manager Rest API
+description: "Monitor Veeam Backup Enterprise Manager via REST API: track backup/replica job status and repository space usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -424,3 +425,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=repositories \
 	--help
 ```
+
+## Changelog
+
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added handling of replication jobs to **jobs** mode.
+- [23.07](../releases/release-notes.md#2023-07) - New connector: Initial release.

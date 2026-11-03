@@ -1,6 +1,7 @@
 ---
 id: network-lenovo-flexsystem-snmp
 title: Lenovo Flexsystem Switch SNMP
+description: "Monitor Lenovo Flex System switches via SNMP: CPU, memory, environment, network traffic, packet errors, storage, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -787,3 +788,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Lenovo-Flexsystem-SNMP-Time** command.

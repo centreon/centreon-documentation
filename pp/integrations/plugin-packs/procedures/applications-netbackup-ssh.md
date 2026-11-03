@@ -1,6 +1,7 @@
 ---
 id: applications-netbackup-ssh
 title: Symantec Netbackup SSH
+description: "Monitor Symantec NetBackup via SSH: deduplication status, drive status and cleaning, backup job status, and tape usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -485,3 +486,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=drive-status \
 	--help
 ```
+
+## Changelog
+
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the App-Netbackup-SSH-Drive-Cleaning command.

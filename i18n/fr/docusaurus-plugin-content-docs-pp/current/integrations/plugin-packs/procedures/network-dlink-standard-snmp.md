@@ -1,6 +1,7 @@
 ---
 id: network-dlink-standard-snmp
 title: D-Link standard SNMP
+description: "Supervisez les commutateurs réseau D-Link en SNMP : CPU, mémoire, matériel, interfaces et membres de stack."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -569,3 +570,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Fixed "uninitialized values" warnings in **interfaces** mode ([Issue 5903](https://github.com/centreon/centreon-plugins/issues/5903)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed percentage calculation in **interfaces** mode.

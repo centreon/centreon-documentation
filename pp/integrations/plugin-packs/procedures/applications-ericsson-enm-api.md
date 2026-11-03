@@ -1,6 +1,7 @@
 ---
 id: applications-ericsson-enm-api
 title: Ericsson ENM API
+description: "Monitor Ericsson Network Manager via its REST API: node synchronization status, field replaceable units, and TDD cell status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -377,3 +378,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=nodes \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.

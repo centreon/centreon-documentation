@@ -1,6 +1,7 @@
 ---
 id: applications-kafka-jmx
 title: Kafka
+description: "Monitor Apache Kafka via JMX/Jolokia: track leader count, partitions, replication, and traffic statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -341,3 +342,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=global-stats \
 	--help
 ```
+
+## Changelog
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

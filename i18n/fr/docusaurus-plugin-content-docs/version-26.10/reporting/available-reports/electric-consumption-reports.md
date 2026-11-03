@@ -1,6 +1,7 @@
 ---
 id: electric-consumption-reports
 title: Rapports de consommation électrique
+description: "Rapport sur la consommation électrique des hôtes connectés à un onduleur"
 ---
 
 ### Hostgroup-Electricity-Consumption-1

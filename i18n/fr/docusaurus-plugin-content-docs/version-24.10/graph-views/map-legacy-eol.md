@@ -1,6 +1,7 @@
 ---
 id: map-legacy-eol
 title: Fin de vie de MAP Legacy
+description: "Étapes pour monter de version et désinstaller complètement MAP Legacy après le passage à MAP"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

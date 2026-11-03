@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-web-appserviceplan
 title: Azure App Service Plan
+description: "Supervisez les plans Azure App Service via l'API REST : CPU, mémoire, transferts de données, files d'attente, sockets, connexions TCP et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -628,3 +629,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=tcp-connections \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.

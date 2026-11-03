@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-loganalytics
 title: Azure Log Analytics
+description: "Monitor Azure Log Analytics via the management API by running Kusto (KQL) queries and tracking match counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -340,3 +341,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=kusto-query \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.

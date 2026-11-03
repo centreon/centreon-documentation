@@ -1,6 +1,7 @@
 ---
 id: troubleshooting
 title: Dépannage de la plateforme Centreon
+description: "Index des ressources de dépannage pour votre plateforme Centreon"
 ---
 
 Cette page répertorie les rubriques de dépannage disponibles dans cette documentation. Cliquez sur un élément pour accéder à un contenu plus détaillé. 

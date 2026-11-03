@@ -1,6 +1,7 @@
 ---
 id: network-switchs-hirschmann-snmp
 title: Hirschmann switch SNMP
+description: "Monitor Hirschmann switches via SNMP: CPU, memory, hardware, processes, configuration, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

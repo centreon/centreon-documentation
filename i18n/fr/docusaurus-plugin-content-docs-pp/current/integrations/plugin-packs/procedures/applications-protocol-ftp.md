@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-ftp
 title: FTP Server
+description: "Supervisez des serveurs FTP en testant la connexion, en exécutant des commandes distantes et en surveillant les dates et le nombre de fichiers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -406,3 +407,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=login \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.05](../releases/release-notes.md#2024-05) - Bug fix: Fixed file processing when both `--filter-file` and `--max-depth` options were used.

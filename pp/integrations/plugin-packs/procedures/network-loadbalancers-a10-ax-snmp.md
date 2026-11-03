@@ -1,6 +1,7 @@
 ---
 id: network-loadbalancers-a10-ax-snmp
 title: A10 AX SNMP
+description: "Monitor A10 AX load balancers via SNMP: CPU, memory, disk, hardware, global stats, interface traffic, and virtual server usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

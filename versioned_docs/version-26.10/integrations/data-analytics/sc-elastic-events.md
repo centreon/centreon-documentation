@@ -1,6 +1,7 @@
 ---
 id: sc-elastic-events
 title: Elastic Events
+description: "Send host and service status events to Elasticsearch with auto-indexing"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -16,14 +17,6 @@ An appropriate index template is created automatically by the stream connector s
 Perform the installation as `root` on the server that will send data to Elasticsearch (central server, remote server, poller).
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-elasticsearch
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -32,7 +25,15 @@ dnf install centreon-stream-connector-elasticsearch
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-elasticsearch
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-elasticsearch

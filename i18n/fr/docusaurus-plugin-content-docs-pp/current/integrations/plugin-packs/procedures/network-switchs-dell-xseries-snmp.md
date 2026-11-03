@@ -1,6 +1,7 @@
 ---
 id: network-switchs-dell-xseries-snmp
 title: Dell Xseries SNMP
+description: "Supervisez les commutateurs Dell Xseries via SNMP : CPU, composants matériels, interfaces et uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -547,3 +548,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed the wrong options in the Net-Dell-Xseries-SNMP-Cpu command.

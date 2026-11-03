@@ -1,6 +1,7 @@
 ---
 id: network-loadbalancers-kemp-snmp
 title: Kemp Loadbalancer SNMP
+description: "Monitor Kemp Loadbalancer appliances via SNMP: CPU, load, memory, HA status, virtual/real server status, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

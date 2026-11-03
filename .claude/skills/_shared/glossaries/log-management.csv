@@ -1,0 +1,71 @@
+Source,FR
+OpenTelemetry Collector,Collecteur OpenTelemetry
+Agent mode,Mode agent
+Gateway mode,Mode gateway
+OTLP receiver,Récepteur OTLP
+Receiver,Receiver
+Processor,Processor
+Exporter,Exporter
+Pipeline,Pipeline
+Log Explorer,Log explorer
+Service name,Service name
+Service namespace,Service namespace
+Service version,Version du service
+Severity,Sévérité
+Severity level,Niveau de sévérité
+Severity number,Numéro de sévérité
+Severity text,Texte de sévérité
+Log attributes,Attributs de log
+Resource attributes,Attributs de ressource
+Custom attributes,Attributs personnalisés
+Host name,Nom d'hôte
+Host IP,Adresse IP de l'hôte
+Log body,Corps du log
+Message body,Corps du message
+Timestamp,Timestamp
+TRACE,TRACE
+DEBUG,DEBUG
+INFO,INFO
+WARNING,WARNING
+ERROR,ERROR
+FATAL,FATAL
+CRITICAL,CRITICAL
+UNKNOWN,UNKNOWN
+UNSPECIFIED,UNSPECIFIED
+OK,OK
+Query builder,Query builder
+Query editor,Query editor
+Full-text search,Recherche en texte intégral
+Timeline,Chronologie
+Log summary,Log summary
+Root cause analysis,Analyse de cause racine
+Ask AI,Demander à l'IA
+Log details panel,Panneau de détails du log
+Column management,Gestion des colonnes
+Log viewer widget,Widget log viewer
+Metrics graph widget,Widget metrics graph
+Generic text widget,Widget generic text
+Stacking,Empilement
+Alert rule,Règle d'alerte
+Alert event,Évènement d'alerte
+Alert status,Statut d'alerte
+Frequency (alert evaluation),Fréquence d'évaluation d'alerte
+Notification channel,Canal de notification
+Wildcard,Caractère générique
+Phrase match,Correspondance de phrase exacte
+Nested attributes,Attributs imbriqués
+Windows Event Log,Journal des évènements Windows
+File log,File log
+System logs,Logs système
+Token,Jeton
+Authentication token,Jeton d'authentification
+API endpoint,Endpoint d'API
+Storage usage,Utilisation du stockage
+Log retention,Rétention des logs
+Monitoring,Supervision
+Incident response,Réponse à incident
+Anomaly detection,Anomaly detection
+Compliance,Conformité
+Security incident,Incident de sécurité
+Log entry,Entrée de log
+Log event,Évènement de log

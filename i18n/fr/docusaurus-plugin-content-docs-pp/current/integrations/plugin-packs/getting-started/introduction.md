@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Démarrer avec les connecteurs de supervision
+description: "Découvrez ce que sont les connecteurs de supervision Centreon, comment fonctionnent leurs modèles et règles de découverte, et parcourez la liste par catégorie."
 ---
 
 > À partir d'avril 2023, nous changeons le nom de certains objets Centreon. "Connecteurs de supervision" est désormais le nouveau nom des Plugin Packs. Nous procédons à ce changement car les utilisateurs confondaient souvent deux termes similaires, Plugins et Plugin Packs, utilisant parfois l'un à la place de l'autre. Nous ne changeons que le nom ! Les fonctionnalités et les capacités restent les mêmes.

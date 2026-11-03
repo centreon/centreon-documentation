@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-centreon-ha
 title: Centreon-HA
+description: "Monitor Centreon-HA Pacemaker clusters via SSH and SNMP: node status, resource constraints, quorum, and cluster processes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1073,3 +1074,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=crm \
 	--help
 ```
+
+## Changelog
+
+- [24.03](../releases/release-notes.md#2024-03) - Enhancement: Updated host template logo.
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replaced the old logo with the current one.

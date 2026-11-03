@@ -1,6 +1,7 @@
 ---
 id: hosts-templates
 title: Using host templates
+description: "Use host templates and inheritance to speed up host configuration"
 ---
 
 ## Definition

@@ -1,6 +1,7 @@
 ---
 id: applications-tosca-restapi
 title: Tosca Rest API
+description: "Monitor Tricentis Tosca execution lists and scenario status via REST API with this Centreon monitoring connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -350,3 +351,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=execution-list-status \
     --help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - New connector: Initial release.

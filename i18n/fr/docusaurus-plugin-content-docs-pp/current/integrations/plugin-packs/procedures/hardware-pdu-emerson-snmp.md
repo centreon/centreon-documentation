@@ -1,6 +1,7 @@
 ---
 id: hardware-pdu-emerson-snmp
 title: Emerson PDU SNMP
+description: "Supervisez les PDU Emerson via SNMP : statut global, utilisation des sources de courant et métriques des receptacles (puissance, énergie, courant)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -444,3 +445,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=receptacles \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed **Receptacles** command.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **HW-Pdu-Emerson-SNMP-Receptacles** command.

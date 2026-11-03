@@ -1,6 +1,7 @@
 ---
 id: access-control-lists
 title: Gérer les droits des utilisateurs Centreon (ACL)
+description: "Gérer les droits via les groupes d'accès et les filtres sur ressources, menus et actions"
 ---
 
 Vous pouvez donner des droits aux [utilisateurs](../monitoring/basic-objects/contacts.md) de Centreon :
@@ -80,7 +81,7 @@ Pour créer un filtre d'accès aux ressources :
 | **Informations générales** | <ul> <li>Utilisez le tableau **Groupes liés** pour lier des groupes d'accès à ce filtre de ressources, c'est à dire leur appliquer les droits définis dans le filtre.</li><li>**Statut** et **Commentaires** permettent d'activer/désactiver le filtre ainsi que de le commenter.</li></ul>                                                                                                                                                                                                                |
 | **Gestion des hôtes**    | <ul><li>Définissez quels hôtes et quels groupes d'hôtes l'utilisateur pourra voir dans l'interface Centreon</li><li>Si la case **Inclure tous les hôtes** ou **Inclure tous les groupes d'hôtes** est cochée, alors tout hôte ou groupe d'hôtes nouvellement créé sera automatiquement ajouté au filtre.</li><li>Ajouter un hôte ajoute automatiquement tous ses services.</li><li>Ajouter plusieurs groupes d'hôtes donne accès à la totalité des hôtes contenus dans ces groupes.</li></ul>   <p>Dans le cas où les options **Inclure tous les hôtes** ou **Inclure tous les groupes d'hôtes** sont cochées, il est possible d'exclure explicitement des hôtes du filtre (par exemple dans le cas où seulement 1 ou 2 hôtes ne doivent pas faire partie du filtre). </p>                                                                       |
 | **Gestion des services** | L'onglet **Gestion des services** permet de définir quels groupes de services l'utilisateur pourra voir.                                                                                                                                     |
-| **Méta-Services**       | L'onglet **Méta-Services** permet de définir quels méta-services l'utilisateur pourra voir.                                                                                                                                     |
+| **Métaservices**       | L'onglet **Métaservices** permet de définir quels métaservices l'utilisateur pourra voir.                                                                                                                                     |
 | **Filtres**                | <ul><li>La liste **Filtrer par collecteur** permet de sélectionner les hôtes en fonction des collecteurs de supervision (si aucun n'est sélectionné alors tous les collecteurs sont pris en compte)</li><li>La liste **Filtrer par catégorie d'hôte** permet de filtrer les hôtes par catégorie</li><li>La liste **Filtrer par catégorie de service** permet de filtrer les services par catégorie. Les filtres par collecteur ou par catégorie d'objet sont des filtres d'inclusion (UNION). Seuls les objets appartenant à ces filtres en plus des groupes d'objets (hôtes et services) seront visibles.</li></ul> |
 | **Dossiers d'images** | L'onglet **Dossiers d'images** vous permet de partager des dossiers d'images qui peuvent être visibles par les utilisateurs associés (disponible uniquement pour MAP). |
 

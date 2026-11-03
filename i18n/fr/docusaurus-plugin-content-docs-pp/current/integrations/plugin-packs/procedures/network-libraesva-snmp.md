@@ -1,6 +1,7 @@
 ---
 id: network-libraesva-snmp
 title: Libraesva SNMP
+description: "Supervisez les appliances de sécurité email Libraesva via SNMP : interfaces, stockage, charge, mémoire, swap et statistiques de messagerie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -664,3 +665,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

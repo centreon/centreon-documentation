@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-paloalto-standard-ssh
 title: Palo Alto firewall SSH
+description: "Supervisez les pare-feux Palo Alto via SSH : environnement matériel, haute disponibilité, interfaces, tunnels IPsec, licences et système."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -542,3 +543,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=environment \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.06](../releases/release-notes.md#2023-06) - Enhancement: Added new **licences** mode.

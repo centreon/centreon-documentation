@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-video-appeartv-snmp
 title: Appear TV SNMP
+description: "Monitor Appear TV video processing devices via SNMP, tracking alarm status for reliable video infrastructure oversight."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -346,3 +347,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=alarms \
 	--help
 ```
+
+## Changelog
+
+- [24.12](../releases/release-notes.md#2024-12) - New connector: Initial release of AppearTV SNMP.

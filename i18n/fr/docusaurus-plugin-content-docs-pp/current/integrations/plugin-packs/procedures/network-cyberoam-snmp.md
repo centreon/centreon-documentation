@@ -1,6 +1,7 @@
 ---
 id: network-cyberoam-snmp
 title: Cyberoam SNMP
+description: "Supervisez les équipements Cyberoam via SNMP : CPU, mémoire, disques, haute disponibilité, licence, VPN et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -701,3 +702,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.02](../releases/release-notes.md#2025-02) - Enhancement: Added **HA**, **license**, **VPN** and **VPN discovery** modes, based on a community contribution ([PR 5144](https://github.com/centreon/centreon-plugins/pull/5144)).

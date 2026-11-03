@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-camera-hikvision-snmp
 title: Hikvision camera SNMP
+description: "Supervisez les caméras Hikvision via SNMP en surveillant l'utilisation CPU, disque, mémoire et le décalage horaire."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-buffalo-terastation-snmp
 title: Buffalo TeraStation SNMP
+description: "Monitor Buffalo TeraStation NAS devices via SNMP: array usage, CPU, memory, load, hardware status, and interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

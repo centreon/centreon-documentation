@@ -1,6 +1,7 @@
 ---
 id: start-with-connectors
 title: Débuter avec les connecteurs de supervision
+description: "Introduction aux connecteurs de supervision Centreon Cloud, avec leur installation et le dépannage des incidents courants"
 ---
 
 Les connecteurs de supervision constituent la façon la plus facile de mettre en supervision des ressources. Ils fournissent des modèles de supervisions prêts à l'emploi (des "packs"), et un plugin qui exécute les contrôles. Consultez la [page consacrée aux connecteurs de supervision ici](../monitoring/pluginpacks.md).

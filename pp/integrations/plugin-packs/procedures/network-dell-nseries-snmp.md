@@ -1,6 +1,7 @@
 ---
 id: network-dell-nseries-snmp
 title: Dell N-series SNMP
+description: "Monitor Dell N-series switches via SNMP: CPU, memory, environment, interfaces, uptime, and global status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -568,3 +569,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=uptime \
 	--help
 ```
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - Breaking change: Deprecated n4000, and initial release of nseries.

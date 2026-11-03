@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-exagrid-snmp
 title: Exagrid SNMP
+description: "Supervisez les équipements de stockage ExaGrid via SNMP, avec le suivi du statut du serveur et des utilisations landing et retention."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -339,3 +340,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=server-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed landing_used calculation to prevent negative values in **server-usage** mode, from community contribution (PR [#5863](https://github.com/centreon/centreon-plugins/pull/5863)).

@@ -1,6 +1,7 @@
 ---
 id: network-routers-juniper-mseries-snmp
 title: Juniper M-Series SNMP
+description: "Monitor Juniper M-Series routers via SNMP: CPU, memory, hardware, BGP/LDP/RSVP/LSP sessions, disk space, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -910,3 +911,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=rsvp-session-status \
 	--help
 ```
+
+## Changelog
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.

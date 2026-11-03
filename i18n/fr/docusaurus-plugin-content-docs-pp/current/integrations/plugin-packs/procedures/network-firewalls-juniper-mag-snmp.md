@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-juniper-mag-snmp
 title: Juniper Mag SNMP
+description: "Supervisez les boîtiers Juniper MAG en SNMP : CPU, mémoire, swap, disque, journal, température, utilisateurs connectés et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -753,3 +754,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.

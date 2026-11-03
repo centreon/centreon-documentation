@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-purestorage-flasharray-v2-restapi
 title: Pure Storage FlashArray Rest API v2
+description: "Supervisez Pure Storage FlashArray via l'API REST v2 : alertes, état du matériel, baies de stockage et métriques d'espace/IO des volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -530,3 +531,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=volumes \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Added performance counters in **arrays** mode, based on community contribution [PR 5355](https://github.com/centreon/centreon-plugins/pull/5355).
+- [25.03](../releases/release-notes.md#2025-03) - Enhancement: Added `flagged` status attribute in **alerts** mode, from community contribution [PR 5307](https://github.com/centreon/centreon-plugins/pull/5307).
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: Fixed an error that occurred when the storage size was zero.
+- [23.01](../releases/release-notes.md#2023-01) - Enhancement: Refactored the purestorage rest api connectors.

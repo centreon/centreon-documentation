@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-linux-nrpe4
 title: Linux NRPE4
+description: "Supervisez les serveurs Linux via le protocole NRPE : CPU, mémoire, charge, disques, processus, services systemd et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -452,7 +453,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 1. Ajoutez le dépôt des plugins Centreon.
 
 ```bash
-wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+wget -O- https://apt-key.centreon.com | gpg --dearmor > /etc/apt/trusted.gpg.d/centreon.gpg
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 apt update
 ```
@@ -1424,3 +1425,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic' --help
 ```
+
+## Historique des modifications
+
+- [26.05](../releases/release-notes.md#2026-05) - Enhancement: Added EL10 and Debian13 prerequisites.
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added support for `timedatectl` in **ntp** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/os-linux-local-plugin-adding-support-for-`timedatectl`-to-ntp-mode-2619).
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Added an `--output-fields` option for some OSs in the **systemd-journal** mode, when journalctl is in version 236 or higher.
+- [24.04](../releases/release-notes.md#2024-04) - Bug fix: The **storage** mode now takes the reserved space of the file systems into account.
+- [24.03](../releases/release-notes.md#2024-03) - New connector: First release of Linux NRPE4.

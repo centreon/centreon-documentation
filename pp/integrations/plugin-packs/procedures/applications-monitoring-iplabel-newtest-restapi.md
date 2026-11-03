@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-iplabel-newtest-restapi
 title: IP-Label Newtest Rest API
+description: "Monitor IP-Label Newtest scenarios via REST API, tracking green/red/orange/grey status percentages and execution time."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -381,3 +382,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=scenarios \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Added the `--timeframe` option to **scenario** mode.

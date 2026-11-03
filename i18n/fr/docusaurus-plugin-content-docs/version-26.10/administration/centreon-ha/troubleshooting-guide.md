@@ -1,9 +1,12 @@
 ---
 id: troubleshooting-guide
 title: Dépanner la HA
+description: "Diagnostiquer et résoudre les problèmes courants du cluster Centreon HA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+> Notez que certaines commandes, options ou sorties peuvent varier selon votre version de Pacemaker/Corosync. Reportez-vous à la documentation officielle correspondant à votre version.
 
 ## Une "Failed action" est affichée dans `crm_mon` mais la ressource semble fonctionner correctement
 

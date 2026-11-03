@@ -1,6 +1,7 @@
 ---
 id: operatingsystems-windows-wsman
 title: Windows WSMAN
+description: "Supervisez les serveurs Windows via WSMAN : CPU, mémoire, espace disque, services, processus, disponibilité et certificats."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -320,7 +321,15 @@ yum install centreon-plugin-Operatingsystems-Windows-Wsman
 | WSMANPASSWORD     | Define the password associated with the user name                                                     |                   |             |
 | WSMANPROTO        | Define the transport scheme (default: 'http')                                                         | http              |             |
 | WSMANPORT         | Define the port to connect to (default: 5985)                                                         | 5985              |             |
+| WSMAN_AUTH_METHOD | Define the authentication method. Available methods: 'noauth', 'basic', 'pass', 'digest', 'ntlm', 'gssnegotiate'                         | basic             |             |
 | WSMANEXTRAOPTIONS | Any extra option you may want to add to every command (E.g. a --verbose flag). Toutes les options sont listées [ici](#options-disponibles) |                   |             |
+
+> Lorsque vous utilisez `WSMAN_AUTH_METHOD=gssnegotiate`, une configuration Kerberos valide est requise sur la machine exécutant le plugin.
+> Avant d’exécuter le plugin, assurez-vous que :
+> - un ticket Kerberos valide est disponible (vérifiez avec `klist`)
+> - le ticket a été obtenu à l’aide de `kinit` ou d’un mécanisme équivalent
+> - le nom d’hôte cible correspond au nom principal de service (SPN) Kerberos enregistré dans Active Directory
+> - le client Kerberos est correctement configuré (par exemple, `/etc/krb5.conf` sous Linux)
 
 5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
@@ -530,6 +539,7 @@ telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 	--wsman-port=5985 \
 	--wsman-username='' \
 	--wsman-password=''  \
+ 	--wsman-auth-method='basic' \
 	--filter-title='' \
 	--exclude-title='' \
 	--filter-mandatory='' \
@@ -633,6 +643,7 @@ Les options génériques sont listées ci-dessous :
 | --wsman-scheme                             | Define the transport scheme (default: 'http').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | --wsman-username                           | Define the username for authentication.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | --wsman-password                           | Define the password associated with the user name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --wsman-auth-method                        | Define the authentication method. Available methods: noauth, basic (default), pass, digest, ntlm, gssnegotiate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --wsman-timeout                            | Define the HTTP transport timeout in seconds (default: 30).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --wsman-auth-method                        | Define the authentication method. Available methods: noauth, basic (default), pass, digest, ntlm, gssnegotiate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | --wsman-proxy-url                          | Define the URL of the HTTP proxy to use.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
@@ -871,3 +882,15 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=updates \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Improved `gssnegotiate` authentication support.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Added **certificates** mode.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: The temporary files are now deleted when the execution ends.
+- [26.02](../releases/release-notes.md#2026-02) - Bug fix: Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as **updates** and **pending-reboot** modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
+- [24.05](../releases/release-notes.md#2024-05) - Bug fix: Fixed the OS-Windows-WSMAN-Services-Macro command and its discovery rule.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added service updates for windows pack.
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fixed typos in command lines options.
+- [22.04](../releases/release-notes.md#2022-04) - New connector: Initial release.

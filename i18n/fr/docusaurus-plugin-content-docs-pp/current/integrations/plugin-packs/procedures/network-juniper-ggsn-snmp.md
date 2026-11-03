@@ -1,6 +1,7 @@
 ---
 id: network-juniper-ggsn-snmp
 title: Juniper GGSN SNMP
+description: "Supervisez les nœuds Juniper GGSN via SNMP : trafic, paquets perdus et statistiques des contextes PDP, par APN ou au global."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -447,3 +448,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=global-stats \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.

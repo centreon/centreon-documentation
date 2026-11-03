@@ -1,6 +1,7 @@
 ---
 id: storage-usage
 title: Keeping track of storage usage
+description: "Track how much storage your Centreon Log Management platform uses over time from the Storage Usage page, with values expressed in mebibytes (MiB)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

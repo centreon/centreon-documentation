@@ -1,6 +1,7 @@
 ---
 id: applications-hddtemp-tcp
 title: Hddtemp TCP
+description: "Monitor hard drive temperatures over TCP with the Hddtemp monitoring connector, including status and threshold configuration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

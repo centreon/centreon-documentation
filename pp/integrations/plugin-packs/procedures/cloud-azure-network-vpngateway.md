@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-vpngateway
 title: Azure VPN Gateway
+description: "Monitor Azure VPN Gateway via API: gateway health, provisioning status, and site-to-site and point-to-site tunnel traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -484,3 +485,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=vpn-gateway-status \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed wrong variable assignment in **vpn-gateway-status** mode.
+- [22.09](../releases/release-notes.md#2022-09) - Breaking change: Upgraded Packs Azure VM, Expressroute, VPN Gateway to use latest guidelines.

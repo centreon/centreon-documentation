@@ -1,6 +1,7 @@
 ---
 id: applications-wsus-cma
 title: Microsoft WSUS CMA
+description: "Monitor Microsoft WSUS servers via CMA: computer update status, server statistics, synchronization status, and update status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -458,3 +459,8 @@ cd "C:/Program Files/Centreon/Plugins/"
 	--mode=updates-status \
 	--help
 ```
+
+## Changelog
+
+- [25.12](../releases/release-notes.md#2025-12) - Enhancement: All templates inherit **Generic-Passive-CMA-Service** from **base-generic** to avoid multiple notifications.
+- [25.10](../releases/release-notes.md#2025-10) - New connector: Initial release of WSUS Microsoft CMA.

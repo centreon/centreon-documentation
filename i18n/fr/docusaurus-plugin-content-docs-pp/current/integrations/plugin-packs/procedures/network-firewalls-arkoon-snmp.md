@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-arkoon-snmp
 title: Arkoon SNMP
+description: "Supervisez les pare-feu Arkoon via SNMP : charge CPU, mémoire, swap, trafic réseau, paquets en erreur et état des processus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -768,3 +769,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).

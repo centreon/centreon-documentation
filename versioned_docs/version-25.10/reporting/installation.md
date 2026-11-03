@@ -1,6 +1,7 @@
 ---
 id: installation
 title: Installing MBI
+description: "Install and configure the Centreon MBI reporting server and interface"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -43,13 +44,14 @@ The diagram below highlights the main components of Centreon MBI:
 The table below shows the different types of flows, by default,
 between the dedicated BI server, the Centreon server and the databases:
 
-| **Application** | **Source**               | **Destination**                      | **Port**     | **Protocol**       | **Purpose**                                         |
-|-----------------|--------------------------|--------------------------------------|--------------|--------------------|-----------------------------------------------------|
-| ETL/CBIS        | Reporting server         | Centreon database server             | 3306         | TCP                | Retrieve configuration and other data from Centreon |
-| SSH             | Reporting server         |  Centreon Server                     | 22           | TCP                | Send generated reports to central server            |
-| CBIS            | Reporting server         | Centreon Server                      | 80/443       | HTTP*/HTTPS        | Authentication and data retrieval                     |
-| CBIS            | Centreon                 | Reporting server                     | 1234         | TCP                | Central contacts CBIS to generate jobs               |
-| Widgets         | Centreon central server  | Reporting server                     | 3306         | TCP                | Retrieve aggregated data to display in widgets      |
+| **Application** | **Source**               | **Destination**                      | **Port** | **Protocol** |
+|-----------------|--------------------------|--------------------------------------|----------|--------------|
+| ETL/CBIS        | Reporting server         | Centreon database server             | 3306     | TCP          |
+| ETL             | Localhost                |Localhost                             | 8085     | TCP          |
+| SSH             | Reporting server         | Centreon Server                      | 22       | TCP          |
+| CBIS            | Reporting server         | Centreon Server                      | 80       | HTTP*        |
+| CBIS            | Centreon                 | Reporting server                     | 1234     | TCP          |
+| Widgets         | Centreon central server  | Reporting server                     | 3306     | TCP          |
 
 *Only required for Host-Graph-v2 and Hostgroup-Graph-v2 reports that use the Centreon API to generate graphs.*
 
@@ -123,6 +125,7 @@ considerations.
   execution of long queries and can stop ETL or report generation jobs:
   - wait_timeout
   - interactive_timeout
+- When creating the CentreonBI user, you must execute the following command: `adduser centreonBI --force-badname`
 
 #### Users and groups
 
@@ -144,7 +147,7 @@ considerations.
 
 #### Hardware layer
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 | Element                     | Value     |
@@ -245,7 +248,27 @@ This is how your MBI server should be partitioned:
 | vg_data |   | Free space (unallocated) | 5 GB                               |
 
 </TabItem>
-<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+<TabItem value="Up to 20,000 hosts" label="Up to 20,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 16 vCPU    |
+| RAM                         | 64 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 2 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 8 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 8462 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Over 20,000 hosts" label="Over 20,000 hosts">
 
 For very large amounts of data, contact your sales representative.
 

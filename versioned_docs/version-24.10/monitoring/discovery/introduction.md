@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction
+description: "Overview of the Auto Discovery module and how it works"
 ---
 
 > Centreon Auto Discovery is a Centreon **extension** that requires a valid

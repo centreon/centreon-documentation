@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-powerstore-restapi
 title: Dell PowerStore Rest API
+description: "Monitor Dell PowerStore storage systems via REST API: alerts, clusters, hardware status, and memory usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -501,3 +502,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
 	--help
 ```
+
+## Changelog
+
+- [23.07](../releases/release-notes.md#2023-07) - Bug fix: Fixed bug on Memory.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: Added service memory.

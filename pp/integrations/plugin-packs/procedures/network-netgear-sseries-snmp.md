@@ -1,6 +1,7 @@
 ---
 id: network-netgear-sseries-snmp
 title: Netgear SSeries SNMP
+description: "Monitor Netgear S-Series switches via SNMP: CPU utilization, memory usage, hardware status, and network interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -525,3 +526,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Netgear sseries switches Pack.

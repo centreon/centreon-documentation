@@ -1,6 +1,7 @@
 ---
 id: applications-rapidrecovery-snmp
 title: Rapid Recovery SNMP
+description: "Supervisez Dell Rapid Recovery via SNMP en suivant le statut des agents de sauvegarde et l'utilisation d'espace des dépôts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -386,3 +387,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=repository \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.10](../releases/release-notes.md#2024-10) - Bug fix: Fixed typo in commands for the **repository** and **agent** modes.

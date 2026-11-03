@@ -1,6 +1,7 @@
 ---
 id: applications-sailpoint-identitynow-restapi
 title: SailPoint IdentityNow Rest API
+description: "Supervisez SailPoint IdentityNow via l'API REST : nombre de résultats de recherche et état de santé des sources d'identité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -392,3 +393,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=source-health \
     --help
 ```
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - New connector: Initial release.

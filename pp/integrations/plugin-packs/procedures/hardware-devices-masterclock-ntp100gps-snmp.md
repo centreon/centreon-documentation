@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-masterclock-ntp100gps-snmp
 title: Masterclock NTP100GP SNMP
+description: "Monitor Masterclock NTP100GPS time servers via SNMP: GPS receiver status, NTP performance, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

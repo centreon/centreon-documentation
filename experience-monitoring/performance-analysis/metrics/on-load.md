@@ -1,7 +1,8 @@
 ---
 id: on-load
 title: OnLoad
---- 
+description: "OnLoad measures when a page and its dependent resources, such as CSS and images, are fully loaded, excluding deferred loads. Includes scoring thresholds."
+---
 
 OnLoad measures when the page is loaded, excluding asynchronous and deferred loads.
 

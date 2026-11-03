@@ -1,6 +1,7 @@
 ---
 id: network-ruckus-icx-snmp
 title: Ruckus ICX SNMP
+description: "Supervisez les commutateurs Ruckus ICX en SNMP : CPU, mémoire, matériel et trafic des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -540,3 +541,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed macro in Ruckus ICX Memory service template.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Added new thresholds to Memory service.

@@ -1,6 +1,7 @@
 ---
 id: cloud-outscale
 title: Outscale API
+description: "Supervisez les ressources cloud Outscale via l'API OSC CLI : machines virtuelles, volumes, connexions VPN, load balancers, etc."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -946,3 +947,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vpn-connections \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

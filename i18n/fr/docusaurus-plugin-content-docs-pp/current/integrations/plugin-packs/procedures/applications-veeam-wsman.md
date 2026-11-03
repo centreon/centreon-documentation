@@ -1,6 +1,7 @@
 ---
 id: applications-veeam-wsman
 title: Veeam WSMAN
+description: "Supervisez Veeam Backup & Replication via WSMAN : état des jobs de sauvegarde, licences, dépôts, jobs sur bande et jobs SureBackup."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -220,6 +221,7 @@ yum install centreon-plugin-Applications-Backup-Veeam-Wsman
 
 | Macro           | Description                                                                                                                                                                                                     | Valeur par défaut                                       | Obligatoire |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------|:-----------:|
+| JOB_SOURCE      | Define which Veeam job source to use.  Possible values are: `all` (retrieve both standard jobs and agent jobs), `standard` (retrieve only jobs returned by `Get-VBRJob`), or `agent` (retrieve only jobs returned by `Get-VBRComputerBackupJob`)                                                                                                                                                                                   | all                                                     |             |
 | FILTERENDTIME   | Filter job with end time greater than current time less value in seconds (Default: 86400)                                                                                                                       | 86400                                                   |             |
 | FILTERNAME      | Filter job name (can be a regexp)                                                                                                                                                                               |                                                         |             |
 | FILTERSTARTTIME | Filter job with start time greater than current time less value in seconds                                                                                                                                      |                                                         |             |
@@ -449,6 +451,7 @@ Les options disponibles pour chaque modèle de services sont listées ci-dessous
 |:--------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --ps-display        | Display powershell script.                                                                                                                                                                                       |
 | --ps-exec-only      | Print powershell output.                                                                                                                                                                                         |
+| --job-source        | Define which Veeam job source to use (default: all).  Possible values are: `all` (retrieve both standard jobs and agent jobs), `standard` (retrieve only jobs returned by `Get-VBRJob`), or `agent` (retrieve only jobs returned by `Get-VBRComputerBackupJob`).  |
 | --filter-name       | Filter job name (can be a regexp).                                                                                                                                                                               |
 | --exclude-name      | Exclude job name (regexp can be used).                                                                                                                                                                           |
 | --filter-type       | Filter job type (can be a regexp).                                                                                                                                                                               |
@@ -534,3 +537,16 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vsb-jobs \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed `job-type` and `session` values in **job-status** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Enhanced message displayed when using wrong powershell version with veeam 13.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed Veeam job retrieval in **job-status** mode.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
+- [26.02](../releases/release-notes.md#2026-02) - Bug fix: Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases.
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Improved execution time in **job-status** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Added Veeam Agent compatibility for job monitoring in **job-status** mode.
+- [24.04](../releases/release-notes.md#2024-04) - New connector: First release of Veeam WSMAN.

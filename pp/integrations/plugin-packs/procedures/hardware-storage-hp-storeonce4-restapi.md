@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-storeonce4-restapi
 title: HP StoreOnce 4 Rest API
+description: "Monitor HP StoreOnce 4 appliances via REST API: appliance disk space, deduplication ratio, hardware status, and catalyst stores."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -468,3 +469,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=stores \
 	--help
 ```
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

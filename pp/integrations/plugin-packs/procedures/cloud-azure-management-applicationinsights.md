@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-applicationinsights
 title: Azure Application Insights
+description: "Monitor Azure Application Insights via REST API: application availability, requests, exceptions, CPU, memory, and page views."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -708,3 +709,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=requests \
 	--help
 ```
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

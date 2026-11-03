@@ -1,6 +1,7 @@
 ---
 id: network-firewalls-juniper-sa-snmp
 title: Juniper SA SNMP
+description: "Monitor Juniper SA appliances via SNMP: CPU, memory, swap, disk, log file usage, interface traffic, and connected users."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -748,3 +749,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.

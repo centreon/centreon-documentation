@@ -1,6 +1,7 @@
 ---
 id: blockchain-hyperledger-exporter
 title: Hyperledger API
+description: "Supervisez Hyperledger Fabric via son API exporter en HTTP/HTTPS : transactions des canaux, pairs gossip, hauteur du ledger et de la blockchain."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,6 +1,7 @@
 ---
 id: platform
 title: Getting your platform ready
+description: "Steps to set up your Centreon Cloud platform, from creating your organization to installing pollers and Monitoring Connectors"
 ---
 
 ## How do I get my monitoring platform up and running?

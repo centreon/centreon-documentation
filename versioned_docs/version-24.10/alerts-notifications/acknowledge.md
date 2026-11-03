@@ -1,6 +1,7 @@
 ---
 id: acknowledge
 title: Acknowledging an alert
+description: "Acknowledge an alert to pause notifications until the issue is resolved"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

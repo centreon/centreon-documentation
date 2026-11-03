@@ -1,6 +1,7 @@
 ---
 id: network-dell-os10-snmp
 title: Dell OS10 SNMP
+description: "Monitor Dell OS10 network switches via SNMP, covering CPU, memory, hardware status, interfaces, load, disk usage, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -739,3 +740,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Dell-Os10-SNMP-Disk-usage** command.

@@ -1,6 +1,7 @@
 ---
 id: network-aruba-orchestrator-restapi
 title: Aruba Orchestrator Rest API
+description: "Supervisez Aruba Orchestrator via l'API REST : alarmes par gravité, état des appareils, synchronisation et détection."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -373,3 +374,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=appliances \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.10](../releases/release-notes.md#2022-10) - New connector: New Pack monitoring the orchestrator using its restapi.

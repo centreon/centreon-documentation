@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-rittal-cmc3-snmp
 title: Rittal CMC3 SNMP
+description: "Monitor Rittal CMC3 units via SNMP: system load, unit status, device status, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -456,3 +457,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=devices \
     --help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - New connector: Initial release.

@@ -1,6 +1,7 @@
 ---
 id: upgrading-map-legacy
 title: Upgrading MAP Legacy to version 24.10
+description: "Upgrade the Centreon MAP Legacy server, web interface, and database to 24.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

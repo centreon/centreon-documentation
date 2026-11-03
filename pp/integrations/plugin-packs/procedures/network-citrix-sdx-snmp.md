@@ -1,6 +1,7 @@
 ---
 id: network-citrix-sdx-snmp
 title: Citrix SDX
+description: "Monitor Citrix SDX appliances via SNMP: disk usage, hardware and software status, storage repository usage, and Xen hypervisor usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

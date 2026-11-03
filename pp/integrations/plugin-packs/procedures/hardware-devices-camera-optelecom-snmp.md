@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-camera-optelecom-snmp
 title: Optelecom camera SNMP
+description: "Monitor Optelecom SNMP cameras: alarms, network traffic, temperatures, interfaces, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -572,3 +573,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=temperatures \
 	--help
 ```
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - New connector: Initial release.

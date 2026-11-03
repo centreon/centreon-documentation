@@ -1,6 +1,7 @@
 ---
 id: network-microsens-g6-snmp
 title: Microsens G6 SNMP
+description: "Monitor Microsens G6 switches via SNMP: CPU, hardware, interfaces, load, memory, SFP ports, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -690,3 +691,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=sfp \
 	--help
 ```
+
+## Changelog
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

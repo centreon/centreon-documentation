@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-compellent-snmp
 title: Dell Compellent SNMP
+description: "Supervisez les baies de stockage Dell Compellent via SNMP : état du matériel, des contrôleurs et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -493,3 +494,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added SNMP in title to be more explicit.

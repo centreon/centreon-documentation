@@ -1,6 +1,7 @@
 ---
 id: applications-rudder-restapi
 title: Rudder
+description: "Supervisez la conformité de configuration Rudder via l'API REST : conformité des noeuds, des règles, conformité globale et statistiques clés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -564,3 +565,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=statistics \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.

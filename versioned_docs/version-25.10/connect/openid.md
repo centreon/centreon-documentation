@@ -1,6 +1,7 @@
 ---
 id: openid
 title: Configuring connection via OpenId Connect
+description: "Configure authentication via OpenID Connect identity providers"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

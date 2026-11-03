@@ -1,6 +1,7 @@
 ---
 id: network-routers-atrica-snmp
 title: Atrica Routeur SNMP
+description: "Monitor Atrica network routers via SNMP: track interface traffic, packet discards/errors, and connection status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -391,3 +392,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=connections \
 	--help
 ```
+
+## Changelog
+
+- [24.11](../releases/release-notes.md#2024-11) - Enhancement: Added service discovery rule for **connections** mode.

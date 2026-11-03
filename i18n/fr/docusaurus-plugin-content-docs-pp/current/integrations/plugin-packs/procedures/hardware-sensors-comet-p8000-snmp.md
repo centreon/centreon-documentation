@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-comet-p8000-snmp
 title: Comet P8000 Sensor SNMP
+description: "Supervisez les sondes Comet P8000 via SNMP en suivant la température et l'humidité relevées sur votre équipement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -334,3 +335,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=sensors \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Removed 'geist' from connector name.

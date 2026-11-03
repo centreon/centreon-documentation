@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-apigateway
 title: Amazon API Gateway
+description: "Supervisez Amazon API Gateway via l'API CloudWatch d'AWS : latence client/backend, nombre de requêtes et erreurs 4XX/5XX."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -415,3 +416,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--plugin=cloud::aws::apigateway::plugin \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Added the ability to change the instance dimension, based on community contribution (PR [#4843](https://github.com/centreon/centreon-plugins/pull/4843)).
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed bug with assume-role option.

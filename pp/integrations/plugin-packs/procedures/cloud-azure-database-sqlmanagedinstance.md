@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-database-sqlmanagedinstance
 title: Azure SQL Managed Instance
+description: "Monitor Azure SQL Managed Instance via the Azure API or Azure CLI: track CPU, disk I/O, health status, and storage usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -548,3 +549,8 @@ All available options for a given mode can be displayed by adding the
 	--custommode='azcli' \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

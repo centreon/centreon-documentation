@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-networkinterface
 title: Azure Network Interface
+description: "Monitor Azure Network Interface traffic via API, tracking bytes and packets sent and received rates."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -378,3 +379,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=traffic \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

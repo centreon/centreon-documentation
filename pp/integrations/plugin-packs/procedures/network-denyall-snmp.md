@@ -1,6 +1,7 @@
 ---
 id: network-denyall-snmp
 title: DenyAll SNMP (Rohde & Schwarz)
+description: "Monitor DenyAll (Rohde & Schwarz) appliances via SNMP: CPU, memory, load, storage, swap, interfaces, and reverse proxies."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -705,3 +706,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage \
 	--help
 ```
+
+## Changelog
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed `FILTERSTORAGE` default macro value.

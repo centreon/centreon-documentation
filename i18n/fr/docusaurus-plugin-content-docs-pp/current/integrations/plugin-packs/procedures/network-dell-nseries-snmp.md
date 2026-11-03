@@ -1,6 +1,7 @@
 ---
 id: network-dell-nseries-snmp
 title: Dell N-series SNMP
+description: "Supervisez les commutateurs Dell N-series via SNMP : CPU, mémoire, environnement, interfaces, uptime et statut global."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -568,3 +569,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=uptime \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - Breaking change: Deprecated n4000, and initial release of nseries.

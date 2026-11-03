@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-netdata-restapi
 title: Netdata RestAPI
+description: "Monitor Netdata via its REST API: CPU, memory, disk space, inodes, load, swap, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

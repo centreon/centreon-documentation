@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-3par-ssh
 title: HP 3PAR SSH
+description: "Supervisez les baies de stockage HP 3PAR via SSH : capacité, utilisation des disques et volumes, état des noeuds, alimentations et cages."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -753,3 +754,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=volume-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed macros for service cages.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added services afc, cages, capacity, nodes to HP 3par SSH Pack.

@@ -1,6 +1,7 @@
 ---
 id: applications-google-workspace-api
 title: Google Workspace
+description: "Monitor Google Workspace service availability (Gmail, Drive, Meet, etc.) via the Workspace status API over HTTPS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

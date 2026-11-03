@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-riello-snmp
 title: Riello UPS SNMP
+description: "Monitor Riello UPS devices via SNMP: alarms, battery status, and input/output line metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -429,3 +430,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=output-lines \
 	--help
 ```
+
+## Changelog
+
+- [23.03](../releases/release-notes.md#2023-03) - New connector: Initial release.

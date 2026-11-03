@@ -1,6 +1,7 @@
 ---
 id: other
 title: Autres actions
+description: "Ajouter des commentaires, gérer les contrôles et reprogrammer les vérifications"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

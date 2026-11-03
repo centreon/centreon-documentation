@@ -1,6 +1,7 @@
 ---
 id: map-api
 title: MAP API
+description: "Automate creation and maintenance of standard maps via API"
 ---
 
 import Tabs from '@theme/Tabs';

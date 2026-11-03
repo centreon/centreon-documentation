@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-buffalo-terastation-snmp
 title: Buffalo TeraStation SNMP
+description: "Supervisez les NAS Buffalo TeraStation via SNMP : utilisation des disques, CPU, mémoire, charge, matériel et interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

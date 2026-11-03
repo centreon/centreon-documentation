@@ -1,6 +1,7 @@
 ---
 id: network-digi-portserverts-snmp
 title: Digi PortServers TS SNMP
+description: "Supervisez les serveurs Digi PortServers TS via SNMP : utilisation du CPU, de la mémoire et trafic des interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -448,3 +449,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: The connector has been renamed.

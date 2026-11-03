@@ -1,6 +1,7 @@
 ---
 id: network-chapsvision-crossing-snmp
 title: ChapsVision CrossinG SNMP
+description: "Supervisez ChapsVision CrossinG en SNMP : état des antivirus et surveillance des interfaces réseau (trafic, erreurs, statut)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -480,3 +481,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=antivirus \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.03](../releases/release-notes.md#2025-03) - Enhancement: Added handling of new OIDs for **antivirus** mode.
+- [23.11](../releases/release-notes.md#2023-11) - New connector: Initial release.

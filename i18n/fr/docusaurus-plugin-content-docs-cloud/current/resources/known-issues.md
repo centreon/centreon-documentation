@@ -1,6 +1,7 @@
 ---
 id: known-issues
 title: Problèmes connus sur Centreon Cloud
+description: "Liste des problèmes connus dans Centreon Cloud sur la gestion des accès aux ressources, les notifications, la configuration et la connexion"
 ---
 
 Les paragraphes ci-après détaillent les problèmes connus de Centreon. Ceux-ci seront corrigés dans une prochaine release. 

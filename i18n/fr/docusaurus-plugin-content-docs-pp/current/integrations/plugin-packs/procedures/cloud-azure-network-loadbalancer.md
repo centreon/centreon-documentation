@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-loadbalancer
 title: Azure Load Balancer
+description: "Supervisez Azure Load Balancer via l'API Azure ou Azure CLI : disponibilité des datapaths et health probes, statistiques SNAT et débit."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -489,3 +490,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=throughput \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.09](../releases/release-notes.md#2026-09) - Enhancement: Added `tags` attribute to **host discovery**.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

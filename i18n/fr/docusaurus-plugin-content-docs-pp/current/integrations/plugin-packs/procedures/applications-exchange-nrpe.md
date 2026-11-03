@@ -1,6 +1,7 @@
 ---
 id: applications-exchange-nrpe
 title: Microsoft Exchange NSClient NRPE
+description: "Supervisez Microsoft Exchange via NRPE et NSClient++ : bases de données, boîtes aux lettres, files d'attente, réplication et services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -190,7 +191,7 @@ Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votr
 
 ```bash
 dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -198,7 +199,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 dnf install centreon-plugin-Operatingsystems-Windows-Restapi
-dnf install centreon-nrpe3-plugin
+dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -206,7 +207,7 @@ dnf install centreon-nrpe3-plugin
 
 ```bash
 apt install centreon-plugin-operatingsystems-windows-restapi
-apt install centreon-nrpe3-plugin
+apt install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -214,7 +215,7 @@ apt install centreon-nrpe3-plugin
 
 ```bash
 yum install centreon-plugin-Operatingsystems-Windows-Restapi
-yum install centreon-nrpe3-plugin
+yum install nagios-plugins-nrpe
 ```
 
 </TabItem>
@@ -707,3 +708,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 /usr/lib64/nagios/plugins//check\_centreon\_nrpe -H 10.0.0.1 -p 5666 -t 55  -c check_centreon_plugins -a 'apps::microsoft::exchange::local::plugin' 'queues'  '  \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed size calculation in edge cases in **database** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed typo for custom perfdata in **databases** mode.

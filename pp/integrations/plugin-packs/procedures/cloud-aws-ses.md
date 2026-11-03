@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-ses
 title: Amazon SES
+description: "Monitor Amazon SES via the AWS CloudWatch API: emails sent, delivered, rejected, and marked as spam."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -372,3 +373,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=emails \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.

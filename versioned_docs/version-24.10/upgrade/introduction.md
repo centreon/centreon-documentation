@@ -1,6 +1,7 @@
 ---
 id: introduction
 title: Introduction to upgrade
+description: "Introduction to upgrading Centreon between major versions"
 ---
 
 This chapter describes how to upgrade your Centreon monitoring platform, i.e. switching between major versions (for instance, from 21.10 to 24.10).

@@ -1,11 +1,14 @@
 ---
 id: applications-nmap-cli
 title: Nmap CLI Discovery
+description: "Installez et configurez le connecteur Nmap CLI Discovery pour découvrir automatiquement les équipements, serveurs et services de votre réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Contenu du pack
+
+> À compter de juin 2026, l'outil en ligne de commande **nmap** doit être installé manuellement. La commande est indiquée dans la section des prérequis.
 
 ### Modèles
 
@@ -71,6 +74,37 @@ yum install centreon-pack-applications-nmap-cli
 2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Nmap CLI Discovery**
 depuis l'interface web et le menu **Configuration > Connecteurs > Connecteurs de supervision**.
 
+### Outil nmap
+
+La licence particulière de l'outil **nmap** ne permet pas son embarquement automatique dans une solution logicielle, c'est pourquoi il doit être installé manuellement.
+
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install nmap
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install nmap
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install nmap
+```
+
+</TabItem>
+</Tabs>
+
+
 ### Plugin
 
 À partir de Centreon 22.04, il est possible de demander le déploiement automatique
@@ -101,13 +135,6 @@ dnf install centreon-plugin-Applications-Nmap-Cli
 
 ```bash
 apt install centreon-plugin-applications-nmap-cli
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Nmap-Cli
 ```
 
 </TabItem>
@@ -219,3 +246,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=discovery \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Warning: `nmap` does not install automatically anymore.
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Enhanced secure execution of commands.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Increased release number.
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Added WSMAN ports to Nmap discovery.

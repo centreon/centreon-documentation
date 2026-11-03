@@ -1,6 +1,7 @@
 ---
 id: hardware-sensors-messpc-ethernetbox-snmp
 title: MessPC Ehternetbox SNMP
+description: "Supervisez les sondes environnementales MessPC Ethernetbox via SNMP : température, humidité, tension, contact, fumée et disponibilité (uptime)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -436,3 +437,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=sensors \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.05](../releases/release-notes.md#2026-05) - New connector: Initial release, based on community contribution [PR 6044](https://github.com/centreon/centreon-plugins/pull/6044).

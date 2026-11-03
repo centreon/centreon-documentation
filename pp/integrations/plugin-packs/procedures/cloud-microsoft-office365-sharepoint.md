@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-sharepoint
 title: Office365 SharePoint
+description: "Monitor Microsoft Office 365 SharePoint via REST API: track site usage, storage, file activity, and user engagement metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -479,3 +480,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=site-usage \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Changed service template aliases to avoid service deployment issues.

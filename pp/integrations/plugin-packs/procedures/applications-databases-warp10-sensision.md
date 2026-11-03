@@ -1,6 +1,7 @@
 ---
 id: applications-databases-warp10-sensision
 title: Warp10 Sensision
+description: "Monitor Warp10 Sensision via its HTTP API: track fetch call/byte statistics and script/function execution metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -510,3 +511,7 @@ All available options for a given mode can be displayed by adding the
 	--custommode='web' \
 	--help
 ```
+
+## Changelog
+
+- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed an issue that blocked the uninstallation process and a broker command.

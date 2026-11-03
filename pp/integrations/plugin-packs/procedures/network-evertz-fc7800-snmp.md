@@ -1,6 +1,7 @@
 ---
 id: network-evertz-fc7800-snmp
 title: Evertz FC7800 SNMP
+description: "Monitor Evertz FC7800 devices via SNMP, tracking hardware, frame line, and PSU status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

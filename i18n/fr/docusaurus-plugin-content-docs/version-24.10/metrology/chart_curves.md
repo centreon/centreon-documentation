@@ -1,6 +1,7 @@
 ---
 id: chart-curves
 title: Courbes
+description: "Configurer les courbes pour personnaliser les graphiques de performance"
 ---
 
 ## Définition

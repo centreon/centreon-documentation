@@ -1,6 +1,7 @@
 ---
 id: network-nokia-timos-snmp
 title: Nokia TiMos SNMP
+description: "Monitor Nokia TiMOS routers via SNMP: CPU, memory, hardware, uptime, interfaces, BGP, IS-IS, LDP, and L2TP usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -832,3 +833,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=sas-alarm \
 	--help
 ```
+
+## Changelog
+
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added new **sas-alarm** mode from community contribution [PR 5083](https://github.com/centreon/centreon-plugins/pull/5083).

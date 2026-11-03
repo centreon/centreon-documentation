@@ -1,6 +1,7 @@
 ---
 id: hardware-telephony-avaya-cm-snmp
 title: Avaya CM SNMP
+description: "Monitor Avaya Communication Manager (CM) via SNMP: track call volume, station license usage, and trunk signaling status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -402,3 +403,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=trunks \
 	--help
 ```
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - New connector: New monitoring pack.

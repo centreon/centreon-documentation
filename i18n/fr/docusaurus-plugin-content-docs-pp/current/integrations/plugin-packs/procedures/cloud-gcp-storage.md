@@ -1,6 +1,7 @@
 ---
 id: cloud-gcp-storage
 title: Google Storage
+description: "Supervisez les buckets Google Cloud Storage via l'API GCP : nombre d'objets et volumes réseau reçus/envoyés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

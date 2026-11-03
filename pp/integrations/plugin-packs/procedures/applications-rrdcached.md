@@ -1,6 +1,7 @@
 ---
 id: applications-rrdcached
 title: RRDCached
+description: "Monitor RRDcached over TCP or UNIX socket: service availability via PING and queue/waiting-updates stats."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -478,3 +479,7 @@ All available options for a given mode can be displayed by adding the
 	--custommode=unix \
 	--help
 ```
+
+## Changelog
+
+- [24.05](../releases/release-notes.md#2024-05) - New connector: Initial release of RRDCached.

@@ -1,6 +1,7 @@
 ---
 id: chart-template
 title: Modèles de graphiques
+description: "Comment créer des modèles de graphiques pour configurer la mise en forme, l'échelle et les couleurs des graphiques Centreon"
 ---
 
 ## Définition

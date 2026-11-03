@@ -1,6 +1,7 @@
 ---
 id: hardware-servers-dell-cmc-snmp
 title: Dell CMC SNMP
+description: "Monitor Dell CMC (Chassis Management Controller) hardware via SNMP: chassis, disks, power supplies, temperature, and uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -391,3 +392,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=uptime \
 	--help
 ```
+
+## Changelog
+
+- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fixed host template used.

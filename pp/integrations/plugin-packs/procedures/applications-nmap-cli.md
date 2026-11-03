@@ -1,11 +1,14 @@
 ---
 id: applications-nmap-cli
 title: Nmap CLI Discovery
+description: "Install and configure the Nmap CLI Discovery connector to automatically discover devices, servers, and services on your network."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Pack assets
+
+> Starting june 2026, the **nmap** command-line tool must be installed manually. The command is available in the prerequisites section.
 
 ### Templates
 
@@ -71,6 +74,34 @@ yum install centreon-pack-applications-nmap-cli
 2. Whatever the license type (*online* or *offline*), install the **Nmap CLI Discovery** connector through
 the **Configuration > Connectors > Monitoring Connectors** menu.
 
+### nmap command-line tool
+
+The license applicable to **nmap** does not allow to automatically embed it in a software solution, so it must be installed manually.
+
+<Tabs groupId="sync">
+<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```bash
+dnf install nmap
+```
+
+</TabItem>
+<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```bash
+dnf install nmap
+```
+
+</TabItem>
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+
+```bash
+apt install nmap
+```
+
+</TabItem>
+</Tabs>
+
 ### Plugin
 
 Since Centreon 22.04, you can benefit from the 'Automatic plugin installation' feature.
@@ -103,13 +134,6 @@ dnf install centreon-plugin-Applications-Nmap-Cli
 
 ```bash
 apt install centreon-plugin-applications-nmap-cli
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Applications-Nmap-Cli
 ```
 
 </TabItem>
@@ -222,3 +246,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=discovery \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: `nmap` does not install automatically anymore.
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Enhanced secure execution of commands.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [23.01](../releases/release-notes.md#2023-01) - Bug fix: Increased release number.
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Added WSMAN ports to Nmap discovery.

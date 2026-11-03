@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-x509
 title: X509 Certificate
+description: "Monitor X509 certificate expiration dates via HTTPS, TCP, or OpenSSL, and get alerted before certificates expire."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -363,3 +364,7 @@ All available options for a given mode can be displayed by adding the
 	--custommode='tcp' \
 	--help
 ```
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Renamed the pack.

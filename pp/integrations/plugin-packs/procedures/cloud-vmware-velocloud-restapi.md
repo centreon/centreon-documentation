@@ -1,6 +1,7 @@
 ---
 id: cloud-vmware-velocloud-restapi
 title: VMware VeloCloud Rest API
+description: "Monitor VMware VeloCloud SD-WAN edges via REST API: link status, link usage, edge QoE, and application/category bandwidth."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -612,3 +613,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=link-usage \
 	--help
 ```
+
+## Changelog
+
+- [24.08](../releases/release-notes.md#2024-08) - Bug fix: Fixed the listing (for discovery) and monitoring of Edges.

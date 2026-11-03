@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-smtp
 title: SMTP Server
+description: "Monitor SMTP servers by checking connection login and message sending, with response time metrics for each check."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -328,3 +329,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=message \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed a Perl warning in **App-Protocol-SMTP-Message** and **App-Protocol-SMTP-Login** commands.

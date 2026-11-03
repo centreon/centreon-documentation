@@ -1,6 +1,7 @@
 ---
 id: network-watchguard-snmp
 title: Watchguard SNMP
+description: "Supervisez les pare-feux WatchGuard via SNMP : CPU, matériel, statut du cluster, tunnels IPsec, policies et trafic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -709,3 +710,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added service cluster.

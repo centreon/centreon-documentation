@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-storeonce3-restapi
 title: HP StoreOnce 3 Rest API
+description: "Supervisez les systèmes de stockage HP StoreOnce 3 via l'API REST : usage et statut des clusters, service sets, NAS et FCS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -439,3 +440,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=serviceset-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Deprecated with initial release of **HP StoreOnce 4.x Rest API** connector.

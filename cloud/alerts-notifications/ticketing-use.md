@@ -1,6 +1,7 @@
 ---
 id: ticketing-use
 title: Using Open Tickets
+description: "How operators open and close ITSM tickets on resources from the Resource table widget in dashboards or the Open tickets widget in legacy custom views"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

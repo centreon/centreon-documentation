@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-node-exporter-windows
 title: Node Exporter Windows Metrics
+description: "Supervisez des hôtes Windows via l'exporteur Prometheus Node Exporter : CPU, mémoire, stockage, services et trafic réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -505,3 +506,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=traffic \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Windows node exporter Pack.

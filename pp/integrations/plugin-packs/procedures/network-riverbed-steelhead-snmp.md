@@ -1,6 +1,7 @@
 ---
 id: network-riverbed-steelhead-snmp
 title: Riverbed SteelHead SNMP
+description: "Monitor Riverbed SteelHead appliances via SNMP: bandwidth optimization, connections, CPU, memory, disk, temperature, and interface status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

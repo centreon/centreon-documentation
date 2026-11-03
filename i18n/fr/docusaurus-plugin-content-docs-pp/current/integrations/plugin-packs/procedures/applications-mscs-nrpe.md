@@ -1,6 +1,7 @@
 ---
 id: applications-mscs-nrpe
 title: Microsoft Cluster Server NSClient++ NRPE
+description: "Supervisez Microsoft Cluster Server (MSCS) via NRPE et NSClient++ : statut du réseau, des nœuds, des ressources et des groupes de ressources du cluster."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -379,3 +380,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--unknown-status="%\{state\} =~ /unknown/" \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - Breaking change: Changed the default NRPECLIENT macro to use the official Nagios NRPE4 client and fixed the default client options.

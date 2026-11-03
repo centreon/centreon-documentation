@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-networkinterface
 title: Azure Network Interface
+description: "Supervisez le trafic des interfaces réseau Azure via l'API, avec le suivi des débits d'octets et de paquets envoyés et reçus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -380,3 +381,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=traffic \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

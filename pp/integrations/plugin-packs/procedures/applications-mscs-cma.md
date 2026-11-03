@@ -1,6 +1,7 @@
 ---
 id: applications-mscs-cma
 title: Microsoft Cluster Server CMA
+description: "Monitor Microsoft Cluster Server (MSCS) via CMA: cluster network, node, resource, and resource group status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -363,3 +364,7 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
 	--mode=resourcegroup-status \
 	--help
 ```
+
+## Changelog
+
+- [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release.

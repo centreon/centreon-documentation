@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-azuread
 title: Office 365 Azure AD
+description: "Monitor Microsoft Office 365 Azure AD via the Graph API: track directory quota usage with Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -327,3 +328,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=directory-size-usage \
 	--help
 ```
+
+## Changelog
+
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed typo in check command.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added AzureAD Pack (graphapi).

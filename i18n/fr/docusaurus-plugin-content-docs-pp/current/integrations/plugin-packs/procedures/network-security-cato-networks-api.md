@@ -1,6 +1,7 @@
 ---
 id: network-security-cato-networks-api
 title: Cato Networks API
+description: "Supervisez Cato Networks via son API GraphQL : connectivité des sites, événements de sécurité et requêtes personnalisées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -524,3 +525,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=events \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release, based on a [The Watch idea](https://thewatch.centreon.com/ideas/create-a-new-cato-network-connector-4025).

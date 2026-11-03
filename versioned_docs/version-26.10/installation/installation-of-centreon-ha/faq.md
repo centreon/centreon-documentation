@@ -1,6 +1,7 @@
 ---
 id: ha-faq
 title: Centreon HA general FAQ
+description: "Frequently asked questions about Centreon HA"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -21,7 +22,7 @@ Extensions need specific license files to work on both central nodes smoothly. I
 
 ## What is supported, and what isn't?
 
-With Centreon 25.10, HA clusters can be installed [on all supported OS](../compatibility.md#operating-systems), with MariaDB as DBMS.
+With Centreon 26.10, HA clusters can be installed [on all supported OSs](../compatibility.md#operating-systems), with MariaDB as DBMS.
 
 Support for HA setups is not included in the Centreon standard support. If you want support for your HA system, your HA setup must be installed by Centreon Professional Services, and you need to purchase a specific HA support pack.
 

@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-storage-storageaccount
 title: Azure Storage Account
+description: "Monitor Azure Storage Account (Blob, File, Queue, Table) via API: capacity, transactions, latency, throughput, and availability."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1707,3 +1708,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=transactions-latency \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [22.07](../releases/release-notes.md#2022-07) - New connector: Added support for both Azure Storage and Classic Storage and added new metrics.

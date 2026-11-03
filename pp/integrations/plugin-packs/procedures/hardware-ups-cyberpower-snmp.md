@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-cyberpower-snmp
 title: CyberPower Systems UPS SNMP
+description: "Monitor CyberPower UPS systems via SNMP: battery status, input/output line voltage, current, and load metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

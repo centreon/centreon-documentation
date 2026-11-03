@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-equallogic-snmp
 title: Dell Equallogic SNMP
+description: "Monitor Dell EqualLogic SAN storage arrays via SNMP: array, disk, and pool usage, hardware health, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

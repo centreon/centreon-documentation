@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-policyinsights-policystates
 title: Azure Policy States
+description: "Supervisez la conformité des stratégies Azure via l'API REST, avec le nombre de politiques non conformes et l'état de conformité global."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -345,3 +346,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=compliance \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Added policy-name macro.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Changed command name.
+- [23.03](../releases/release-notes.md#2023-03) - New connector: Initial release.

@@ -1,6 +1,7 @@
 ---
 id: applications-sahipro-restapi
 title: Sahi Pro Rest API
+description: "Monitor Sahi Pro test automation scenarios via REST API: execution status, steps, failures, and errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -340,3 +341,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=scenario \
 	--help
 ```
+
+## Changelog
+
+- [23.09](../releases/release-notes.md#2023-09) - New connector: Initial release.

@@ -1,6 +1,7 @@
 ---
 id: applications-databases-couchdb-restapi
 title: CouchDB Rest API
+description: "Monitor CouchDB servers via REST API: server status, compaction status, database size, and document counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

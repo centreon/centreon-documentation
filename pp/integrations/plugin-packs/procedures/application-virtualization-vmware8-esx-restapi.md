@@ -1,6 +1,7 @@
 ---
 id: application-virtualization-vmware8-esx-restapi
 title: VMware8 ESX REST API
+description: "Monitor VMware ESX 8 physical servers via the vCenter REST API: CPU, memory, disk I/O, network throughput, power, and swap."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -574,3 +575,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=power \
 	--help
 ```
+
+## Changelog
+
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Plugin can now recover from a corrupted cache.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Enhanced performance by implementing cache, and handled pagination for **acq-specs**.
+- [25.10](../releases/release-notes.md#2025-10) - Breaking change: Changed threshold options and metric names for **power** mode. Changed the way credentials are configured in Host Discovery.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added new **diskio**, **network** and **swap** modes.
+- [25.03](../releases/release-notes.md#2025-03) - New connector: Initial release of VMWare 8 ESX.

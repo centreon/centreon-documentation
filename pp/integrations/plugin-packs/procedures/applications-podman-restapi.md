@@ -1,6 +1,7 @@
 ---
 id: applications-podman-restapi
 title: Podman Rest API
+description: "Monitor Podman containers, pods, and system status via the REST API, tracking CPU, memory, network, I/O, and container/pod states."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -479,3 +480,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=system-status \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: **Container-Usage** now returns UNKNOWN when container is not found.
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed API endpoint for **container-usage** mode.
+- [25.02](../releases/release-notes.md#2025-02) - New connector: Initial release of Podman API.

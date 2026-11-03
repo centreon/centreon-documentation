@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-ibm-fs900-snmp
 title: IBM FlashSystem 900 SNMP
+description: "Supervisez les baies de stockage IBM FlashSystem 900 via SNMP : statut et utilisation des baies, usage fibre channel et état du matériel."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -477,3 +478,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=fc-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - Bug fix: Fixed wrong default value for CRITICALSTATUS in **arrays-status** template.

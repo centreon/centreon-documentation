@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-openmetrics
 title: OpenMetrics
+description: "Supervisez les applications compatibles OpenMetrics via HTTP/HTTPS en collectant les métriques depuis des fichiers ou des pages web."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -331,3 +332,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=scrape-metrics \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **App-Monitoring-Openmetrics-File-Scrape-Metrics** command.

@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-exchange
 title: Office365 Exchange
+description: "Supervisez Microsoft Office 365 Exchange Online via l'API Office 365 Management : activité des e-mails et utilisation/quotas des boîtes mail."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -430,3 +431,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=email-activity \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Changed service template aliases to avoid service deployment issues.

@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-dell-md3000-smcli
 title: Dell MD3000 SMcli
+description: "Monitor Dell (or IBM) MD3000 storage arrays via the SMcli CLI tool, checking overall storage health status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

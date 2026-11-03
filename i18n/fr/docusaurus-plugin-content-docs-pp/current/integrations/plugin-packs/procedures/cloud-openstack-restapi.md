@@ -1,6 +1,7 @@
 ---
 id: cloud-openstack-restapi
 title: OpenStack RESTAPI
+description: "Supervisez OpenStack via REST API : hyperviseurs, instances, réseaux, volumes, load balancers et services clés comme Nova, Neutron et Keystone."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1430,3 +1431,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=volume \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release.

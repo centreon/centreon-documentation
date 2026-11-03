@@ -1,6 +1,7 @@
 ---
 id: applications-ericsson-enm-api
 title: Ericsson ENM API
+description: "Supervisez Ericsson Network Manager via son API REST : statut de synchronisation des nœuds, unités remplaçables et statut des cellules TDD."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -364,3 +365,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=nodes \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.

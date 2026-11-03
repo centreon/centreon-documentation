@@ -1,6 +1,7 @@
 ---
 id: applications-bluemind-ssh
 title: BlueMind SSH
+description: "Monitor BlueMind unified messaging via SSH, covering core engine, authentication, mail delivery, webserver, and XMPP services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -703,3 +704,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=xmpp \
 	--help
 ```
+
+## Changelog
+
+- [24.03](../releases/release-notes.md#2024-03) - Bug fix: On Webserver service template, use storable as cache method to fix an issue.

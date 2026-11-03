@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-20-10
 title: Upgrade from Centreon 20.10
+description: "Upgrade a Centreon platform from version 20.10 to 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -218,7 +219,7 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
-Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256M. If it isn't, insert it manually. 
 
 Then, finish upgrading the Centreon solution.
 

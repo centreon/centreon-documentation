@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-ax-mssql
 title: Dynamics AX Database
+description: "Supervisez les bases Microsoft Dynamics AX via des requêtes MSSQL pour suivre les erreurs de commandes EDI."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -327,3 +328,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--dyn-mode=apps::dynamics::ax::mode::ediorder \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

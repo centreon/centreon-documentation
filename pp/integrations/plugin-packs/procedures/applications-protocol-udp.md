@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-udp
 title: Protocol UDP
+description: "Monitor UDP port connectivity by checking that a target resource responds on a specified port within a given timeout."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -316,3 +317,7 @@ sudo /usr/lib/centreon/plugins/centreon_protocol_udp.pl \
 	--mode=connection  \
 	--help
 ```
+
+## Changelog
+
+- [23.05](../releases/release-notes.md#2023-05) - Enhancement: Added a UDP-based host template.

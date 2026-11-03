@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-cdn
 title: Azure CDN
+description: "Supervisez vos profils Azure CDN via l'API REST Azure : ratio d'octets, latence, nombre de requêtes et taille des réponses."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -473,3 +474,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=response \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

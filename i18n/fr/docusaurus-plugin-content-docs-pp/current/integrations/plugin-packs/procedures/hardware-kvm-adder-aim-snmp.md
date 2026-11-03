@@ -1,6 +1,7 @@
 ---
 id: hardware-kvm-adder-aim-snmp
 title: Adder AIM SNMP
+description: "Supervisez les commutateurs KVM Adder AIM via SNMP : utilisation des équipements et des serveurs, connexions, CPU, mémoire et disque."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -408,3 +409,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=server-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **HW-Kvm-Adder-Aim-SNMP-Server-Usage** command.

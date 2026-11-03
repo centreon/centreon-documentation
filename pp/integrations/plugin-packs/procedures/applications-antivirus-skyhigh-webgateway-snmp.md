@@ -1,6 +1,7 @@
 ---
 id: applications-antivirus-skyhigh-webgateway-snmp
 title: Skyhigh Security Web Gateway SNMP
+description: "Monitor Skyhigh Security Web Gateway via SNMP: client connections, HTTP/HTTPS/FTP traffic, malware detections, and virus definition versions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -613,3 +614,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=https-statistics \
 	--help
 ```
+
+## Changelog
+
+- [24.12](../releases/release-notes.md#2024-12) - New connector: Replaced the McAfee Webgateway connector following the McAfee Webgateway OID [end-of-life announcement](https://success.skyhighsecurity.com/Skyhigh_Secure_Web_Gateway_(On_Prem)/Secure_Web_Gateway_Overview/End-of-life_(EOL)_Dates_for_Secure_Web_Gateway).

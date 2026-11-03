@@ -1,6 +1,7 @@
 ---
 id: update-centreon-ha
 title: Updating a Centreon HA platform
+description: "Perform minor updates on a Centreon HA platform"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -22,6 +23,22 @@ pcs property set maintenance-mode=true
 > Make sure all users are logged out of the Centreon web interface
 > before starting the upgrade procedure.
 
+### Update the centreon_central_sync script (MBI only)
+
+This step is only necessary if you use [MBI](../reporting/introduction.md). Update the script `/usr/share/centreon-ha/bin/centreon_central_sync` at the following lines:
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua"],
+```
+
+For MBI reports to still be downloadable later on, the lines must be updated like this:
+
+```shell
+rsync_dir => ["/etc/centreon-broker", "/etc/centreon-engine", "/var/log/centreon-engine", "/var/lib/centreon/centplugins",
+                     "/etc/centreon/license.d", "/usr/share/centreon-broker/lua", "/var/lib/centreon/centreon-bi-server/archives"],
+```
+
 ### Centreon-Web update
 
 Update your cluster by running the following command on each central node:
@@ -42,7 +59,7 @@ dnf update centreon\*
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 Clean the cache :
 
@@ -57,7 +74,7 @@ dnf update centreon\*
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 13" label="Debian 13">
 
 Clean the cache :
 
@@ -69,7 +86,7 @@ apt update
 Update all components:
 
 ```shell
-apt install --only-upgrade centreon\*
+apt install --only-upgrade "centreon*"
 ```
 
 </TabItem>
@@ -87,14 +104,14 @@ mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`da
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
 sudo -u apache /usr/share/centreon/bin/console cache:clear
 ```
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```bash
 mv /usr/share/centreon/www/install /var/lib/centreon/installs/install-update-`date +%Y%m%d`
@@ -118,7 +135,7 @@ systemctl restart crond
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 ```bash
 rm -f /etc/cron.d/centreon
@@ -127,7 +144,7 @@ rm -f /etc/cron.d/centreon-auto-disco
 systemctl restart crond
 ```
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 13" label="Debian 13">
 
 ```bash
 rm -f /etc/cron.d/centreon

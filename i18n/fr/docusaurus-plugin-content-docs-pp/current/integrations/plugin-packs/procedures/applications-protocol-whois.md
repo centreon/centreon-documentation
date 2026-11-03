@@ -1,6 +1,7 @@
 ---
 id: applications-protocol-whois
 title: Protocol WHOIS
+description: "Supervisez le statut des domaines, leur date d'expiration et le temps de réponse WHOIS via la commande système whois."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -330,3 +331,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=domain  \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

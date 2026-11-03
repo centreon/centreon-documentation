@@ -1,6 +1,7 @@
 ---
 id: notif-flapping
 title: Bagotage (flapping)
+description: "Comment le moteur Centreon détecte les hôtes et services bagotants, et les seuils de bagotage utilisés dans Centreon Cloud"
 ---
 
 ## Introduction

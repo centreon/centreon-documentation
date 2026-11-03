@@ -1,6 +1,7 @@
 ---
 id: ticketing-advanced-body
 title: Customizing tickets
+description: "How to customize the body of Open Tickets tickets in the Body list definition field using Smarty syntax, starting from the default ticket body template"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

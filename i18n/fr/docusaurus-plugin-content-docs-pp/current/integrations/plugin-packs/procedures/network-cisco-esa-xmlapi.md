@@ -1,6 +1,7 @@
 ---
 id: network-cisco-esa-xmlapi
 title: Cisco ESA XMLAPI
+description: "Supervisez Cisco ESA (Email Security Appliance) via l'API XML : utilisation CPU, mémoire, disque et files d'attente de messages."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

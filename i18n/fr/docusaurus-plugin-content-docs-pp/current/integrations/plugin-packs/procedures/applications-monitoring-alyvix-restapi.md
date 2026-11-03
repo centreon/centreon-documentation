@@ -1,6 +1,7 @@
 ---
 id: applications-monitoring-alyvix-restapi
 title: Alyvix Server
+description: "Supervisez Alyvix Server via son API Rest pour suivre le statut, la durée d'exécution des testcases et le détail de leurs transactions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

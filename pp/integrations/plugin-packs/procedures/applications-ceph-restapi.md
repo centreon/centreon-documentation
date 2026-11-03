@@ -1,6 +1,7 @@
 ---
 id: applications-ceph-restapi
 title: Ceph Rest API
+description: "Monitor Ceph clusters via REST API: cluster health status, OSD availability, and pool usage, read/write throughput, and capacity."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -445,3 +446,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=pools \
 	--help
 ```
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

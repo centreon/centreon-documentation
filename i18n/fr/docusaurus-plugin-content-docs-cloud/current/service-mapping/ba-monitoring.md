@@ -1,6 +1,7 @@
 ---
 id: ba-monitoring
 title: Supervision
+description: "Consulter et interpréter en temps réel le statut, le niveau de santé et les KPI des activités métier dans les pages de supervision de Centreon BAM"
 ---
 
 Après avoir créer / modifier / supprimer des objets liés à Centreon BAM,

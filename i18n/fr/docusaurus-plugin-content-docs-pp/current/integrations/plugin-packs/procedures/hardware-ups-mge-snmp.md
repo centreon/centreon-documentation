@@ -1,6 +1,7 @@
 ---
 id: hardware-ups-mge-snmp
 title: MGE UPS System SNMP
+description: "Supervisez les onduleurs MGE via SNMP : état de la batterie, environnement, lignes d'entrée/sortie et source de sortie."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

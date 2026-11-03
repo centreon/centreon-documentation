@@ -1,6 +1,7 @@
 ---
 id: network-hp-moonshot-snmp
 title: HP Moonshot SNMP
+description: "Supervisez les châssis HP Moonshot via SNMP : CPU, mémoire et interfaces réseau."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -487,3 +488,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Initial release.

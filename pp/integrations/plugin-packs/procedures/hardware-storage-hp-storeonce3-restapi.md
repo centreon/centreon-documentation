@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-hp-storeonce3-restapi
 title: HP StoreOnce 3 Rest API
+description: "Monitor HP StoreOnce 3 storage systems via REST API, tracking cluster, service set, NAS, and FCS usage and status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -438,3 +439,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=serviceset-usage \
 	--help
 ```
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Deprecated with initial release of **HP StoreOnce 4.x Rest API** connector.

@@ -1,6 +1,7 @@
 ---
 id: cloud-microsoft-office365-management
 title: Office 365 Management
+description: "Monitor Microsoft Office 365 via the Graph API: service health status, subscription usage, and app credential expiration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -511,3 +512,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=subscriptions \
 	--help
 ```
+
+## Changelog
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added `filter-classification` option to **service-status** mode.
+- [25.10](../releases/release-notes.md#2025-10) - Bug fix: Fixed an issue where each new alert for a service overwrote the previous one, making it impossible to have an overall view in **service-status**.
+- [22.12](../releases/release-notes.md#2022-12) - Enhancement: Added subscriptions service.
+- [22.02](../releases/release-notes.md#2022-02) - Enhancement: Added service app-credentials.
+- [22.01](../releases/release-notes.md#2022-01) - Breaking change: Use new microsoft api.

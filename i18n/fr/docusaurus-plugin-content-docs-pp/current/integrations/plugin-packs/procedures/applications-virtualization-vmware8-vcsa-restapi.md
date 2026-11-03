@@ -1,6 +1,7 @@
 ---
 id: applications-virtualization-vmware8-vcsa-restapi
 title: VMware8 VCSA REST API
+description: "Supervisez VMware vCenter Server Appliance (VCSA) 8 via l'API REST : santé, mises à jour, uptime, interfaces réseau et services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -494,3 +495,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=services \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release ([Issue 5551](https://github.com/centreon/centreon-plugins/issues/5551)).

@@ -1,6 +1,7 @@
 ---
 id: network-nvidia-mellanox-snmp
 title: Nvidia (formerly Mellanox) SNMP
+description: "Supervisez les commutateurs réseau Nvidia (anciennement Mellanox) via SNMP : CPU, interfaces, sondes, uptime et état du Spanning Tree."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -646,3 +647,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=spanning-tree \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release [PR 5753](https://github.com/centreon/centreon-plugins/pull/5753).

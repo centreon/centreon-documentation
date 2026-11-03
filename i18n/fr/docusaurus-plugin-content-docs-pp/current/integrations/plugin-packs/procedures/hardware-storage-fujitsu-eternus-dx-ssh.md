@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-fujitsu-eternus-dx-ssh
 title: Fujitsu Eternus DX SSH
+description: "Supervisez les baies de stockage Fujitsu Eternus DX en SSH : CPU, disques, ports, alimentation, groupes RAID et statistiques de volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -528,3 +529,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=volume-stats \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.10](../releases/release-notes.md#2022-10) - Breaking change: Changed to use new ssh backend.

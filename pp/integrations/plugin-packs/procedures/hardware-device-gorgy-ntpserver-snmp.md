@@ -1,6 +1,7 @@
 ---
 id: hardware-device-gorgy-ntpserver-snmp
 title: Gorgy NTP Server SNMP
+description: "Monitor Gorgy NTP servers via SNMP: sync status, timebase status, NTP requests, and network traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -450,3 +451,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: Fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.

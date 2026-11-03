@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiauthenticator-snmp
 title: Fortinet FortiAuthenticator SNMP
+description: "Supervisez Fortinet FortiAuthenticator via SNMP : authentification, CPU, mémoire, disque de logs, haute disponibilité et interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -592,3 +593,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Fortinet-Fortiauthenticator-SNMP-Ha** command.

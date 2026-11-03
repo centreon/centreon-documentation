@@ -1,6 +1,7 @@
 ---
 id: database-partitioning
 title: Partitionnement des bases de données
+description: "Configurer et surveiller le partitionnement des tables MariaDB de Centreon"
 ---
 
 ## Présentation

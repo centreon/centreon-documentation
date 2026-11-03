@@ -1,6 +1,7 @@
 ---
 id: what-is-centreon-ceip
 title: What is Centreon CEIP?
+description: "Introduction to the Customer Experience Improvement Program"
 ---
 
 Joining the Centreon Customer Experience Improvement Program

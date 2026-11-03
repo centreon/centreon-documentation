@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortiadc-snmp
 title: Fortinet FortiADC SNMP
+description: "Supervisez les appliances Fortinet FortiADC via SNMP : CPU, mémoire, matériel, interfaces, disponibilité, serveurs virtuels et sécurité DDoS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -642,3 +643,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=security \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.02](../releases/release-notes.md#2022-02) - New connector: Initial release.

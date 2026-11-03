@@ -1,6 +1,7 @@
 ---
 id: applications-iis-wsman
 title: Microsoft IIS Server WSMAN
+description: "Supervisez les pools d'applications de Microsoft IIS Server via WSMAN : statut des pools et nombre détecté."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -326,3 +327,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=application-pools \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed typo in `App-Iis-WSMAN-Application-Pools` command.
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

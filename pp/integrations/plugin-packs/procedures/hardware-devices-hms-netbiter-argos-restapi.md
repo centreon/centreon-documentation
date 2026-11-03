@@ -1,6 +1,7 @@
 ---
 id: hardware-devices-hms-netbiter-argos-restapi
 title: HMS Netbiter Argos RestAPI
+description: "Monitor HMS Netbiter Argos systems via REST API: track alarms and sensor readings from Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -426,3 +427,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=alarms \
 	--help
 ```
+
+## Changelog
+
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

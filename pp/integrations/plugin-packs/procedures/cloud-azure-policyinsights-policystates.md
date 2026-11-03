@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-policyinsights-policystates
 title: Azure Policy States
+description: "Monitor Azure Policy compliance via REST API, tracking non-compliant policy counts and overall compliance state."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -344,3 +345,10 @@ All available options for a given mode can be displayed by adding the
 	--mode=compliance \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Added policy-name macro.
+- [23.05](../releases/release-notes.md#2023-05) - Bug fix: Changed command name.
+- [23.03](../releases/release-notes.md#2023-03) - New connector: Initial release.

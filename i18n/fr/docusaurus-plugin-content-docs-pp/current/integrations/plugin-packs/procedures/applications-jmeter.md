@@ -1,6 +1,7 @@
 ---
 id: applications-jmeter
 title: JMeter
+description: "Supervisez les scénarios Apache JMeter via le plugin en CLI : temps d'exécution, nombre d'étapes et disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -335,3 +336,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=scenario \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added `--command-path` option as macro in host template.
+- [24.12](../releases/release-notes.md#2024-12) - New connector: Initial release of JMeter.

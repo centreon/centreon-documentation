@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-netapp-ontap-oncommandapi
 title: NetApp Ontap OnCommand API
+description: "Supervisez le stockage NetApp ONTAP via l'API OnCommand : agrégats, clusters, disques, LUNs, nœuds, qtrees, snapmirror et volumes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1012,3 +1013,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=snapmirror-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.04](../releases/release-notes.md#2022-04) - Breaking change: The volume services have been refactored

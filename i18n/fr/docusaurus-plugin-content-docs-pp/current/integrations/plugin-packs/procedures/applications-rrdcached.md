@@ -1,6 +1,7 @@
 ---
 id: applications-rrdcached
 title: RRDCached
+description: "Supervisez RRDcached en TCP ou socket UNIX : disponibilité via PING et statistiques de file d'attente et de mises à jour en cache."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -478,3 +479,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--custommode=unix \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.05](../releases/release-notes.md#2024-05) - New connector: Initial release of RRDCached.

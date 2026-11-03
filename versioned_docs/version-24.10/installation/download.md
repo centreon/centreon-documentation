@@ -1,6 +1,7 @@
 ---
 id: download
 title: Download
+description: "Available formats for downloading and installing Centreon software"
 ---
 
 Open Source software supplied by Centreon is generally available in [3 formats](../installation/compatibility.md#operating-systems):

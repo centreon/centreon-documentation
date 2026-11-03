@@ -1,6 +1,7 @@
 ---
 id: applications-oracle-ucp-jmx
 title: Oracle UCP JMX
+description: "Supervisez les pools de connexion Oracle UCP via JMX/Jolokia : utilisation, connexions libres et pourcentage d'utilisation."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -326,3 +327,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=connection-pools \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.
+- [23.02](../releases/release-notes.md#2023-02) - New connector: Initial release.

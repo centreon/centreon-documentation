@@ -1,6 +1,7 @@
 ---
 id: network-mitel-3300icp-snmp
 title: Mitel 3300ICP SNMP
+description: "Monitor Mitel 3300ICP call servers via SNMP: license usage, uptime, zone access point bandwidth, and call statistics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

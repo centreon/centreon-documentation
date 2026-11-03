@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-network-appgateway
 title: Azure Application Gateway
+description: "Supervisez Azure Application Gateway via l'API REST : santé des backends, connexions, requêtes, débit et temps de réponse."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -766,3 +767,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=requests \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed host discovery issue.

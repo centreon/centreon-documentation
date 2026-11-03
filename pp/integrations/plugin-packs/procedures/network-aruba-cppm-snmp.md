@@ -1,6 +1,7 @@
 ---
 id: network-aruba-cppm-snmp
 title: Aruba CPPM SNMP
+description: "Monitor Aruba ClearPass Policy Manager (CPPM) via SNMP: CPU, memory, disks, swap, interfaces, RADIUS, and TACACS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -642,3 +643,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=memory \
     --help
 ```
+
+## Changelog
+
+- [24.08](../releases/release-notes.md#2024-08) - Bug fix: Fixed the plugin's packaging.
+- [23.07](../releases/release-notes.md#2023-07) - Enhancement: Added swap monitoring.
+- [23.04](../releases/release-notes.md#2023-04) - New connector: Initial release.

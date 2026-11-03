@@ -1,6 +1,7 @@
 ---
 id: hosts-create
 title: Mettre un hôte en supervision
+description: "Comment mettre un hôte en supervision en lui attribuant un modèle de connecteur de supervision, créé manuellement ou par autodécouverte"
 ---
 
 Un hôte est toute entité possédant une adresse IP correspondant à une ressource du système d’informations. Exemples : Un

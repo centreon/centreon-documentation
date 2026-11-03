@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-huawei-oceanstor-snmp
 title: Huawei OceanStor SNMP
+description: "Supervisez les baies de stockage Huawei OceanStor via SNMP : CPU/mémoire des contrôleurs, matériel, espace des LUNs et des pools de stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -501,3 +502,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=controllers \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.11](../releases/release-notes.md#2022-11) - Enhancement: Added new service to check luns.

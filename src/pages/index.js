@@ -59,12 +59,12 @@ const cards = [
         href: "experience-monitoring/getting-started/welcome/",
       },
       {
-        label: "Synthetic Monitoring (STM)",
-        href: "experience-monitoring/getting-started/synthetic-monitoring/",
+        label: "Synthetic Monitoring/User journeys (STM)",
+        href: "experience-monitoring/configuration/user-journey/user-journey-intro/",
       },
       {
         label: "Real User Monitoring (RUM)",
-        href: "experience-monitoring/getting-started/real-user-monitoring/",
+        href: "experience-monitoring/rum/rum-intro/",
       },
       {
         label: "Digital sobriety",
@@ -96,8 +96,8 @@ const cards = [
 ];
 
 const versionInfo = {
-  version: "25.10",
-  link: "https://www.centreon.com/centreon-announces-the-25-10-release-of-centreon-infra-monitoring-cornerstone-of-the-new-centreon-observability-platform/",
+  version: "26.10",
+  link: "https://centreon.com/blog/centreon-news/centreon-infra-monitoring-26-10-lts-whats-new/",
   target: "_blank",
 };
 

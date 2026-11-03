@@ -1,6 +1,7 @@
 ---
 id: network-westermo-standard-snmp
 title: Westermo Standard SNMP
+description: "Supervisez les équipements réseau Westermo via SNMP : CPU, mémoire, sondes, disponibilité, interfaces et protocole Spanning Tree."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -772,3 +773,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=spanning-tree \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.05](../releases/release-notes.md#2026-05) - New connector: Initial release, based on community contribution [PR 5696](https://github.com/centreon/centreon-plugins/pull/5696).

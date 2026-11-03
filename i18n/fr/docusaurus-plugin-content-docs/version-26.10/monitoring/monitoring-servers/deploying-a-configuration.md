@@ -1,6 +1,7 @@
 ---
 id: deploying-a-configuration
 title: Déployer une configuration
+description: "Exporter et déployer les changements de configuration vers les collecteurs et serveurs distants"
 ---
 
 Lorsque vous créez, supprimez ou modifiez des objets via le menu

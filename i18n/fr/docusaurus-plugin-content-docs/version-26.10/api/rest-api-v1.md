@@ -1,6 +1,7 @@
 ---
 id: rest-api-v1
 title: Rest API (v1)
+description: "Utiliser l'API REST v1 pour la configuration et les données temps réel"
 ---
 
 > Cette documentation n'est disponible qu'en anglais.
@@ -2635,9 +2636,9 @@ Use the GET method and URL below: :
 
 Additionnal information:
 
--   kpi\_type: 0 = service, 1 = metaservice, 2 = BA, 3 = boolean rule
+-   kpi\_type: 0 = service, 1 = métaservice, 2 = BA, 3 = boolean rule
 -   kpi\_name: name of the kpi (\<host\> / \<service\> or
-    \<metaservice\> or \<ba_name\> or \<boolean_rule\>)
+    \<métaservice\> or \<ba_name\> or \<boolean_rule\>)
 -   kpi\_current\_status: 0 = OK, 1 = Warning, 2 = Critical, 3 = Unknown
 -   ba\_current\_status: 0 = OK, 1 = Warning, 2 = Critical, 3 = Unknown
 -   current\_impact: impact on linked BA in %

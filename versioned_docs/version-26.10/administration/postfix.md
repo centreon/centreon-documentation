@@ -1,6 +1,7 @@
 ---
 id: postfix
 title: Configuring your Centreon to send emails
+description: "Configure Postfix so Centreon can send notification emails"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -21,24 +22,10 @@ We recommend that you use a dedicated email account to send notifications.
 1. In your server's terminal, enter the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma 8" label="Alma 8">
-
-``` shell
-dnf install postfix mailx cyrus-sasl-plain
-```
-
-</TabItem>
 <TabItem value="Alma 9" label="Alma 9">
 
 ``` shell
 dnf install postfix mailx cyrus-sasl-plain
-```
-
-</TabItem>
-<TabItem value="RHEL / Oracle Linux 8" label="RHEL / Oracle Linux 8">
-
-``` shell
-dnf install mailx cyrus-sasl-plain
 ```
 
 </TabItem>
@@ -49,7 +36,21 @@ dnf install s-nail cyrus-sasl-plain
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma 10" label="Alma 10">
+
+``` shell
+dnf install postfix mailx cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="RHEL / Oracle Linux 10" label="RHEL / Oracle Linux 10">
+
+``` shell
+dnf install s-nail cyrus-sasl-plain
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt install postfix bsd-mailx libsasl2-modules
@@ -193,7 +194,7 @@ apt install postfix bsd-mailx libsasl2-modules
     tail -f /var/log/maillog
     ```
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 13" label="Debian 13">
 
     ```shell
     tail -f /var/log/mail.log

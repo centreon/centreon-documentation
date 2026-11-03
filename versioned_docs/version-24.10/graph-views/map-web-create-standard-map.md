@@ -1,6 +1,7 @@
 ---
 id: map-web-create-standard-map
 title: Creating a standard map
+description: "Create and customize standard maps using the MAP editor"
 ---
 
 This topic describes how to create standard maps and how to customize them using the MAP editing mode.
@@ -13,6 +14,7 @@ The display of the **Add a Map** button in the **Map** page means that you are a
 
 2. Fill in the properties of the new map:
    - Name: provide a name to the map.
+   - Geo coordinates: fill in the fields with the `Latitude, Longitude` format. This allows the map to be added to a [geographic view](./map-web-create-geoview.md).
    - Image: select an image if you want to customize the map's display in the list of maps.
 
 3. Click **Add** to confirm the map's creation.

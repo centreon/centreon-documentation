@@ -1,6 +1,7 @@
 ---
 id: applications-databases-firebird
 title: Firebird
+description: "Supervisez les bases de données Firebird via SQL : temps de connexion, mémoire, statistiques des pages et des requêtes, utilisateurs connectés."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

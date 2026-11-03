@@ -1,6 +1,7 @@
 ---
 id: cloud-aws-cloudwatchlogs
 title: Amazon CloudWatch Logs
+description: "Supervisez Amazon CloudWatch Logs via l'API AWS (awscli ou paws) pour récupérer et filtrer les journaux par groupe et par flux."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -429,3 +430,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=get-logs \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed issues with perl paws custom mode.

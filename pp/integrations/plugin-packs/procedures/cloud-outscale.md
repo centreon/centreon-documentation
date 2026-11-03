@@ -1,6 +1,7 @@
 ---
 id: cloud-outscale
 title: Outscale API
+description: "Monitor Outscale cloud resources via the OSC CLI API: virtual machines, volumes, VPN connections, load balancers, and more."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -945,3 +946,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=vpn-connections \
 	--help
 ```
+
+## Changelog
+
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

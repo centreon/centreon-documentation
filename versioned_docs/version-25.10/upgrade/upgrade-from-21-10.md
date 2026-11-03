@@ -1,6 +1,7 @@
 ---
 id: upgrade-from-21-10
 title: Upgrade from Centreon 21.10
+description: "Upgrade a Centreon platform from version 21.10 to 25.10"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -162,7 +163,7 @@ dnf module install php:8.2
 dnf distro-sync php\* --allowerasing
 ```
 
-Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256mb. If it isn't, insert it manually. 
+Ensure the `memory_limit` parameter in `/etc/php.d/50-centreon.ini` is set to at least 256M. If it isn't, insert it manually. 
 
 ```shell
 su - apache -s /bin/bash -c "/usr/share/centreon/bin/console cache:clear"

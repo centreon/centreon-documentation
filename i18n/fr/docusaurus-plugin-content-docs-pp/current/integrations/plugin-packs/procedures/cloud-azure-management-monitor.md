@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-management-monitor
 title: Azure Monitor
+description: "Supervisez les ressources Azure via l'API REST Management : collecte des métriques de ressources et requêtes Kusto sur Log Analytics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -407,3 +408,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=get-metrics \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Removed unrelated **Loganalytics** service template.

@@ -1,6 +1,7 @@
 ---
 id: applications-github-restapi
 title: GitHub Rest API
+description: "Supervisez GitHub via son API REST : commits, issues, pull requests, statistiques d'un dépôt et statut du service."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -472,3 +473,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=stats \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **App-Github-Restapi-Repositories-Statistics**, **App-Github-Restapi-Repositories-Pull-Requests**, **App-Github-Restapi-Repositories-Issues** and **App-Github-Restapi-Repositories-Commits** commands as well as the default port and protocol.

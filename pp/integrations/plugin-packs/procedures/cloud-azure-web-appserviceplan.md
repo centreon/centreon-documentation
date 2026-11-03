@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-web-appserviceplan
 title: Azure App Service Plan
+description: "Monitor Azure App Service Plan via REST API: CPU, memory, data transfer, queue length, sockets, TCP connections, and health status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -626,3 +627,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=tcp-connections \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.

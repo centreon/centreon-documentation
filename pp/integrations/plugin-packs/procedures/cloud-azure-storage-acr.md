@@ -1,6 +1,7 @@
 ---
 id: cloud-azure-storage-acr
 title: Azure Container Registry
+description: "Monitor Azure Container Registry via the Azure API or Azure CLI, tracking storage usage with the ACR connector."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -368,3 +369,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage-usage \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.

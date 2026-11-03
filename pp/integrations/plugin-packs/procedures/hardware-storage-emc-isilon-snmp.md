@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-isilon-snmp
 title: EMC Isilon SNMP
+description: "Monitor EMC Isilon storage clusters via SNMP: cluster health, capacity usage, and hardware component status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

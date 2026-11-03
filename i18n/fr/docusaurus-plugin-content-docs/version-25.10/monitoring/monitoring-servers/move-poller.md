@@ -1,6 +1,7 @@
 ---
 id: move-poller
 title: Rattacher un collecteur à un serveur distant différent
+description: "Rattacher un collecteur d'un serveur distant à un autre"
 ---
 
 Voici la procédure pour attacher un collecteur du serveur Centreon Central à un serveur distant, ou à partir d'un

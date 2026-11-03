@@ -1,6 +1,7 @@
 ---
 id: virtualization-vmware2-vcenter-6
 title: VMware vCenter v6
+description: "Supervisez VMware vCenter v6 grâce au daemon Centreon VMware : âge des snapshots et limites CPU, mémoire et disque des VM."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -620,3 +621,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=snapshot-vm \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - Bug fix: Fixed the Vsan-Cluster-Usage `Cannot get response (timeout received)` error. See the notice below to apply the patch.

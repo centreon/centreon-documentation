@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-ax-mssql
 title: Dynamics AX Database
+description: "Monitor Microsoft Dynamics AX databases via MSSQL queries to track EDI order warning and critical error counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -327,3 +328,7 @@ All available options for a given mode can be displayed by adding the
 	--dyn-mode=apps::dynamics::ax::mode::ediorder \
 	--help
 ```
+
+## Changelog
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

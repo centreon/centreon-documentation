@@ -1,6 +1,7 @@
 ---
 id: developer-module  
 title: Comment écrire un module
+description: "Développer et packager un module Centreon personnalisé"
 ---
 
 Vous souhaitez créer un nouveau module pour Centreon ou adapter un module existant ? Vous êtes au bon endroit !
@@ -32,7 +33,7 @@ $module_conf['dummy'] = [
     // Full module's name
     'rname' => 'Dummy Example Module',
     // Module's version
-    'mod_release' => '25.10',
+    'mod_release' => '26.10',
     // Additional information
     'infos' => 'This module is a skeleton',
     // Allow your module to be uninstalled

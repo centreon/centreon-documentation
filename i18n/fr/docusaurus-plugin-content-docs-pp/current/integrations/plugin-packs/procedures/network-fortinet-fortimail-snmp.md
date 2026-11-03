@@ -1,6 +1,7 @@
 ---
 id: network-fortinet-fortimail-snmp
 title: Fortinet FortiMail SNMP
+description: "Supervisez les appliances Fortinet FortiMail via SNMP : CPU, mémoire, disques, charge, interfaces, queues de mails, haute disponibilité et uptime."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -677,3 +678,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=cpu \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [23.07](../releases/release-notes.md#2023-07) - New connector: Initial release.

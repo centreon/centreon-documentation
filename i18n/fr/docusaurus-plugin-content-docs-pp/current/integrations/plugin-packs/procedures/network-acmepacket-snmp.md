@@ -1,6 +1,7 @@
 ---
 id: network-acmepacket-snmp
 title: Acme Packet SNMP
+description: "Supervisez les contrôleurs de bordure de session Acme Packet via SNMP : matériel, système, interfaces, codecs, sécurité et statistiques SIP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

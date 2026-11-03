@@ -1,6 +1,7 @@
 ---
 id: groups
 title: Groups
+description: "How to create host groups and service groups to organize resources by common properties, filter views and reports, and manage resource access rules"
 ---
 
 ## Description

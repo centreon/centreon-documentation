@@ -1,6 +1,7 @@
 ---
 id: network-switchs-alcatel-omniswitch-snmp
 title: Alcatel Omniswitch SNMP
+description: "Monitor Alcatel OmniSwitch devices via SNMP: CPU, memory, flash usage, hardware status, interfaces, spanning tree, and virtual chassis."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -624,3 +625,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=virtual-chassis \
 	--help
 ```
+
+## Changelog
+
+- [23.12](../releases/release-notes.md#2023-12) - Breaking change: The Traffic-Global service template is now replaced by Interfaces.
+- [23.02](../releases/release-notes.md#2023-02) - Enhancement: Added interfaces service.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added new service to check virtual chassis.
