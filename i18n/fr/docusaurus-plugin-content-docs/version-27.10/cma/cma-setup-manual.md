@@ -1056,6 +1056,84 @@ Cette commande met à jour les binaires et la configuration de l'instance spéci
 </TabItem>
 </Tabs>
 
+### Automatiser la mise à jour
+
+Pour un déploiement à grande échelle, il peut être utile de planifier la mise à jour plutôt que de l'exécuter manuellement sur chaque hôte. Les exemples ci-dessous utilisent cron (Linux) et le Planificateur de tâches (Windows) ; adaptez-les à votre outil de gestion de configuration (Ansible, Puppet, GPO, etc.) si vous gérez un grand nombre d'hôtes.
+
+<Tabs groupId="sync">
+<TabItem value="Linux" label="Linux">
+
+1. Créez un script de mise à jour, par exemple **/usr/local/bin/update-centagent.sh** :
+
+```bash
+#!/bin/bash
+LOGFILE=/var/log/centreon-monitoring-agent/update.log
+{
+  echo "$(date) - Checking for centreon-monitoring-agent updates"
+  if command -v dnf >/dev/null 2>&1; then
+    dnf -y update centreon-monitoring-agent
+  elif command -v apt-get >/dev/null 2>&1; then
+    apt-get update && apt-get -y upgrade centreon-monitoring-agent
+  fi
+  systemctl restart centagent
+  echo "$(date) - Update completed"
+} >> "$LOGFILE" 2>&1
+```
+
+```shell
+chmod 750 /usr/local/bin/update-centagent.sh
+```
+
+2. Planifiez son exécution avec cron, par exemple tous les dimanches à 3 h, en créant **/etc/cron.d/centreon-monitoring-agent-update** :
+
+```
+0 3 * * 0 root /usr/local/bin/update-centagent.sh
+```
+
+> Si plusieurs instances sont déployées sur l'hôte, adaptez le script pour redémarrer chaque service **centagentX**.
+
+</TabItem>
+<TabItem value="Windows" label="Windows">
+
+1. Déposez le dernier installer CMA sur un partage de fichiers interne (une exécution silencieuse automatisée ne doit pas dépendre du portail de téléchargement public).
+
+2. Créez un script de mise à jour, par exemple **C:\Scripts\update-centagent.ps1** :
+
+```powershell
+$installer = "\\fileserver\centreon\centreon-monitoring-agent-latest.exe"
+$logFile   = "C:\ProgramData\Centreon\update-centagent.log"
+
+"$(Get-Date) - Starting CMA update" | Out-File -Append $logFile
+Start-Process -FilePath $installer `
+  -ArgumentList "/VERYSILENT","/UPDATEONLY","/AGENTINSTANCE=CentreonMonitoringAgent" `
+  -Wait -PassThru | ForEach-Object {
+    "$(Get-Date) - Installer exited with code $($_.ExitCode)" | Out-File -Append $logFile
+  }
+```
+
+> Si plusieurs instances sont déployées sur l'hôte, répétez l'appel à `Start-Process` pour chaque nom `/AGENTINSTANCE`.
+
+3. Enregistrez une tâche planifiée pour exécuter ce script, par exemple tous les dimanches à 3 h :
+
+```powershell
+$action    = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-ExecutionPolicy Bypass -File C:\Scripts\update-centagent.ps1"
+$trigger   = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 3am
+$principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount -RunLevel Highest
+
+Register-ScheduledTask -TaskName "Centreon Monitoring Agent Update" -Action $action -Trigger $trigger -Principal $principal
+```
+
+Vous pouvez également utiliser `schtasks.exe` :
+
+```shell
+schtasks /create /tn "CentreonMonitoringAgentUpdate" /tr "powershell.exe -ExecutionPolicy Bypass -File C:\Scripts\update-centagent.ps1" /sc weekly /d SUN /st 03:00 /ru SYSTEM /rl highest
+```
+
+</TabItem>
+</Tabs>
+
+> La mise à jour redémarre le service de l'agent, ce qui provoque une brève interruption de la supervision. Planifiez-la en dehors des heures critiques pour votre activité, testez-la d'abord sur un groupe pilote d'hôtes, et consultez les notes de version avant de la déployer sur l'ensemble du parc.
+
 ### Désinstaller l'agent
 
 <Tabs groupId="sync">
