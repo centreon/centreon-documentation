@@ -28,7 +28,6 @@ fichiers `.env` et `docker-compose.yaml`, puis démarre l'ensemble des services.
 
 ## Prérequis
 
-* Sur le serveur central, [le module **pullwss** de Gorgone doit être configuré pour accepter les connexions](./pollers-containers-prerequisites.md). Cette opération n'est à réaliser qu'une seule fois, avant d'installer votre premier collecteur en conteneur.
 * Un hôte Linux sur lequel **Docker Engine** et le plugin **Docker Compose v2** sont
   installés (la commande `docker compose version` doit aboutir).
 * Vous devez avoir créé un jeton d'authentification de type collecteur.
