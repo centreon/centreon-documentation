@@ -7,7 +7,7 @@ description: "How to generate and use API tokens to authenticate with the Centre
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## API tokens
+## API tokens 
 
 You need an API Token (a type of [authentication token](./authentication_tokens.md)) to authenticate with the Centreon APIs. To generate one, go to **Administration > Authentication tokens**.
 
