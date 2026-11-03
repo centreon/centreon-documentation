@@ -1,7 +1,7 @@
 ---
 id: install-php-magento-orocommerce-profiler
 title: Install the PHP profiler
-description: Install the deprecated PHP profiler for Magento and OroCommerce
+description: "Install the PHP profiler extension to measure execution time in PHP applications such as Magento and OroCommerce. This module will be deprecated soon."
 ---
 
 import Tabs from '@theme/Tabs';

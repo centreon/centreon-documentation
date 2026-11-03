@@ -1,7 +1,7 @@
 ---
 id: stm-zones
 title: Superviser des parcours utilisateur non publics
-description: Mettre en place une zone privée pour superviser des parcours internes non publics
+description: "Supervisez des parcours utilisateur sur des sites internes en créant une zone STM privée et en déployant une sonde dans votre infrastructure."
 ---
 
 import Tabs from '@theme/Tabs';

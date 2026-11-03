@@ -1,6 +1,6 @@
 ---
 id: troubleshooting
-description: Résoudre les problèmes courants de connexion et d'accès au compte
+description: "Résolvez les problèmes de connexion à Experience Monitoring : mot de passe oublié, adresse e-mail perdue, absence de compte ou contact du support Centreon."
 title: Dépanner Experience Monitoring
 ---
 

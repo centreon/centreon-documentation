@@ -1,7 +1,7 @@
 ---
 id: stm-zones
 title: Monitoring non-public user journeys
-description: Set up a private zone to monitor internal, non-public journeys
+description: "Monitor user journeys on internal sites by creating a private STM zone, deploying a probe in your infrastructure and linking the zone to a journey."
 ---
 
 import Tabs from '@theme/Tabs';

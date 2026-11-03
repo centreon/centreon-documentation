@@ -1,6 +1,7 @@
 ---
 id: ot-serena-itsm
 title: Serena ITSM
+description: "Comment configurer le fournisseur de tickets Serena ITSM, qui ouvre des incidents depuis vos alertes via l'API SOAP, avec prérequis et commandes de test"
 ---
 
 The Serena ITSM Open Tickets provider uses the Serena ITSM server to open incidents about your monitoring alerts.

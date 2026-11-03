@@ -1,7 +1,7 @@
 ---
 id: improve-dss
 title: Améliorer votre Score de Sobriété Numérique
-description: Utiliser des recommandations par étape pour améliorer votre Score de Sobriété Numérique
+description: "Améliorez votre Score de Sobriété Numérique grâce aux recommandations par étape de parcours ou par page RUM, puis comparez les audits pour mesurer l'effet."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: experience-monitoring-glossary
 title: Glossaire Experience Monitoring
-description: Définitions des principaux termes d'Experience Monitoring
+description: "Définitions des principaux termes d'Experience Monitoring : parcours utilisateur, étape, action, et métriques comme le Hero Time ou le Speed Index."
 ---
 
 ## Action
