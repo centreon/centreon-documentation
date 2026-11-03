@@ -43,7 +43,7 @@ fichiers `.env` et `docker-compose.yaml`, puis démarre l'ensemble des services.
 
 1. Sur le serveur central, cliquez sur la zone des collecteurs en haut à gauche de l'écran puis, dans la fenêtre qui s'ouvre, cliquez sur **Créer un collecteur**.
 
-   ![image](../../assets/installation/create-poller-banner.png)
+   ![image](../assets/installation/create-poller-banner.png)
 
 2. Renseignez les informations concernant le collecteur :
 
@@ -133,7 +133,7 @@ Sur le serveur central, revenez à la fenêtre de création du collecteur et cli
 
 Le collecteur apparaît alors comme actif à la page **Configuration > Collecteurs** :
 
-![image](../../assets/installation/connected-poller.png)
+![image](../assets/installation/connected-poller.png)
 
 ## Étape 4 : Sécuriser votre plateforme
 
