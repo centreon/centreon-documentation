@@ -398,3 +398,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=spools \
 	--help
 ```
+
+## Changelog
+
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the App-Smartermail-Api-Spools command.

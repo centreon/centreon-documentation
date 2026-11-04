@@ -537,3 +537,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=output-lines \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.02](../releases/release-notes.md#2024-02) - New connector: First release of Inmatics PSU Sputnik monitoring connector.

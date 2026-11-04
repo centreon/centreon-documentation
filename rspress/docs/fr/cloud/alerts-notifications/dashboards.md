@@ -1,7 +1,7 @@
 ---
 id: dashboards
 title: Tableaux de bord
-description: "Comment créer, éditer, partager et gérer les tableaux de bord, widgets et listes de diffusion dans Centreon Cloud"
+description: "Comment créer, modifier, partager et gérer des tableaux de bord et leurs widgets dans Centreon Cloud, gérer les droits d'accès et les listes de diffusion"
 ---
 
 Commencez par créer des tableaux de bord et ajoutez des widgets spécialement conçus pour optimiser votre expérience utilisateur. Bénéficiez ensuite d'options de visualisation de données pour afficher et suivre vos ressources en temps réel.

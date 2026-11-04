@@ -490,3 +490,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=nodes \
 	--help
 ```
+
+## Changelog
+
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the service discovery macro commands.

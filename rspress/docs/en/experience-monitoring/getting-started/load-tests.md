@@ -1,7 +1,7 @@
 ﻿---
 id: load-tests
 title: Load tests
-description: Introduction to simulating heavy traffic with load tests
+description: "Load tests simulate heavy traffic on your website to see how it handles many users and find bottlenecks. Beware of the impact on production sites."
 ---
 
 **Load Tests** create heavy traffic on your site to evaluate its response.

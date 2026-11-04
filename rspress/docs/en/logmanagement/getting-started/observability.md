@@ -1,7 +1,7 @@
 ﻿---
 id: observability
 title: Centreon Log Management and observability
-description: How Centreon Log Management fits into an observability strategy
+description: "Understand how Centreon Log Management brings observability to your IT system, and how log analysis complements monitoring to find root causes."
 ---
 
 ## What is observability?

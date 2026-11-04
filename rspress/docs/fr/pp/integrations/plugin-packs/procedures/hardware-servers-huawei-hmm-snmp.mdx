@@ -411,3 +411,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=chassis \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed `no-component` option.
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Removed experimental keys on scalar in **blade** mode components.

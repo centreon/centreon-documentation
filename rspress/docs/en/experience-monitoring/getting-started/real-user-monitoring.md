@@ -1,7 +1,7 @@
 ---
 id: real-user-monitoring
 title: Real User Monitoring (RUM)
-description: Introduction to measuring real visitor performance with RUM
+description: "Real User Monitoring (RUM) measures website performance from real visitors' browsers through a lightweight HTML tag, with GDPR-compliant data."
 ---
 
 The **Real User Monitoring** (or RUM) module allows you to measure a website's performance directly from the browsers of real users. 

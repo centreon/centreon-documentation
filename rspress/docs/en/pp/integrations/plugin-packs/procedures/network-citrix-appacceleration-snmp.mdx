@@ -422,3 +422,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=serviceclass-usage \
 	--help
 ```
+
+## Changelog
+
+- [23.12](../releases/release-notes.md#2023-12) - Bug fix: Fixed incorrect carriage return in Service Discovery commands.

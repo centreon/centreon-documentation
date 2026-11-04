@@ -1,6 +1,7 @@
 ---
 id: ot-request-tracker-2
 title: Request Tracker 2
+description: "Comment configurer le fournisseur de tickets Request Tracker 2, qui ouvre des tickets via l'API REST 2.0 de Request Tracker, avec commandes de test"
 ---
 
 ## How it works

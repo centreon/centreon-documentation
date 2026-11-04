@@ -400,3 +400,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=network-devices \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed percentage metrics in **network-devices** mode.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed wrong api-password macro in commands.

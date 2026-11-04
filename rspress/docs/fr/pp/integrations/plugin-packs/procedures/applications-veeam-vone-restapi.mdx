@@ -519,3 +519,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=proxies \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.03](../releases/release-notes.md#2026-03) - New connector: Initial release.

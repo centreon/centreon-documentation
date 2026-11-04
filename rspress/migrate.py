@@ -13,26 +13,31 @@ ROOT = Path(__file__).parent
 DOCS_ROOT = ROOT / "docs"
 SOURCE_ROOT = ROOT.parent
 
-VERSIONS = ["26.10", "25.10"]
+DEFAULT_VERSION = "26.10"
+VERSIONS = ["27.10", "26.10", "25.10"]
 
 # ── Sources for the versioned core docs ───────────────────────────────────────
 SOURCES: dict[str, dict[str, Path]] = {
     "en": {
+        "27.10": SOURCE_ROOT / "versioned_docs/version-27.10",
         "26.10": SOURCE_ROOT / "versioned_docs/version-26.10",
         "25.10": SOURCE_ROOT / "versioned_docs/version-25.10",
     },
     "fr": {
+        "27.10": SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs/version-27.10",
         "26.10": SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs/version-26.10",
         "25.10": SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs/version-25.10",
     },
 }
 
 SIDEBARS_PATH: dict[str, Path] = {
+    "27.10": SOURCE_ROOT / "versioned_sidebars/version-27.10-sidebars.json",
     "26.10": SOURCE_ROOT / "versioned_sidebars/version-26.10-sidebars.json",
     "25.10": SOURCE_ROOT / "versioned_sidebars/version-25.10-sidebars.json",
 }
 
 FR_LABELS_PATH: dict[str, Path] = {
+    "27.10": SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs/version-27.10.json",
     "26.10": SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs/version-26.10.json",
     "25.10": SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs/version-25.10.json",
 }
@@ -62,14 +67,14 @@ EM_FR_LABELS_PATH = SOURCE_ROOT / "i18n/fr/docusaurus-plugin-content-docs-experi
 
 # ── MD content transformation ─────────────────────────────────────────────────
 
-_RE_DOCCARD_IMPORT = re.compile(r"^import DocCardList from '@theme/DocCardList';\n", re.MULTILINE)
+_RE_DOCCARD_IMPORT = re.compile(r"^import DocCardList from '@theme/DocCardList';[ \t]*\n", re.MULTILINE)
 _RE_DOCCARD_USAGE = re.compile(r"^<DocCardList />\n?", re.MULTILINE)
 _RE_TABS_IMPORT = re.compile(r"^import Tabs from '@theme/Tabs';\n", re.MULTILINE)
 _RE_TABITEM_IMPORT = re.compile(r"^import TabItem from '@theme/TabItem';\n", re.MULTILINE)
 _RE_TABITEM_OPEN = re.compile(r"<TabItem\b")
 _RE_TABITEM_CLOSE = re.compile(r"</TabItem>")
 # Strip Docusaurus-specific @site/ imports and their JSX usage (e.g. ExpandCollapseAll)
-_RE_SITE_IMPORT = re.compile(r"^import \w+ from '@site/[^']*';\n", re.MULTILINE)
+_RE_SITE_IMPORT = re.compile(r"^import \w+ from '@site/[^']*';[ \t]*\n", re.MULTILINE)
 _RE_SITE_COMPONENT = re.compile(r"^<[A-Z]\w* */>\n?", re.MULTILINE)
 _RE_BLANK_LINES = re.compile(r"\n{3,}")
 # With trailingSlash, Docusaurus resolves `../foo/` from the page URL (one level
@@ -125,6 +130,8 @@ def transform(content: str, is_mdx: bool = False, depth: int = 1) -> str:
     content = _RE_TABITEM_IMPORT.sub("import { Tab } from '@rspress/core/theme';\n", content)
     content = _RE_TABITEM_OPEN.sub("<Tab", content)
     content = _RE_TABITEM_CLOSE.sub("</Tab>", content)
+    # rspress' own @theme alias shadows @theme/CodeBlock: point it at the compat component.
+    content = content.replace("from '@theme/CodeBlock'", "from '@docusaurus-compat/CodeBlock'")
     content = _RE_URL_RELATIVE_LINK.sub(lambda m: f"]({m.group(1) or './'}{m.group(2)}{m.group(3) or ''})", content)
     # Decode %20 in image/link paths → hyphens (assets are renamed to remove spaces)
     content = re.sub(r'(\!\[.*?\]\([^)]*?)%20([^)]*?\))', lambda m: m.group(0).replace('%20', '-'), content)
@@ -264,7 +271,7 @@ def generate_sidebar() -> None:
         fr_src = SOURCES["fr"][version]
         fr_labels = json.loads(FR_LABELS_PATH[version].read_text(encoding="utf-8"))
 
-        is_default = version == VERSIONS[0]  # 26.10
+        is_default = version == DEFAULT_VERSION
         # Every version (including the default 26.10) is keyed and linked with its
         # version prefix. The site only serves pages under /<version>/..., and the
         # custom switcher (VersionAwareNav in theme/index.tsx) builds /<version>/...
@@ -509,7 +516,7 @@ def _resolve_link(target: str, md: Path, lang_root: Path, section_root: Path) ->
         return None
     if path.startswith("/docs/"):
         # Docusaurus serves the latest core version under /docs/.
-        path = f"/{VERSIONS[0]}/{path[len('/docs/'):]}"
+        path = f"/{DEFAULT_VERSION}/{path[len('/docs/'):]}"
     is_file_link = bool(re.search(r"\.mdx?$", path))
     path = re.sub(r"\.mdx?$", "", path.rstrip("/"))
     if path.startswith("/"):

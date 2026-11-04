@@ -798,3 +798,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=system \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added **certificates** and **health** modes and host discovery to handle Panorama.
+- [26.04](../releases/release-notes.md#2026-04) - New connector: Initial release.

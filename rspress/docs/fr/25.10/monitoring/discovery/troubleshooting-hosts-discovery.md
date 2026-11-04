@@ -36,7 +36,7 @@ ERROR - [autodiscovery] -class- host discovery - cannot get platform versions - 
 
 ### Solution
 
-Dans le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml**, remplacez la valeur **base_url** par **http://127.0.0.1/centreon/api/latest/**
+Dans le fichier **/etc/centreon-gorgone/config.d/31-centreon-api.yaml**, remplacez la valeur **base_url** par **http://127.0.0.1/centreon/api/latest/**. Si vous avez [personnalisé l'URI de Centreon](../../administration/secure-platform.md#uri-personnalisée), remplacez **/centreon** par votre chemin personnalisé. Redémarrez ensuite Gorgone avec `systemctl restart gorgoned`.
 
 ### Vérifications complémentaires
 

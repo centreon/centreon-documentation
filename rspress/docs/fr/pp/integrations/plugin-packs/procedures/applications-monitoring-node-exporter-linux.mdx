@@ -507,3 +507,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=traffic \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.07](../releases/release-notes.md#2022-07) - New connector: Added Linux Node Exporter Monitoring Pack.

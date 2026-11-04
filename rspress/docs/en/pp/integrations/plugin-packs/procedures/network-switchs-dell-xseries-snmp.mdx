@@ -547,3 +547,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed the wrong options in the Net-Dell-Xseries-SNMP-Cpu command.

@@ -1,7 +1,7 @@
 ---
 id: network-data
 title: Données Réseau
-description: Introduction aux vérifications par ping du module Données Réseau
+description: "Le module Données Réseau suit la réactivité de votre site dans le temps grâce à une sonde qui envoie régulièrement des pings ICMP et TCP."
 ---
 
 Le module **Données Réseau** permet d'avoir une vue d'ensemble de la réactivité du site au fil du temps grâce à une sonde réseau qui le contacte régulièrement.

@@ -327,3 +327,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=application-pools \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Fixed typo in `App-Iis-WSMAN-Application-Pools` command.
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

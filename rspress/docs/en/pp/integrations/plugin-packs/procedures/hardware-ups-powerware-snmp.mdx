@@ -568,3 +568,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=output-lines \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [26.06](../releases/release-notes.md#2026-06) - Bug fix: Fixed the output when the plugin does not detect the absence of an input line in **input-lines** mode.

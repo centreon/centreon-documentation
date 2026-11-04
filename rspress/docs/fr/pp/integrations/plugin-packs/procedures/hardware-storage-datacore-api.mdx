@@ -411,3 +411,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=pool-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [24.06](../releases/release-notes.md#2024-06) - Bug fix: Fixed API path in pools check and added verbosity in monitoring Datacore “monitors” objects.
+- [24.03](../releases/release-notes.md#2024-03) - New connector: First release of Datacore.

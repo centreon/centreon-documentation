@@ -571,3 +571,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=target-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.10](../releases/release-notes.md#2026-10) - Bug fix: Fixed missing `query` option in the **Cloud-Prometheus-Api-Expression** service.
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added discovery rule for Prometheus targets.

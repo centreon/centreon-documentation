@@ -1,6 +1,6 @@
 ---
 id: rum-improve
-description: Utiliser des audits par URL pour améliorer la performance des pages principales
+description: "Consultez les audits d'optimisation par URL des 10 pages les plus visitées, comprenez les lacunes des recommandations et mesurez l'effet de vos actions."
 title: Recommandations d'optimisation de RUM
 ---
 

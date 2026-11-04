@@ -391,3 +391,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=application
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Breaking change: The former authentication method is no longer supported. Only OneAPI is now supported.
+- [26.02](../releases/release-notes.md#2026-02) - New connector: Initial release.

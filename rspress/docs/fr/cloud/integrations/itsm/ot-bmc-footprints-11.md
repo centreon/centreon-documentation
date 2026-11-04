@@ -1,6 +1,7 @@
 ---
 id: ot-bmc-footprints-11
 title: BMC Footprints 11
+description: "Comment configurer le fournisseur de tickets BMC Footprints 11, qui ouvre des incidents via l'API SOAP à partir de vos alertes, avec ses prérequis"
 ---
 
 ## How it works

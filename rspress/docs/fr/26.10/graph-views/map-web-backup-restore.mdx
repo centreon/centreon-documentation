@@ -15,7 +15,7 @@ Les éléments sauvegardés sont :
 - Les fichiers de configuration (**/etc/centreon-map**)
 - La base de données **centreon\_map**
 
-### Comment ça marche ?
+### Fonctionnement
 
 Le script de sauvegarde est exécuté quotidiennement (2 heures du matin) avec une tâche cron située dans **/etc/cron.d/centreon-map-engine-backup** :
 

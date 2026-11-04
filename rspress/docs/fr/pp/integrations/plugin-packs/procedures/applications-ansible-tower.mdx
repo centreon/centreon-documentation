@@ -624,3 +624,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=schedules \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Improve UUID generation to make it unique in **host discovery**.
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: Added `filter-time` option to **jobs** mode, redesigned from community contribution [PR 4990](https://github.com/centreon/centreon-plugins/pull/4990).
+- [24.10](../releases/release-notes.md#2024-10) - Enhancement: The host discovery now returns a Host IP field.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default templates.

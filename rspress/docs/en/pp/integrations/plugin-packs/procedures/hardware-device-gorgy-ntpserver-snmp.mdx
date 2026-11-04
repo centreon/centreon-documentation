@@ -451,3 +451,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: Fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.

@@ -441,3 +441,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=devices-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Changed service template aliases to avoid service deployment issues.
+- [24.08](../releases/release-notes.md#2024-08) - Breaking change: Added a new mode for notifications to prepare for the [approaching deprecation of the webhook in favor of workflows](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/).

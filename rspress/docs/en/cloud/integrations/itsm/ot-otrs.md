@@ -1,7 +1,7 @@
 ---
 id: ot-otrs-restapi
 title: OTRS RestAPI
-description: "Configure the OTRS open-tickets provider using the OTRS REST API, including webservice import for OTRS 4 and 5"
+description: "How to configure the OTRS open-tickets provider using the OTRS REST API, including webservice import for OTRS 4 and 5 and provider configuration"
 ---
 
 ## How it works

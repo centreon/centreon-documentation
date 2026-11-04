@@ -717,3 +717,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=query \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed size calculation in edge cases in **database** mode.
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: This connector is now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). A breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed typo for custom perfdata in **databases** mode.

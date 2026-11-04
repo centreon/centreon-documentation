@@ -1,6 +1,7 @@
 ---
 id: ot-request-tracker-2
 title: Request Tracker 2
+description: "How to configure the Request Tracker 2 open-tickets provider, which uses the Request Tracker REST API 2.0 to open tickets, with test commands"
 ---
 
 ## How it works

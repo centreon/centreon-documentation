@@ -1,7 +1,7 @@
 ---
 id: welcome
 title: Démarrer avec Centreon Log Management
-description: Introduction à Centreon Log Management et à sa documentation
+description: "Premiers pas avec Centreon Log Management : concepts clés, rôle dans l'observabilité et cas d'usage pour détecter des problèmes grâce aux logs."
 ---
 
 # Démarrer avec Centreon Log Management

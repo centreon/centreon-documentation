@@ -199,6 +199,8 @@ gorgone:
       password: PYNM5kcc
 ```
 
+> If you have [customized the Centreon URI](../../administration/secure-platform.md#custom-uri), replace **/centreon** with your custom path in the **base_url** value.
+
 Access to RestAPI, represented by *centreonv2*, requires credentials of a
 user with *Reach API Configuration* access. It is used for Host Discovery.
 

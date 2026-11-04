@@ -1,6 +1,6 @@
 ﻿---
 id: install-php-magento-orocommerce-profiler
-description: Installer le profileur PHP obsolète pour Magento et OroCommerce
+description: "Installez l'extension profileur PHP pour mesurer le temps d'exécution des applications PHP comme Magento ou OroCommerce. Ce module sera bientôt obsolète."
 title: Installer le profileur PHP
 ---
 

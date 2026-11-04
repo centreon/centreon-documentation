@@ -375,3 +375,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=agents \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added Informatica Intelligent Cloud Services Pack.

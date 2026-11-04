@@ -330,3 +330,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=directory-size-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed typo in check command.
+- [22.09](../releases/release-notes.md#2022-09) - New connector: Added AzureAD Pack (graphapi).

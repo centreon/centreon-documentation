@@ -367,3 +367,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=services \
 	--help
 ```
+
+## Changelog
+
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release.

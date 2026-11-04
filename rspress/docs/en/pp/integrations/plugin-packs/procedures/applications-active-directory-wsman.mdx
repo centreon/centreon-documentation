@@ -301,3 +301,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=dcdiag \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added DE language support, based on community contribution [PR 5780](https://github.com/centreon/centreon-plugins/pull/5780).
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed typos in Active Directory WSMan commands.
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

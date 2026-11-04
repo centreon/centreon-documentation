@@ -1,7 +1,7 @@
 import { Tabs } from '@rspress/core/theme';
 import { Tab } from '@rspress/core/theme';
 
-<Tabs groupId="database-sync">
+<Tabs groupId="db">
 <Tab value="MariaDB" label="MariaDB">
 
 ```shell
@@ -12,15 +12,7 @@ systemctl restart mariadb
 </Tab>
 <Tab value="MySQL" label="MySQL">
 
-<Tabs groupId="sync">
-<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-systemctl enable mysqld
-systemctl restart mysqld
-```
-
-</Tab>
+<Tabs groupId="os">
 <Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -29,7 +21,14 @@ systemctl restart mysqld
 ```
 
 </Tab>
-<Tab value="Debian 12" label="Debian 12">
+<Tab value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+systemctl enable mysqld
+```
+
+</Tab>
+<Tab value="Debian 13" label="Debian 13">
 
 ```shell
 systemctl enable mysql

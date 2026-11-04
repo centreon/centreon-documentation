@@ -596,3 +596,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=uptime \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed plugin package name.
+- [22.10](../releases/release-notes.md#2022-10) - New connector: New Pack to check VMWare vCenter Appliance OS with SNMP.

@@ -1,6 +1,6 @@
 ﻿---
 id: install-system-agents
-description: Installer l'agent de supervision sur un serveur Linux statique
+description: "Installez l'agent Experience Monitoring sur un serveur Debian, Ubuntu ou CentOS pour collecter les données système, et dépannez son installation."
 title: Installer l'agent sur un serveur statique
 --- 
 

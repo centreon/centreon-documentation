@@ -371,3 +371,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=nodes \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.12](../releases/release-notes.md#2023-12) - Enhancement: Replaced the old logo with the current one.

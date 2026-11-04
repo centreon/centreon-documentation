@@ -1,0 +1,116 @@
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+import DatabaseConfiguration from './_database-configuration.mdx';
+
+> If installing the database on a dedicated server, this server should also have
+> the [prerequisite repositories](installation-of-a-central-server/using-packages.md#database-repository).
+
+Run the following command on the central server:
+
+<Tabs groupId="os">
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y centreon-central
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-central
+```
+
+</Tab>
+<Tab value="Debian 13" label="Debian 13">
+
+```shell
+apt update
+apt install -y centreon-central
+```
+
+</Tab>
+</Tabs>
+
+Then run the following commands on the dedicated server for your database:
+
+<Tabs groupId="db">
+<Tab value="MariaDB" label="MariaDB">
+
+<Tabs groupId="os">
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</Tab>
+<Tab value="Debian 13" label="Debian 13">
+
+```shell
+apt update
+apt install -y --no-install-recommends centreon-mariadb
+systemctl daemon-reload
+systemctl restart mariadb
+```
+
+</Tab>
+</Tabs>
+
+</Tab>
+<Tab value="MySQL" label="MySQL">
+
+<Tabs groupId="os">
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y mysql-server mysql
+dnf install -y centreon-mysql
+grep -q '^!includedir /etc/my.cnf.d' /etc/my.cnf || echo '!includedir /etc/my.cnf.d' >> /etc/my.cnf
+sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
+systemctl daemon-reload
+systemctl enable --now mysqld
+systemctl status mysqld
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y mysql-server mysql
+dnf install -y centreon-mysql
+grep -q '^!includedir /etc/my.cnf.d' /etc/my.cnf || echo '!includedir /etc/my.cnf.d' >> /etc/my.cnf
+sed -Ei 's/LimitNOFILE\s*=\s*[0-9]+/LimitNOFILE = 32000/' /usr/lib/systemd/system/mysqld.service
+systemctl daemon-reload
+systemctl enable --now mysqld
+systemctl status mysqld
+```
+
+</Tab>
+<Tab value="Debian 13" label="Debian 13">
+
+```shell
+apt update
+apt install -y centreon-mysql
+# Sélectionner "Use Legacy Authentication Method"
+systemctl daemon-reload
+systemctl restart mysql
+```
+
+</Tab>
+</Tabs>
+
+</Tab>
+</Tabs>
+

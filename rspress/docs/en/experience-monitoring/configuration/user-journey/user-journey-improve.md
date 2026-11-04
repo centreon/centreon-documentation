@@ -1,7 +1,7 @@
 ---
 id: user-journey-improve
 title: Optimizing your site
-description: Use step-by-step recommendations to optimize site performance
+description: "Use recommendations from the probe for each user journey step to optimize your website, then compare metrics to measure the impact of your changes."
 ---
 
 Using the data collected by the [recommendation probe](./create-a-scenario.md#daily-recommendations-audits), Experience Monitoring will make suggestions on how to optimize your website.

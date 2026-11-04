@@ -471,3 +471,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=probe-health \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.06](../releases/release-notes.md#2022-06) - Bug fix: Fixed mismatch between template and command regarding host EXTRAOPTIONS.
+- [22.05](../releases/release-notes.md#2022-05) - New connector: Initial release.

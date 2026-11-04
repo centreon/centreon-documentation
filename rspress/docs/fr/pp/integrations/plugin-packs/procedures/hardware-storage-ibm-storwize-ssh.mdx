@@ -439,3 +439,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=replication \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.10](../releases/release-notes.md#2025-10) - Bug fix: Fixed an issue occurring while parsing response, from community contribution [PR 5697](https://github.com/centreon/centreon-plugins/pull/5697).
+- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed date issue and added replication service template.

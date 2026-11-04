@@ -5,10 +5,14 @@ import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 import { pluginImageCompress } from '@rsbuild/plugin-image-compress';
 import { pluginLastUpdatedFromSource } from './src/plugins/lastUpdatedFromSource';
 import { rehypeLazyImages } from './src/plugins/rehypeLazyImages';
+import { pluginSearchSections } from './src/plugins/searchSections';
 import { pluginSlimPageData } from './src/plugins/slimPageData';
 import { sidebar } from './src/sidebar';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
+
+// Keep in sync with VERSIONS in migrate.py.
+const VERSIONS = ['27.10', '26.10', '25.10'];
 
 // Keep in sync with DOWNLOAD_EXTENSIONS in migrate.py.
 const DOWNLOAD_LINK = /\.(sql|pdf|cnf)$/;
@@ -62,7 +66,7 @@ export default defineConfig({
   ],
   multiVersion: {
     default: '26.10',
-    versions: ['26.10', '25.10'],
+    versions: VERSIONS,
   },
   siteOrigin: 'https://docs.centreon.com',
   // On by default since rspress 2.1: llms-full.txt (77 MB) exceeds Cloudflare Pages'
@@ -73,14 +77,18 @@ export default defineConfig({
   plugins: [
     pluginLastUpdatedFromSource(join(__dirname, 'docs'), join(__dirname, '..')),
     pluginSlimPageData(),
+    pluginSearchSections(VERSIONS),
   ],
-  // Pre-render ~6,000 pages (en/fr x 2 versions) in worker threads (one per
-  // CPU, ~15 GB peak with 2 CPUs). PR previews stay client-rendered: SSG does
+  // Pre-render ~3,900 pages (en/fr, 3 versions and the other sections) in worker
+  // threads (one per CPU, ~15 GB peak with 2 CPUs). PR previews stay client-rendered: SSG does
   // not fit in the 16 GB GitHub-hosted runner.
   ssg: process.env.PREVIEW_BUILD === 'true' ? false : { experimentalWorker: true },
   route: {
     // Extension-less URLs, like docs.centreon.com.
     cleanUrls: true,
+    // Like docs.centreon.com, keep the requested language: the default ('auto')
+    // sends first-time visitors of /fr/... to the English page of an English browser.
+    localeRedirect: 'never',
   },
   markdown: {
     link: {
@@ -110,8 +118,6 @@ export default defineConfig({
   },
   search: {
     versioned: true,
-    // Filters results to the version being read (see theme/searchHooks.ts).
-    searchHooks: join(__dirname, 'theme/searchHooks.ts'),
     // Full-text search (including code blocks) for staging/production. On PR
     // preview builds we drop code blocks so each per-language search index stays
     // under Cloudflare Pages' 25 MiB per-file limit; the preview workflow sets
@@ -122,6 +128,15 @@ export default defineConfig({
   // build and open the interactive report at the end. Off by default because it
   // adds ~10-20% build time overhead.
   builderConfig: {
+    resolve: {
+      // Docusaurus modules still imported by migrated pages.
+      alias: {
+        '@docusaurus/Link': join(__dirname, 'src/components/docusaurus/Link.tsx'),
+        '@docusaurus/router': join(__dirname, 'src/components/docusaurus/router.ts'),
+        // @theme/CodeBlock, rewritten by migrate.py (rspress' @theme alias shadows it).
+        '@docusaurus-compat/CodeBlock': join(__dirname, 'src/components/docusaurus/CodeBlock.tsx'),
+      },
+    },
     // Compress raster images (PNG/JPEG/ICO) at build time. Images are served
     // as-is (gzip can't shrink them), so this directly reduces the deployed
     // bundle and per-page image transfer. GIF/SVG are left untouched.

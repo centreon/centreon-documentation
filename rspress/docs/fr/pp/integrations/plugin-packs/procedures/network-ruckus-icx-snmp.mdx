@@ -541,3 +541,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.07](../releases/release-notes.md#2022-07) - Bug fix: Fixed macro in Ruckus ICX Memory service template.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Added new thresholds to Memory service.

@@ -1,6 +1,6 @@
 ﻿---
 id: monitor-production-events
-description: Marquer les déploiements et changements de configuration sur les graphes via API
+description: "Ajoutez via l'API des marqueurs de déploiement ou de changement de configuration sur les graphiques d'Experience Monitoring, exemples cURL inclus."
 title: Ajouter des marqueurs d'évènements aux graphes
 --- 
 

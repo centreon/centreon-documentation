@@ -1,6 +1,1792 @@
 import type { Sidebar } from '@rspress/shared';
 
 export const sidebar: Sidebar = {
+  "/27.10/": [
+    {
+      "text": "Getting started with Centreon Infra Monitoring OnPrem",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Before you start",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Which installation should I choose?",
+              "link": "/27.10/getting-started/which-install"
+            },
+            {
+              "text": "Elements of a Centreon platform",
+              "link": "/27.10/getting-started/platform"
+            },
+            {
+              "text": "Set up your free IT-100 solution",
+              "link": "/27.10/getting-started/IT100"
+            }
+          ]
+        },
+        {
+          "text": "First steps with Centreon",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Discover the Centreon web interface",
+              "link": "/27.10/getting-started/interface"
+            },
+            {
+              "text": "Monitoring basics",
+              "link": "/27.10/getting-started/concepts"
+            }
+          ]
+        },
+        {
+          "text": "Setting up the monitoring",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Prerequisites",
+              "link": "/27.10/getting-started/first-supervision"
+            },
+            {
+              "text": "Monitor your first Linux host",
+              "link": "/27.10/getting-started/monitor-linux-server-with-snmp"
+            },
+            {
+              "text": "Monitor your first Windows host",
+              "link": "/27.10/getting-started/monitor-windows-server-with-snmp"
+            },
+            {
+              "text": "Monitor your first Cisco router",
+              "link": "/27.10/getting-started/monitor-cisco-router-with-snmp"
+            },
+            {
+              "text": "Monitor Mysql Server",
+              "link": "/27.10/getting-started/monitor-mysql-server"
+            },
+            {
+              "text": "Use Autodiscovery to monitor AWS EC2 instances",
+              "link": "/27.10/getting-started/autodisco-aws"
+            },
+            {
+              "text": "Monitor Printer Snmp",
+              "link": "/27.10/getting-started/monitor-printer-snmp"
+            },
+            {
+              "text": "Monitor Ups Snmp",
+              "link": "/27.10/getting-started/monitor-ups-snmp"
+            }
+          ]
+        },
+        {
+          "text": "Monitoring resources in real time",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "What actions can you take?",
+              "link": "/27.10/getting-started/actions"
+            },
+            {
+              "text": "Creating your first dashboard",
+              "link": "/27.10/getting-started/create-dashboard"
+            }
+          ]
+        },
+        {
+          "text": "Tutorials for Business modules",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Create a graphical view",
+              "link": "/27.10/getting-started/create-graphical-view"
+            },
+            {
+              "text": "Model your IT services",
+              "link": "/27.10/getting-started/model-it-services"
+            },
+            {
+              "text": "Analyze resources availability",
+              "link": "/27.10/getting-started/analyze-resources-availability"
+            }
+          ]
+        }
+      ],
+      "link": "/27.10/getting-started/welcome"
+    },
+    {
+      "text": "Installation",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/27.10/installation/introduction"
+        },
+        {
+          "text": "Compatibility",
+          "link": "/27.10/installation/compatibility"
+        },
+        {
+          "text": "Architectures",
+          "link": "/27.10/installation/architectures"
+        },
+        {
+          "text": "Inside Centreon",
+          "link": "/27.10/installation/inside-centreon"
+        },
+        {
+          "text": "Prerequisites",
+          "link": "/27.10/installation/prerequisites"
+        },
+        {
+          "text": "Technical information",
+          "link": "/27.10/installation/technical"
+        },
+        {
+          "text": "Download",
+          "link": "/27.10/installation/download"
+        },
+        {
+          "text": "Installation of a Central server",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Unattended Install Central",
+              "link": "/27.10/installation/installation-of-a-central-server/unattended-install-central"
+            },
+            {
+              "text": "Using packages (central server)",
+              "link": "/27.10/installation/installation-of-a-central-server/using-packages"
+            },
+            {
+              "text": "Using a virtual machine (VM)",
+              "link": "/27.10/installation/installation-of-a-central-server/using-virtual-machines"
+            }
+          ]
+        },
+        {
+          "text": "Web And Post Installation",
+          "link": "/27.10/installation/web-and-post-installation"
+        },
+        {
+          "text": "Installation of a Poller",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Unattended Install Poller",
+              "link": "/27.10/installation/installation-of-a-poller/unattended-install-poller"
+            },
+            {
+              "text": "Using a generated command (virtual or physical machine)",
+              "link": "/27.10/installation/installation-of-a-poller/vm-or-physical"
+            },
+            {
+              "text": "Pollers in containers",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installing a poller in a container",
+                  "link": "/27.10/installation/installation-of-a-poller/using-containers"
+                },
+                {
+                  "text": "Advanced container configuration",
+                  "link": "/27.10/installation/installation-of-a-poller/using-containers-advanced-configuration"
+                }
+              ]
+            },
+            {
+              "text": "Prerequisites for pollers in pullwss mode",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Prerequisites for pollers installed via a generated command",
+                  "link": "/27.10/installation/installation-of-a-poller/pollers-containers-prerequisites"
+                },
+                {
+                  "text": "Adapting legacy pullwss poller setups",
+                  "link": "/27.10/installation/installation-of-a-poller/adapt-legacy-pullwss"
+                }
+              ]
+            },
+            {
+              "text": "Using packages (poller)",
+              "link": "/27.10/installation/installation-of-a-poller/using-packages"
+            }
+          ]
+        },
+        {
+          "text": "Installation of a Remote server",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Unattended Install Remote",
+              "link": "/27.10/installation/installation-of-a-remote-server/unattended-install-remote"
+            },
+            {
+              "text": "Using packages (remote server)",
+              "link": "/27.10/installation/installation-of-a-remote-server/using-packages"
+            }
+          ]
+        },
+        {
+          "text": "Configuring monitoring servers",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Attach a poller to a central or a remote server",
+              "link": "/27.10/monitoring/monitoring-servers/add-a-poller-to-configuration"
+            },
+            {
+              "text": "Attach a remote server to a central server",
+              "link": "/27.10/monitoring/monitoring-servers/add-a-remote-server-to-configuration"
+            },
+            {
+              "text": "Communications",
+              "link": "/27.10/monitoring/monitoring-servers/communications"
+            },
+            {
+              "text": "Attach a poller to a different remote server",
+              "link": "/27.10/monitoring/monitoring-servers/move-poller"
+            },
+            {
+              "text": "Advanced configuration",
+              "link": "/27.10/monitoring/monitoring-servers/advanced-configuration"
+            }
+          ]
+        },
+        {
+          "text": "Offline installation",
+          "link": "/27.10/installation/offline"
+        }
+      ]
+    },
+    {
+      "text": "Secure your platform",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Secure your platform",
+          "link": "/27.10/administration/secure-platform"
+        },
+        {
+          "text": "Securing your MAP platform",
+          "link": "/27.10/graph-views/secure-your-map-platform"
+        },
+        {
+          "text": "Secure your MBI platform",
+          "link": "/27.10/reporting/secure-your-mbi-platform"
+        },
+        {
+          "text": "Create a self-signed certificate",
+          "link": "/27.10/administration/self-signed-certificate"
+        }
+      ]
+    },
+    {
+      "text": "Monitoring resources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Monitoring basics",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Basic principles of monitoring",
+              "link": "/27.10/monitoring/about"
+            },
+            {
+              "text": "Active vs passive checks",
+              "link": "/27.10/monitoring/active-passive-checks"
+            },
+            {
+              "text": "Understanding metrics",
+              "link": "/27.10/monitoring/metrics"
+            },
+            {
+              "text": "Monitoring Connectors",
+              "link": "/27.10/monitoring/pluginpacks"
+            },
+            {
+              "text": "Deploying a configuration",
+              "link": "/27.10/monitoring/monitoring-servers/deploying-a-configuration"
+            }
+          ]
+        },
+        {
+          "text": "Monitoring hosts",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Monitoring a host",
+              "link": "/27.10/monitoring/basic-objects/hosts-create"
+            },
+            {
+              "text": "Creating hosts manually",
+              "link": "/27.10/monitoring/basic-objects/hosts"
+            },
+            {
+              "text": "Creating hosts automatically",
+              "link": "/27.10/monitoring/basic-objects/hosts-create-disco"
+            },
+            {
+              "text": "Using host templates",
+              "link": "/27.10/monitoring/basic-objects/hosts-templates"
+            },
+            {
+              "text": "Change the monitoring server for a host",
+              "link": "/27.10/monitoring/basic-objects/hosts-switch-poller"
+            }
+          ]
+        },
+        {
+          "text": "Monitoring services",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Monitoring a service",
+              "link": "/27.10/monitoring/basic-objects/services-create"
+            },
+            {
+              "text": "Creating services manually",
+              "link": "/27.10/monitoring/basic-objects/services"
+            },
+            {
+              "text": "Creating services automatically",
+              "link": "/27.10/monitoring/basic-objects/services-create-disco"
+            },
+            {
+              "text": "Using service templates",
+              "link": "/27.10/monitoring/basic-objects/services-templates"
+            },
+            {
+              "text": "Metaservices",
+              "link": "/27.10/monitoring/basic-objects/metaservices"
+            }
+          ]
+        },
+        {
+          "text": "Discovering hosts and services automatically",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Introduction",
+              "link": "/27.10/monitoring/discovery/introduction"
+            },
+            {
+              "text": "Installation",
+              "link": "/27.10/monitoring/discovery/installation"
+            },
+            {
+              "text": "Discovering hosts automatically",
+              "link": "/27.10/monitoring/discovery/hosts-discovery"
+            },
+            {
+              "text": "Discovering services automatically",
+              "link": "/27.10/monitoring/discovery/services-discovery"
+            },
+            {
+              "text": "Administration",
+              "link": "/27.10/monitoring/discovery/administration"
+            },
+            {
+              "text": "Troubleshooting host discovery issues",
+              "link": "/27.10/monitoring/discovery/troubleshooting-hosts-discovery"
+            }
+          ]
+        },
+        {
+          "text": "Organizing hosts and services",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Groups",
+              "link": "/27.10/monitoring/groups"
+            },
+            {
+              "text": "Categories and severities",
+              "link": "/27.10/monitoring/categories"
+            }
+          ]
+        },
+        {
+          "text": "Basic objects and actions",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Time periods",
+              "link": "/27.10/monitoring/basic-objects/timeperiods"
+            },
+            {
+              "text": "Macros",
+              "link": "/27.10/monitoring/basic-objects/macros"
+            },
+            {
+              "text": "Commands",
+              "link": "/27.10/monitoring/basic-objects/commands"
+            },
+            {
+              "text": "Generic actions",
+              "link": "/27.10/monitoring/generic-actions"
+            }
+          ]
+        },
+        {
+          "text": "Detecting anomalies",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Anomaly detection",
+              "link": "/27.10/monitoring/anomaly-detection"
+            }
+          ]
+        },
+        {
+          "text": "Passive Monitoring",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Enable SNMP Traps",
+              "link": "/27.10/monitoring/passive-monitoring/enable-snmp-traps"
+            },
+            {
+              "text": "Create SNMP Traps definitions",
+              "link": "/27.10/monitoring/passive-monitoring/create-snmp-traps-definitions"
+            },
+            {
+              "text": "Monitoring with SNMP Traps",
+              "link": "/27.10/monitoring/passive-monitoring/monitoring-with-snmp-traps"
+            },
+            {
+              "text": "Debug SNMP Traps management",
+              "link": "/27.10/monitoring/passive-monitoring/debug-snmp-traps-management"
+            },
+            {
+              "text": "Dynamic Service Management",
+              "link": "/27.10/monitoring/passive-monitoring/dsm"
+            }
+          ]
+        },
+        {
+          "text": "Auto Remediation",
+          "link": "/27.10/monitoring/event-handler"
+        },
+        {
+          "text": "Import/Export",
+          "link": "/27.10/monitoring/web-import-export"
+        }
+      ]
+    },
+    {
+      "text": "Managing events and alerts",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Viewing events",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Possible statuses of a resource",
+              "link": "/27.10/alerts-notifications/concepts"
+            },
+            {
+              "text": "Resources Status page",
+              "link": "/27.10/alerts-notifications/resources-status"
+            },
+            {
+              "text": "Event consoles",
+              "link": "/27.10/alerts-notifications/event-console"
+            },
+            {
+              "text": "Event Logs",
+              "link": "/27.10/alerts-notifications/event-log"
+            }
+          ]
+        },
+        {
+          "text": "Managing alerts",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Acknowledging an alert",
+              "link": "/27.10/alerts-notifications/acknowledge"
+            },
+            {
+              "text": "Planning downtime",
+              "link": "/27.10/alerts-notifications/downtimes"
+            },
+            {
+              "text": "Submitting a status",
+              "link": "/27.10/alerts-notifications/submit"
+            },
+            {
+              "text": "Other actions",
+              "link": "/27.10/alerts-notifications/other"
+            }
+          ]
+        },
+        {
+          "text": "Managing notifications",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "How notifications work",
+              "link": "/27.10/alerts-notifications/notif-concept"
+            },
+            {
+              "text": "Configuring notifications",
+              "link": "/27.10/alerts-notifications/notif-configuration"
+            },
+            {
+              "text": "Types of notifications",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Email notifications",
+                  "link": "/27.10/alerts-notifications/notif-email"
+                },
+                {
+                  "text": "Microsoft Teams notifications",
+                  "link": "/27.10/alerts-notifications/notif-config-for-teams"
+                },
+                {
+                  "text": "Sms Notifications",
+                  "link": "/27.10/integrations/notifications/sms-notifications"
+                },
+                {
+                  "text": "Slack Notifications",
+                  "link": "/27.10/integrations/notifications/slack-notifications"
+                },
+                {
+                  "text": "Telegram notifications",
+                  "link": "/27.10/integrations/notifications/plugin-telegram"
+                }
+              ]
+            },
+            {
+              "text": "Dependencies",
+              "link": "/27.10/alerts-notifications/notif-dependencies"
+            },
+            {
+              "text": "Escalation",
+              "link": "/27.10/alerts-notifications/notif-escalation"
+            },
+            {
+              "text": "Flapping",
+              "link": "/27.10/alerts-notifications/notif-flapping"
+            },
+            {
+              "text": "To go further",
+              "link": "/27.10/alerts-notifications/notif-advanced"
+            }
+          ]
+        },
+        {
+          "text": "Installing Open Tickets",
+          "link": "/27.10/alerts-notifications/ticketing-install"
+        },
+        {
+          "text": "Managing tickets",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Configuring Open Tickets",
+              "link": "/27.10/alerts-notifications/ticketing"
+            },
+            {
+              "text": "Customizing tickets",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Ticketing Advanced Smarty Variables",
+                  "link": "/27.10/alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "text": "Ticketing Advanced Smarty Functions",
+                  "link": "/27.10/alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "text": "Ticketing Advanced Mapping",
+                  "link": "/27.10/alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "text": "Open tickets glossary",
+                  "link": "/27.10/alerts-notifications/ticketing/glossary"
+                }
+              ],
+              "link": "/27.10/alerts-notifications/ticketing/ticketing-advanced-body"
+            },
+            {
+              "text": "Using Open Tickets",
+              "link": "/27.10/alerts-notifications/ticketing-use"
+            },
+            {
+              "text": "Ticketing Advanced Architecture",
+              "link": "/27.10/alerts-notifications/ticketing/ticketing-advanced-architecture"
+            }
+          ],
+          "link": "/27.10/alerts-notifications/ticketing-overview"
+        }
+      ]
+    },
+    {
+      "text": "Managing Centreon users",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Contacts/Users",
+          "link": "/27.10/monitoring/basic-objects/contacts"
+        },
+        {
+          "text": "Creating contacts/users manually",
+          "link": "/27.10/monitoring/basic-objects/contacts-create"
+        },
+        {
+          "text": "Using contact templates",
+          "link": "/27.10/monitoring/basic-objects/contacts-templates"
+        },
+        {
+          "text": "Using contact groups",
+          "link": "/27.10/monitoring/basic-objects/contacts-groups"
+        },
+        {
+          "text": "Granting rights to Centreon users (ACL)",
+          "link": "/27.10/administration/access-control-lists"
+        },
+        {
+          "text": "Changing your Centreon account's settings",
+          "link": "/27.10/monitoring/basic-objects/customization"
+        }
+      ]
+    },
+    {
+      "text": "Service Mapping",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction to Centreon BAM",
+          "link": "/27.10/service-mapping/introduction"
+        },
+        {
+          "text": "Guide",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Manage Business Activities",
+              "link": "/27.10/service-mapping/ba-management"
+            },
+            {
+              "text": "Simulate Business Activities",
+              "link": "/27.10/service-mapping/ba-simulation"
+            },
+            {
+              "text": "Monitor Business Activities",
+              "link": "/27.10/service-mapping/ba-monitoring"
+            },
+            {
+              "text": "Report Business Activities",
+              "link": "/27.10/service-mapping/ba-reporting"
+            },
+            {
+              "text": "Settings",
+              "link": "/27.10/service-mapping/ba-settings"
+            },
+            {
+              "text": "Widgets",
+              "link": "/27.10/service-mapping/widgets"
+            }
+          ]
+        },
+        {
+          "text": "Administrate",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Install the Centreon BAM extension",
+              "link": "/27.10/service-mapping/install"
+            },
+            {
+              "text": "Update the extension",
+              "link": "/27.10/service-mapping/update"
+            },
+            {
+              "text": "Upgrade the extension",
+              "link": "/27.10/service-mapping/upgrade"
+            },
+            {
+              "text": "Install on a Remote Server",
+              "link": "/27.10/service-mapping/remote-server"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Data Visualization",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Dashboards",
+          "link": "/27.10/alerts-notifications/dashboards"
+        },
+        {
+          "text": "Performance graphs",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Chart management",
+              "link": "/27.10/metrology/chart-management"
+            },
+            {
+              "text": "Chart Template",
+              "link": "/27.10/metrology/chart-template"
+            },
+            {
+              "text": "Chart Curves",
+              "link": "/27.10/metrology/chart-curves"
+            },
+            {
+              "text": "Chart Virtual Metrics",
+              "link": "/27.10/metrology/chart-virtual-metrics"
+            },
+            {
+              "text": "Viewing Centreon data in Grafana",
+              "link": "/27.10/metrology/grafana"
+            }
+          ]
+        },
+        {
+          "text": "Graphical views (maps)",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Overview",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Introduction to Centreon MAP",
+                  "link": "/27.10/graph-views/introduction-map"
+                },
+                {
+                  "text": "MAP architecture",
+                  "link": "/27.10/graph-views/map-architecture"
+                }
+              ]
+            },
+            {
+              "text": "Setting up MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installing MAP",
+                  "link": "/27.10/graph-views/map-web-install"
+                },
+                {
+                  "text": "Installing MAP on a remote server",
+                  "link": "/27.10/graph-views/map-web-install-remote"
+                },
+                {
+                  "text": "Securing your MAP platform",
+                  "link": "/27.10/graph-views/secure-your-map-platform"
+                },
+                {
+                  "text": "Changing the MAP server's port",
+                  "link": "/27.10/graph-views/map-web-change-port"
+                },
+                {
+                  "text": "Managing access rights in MAP",
+                  "link": "/27.10/graph-views/map-web-access"
+                }
+              ]
+            },
+            {
+              "text": "Using MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Best practices for using maps",
+                  "link": "/27.10/graph-views/map-best-practices"
+                },
+                {
+                  "text": "Managing maps in MAP",
+                  "link": "/27.10/graph-views/map-web-manage"
+                },
+                {
+                  "text": "Creating a standard map",
+                  "link": "/27.10/graph-views/map-web-create-standard-map"
+                },
+                {
+                  "text": "Creating a geographic view",
+                  "link": "/27.10/graph-views/map-web-create-geoview"
+                },
+                {
+                  "text": "Understanding map access (ACL)",
+                  "link": "/27.10/graph-views/map-understanding-access"
+                },
+                {
+                  "text": "Automating MAP via API",
+                  "link": "/27.10/api/map-api"
+                }
+              ]
+            },
+            {
+              "text": "Administrating MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Updating MAP",
+                  "link": "/27.10/graph-views/map-web-update"
+                },
+                {
+                  "text": "Upgrading MAP",
+                  "link": "/27.10/graph-views/map-web-upgrade"
+                },
+                {
+                  "text": "Migrating the extension",
+                  "link": "/27.10/graph-views/map-web-migrate"
+                },
+                {
+                  "text": "Backing up and restoring your MAP server",
+                  "link": "/27.10/graph-views/map-web-backup-restore"
+                },
+                {
+                  "text": "Monitoring your MAP server",
+                  "link": "/27.10/graph-views/map-web-monitoring"
+                },
+                {
+                  "text": "Customizing status computation",
+                  "link": "/27.10/graph-views/map-web-advanced"
+                }
+              ]
+            },
+            {
+              "text": "Fixing MAP issues",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "MAP known issues",
+                  "link": "/27.10/graph-views/map-web-known-issues"
+                },
+                {
+                  "text": "MAP troubleshooting",
+                  "link": "/27.10/graph-views/map-web-troubleshooting"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Custom views (legacy)",
+          "link": "/27.10/alerts-notifications/custom-views"
+        },
+        {
+          "text": "Availability reports",
+          "link": "/27.10/alerts-notifications/availability"
+        }
+      ]
+    },
+    {
+      "text": "Reporting (MBI)",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction to MBI",
+          "link": "/27.10/reporting/introduction"
+        },
+        {
+          "text": "MBI concepts",
+          "link": "/27.10/reporting/concepts"
+        },
+        {
+          "text": "How does MBI work?",
+          "link": "/27.10/reporting/how-mbi-works"
+        },
+        {
+          "text": "Installing MBI",
+          "link": "/27.10/reporting/installation"
+        },
+        {
+          "text": "Using MBI",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Preparing data for report generation",
+              "link": "/27.10/reporting/preparing-data"
+            },
+            {
+              "text": "Generating reports using jobs",
+              "link": "/27.10/reporting/generating-reports"
+            },
+            {
+              "text": "Publishing your reports",
+              "link": "/27.10/reporting/reports-publication-rule"
+            },
+            {
+              "text": "Giving access to jobs and reports in Centreon",
+              "link": "/27.10/reporting/share"
+            },
+            {
+              "text": "MBI Widgets",
+              "link": "/27.10/reporting/widgets"
+            }
+          ]
+        },
+        {
+          "text": "Fixing MBI issues",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Troubleshooting MBI",
+              "link": "/27.10/reporting/troubleshooting"
+            },
+            {
+              "text": "Rebuilding MBI data",
+              "link": "/27.10/reporting/rebuilding-data"
+            }
+          ]
+        },
+        {
+          "text": "MBI administration",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Backing up and restoring MBI",
+              "link": "/27.10/reporting/backup-restore"
+            },
+            {
+              "text": "Update the extension",
+              "link": "/27.10/reporting/update"
+            },
+            {
+              "text": "Upgrade the extension",
+              "link": "/27.10/reporting/upgrade"
+            },
+            {
+              "text": "Migrate the extension",
+              "link": "/27.10/reporting/migrate"
+            },
+            {
+              "text": "Creating custom reports",
+              "link": "/27.10/reporting/report-development"
+            }
+          ]
+        },
+        {
+          "text": "Available reports",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Business Activity Monitoring reports",
+              "link": "/27.10/reporting/available-reports/ba-monitoring-reports"
+            },
+            {
+              "text": "Availability and Events reports",
+              "link": "/27.10/reporting/available-reports/availability-events-reports"
+            },
+            {
+              "text": "Performance reports",
+              "link": "/27.10/reporting/available-reports/performance-reports"
+            },
+            {
+              "text": "Storage reports",
+              "link": "/27.10/reporting/available-reports/storage-reports"
+            },
+            {
+              "text": "Network reports",
+              "link": "/27.10/reporting/available-reports/network-reports"
+            },
+            {
+              "text": "Virtualization reports",
+              "link": "/27.10/reporting/available-reports/virtualization-reports"
+            },
+            {
+              "text": "Electric consumption reports",
+              "link": "/27.10/reporting/available-reports/electric-consumption-reports"
+            },
+            {
+              "text": "Profiling reports",
+              "link": "/27.10/reporting/available-reports/profiling-reports"
+            },
+            {
+              "text": "Inventory and Configuration reports",
+              "link": "/27.10/reporting/available-reports/inventory-configuration-reports"
+            },
+            {
+              "text": "Database diagnostics reports",
+              "link": "/27.10/reporting/available-reports/database-diagnostics-reports"
+            }
+          ],
+          "link": "/27.10/reporting/available-reports/available-reports"
+        }
+      ]
+    },
+    {
+      "text": "Administration",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Parameters",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Centreon UI",
+              "link": "/27.10/administration/parameters/centreon-ui"
+            },
+            {
+              "text": "Monitoring",
+              "link": "/27.10/administration/parameters/monitoring"
+            },
+            {
+              "text": "Gorgone",
+              "link": "/27.10/administration/parameters/gorgone"
+            },
+            {
+              "text": "RRDTool",
+              "link": "/27.10/administration/parameters/rrdtool"
+            },
+            {
+              "text": "Debug",
+              "link": "/27.10/administration/parameters/debug"
+            },
+            {
+              "text": "Data management",
+              "link": "/27.10/administration/parameters/data-management"
+            },
+            {
+              "text": "Media",
+              "link": "/27.10/administration/parameters/medias"
+            }
+          ]
+        },
+        {
+          "text": "Authentication tokens",
+          "link": "/27.10/api/authentication-tokens"
+        },
+        {
+          "text": "Customize Centreon",
+          "link": "/27.10/administration/customize-centreon"
+        },
+        {
+          "text": "Configuring the connection to Centreon",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Configuring a local authentication",
+              "link": "/27.10/connect/loginpwd"
+            },
+            {
+              "text": "Connecting Centreon to an LDAP directory",
+              "link": "/27.10/administration/parameters/ldap"
+            },
+            {
+              "text": "Configuring a Web SSO connection",
+              "link": "/27.10/connect/sso"
+            },
+            {
+              "text": "Configuring connection via OpenId Connect",
+              "link": "/27.10/connect/openid"
+            },
+            {
+              "text": "Configuring connection via SAML",
+              "link": "/27.10/connect/saml"
+            },
+            {
+              "text": "Configuring Autologin",
+              "link": "/27.10/connect/autologin"
+            }
+          ]
+        },
+        {
+          "text": "Extensions",
+          "link": "/27.10/administration/extensions"
+        },
+        {
+          "text": "Licenses",
+          "link": "/27.10/administration/licenses"
+        },
+        {
+          "text": "Database partitioning",
+          "link": "/27.10/administration/database-partitioning"
+        },
+        {
+          "text": "Disaster recovery",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Back up and restore your central server",
+              "link": "/27.10/administration/backup"
+            },
+            {
+              "text": "Back up and restore your pollers",
+              "link": "/27.10/administration/backup-poller"
+            }
+          ],
+          "link": "/27.10/administration/disaster-recovery"
+        },
+        {
+          "text": "Knowledge Base",
+          "link": "/27.10/administration/knowledge-base"
+        },
+        {
+          "text": "Logging configuration changes",
+          "link": "/27.10/administration/logging-configuration-changes"
+        },
+        {
+          "text": "Platform statistics",
+          "link": "/27.10/administration/platform-statistics"
+        },
+        {
+          "text": "Configuring your Centreon to send emails",
+          "link": "/27.10/administration/postfix"
+        },
+        {
+          "text": "Optimizing database traffic",
+          "link": "/27.10/administration/sql-proxy"
+        }
+      ]
+    },
+    {
+      "text": "Update, Upgrade & Migrate",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Update",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Update a Centreon 26.10 platform",
+              "link": "/27.10/update/update-centreon-platform"
+            }
+          ]
+        },
+        {
+          "text": "Upgrade",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Introduction to upgrade",
+              "link": "/27.10/upgrade/introduction"
+            },
+            {
+              "text": "Upgrade Matrix",
+              "link": "/27.10/upgrade/upgrade-matrix"
+            },
+            {
+              "text": "Upgrade from Centreon 25.10",
+              "link": "/27.10/upgrade/upgrade-from-25-10"
+            },
+            {
+              "text": "Upgrade from Centreon 24.10",
+              "link": "/27.10/upgrade/upgrade-from-24-10"
+            },
+            {
+              "text": "Upgrade from Centreon 24.04",
+              "link": "/27.10/upgrade/upgrade-from-24-04"
+            },
+            {
+              "text": "Upgrade from Centreon 23.10",
+              "link": "/27.10/upgrade/upgrade-from-23-10"
+            },
+            {
+              "text": "Upgrade from Centreon 23.04",
+              "link": "/27.10/upgrade/upgrade-from-23-04"
+            },
+            {
+              "text": "Upgrading MariaDB",
+              "link": "/27.10/upgrade/upgrade-mariadb"
+            },
+            {
+              "text": "Upgrading MySQL",
+              "link": "/27.10/upgrade/upgrade-mysql"
+            }
+          ]
+        },
+        {
+          "text": "Migrate",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Introduction to the migration process",
+              "link": "/27.10/migrate/introduction"
+            },
+            {
+              "text": "Migrate from an EL-type OS to another EL-type OS (from a Centreon 18.10 or newer)",
+              "link": "/27.10/migrate/migrate-from-el-to-el"
+            },
+            {
+              "text": "Migrate from an EL-type OS to Debian",
+              "link": "/27.10/migrate/migrate-from-el-to-debian"
+            },
+            {
+              "text": "Migrate to a newer Debian version",
+              "link": "/27.10/migrate/migrate-from-debian-to-debian"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Centreon Monitoring Agent",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction to CMA",
+          "link": "/27.10/cma/cma"
+        },
+        {
+          "text": "Setting up the agent's environment",
+          "link": "/27.10/cma/cma-setup"
+        },
+        {
+          "text": "Manual setup (advanced)",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Setting up CMA manually",
+              "link": "/27.10/cma/cma-setup-manual"
+            },
+            {
+              "text": "Configuring certificates",
+              "link": "/27.10/cma/cma-certificates"
+            }
+          ]
+        },
+        {
+          "text": "Using custom plugins with CMA",
+          "link": "/27.10/cma/cma-custom"
+        },
+        {
+          "text": "Centreon Monitoring Agent - Migrate from NSClient++",
+          "link": "/27.10/cma/cma-migratenscpp"
+        },
+        {
+          "text": "Troubleshooting CMA",
+          "link": "/27.10/cma/cma-troubleshooting"
+        }
+      ]
+    },
+    {
+      "text": "Integrations",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Stream connectors",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Stream connectors release notes",
+              "link": "/27.10/integrations/stream-connectors-rn"
+            },
+            {
+              "text": "Sc Hp Bsm",
+              "link": "/27.10/integrations/event-management/sc-hp-bsm"
+            },
+            {
+              "text": "Canopsis Events",
+              "link": "/27.10/integrations/data-analytics/sc-canopsis-events"
+            },
+            {
+              "text": "Clickhouse",
+              "link": "/27.10/integrations/data-analytics/sc-clickhouse"
+            },
+            {
+              "text": "Datadog Events",
+              "link": "/27.10/integrations/data-analytics/sc-datadog-events"
+            },
+            {
+              "text": "Datadog Metrics",
+              "link": "/27.10/integrations/data-analytics/sc-datadog-metrics"
+            },
+            {
+              "text": "Elastic Events",
+              "link": "/27.10/integrations/data-analytics/sc-elastic-events"
+            },
+            {
+              "text": "Sc Elastic Metrics",
+              "link": "/27.10/integrations/data-analytics/sc-elastic-metrics"
+            },
+            {
+              "text": "Graphite Metrics",
+              "link": "/27.10/integrations/data-analytics/sc-graphite-metrics"
+            },
+            {
+              "text": "HP OMI",
+              "link": "/27.10/integrations/event-management/sc-hp-omi"
+            },
+            {
+              "text": "InfluxDB 2 Metrics",
+              "link": "/27.10/integrations/data-analytics/sc-influxdb2-metrics"
+            },
+            {
+              "text": "Kafka Events",
+              "link": "/27.10/integrations/data-analytics/sc-kafka-events"
+            },
+            {
+              "text": "Logstash Events",
+              "link": "/27.10/integrations/data-analytics/sc-logstash-events"
+            },
+            {
+              "text": "Sc Opsgenie Events",
+              "link": "/27.10/integrations/event-management/sc-opsgenie-events"
+            },
+            {
+              "text": "PagerDuty Events",
+              "link": "/27.10/integrations/event-management/sc-pagerduty-events"
+            },
+            {
+              "text": "ServiceNow Event Manager Events",
+              "link": "/27.10/integrations/event-management/sc-service-now-em-events"
+            },
+            {
+              "text": "ServiceNow Incident Events",
+              "link": "/27.10/integrations/event-management/sc-service-now-incident-events"
+            },
+            {
+              "text": "Signl4 Events",
+              "link": "/27.10/integrations/event-management/sc-signl4-events"
+            },
+            {
+              "text": "Splunk Events",
+              "link": "/27.10/integrations/data-analytics/sc-splunk-events"
+            },
+            {
+              "text": "Splunk Metrics",
+              "link": "/27.10/integrations/data-analytics/sc-splunk-metrics"
+            },
+            {
+              "text": "Warp10",
+              "link": "/27.10/integrations/data-analytics/sc-warp10"
+            }
+          ],
+          "link": "/27.10/integrations/stream-connectors"
+        },
+        {
+          "text": "ITSM",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "BMC Footprints 11",
+              "link": "/27.10/integrations/itsm/ot-bmc-footprints-11"
+            },
+            {
+              "text": "BMC Remedy",
+              "link": "/27.10/integrations/itsm/ot-bmc-remedy"
+            },
+            {
+              "text": "EasyVista API SOAP",
+              "link": "/27.10/integrations/itsm/ot-easyvista"
+            },
+            {
+              "text": "EasyVista RestAPI",
+              "link": "/27.10/integrations/itsm/ot-easyvista-rest-api"
+            },
+            {
+              "text": "GLPI",
+              "link": "/27.10/integrations/itsm/ot-glpi"
+            },
+            {
+              "text": "Ot Glpi Restapi",
+              "link": "/27.10/integrations/itsm/ot-glpi-restapi"
+            },
+            {
+              "text": "iTop",
+              "link": "/27.10/integrations/itsm/ot-itop"
+            },
+            {
+              "text": "Ivanti",
+              "link": "/27.10/integrations/itsm/ot-ivanti"
+            },
+            {
+              "text": "Jira",
+              "link": "/27.10/integrations/itsm/ot-jira"
+            },
+            {
+              "text": "Mail",
+              "link": "/27.10/integrations/itsm/ot-mail"
+            },
+            {
+              "text": "Matrix42",
+              "link": "/27.10/integrations/itsm/ot-matrix42"
+            },
+            {
+              "text": "Ot Otrs Restapi",
+              "link": "/27.10/integrations/itsm/ot-otrs-restapi"
+            },
+            {
+              "text": "Request Tracker 2",
+              "link": "/27.10/integrations/itsm/ot-request-tracker-2"
+            },
+            {
+              "text": "Serena ITSM",
+              "link": "/27.10/integrations/itsm/ot-serena-itsm"
+            },
+            {
+              "text": "Ot Servicenow",
+              "link": "/27.10/integrations/itsm/ot-servicenow"
+            },
+            {
+              "text": "Simple",
+              "link": "/27.10/integrations/itsm/ot-simple"
+            }
+          ],
+          "link": "/27.10/integrations/itsm/itsm-overview"
+        },
+        {
+          "text": "NPM",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Widget NtopNG",
+              "link": "/27.10/integrations/npm/ntopng"
+            }
+          ]
+        }
+      ],
+      "link": "/27.10/integrations/introduction-integrations"
+    },
+    {
+      "text": "Centreon mobile",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/27.10/mobile/introduction"
+        }
+      ]
+    },
+    {
+      "text": "API",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/27.10/api/introduction"
+        },
+        {
+          "text": "Command Line API (v1) - CLAPI",
+          "link": "/27.10/api/clapi"
+        },
+        {
+          "text": "Rest API (v1)",
+          "link": "/27.10/api/rest-api-v1"
+        },
+        {
+          "text": "Using the v2 API with Postman",
+          "link": "/27.10/api/rest-api-v2"
+        },
+        {
+          "text": "Automating MAP via API",
+          "link": "/27.10/api/map-api"
+        }
+      ]
+    },
+    {
+      "text": "Developer resources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Developer Stream Connector",
+          "link": "/27.10/developer/developer-stream-connector"
+        },
+        {
+          "text": "Developer Broker Stream Connector Migration",
+          "link": "/27.10/developer/developer-broker-stream-connector-migration"
+        },
+        {
+          "text": "Developer Widget",
+          "link": "/27.10/developer/developer-widget"
+        },
+        {
+          "text": "Mcp Server",
+          "link": "/27.10/developer/mcp-server"
+        },
+        {
+          "text": "Centreon Broker",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Developer Broker Stream Connector",
+              "link": "/27.10/developer/developer-broker-stream-connector"
+            },
+            {
+              "text": "The BBDO protocol",
+              "link": "/27.10/developer/developer-broker-bbdo"
+            },
+            {
+              "text": "Switching versions of BBDO",
+              "link": "/27.10/developer/developer-broker-bbdo-switch-versions"
+            },
+            {
+              "text": "Centreon Broker Event Mapping",
+              "link": "/27.10/developer/developer-broker-mapping"
+            }
+          ],
+          "link": "/27.10/developer/centreon-broker"
+        },
+        {
+          "text": "Centreon Gorgone",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Developer Gorgone Client Server Communication",
+              "link": "/27.10/developer/developer-gorgone-client-server-communication"
+            },
+            {
+              "text": "Developer Gorgone Pull Mode",
+              "link": "/27.10/developer/developer-gorgone-pull-mode"
+            },
+            {
+              "text": "Developer Gorgone Rebound Mode",
+              "link": "/27.10/developer/developer-gorgone-rebound-mode"
+            }
+          ],
+          "link": "/27.10/developer/centreon-gorgone"
+        }
+      ]
+    },
+    {
+      "text": "Centreon HA",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Ha Faq",
+          "link": "/27.10/installation/installation-of-centreon-ha/ha-faq"
+        },
+        {
+          "text": "Elements of a Centreon HA cluster",
+          "link": "/27.10/installation/installation-of-centreon-ha/cluster-elements"
+        },
+        {
+          "text": "How Centreon HA works",
+          "link": "/27.10/installation/installation-of-centreon-ha/overview"
+        },
+        {
+          "text": "Ha Prerequisites",
+          "link": "/27.10/installation/installation-of-centreon-ha/ha-prerequisites"
+        },
+        {
+          "text": "Centreon HA for small infrastuctures",
+          "link": "/27.10/installation/installation-of-centreon-ha/ha-small"
+        },
+        {
+          "text": "Completing your Centreon HA setup",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Integrating new pollers in a Centreon HA cluster",
+              "link": "/27.10/installation/installation-of-centreon-ha/integrating-pollers"
+            },
+            {
+              "text": "Monitoring Centreon HA",
+              "link": "/27.10/administration/centreon-ha/monitoring-guide"
+            }
+          ]
+        },
+        {
+          "text": "Operating Centreon HA",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Operating guide",
+              "link": "/27.10/administration/centreon-ha/operating-guide"
+            },
+            {
+              "text": "Troubleshooting HA",
+              "link": "/27.10/administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
+        },
+        {
+          "text": "Updating Centreon HA",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Updating a Centreon HA platform",
+              "link": "/27.10/update/update-centreon-ha"
+            }
+          ]
+        },
+        {
+          "text": "Upgrading Centreon HA",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Upgrade Centreon Ha From 25 10",
+              "link": "/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-25-10"
+            },
+            {
+              "text": "Upgrade Centreon Ha From 24 10",
+              "link": "/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
+            },
+            {
+              "text": "Upgrade Centreon Ha From 24 04",
+              "link": "/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-24-04"
+            },
+            {
+              "text": "Upgrade Centreon Ha From 23 10",
+              "link": "/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
+            },
+            {
+              "text": "Upgrade Centreon Ha From 23 04",
+              "link": "/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
+            }
+          ]
+        }
+      ],
+      "link": "/27.10/installation/installation-of-centreon-ha/centreon-ha"
+    },
+    {
+      "text": "Releases",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Release notes for Centreon 27.10",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Centreon Os",
+              "link": "/27.10/releases/centreon-os"
+            },
+            {
+              "text": "Centreon Commercial Extensions",
+              "link": "/27.10/releases/centreon-commercial-extensions"
+            }
+          ],
+          "link": "/27.10/releases/introduction"
+        },
+        {
+          "text": "Product lifecycle policy",
+          "link": "/27.10/releases/lifecycle"
+        }
+      ]
+    },
+    {
+      "text": "Security",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Centreon and Security",
+          "link": "/27.10/security/security"
+        },
+        {
+          "text": "Rotating keys",
+          "link": "/27.10/security/key-rotation"
+        },
+        {
+          "text": "User data storage",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "GDPR compliance",
+              "link": "/27.10/security/user-data-storage/gdpr-compliance"
+            },
+            {
+              "text": "What is Centreon CEIP?",
+              "link": "/27.10/security/user-data-storage/what-is-centreon-ceip"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Resources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Known issues",
+          "link": "/27.10/resources/known-issues"
+        },
+        {
+          "text": "Troubleshooting your Centreon platform",
+          "link": "/27.10/resources/troubleshooting"
+        },
+        {
+          "text": "List of Centreon logs",
+          "link": "/27.10/resources/logs"
+        },
+        {
+          "text": "Glossary of Centreon concepts",
+          "link": "/27.10/resources/glossary"
+        },
+        {
+          "text": "Contributing to the Centreon documentation",
+          "link": "/27.10/resources/contribute"
+        }
+      ]
+    }
+  ],
   "/25.10/": [
     {
       "text": "Getting started with Centreon OnPrem",
@@ -1168,6 +2954,10 @@ export const sidebar: Sidebar = {
               "link": "/25.10/upgrade/introduction"
             },
             {
+              "text": "Upgrade Matrix",
+              "link": "/25.10/upgrade/upgrade-matrix"
+            },
+            {
               "text": "Upgrade from Centreon 24.10",
               "link": "/25.10/upgrade/upgrade-from-24-10"
             },
@@ -1895,6 +3685,10 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/applications-voip-asterisk-snmp"
         },
         {
+          "text": "Atlassian Statuspage API",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-atlassian-statuspage-api"
+        },
+        {
           "text": "AWA (Automic Workload Automation) JMX",
           "link": "/pp/integrations/plugin-packs/procedures/applications-awa-jmx"
         },
@@ -2459,6 +4253,10 @@ export const sidebar: Sidebar = {
           "link": "/pp/integrations/plugin-packs/procedures/applications-varnish-nrpe"
         },
         {
+          "text": "Veeam Backup & Replication Rest API",
+          "link": "/pp/integrations/plugin-packs/procedures/applications-veeam-vbr-restapi"
+        },
+        {
           "text": "Veeam Backup Enterprise Manager Rest API",
           "link": "/pp/integrations/plugin-packs/procedures/applications-veeam-vbem-restapi"
         },
@@ -2998,6 +4796,10 @@ export const sidebar: Sidebar = {
         {
           "text": "VMware VeloCloud Rest API",
           "link": "/pp/integrations/plugin-packs/procedures/cloud-vmware-velocloud-restapi"
+        },
+        {
+          "text": "Zscaler Zero Trust Branch API",
+          "link": "/pp/integrations/plugin-packs/procedures/cloud-zscaler-ztb-restapi"
         }
       ]
     },
@@ -5435,10 +7237,14 @@ export const sidebar: Sidebar = {
               "link": "/cloud/graph-views/introduction-map"
             },
             {
-              "text": "Guide",
+              "text": "Using MAP",
               "collapsible": true,
               "collapsed": true,
               "items": [
+                {
+                  "text": "Best practices for using maps",
+                  "link": "/cloud/graph-views/map-best-practices"
+                },
                 {
                   "text": "Manage access rights in MAP",
                   "link": "/cloud/graph-views/map-web-access"
@@ -5454,7 +7260,14 @@ export const sidebar: Sidebar = {
                 {
                   "text": "Create a geographic view",
                   "link": "/cloud/graph-views/map-web-create-geoview"
-                },
+                }
+              ]
+            },
+            {
+              "text": "Fixing MAP issues",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
                 {
                   "text": "MAP known issues",
                   "link": "/cloud/graph-views/map-web-known-issues"
@@ -6092,6 +7905,1792 @@ export const sidebar: Sidebar = {
         {
           "text": "Troubleshooting Experience Monitoring",
           "link": "/experience-monitoring/troubleshooting"
+        }
+      ]
+    }
+  ],
+  "/fr/27.10/": [
+    {
+      "text": "Getting started with Centreon Infra Monitoring OnPrem",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Avant de commencer",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Quelle installation choisir ?",
+              "link": "/fr/27.10/getting-started/which-install"
+            },
+            {
+              "text": "Éléments d'une plateforme Centreon",
+              "link": "/fr/27.10/getting-started/platform"
+            },
+            {
+              "text": "Mettre en place sa solution gratuite IT-100",
+              "link": "/fr/27.10/getting-started/IT100"
+            }
+          ]
+        },
+        {
+          "text": "Premiers pas avec Centreon",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Découvrir l'interface web Centreon",
+              "link": "/fr/27.10/getting-started/interface"
+            },
+            {
+              "text": "Bases de la supervision",
+              "link": "/fr/27.10/getting-started/concepts"
+            }
+          ]
+        },
+        {
+          "text": "Mettre des ressources en supervision",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Prérequis",
+              "link": "/fr/27.10/getting-started/first-supervision"
+            },
+            {
+              "text": "Superviser votre premier serveur Linux",
+              "link": "/fr/27.10/getting-started/monitor-linux-server-with-snmp"
+            },
+            {
+              "text": "Superviser votre premier serveur Windows",
+              "link": "/fr/27.10/getting-started/monitor-windows-server-with-snmp"
+            },
+            {
+              "text": "Superviser votre premier routeur Cisco",
+              "link": "/fr/27.10/getting-started/monitor-cisco-router-with-snmp"
+            },
+            {
+              "text": "Monitor Mysql Server",
+              "link": "/fr/27.10/getting-started/monitor-mysql-server"
+            },
+            {
+              "text": "Utiliser Autodiscovery pour découvrir des instances AWS EC2",
+              "link": "/fr/27.10/getting-started/autodisco-aws"
+            },
+            {
+              "text": "Monitor Printer Snmp",
+              "link": "/fr/27.10/getting-started/monitor-printer-snmp"
+            },
+            {
+              "text": "Monitor Ups Snmp",
+              "link": "/fr/27.10/getting-started/monitor-ups-snmp"
+            }
+          ]
+        },
+        {
+          "text": "Superviser les ressources en temps réel",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Quelles actions effectuer pour superviser?",
+              "link": "/fr/27.10/getting-started/actions"
+            },
+            {
+              "text": "Créer votre premier tableau de bord",
+              "link": "/fr/27.10/getting-started/create-dashboard"
+            }
+          ]
+        },
+        {
+          "text": "Tutoriels des modules Business",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Créer une vue graphique",
+              "link": "/fr/27.10/getting-started/create-graphical-view"
+            },
+            {
+              "text": "Modéliser un service IT",
+              "link": "/fr/27.10/getting-started/model-it-services"
+            },
+            {
+              "text": "Analyser la disponibilité des ressources",
+              "link": "/fr/27.10/getting-started/analyze-resources-availability"
+            }
+          ]
+        }
+      ],
+      "link": "/fr/27.10/getting-started/welcome"
+    },
+    {
+      "text": "Installation",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/fr/27.10/installation/introduction"
+        },
+        {
+          "text": "Compatibilité",
+          "link": "/fr/27.10/installation/compatibility"
+        },
+        {
+          "text": "Architectures",
+          "link": "/fr/27.10/installation/architectures"
+        },
+        {
+          "text": "À l'intérieur de Centreon",
+          "link": "/fr/27.10/installation/inside-centreon"
+        },
+        {
+          "text": "Prérequis",
+          "link": "/fr/27.10/installation/prerequisites"
+        },
+        {
+          "text": "Informations techniques",
+          "link": "/fr/27.10/installation/technical"
+        },
+        {
+          "text": "Téléchargements",
+          "link": "/fr/27.10/installation/download"
+        },
+        {
+          "text": "Installer un serveur central",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Unattended Install Central",
+              "link": "/fr/27.10/installation/installation-of-a-central-server/unattended-install-central"
+            },
+            {
+              "text": "À partir des paquets (serveur central)",
+              "link": "/fr/27.10/installation/installation-of-a-central-server/using-packages"
+            },
+            {
+              "text": "À partir d'une VM",
+              "link": "/fr/27.10/installation/installation-of-a-central-server/using-virtual-machines"
+            }
+          ]
+        },
+        {
+          "text": "Installation Web",
+          "link": "/fr/27.10/installation/web-and-post-installation"
+        },
+        {
+          "text": "Installer un collecteur",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Unattended Install Poller",
+              "link": "/fr/27.10/installation/installation-of-a-poller/unattended-install-poller"
+            },
+            {
+              "text": "À l'aide d'une commande générée automatiquement (VM ou machine physique)",
+              "link": "/fr/27.10/installation/installation-of-a-poller/vm-or-physical"
+            },
+            {
+              "text": "Collecteurs en conteneurs",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installer un collecteur dans un conteneur",
+                  "link": "/fr/27.10/installation/installation-of-a-poller/using-containers"
+                },
+                {
+                  "text": "Configuration avancée des conteneurs",
+                  "link": "/fr/27.10/installation/installation-of-a-poller/using-containers-advanced-configuration"
+                }
+              ]
+            },
+            {
+              "text": "Prerequisites for pollers in pullwss mode",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Prérequis pour les collecteurs installés par commande générée",
+                  "link": "/fr/27.10/installation/installation-of-a-poller/pollers-containers-prerequisites"
+                },
+                {
+                  "text": "Adapter les anciennes configurations de collecteurs pullwss",
+                  "link": "/fr/27.10/installation/installation-of-a-poller/adapt-legacy-pullwss"
+                }
+              ]
+            },
+            {
+              "text": "À partir des paquets (collecteur)",
+              "link": "/fr/27.10/installation/installation-of-a-poller/using-packages"
+            }
+          ]
+        },
+        {
+          "text": "Installer un serveur distant",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Unattended Install Remote",
+              "link": "/fr/27.10/installation/installation-of-a-remote-server/unattended-install-remote"
+            },
+            {
+              "text": "À partir des paquets (serveur distant)",
+              "link": "/fr/27.10/installation/installation-of-a-remote-server/using-packages"
+            }
+          ]
+        },
+        {
+          "text": "Configurer les serveurs de supervision",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Rattacher un collecteur à un serveur central ou distant",
+              "link": "/fr/27.10/monitoring/monitoring-servers/add-a-poller-to-configuration"
+            },
+            {
+              "text": "Rattacher un serveur distant à un serveur central",
+              "link": "/fr/27.10/monitoring/monitoring-servers/add-a-remote-server-to-configuration"
+            },
+            {
+              "text": "Communications",
+              "link": "/fr/27.10/monitoring/monitoring-servers/communications"
+            },
+            {
+              "text": "Rattacher un collecteur à un serveur distant différent",
+              "link": "/fr/27.10/monitoring/monitoring-servers/move-poller"
+            },
+            {
+              "text": "Configuration avancée",
+              "link": "/fr/27.10/monitoring/monitoring-servers/advanced-configuration"
+            }
+          ]
+        },
+        {
+          "text": "Installation offline",
+          "link": "/fr/27.10/installation/offline"
+        }
+      ]
+    },
+    {
+      "text": "Sécuriser la plateforme",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Sécurisez votre plateforme",
+          "link": "/fr/27.10/administration/secure-platform"
+        },
+        {
+          "text": "Sécuriser votre plateforme MAP",
+          "link": "/fr/27.10/graph-views/secure-your-map-platform"
+        },
+        {
+          "text": "Sécuriser votre plateforme MBI",
+          "link": "/fr/27.10/reporting/secure-your-mbi-platform"
+        },
+        {
+          "text": "Créer un certificat auto-signé",
+          "link": "/fr/27.10/administration/self-signed-certificate"
+        }
+      ]
+    },
+    {
+      "text": "Superviser des ressources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Bases de la supervision",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Principes de base de la supervision",
+              "link": "/fr/27.10/monitoring/about"
+            },
+            {
+              "text": "Contrôles actifs vs contrôles passifs",
+              "link": "/fr/27.10/monitoring/active-passive-checks"
+            },
+            {
+              "text": "Comprendre les métriques",
+              "link": "/fr/27.10/monitoring/metrics"
+            },
+            {
+              "text": "Utiliser des connecteurs de supervision",
+              "link": "/fr/27.10/monitoring/pluginpacks"
+            },
+            {
+              "text": "Déployer une configuration",
+              "link": "/fr/27.10/monitoring/monitoring-servers/deploying-a-configuration"
+            }
+          ]
+        },
+        {
+          "text": "Superviser des hôtes",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Mettre un hôte en supervision",
+              "link": "/fr/27.10/monitoring/basic-objects/hosts-create"
+            },
+            {
+              "text": "Créer un hôte manuellement",
+              "link": "/fr/27.10/monitoring/basic-objects/hosts"
+            },
+            {
+              "text": "Créer des hôtes automatiquement",
+              "link": "/fr/27.10/monitoring/basic-objects/hosts-create-disco"
+            },
+            {
+              "text": "Utiliser des modèles d'hôtes",
+              "link": "/fr/27.10/monitoring/basic-objects/hosts-templates"
+            },
+            {
+              "text": "Modifier le serveur de supervision pour un hôte",
+              "link": "/fr/27.10/monitoring/basic-objects/hosts-switch-poller"
+            }
+          ]
+        },
+        {
+          "text": "Superviser des services",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Mettre un service en supervision",
+              "link": "/fr/27.10/monitoring/basic-objects/services-create"
+            },
+            {
+              "text": "Créer un service manuellement",
+              "link": "/fr/27.10/monitoring/basic-objects/services"
+            },
+            {
+              "text": "Créer des services automatiquement",
+              "link": "/fr/27.10/monitoring/basic-objects/services-create-disco"
+            },
+            {
+              "text": "Utiliser des modèles de services",
+              "link": "/fr/27.10/monitoring/basic-objects/services-templates"
+            },
+            {
+              "text": "Metaservices",
+              "link": "/fr/27.10/monitoring/basic-objects/metaservices"
+            }
+          ]
+        },
+        {
+          "text": "Auto-découverte d'hôtes et de services",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Introduction",
+              "link": "/fr/27.10/monitoring/discovery/introduction"
+            },
+            {
+              "text": "Installation",
+              "link": "/fr/27.10/monitoring/discovery/installation"
+            },
+            {
+              "text": "Découvrir des hôtes automatiquement",
+              "link": "/fr/27.10/monitoring/discovery/hosts-discovery"
+            },
+            {
+              "text": "Découvrir des services automatiquement",
+              "link": "/fr/27.10/monitoring/discovery/services-discovery"
+            },
+            {
+              "text": "Administration",
+              "link": "/fr/27.10/monitoring/discovery/administration"
+            },
+            {
+              "text": "Dépanner les incidents sur la découverte des hôtes",
+              "link": "/fr/27.10/monitoring/discovery/troubleshooting-hosts-discovery"
+            }
+          ]
+        },
+        {
+          "text": "Organiser hôtes et services",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Groupes",
+              "link": "/fr/27.10/monitoring/groups"
+            },
+            {
+              "text": "Catégories et criticités",
+              "link": "/fr/27.10/monitoring/categories"
+            }
+          ]
+        },
+        {
+          "text": "Objets et actions de base",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Les périodes temporelles",
+              "link": "/fr/27.10/monitoring/basic-objects/timeperiods"
+            },
+            {
+              "text": "Les macros",
+              "link": "/fr/27.10/monitoring/basic-objects/macros"
+            },
+            {
+              "text": "Les commandes",
+              "link": "/fr/27.10/monitoring/basic-objects/commands"
+            },
+            {
+              "text": "Actions génériques",
+              "link": "/fr/27.10/monitoring/generic-actions"
+            }
+          ]
+        },
+        {
+          "text": "Détecter des anomalies",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Anomaly Detection",
+              "link": "/fr/27.10/monitoring/anomaly-detection"
+            }
+          ]
+        },
+        {
+          "text": "Supervision Passive",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Activer les Traps SNMP",
+              "link": "/fr/27.10/monitoring/passive-monitoring/enable-snmp-traps"
+            },
+            {
+              "text": "Définition des Traps SNMP",
+              "link": "/fr/27.10/monitoring/passive-monitoring/create-snmp-traps-definitions"
+            },
+            {
+              "text": "Monitoring SNMP Traps",
+              "link": "/fr/27.10/monitoring/passive-monitoring/monitoring-with-snmp-traps"
+            },
+            {
+              "text": "Déboguer la gestion des traps SNMP",
+              "link": "/fr/27.10/monitoring/passive-monitoring/debug-snmp-traps-management"
+            },
+            {
+              "text": "Dynamic Service Management",
+              "link": "/fr/27.10/monitoring/passive-monitoring/dsm"
+            }
+          ]
+        },
+        {
+          "text": "Auto Remediation",
+          "link": "/fr/27.10/monitoring/event-handler"
+        },
+        {
+          "text": "Import/Export",
+          "link": "/fr/27.10/monitoring/web-import-export"
+        }
+      ]
+    },
+    {
+      "text": "Gérer évènements et alertes",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Visualiser les évènements",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Statuts possibles d'une ressource",
+              "link": "/fr/27.10/alerts-notifications/concepts"
+            },
+            {
+              "text": "Page Statut des ressources",
+              "link": "/fr/27.10/alerts-notifications/resources-status"
+            },
+            {
+              "text": "Consoles d'évènements",
+              "link": "/fr/27.10/alerts-notifications/event-console"
+            },
+            {
+              "text": "Journal des évènements",
+              "link": "/fr/27.10/alerts-notifications/event-log"
+            }
+          ]
+        },
+        {
+          "text": "Gérer les alertes",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Acquitter une alerte",
+              "link": "/fr/27.10/alerts-notifications/acknowledge"
+            },
+            {
+              "text": "Planifier un temps d'arrêt",
+              "link": "/fr/27.10/alerts-notifications/downtimes"
+            },
+            {
+              "text": "Soumettre un résultat",
+              "link": "/fr/27.10/alerts-notifications/submit"
+            },
+            {
+              "text": "Autres actions",
+              "link": "/fr/27.10/alerts-notifications/other"
+            }
+          ]
+        },
+        {
+          "text": "Gérer les notifications",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Fonctionnement des notifications",
+              "link": "/fr/27.10/alerts-notifications/notif-concept"
+            },
+            {
+              "text": "Configurer les notifications",
+              "link": "/fr/27.10/alerts-notifications/notif-configuration"
+            },
+            {
+              "text": "Types de notifications",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Notifications par email",
+                  "link": "/fr/27.10/alerts-notifications/notif-email"
+                },
+                {
+                  "text": "Notifications Microsoft Teams",
+                  "link": "/fr/27.10/alerts-notifications/notif-config-for-teams"
+                },
+                {
+                  "text": "Sms Notifications",
+                  "link": "/fr/27.10/integrations/notifications/sms-notifications"
+                },
+                {
+                  "text": "Slack Notifications",
+                  "link": "/fr/27.10/integrations/notifications/slack-notifications"
+                },
+                {
+                  "text": "Notifications Telegram",
+                  "link": "/fr/27.10/integrations/notifications/plugin-telegram"
+                }
+              ]
+            },
+            {
+              "text": "Les dépendances",
+              "link": "/fr/27.10/alerts-notifications/notif-dependencies"
+            },
+            {
+              "text": "Les escalades de notifications",
+              "link": "/fr/27.10/alerts-notifications/notif-escalation"
+            },
+            {
+              "text": "Bagotement (flapping)",
+              "link": "/fr/27.10/alerts-notifications/notif-flapping"
+            },
+            {
+              "text": "Pour aller plus loin",
+              "link": "/fr/27.10/alerts-notifications/notif-advanced"
+            }
+          ]
+        },
+        {
+          "text": "Installation d'Open Tickets",
+          "link": "/fr/27.10/alerts-notifications/ticketing-install"
+        },
+        {
+          "text": "Gérer des tickets",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Configuration",
+              "link": "/fr/27.10/alerts-notifications/ticketing"
+            },
+            {
+              "text": "Personnaliser les tickets",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Ticketing Advanced Smarty Variables",
+                  "link": "/fr/27.10/alerts-notifications/ticketing/ticketing-advanced-smarty-variables"
+                },
+                {
+                  "text": "Ticketing Advanced Smarty Functions",
+                  "link": "/fr/27.10/alerts-notifications/ticketing/ticketing-advanced-smarty-functions"
+                },
+                {
+                  "text": "Ticketing Advanced Mapping",
+                  "link": "/fr/27.10/alerts-notifications/ticketing/ticketing-advanced-mapping"
+                },
+                {
+                  "text": "Glossaire Open Tickets",
+                  "link": "/fr/27.10/alerts-notifications/ticketing/glossary"
+                }
+              ],
+              "link": "/fr/27.10/alerts-notifications/ticketing/ticketing-advanced-body"
+            },
+            {
+              "text": "Utiliser Open Tickets",
+              "link": "/fr/27.10/alerts-notifications/ticketing-use"
+            },
+            {
+              "text": "Ticketing Advanced Architecture",
+              "link": "/fr/27.10/alerts-notifications/ticketing/ticketing-advanced-architecture"
+            }
+          ],
+          "link": "/fr/27.10/alerts-notifications/ticketing-overview"
+        }
+      ]
+    },
+    {
+      "text": "Gérer les utilisateurs de Centreon",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Les utilisateurs/contacts",
+          "link": "/fr/27.10/monitoring/basic-objects/contacts"
+        },
+        {
+          "text": "Créer des utilisateurs/contacts manuellement",
+          "link": "/fr/27.10/monitoring/basic-objects/contacts-create"
+        },
+        {
+          "text": "Utiliser des modèles de contacts",
+          "link": "/fr/27.10/monitoring/basic-objects/contacts-templates"
+        },
+        {
+          "text": "Utiliser des groupes de contacts",
+          "link": "/fr/27.10/monitoring/basic-objects/contacts-groups"
+        },
+        {
+          "text": "Gérer les droits des utilisateurs Centreon (ACL)",
+          "link": "/fr/27.10/administration/access-control-lists"
+        },
+        {
+          "text": "Changer les paramètres de votre compte Centreon",
+          "link": "/fr/27.10/monitoring/basic-objects/customization"
+        }
+      ]
+    },
+    {
+      "text": "Service Mapping",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction à Centreon BAM",
+          "link": "/fr/27.10/service-mapping/introduction"
+        },
+        {
+          "text": "Guide",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Gestion",
+              "link": "/fr/27.10/service-mapping/ba-management"
+            },
+            {
+              "text": "Simulation",
+              "link": "/fr/27.10/service-mapping/ba-simulation"
+            },
+            {
+              "text": "Supervision",
+              "link": "/fr/27.10/service-mapping/ba-monitoring"
+            },
+            {
+              "text": "Reporting",
+              "link": "/fr/27.10/service-mapping/ba-reporting"
+            },
+            {
+              "text": "Paramètres",
+              "link": "/fr/27.10/service-mapping/ba-settings"
+            },
+            {
+              "text": "Widgets",
+              "link": "/fr/27.10/service-mapping/widgets"
+            }
+          ]
+        },
+        {
+          "text": "Administrer",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Installer l'extension Centreon BAM",
+              "link": "/fr/27.10/service-mapping/install"
+            },
+            {
+              "text": "Mettre à jour l'extension",
+              "link": "/fr/27.10/service-mapping/update"
+            },
+            {
+              "text": "Monter de version l'extension",
+              "link": "/fr/27.10/service-mapping/upgrade"
+            },
+            {
+              "text": "Installer sur un Remote Server",
+              "link": "/fr/27.10/service-mapping/remote-server"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Visualisation des données",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Tableaux de bord",
+          "link": "/fr/27.10/alerts-notifications/dashboards"
+        },
+        {
+          "text": "Graphiques de performance",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Gestion des graphiques",
+              "link": "/fr/27.10/metrology/chart-management"
+            },
+            {
+              "text": "Chart Template",
+              "link": "/fr/27.10/metrology/chart-template"
+            },
+            {
+              "text": "Chart Curves",
+              "link": "/fr/27.10/metrology/chart-curves"
+            },
+            {
+              "text": "Chart Virtual Metrics",
+              "link": "/fr/27.10/metrology/chart-virtual-metrics"
+            },
+            {
+              "text": "Visualiser des données Centreon dans Grafana",
+              "link": "/fr/27.10/metrology/grafana"
+            }
+          ]
+        },
+        {
+          "text": "Vues graphiques (cartes)",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Introduction",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Introduction à Centreon MAP",
+                  "link": "/fr/27.10/graph-views/introduction-map"
+                },
+                {
+                  "text": "Architecture de MAP",
+                  "link": "/fr/27.10/graph-views/map-architecture"
+                }
+              ]
+            },
+            {
+              "text": "Mettre en place MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installer MAP",
+                  "link": "/fr/27.10/graph-views/map-web-install"
+                },
+                {
+                  "text": "Installer MAP sur un serveur distant",
+                  "link": "/fr/27.10/graph-views/map-web-install-remote"
+                },
+                {
+                  "text": "Sécuriser votre plateforme MAP",
+                  "link": "/fr/27.10/graph-views/secure-your-map-platform"
+                },
+                {
+                  "text": "Changer le port du serveur Centreon MAP",
+                  "link": "/fr/27.10/graph-views/map-web-change-port"
+                },
+                {
+                  "text": "Gérer les droits d'accès dans MAP",
+                  "link": "/fr/27.10/graph-views/map-web-access"
+                }
+              ]
+            },
+            {
+              "text": "Utiliser MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Bonnes pratiques pour utiliser les cartes",
+                  "link": "/fr/27.10/graph-views/map-best-practices"
+                },
+                {
+                  "text": "Gérer les cartes dans MAP",
+                  "link": "/fr/27.10/graph-views/map-web-manage"
+                },
+                {
+                  "text": "Créer une carte standard",
+                  "link": "/fr/27.10/graph-views/map-web-create-standard-map"
+                },
+                {
+                  "text": "Créer une vue géographique",
+                  "link": "/fr/27.10/graph-views/map-web-create-geoview"
+                },
+                {
+                  "text": "Comprendre les droits d'accès aux cartes (ACL)",
+                  "link": "/fr/27.10/graph-views/map-understanding-access"
+                },
+                {
+                  "text": "Automatiser MAP via l'API",
+                  "link": "/fr/27.10/api/map-api"
+                }
+              ]
+            },
+            {
+              "text": "Administrer MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Mettre à jour MAP",
+                  "link": "/fr/27.10/graph-views/map-web-update"
+                },
+                {
+                  "text": "Monter de version MAP",
+                  "link": "/fr/27.10/graph-views/map-web-upgrade"
+                },
+                {
+                  "text": "Migrer l'extension",
+                  "link": "/fr/27.10/graph-views/map-web-migrate"
+                },
+                {
+                  "text": "Sauvegarder et restaurer votre serveur Centreon MAP",
+                  "link": "/fr/27.10/graph-views/map-web-backup-restore"
+                },
+                {
+                  "text": "Superviser votre serveur Centreon MAP",
+                  "link": "/fr/27.10/graph-views/map-web-monitoring"
+                },
+                {
+                  "text": "Personnaliser le calcul du statut",
+                  "link": "/fr/27.10/graph-views/map-web-advanced"
+                }
+              ]
+            },
+            {
+              "text": "Résoudre les problèmes MAP",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Problèmes connus dans MAP",
+                  "link": "/fr/27.10/graph-views/map-web-known-issues"
+                },
+                {
+                  "text": "Dépanner MAP",
+                  "link": "/fr/27.10/graph-views/map-web-troubleshooting"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "text": "Vues personnalisées (legacy)",
+          "link": "/fr/27.10/alerts-notifications/custom-views"
+        },
+        {
+          "text": "Rapports de disponibilité",
+          "link": "/fr/27.10/alerts-notifications/availability"
+        }
+      ]
+    },
+    {
+      "text": "Reporting (MBI)",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction à Centreon MBI",
+          "link": "/fr/27.10/reporting/introduction"
+        },
+        {
+          "text": "Concepts MBI",
+          "link": "/fr/27.10/reporting/concepts"
+        },
+        {
+          "text": "Comment fonctionne MBI ?",
+          "link": "/fr/27.10/reporting/how-mbi-works"
+        },
+        {
+          "text": "Installer MBI",
+          "link": "/fr/27.10/reporting/installation"
+        },
+        {
+          "text": "Utiliser MBI",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Préparer les données pour pouvoir générer des rapports",
+              "link": "/fr/27.10/reporting/preparing-data"
+            },
+            {
+              "text": "Générer des rapports grâce aux tâches planifiées",
+              "link": "/fr/27.10/reporting/generating-reports"
+            },
+            {
+              "text": "Publier vos rapports",
+              "link": "/fr/27.10/reporting/reports-publication-rule"
+            },
+            {
+              "text": "Donner accès aux rapports et tâches dans Centreon",
+              "link": "/fr/27.10/reporting/share"
+            },
+            {
+              "text": "Widgets MBI",
+              "link": "/fr/27.10/reporting/widgets"
+            }
+          ]
+        },
+        {
+          "text": "Résoudre les problèmes MBI",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Dépanner MBI",
+              "link": "/fr/27.10/reporting/troubleshooting"
+            },
+            {
+              "text": "Reconstruire les données MBI",
+              "link": "/fr/27.10/reporting/rebuilding-data"
+            }
+          ]
+        },
+        {
+          "text": "Administration de MBI",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Sauvegarder et restaurer MBI",
+              "link": "/fr/27.10/reporting/backup-restore"
+            },
+            {
+              "text": "Mise à jour de l'extension",
+              "link": "/fr/27.10/reporting/update"
+            },
+            {
+              "text": "Monter de version l'extension",
+              "link": "/fr/27.10/reporting/upgrade"
+            },
+            {
+              "text": "Migrer l'extension",
+              "link": "/fr/27.10/reporting/migrate"
+            },
+            {
+              "text": "Créer des rapports personnalisés",
+              "link": "/fr/27.10/reporting/report-development"
+            }
+          ]
+        },
+        {
+          "text": "Rapports disponibles",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Rapports d'activité métier (BAM)",
+              "link": "/fr/27.10/reporting/available-reports/ba-monitoring-reports"
+            },
+            {
+              "text": "Rapports disponibilité et événements",
+              "link": "/fr/27.10/reporting/available-reports/availability-events-reports"
+            },
+            {
+              "text": "Rapports de performance",
+              "link": "/fr/27.10/reporting/available-reports/performance-reports"
+            },
+            {
+              "text": "Rapports de stockage",
+              "link": "/fr/27.10/reporting/available-reports/storage-reports"
+            },
+            {
+              "text": "Rapports de réseau",
+              "link": "/fr/27.10/reporting/available-reports/network-reports"
+            },
+            {
+              "text": "Rapports de virtualisation",
+              "link": "/fr/27.10/reporting/available-reports/virtualization-reports"
+            },
+            {
+              "text": "Rapports de consommation électrique",
+              "link": "/fr/27.10/reporting/available-reports/electric-consumption-reports"
+            },
+            {
+              "text": "Rapports de profiling",
+              "link": "/fr/27.10/reporting/available-reports/profiling-reports"
+            },
+            {
+              "text": "Rapports d'inventaire et de configuration",
+              "link": "/fr/27.10/reporting/available-reports/inventory-configuration-reports"
+            },
+            {
+              "text": "Rapports de diagnostic de la base de données",
+              "link": "/fr/27.10/reporting/available-reports/database-diagnostics-reports"
+            }
+          ],
+          "link": "/fr/27.10/reporting/available-reports/available-reports"
+        }
+      ]
+    },
+    {
+      "text": "Administrer",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Paramètres",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Centreon UI",
+              "link": "/fr/27.10/administration/parameters/centreon-ui"
+            },
+            {
+              "text": "Supervision",
+              "link": "/fr/27.10/administration/parameters/monitoring"
+            },
+            {
+              "text": "Gorgone",
+              "link": "/fr/27.10/administration/parameters/gorgone"
+            },
+            {
+              "text": "RRDTool",
+              "link": "/fr/27.10/administration/parameters/rrdtool"
+            },
+            {
+              "text": "Débogage",
+              "link": "/fr/27.10/administration/parameters/debug"
+            },
+            {
+              "text": "Gestion des données",
+              "link": "/fr/27.10/administration/parameters/data-management"
+            },
+            {
+              "text": "Medias",
+              "link": "/fr/27.10/administration/parameters/medias"
+            }
+          ]
+        },
+        {
+          "text": "Jetons d'authentification",
+          "link": "/fr/27.10/api/authentication-tokens"
+        },
+        {
+          "text": "Customize Centreon",
+          "link": "/fr/27.10/administration/customize-centreon"
+        },
+        {
+          "text": "Paramétrer la connexion à Centreon",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Configurer une authentification locale",
+              "link": "/fr/27.10/connect/loginpwd"
+            },
+            {
+              "text": "Connecter Centreon à un annuaire LDAP",
+              "link": "/fr/27.10/administration/parameters/ldap"
+            },
+            {
+              "text": "Configurer une authentification par SSO",
+              "link": "/fr/27.10/connect/sso"
+            },
+            {
+              "text": "Configurer une authentification par OpenId Connect",
+              "link": "/fr/27.10/connect/openid"
+            },
+            {
+              "text": "Configurer une authentification par SAML",
+              "link": "/fr/27.10/connect/saml"
+            },
+            {
+              "text": "Configurer une authentification par Autologin",
+              "link": "/fr/27.10/connect/autologin"
+            }
+          ]
+        },
+        {
+          "text": "Extensions",
+          "link": "/fr/27.10/administration/extensions"
+        },
+        {
+          "text": "Licences",
+          "link": "/fr/27.10/administration/licenses"
+        },
+        {
+          "text": "Partitionnement des bases de données",
+          "link": "/fr/27.10/administration/database-partitioning"
+        },
+        {
+          "text": "Reprise après sinistre",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Sauvegarder et restaurer votre serveur central",
+              "link": "/fr/27.10/administration/backup"
+            },
+            {
+              "text": "Sauvegarder et restaurer vos collecteurs",
+              "link": "/fr/27.10/administration/backup-poller"
+            }
+          ],
+          "link": "/fr/27.10/administration/disaster-recovery"
+        },
+        {
+          "text": "Base de connaissance",
+          "link": "/fr/27.10/administration/knowledge-base"
+        },
+        {
+          "text": "Journalisation des modifications de configuration",
+          "link": "/fr/27.10/administration/logging-configuration-changes"
+        },
+        {
+          "text": "Statistiques de la plateforme",
+          "link": "/fr/27.10/administration/platform-statistics"
+        },
+        {
+          "text": "Configurer l'envoi d'emails",
+          "link": "/fr/27.10/administration/postfix"
+        },
+        {
+          "text": "Optimiser le trafic vers les bases de données",
+          "link": "/fr/27.10/administration/sql-proxy"
+        }
+      ]
+    },
+    {
+      "text": "Mettre à jour, monter de version et migrer",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Mettre à jour (version mineure)",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Mise à jour d'une plateforme Centreon 26.10",
+              "link": "/fr/27.10/update/update-centreon-platform"
+            }
+          ]
+        },
+        {
+          "text": "Monter de version (version majeure)",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Introduction à la montée de version",
+              "link": "/fr/27.10/upgrade/introduction"
+            },
+            {
+              "text": "Upgrade Matrix",
+              "link": "/fr/27.10/upgrade/upgrade-matrix"
+            },
+            {
+              "text": "Monter de version depuis Centreon 25.10",
+              "link": "/fr/27.10/upgrade/upgrade-from-25-10"
+            },
+            {
+              "text": "Monter de version depuis Centreon 24.10",
+              "link": "/fr/27.10/upgrade/upgrade-from-24-10"
+            },
+            {
+              "text": "Monter de version depuis Centreon 24.04",
+              "link": "/fr/27.10/upgrade/upgrade-from-24-04"
+            },
+            {
+              "text": "Monter de version depuis Centreon 23.10",
+              "link": "/fr/27.10/upgrade/upgrade-from-23-10"
+            },
+            {
+              "text": "Monter de version depuis Centreon 23.04",
+              "link": "/fr/27.10/upgrade/upgrade-from-23-04"
+            },
+            {
+              "text": "Mettre à jour MariaDB",
+              "link": "/fr/27.10/upgrade/upgrade-mariadb"
+            },
+            {
+              "text": "Mettre à jour MySQL",
+              "link": "/fr/27.10/upgrade/upgrade-mysql"
+            }
+          ]
+        },
+        {
+          "text": "Migrer sur un nouveau serveur",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Introduction à la migration",
+              "link": "/fr/27.10/migrate/introduction"
+            },
+            {
+              "text": "Migrer depuis un OS de type EL vers un autre OS de type EL (depuis un Centreon 18.10 ou plus récent)",
+              "link": "/fr/27.10/migrate/migrate-from-el-to-el"
+            },
+            {
+              "text": "Migrer depuis un OS de type EL vers Debian",
+              "link": "/fr/27.10/migrate/migrate-from-el-to-debian"
+            },
+            {
+              "text": "Migrer vers une version plus récente de Debian",
+              "link": "/fr/27.10/migrate/migrate-from-debian-to-debian"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Centreon Monitoring Agent",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction à l'agent CMA",
+          "link": "/fr/27.10/cma/cma"
+        },
+        {
+          "text": "Configurer l’environnement de l’agent",
+          "link": "/fr/27.10/cma/cma-setup"
+        },
+        {
+          "text": "Installation manuelle",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Configurer CMA manuellement",
+              "link": "/fr/27.10/cma/cma-setup-manual"
+            },
+            {
+              "text": "Configurer les certificats",
+              "link": "/fr/27.10/cma/cma-certificates"
+            }
+          ]
+        },
+        {
+          "text": "Utiliser des plugins personnalisés avec CMA",
+          "link": "/fr/27.10/cma/cma-custom"
+        },
+        {
+          "text": "Migrer vers CMA depuis NSClient++",
+          "link": "/fr/27.10/cma/cma-migratenscpp"
+        },
+        {
+          "text": "Dépanner l'agent CMA",
+          "link": "/fr/27.10/cma/cma-troubleshooting"
+        }
+      ]
+    },
+    {
+      "text": "Intégrations",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Stream connectors",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Stream connectors release notes",
+              "link": "/fr/27.10/integrations/stream-connectors-rn"
+            },
+            {
+              "text": "Sc Hp Bsm",
+              "link": "/fr/27.10/integrations/event-management/sc-hp-bsm"
+            },
+            {
+              "text": "Canopsis Events",
+              "link": "/fr/27.10/integrations/data-analytics/sc-canopsis-events"
+            },
+            {
+              "text": "Clickhouse",
+              "link": "/fr/27.10/integrations/data-analytics/sc-clickhouse"
+            },
+            {
+              "text": "Datadog Events",
+              "link": "/fr/27.10/integrations/data-analytics/sc-datadog-events"
+            },
+            {
+              "text": "Datadog Metrics",
+              "link": "/fr/27.10/integrations/data-analytics/sc-datadog-metrics"
+            },
+            {
+              "text": "Elastic Events",
+              "link": "/fr/27.10/integrations/data-analytics/sc-elastic-events"
+            },
+            {
+              "text": "Sc Elastic Metrics",
+              "link": "/fr/27.10/integrations/data-analytics/sc-elastic-metrics"
+            },
+            {
+              "text": "Graphite Metrics",
+              "link": "/fr/27.10/integrations/data-analytics/sc-graphite-metrics"
+            },
+            {
+              "text": "Sc Hp Omi",
+              "link": "/fr/27.10/integrations/event-management/sc-hp-omi"
+            },
+            {
+              "text": "InfluxDB 2 Metrics",
+              "link": "/fr/27.10/integrations/data-analytics/sc-influxdb2-metrics"
+            },
+            {
+              "text": "Kafka Events",
+              "link": "/fr/27.10/integrations/data-analytics/sc-kafka-events"
+            },
+            {
+              "text": "Logstash Events",
+              "link": "/fr/27.10/integrations/data-analytics/sc-logstash-events"
+            },
+            {
+              "text": "Sc Opsgenie Events",
+              "link": "/fr/27.10/integrations/event-management/sc-opsgenie-events"
+            },
+            {
+              "text": "PagerDuty Events",
+              "link": "/fr/27.10/integrations/event-management/sc-pagerduty-events"
+            },
+            {
+              "text": "ServiceNow Event Manager Events",
+              "link": "/fr/27.10/integrations/event-management/sc-service-now-em-events"
+            },
+            {
+              "text": "ServiceNow Incident Events",
+              "link": "/fr/27.10/integrations/event-management/sc-service-now-incident-events"
+            },
+            {
+              "text": "Signl4 Events",
+              "link": "/fr/27.10/integrations/event-management/sc-signl4-events"
+            },
+            {
+              "text": "Splunk Events",
+              "link": "/fr/27.10/integrations/data-analytics/sc-splunk-events"
+            },
+            {
+              "text": "Splunk Metrics",
+              "link": "/fr/27.10/integrations/data-analytics/sc-splunk-metrics"
+            },
+            {
+              "text": "Warp10",
+              "link": "/fr/27.10/integrations/data-analytics/sc-warp10"
+            }
+          ],
+          "link": "/fr/27.10/integrations/stream-connectors"
+        },
+        {
+          "text": "ITSM",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "BMC Footprints 11",
+              "link": "/fr/27.10/integrations/itsm/ot-bmc-footprints-11"
+            },
+            {
+              "text": "BMC Remedy",
+              "link": "/fr/27.10/integrations/itsm/ot-bmc-remedy"
+            },
+            {
+              "text": "EasyVista API SOAP",
+              "link": "/fr/27.10/integrations/itsm/ot-easyvista"
+            },
+            {
+              "text": "EasyVista RestAPI",
+              "link": "/fr/27.10/integrations/itsm/ot-easyvista-rest-api"
+            },
+            {
+              "text": "GLPI",
+              "link": "/fr/27.10/integrations/itsm/ot-glpi"
+            },
+            {
+              "text": "Ot Glpi Restapi",
+              "link": "/fr/27.10/integrations/itsm/ot-glpi-restapi"
+            },
+            {
+              "text": "iTop",
+              "link": "/fr/27.10/integrations/itsm/ot-itop"
+            },
+            {
+              "text": "Ivanti",
+              "link": "/fr/27.10/integrations/itsm/ot-ivanti"
+            },
+            {
+              "text": "Jira",
+              "link": "/fr/27.10/integrations/itsm/ot-jira"
+            },
+            {
+              "text": "Mail",
+              "link": "/fr/27.10/integrations/itsm/ot-mail"
+            },
+            {
+              "text": "Matrix42",
+              "link": "/fr/27.10/integrations/itsm/ot-matrix42"
+            },
+            {
+              "text": "Ot Otrs Restapi",
+              "link": "/fr/27.10/integrations/itsm/ot-otrs-restapi"
+            },
+            {
+              "text": "Request Tracker 2",
+              "link": "/fr/27.10/integrations/itsm/ot-request-tracker-2"
+            },
+            {
+              "text": "Serena ITSM",
+              "link": "/fr/27.10/integrations/itsm/ot-serena-itsm"
+            },
+            {
+              "text": "Ot Servicenow",
+              "link": "/fr/27.10/integrations/itsm/ot-servicenow"
+            },
+            {
+              "text": "Simple",
+              "link": "/fr/27.10/integrations/itsm/ot-simple"
+            }
+          ],
+          "link": "/fr/27.10/integrations/itsm/itsm-overview"
+        },
+        {
+          "text": "NPM",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Widget NtopNG",
+              "link": "/fr/27.10/integrations/npm/ntopng"
+            }
+          ]
+        }
+      ],
+      "link": "/fr/27.10/integrations/introduction-integrations"
+    },
+    {
+      "text": "Centreon mobile",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/fr/27.10/mobile/introduction"
+        }
+      ]
+    },
+    {
+      "text": "API",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Introduction",
+          "link": "/fr/27.10/api/introduction"
+        },
+        {
+          "text": "Command Line API (v1) - CLAPI",
+          "link": "/fr/27.10/api/clapi"
+        },
+        {
+          "text": "Rest API (v1)",
+          "link": "/fr/27.10/api/rest-api-v1"
+        },
+        {
+          "text": "Utiliser l'API v2 avec Postman",
+          "link": "/fr/27.10/api/rest-api-v2"
+        },
+        {
+          "text": "Automatiser MAP via l'API",
+          "link": "/fr/27.10/api/map-api"
+        }
+      ]
+    },
+    {
+      "text": "Ressources développeur",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Comment écrire un Stream Connector",
+          "link": "/fr/27.10/developer/developer-stream-connector"
+        },
+        {
+          "text": "Developer Broker Stream Connector Migration",
+          "link": "/fr/27.10/developer/developer-broker-stream-connector-migration"
+        },
+        {
+          "text": "Comment écrire un widget",
+          "link": "/fr/27.10/developer/developer-widget"
+        },
+        {
+          "text": "Mcp Server",
+          "link": "/fr/27.10/developer/mcp-server"
+        },
+        {
+          "text": "Centreon Broker",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Developer Broker Stream Connector",
+              "link": "/fr/27.10/developer/developer-broker-stream-connector"
+            },
+            {
+              "text": "Le protocole BBDO",
+              "link": "/fr/27.10/developer/developer-broker-bbdo"
+            },
+            {
+              "text": "Changer de version de BBDO",
+              "link": "/fr/27.10/developer/developer-broker-bbdo-switch-versions"
+            },
+            {
+              "text": "Mapping d’évènements Centreon Broker",
+              "link": "/fr/27.10/developer/developer-broker-mapping"
+            }
+          ],
+          "link": "/fr/27.10/developer/centreon-broker"
+        },
+        {
+          "text": "Centreon Gorgone",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Developer Gorgone Client Server Communication",
+              "link": "/fr/27.10/developer/developer-gorgone-client-server-communication"
+            },
+            {
+              "text": "Developer Gorgone Pull Mode",
+              "link": "/fr/27.10/developer/developer-gorgone-pull-mode"
+            },
+            {
+              "text": "Developer Gorgone Rebound Mode",
+              "link": "/fr/27.10/developer/developer-gorgone-rebound-mode"
+            }
+          ],
+          "link": "/fr/27.10/developer/centreon-gorgone"
+        }
+      ]
+    },
+    {
+      "text": "Centreon HA",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Ha Faq",
+          "link": "/fr/27.10/installation/installation-of-centreon-ha/ha-faq"
+        },
+        {
+          "text": "Éléments d'un cluster Centreon HA",
+          "link": "/fr/27.10/installation/installation-of-centreon-ha/cluster-elements"
+        },
+        {
+          "text": "Fonctionnement de Centreon HA",
+          "link": "/fr/27.10/installation/installation-of-centreon-ha/overview"
+        },
+        {
+          "text": "Ha Prerequisites",
+          "link": "/fr/27.10/installation/installation-of-centreon-ha/ha-prerequisites"
+        },
+        {
+          "text": "Centreon HA pour les petites infrastructures",
+          "link": "/fr/27.10/installation/installation-of-centreon-ha/ha-small"
+        },
+        {
+          "text": "Finaliser votre installation Centreon HA",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Intégrer des collecteurs dans un cluster Centreon HA",
+              "link": "/fr/27.10/installation/installation-of-centreon-ha/integrating-pollers"
+            },
+            {
+              "text": "Superviser Centreon HA",
+              "link": "/fr/27.10/administration/centreon-ha/monitoring-guide"
+            }
+          ]
+        },
+        {
+          "text": "Faire fonctionner Centreon HA",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Guide d'utilisation",
+              "link": "/fr/27.10/administration/centreon-ha/operating-guide"
+            },
+            {
+              "text": "Dépanner la HA",
+              "link": "/fr/27.10/administration/centreon-ha/troubleshooting-guide"
+            }
+          ]
+        },
+        {
+          "text": "Mettre à jour Centreon HA",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Mise à jour d'une plateforme Centreon HA",
+              "link": "/fr/27.10/update/update-centreon-ha"
+            }
+          ]
+        },
+        {
+          "text": "Monter de version Centreon HA",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Upgrade Centreon Ha From 25 10",
+              "link": "/fr/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-25-10"
+            },
+            {
+              "text": "Upgrade Centreon Ha From 24 10",
+              "link": "/fr/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
+            },
+            {
+              "text": "Upgrade Centreon Ha From 24 04",
+              "link": "/fr/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-24-04"
+            },
+            {
+              "text": "Upgrade Centreon Ha From 23 10",
+              "link": "/fr/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-10"
+            },
+            {
+              "text": "Upgrade Centreon Ha From 23 04",
+              "link": "/fr/27.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
+            }
+          ]
+        }
+      ],
+      "link": "/fr/27.10/installation/installation-of-centreon-ha/centreon-ha"
+    },
+    {
+      "text": "Releases",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Release notes for Centreon 27.10",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Centreon Os",
+              "link": "/fr/27.10/releases/centreon-os"
+            },
+            {
+              "text": "Centreon Commercial Extensions",
+              "link": "/fr/27.10/releases/centreon-commercial-extensions"
+            }
+          ],
+          "link": "/fr/27.10/releases/introduction"
+        },
+        {
+          "text": "Politique de cycle de vie des solutions",
+          "link": "/fr/27.10/releases/lifecycle"
+        }
+      ]
+    },
+    {
+      "text": "Sécurité",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Centreon et la sécurité",
+          "link": "/fr/27.10/security/security"
+        },
+        {
+          "text": "Rotation de clés",
+          "link": "/fr/27.10/security/key-rotation"
+        },
+        {
+          "text": "Stockage des données utilisateur",
+          "collapsible": true,
+          "collapsed": true,
+          "items": [
+            {
+              "text": "Conformité RGPD",
+              "link": "/fr/27.10/security/user-data-storage/gdpr-compliance"
+            },
+            {
+              "text": "Qu'est-ce que Centreon CEIP?",
+              "link": "/fr/27.10/security/user-data-storage/what-is-centreon-ceip"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "text": "Ressources",
+      "collapsible": true,
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Problèmes connus",
+          "link": "/fr/27.10/resources/known-issues"
+        },
+        {
+          "text": "Dépannage de la plateforme Centreon",
+          "link": "/fr/27.10/resources/troubleshooting"
+        },
+        {
+          "text": "Liste des logs Centreon",
+          "link": "/fr/27.10/resources/logs"
+        },
+        {
+          "text": "Glossaire des concepts Centreon",
+          "link": "/fr/27.10/resources/glossary"
+        },
+        {
+          "text": "Contribuer à la documentation Centreon",
+          "link": "/fr/27.10/resources/contribute"
         }
       ]
     }
@@ -7263,6 +10862,10 @@ export const sidebar: Sidebar = {
               "link": "/fr/25.10/upgrade/introduction"
             },
             {
+              "text": "Upgrade Matrix",
+              "link": "/fr/25.10/upgrade/upgrade-matrix"
+            },
+            {
               "text": "Montée de version depuis Centreon 24.10",
               "link": "/fr/25.10/upgrade/upgrade-from-24-10"
             },
@@ -7990,6 +11593,10 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-voip-asterisk-snmp"
         },
         {
+          "text": "Atlassian Statuspage API",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-atlassian-statuspage-api"
+        },
+        {
           "text": "AWA (Automic Workload Automation) JMX",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-awa-jmx"
         },
@@ -8554,6 +12161,10 @@ export const sidebar: Sidebar = {
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-varnish-nrpe"
         },
         {
+          "text": "Veeam Backup & Replication Rest API",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/applications-veeam-vbr-restapi"
+        },
+        {
           "text": "Veeam Backup Enterprise Manager Rest API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/applications-veeam-vbem-restapi"
         },
@@ -9093,6 +12704,10 @@ export const sidebar: Sidebar = {
         {
           "text": "VMware VeloCloud Rest API",
           "link": "/fr/pp/integrations/plugin-packs/procedures/cloud-vmware-velocloud-restapi"
+        },
+        {
+          "text": "Zscaler Zero Trust Branch API",
+          "link": "/fr/pp/integrations/plugin-packs/procedures/cloud-zscaler-ztb-restapi"
         }
       ]
     },
@@ -11521,7 +15136,7 @@ export const sidebar: Sidebar = {
           ]
         },
         {
-          "text": "Graphical views (maps)",
+          "text": "Vues graphiques (cartes)",
           "collapsible": true,
           "collapsed": true,
           "items": [
@@ -11530,10 +15145,14 @@ export const sidebar: Sidebar = {
               "link": "/fr/cloud/graph-views/introduction-map"
             },
             {
-              "text": "Guide",
+              "text": "Using MAP",
               "collapsible": true,
               "collapsed": true,
               "items": [
+                {
+                  "text": "Bonnes pratiques pour utiliser les cartes",
+                  "link": "/fr/cloud/graph-views/map-best-practices"
+                },
                 {
                   "text": "Gérer les droits d'accès dans MAP",
                   "link": "/fr/cloud/graph-views/map-web-access"
@@ -11549,7 +15168,14 @@ export const sidebar: Sidebar = {
                 {
                   "text": "Créer une vue géographique",
                   "link": "/fr/cloud/graph-views/map-web-create-geoview"
-                },
+                }
+              ]
+            },
+            {
+              "text": "Fixing MAP issues",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
                 {
                   "text": "Problèmes connus dans MAP",
                   "link": "/fr/cloud/graph-views/map-web-known-issues"
@@ -12346,12 +15972,12 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Using packages",
-              "link": "/26.10/installation/installation-of-a-central-server/using-packages"
-            },
-            {
               "text": "Unattended Install Central",
               "link": "/26.10/installation/installation-of-a-central-server/unattended-install-central"
+            },
+            {
+              "text": "Using packages (central server)",
+              "link": "/26.10/installation/installation-of-a-central-server/using-packages"
             },
             {
               "text": "Using a virtual machine (VM)",
@@ -12369,12 +15995,46 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Using packages",
-              "link": "/26.10/installation/installation-of-a-poller/using-packages"
-            },
-            {
               "text": "Unattended Install Poller",
               "link": "/26.10/installation/installation-of-a-poller/unattended-install-poller"
+            },
+            {
+              "text": "Using a generated command (virtual or physical machine)",
+              "link": "/26.10/installation/installation-of-a-poller/vm-or-physical"
+            },
+            {
+              "text": "Pollers in containers",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installing a poller in a container",
+                  "link": "/26.10/installation/installation-of-a-poller/using-containers"
+                },
+                {
+                  "text": "Advanced container configuration",
+                  "link": "/26.10/installation/installation-of-a-poller/using-containers-advanced-configuration"
+                }
+              ]
+            },
+            {
+              "text": "Prerequisites for pollers in pullwss mode",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Prerequisites for pollers installed via a generated command",
+                  "link": "/26.10/installation/installation-of-a-poller/pollers-containers-prerequisites"
+                },
+                {
+                  "text": "Adapting legacy pullwss poller setups",
+                  "link": "/26.10/installation/installation-of-a-poller/adapt-legacy-pullwss"
+                }
+              ]
+            },
+            {
+              "text": "Using packages (poller)",
+              "link": "/26.10/installation/installation-of-a-poller/using-packages"
             }
           ]
         },
@@ -12384,12 +16044,12 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Using packages",
-              "link": "/26.10/installation/installation-of-a-remote-server/using-packages"
-            },
-            {
               "text": "Unattended Install Remote",
               "link": "/26.10/installation/installation-of-a-remote-server/unattended-install-remote"
+            },
+            {
+              "text": "Using packages (remote server)",
+              "link": "/26.10/installation/installation-of-a-remote-server/using-packages"
             }
           ]
         },
@@ -12442,6 +16102,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Secure your MBI platform",
           "link": "/26.10/reporting/secure-your-mbi-platform"
+        },
+        {
+          "text": "Create a self-signed certificate",
+          "link": "/26.10/administration/self-signed-certificate"
         }
       ]
     },
@@ -12857,6 +16521,10 @@ export const sidebar: Sidebar = {
               "link": "/26.10/service-mapping/ba-management"
             },
             {
+              "text": "Simulate Business Activities",
+              "link": "/26.10/service-mapping/ba-simulation"
+            },
+            {
               "text": "Monitor Business Activities",
               "link": "/26.10/service-mapping/ba-monitoring"
             },
@@ -12987,6 +16655,10 @@ export const sidebar: Sidebar = {
               "collapsible": true,
               "collapsed": true,
               "items": [
+                {
+                  "text": "Best practices for using maps",
+                  "link": "/26.10/graph-views/map-best-practices"
+                },
                 {
                   "text": "Managing maps in MAP",
                   "link": "/26.10/graph-views/map-web-manage"
@@ -13347,7 +17019,7 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Update a Centreon 25.10 platform",
+              "text": "Update a Centreon 26.10 platform",
               "link": "/26.10/update/update-centreon-platform"
             }
           ]
@@ -13360,6 +17032,14 @@ export const sidebar: Sidebar = {
             {
               "text": "Introduction to upgrade",
               "link": "/26.10/upgrade/introduction"
+            },
+            {
+              "text": "Upgrade Matrix",
+              "link": "/26.10/upgrade/upgrade-matrix"
+            },
+            {
+              "text": "Upgrade from Centreon 25.10",
+              "link": "/26.10/upgrade/upgrade-from-25-10"
             },
             {
               "text": "Upgrade from Centreon 24.10",
@@ -13376,26 +17056,6 @@ export const sidebar: Sidebar = {
             {
               "text": "Upgrade from Centreon 23.04",
               "link": "/26.10/upgrade/upgrade-from-23-04"
-            },
-            {
-              "text": "Upgrade from Centreon 22.10",
-              "link": "/26.10/upgrade/upgrade-from-22-10"
-            },
-            {
-              "text": "Upgrade from Centreon 22.04",
-              "link": "/26.10/upgrade/upgrade-from-22-04"
-            },
-            {
-              "text": "Upgrade from Centreon 21.10",
-              "link": "/26.10/upgrade/upgrade-from-21-10"
-            },
-            {
-              "text": "Upgrade from Centreon 21.04",
-              "link": "/26.10/upgrade/upgrade-from-21-04"
-            },
-            {
-              "text": "Upgrade from Centreon 20.10",
-              "link": "/26.10/upgrade/upgrade-from-20-10"
             },
             {
               "text": "Upgrading MariaDB",
@@ -13425,24 +17085,8 @@ export const sidebar: Sidebar = {
               "link": "/26.10/migrate/migrate-from-el-to-debian"
             },
             {
-              "text": "Migrate from Debian 11 to Debian 12",
+              "text": "Migrate to a newer Debian version",
               "link": "/26.10/migrate/migrate-from-debian-to-debian"
-            },
-            {
-              "text": "Migrate from a Centreon 3.4 platform",
-              "link": "/26.10/migrate/migrate-from-3-4"
-            },
-            {
-              "text": "Nagios Reader to Centreon CLAPI",
-              "link": "/26.10/migrate/nagios-to-centreon"
-            },
-            {
-              "text": "Migrate a platform with Poller Display module",
-              "link": "/26.10/migrate/poller-display-to-remote-server"
-            },
-            {
-              "text": "Developer Gorgone Migrate From Centcore",
-              "link": "/26.10/developer/developer-gorgone-migrate-from-centcore"
             }
           ]
         }
@@ -13631,6 +17275,10 @@ export const sidebar: Sidebar = {
             {
               "text": "Mail",
               "link": "/26.10/integrations/itsm/ot-mail"
+            },
+            {
+              "text": "Matrix42",
+              "link": "/26.10/integrations/itsm/ot-matrix42"
             },
             {
               "text": "Ot Otrs Restapi",
@@ -13846,6 +17494,10 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
+              "text": "Upgrade Centreon Ha From 25 10",
+              "link": "/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-25-10"
+            },
+            {
               "text": "Upgrade Centreon Ha From 24 10",
               "link": "/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
             },
@@ -13860,22 +17512,6 @@ export const sidebar: Sidebar = {
             {
               "text": "Upgrade Centreon Ha From 23 04",
               "link": "/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-            },
-            {
-              "text": "Upgrade Centreon Ha From 22 10",
-              "link": "/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-            },
-            {
-              "text": "Upgrade Centreon Ha From 22 04",
-              "link": "/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "text": "Upgrade Centreon Ha From 21 10",
-              "link": "/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-            {
-              "text": "Upgrade Centreon Ha From 21 04",
-              "link": "/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
             }
           ]
         }
@@ -14122,12 +17758,12 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "À partir des paquets",
-              "link": "/fr/26.10/installation/installation-of-a-central-server/using-packages"
-            },
-            {
               "text": "Unattended Install Central",
               "link": "/fr/26.10/installation/installation-of-a-central-server/unattended-install-central"
+            },
+            {
+              "text": "À partir des paquets (serveur central)",
+              "link": "/fr/26.10/installation/installation-of-a-central-server/using-packages"
             },
             {
               "text": "À partir d'une VM",
@@ -14145,12 +17781,46 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "À partir des paquets",
-              "link": "/fr/26.10/installation/installation-of-a-poller/using-packages"
-            },
-            {
               "text": "Unattended Install Poller",
               "link": "/fr/26.10/installation/installation-of-a-poller/unattended-install-poller"
+            },
+            {
+              "text": "À l'aide d'une commande générée automatiquement (VM ou machine physique)",
+              "link": "/fr/26.10/installation/installation-of-a-poller/vm-or-physical"
+            },
+            {
+              "text": "Collecteurs en conteneurs",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Installer un collecteur dans un conteneur",
+                  "link": "/fr/26.10/installation/installation-of-a-poller/using-containers"
+                },
+                {
+                  "text": "Configuration avancée des conteneurs",
+                  "link": "/fr/26.10/installation/installation-of-a-poller/using-containers-advanced-configuration"
+                }
+              ]
+            },
+            {
+              "text": "Prérequis des collecteurs en mode pullwss",
+              "collapsible": true,
+              "collapsed": true,
+              "items": [
+                {
+                  "text": "Prérequis pour les collecteurs installés par commande générée",
+                  "link": "/fr/26.10/installation/installation-of-a-poller/pollers-containers-prerequisites"
+                },
+                {
+                  "text": "Adapter les anciennes configurations de collecteurs pullwss",
+                  "link": "/fr/26.10/installation/installation-of-a-poller/adapt-legacy-pullwss"
+                }
+              ]
+            },
+            {
+              "text": "À partir des paquets (collecteur)",
+              "link": "/fr/26.10/installation/installation-of-a-poller/using-packages"
             }
           ]
         },
@@ -14160,12 +17830,12 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "À partir des paquets",
-              "link": "/fr/26.10/installation/installation-of-a-remote-server/using-packages"
-            },
-            {
               "text": "Unattended Install Remote",
               "link": "/fr/26.10/installation/installation-of-a-remote-server/unattended-install-remote"
+            },
+            {
+              "text": "À partir des paquets (serveur distant)",
+              "link": "/fr/26.10/installation/installation-of-a-remote-server/using-packages"
             }
           ]
         },
@@ -14218,6 +17888,10 @@ export const sidebar: Sidebar = {
         {
           "text": "Sécuriser votre plateforme MBI",
           "link": "/fr/26.10/reporting/secure-your-mbi-platform"
+        },
+        {
+          "text": "Créer un certificat auto-signé",
+          "link": "/fr/26.10/administration/self-signed-certificate"
         }
       ]
     },
@@ -14633,6 +18307,10 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/service-mapping/ba-management"
             },
             {
+              "text": "Simulation",
+              "link": "/fr/26.10/service-mapping/ba-simulation"
+            },
+            {
               "text": "Supervision",
               "link": "/fr/26.10/service-mapping/ba-monitoring"
             },
@@ -14763,6 +18441,10 @@ export const sidebar: Sidebar = {
               "collapsible": true,
               "collapsed": true,
               "items": [
+                {
+                  "text": "Bonnes pratiques pour utiliser les cartes",
+                  "link": "/fr/26.10/graph-views/map-best-practices"
+                },
                 {
                   "text": "Gérer les cartes dans MAP",
                   "link": "/fr/26.10/graph-views/map-web-manage"
@@ -15123,7 +18805,7 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
-              "text": "Mise à jour d'une plateforme Centreon 25.10",
+              "text": "Mise à jour d'une plateforme Centreon 26.10",
               "link": "/fr/26.10/update/update-centreon-platform"
             }
           ]
@@ -15138,40 +18820,28 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/upgrade/introduction"
             },
             {
-              "text": "Montée de version depuis Centreon 24.10",
+              "text": "Upgrade Matrix",
+              "link": "/fr/26.10/upgrade/upgrade-matrix"
+            },
+            {
+              "text": "Monter de version depuis Centreon 25.10",
+              "link": "/fr/26.10/upgrade/upgrade-from-25-10"
+            },
+            {
+              "text": "Monter de version depuis Centreon 24.10",
               "link": "/fr/26.10/upgrade/upgrade-from-24-10"
             },
             {
-              "text": "Montée de version depuis Centreon 24.04",
+              "text": "Monter de version depuis Centreon 24.04",
               "link": "/fr/26.10/upgrade/upgrade-from-24-04"
             },
             {
-              "text": "Montée de version depuis Centreon 23.10",
+              "text": "Monter de version depuis Centreon 23.10",
               "link": "/fr/26.10/upgrade/upgrade-from-23-10"
             },
             {
-              "text": "Montée de version depuis Centreon 23.04",
+              "text": "Monter de version depuis Centreon 23.04",
               "link": "/fr/26.10/upgrade/upgrade-from-23-04"
-            },
-            {
-              "text": "Montée de version depuis Centreon 22.10",
-              "link": "/fr/26.10/upgrade/upgrade-from-22-10"
-            },
-            {
-              "text": "Montée de version depuis Centreon 22.04",
-              "link": "/fr/26.10/upgrade/upgrade-from-22-04"
-            },
-            {
-              "text": "Montée de version depuis Centreon 21.10",
-              "link": "/fr/26.10/upgrade/upgrade-from-21-10"
-            },
-            {
-              "text": "Montée de version depuis Centreon 21.04",
-              "link": "/fr/26.10/upgrade/upgrade-from-21-04"
-            },
-            {
-              "text": "Montée de version depuis Centreon 20.10",
-              "link": "/fr/26.10/upgrade/upgrade-from-20-10"
             },
             {
               "text": "Mettre à jour MariaDB",
@@ -15201,24 +18871,8 @@ export const sidebar: Sidebar = {
               "link": "/fr/26.10/migrate/migrate-from-el-to-debian"
             },
             {
-              "text": "Migrer depuis Debian 11 vers Debian 12",
+              "text": "Migrer vers une version plus récente de Debian",
               "link": "/fr/26.10/migrate/migrate-from-debian-to-debian"
-            },
-            {
-              "text": "Migration depuis une plateforme Centreon 3.4",
-              "link": "/fr/26.10/migrate/migrate-from-3-4"
-            },
-            {
-              "text": "Nagios Reader vers Centreon CLAPI",
-              "link": "/fr/26.10/migrate/nagios-to-centreon"
-            },
-            {
-              "text": "Migration d'une plate-forme avec Poller Display",
-              "link": "/fr/26.10/migrate/poller-display-to-remote-server"
-            },
-            {
-              "text": "Developer Gorgone Migrate From Centcore",
-              "link": "/fr/26.10/developer/developer-gorgone-migrate-from-centcore"
             }
           ]
         }
@@ -15407,6 +19061,10 @@ export const sidebar: Sidebar = {
             {
               "text": "Mail",
               "link": "/fr/26.10/integrations/itsm/ot-mail"
+            },
+            {
+              "text": "Matrix42",
+              "link": "/fr/26.10/integrations/itsm/ot-matrix42"
             },
             {
               "text": "Ot Otrs Restapi",
@@ -15622,6 +19280,10 @@ export const sidebar: Sidebar = {
           "collapsed": true,
           "items": [
             {
+              "text": "Upgrade Centreon Ha From 25 10",
+              "link": "/fr/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-25-10"
+            },
+            {
               "text": "Upgrade Centreon Ha From 24 10",
               "link": "/fr/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-24-10"
             },
@@ -15636,22 +19298,6 @@ export const sidebar: Sidebar = {
             {
               "text": "Upgrade Centreon Ha From 23 04",
               "link": "/fr/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-23-04"
-            },
-            {
-              "text": "Upgrade Centreon Ha From 22 10",
-              "link": "/fr/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-10"
-            },
-            {
-              "text": "Upgrade Centreon Ha From 22 04",
-              "link": "/fr/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-22-04"
-            },
-            {
-              "text": "Upgrade Centreon Ha From 21 10",
-              "link": "/fr/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-10"
-            },
-            {
-              "text": "Upgrade Centreon Ha From 21 04",
-              "link": "/fr/26.10/upgrade/centreon-ha/upgrade-centreon-ha-from-21-04"
             }
           ]
         }

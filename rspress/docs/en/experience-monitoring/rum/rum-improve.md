@@ -1,7 +1,7 @@
 ---
 id: rum-improve
 title: RUM optimization recommendations
-description: Use per-URL audits to improve top page performance
+description: "Access per-URL optimization audits for your top 10 RUM pages, understand gaps in recommendations, and compare audits to measure the impact of your changes."
 ---
 
 Centreon Experience Monitoring provides detailed audits of how to improve the performance of your site.

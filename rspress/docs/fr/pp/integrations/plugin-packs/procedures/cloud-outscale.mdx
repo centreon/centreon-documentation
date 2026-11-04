@@ -947,3 +947,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vpn-connections \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

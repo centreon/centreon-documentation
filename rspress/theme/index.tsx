@@ -15,7 +15,7 @@ export { IconCopy, IconSuccess, IconWrap, IconWrapped } from './maskIcons';
 export { Sidebar, SidebarList } from './components/Sidebar';
 
 const DEFAULT_VERSION = '26.10';
-const VERSIONS = ['26.10', '25.10'] as const;
+const VERSIONS = ['27.10', '26.10', '25.10'] as const;
 const PP_ENTRY = '/pp/integrations/plugin-packs/getting-started/introduction';
 const CLOUD_ENTRY = '/cloud/getting-started/welcome';
 const EM_ENTRY = '/experience-monitoring/getting-started/welcome';
