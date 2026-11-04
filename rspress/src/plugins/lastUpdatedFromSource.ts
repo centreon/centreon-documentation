@@ -42,7 +42,8 @@ async function collectCommitTimes(repoRoot: string): Promise<Map<string, number>
   try {
     const { stdout } = await execFileAsync(
       'git',
-      ['-c', 'core.quotePath=false', 'log', '--format=%x00%ct', '--name-only', '--no-renames', '--', ...paths],
+      // --no-merges: the CI builds a PR's merge commit, dated of the run.
+      ['-c', 'core.quotePath=false', 'log', '--no-merges', '--format=%x00%ct', '--name-only', '--no-renames', '--', ...paths],
       { cwd: repoRoot, maxBuffer: 1024 * 1024 * 1024 },
     );
     let current = 0;
