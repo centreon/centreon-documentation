@@ -13,7 +13,16 @@ import TabItem from '@theme/TabItem';
 
 Model Context Protocol (MCP) est un standard ouvert qui permet à un assistant IA d'utiliser des outils externes. Le serveur MCP de Centreon Log Management connecte un assistant IA aux logs de votre organisation. Claude, Visual Studio Code ou tout autre client compatible MCP peut alors rechercher vos logs, les résumer, tracer leur volume et le prévoir, directement depuis la conversation.
 
-Le serveur MCP ne stocke aucune donnée. En revanche, les logs que renvoient ses outils sont transmis au modèle de langage qu'utilise votre assistant. N'utilisez le serveur MCP qu'avec un assistant dont les conditions d'utilisation respectent votre politique de données, par exemple un modèle local ou un service qui n'entraîne pas ses modèles sur vos données. Les questions en langage naturel et les résumés de logs sont également traités par Log Management lui-même, comme avec les fonctionnalités **Ask AI** et **Log summary** du [Log explorer](../log-explorer.md).
+Le serveur MCP ne stocke aucune donnée, mais vos logs passent par deux modèles de langage :
+
+- Celui de votre assistant, qui reçoit les logs renvoyés par les outils. N'utilisez le serveur MCP qu'avec un assistant dont les conditions d'utilisation respectent votre politique de données, par exemple un modèle local ou un service qui n'entraîne pas ses modèles sur vos données.
+- Celui de Log Management, qui traduit les questions en langage naturel en requêtes (`search_logs`) et rédige les résumés de logs (`summarize_logs`), comme les fonctionnalités **Ask AI** et **Log summary** du [Log explorer](../log-explorer.md).
+
+## Limites
+
+- Le serveur MCP ne fait que lire vos logs : il ne crée et ne modifie rien dans votre organisation.
+- Une connexion donne accès à une seule organisation.
+- L'authentification repose sur un jeton envoyé dans un en-tête HTTP. Les clients qui ne prennent en charge que la connexion par OAuth ne peuvent pas encore se connecter.
 
 ## Prérequis
 
@@ -162,12 +171,6 @@ Le serveur MCP fournit aussi des prompts : des instructions toutes prêtes qui g
 | `incident_postmortem` | Enquête sur un incident dans les logs et rédige un post-mortem : signes précurseurs, chronologie à la minute près, avec la requête qui étaye chaque affirmation                                           | `incident` : ce que l'on sait déjà (période, services touchés, symptômes)                                                                              |
 | `period_digest`       | Répond à « que s'est-il passé pendant mon absence ? » en comparant une période à une période de référence : tendances, anomalies ou confirmation explicite que tout va bien, points marquants par service | `period` : la période à couvrir (les dernières 24 heures par défaut) ; `focus` : ce qui est normal pour votre plateforme, ou les services à surveiller |
 | `understand_logs`     | Fait découvrir vos logs à un nouvel arrivant : les services présents, leur volume et leur profil de sévérité, des logs typiques et des requêtes pour commencer                                            | `focus` : un domaine par lequel commencer (un service, une technologie, une question)                                                                  |
-
-## Limites
-
-- Le serveur MCP ne fait que lire vos logs : il ne crée et ne modifie rien dans votre organisation.
-- Une connexion donne accès à une seule organisation.
-- L'authentification repose sur un jeton envoyé dans un en-tête HTTP. Les clients qui ne prennent en charge que la connexion par OAuth ne peuvent pas encore se connecter.
 
 ## Dépannage
 

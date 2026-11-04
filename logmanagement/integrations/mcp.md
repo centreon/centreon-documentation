@@ -13,7 +13,16 @@ import TabItem from '@theme/TabItem';
 
 Model Context Protocol (MCP) is an open standard that lets an AI assistant use external tools. The Centreon Log Management MCP server connects an AI assistant to the logs of your organization. Claude, Visual Studio Code, or any other client compatible with MCP can then search your logs, summarize them, chart their volume and forecast it, directly from the conversation.
 
-The MCP server does not store any data. However, the logs returned by its tools are sent to the language model your assistant uses. Only use the MCP server with an assistant whose terms of use fit your data policy, for example a local model or a service that does not train on your data. Questions in natural language and log summaries are also processed by Log Management itself, as with the **Ask AI** and **Log summary** features of the [Log explorer](../log-explorer.md).
+The MCP server does not store any data, but your logs go through two language models:
+
+- The model of your assistant, which receives the logs returned by the tools. Only use the MCP server with an assistant whose terms of use fit your data policy, for example a local model or a service that does not train on your data.
+- The model of Log Management, which turns questions in natural language into queries (`search_logs`) and writes log summaries (`summarize_logs`), as with the **Ask AI** and **Log summary** features of the [Log explorer](../log-explorer.md).
+
+## Limitations
+
+- The MCP server only reads your logs: it does not create or modify anything in your organization.
+- One connection gives access to one organization.
+- Authentication relies on a token sent in an HTTP header. Clients that only support the OAuth sign-in flow cannot connect yet.
 
 ## Prerequisites
 
@@ -162,12 +171,6 @@ The MCP server also provides prompts: ready-made instructions that guide the ass
 | `incident_postmortem` | Investigates an incident in the logs and writes a post-mortem: precursors, timeline to the minute, with the query behind every statement            | `incident`: what is already known (time window, affected services, symptoms)                                            |
 | `period_digest`       | Answers "what happened while I was away?" by comparing a period with a baseline: trends, anomalies or an explicit all-clear, highlights per service | `period`: the period to cover (the last 24 hours by default); `focus`: what normal looks like, or the services to watch |
 | `understand_logs`     | Gives a tour of your logs for a newcomer: the services present, their volume and severity profile, typical logs, and starter queries                | `focus`: an area to start with (a service, a technology, a question)                                                    |
-
-## Limitations
-
-- The MCP server only reads your logs: it does not create or modify anything in your organization.
-- One connection gives access to one organization.
-- Authentication relies on a token sent in an HTTP header. Clients that only support the OAuth sign-in flow cannot connect yet.
 
 ## Troubleshooting
 
