@@ -1,7 +1,7 @@
 ---
 id: upgrade
 title: Upgrade the extension
-description: "Upgrade Centreon MBI to a new major version"
+description: "Upgrade Centreon MBI to a new major version: update the repository, upgrade the extension interface and reporting server, then upgrade the database."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

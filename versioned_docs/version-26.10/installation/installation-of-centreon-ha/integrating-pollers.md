@@ -1,7 +1,7 @@
 ---
 id: integrating-pollers
 title: Integrating new pollers in a Centreon HA cluster
-description: "Authorize and configure pollers to work with a Centreon HA cluster"
+description: "Add a poller to a Centreon HA cluster: get the thumbprints of both central nodes, add the poller to the configuration and configure its Gorgone service."
 ---
 
 ## Obtaining the central nodes' thumbprints

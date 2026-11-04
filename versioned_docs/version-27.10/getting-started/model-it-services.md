@@ -1,7 +1,7 @@
 ---
 id: model-it-services
 title: Model your IT services
-description: "How to model IT services and applications with Centreon BAM"
+description: "Model IT services and applications with Centreon BAM: aggregate indicators into business activities, track their status in real time and measure SLAs."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: notif-configuration
 title: Configuring notifications
-description: "Configure and troubleshoot host, service, and contact notifications"
+description: "Configure notifications in Centreon on hosts, services, and contacts, understand inheritance rules, and troubleshoot notifications that are not sent."
 ---
 
 ## Prerequisites

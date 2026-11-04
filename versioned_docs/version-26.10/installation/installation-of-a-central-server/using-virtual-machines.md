@@ -1,7 +1,7 @@
 ---
 id: using-virtual-machines
 title: Using a virtual machine (VM)
-description: "Install a central server using a ready-to-use virtual machine"
+description: "Install a Centreon central server from a ready-to-use VMware or VirtualBox virtual machine to test the solution or use IT-100."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

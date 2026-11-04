@@ -1,7 +1,7 @@
 ---
 id: unattended-install-remote
 title: Unattended installation of a remote server
-description: "Install a remote server quickly using an unattended script"
+description: "Install a Centreon remote server quickly with the unattended installation script, then register it and attach it to the central server."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

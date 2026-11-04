@@ -1,7 +1,7 @@
 ---
 id: sc-pagerduty-events
 title: PagerDuty Events
-description: "Envoyer les événements d'hôtes et de services de Centreon vers PagerDuty"
+description: "Configurez le stream connector PagerDuty Events pour envoyer les évènements d'état des hôtes et services Centreon vers PagerDuty, puis testez l'envoi."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

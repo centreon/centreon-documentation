@@ -1,7 +1,7 @@
 ---
 id: migrate-from-debian-to-debian
 title: Migrate to a newer Debian version
-description: "Migrate a Centreon platform to a newer Debian version"
+description: "Migrate a Centreon platform to a newer Debian version on another server: install the new central server, synchronize data and databases, then upgrade."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: update
 title: Mettre à jour l'extension
-description: "Mettre à jour le paquet et le module de l'extension Centreon BAM"
+description: "Mettez à jour l'extension Centreon BAM vers une version mineure : mettez à jour le paquet centreon-bam-server, puis le module depuis l'interface Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

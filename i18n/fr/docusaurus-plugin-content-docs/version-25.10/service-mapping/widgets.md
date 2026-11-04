@@ -1,7 +1,7 @@
 ---
 id: widgets
 title: Widgets
-description: "Afficher le statut des activités métier via des widgets de tableau de bord"
+description: "Utilisez le widget Live Business Activity Status dans les vues personnalisées pour lister les activités métier avec leur statut et leur niveau actuels."
 ---
 
 > Les widgets Centreon BAM suivants sont disponibles dans les [Tableaux de bord](../alerts-notifications/dashboards.md) :

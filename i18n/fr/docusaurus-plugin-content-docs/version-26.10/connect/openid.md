@@ -1,7 +1,7 @@
 ---
 id: openid
 title: Configurer une authentification par OpenId Connect
-description: "Configurer l'authentification via un fournisseur OpenID Connect"
+description: "Configurez l'authentification OpenID Connect de Centreon avec un fournisseur d'identité comme Okta ou Keycloak, et gérez utilisateurs et autorisations."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

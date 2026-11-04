@@ -1,7 +1,7 @@
 ---
 id: hosts
 title: Créer un hôte manuellement
-description: "Référence détaillée des champs de configuration, notifications et dépendances d'un hôte"
+description: "Créez un hôte manuellement dans Centreon : référence des champs de configuration, options de contrôle, notifications, relations et traitement des données."
 ---
 
 Pour créer un hôte manuellement :

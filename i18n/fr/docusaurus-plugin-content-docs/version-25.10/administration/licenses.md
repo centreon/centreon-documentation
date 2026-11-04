@@ -1,7 +1,7 @@
 ---
 id: licenses
 title: Licences
-description: "Obtenir, ajouter et dépanner les licences Centreon en ligne ou hors ligne"
+description: "Obtenez et ajoutez des licences Centreon en ligne ou hors ligne, identifiez les modules soumis à licence et résolvez les problèmes de licence."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

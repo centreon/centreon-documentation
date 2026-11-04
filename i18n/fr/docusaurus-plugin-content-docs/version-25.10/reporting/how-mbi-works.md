@@ -1,7 +1,7 @@
 ---
 id: how-mbi-works
 title: Comment fonctionne MBI ?
-description: "Comment Centreon MBI prépare, agrège et génère les rapports chaque jour"
+description: "Fonctionnement quotidien de Centreon MBI : préparation des données par le central, agrégation par l'ETL, génération par CBIS et envoi des rapports."
 ---
 
 Chaque jour, MBI suit 3 phases principales indépendantes :

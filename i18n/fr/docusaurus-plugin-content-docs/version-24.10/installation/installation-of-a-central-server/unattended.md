@@ -1,7 +1,7 @@
 ---
 id: unattended-install-central
 title: Installation silencieuse d'un serveur central
-description: "Installer rapidement un serveur central à l'aide d'un script"
+description: "Installez en une fois un serveur central Centreon via le script d'installation silencieuse, qui exécute toute la procédure, installation web comprise."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

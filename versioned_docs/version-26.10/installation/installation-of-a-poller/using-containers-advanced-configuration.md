@@ -1,7 +1,7 @@
 ---
 id: using-containers-advanced-configuration
 title: Advanced container configuration
-description: "Optional configuration for a container-based poller: VMware monitoring, custom plugins, CMA support, and email notifications"
+description: "Optional configuration for a container-based poller: VMware monitoring, custom plugins, CMA support, and email notifications."
 ---
 
 This page covers optional configuration for a poller [deployed in a

@@ -1,7 +1,7 @@
 ---
 id: categories
 title: Catégories et criticités
-description: "Organiser les hôtes et services à l'aide de catégories et de niveaux de criticité"
+description: "Classez hôtes et services par catégories pour filtrer les vues et définir des droits via les ACL, et créez des criticités pour les prioriser dans Centreon."
 ---
 
 Les catégories vous permettent :

@@ -1,6 +1,7 @@
 ---
 id: cma-setup-manual
 title: Setting up CMA manually
+description: "Set up Centreon Monitoring Agent (CMA) manually: configure Centreon, prepare the poller firewall and encryption, then install the agent on the host."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

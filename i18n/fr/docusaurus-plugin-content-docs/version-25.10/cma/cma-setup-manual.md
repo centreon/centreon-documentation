@@ -1,6 +1,7 @@
 ---
 id: cma-setup-manual
 title: Configurer CMA manuellement
+description: "Configurez Centreon Monitoring Agent (CMA) manuellement : préparez Centreon, le pare-feu et le chiffrement du collecteur, puis installez l'agent."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

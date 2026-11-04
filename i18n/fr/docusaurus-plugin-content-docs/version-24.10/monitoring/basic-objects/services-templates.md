@@ -1,7 +1,7 @@
 ---
 id: services-templates
 title: Utiliser des modèles de services
-description: "Utiliser les modèles de services pour standardiser et simplifier leur création"
+description: "Utilisez des modèles de services dans Centreon pour définir des valeurs par défaut, gérer l'héritage et simplifier la création de services."
 ---
 
 ## Définition

@@ -1,7 +1,7 @@
 ---
 id: cma-setup
 title: Configurer l’environnement de l’agent
-description: "Configurer et déployer l'agent de supervision Centreon sur pollers et hôtes"
+description: "Préparez l'environnement de Centreon Monitoring Agent (CMA) avec la commande d'installation prête à l'emploi ou les scripts, certificats compris."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

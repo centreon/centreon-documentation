@@ -1,7 +1,7 @@
 ---
 id: cma
 title: Introduction to CMA
-description: "Introduction to the Centreon Monitoring Agent and its use cases"
+description: "Introduction to Centreon Monitoring Agent (CMA): when to use an agent, supported OSs and applications, check periods, and how the host and poller interact."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

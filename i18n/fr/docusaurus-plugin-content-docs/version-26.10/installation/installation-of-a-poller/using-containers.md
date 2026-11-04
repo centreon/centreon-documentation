@@ -1,7 +1,7 @@
 ---
 id: using-containers
 title: Installer un collecteur dans un conteneur
-description: "Installer un collecteur Centreon à l'aide de docker-compose"
+description: "Installez un collecteur Centreon en conteneurs avec docker-compose via une commande générée dans l'interface du central, puis exportez sa configuration."
 ---
 
 > La méthode de déploiement de collecteurs en conteneur est actuellement en **BÊTA**. Vous pouvez la tester et [donner votre feedback dans le groupe dédié sur notre plateforme communautaire The Watch](https://thewatch.centreon.com/groups/cim-pollers-in-containers-75).

@@ -1,7 +1,7 @@
 ---
 id: notif-config-for-teams
 title: Notifications Microsoft Teams
-description: "Configurer les alertes Centreon pour notifier des canaux Microsoft Teams"
+description: "Envoyez les notifications Centreon vers des canaux Microsoft Teams : créez un workflow webhook, installez le plugin et configurez les objets via CLAPI."
 ---
 
 import Tabs from '@theme/Tabs';

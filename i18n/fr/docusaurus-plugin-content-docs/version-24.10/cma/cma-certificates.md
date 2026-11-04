@@ -1,7 +1,7 @@
 ---
 id: cma-certificates
 title: Configurer les certificats
-description: "Configurer les certificats TLS pour la communication agent-collecteur CMA"
+description: "Configurez les certificats TLS qui sécurisent la communication entre Centreon Monitoring Agent (CMA) et le collecteur, ou testez sans chiffrement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

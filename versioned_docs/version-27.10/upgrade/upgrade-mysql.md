@@ -1,7 +1,7 @@
 ---
 id: upgrade-mysql
 title: Upgrading MySQL
-description: "Upgrade MySQL to a version supported by Centreon 25.10"
+description: "Upgrade MySQL to a version supported by Centreon 27.10 (MySQL 8.4), check which version you are running, and plan it separately from your Centreon upgrade."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

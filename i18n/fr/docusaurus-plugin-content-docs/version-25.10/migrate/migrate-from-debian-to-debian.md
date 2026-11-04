@@ -1,7 +1,7 @@
 ---
 id: migrate-from-debian-to-debian
 title: Migrer depuis Debian 11 vers Debian 12
-description: "Migrer une plateforme Centreon de Debian 11 vers Debian 12"
+description: "Migrez Centreon de Debian 11 vers Debian 12 sur un nouveau serveur : installez le central, synchronisez les données, puis mettez à jour."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

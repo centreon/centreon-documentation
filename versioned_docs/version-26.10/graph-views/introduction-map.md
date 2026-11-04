@@ -1,7 +1,7 @@
 ---
 id: introduction-map
 title: Introduction to Centreon MAP
-description: "Introduction to Centreon MAP and its graphical monitoring views"
+description: "Centreon MAP lets you create, customize, view, and share graphical maps of your monitored infrastructure directly in the Centreon web interface."
 ---
 
 Centreon MAP lets you create, view and share graphical representations of your monitored infrastructure, directly in the Centreon web interface.
