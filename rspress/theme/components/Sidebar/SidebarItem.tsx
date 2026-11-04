@@ -60,17 +60,22 @@ export function SidebarItemRaw({
     }
   }, [active]);
 
+  // Centreon: the depth indentation comes from data-depth in SidebarItem.css
+  // instead of an inline style on every entry.
   const innerContent = (
     <>
       <div className="rp-sidebar-item__left" ref={ref}>
         {icon && <SvgWrapper icon={icon} className="rp-sidebar-item__icon" />}
-        <span className="rp-doc" {...renderInlineMarkdown(text)}></span>
+        <span {...renderInlineMarkdown(text)}></span>
         {left}
       </div>
-      <div className="rp-sidebar-item__right">
-        <Tag tag={tag} />
-        {right}
-      </div>
+      {/* Centreon: skip the empty right slot, repeated on every sidebar entry. */}
+      {(tag || right) && (
+        <div className="rp-sidebar-item__right">
+          <Tag tag={tag} />
+          {right}
+        </div>
+      )}
     </>
   );
 
@@ -87,9 +92,6 @@ export function SidebarItemRaw({
           },
           className,
         )}
-        style={{
-          paddingLeft: depth === 0 ? '12px' : `calc(12px * ${depth} + 12px)`,
-        }}
         {...{ 'data-depth': depth }}
         {...(context ? { 'data-context': context } : {})}
         onClick={onClick}
@@ -109,9 +111,6 @@ export function SidebarItemRaw({
         },
         className,
       )}
-      style={{
-        paddingLeft: depth === 0 ? '12px' : `calc(12px * ${depth} + 12px)`,
-      }}
       {...{ 'data-depth': depth }}
       {...(context ? { 'data-context': context } : {})}
       onClick={onClick}

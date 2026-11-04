@@ -282,7 +282,7 @@ html.dark .rp-doc.rspress-doc :not(pre) > code {
   background-color: rgba(255, 255, 255, 0.15);
 }
 /* Sidebar and outline texts are wrapped in .rp-doc spans: inherit the item. */
-html .rp-sidebar-item .rp-doc,
+html .rp-sidebar-item__left > span,
 html .rp-toc-item .rp-doc {
   color: inherit;
   font-size: inherit;

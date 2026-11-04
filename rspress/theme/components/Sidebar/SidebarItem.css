@@ -99,6 +99,14 @@
 .rp-sidebar-item__left {
   overflow-wrap: anywhere;
 }
-.rp-sidebar-item__left > .rp-doc code {
+.rp-sidebar-item__left > span code {
   overflow-wrap: anywhere;
 }
+
+/* Centreon: depth indentation (was an inline style), calc(12px * depth + 12px). */
+.rp-sidebar-item[data-depth='0'] { padding-left: 12px; }
+.rp-sidebar-item[data-depth='1'] { padding-left: 24px; }
+.rp-sidebar-item[data-depth='2'] { padding-left: 36px; }
+.rp-sidebar-item[data-depth='3'] { padding-left: 48px; }
+.rp-sidebar-item[data-depth='4'] { padding-left: 60px; }
+.rp-sidebar-item[data-depth='5'] { padding-left: 72px; }
