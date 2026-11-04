@@ -8,11 +8,13 @@
 #
 #    git tag v1.0.0 && git push origin v1.0.0
 #
-#  The gha-websites-docs-deploy role (Infrastructure, stacks/websites, site
-#  docs) trusts v* tags of this repository and this workflow name only.
+#  The deploy job declares `environment: prod`, which only accepts v* tags
+#  (centreon/Github): the gha-websites-docs-deploy role (Infrastructure,
+#  stacks/websites, site docs) trusts repo:centreon/centreon-documentation:
+#  environment:prod and this workflow name only.
 #
-#  Repository variable: vars.DOCS_PROD_DISTRIBUTION_ID, CloudFront
-#  distribution of the prod site (output cloudfront_distribution_ids.docs).
+#  Variables of the GitHub environment `prod` (centreon/Github):
+#    vars.AWS_REGION  vars.S3_BUCKET  vars.CLOUDFRONT_DISTRIBUTION
 # =============================================================================
 # The name is part of the gha-websites-docs-deploy trust (token claim "workflow"): keep it "deploy-prod".
 name: deploy-prod
@@ -86,6 +88,11 @@ jobs:
   deploy:
     needs: [build]
     runs-on: documentation
+    environment: prod
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      BUCKET: ${{ vars.S3_BUCKET }}
+      DISTRIBUTION: ${{ vars.CLOUDFRONT_DISTRIBUTION }}
     steps:
       # en at the root of build/, fr under build/fr/.
       - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
@@ -94,23 +101,21 @@ jobs:
           path: build
           merge-multiple: true
 
-      # Tags v* only: the role trust refuses any other ref.
+      # Environment prod only: the role trust refuses any other subject.
       - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
         with:
           role-to-assume: arn:aws:iam::557735569192:role/gha-websites-docs-deploy
-          aws-region: eu-west-1
+          aws-region: ${{ env.AWS_REGION }}
 
       # Hashed assets of both locales: long cache. Everything else is revalidated on each visit.
       - name: Sync the site
         run: |
-          aws s3 sync ./build s3://docs-centreon-prod \
+          aws s3 sync ./build "s3://${BUCKET}" \
             --delete --exclude "*" --include "assets/*" --include "fr/assets/*" \
             --cache-control "public,max-age=31536000,immutable"
-          aws s3 sync ./build s3://docs-centreon-prod \
+          aws s3 sync ./build "s3://${BUCKET}" \
             --delete --exclude "assets/*" --exclude "fr/assets/*" \
             --cache-control "public,max-age=0,must-revalidate"
 
       - name: Invalidate the cache
-        env:
-          DISTRIBUTION: ${{ vars.DOCS_PROD_DISTRIBUTION_ID }}
         run: aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION}" --paths '/*'
