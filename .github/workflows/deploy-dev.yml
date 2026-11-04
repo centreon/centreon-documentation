@@ -12,8 +12,8 @@
 #
 #  Every job declares `environment: dev`, so the OIDC token subject is
 #  repo:centreon/centreon-documentation:environment:dev whatever the event
-#  (push or pull_request): the gha-docs-dev role (centreon/infra-security)
-#  must trust that subject and this workflow name.
+#  (push or pull_request): the gha-websites-docs-deploy role (Infrastructure,
+#  stacks/websites, site docs) trusts that subject and this workflow name only.
 #
 #  Repository variables:
 #    vars.DOCS_DEV_URL              root URL of the dev site, without trailing
@@ -22,7 +22,7 @@
 #    vars.DOCS_DEV_DISTRIBUTION_ID  CloudFront distribution of the dev site
 #                                   (output cloudfront_distribution_ids.docs)
 # =============================================================================
-# The name is part of the gha-docs-dev trust (token claim "workflow"): keep it "deploy-dev".
+# The name is part of the gha-websites-docs-deploy trust (token claim "workflow"): keep it "deploy-dev".
 name: deploy-dev
 
 on:
@@ -43,7 +43,7 @@ concurrency:
 
 env:
   AWS_REGION: eu-west-1
-  ROLE: arn:aws:iam::496590675864:role/gha-docs-dev
+  ROLE: arn:aws:iam::496590675864:role/gha-websites-docs-deploy
   BUCKET: docs-centreon-dev
   DISTRIBUTION: ${{ vars.DOCS_DEV_DISTRIBUTION_ID }}
 
