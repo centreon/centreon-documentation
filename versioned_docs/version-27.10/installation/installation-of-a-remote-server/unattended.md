@@ -62,7 +62,7 @@ To install a remote server quicker, you can use a script. This will perform all 
 2. Download the script:
 
    ```shell
-   curl -L https://download.centreon.com/26.10/unattended.sh --output /tmp/unattended.sh
+   curl -L https://raw.githubusercontent.com/centreon/centreon/26.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
    ```
 
 ## Installation
