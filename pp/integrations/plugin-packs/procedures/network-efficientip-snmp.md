@@ -625,11 +625,12 @@ yum install centreon-plugin-Network-Efficientip-Snmp
 </TabItem>
 <TabItem value="SOLID-Server-status" label="SOLID-Server-status">
 
-| Macro          | Description                                                                                                                                      | Default value                                                      | Mandatory |
-|:---------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------:|
-| WARGNINGSTATUS | Define the conditions to match for the status to be WARNING. Can be used with special variables like: %\{status\}, %\{role\}                     | %\{status\} =~ /upgrading\|split-brain/                            |           |
-| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. Can be used with special variables like: %\{status\}, %\{role\}                    | %\{status\} =~ /invalid credentials\|replication stopped\|timeout/ |           |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).           |                                                                    |           |
+| Macro          | Description                                                                                                                                                                                                   | Default value                                                      | Mandatory |
+|:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------:|
+| WARNINGSTATUS  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /upgrading\|split-brain/') Can be used with special variables like: %\{status\}, %\{role\}                             | %\{status\} =~ /upgrading\|split-brain/                            |           |
+| CRITICALSTATUS | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /invalid credentials\|replication stopped\|timeout/') Can be used with special variables like: %\{status\}, %\{role\} | %\{status\} =~ /invalid credentials\|replication stopped\|timeout/ |           |
+| UNKNOWNSTATUS  | Define the conditions to match for the status to be UNKNOWN. (default: '%\{status\} =~ /not configured\|unknown/') Can be used with special variables like: %\{status\}, %\{role\}                            | %\{status\} =~ /not configured\|unknown/                           |           |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                        |                                                                    |           |
 
 </TabItem>
 </Tabs>
@@ -836,6 +837,7 @@ All available options for each service template are listed below:
 |:------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | --warning-status  | Define the conditions to match for the status to be WARNING. (default: '%\{status\} =~ /upgrading\|split-brain/') Can be used with special variables like: %\{status\}, %\{role\}                             |
 | --critical-status | Define the conditions to match for the status to be CRITICAL. (default: '%\{status\} =~ /invalid credentials\|replication stopped\|timeout/') Can be used with special variables like: %\{status\}, %\{role\} |
+| --unknown-status  | Define the conditions to match for the status to be UNKNOWN. (default: '%\{status\} =~ /not configured\|unknown/') Can be used with special variables like: %\{status\}, %\{role\}                            |
 
 </TabItem>
 </Tabs>
