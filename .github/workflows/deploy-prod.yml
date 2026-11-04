@@ -1,0 +1,41 @@
+# The name is part of the gha-docs-prod trust (token claim "workflow"): keep it "deploy-prod".
+name: deploy-prod
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: documentation
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      # Tags v* only: the role trust refuses any other ref.
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: arn:aws:iam::557735569192:role/gha-docs-prod
+          aws-region: eu-west-1
+
+      - name: Sync the site
+        run: aws s3 sync ./build s3://docs-centreon-prod --delete
+
+      - name: Invalidate the cache
+        # shortcut: TODO until the docs/prod apply outputs cloudfront_distribution_id.
+        run: aws cloudfront create-invalidation --distribution-id TODO --paths '/*'
