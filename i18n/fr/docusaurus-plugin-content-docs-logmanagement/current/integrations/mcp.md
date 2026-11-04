@@ -7,6 +7,7 @@ description: Connecter un assistant IA à Centreon Log Management avec le serveu
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> Cette fonctionnalité est en version bêta et n’est pas activée par défaut. Contactez le support pour en demander l’accès.
 > Cette fonctionnalité est nouvelle et évolue vite : de nouveaux outils s'ajoutent au fil des versions.
 
 ## Qu'est-ce que le serveur MCP ?
