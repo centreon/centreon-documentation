@@ -7,8 +7,14 @@
 #  page (unlike deploy-dev.yml).
 #
 #    git tag v1.0.0 && git push origin v1.0.0
+#
+#  The gha-websites-docs-deploy role (Infrastructure, stacks/websites, site
+#  docs) trusts v* tags of this repository and this workflow name only.
+#
+#  Repository variable: vars.DOCS_PROD_DISTRIBUTION_ID, CloudFront
+#  distribution of the prod site (output cloudfront_distribution_ids.docs).
 # =============================================================================
-# The name is part of the gha-docs-prod trust (token claim "workflow"): keep it "deploy-prod".
+# The name is part of the gha-websites-docs-deploy trust (token claim "workflow"): keep it "deploy-prod".
 name: deploy-prod
 
 on:
@@ -59,7 +65,7 @@ jobs:
       # Tags v* only: the role trust refuses any other ref.
       - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
         with:
-          role-to-assume: arn:aws:iam::557735569192:role/gha-docs-prod
+          role-to-assume: arn:aws:iam::557735569192:role/gha-websites-docs-deploy
           aws-region: eu-west-1
 
       # Hashed assets: long cache. Everything else is revalidated on each visit.
@@ -73,5 +79,6 @@ jobs:
             --cache-control "public,max-age=0,must-revalidate"
 
       - name: Invalidate the cache
-        # shortcut: TODO until the docs/prod apply outputs cloudfront_distribution_id.
-        run: aws cloudfront create-invalidation --distribution-id TODO --paths '/*'
+        env:
+          DISTRIBUTION: ${{ vars.DOCS_PROD_DISTRIBUTION_ID }}
+        run: aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION}" --paths '/*'
