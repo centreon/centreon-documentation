@@ -1,40 +1,219 @@
+# =============================================================================
+#  Dev deployment of the documentation (S3 + CloudFront), one preview per branch.
+#
+#  - Push on staging      -> s3://docs-centreon-dev/staging/
+#  - Pull request (same   -> s3://docs-centreon-dev/<branch-slug>/, rebuilt on
+#    repository)             every push, with a sticky comment on the PR
+#  - Pull request closed  -> the preview prefix is deleted
+#  - Root (/)             -> a page listing the available previews, regenerated
+#                            after each deployment or cleanup
+#
+#  Production does not use this page: see deploy-prod.yml.
+#
+#  Every job declares `environment: dev`, so the OIDC token subject is
+#  repo:centreon/centreon-documentation:environment:dev whatever the event
+#  (push or pull_request). The gha-docs-dev role trust must accept it.
+#
+#  Repository variable: vars.DOCS_DEV_URL (root URL of the dev distribution,
+#  without trailing slash), used for the links in the PR comment.
+# =============================================================================
 # The name is part of the gha-docs-dev trust (token claim "workflow"): keep it "deploy-dev".
 name: deploy-dev
 
 on:
   push:
-    branches: [main]
+    branches: [staging]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
 
 permissions:
   contents: read
   id-token: write
+  pull-requests: write
 
+# One run at a time per branch: the latest push wins.
 concurrency:
-  group: deploy-dev
-  cancel-in-progress: false
+  group: deploy-dev-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  AWS_REGION: eu-west-1
+  ROLE: arn:aws:iam::496590675864:role/gha-docs-dev
+  BUCKET: docs-centreon-dev
+  DISTRIBUTION: E2U2B93YOV0BSD
 
 jobs:
   deploy:
+    # Fork PRs get no OIDC token and must not run on the self-hosted runner.
+    if: >-
+      github.event_name == 'push' ||
+      (github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository)
     runs-on: documentation
+    environment: dev
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # showLastUpdateTime needs the full history
+          persist-credentials: false
+
+      - name: Compute branch slug
+        id: slug
+        env:
+          BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: |
+          slug=$(echo "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed -E 's#[^a-z0-9]+#-#g; s#^-+##; s#-+$##')
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "Branch '$BRANCH' -> prefix '$slug'"
+
+      - uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        with:
+          version: 10
+          run_install: false
 
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: 22
-          cache: npm
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
-      - run: npm ci
-      - run: npm run build
+      - name: Install dependencies
+        run: |
+          pnpm install \
+            --frozen-lockfile \
+            --config.trustPolicy=no-downgrade \
+            --config.minimumReleaseAge=2880 \
+            --config.blockExoticSubdeps=true
 
-      # Pushes to main only: the role trust refuses any other ref.
+      - name: Build documentation
+        run: pnpm build
+        env:
+          NODE_OPTIONS: --max_old_space_size=16000
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          BASE_URL: /${{ steps.slug.outputs.slug }}/
+          NO_INDEX: "1"
+
       - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
         with:
-          role-to-assume: arn:aws:iam::496590675864:role/gha-docs-dev
-          aws-region: eu-west-1
+          role-to-assume: ${{ env.ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
 
-      - name: Sync the site
-        run: aws s3 sync ./build s3://docs-centreon-dev --delete
+      # Hashed assets (name = content hash): long cache. Everything else
+      # (HTML, sitemap, images under img/...) is revalidated on each visit.
+      # Each pass only deletes the files it covers; together they cover the build.
+      - name: Sync the preview
+        env:
+          PREFIX: ${{ steps.slug.outputs.slug }}
+        run: |
+          aws s3 sync ./build "s3://${BUCKET}/${PREFIX}/" \
+            --delete --exclude "*" --include "assets/*" \
+            --cache-control "public,max-age=31536000,immutable"
+          aws s3 sync ./build "s3://${BUCKET}/${PREFIX}/" \
+            --delete --exclude "assets/*" --exclude "meta.json" \
+            --cache-control "public,max-age=0,must-revalidate"
+
+      # Feeds the previews page at the root of the distribution.
+      - name: Write preview metadata
+        env:
+          PREFIX: ${{ steps.slug.outputs.slug }}
+          BRANCH: ${{ github.head_ref || github.ref_name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          jq -n \
+            --arg branch "$BRANCH" \
+            --arg slug "$PREFIX" \
+            --arg commit "${COMMIT::7}" \
+            --arg actor "$GITHUB_ACTOR" \
+            --arg pr "$PR_NUMBER" \
+            --arg updated "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            '{branch: $branch, slug: $slug, commit: $commit, actor: $actor, pr: $pr, updated: $updated}' > meta.json
+          aws s3 cp meta.json "s3://${BUCKET}/${PREFIX}/meta.json" \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --content-type "application/json"
 
       - name: Invalidate the cache
-        run: aws cloudfront create-invalidation --distribution-id E2U2B93YOV0BSD --paths '/*'
+        env:
+          PREFIX: ${{ steps.slug.outputs.slug }}
+        run: aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION}" --paths "/${PREFIX}/*"
+
+      - name: Prepare the PR comment
+        if: github.event_name == 'pull_request' && vars.DOCS_DEV_URL != ''
+        env:
+          URL: ${{ vars.DOCS_DEV_URL }}/${{ steps.slug.outputs.slug }}/
+          ROOT: ${{ vars.DOCS_DEV_URL }}/
+          COMMIT: ${{ github.event.pull_request.head.sha }}
+        run: |
+          {
+            echo "PREVIEW_COMMENT<<EOF"
+            echo "### :rocket: Dev preview"
+            echo
+            echo "**[${URL}](${URL})**"
+            echo
+            echo "Commit \`${COMMIT::7}\`, deployed $(date -u '+%Y-%m-%d %H:%M') UTC."
+            echo
+            echo "<sub>Rebuilt on every push, deleted when the PR is closed. · [All previews](${ROOT})</sub>"
+            echo "EOF"
+          } >> "$GITHUB_ENV"
+
+      - name: Comment the preview URL on the PR
+        if: github.event_name == 'pull_request' && vars.DOCS_DEV_URL != ''
+        uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+        with:
+          header: dev-preview
+          message: ${{ env.PREVIEW_COMMENT }}
+
+  cleanup:
+    if: >-
+      github.event_name == 'pull_request' && github.event.action == 'closed' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: documentation
+    environment: dev
+    steps:
+      - name: Compute branch slug
+        id: slug
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          slug=$(echo "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed -E 's#[^a-z0-9]+#-#g; s#^-+##; s#-+$##')
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "Closed branch '$BRANCH' -> prefix '$slug'"
+
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ env.ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Remove the preview (staging is protected)
+        env:
+          PREFIX: ${{ steps.slug.outputs.slug }}
+        run: |
+          if [ -z "$PREFIX" ] || [ "$PREFIX" = "staging" ]; then
+            echo "Protected prefix '$PREFIX', nothing deleted."; exit 0
+          fi
+          aws s3 rm "s3://${BUCKET}/${PREFIX}/" --recursive --only-show-errors
+          aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION}" --paths "/${PREFIX}/*"
+
+  dashboard:
+    needs: [deploy, cleanup]
+    if: always() && (needs.deploy.result == 'success' || needs.cleanup.result == 'success')
+    # Regenerations never overlap and always read the real bucket content.
+    concurrency:
+      group: deploy-dev-dashboard
+      cancel-in-progress: false
+    runs-on: documentation
+    environment: dev
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ env.ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Regenerate the previews page
+        run: bash .github/scripts/gen-dev-dashboard.sh
+
+      - name: Invalidate the root
+        run: aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION}" --paths "/" "/index.html"

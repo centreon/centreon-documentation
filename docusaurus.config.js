@@ -113,7 +113,7 @@ const config = {
   },
 ],
 
-  noIndex: !!archivedVersion,
+  noIndex: !!archivedVersion || process.env.NO_INDEX === '1',
 
   i18n: {
     defaultLocale: 'en',

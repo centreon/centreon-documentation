@@ -27,6 +27,7 @@ jobs:
         run: |
           ${{ steps.get_actionlint.outputs.executable }} \
           -ignore 'label "infrastructure" is unknown' \
+          -ignore 'label "documentation" is unknown' \
           -ignore '"github.head_ref" is potentially untrusted' \
           -shellcheck= \
           -pyflakes= \
