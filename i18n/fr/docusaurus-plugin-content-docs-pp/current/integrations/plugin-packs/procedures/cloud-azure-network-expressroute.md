@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-expressroute
 title: Azure ExpressRoute
-description: "Supervisez les circuits Azure ExpressRoute via l'API REST : statut du circuit, santé et trafic entrant/sortant."
+description: "Supervisez les circuits Azure ExpressRoute via l'API REST : statut du circuit, santé et trafic entrant/sortant, avec découverte automatique des hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

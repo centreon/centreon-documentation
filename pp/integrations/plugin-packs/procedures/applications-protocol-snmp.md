@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-snmp
 title: Generic SNMP
-description: "Monitor any SNMP-enabled device via generic OID checks for custom values, response time, and uptime."
+description: "Monitor any SNMP-enabled device via generic OID checks for numeric or string values, response time, and uptime, with SNMP agent discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

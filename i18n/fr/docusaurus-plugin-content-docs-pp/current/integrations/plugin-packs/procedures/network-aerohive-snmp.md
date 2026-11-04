@@ -1,7 +1,7 @@
 ---
 id: network-aerohive-snmp
 title: Aerohive SNMP
-description: "Supervisez les points d'accès Wi-Fi Aerohive via SNMP : utilisateurs connectés et trafic des interfaces réseau."
+description: "Supervisez les points d'accès Wi-Fi Aerohive via SNMP : utilisateurs connectés au total et par SSID, trafic des interfaces réseau et découverte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

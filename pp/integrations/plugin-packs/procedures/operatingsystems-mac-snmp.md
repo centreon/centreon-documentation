@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-mac-snmp
 title: Mac SNMP
-description: "Monitor macOS systems via SNMP: CPU, memory, swap, disk usage, disk I/O, network traffic, load, and uptime."
+description: "Monitor macOS systems via SNMP: CPU, memory, swap, disk usage, disk I/O, inodes, network traffic, load, processes, and uptime, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

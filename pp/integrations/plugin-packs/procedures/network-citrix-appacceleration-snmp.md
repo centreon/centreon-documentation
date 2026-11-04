@@ -1,7 +1,7 @@
 ---
 id: network-citrix-appacceleration-snmp
 title: Citrix Acceleration SNMP
-description: "Monitor Citrix Acceleration appliances via SNMP, tracking CPU utilization and service class usage."
+description: "Monitor Citrix Acceleration appliances via SNMP: CPU utilization and load, accelerated connections, and traffic per service class, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

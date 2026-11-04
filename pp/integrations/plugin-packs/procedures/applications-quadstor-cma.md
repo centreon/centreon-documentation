@@ -1,6 +1,7 @@
 ---
 id: applications-quadstor-cma
 title: Quadstor CMA
+description: "Monitor Quadstor VTL backup appliances via the Centreon Monitoring Agent (CMA): disk usage, backup job status, and tape usage and count."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

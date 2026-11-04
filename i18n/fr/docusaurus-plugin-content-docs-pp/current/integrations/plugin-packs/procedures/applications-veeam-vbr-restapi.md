@@ -1,7 +1,7 @@
 ---
 id: applications-veeam-vbr-restapi
 title: Veeam Backup & Replication Rest API
-description: "Supervisez Veeam Backup & Replication via l'API REST : résultat des jobs, état et espace des dépôts, disponibilité des serveurs gérés et expiration de la licence."
+description: "Supervisez Veeam Backup & Replication via l'API REST : résultat des jobs, état et espace des dépôts, disponibilité des serveurs gérés, licence."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

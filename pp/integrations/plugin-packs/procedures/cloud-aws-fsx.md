@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-fsx
 title: Amazon FSx
-description: "Monitor Amazon FSx file systems via the AWS API: data usage (I/O) and free storage space metrics."
+description: "Monitor Amazon FSx file systems via the AWS CloudWatch API: data read/write throughput and operations, metadata operations, and free storage space."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

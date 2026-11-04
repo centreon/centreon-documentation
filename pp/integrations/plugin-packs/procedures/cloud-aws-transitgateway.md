@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-transitgateway
 title: AWS Transit Gateway
-description: "Monitor AWS Transit Gateway traffic, packets, and dropped packets via the CloudWatch API."
+description: "Monitor AWS Transit Gateway via the CloudWatch API: inbound/outbound traffic and packets, blackhole and no-route dropped packets, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hitachi-hnas-snmp
 title: Hitachi NAS SNMP
-description: "Monitor Hitachi NAS storage via SNMP: hardware health, cluster status, interfaces, and volume usage."
+description: "Monitor Hitachi NAS storage via SNMP: hardware health, cluster node status, network interfaces, volume usage, and virtual volume quotas."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

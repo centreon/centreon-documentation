@@ -1,6 +1,7 @@
 ---
 id: network-waystream-snmp
 title: Waystream SNMP
+description: "Supervisez les équipements réseau Waystream via SNMP : CPU, mémoire, matériel, table ARP, décalage NTP, uptime, interfaces et ports SFP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

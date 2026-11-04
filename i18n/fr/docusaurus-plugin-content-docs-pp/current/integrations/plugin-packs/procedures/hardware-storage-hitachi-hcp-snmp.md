@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hitachi-hcp-snmp
 title: Hitachi HCP SNMP
-description: "Supervisez le stockage Hitachi HCP via SNMP : statut des nodes, tenants et volumes, espace disque et capteurs."
+description: "Supervisez le stockage Hitachi HCP via SNMP : statut des nodes et volumes, espace utilisé par node, tenant et volume, capteurs de température et fans."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

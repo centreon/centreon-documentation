@@ -1,7 +1,7 @@
 ---
 id: applications-graylog-restapi
 title: Graylog
-description: "Monitor Graylog servers via REST API: track system notifications and check Lucene query match counts."
+description: "Monitor Graylog servers via REST API: count total, normal, and urgent system notifications, and the number of messages matching a Lucene query."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: cma
 title: Centreon Monitoring Agent
-description: "Find links to the current Centreon Monitoring Agent (CMA) documentation for both OnPrem and Cloud versions."
+description: "The Centreon Monitoring Agent (CMA) documentation has moved: find links to the current CMA pages for Centreon OnPrem (24.10 and later) and Centreon Cloud."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

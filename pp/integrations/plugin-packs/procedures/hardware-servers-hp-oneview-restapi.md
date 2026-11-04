@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-hp-oneview-restapi
 title: HP OneView Rest API
-description: "Monitor HP OneView hardware servers via REST API, tracking hardware components and storage pool usage and status."
+description: "Monitor HP OneView via REST API: hardware component status of managed servers and storage pool usage and status, using the OneView API."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

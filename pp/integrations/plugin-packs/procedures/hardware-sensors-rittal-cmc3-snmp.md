@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-rittal-cmc3-snmp
 title: Rittal CMC3 SNMP
-description: "Monitor Rittal CMC3 units via SNMP: system load, unit status, device status, and uptime."
+description: "Monitor Rittal CMC3 units via SNMP: system load, unit status, uptime, and attached device status, with a service discovery rule for devices."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

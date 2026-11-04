@@ -1,7 +1,7 @@
 ---
 id: network-watchguard-snmp
 title: Watchguard SNMP
-description: "Monitor WatchGuard firewalls via SNMP: CPU, hardware, cluster status, IPsec tunnels, policy usage, and traffic."
+description: "Monitor WatchGuard firewalls via SNMP: CPU, hardware, system stats, cluster status, IPsec tunnels, policy usage, disks, and interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

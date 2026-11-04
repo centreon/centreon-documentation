@@ -1,7 +1,7 @@
 ---
 id: applications-rrdcached
 title: RRDCached
-description: "Monitor RRDcached over TCP or UNIX socket: service availability via PING and queue/waiting-updates stats."
+description: "Monitor RRDcached over TCP or UNIX socket: check service availability via PING and track the queue length and number of waiting updates in the cache."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

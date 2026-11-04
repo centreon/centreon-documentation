@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-comet-p8000-snmp
 title: Comet P8000 Sensor SNMP
-description: "Supervisez les sondes Comet P8000 via SNMP en suivant la température et l'humidité relevées sur votre équipement."
+description: "Supervisez les sondes Comet P8000 via SNMP : relevés de température et d'humidité de toutes les sondes de l'équipement, avec découverte d'hôtes SNMP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

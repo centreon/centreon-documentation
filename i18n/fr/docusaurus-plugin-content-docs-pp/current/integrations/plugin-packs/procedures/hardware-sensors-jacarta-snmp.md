@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-jacarta-snmp
 title: Jacarta Sensor SNMP
-description: "Supervisez les sondes environnementales Jacarta via SNMP : température, humidité et statut des entrées."
+description: "Supervisez les sondes environnementales Jacarta via SNMP : statut et nombre de capteurs de température, d'humidité et d'entrées, avec découverte d'hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
