@@ -31,6 +31,7 @@ while IFS= read -r prefix; do
 done < <(aws s3 ls "s3://${BUCKET}/" | awk '/ PRE /{print $2}' | sed 's#/##')
 
 rows=""
+staging_row=""
 count=0
 next_header="Next version"
 for p in "${prefixes[@]:-}"; do
@@ -50,11 +51,18 @@ for p in "${prefixes[@]:-}"; do
     staging_cell="$(site_cell "${work}/${p}.json" staging "/${p}/")"
     next_cell="$(site_cell "${work}/${p}.json" next "")"
     [ -n "$next_version" ] && next_header="Next (${next_version})"
-    rows="${rows}<tr><td>${branch}</td><td>${staging_cell}</td><td>${next_cell}</td><td>${pr_cell}</td><td><a href=\"${REPO_URL}/commit/${commit}\" target=\"_blank\" rel=\"noopener\"><code>${commit}</code></a></td><td>${actor}</td><td>${updated}</td></tr>"
+    row="<td>${staging_cell}</td><td>${next_cell}</td><td>${pr_cell}</td><td><a href=\"${REPO_URL}/commit/${commit}\" target=\"_blank\" rel=\"noopener\"><code>${commit}</code></a></td><td>${actor}</td><td>${updated}</td>"
+    # The staging branch (general staging of the docs) always comes first.
+    if [ "$p" = staging ]; then
+      staging_row="<tr class=\"staging\"><td><strong>staging</strong><br><small>general staging</small></td>${row}</tr>"
+    else
+      rows="${rows}<tr><td>${branch}</td>${row}</tr>"
+    fi
     count=$((count + 1))
   fi
 done
 
+rows="${staging_row}${rows}"
 [ "$count" -eq 0 ] && rows='<tr><td colspan="7" class="empty">No preview deployed yet.</td></tr>'
 
 cat > "$out" <<HTML
@@ -85,6 +93,7 @@ cat > "$out" <<HTML
   a.same { font-weight:400; }
   small { color:var(--muted); }
   .failed { color:#c0392b; font-weight:600; }
+  tr.staging td { background:#f7fbff; }
   footer { max-width:1200px; margin:16px auto; padding:0 24px; font-size:12px; color:var(--muted); }
 </style>
 </head>
