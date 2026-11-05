@@ -1,8 +1,10 @@
 name: documentation
 
+# Pull requests are built and previewed by deploy-dev.yml: this workflow only
+# feeds the current production (staging server, copied to production by
+# deploy-to-production.yml).
 on:
   workflow_dispatch:
-  pull_request:
   push:
     branches:
       - staging
@@ -138,9 +140,6 @@ jobs:
             if (build_versions.length) {
               build_environments.push('staging');
             }
-            if (build_next_version !== null && available_versions.includes(build_next_version)) {
-              build_environments.push('next');
-            }
 
             core.exportVariable('build_environments', JSON.stringify(build_environments));
             core.exportVariable('build_versions', build_versions.join(','));
@@ -159,7 +158,6 @@ jobs:
             let build_next_version = require('./nextVersion.json').version;
             const build_environments = ['staging'];
             if (build_versions.includes(build_next_version)) {
-              build_environments.push('next');
               build_versions.splice(build_versions.indexOf(build_next_version), 1);
             }
             core.exportVariable('build_environments', JSON.stringify(build_environments));
@@ -239,7 +237,6 @@ jobs:
           EXPERIENCEMONITORING: ${{ matrix.experience_monitoring }}
           LOGMANAGEMENT: ${{ matrix.logmanagement }}
           VERSIONS: ${{ matrix.environment == 'staging' && matrix.versions || matrix.next_version }}
-          BASE_URL: ${{ github.event_name == 'pull_request' && format('/previews/pr-{0}/{1}', github.event.pull_request.number, matrix.environment) || '' }}
 
       - name: Clear previous docusaurus build & rspack cache from github cache
         # GITHUB_TOKEN is read-only on fork PRs, so this API call would fail.
@@ -262,91 +259,6 @@ jobs:
           path: |
             build
           key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
-
-  deploy-preview:
-    # Fork PRs get no AWS/CloudFront secrets and must not run on the self-hosted runner.
-    if: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.fork != true }}
-    needs: [get-versions, build]
-    runs-on: infrastructure
-
-    strategy:
-      fail-fast: false
-      matrix:
-        environment: ${{ fromJson(needs.get-versions.outputs.build_environments) }}
-
-    name: Deploy preview ${{ matrix.environment }}
-
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Restore build from cache
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: |
-            build
-          key: docusaurus-build-${{ matrix.environment }}-${{ github.head_ref || github.ref_name }}
-          fail-on-cache-miss: true
-
-      - name: Setup awscli
-        run: |
-          if ! command -v aws >/dev/null 2>&1; then
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            sudo unzip -q awscliv2.zip
-            sudo ./aws/install
-          fi
-        shell: bash
-
-      - name: Deploy to https://docs-preview-int.centreon.com
-        run: |
-          echo "datetime=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_ENV
-
-          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
-          $(aws sts assume-role \
-          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
-          --role-session-name InvalidDocCache \
-          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
-          --output text))
-
-          aws s3 sync --delete build s3://centreon-documentation-preview-pr/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/
-
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_PREVIEW }} --paths "/previews/pr-${{ github.event.pull_request.number }}/${{ matrix.environment }}/*"
-        shell: bash
-
-  comment-preview:
-    needs: [get-versions, deploy-preview]
-    runs-on: ubuntu-24.04
-
-    name: Add comment for preview
-
-    steps:
-      - name: Prepare environment variables for comment
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        with:
-          script: |
-            const preview_urls = ${{ needs.get-versions.outputs.build_environments }}.map((environment) => {
-              return `:rocket: Deployed preview to https://docs-preview-int.centreon.com/previews/pr-${{ github.event.pull_request.number }}/${environment}/`;
-            })
-
-            core.exportVariable('datetime', new Date().toUTCString());
-            core.exportVariable('preview_urls',preview_urls.join('\n'));
-
-      - name: Leave a comment after deployment
-        uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
-        with:
-          header: pr-preview
-          message: "\
-            **PR Previews**
-
-            :---:
-
-            ${{ env.preview_urls }}
-
-            at ${{ env.datetime }}
-
-
-            > **_NOTE:_**  Previews are deleted after 30 days of inactivity
-            "
 
   deploy-staging:
     if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'staging') }}
@@ -382,50 +294,4 @@ jobs:
 
           rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@docs-dev.int.centreon.com:/var/www/html/ \
           || rsync -e "ssh -o StrictHostKeyChecking=no" -arzvh --delete build/* admin@${{ secrets.DOC_DEV_IP_ADDRESS }}:/var/www/html/
-        shell: bash
-
-  deploy-next:
-    if: ${{ github.ref_name == 'staging' && github.event_name != 'pull_request' && contains(fromJson(needs.get-versions.outputs.build_environments), 'next') }}
-    needs: [get-versions, build]
-    runs-on: infrastructure
-
-    name: Deploy to next
-
-    environment:
-      name: next
-      url: https://docs-next-int.centreon.com
-
-    steps:
-      - name: Checkout sources
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Restore build from cache
-        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
-        with:
-          path: |
-            build
-          key: docusaurus-build-next-${{ github.head_ref || github.ref_name }}
-          fail-on-cache-miss: true
-
-      - name: Setup awscli
-        run: |
-          if ! command -v aws >/dev/null 2>&1; then
-            curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-            sudo unzip -q awscliv2.zip
-            sudo ./aws/install
-          fi
-        shell: bash
-
-      - name: Deploy to https://docs-next-int.centreon.com
-        run: |
-          export $(printf "AWS_ACCESS_KEY_ID=%s AWS_SECRET_ACCESS_KEY=%s AWS_SESSION_TOKEN=%s" \
-          $(aws sts assume-role \
-          --role-arn ${{ secrets.CLOUDFRONT_ROLE_DOC_PRODUCTION }} \
-          --role-session-name InvalidDocCache \
-          --query "Credentials.[AccessKeyId,SecretAccessKey,SessionToken]" \
-          --output text))
-
-          aws s3 sync --delete build s3://centreon-documentation-next/
-
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID_DOC_NEXT }} --paths "/*"
         shell: bash
