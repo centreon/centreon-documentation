@@ -75,7 +75,9 @@ jobs:
 
       - name: Choose the versions
         id: versions
-        run: bash .github/scripts/docs-versions.sh
+        run: bash .github/scripts/docs-sites.sh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
 
       - name: Build documentation
         run: pnpm build --locale ${{ matrix.locale }}

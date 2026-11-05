@@ -83,7 +83,7 @@ const config = {
       lightningCssMinimizer: true,
       rspackBundler: true,
       rspackPersistentCache: false,
-      // Opt-in through the environment (deploy-prod), off by default.
+      // Opt-in through the environment (deploy-dev / deploy-prod), off by default.
       ssgWorkerThreads: process.env.DOCUSAURUS_SSG_WORKER_THREADS === '1',
       mdxCrossCompilerCache: process.env.DOCUSAURUS_MDX_CROSS_COMPILER_CACHE === '1',
     },
