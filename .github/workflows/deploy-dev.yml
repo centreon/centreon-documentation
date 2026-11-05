@@ -10,13 +10,13 @@
 #
 #  Production does not use this page: see deploy-prod.yml.
 #
-#  The jobs that reach AWS declare `environment: dev`, so the OIDC token
-#  subject is repo:centreon/centreon-documentation:environment:dev whatever
+#  The jobs that reach AWS declare `environment: preprod`, so the OIDC token
+#  subject is repo:centreon/centreon-documentation:environment:preprod whatever
 #  the event (push or pull_request): the gha-websites-docs-deploy role
 #  (Infrastructure, stacks/websites, site docs) trusts that subject and this
 #  workflow name only.
 #
-#  Variables of the GitHub environment `dev` (centreon/Github):
+#  Variables of the GitHub environment `preprod` (centreon/Github):
 #    vars.AWS_REGION  vars.S3_BUCKET  vars.CLOUDFRONT_DISTRIBUTION
 #    vars.SITE_URL    root URL of the dev site, without trailing slash, for
 #                     the links in the PR comment
@@ -118,7 +118,7 @@ jobs:
   deploy:
     needs: [build]
     runs-on: documentation
-    environment: dev
+    environment: preprod
     env:
       AWS_REGION: ${{ vars.AWS_REGION }}
       BUCKET: ${{ vars.S3_BUCKET }}
@@ -216,7 +216,7 @@ jobs:
       github.event_name == 'pull_request' && github.event.action == 'closed' &&
       github.event.pull_request.head.repo.full_name == github.repository
     runs-on: documentation
-    environment: dev
+    environment: preprod
     env:
       AWS_REGION: ${{ vars.AWS_REGION }}
       BUCKET: ${{ vars.S3_BUCKET }}
@@ -254,7 +254,7 @@ jobs:
       group: deploy-dev-dashboard
       cancel-in-progress: false
     runs-on: documentation
-    environment: dev
+    environment: preprod
     env:
       AWS_REGION: ${{ vars.AWS_REGION }}
       BUCKET: ${{ vars.S3_BUCKET }}
