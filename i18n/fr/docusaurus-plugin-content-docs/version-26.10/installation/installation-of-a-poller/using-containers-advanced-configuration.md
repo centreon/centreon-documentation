@@ -1,7 +1,7 @@
 ---
 id: using-containers-advanced-configuration
 title: Configuration avancée des conteneurs
-description: "Options de configuration d'un collecteur Centreon en conteneur : notifications par email, plugins personnalisés, supervision VMware et agent CMA."
+description: "Options de configuration d'un collecteur Centreon en conteneur : notifications par email, plugins personnalisés, supervision VMware, agent CMA, niveaux de log et Podman."
 ---
 
 Cette page décrit la configuration optionnelle d'un collecteur [déployé dans un
@@ -29,16 +29,11 @@ La commande SMTP native a besoin d'un relais SMTP pour envoyer les e-mails. Conf
 |----------|--------|
 | `SMTP_HOST` | Adresse du relais SMTP. Obligatoire pour la commande SMTP native : tant que cette variable est vide, les notifications ne sont pas envoyées, et aucune erreur n'est remontée. |
 | `SMTP_PORT` | Port du relais SMTP (par défaut : `25`). |
-| `SMTP_FROM` | Adresse utilisée dans le champ `From:` des e-mails de notification envoyés. |
+| `SMTP_FROM` | Adresse d'expéditeur des e-mails de notification envoyés (utilisée à la fois comme expéditeur de l'enveloppe et dans l'en-tête `From:`). |
 | `SMTP_TLS` | Définissez cette variable sur `on` pour utiliser TLS lors de la connexion au relais (par défaut : `off`). |
 
-Si vous utilisez la commande SMTP native, sachez que le fichier `docker-compose.yaml` généré
-par le script d'installation ne renseigne pas ces variables par défaut. Ajoutez-les
-directement dans le bloc `environment:` du service `centengine` ou, pour les garder hors du
-fichier `.env` que le script d'installation régénère à chaque exécution, placez-les dans un
-fichier distinct référencé comme `env_file` supplémentaire :
-
-Ajoutez les 3 dernières lignes à votre fichier docker-compose.
+Le fichier `docker-compose.yaml` généré par le script d'installation charge ces variables
+depuis un fichier `.env.smtp` situé dans le même répertoire :
 
 ```yaml
 services:
@@ -49,7 +44,8 @@ services:
       - .env.smtp
 ```
 
-Stockez ensuite vos variables d'environnement dans un fichier `.env.smtp` situé dans le même répertoire que le fichier docker-compose.
+Le script d'installation crée le fichier `.env.smtp` vide, et ne le remplace jamais lorsque
+vous l'exécutez à nouveau. Renseignez vos variables dans ce fichier :
 
 ```shell
 # .env.smtp
@@ -64,6 +60,11 @@ Redémarrez le service `centengine` (`docker compose up -d`) après avoir modifi
 `mailutils` et `msmtp` sont préinstallés dans l'image. Au démarrage, `centengine` écrit une
 configuration `msmtp` à partir des variables `SMTP_*` ci-dessus : `/usr/bin/mail` envoie donc
 les messages via votre relais, sans configuration supplémentaire.
+
+> Dans Centreon 26.10.0, le script d'installation ne crée pas le fichier `.env.smtp` et le
+> fichier `docker-compose.yaml` généré n'y fait pas référence : ajoutez vous-même les lignes
+> `env_file` ci-dessus au service `centengine`. Les e-mails sont envoyés depuis l'adresse
+> `centreon-engine@<nom d'hôte du conteneur>`, quelle que soit la valeur de `SMTP_FROM`.
 
 ### Option 2 : Connecteur centreon-plugin-notification-email
 
@@ -98,10 +99,13 @@ $CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::pl
 > disposant de droits limités plutôt qu'à un compte administrateur.
 
 Ces options peuvent également utiliser les macros de ressources du collecteur
-`$SMTPADDRESS$`, `$SMTPPORT$` et `$SMTPFROMADDRESS$`. Dans un conteneur, ces
-macros sont écrasées à chaque démarrage du conteneur par les valeurs des
-variables `SMTP_HOST`, `SMTP_PORT` et `SMTP_FROM` (voir l'option 1) : définissez
-ces variables plutôt que de définir les macros dans l'interface de Centreon.
+`$SMTPADDRESS$`, `$SMTPPORT$` et `$SMTPFROMADDRESS$`. Définissez leurs valeurs à la page
+**Configuration > Collecteurs > Ressources** : le conteneur ne les modifie pas. Les
+variables `SMTP_*` (voir l'option 1) ne sont utilisées que par la commande SMTP native.
+
+> Dans Centreon 26.10.0, ces macros sont écrasées à chaque démarrage du conteneur par
+> les valeurs des variables `SMTP_HOST`, `SMTP_PORT` et `SMTP_FROM`, et sont vidées
+> lorsque ces variables ne sont pas définies.
 
 ## Permettre au collecteur d'utiliser des plugins personnalisés pour la supervision
 
@@ -163,32 +167,49 @@ La supervision d'une infrastructure VMware nécessite le SDK Perl propriétaire 
 sans lui, le démon ne peut pas démarrer du tout, même avec des identifiants en clair.
 Comme ce SDK ne peut pas être redistribué pour des raisons de licence, l'image de conteneur
 `centreon-vmware` n'est pas publiée sur un registre. Le fichier `docker-compose.yaml` généré
-la référence sous la forme `connector-vmware:${VMWARE_TAG:-local}` avec `pull_policy: never` :
-vous devez donc la construire localement, sur l'hôte des conteneurs, avant d'utiliser
-`--with-vmware`.
+avec `--with-vmware` la construit localement, sur l'hôte des conteneurs, à partir d'une copie
+locale du dépôt `centreon-plugins`, au premier démarrage des services.
 
-Téléchargez les archives du SDK depuis le portail développeur de Broadcom (voir les
-[prérequis du connecteur de supervision VMware
-ESX](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx#prérequis)
-pour la marche à suivre), puis clonez `centreon-plugins`, placez les archives dans son
-répertoire `sdks-vmware` et construisez l'image :
+1. Clonez le dépôt `centreon-plugins` sur l'hôte des conteneurs, dans le répertoire depuis
+   lequel vous exécuterez la commande d'installation :
+
+   ```shell
+   git clone https://github.com/centreon/centreon-plugins.git
+   ```
+
+   Pour utiliser un autre emplacement, ajoutez `--vmware-path <chemin>` à la commande
+   d'installation.
+
+2. Téléchargez les archives du SDK depuis le portail développeur de Broadcom (voir les
+   [prérequis du connecteur de supervision VMware
+   ESX](/pp/integrations/plugin-packs/procedures/virtualization-vmware2-esx#prérequis)
+   pour la marche à suivre), puis placez-les dans le répertoire `sdks-vmware` du dépôt
+   cloné :
+
+   * `VMware-vSphere-Perl-SDK-7.0.0-17698549.x86_64.tar.gz`
+   * `vsan-sdk-perl.zip`
+
+3. Exécutez la commande d'installation avec `--with-vmware`. Le script d'installation
+   vérifie la présence du dépôt cloné et des archives du SDK avant de générer les fichiers,
+   et s'arrête avec un message d'erreur s'ils sont absents.
+
+L'image n'est construite que si elle n'existe pas encore. Pour la reconstruire, par exemple
+après avoir mis à jour votre copie locale du dépôt `centreon-plugins`, exécutez :
 
 ```shell
-git clone https://github.com/centreon/centreon-plugins.git
-cd centreon-plugins
-# Placez les archives du SDK téléchargées dans sdks-vmware/ avant de construire l'image
-docker build \
-  --file .github/docker/connector/Dockerfile.connector-vmware \
-  --tag connector-vmware:local \
-  .
+docker compose build centreon-vmware
+docker compose up -d
 ```
 
-> Cette commande télécharge le dernier paquet depuis le dépôt APT stable de Centreon et
-> inclut le SDK par défaut. Ajoutez `--build-arg VERSION=<version>` pour figer une version
-> précise, ou `--build-arg PACKAGE_SOURCE=mount` pour construire l'image à partir d'un paquet
-> `.deb` placé dans un répertoire `packages-centreon`. Construire avec
-> `--build-arg WITH_SDK=false` permet uniquement de vérifier que l'image se construit
-> correctement : le démon obtenu ne peut pas démarrer, car le SDK est requis dans tous les cas.
+> La construction télécharge le dernier paquet depuis le dépôt APT stable de Centreon.
+> Pour figer une version précise, ajoutez un argument de construction `VERSION` dans la
+> section `build:` du service `centreon-vmware` du fichier `docker-compose.yaml`
+> (`args: [VERSION=<version>]`).
+
+> Dans Centreon 26.10.0, le fichier `docker-compose.yaml` généré ne construit pas l'image :
+> construisez-la vous-même avant d'exécuter la commande d'installation, avec
+> `docker build --file .github/docker/connector/Dockerfile.connector-vmware --tag connector-vmware:local .`
+> depuis la racine du dépôt `centreon-plugins` cloné.
 
 ## Permettre au collecteur de recevoir des données des agents CMA
 
@@ -198,15 +219,99 @@ L'option `--with-cma` ajoute les éléments suivants au service `centengine` dan
 
 ```yaml
     volumes:
-      - ./certs/poller.crt:/etc/pki/poller.crt:ro
-      - ./certs/poller.key:/etc/pki/poller.key:ro
+      - poller-cma-pki:/etc/pki/centreon-engine
     ports:
-      - "4317:4317"
+      - 4317:4317
 ```
 
-Générez ensuite les certificats TLS correspondants et configurez le côté agent en suivant les pages
-[Configurer les certificats](../../cma/cma-certificates.md) et
-[Configurer l'environnement de l'agent](../../cma/cma-setup.md).
+Au premier démarrage, `centengine` génère l'autorité de certification (CA) du collecteur
+dans le volume `poller-cma-pki`. La CA est conservée lorsque le conteneur est recréé : les
+agents qui lui font déjà confiance continuent donc de fonctionner.
+
+La CA est émise pour le nom d'hôte du conteneur `centengine`, défini avec `--cma-hostname`
+(par défaut : `centengine`). Les agents doivent joindre le collecteur avec ce nom :
+
+1. Ajoutez `--cma-hostname <nom d'hôte>` à la commande d'installation, où `<nom d'hôte>`
+   est le nom d'hôte de l'hôte des conteneurs, tel que le résolvent les hôtes supervisés
+   (par exemple `poller1.example.com`).
+2. Configurez les agents en suivant la page
+   [Configurer l'environnement de l'agent](../../cma/cma-setup.md), en utilisant ce nom
+   d'hôte comme adresse du collecteur.
+
+Pour changer de nom d'hôte par la suite, modifiez `ENGINE_HOSTNAME` dans le fichier `.env`,
+supprimez le volume `poller-cma-pki` (la commande `docker volume ls` affiche son nom complet),
+puis exécutez `docker compose up -d`. Une nouvelle CA est générée : configurez à nouveau les
+agents avec la nouvelle empreinte numérique (voir
+[Supprimer la CA de l'hôte](../../cma/cma-setup.md#supprimer-la-ca-de-lhôte)).
+
+> Dans Centreon 26.10.0, `--with-cma` monte les fichiers `./certs/poller.crt` et
+> `./certs/poller.key` au lieu du volume `poller-cma-pki`, et l'option `--cma-hostname`
+> n'existe pas : générez vous-même les certificats en suivant la page
+> [Configurer les certificats](../../cma/cma-certificates.md).
+
+## Définir le niveau de log des services
+
+Les variables suivantes du fichier `.env` généré définissent le niveau de log de Gorgone et
+de `centreontrapd`. Exécutez `docker compose up -d` après les avoir modifiées.
+
+| Variable | Effet |
+|----------|--------|
+| `GORGONE_LOG_LEVEL` | Niveau de log de Gorgone : `fatal`, `error`, `warning`, `notice`, `info` ou `debug` (par défaut : `info`). |
+| `CENTREONTRAPD_LOG_LEVEL` | Niveau de log de `centreontrapd`, uniquement avec `--with-snmptrap` (par défaut : `error`). |
+
+Lorsque vous exécutez à nouveau la commande d'installation et que le fichier `.env` est
+remplacé, ces variables reprennent leur valeur par défaut. Pour conserver votre valeur,
+exportez la variable avant d'exécuter la commande (par exemple
+`export GORGONE_LOG_LEVEL=debug`).
+
+## Utiliser Podman
+
+Le script d'installation prend également en charge Podman, en mode rootful ou rootless
+(exécuté par un utilisateur standard). Il utilise `podman compose` ou `podman-compose`
+lorsque Docker n'est pas disponible, et vérifie les points suivants avant de générer les
+fichiers :
+
+* Si la commande compose s'appuie sur `docker-compose`, le socket de l'API Podman doit être
+  actif. Activez-le avec `sudo systemctl enable --now podman.socket` (mode rootful) ou
+  `systemctl --user enable --now podman.socket` (mode rootless).
+* En mode rootless avec `--with-snmptrap`, l'utilisateur doit être autorisé à publier le
+  port 162 :
+
+  ```shell
+  echo 'net.ipv4.ip_unprivileged_port_start=162' | sudo tee /etc/sysctl.d/99-centreon-poller.conf
+  sudo sysctl --system
+  ```
+
+* En mode rootless, les services s'arrêtent lorsque l'utilisateur se déconnecte, sauf si le
+  mode *linger* est activé pour cet utilisateur (le script affiche un avertissement).
+* Avec `--with-vmware`, Podman ne prend pas en charge l'instruction `COPY --link` du
+  Dockerfile de `centreon-vmware`. Retirez l'option `--link` du Dockerfile dans votre copie
+  locale du dépôt `centreon-plugins` :
+
+  ```shell
+  sed -i 's/COPY --link /COPY /' .github/docker/connector/Dockerfile.connector-vmware
+  ```
+
+Podman ne redémarre pas les conteneurs lorsque l'hôte redémarre. Pour que les services
+redémarrent automatiquement après un redémarrage de l'hôte, exécutez :
+
+* En mode rootful :
+
+  ```shell
+  sudo systemctl enable podman-restart.service
+  ```
+
+* En mode rootless :
+
+  ```shell
+  sudo loginctl enable-linger $(id -un)
+  systemctl --user enable podman-restart.service
+  ```
+
+> Les hôtes sur lesquels SELinux est en mode enforcing ne sont pas encore pris en charge
+> avec Podman : les conteneurs ne peuvent pas accéder aux volumes qu'ils partagent.
+
+> Podman n'est pas pris en charge dans Centreon 26.10.0.
 
 <!--
 Fichier écrit : _translation/versioned_docs/version-26.10/installation/installation-of-a-poller/using-containers-advanced-configuration.md
