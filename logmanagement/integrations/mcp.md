@@ -7,6 +7,7 @@ description: Connect an AI assistant to Centreon Log Management with the MCP ser
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+> This feature is in beta and isn’t enabled by default. Contact support to request access.
 > This is a new feature that evolves quickly: new tools are added as they are released.
 
 ## What is the MCP server?
