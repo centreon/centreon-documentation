@@ -1,18 +1,38 @@
 #!/usr/bin/env bash
 # Generates the root page (/) of the dev distribution, listing the previews.
 # A preview is a top-level S3 prefix that holds a meta.json (see deploy-dev.yml).
-# Prefixes without meta.json are ignored.
+# Prefixes without meta.json are ignored. Each row links to both sites of the
+# preview: current versions (staging) and next version, each either built for
+# the branch or pointing to the staging branch preview when the branch does not
+# change it.
 set -euo pipefail
 : "${BUCKET:?BUCKET is required}"
 REPO_URL="https://github.com/${GITHUB_REPOSITORY:-centreon/centreon-documentation}"
 
 work="$(mktemp -d)"
+
+# site_cell <meta.json> <site> <fallback url>
+site_cell() {
+  local url status
+  url="$(jq -r --arg s "$2" --arg d "$3" '(.sites[$s].url // $d) | @html' "$1")"
+  status="$(jq -r --arg s "$2" --arg d "$([ -n "$3" ] && echo built || echo none)" '(.sites[$s].status // $d)' "$1")"
+  case "$status" in
+    built)  echo "<a href=\"${url}\" target=\"_blank\" rel=\"noopener\">${url}</a>" ;;
+    same)   echo "<a class=\"same\" href=\"${url}\" target=\"_blank\" rel=\"noopener\">${url}</a><br><small>unchanged: staging</small>" ;;
+    failed) echo "<span class=\"failed\">build failed</span>" ;;
+    *)      echo "—" ;;
+  esac
+}
 out="${work}/index.html"
 
-mapfile -t prefixes < <(aws s3 ls "s3://${BUCKET}/" | awk '/ PRE /{print $2}' | sed 's#/##')
+prefixes=()
+while IFS= read -r prefix; do
+  prefixes+=("$prefix")
+done < <(aws s3 ls "s3://${BUCKET}/" | awk '/ PRE /{print $2}' | sed 's#/##')
 
 rows=""
 count=0
+next_header="Next version"
 for p in "${prefixes[@]:-}"; do
   [ -z "$p" ] && continue
   if aws s3 cp "s3://${BUCKET}/${p}/meta.json" "${work}/${p}.json" --only-show-errors 2>/dev/null; then
@@ -26,12 +46,16 @@ for p in "${prefixes[@]:-}"; do
     else
       pr_cell="—"
     fi
-    rows="${rows}<tr><td><a href=\"/${p}/\" target=\"_blank\" rel=\"noopener\">${branch}</a></td><td>${pr_cell}</td><td><a href=\"${REPO_URL}/commit/${commit}\" target=\"_blank\" rel=\"noopener\"><code>${commit}</code></a></td><td>${actor}</td><td>${updated}</td></tr>"
+    next_version="$(jq -r '(.sites.next.version // "") | @html' "${work}/${p}.json")"
+    staging_cell="$(site_cell "${work}/${p}.json" staging "/${p}/")"
+    next_cell="$(site_cell "${work}/${p}.json" next "")"
+    [ -n "$next_version" ] && next_header="Next (${next_version})"
+    rows="${rows}<tr><td>${branch}</td><td>${staging_cell}</td><td>${next_cell}</td><td>${pr_cell}</td><td><a href=\"${REPO_URL}/commit/${commit}\" target=\"_blank\" rel=\"noopener\"><code>${commit}</code></a></td><td>${actor}</td><td>${updated}</td></tr>"
     count=$((count + 1))
   fi
 done
 
-[ "$count" -eq 0 ] && rows='<tr><td colspan="5" class="empty">No preview deployed yet.</td></tr>'
+[ "$count" -eq 0 ] && rows='<tr><td colspan="7" class="empty">No preview deployed yet.</td></tr>'
 
 cat > "$out" <<HTML
 <!doctype html>
@@ -49,7 +73,7 @@ cat > "$out" <<HTML
   header { background:var(--navy); color:#fff; padding:32px 24px; }
   header h1 { margin:0 0 4px; font-size:20px; }
   header p { margin:0; opacity:.7; font-size:13px; }
-  main { max-width:960px; margin:32px auto; padding:0 24px; overflow-x:auto; }
+  main { max-width:1200px; margin:32px auto; padding:0 24px; overflow-x:auto; }
   table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; }
   th, td { text-align:left; padding:12px 16px; border-bottom:1px solid var(--line); font-size:14px; }
   th { background:#eef2f8; font-weight:600; color:var(--navy); }
@@ -58,17 +82,20 @@ cat > "$out" <<HTML
   a:hover { text-decoration:underline; }
   code { background:#eef2f8; padding:2px 6px; border-radius:4px; font-size:12px; }
   .empty { text-align:center; color:var(--muted); }
-  footer { max-width:960px; margin:16px auto; padding:0 24px; font-size:12px; color:var(--muted); }
+  a.same { font-weight:400; }
+  small { color:var(--muted); }
+  .failed { color:#c0392b; font-weight:600; }
+  footer { max-width:1200px; margin:16px auto; padding:0 24px; font-size:12px; color:var(--muted); }
 </style>
 </head>
 <body>
 <header>
   <h1>Previews — Centreon documentation</h1>
-  <p>staging and one preview per pull request, deployed on every push.</p>
+  <p>staging and one preview per pull request, deployed on every push: current versions and next version.</p>
 </header>
 <main>
   <table>
-    <thead><tr><th>Branch</th><th>PR</th><th>Commit</th><th>By</th><th>Updated (UTC)</th></tr></thead>
+    <thead><tr><th>Branch</th><th>Current versions</th><th>${next_header}</th><th>PR</th><th>Commit</th><th>By</th><th>Updated (UTC)</th></tr></thead>
     <tbody>
       ${rows}
     </tbody>

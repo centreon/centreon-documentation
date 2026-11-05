@@ -35,6 +35,8 @@ jobs:
   # One job per locale, in parallel: `--locale en` writes build/, `--locale fr`
   # writes build/fr/, so the deploy job only has to merge both artifacts.
   # No rspack cache here: a release is always built from scratch.
+  # Like the current production (the staging site of documentation.yml): every
+  # version of versions.json except the next one, which is not released yet.
   build:
     # GitHub-hosted, like the build of documentation.yml: the jobs that reach
     # AWS stay on the self-hosted documentation runners.
@@ -72,10 +74,17 @@ jobs:
             --config.minimumReleaseAge=2880 \
             --config.blockExoticSubdeps=true
 
+      - name: Choose the versions
+        id: sites
+        run: bash .github/scripts/docs-sites.sh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+
       - name: Build documentation
         run: pnpm build --locale ${{ matrix.locale }}
         env:
           NODE_OPTIONS: --max_old_space_size=16000
+          VERSIONS: ${{ steps.sites.outputs.staging_versions }}
           # Same output, faster build (opt-in flags of docusaurus.config.js).
           DOCUSAURUS_MDX_CROSS_COMPILER_CACHE: "1"
           DOCUSAURUS_SSG_WORKER_THREADS: "1"
