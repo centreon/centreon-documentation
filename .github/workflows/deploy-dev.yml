@@ -10,13 +10,13 @@
 #
 #  Production does not use this page: see deploy-prod.yml.
 #
-#  The jobs that reach AWS declare `environment: preprod`, so the OIDC token
-#  subject is repo:centreon/centreon-documentation:environment:preprod whatever
+#  The jobs that reach AWS declare `environment: dev`, so the OIDC token
+#  subject is repo:centreon/centreon-documentation:environment:dev whatever
 #  the event (push or pull_request): the gha-websites-docs-deploy role
 #  (Infrastructure, stacks/websites, site docs) trusts that subject and this
 #  workflow name only.
 #
-#  Variables of the GitHub environment `preprod` (centreon/Github):
+#  Variables of the GitHub environment `dev` (centreon/Github):
 #    vars.AWS_REGION  vars.S3_BUCKET  vars.CLOUDFRONT_DISTRIBUTION
 #    vars.SITE_URL    root URL of the dev site, without trailing slash, for
 #                     the links in the PR comment
@@ -62,7 +62,10 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          fetch-depth: 0 # showLastUpdateTime needs the full history
+          # showLastUpdateTime needs the full history (commits and trees),
+          # not the content of old files: a blobless clone is much faster.
+          fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
 
       - name: Compute branch slug
@@ -115,7 +118,7 @@ jobs:
   deploy:
     needs: [build]
     runs-on: documentation
-    environment: preprod
+    environment: dev
     env:
       AWS_REGION: ${{ vars.AWS_REGION }}
       BUCKET: ${{ vars.S3_BUCKET }}
@@ -141,7 +144,9 @@ jobs:
           role-to-assume: ${{ env.ROLE }}
           aws-region: ${{ env.AWS_REGION }}
 
-      # Hashed assets of both locales (name = content hash): long cache. Everything else
+      # Hashed assets of both locales (name = content hash): long cache, and
+      # --size-only since a known name always holds the same content, so only
+      # new assets are uploaded. Everything else
       # (HTML, sitemap, images under img/...) is revalidated on each visit.
       # Each pass only deletes the files it covers; together they cover the build.
       - name: Sync the preview
@@ -149,7 +154,7 @@ jobs:
           PREFIX: ${{ steps.slug.outputs.slug }}
         run: |
           aws s3 sync ./build "s3://${BUCKET}/${PREFIX}/" \
-            --delete --exclude "*" --include "assets/*" --include "fr/assets/*" \
+            --delete --exclude "*" --include "assets/*" --include "fr/assets/*" --size-only \
             --cache-control "public,max-age=31536000,immutable"
           aws s3 sync ./build "s3://${BUCKET}/${PREFIX}/" \
             --delete --exclude "assets/*" --exclude "fr/assets/*" --exclude "meta.json" \
@@ -211,7 +216,7 @@ jobs:
       github.event_name == 'pull_request' && github.event.action == 'closed' &&
       github.event.pull_request.head.repo.full_name == github.repository
     runs-on: documentation
-    environment: preprod
+    environment: dev
     env:
       AWS_REGION: ${{ vars.AWS_REGION }}
       BUCKET: ${{ vars.S3_BUCKET }}
@@ -249,7 +254,7 @@ jobs:
       group: deploy-dev-dashboard
       cancel-in-progress: false
     runs-on: documentation
-    environment: preprod
+    environment: dev
     env:
       AWS_REGION: ${{ vars.AWS_REGION }}
       BUCKET: ${{ vars.S3_BUCKET }}
