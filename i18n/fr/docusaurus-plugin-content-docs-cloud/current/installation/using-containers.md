@@ -118,13 +118,6 @@ l'hôte cible.
 
    Dès que `gorgone` indique `healthy`, la connexion au serveur central est établie.
 
-   Si `gorgone` n'atteint pas l'état `healthy` au bout de quelques minutes, consultez ses logs
-(`docker compose logs gorgone`), puis reportez-vous aux pages
-[Rattacher un collecteur à un serveur central ou distant](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md)
-et [Communications entre serveurs](../../monitoring/monitoring-servers/communications.md)
-pour en savoir plus sur la façon dont les collecteurs s'enregistrent et communiquent avec le
-serveur central.
-
 ## Étape 3 : Exporter la configuration
 
 Sur le serveur central, revenez à la fenêtre de création du collecteur et cliquez sur
