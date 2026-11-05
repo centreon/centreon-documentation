@@ -17,8 +17,8 @@ site_cell() {
   url="$(jq -r --arg s "$2" --arg d "$3" '(.sites[$s].url // $d) | @html' "$1")"
   status="$(jq -r --arg s "$2" --arg d "$([ -n "$3" ] && echo built || echo none)" '(.sites[$s].status // $d)' "$1")"
   case "$status" in
-    built)  echo "<a href=\"${url}\" target=\"_blank\" rel=\"noopener\">${url}</a>" ;;
-    same)   echo "<a class=\"same\" href=\"${url}\" target=\"_blank\" rel=\"noopener\">${url}</a><br><small>unchanged: staging</small>" ;;
+    built)  echo "<a href=\"${url}\" target=\"_blank\" rel=\"noopener\">Open</a>" ;;
+    same)   echo "<a class=\"same\" href=\"${url}\" target=\"_blank\" rel=\"noopener\">Open staging</a><br><small>unchanged by this branch</small>" ;;
     failed) echo "<span class=\"failed\">build failed</span>" ;;
     *)      echo "—" ;;
   esac
