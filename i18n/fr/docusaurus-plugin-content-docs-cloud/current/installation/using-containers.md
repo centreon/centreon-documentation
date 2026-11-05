@@ -127,11 +127,6 @@ Le collecteur apparaît alors comme actif à la page **Configuration > Collecteu
 
 ![image](../assets/installation/connected-poller.png)
 
-## Étape 4 : Sécuriser votre plateforme
-
-Si votre serveur central est configuré en HTTPS, la connexion entre le serveur central et le collecteur sera automatiquement configurée en HTTPS aussi. Pensez cependant à effectuer les autres actions de sécurisation de votre plateforme Centreon en suivant nos
-[recommandations](../../administration/secure-platform.md).
-
 ## Services optionnels à ajouter à la commande d'installation
 
 La commande générée de base ressemble à ceci :
