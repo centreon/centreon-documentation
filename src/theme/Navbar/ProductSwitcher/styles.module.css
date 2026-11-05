@@ -1,0 +1,152 @@
+.switcher {
+  --ps-track: #f1f2f6;
+  --ps-text: #4a4f63;
+  --ps-dot: #9ca1b3;
+  --ps-active-bg: #d9e8fb;
+  --ps-active-text: #13165a;
+  --ps-menu-bg: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: 0.75rem;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--ps-track);
+}
+
+[data-theme='dark'] .switcher {
+  --ps-track: rgb(255 255 255 / 0.06);
+  --ps-text: #c3c7d6;
+  --ps-dot: #7b8096;
+  --ps-active-bg: rgb(143 134 255 / 0.22);
+  --ps-active-text: #ffffff;
+  --ps-menu-bg: var(--ifm-background-surface-color);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.8rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ps-text);
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.pill:hover {
+  background: rgb(0 0 61 / 0.06);
+  color: var(--ps-active-text);
+  text-decoration: none;
+}
+
+[data-theme='dark'] .pill:hover {
+  background: rgb(255 255 255 / 0.08);
+}
+
+.pillActive,
+.pillActive:hover {
+  background: var(--ps-active-bg);
+  color: var(--ps-active-text);
+  font-weight: 700;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--ps-dot);
+}
+
+.pillActive .dot {
+  background: var(--ps-active-text);
+}
+
+.caret {
+  margin-left: -0.1rem;
+  transition: transform 0.15s;
+}
+
+/* ---------- Infra Monitoring dropdown ---------- */
+.dropdown {
+  position: relative;
+}
+
+.dropdownOpen .caret {
+  transform: rotate(180deg);
+}
+
+.menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: var(--ifm-z-index-dropdown, 100);
+  min-width: 14rem;
+  margin: 0;
+  padding: 0.4rem;
+  /* Invisible bridge so the menu stays open while the pointer moves to it. */
+  border-top: 6px solid transparent;
+  background-clip: padding-box;
+  list-style: none;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
+}
+
+.menu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  border-radius: 10px;
+  background: var(--ps-menu-bg);
+  box-shadow: 0 10px 30px rgb(0 0 61 / 0.12);
+}
+
+.dropdownOpen .menu {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+.menu li {
+  margin: 0;
+}
+
+.menuLink {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 7px;
+  color: var(--ifm-font-color-base);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.menuLink:hover {
+  background: var(--ps-active-bg);
+  color: var(--ps-active-text);
+  text-decoration: none;
+}
+
+/* The mobile sidebar already lists every section. */
+@media (max-width: 996px) {
+  .switcher {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pill,
+  .caret,
+  .menu {
+    transition: none;
+  }
+}
