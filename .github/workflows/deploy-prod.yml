@@ -3,8 +3,7 @@
 #
 #  Push a v* tag on the validated commit: this workflow builds that commit
 #  (indexable, base "/") and syncs it DIRECTLY to the root of the prod bucket,
-#  then invalidates CloudFront. No branch prefix, no meta.json, no previews
-#  page.
+#  then invalidates CloudFront.
 #
 #    git tag v1.0.0 && git push origin v1.0.0
 #
