@@ -14,4 +14,4 @@ See our [dedicated article](../rum/rum-intro.md) to learn more about this module
 
 The key difference with [user journeys](synthetic-monitoring.md) is that while the latter checks the performance of a preestablished navigation of the website, RUM measures the experience of real users.
 
-> RUM records and stores purely technical data that is impossible to identify in compliance with the scope of the European Union's [GDPR](https://gdpr.eu/).
+> RUM records and stores purely technical, anonymised data that is impossible to identify in compliance with the scope of the European Union's [GDPR](https://gdpr.eu/).

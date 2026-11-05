@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 Only users with the **Owner** or **Administrator** role can create or edit user journeys.
 
-User journeys allows you to configure a probe to regularly navigate your site following a pre-established path. This page explains how to configure both the journey as a whole and its individual steps.
+User journeys allows you to configure a probe to regularly navigate your site following a pre-established scenario. This page explains how to configure both the journey as a whole and its individual steps.
 
 For this module to work properly, you may need to whitelist the following IP addresses used by Experience Monitoring:
 
@@ -172,7 +172,7 @@ The following domains are blocked by default:
 
 ## Step or Action configuration
 
-User journeys are composed of steps and actions. 
+User journeys' scenarios are composed of steps and actions. 
 Steps represent a page while actions are anything a user can do within the same page (clicking on something, opening the search bar, etc.). 
 A step can contain multiple actions.
 
