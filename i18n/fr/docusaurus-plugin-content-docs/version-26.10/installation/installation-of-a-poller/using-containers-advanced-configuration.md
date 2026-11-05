@@ -308,9 +308,6 @@ redémarrent automatiquement après un redémarrage de l'hôte, exécutez :
   systemctl --user enable podman-restart.service
   ```
 
-> Les hôtes sur lesquels SELinux est en mode enforcing ne sont pas encore pris en charge
-> avec Podman : les conteneurs ne peuvent pas accéder aux volumes qu'ils partagent.
-
 > Podman n'est pas pris en charge dans Centreon 26.10.0.
 
 <!--

@@ -311,7 +311,4 @@ stack again automatically after a reboot, run:
   systemctl --user enable podman-restart.service
   ```
 
-> Hosts where SELinux is in enforcing mode are not supported yet with Podman:
-> the containers cannot access the volumes they share.
-
 > Podman is not supported in Centreon 26.10.0.
