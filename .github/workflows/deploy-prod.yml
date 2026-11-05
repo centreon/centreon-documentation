@@ -4,7 +4,7 @@
 #  Push a v* tag on the validated commit: this workflow builds that commit
 #  (indexable, base "/") and syncs it DIRECTLY to the root of the prod bucket,
 #  then invalidates CloudFront. No branch prefix, no meta.json, no previews
-#  page (unlike deploy-dev.yml).
+#  page.
 #
 #    git tag v1.0.0 && git push origin v1.0.0
 #
@@ -75,16 +75,14 @@ jobs:
             --config.blockExoticSubdeps=true
 
       - name: Choose the versions
-        id: sites
-        run: bash .github/scripts/docs-sites.sh
-        env:
-          EVENT_NAME: ${{ github.event_name }}
+        id: versions
+        run: bash .github/scripts/docs-versions.sh
 
       - name: Build documentation
         run: pnpm build --locale ${{ matrix.locale }}
         env:
           NODE_OPTIONS: --max_old_space_size=16000
-          VERSIONS: ${{ steps.sites.outputs.staging_versions }}
+          VERSIONS: ${{ steps.versions.outputs.staging_versions }}
           # Same output, faster build (opt-in flags of docusaurus.config.js).
           DOCUSAURUS_MDX_CROSS_COMPILER_CACHE: "1"
           DOCUSAURUS_SSG_WORKER_THREADS: "1"
