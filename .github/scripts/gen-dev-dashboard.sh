@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Generates the root page (/) of the dev distribution: permanent links to
-# staging, then one row per branch preview (a top-level S3 prefix holding a
+# Generates the root page (/) of the dev distribution: a permanent staging row
+# first, then one row per branch preview (a top-level S3 prefix holding a
 # meta.json, see deploy-dev.yml). A site built for the branch gets a link,
 # anything else a dash.
 set -euo pipefail
@@ -24,11 +24,9 @@ while IFS= read -r prefix; do
   prefixes+=("$prefix")
 done < <(aws s3 ls "s3://${BUCKET}/" | awk '/ PRE /{print $2}' | sed 's#/##')
 
-rows=""
-for p in "${prefixes[@]:-}"; do
-  { [ -z "$p" ] || [ "$p" = staging ]; } && continue
-  f="${work}/${p}.json"
-  aws s3 cp "s3://${BUCKET}/${p}/meta.json" "$f" --only-show-errors 2>/dev/null || continue
+# row <prefix> <meta.json>
+row() {
+  local p=$1 f=$2 branch commit actor updated pr pr_cell next_cell commit_cell
   branch="$(jq -r --arg p "$p" '(.branch // $p) | @html' "$f")"
   commit="$(jq -r '(.commit // "") | @html' "$f")"
   actor="$(jq -r '(.actor // "") | @html' "$f")"
@@ -38,10 +36,23 @@ for p in "${prefixes[@]:-}"; do
   [ -n "$pr" ] && pr_cell="<a href=\"${REPO_URL}/pull/${pr}\" target=\"_blank\" rel=\"noopener\">#${pr}</a>"
   next_cell="—"
   [ -n "$(jq -r '.sites.next.version // ""' "$f")" ] && next_cell="$(link "$f" next "/${p}/next/")"
-  rows="${rows}<tr><td>${branch}</td><td>$(link "$f" staging "/${p}/")</td><td>${next_cell}</td><td>${pr_cell}</td><td><a href=\"${REPO_URL}/commit/${commit}\" target=\"_blank\" rel=\"noopener\"><code>${commit}</code></a></td><td>${actor}</td><td>${updated}</td></tr>"
-done
+  commit_cell="—"
+  [ -n "$commit" ] && commit_cell="<a href=\"${REPO_URL}/commit/${commit}\" target=\"_blank\" rel=\"noopener\"><code>${commit}</code></a>"
+  echo "<tr><td>${branch}</td><td>$(link "$f" staging "/${p}/")</td><td>${next_cell}</td><td>${pr_cell}</td><td>${commit_cell}</td><td>${actor:-—}</td><td>${updated:-—}</td></tr>"
+}
 
-[ -z "$rows" ] && rows='<tr><td colspan="7" class="empty">—</td></tr>'
+# The staging row is always there, even before staging is first deployed.
+staging_meta="${work}/staging.json"
+aws s3 cp "s3://${BUCKET}/staging/meta.json" "$staging_meta" --only-show-errors 2>/dev/null ||
+  echo '{"branch": "staging", "sites": {"next": {"version": "next"}}}' > "$staging_meta"
+rows="$(row staging "$staging_meta")"
+
+for p in "${prefixes[@]:-}"; do
+  { [ -z "$p" ] || [ "$p" = staging ]; } && continue
+  f="${work}/${p}.json"
+  aws s3 cp "s3://${BUCKET}/${p}/meta.json" "$f" --only-show-errors 2>/dev/null || continue
+  rows="${rows}$(row "$p" "$f")"
+done
 
 cat > "$out" <<HTML
 <!doctype html>
@@ -57,8 +68,7 @@ cat > "$out" <<HTML
   * { box-sizing:border-box; }
   body { margin:0; font-family:Inter,system-ui,Arial,sans-serif; background:var(--bg); color:var(--ink); }
   header { background:var(--navy); color:#fff; padding:24px; }
-  header h1 { margin:0 0 8px; font-size:20px; }
-  header a { color:#fff; margin-right:16px; }
+  header h1 { margin:0; font-size:20px; }
   main { max-width:1200px; margin:32px auto; padding:0 24px; overflow-x:auto; }
   table { width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--line); border-radius:10px; overflow:hidden; }
   th, td { text-align:left; padding:12px 16px; border-bottom:1px solid var(--line); font-size:14px; }
@@ -67,13 +77,11 @@ cat > "$out" <<HTML
   a { color:var(--cyan); text-decoration:none; font-weight:600; }
   a:hover { text-decoration:underline; }
   code { background:#eef2f8; padding:2px 6px; border-radius:4px; font-size:12px; }
-  .empty { text-align:center; color:var(--muted); }
 </style>
 </head>
 <body>
 <header>
   <h1>Previews — Centreon documentation</h1>
-  Staging: <a href="/staging/" target="_blank" rel="noopener">Current versions</a><a href="/staging/next/" target="_blank" rel="noopener">Next version</a>
 </header>
 <main>
   <table>
