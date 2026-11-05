@@ -1,0 +1,9 @@
+{
+  // Ultra-light rule set: only Markdown table-structure rules.
+  // Goal: catch broken/misaligned tables that still pass the Docusaurus build,
+  // without reformatting or flagging anything in the existing documentation.
+  "default": false,
+  "MD055": true, // table-pipe-style: consistent leading/trailing pipes
+  "MD056": true, // table-column-count: every row has the same number of cells
+  "MD058": true // tables surrounded by blank lines (prevents rows from merging)
+}
