@@ -1,6 +1,11 @@
 module.exports = {
   cloud: [
     {
+      type: 'doc',
+      label: 'Infra Monitoring Cloud',
+      id: 'infra-monitoring-cloud',
+    },
+    {
       type: 'category',
       label: 'Getting started with Centreon Cloud',
       link: {

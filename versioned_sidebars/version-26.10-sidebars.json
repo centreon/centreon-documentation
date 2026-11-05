@@ -1,6 +1,11 @@
 {
   "docs": [
     {
+      "type": "doc",
+      "id": "infra-monitoring-onprem",
+      "label": "Infra Monitoring OnPrem"
+    },
+    {
       "collapsed": true,
       "type": "category",
       "label": "Getting started with Centreon Infra Monitoring OnPrem",
