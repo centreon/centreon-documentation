@@ -118,7 +118,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.10.repo
+   rm /etc/yum.repos.d/centreon-23.10-el9.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 

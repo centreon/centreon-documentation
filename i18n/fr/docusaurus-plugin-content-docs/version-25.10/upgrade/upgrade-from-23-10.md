@@ -119,7 +119,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 2. Supprimez les fichiers des dépôts :
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.10.repo
+   rm /etc/yum.repos.d/centreon-23.10-el9.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
