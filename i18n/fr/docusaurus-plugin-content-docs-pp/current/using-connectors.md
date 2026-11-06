@@ -14,7 +14,7 @@ description: "The steps to apply a Centreon Monitoring Connector template to a h
 2. In the **Template(s)** field, choose the template for the Monitoring Connector you want.
 3. [Customize the connector's behavior](./integrations/plugin-packs/getting-started/how-to-guides/plugin-customization.md): adapt the thresholds and the macros.
 4. [Deploy the configuration](#deploying-the-configuration).
-5. [Test if it works](./connector-test.md). If it doesn't, [troubleshoot it](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md).
+5. [Test if it works](./connectors-test.md). If it doesn't, [troubleshoot it](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md).
 
 ## To perform host or service discovery
 
