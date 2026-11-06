@@ -413,7 +413,7 @@ const config = {
 
           const defaultPageId = versions.sort().reverse()[0].match(/(21\.10|22\.04)/)
             ? 'getting-started/installation-first-steps'
-            : 'getting-started/welcome';
+            : 'infra-monitoring-onprem';
 
           items = [
             ...items,
@@ -429,7 +429,7 @@ const config = {
             items = [
               ...items,
               {
-                to: '/cloud/getting-started/welcome',
+                to: '/cloud/infra-monitoring-cloud',
                 label: 'Infra Monitoring Cloud',
                 position: 'left',
                 activeBaseRegex: '/cloud/',
@@ -441,7 +441,7 @@ const config = {
             items = [
               ...items,
               {
-                to: '/pp/integrations/plugin-packs/getting-started/introduction',
+                to: '/pp/monitoring-connectors',
                 label: 'Monitoring Connectors',
                 position: 'left',
                 activeBaseRegex: '/pp/',
@@ -453,7 +453,7 @@ const config = {
             items = [
               ...items,
               {
-                to: '/experience-monitoring/getting-started/welcome',
+                to: '/experience-monitoring/experience-monitoring',
                 label: 'Centreon Experience Monitoring',
                 position: 'left',
                 activeBaseRegex: '/experience-monitoring/',
@@ -465,7 +465,7 @@ const config = {
             items = [
               ...items,
               {
-                to: '/logmanagement/getting-started/welcome',
+                to: '/logmanagement/log-management',
                 label: 'Centreon Log Management',
                 position: 'left',
                 activeBaseRegex: '/logmanagement/',

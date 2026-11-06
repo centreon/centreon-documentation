@@ -1,6 +1,11 @@
 module.exports = {
   pp: [
     {
+      type: 'doc',
+      label: 'Monitoring Connectors',
+      id: 'monitoring-connectors',
+    },
+    {
       type: 'category',
       label: 'Getting started with Monitoring Connectors',
       link: {
