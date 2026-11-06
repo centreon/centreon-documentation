@@ -4,24 +4,29 @@ title: Journey of a service check
 description: "What steps does a service check go through, from the moment it is triggered to when the results appear in Resource status?"
 ---
 
-## Journey of a service check: a ping on a Linux server
+## Journey of a service check: CPU usage of a Linux server
 
-This topic follows a single service check from the moment you configure it in Centreon Web to the moment its result is displayed. It uses a ping on a Linux server as an example.
+This topic follows a single service check from the moment you configure it in Centreon Web to the moment its result is displayed. It uses the CPU check of the Linux SNMP Monitoring Connector as an example.
 <!-- , and explains where Centreon connectors come into play. -->
+
+The steps where the Monitoring Connector is involved are marked **From the Monitoring Connector**. The other steps are handled by Centreon's own components.
 
 
 ## Example used in this topic
 
 | Item | Value |
 |------|-------|
-| Host | `srv-linux-01` |
-| IP address | `192.168.1.20` |
-| Service | `Ping` |
-| Command | `check_centreon_ping` |
-| Plugin | `check_icmp` |
+| Monitoring Connector | Linux SNMP |
+| Host | `srv-linux-01` (`192.168.1.20`) |
+| Host template | `OS-Linux-SNMP-custom` |
+| SNMP version and community | `2c` / `public` |
+| Service | `Cpu` |
+| Service template | `OS-Linux-Cpu-SNMP-custom` |
+| Command | `OS-Linux-SNMP-Cpu` |
+| Plugin | `centreon_linux_snmp.pl`, `cpu` mode |
 | Check interval | 5 minutes |
 
-> **Note:** Plugin paths, macros and thresholds depend on your Monitoring Connector version and operating system. The values below are typical examples.
+> **Note:** Command names, macros and thresholds depend on your Monitoring Connector version. The values below are typical examples.
 
 ## Overview
 
@@ -29,9 +34,9 @@ This topic follows a single service check from the moment you configure it in Ce
 flowchart LR
     A[Centreon Web] -->|configuration| B[Gorgone]
     B -->|export| C[Centreon Engine]
-    C -->|runs| D[check_icmp]
-    D -->|ICMP echo| E[srv-linux-01]
-    E -->|echo reply| D
+    C -->|runs| D[centreon_linux_snmp.pl]
+    D -->|SNMP requests| E[srv-linux-01]
+    E -->|SNMP replies| D
     D -->|exit code + output| C
     C -->|cbmod / BBDO| F[Centreon Broker]
     F --> G[(MariaDB + RRD)]
@@ -40,20 +45,26 @@ flowchart LR
 
 ## Step 1: Declare the check
 
-In Centreon Web, create the host `srv-linux-01` (`192.168.1.20`) and attach a **Ping** service to it. The service uses the `check_centreon_ping` command:
+In Centreon Web, create the host `srv-linux-01` (`192.168.1.20`) with the host template `OS-Linux-SNMP-custom`, and enter its SNMP version (`2c`) and community (`public`). If you check **Create Services linked to the Template too**, the `Cpu` service is created automatically with the service template `OS-Linux-Cpu-SNMP-custom`.
+
+The service template uses the `OS-Linux-SNMP-Cpu` command (simplified):
 
 ```text
-$USER1$/check_icmp -H $HOSTADDRESS$ -n $_SERVICEPACKETNUMBER$ \
-  -w $_SERVICEWARNING$ -c $_SERVICECRITICAL$
+$CENTREONPLUGINS$/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=cpu \
+  --hostname=$HOSTADDRESS$ --snmp-version='$_HOSTSNMPVERSION$' \
+  --snmp-community='$_HOSTSNMPCOMMUNITY$' $_HOSTSNMPEXTRAOPTIONS$ \
+  --warning-average='$_SERVICEWARNING$' --critical-average='$_SERVICECRITICAL$' \
+  $_SERVICEEXTRAOPTIONS$
 ```
 
-Service macros:
+Service macros, with their default values:
 
 ```text
-PACKETNUMBER=5
-WARNING=200,20%
-CRITICAL=400,50%
+WARNING=80
+CRITICAL=90
 ```
+
+> **From the Monitoring Connector:** you don't write this command yourself. The host template, the service template, the command and the default thresholds all come with the Monitoring Connector. You only adjust the values you need, such as the SNMP community or the thresholds.
 
 <!-- The command's **Connector** field is empty. See [Step 4](#step-4-engine-chooses-how-to-run-the-command) for why this matters. -->
 
@@ -64,8 +75,8 @@ When you export the configuration, Gorgone generates the Centreon Engine configu
 ```text
 define service {
   host_name            srv-linux-01
-  service_description  Ping
-  check_command        check_centreon_ping
+  service_description  Cpu
+  check_command        OS-Linux-SNMP-Cpu
   check_interval       5
   max_check_attempts   3
 }
@@ -73,15 +84,19 @@ define service {
 
 ## Step 3: Engine schedules the check and builds the command
 
-Every 5 minutes, Centreon Engine runs the **Ping** service. It replaces each macro with its real value to get a ready-to-run command line:
+Every 5 minutes, Centreon Engine runs the **Cpu** service. It replaces each macro with its real value to get a ready-to-run command line:
 
 ```text
-/usr/lib/nagios/plugins/check_icmp -H 192.168.1.20 -n 5 -w 200,20% -c 400,50%
+/usr/lib/centreon/plugins/centreon_linux_snmp.pl --plugin=os::linux::snmp::plugin --mode=cpu \
+  --hostname=192.168.1.20 --snmp-version='2c' --snmp-community='public' \
+  --warning-average='80' --critical-average='90'
 ```
 
 ## Step 4: Engine runs the plugin
 
-Centreon Engine starts a new process on the poller and runs `check_icmp` with this command line.
+Centreon Engine starts a new process on the poller and runs `centreon_linux_snmp.pl` with this command line.
+
+> **From the Monitoring Connector:** the plugin. It must be installed on the poller that runs the check. You can install it manually, or let Centreon install it automatically when you deploy the configuration, if **Automatic installation of plugins** is set to **ON** on the **Configuration > Connectors > Monitoring Connectors** page.
 
 <!--
 ## Step 4: Engine chooses how to run the command
@@ -95,19 +110,19 @@ This is the right choice for a ping: `check_icmp` is a small compiled C program 
 Connectors matter for Perl plugins and SSH checks, where starting from scratch on every check is expensive. See [The role of the connector](#the-role-of-the-connector).
 -->
 
-## Step 5: The plugin pings the server
+## Step 5: The plugin queries the server
 
-`check_icmp` sends 5 ICMP echo requests to `192.168.1.20` and measures the response time of each reply. The Linux kernel on `srv-linux-01` answers on its own: no agent or software needs to be installed on the monitored server.
+The plugin sends SNMP requests to `192.168.1.20` on UDP port 161, and reads the CPU usage of each core. The SNMP agent of `srv-linux-01` answers: it must be configured to accept requests from the poller with the `public` community.
 
 ```text
-poller → echo request → 192.168.1.20   (x5)
-poller ← echo reply   ← 192.168.1.20
-measured: rta 0.42 ms, 0% packet loss
+poller → SNMP get CPU usage per core → 192.168.1.20:161
+poller ← core 0: 10 %, core 1: 15 %
+computed: average 12.50 %
 ```
 
 ## Step 6: The plugin returns its result
 
-`check_icmp` compares the measurements with the thresholds (warning at 200 ms or 20% packet loss, critical at 400 ms or 50%) and exits. Centreon Engine reads:
+The plugin compares the average CPU usage with the thresholds (warning at 80%, critical at 90%) and exits. Centreon Engine reads:
 
 - the **exit code**: `0` (OK), `1` (WARNING), `2` (CRITICAL) or `3` (UNKNOWN)
 - the **output**: the text before the `|` character
@@ -116,24 +131,26 @@ measured: rta 0.42 ms, 0% packet loss
 ```text
 exit code: 0
 
-OK - 192.168.1.20 rta 0.420ms lost 0%|rta=0.420ms;200.000;400.000;0; pl=0%;20;50;0;
+OK: 2 CPU(s) average usage is 12.50 % | 'cpu.utilization.percentage'=12.50%;0:80;0:90;0;100 '0#core.cpu.utilization.percentage'=10.00%;;;0;100 '1#core.cpu.utilization.percentage'=15.00%;;;0;100
 ```
+
+> **From the Monitoring Connector:** the plugin defines what is measured, the wording of the output and the names of the metrics (here, `cpu.utilization.percentage` and `core.cpu.utilization.percentage`). The connector's templates are built around these metrics: their macros set the thresholds that the plugin compares the measurements with. The metrics of each service are listed in the connector's monitoring procedure.
 
 ## Step 7: Engine determines the state
 
 Exit code `0` means OK, so no further action is taken.
 
-If the server stopped answering, the plugin would return `2` (CRITICAL). Centreon Engine would set a **soft** CRITICAL state and retry the check up to `max_check_attempts` times (3 in this example). Only if all attempts fail does the state become **hard** CRITICAL and trigger notifications.
+If the average CPU usage went over 90%, the plugin would return `2` (CRITICAL). Centreon Engine would set a **soft** CRITICAL state and retry the check up to `max_check_attempts` times (3 in this example). Only if all attempts fail does the state become **hard** CRITICAL and trigger notifications.
 
 ## Step 8: The result is sent to the central server
 
 The broker module loaded in Centreon Engine (cbmod) converts the result into an event and streams it over the BBDO protocol (TCP port 5669) to Centreon Broker on the central server.
 
 ```text
-service_status  host=srv-linux-01  service=Ping
+service_status  host=srv-linux-01  service=Cpu
 state=OK
-output="OK - 192.168.1.20 rta 0.420ms lost 0%"
-perfdata="rta=0.420ms;200.000;400.000;0; pl=0%;20;50;0;"
+output="OK: 2 CPU(s) average usage is 12.50 %"
+perfdata="'cpu.utilization.percentage'=12.50%;0:80;0:90;0;100 ..."
 ```
 
 ## Step 9: Centreon Broker stores the result
@@ -141,11 +158,11 @@ perfdata="rta=0.420ms;200.000;400.000;0; pl=0%;20;50;0;"
 Centreon Broker:
 
 - writes the real-time status to the MariaDB database (`centreon_storage`)
-- sends the metrics (`rta` and `pl`) to RRD files, which are used to draw graphs
+- sends the metrics (`cpu.utilization.percentage` and one `core.cpu.utilization.percentage` metric per core) to RRD files, which are used to draw graphs
 
 ## Step 10: The result is displayed
 
-In **Monitoring > Resources Status**, the **Ping** service of `srv-linux-01` is displayed as **OK** with its output, and the performance graph gets a new `rta` data point.
+In **Monitoring > Resources Status**, the **Cpu** service of `srv-linux-01` is displayed as **OK** with its output, and the performance graph gets new data points.
 
 Five minutes later, Centreon Engine starts again at [Step 3](#step-3-engine-schedules-the-check-and-builds-the-command).
 

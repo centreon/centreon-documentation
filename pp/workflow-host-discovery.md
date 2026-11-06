@@ -8,6 +8,8 @@ description: "What steps does a host discovery job go through, from the moment i
 
 This topic follows a host discovery job from the moment you create it in Centreon Web to the moment the discovered hosts are monitored. It uses an SNMP discovery of Linux servers on a subnet as an example.
 
+The steps where the Monitoring Connector is involved are marked **From the Monitoring Connector**. The other steps are handled by Centreon's own components.
+
 ## Example used in this topic
 
 | Item | Value |
@@ -50,6 +52,8 @@ Go to **Configuration > Hosts > Discovery** and click **+ADD**. A wizard opens:
 
 Click **FINISH**. The job appears in the list with the status **Scheduled** or **Running**.
 
+> **From the Monitoring Connector:** the discovery provider. It defines the discovery command, the parameters the wizard asks for, and the attributes the discovery returns. The list of providers in the wizard only shows the providers of the Monitoring Connectors installed on your platform.
+
 ## Step 2: Centreon Web hands the job to Gorgone
 
 The Auto Discovery module sends the job to the Gorgone daemon on the central server. Gorgone builds the discovery command from the provider definition and the parameters you entered.
@@ -67,6 +71,8 @@ Gorgone on `poller-01` runs the discovery plugin. The command looks like this (s
   --mode=discovery --subnet='192.168.1.0/24' \
   --snmp-community='public' --snmp-version='2c' --snmp-port='161'
 ```
+
+> **From the Monitoring Connector:** the discovery plugin. It must be installed on the poller that runs the discovery. If **Automatic installation of plugins** is set to **ON** on the **Configuration > Connectors > Monitoring Connectors** page, it is installed automatically when the job runs.
 
 ## Step 5: The plugin scans the subnet
 
@@ -123,6 +129,8 @@ The Auto Discovery module applies the job's mappers to each result. Mappers tran
 
 If you change mappers before the hosts are created, the results are updated immediately.
 
+> **From the Monitoring Connector:** the host template applied by the Template mapper. In this example, `OS-Linux-SNMP-custom` is provided by the Linux SNMP Monitoring Connector. The attributes you can use in the mappers (`hostname`, `ip`, `type`, etc.) are defined by the discovery provider.
+
 ## Step 8: You review the results
 
 On **Configuration > Hosts > Discovery**, click the arrow next to the job's status to display the results. An icon tells you what will happen to each host:
@@ -136,11 +144,13 @@ With **Manual analysis**, select `srv-linux-01` and click **Save**. With **Autom
 
 `srv-linux-01` is created in **Configuration > Hosts > Hosts**. The services linked to its host template (CPU, memory, disks, traffic and so on) are created with it.
 
+> **From the Monitoring Connector:** the service templates linked to the host template, which determine which services are created and with which default thresholds. The host template is also linked to the connector's service discovery rules, so that interfaces, disks and other items of the host can then be discovered (see [Journey of a service discovery rule](./workflow-service-discovery.md)).
+
 ## Step 10: The configuration is exported
 
 Export the configuration of `poller-01` and reload it. If **Export and reload pollers configuration** was selected in the job wizard, this happens automatically. Centreon Engine on `poller-01` now knows about `srv-linux-01` and starts scheduling its checks.
 
-From here, each check follows the journey described in [Journey of a check: a ping on a Linux server](./workflow-service-check.md).
+From here, each check follows the journey described in [Journey of a service check](./workflow-service-check.md).
 
 ## Discovery versus checks
 

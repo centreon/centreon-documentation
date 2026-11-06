@@ -8,6 +8,8 @@ description: "What steps does a service discovery rule go through, from the mome
 
 This topic follows a service discovery from its trigger to the moment the discovered services are monitored. It uses the discovery of network interfaces on a Linux server as an example.
 
+The steps where the Monitoring Connector is involved are marked **From the Monitoring Connector**. The other steps are handled by Centreon's own components.
+
 It follows on from [Journey of a host discovery job](./workflow-host-discovery.md): the host `srv-linux-01` has been created with the host template `OS-Linux-SNMP-custom`.
 
 ## Example used in this topic
@@ -63,6 +65,8 @@ Discovery rules are listed in **Configuration > Services > Rules**. Most Monitor
 
 Because `srv-linux-01` uses `OS-Linux-SNMP-custom`, this rule applies to it with no extra configuration.
 
+> **From the Monitoring Connector:** the rule itself, installed with the Linux SNMP Monitoring Connector, with its discovery commands, its service template, its link to the host template and its default inclusions and exclusions. You can adapt it, for example to change the inclusions or to activate it.
+
 ## Step 2: The discovery is triggered
 
 A service discovery can start in three ways:
@@ -99,6 +103,8 @@ Gorgone on `poller-01` runs the plugin in a `list-` mode with the `--disco-show`
   --hostname=192.168.1.20 --snmp-version=2c --snmp-community=public --disco-show
 ```
 
+> **From the Monitoring Connector:** the plugin and its `list-interfaces` mode. It is the same plugin as the one used for the host's checks, so it is already installed on the poller that monitors the host.
+
 ## Step 5: The plugin reads the server's interfaces
 
 The plugin queries the interface table of `srv-linux-01` over SNMP and gets every interface with its name, status and speed.
@@ -127,6 +133,8 @@ With `--disco-show`, the plugin returns one XML element per item. Each piece of 
 
 To know which attributes a mode returns, run it with `--disco-format` instead of `--disco-show`. The same attributes are shown in the rule's **Inclusions / Exclusions & Macros** tab.
 
+> **From the Monitoring Connector:** the list of XML attributes, which is defined by the plugin's mode. They are what you can filter on and map to macros in the rule.
+
 Gorgone on the poller sends the list back to Gorgone on the central server.
 
 ## Step 7: Inclusions and exclusions filter the list
@@ -152,6 +160,8 @@ The services are created on `srv-linux-01`. Items already in the configuration a
 
 With a manual scan, nothing is created until you select the items and save.
 
+> **From the Monitoring Connector:** the service template `OS-Linux-Traffic-Generic-Name-SNMP-custom`, which brings the check command, the macros and the default thresholds of each new service.
+
 ## Step 9: Missing items are disabled
 
 **Disable elements not found** is enabled, so Gorgone compares the discovered items with the services created by this rule on previous runs. If an interface has disappeared, its service is disabled.
@@ -162,7 +172,7 @@ The **Supervisors** contact group receives an email listing the services created
 
 The poller configuration is exported and Centreon Engine on `poller-01` is reloaded. `Traffic-eth0` and `Traffic-eth1` are now scheduled like any other service.
 
-From here, each check follows the journey described in [Journey of a check](./workflow-service-check.md).
+From here, each check follows the journey described in [Journey of a service check](./workflow-service-check.md).
 
 <!-- These traffic checks use a Perl plugin, so they benefit from Centreon Connector Perl if the command is linked to it. -->
 
@@ -175,6 +185,7 @@ From here, each check follows the journey described in [Journey of a check](./wo
 | Scope | A network, account or platform | Hosts using the rule's host templates |
 | Triggered by | Job schedule or **Force execution** | Gorgone cron (daily by default), manual scan or API |
 | Run by | Gorgone | Gorgone |
+| Provided by the Monitoring Connector | The discovery provider | The discovery rules |
 | Plugin output | JSON | XML (`--disco-show`) |
 | Results turned into objects by | Mappers | Inclusions, exclusions and macros |
 | Creates | Hosts (and their template services) | Services on existing hosts |

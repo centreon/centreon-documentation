@@ -13,6 +13,7 @@ The key point: **a host's status comes from its own check command, not from its 
 | Item | Value |
 |------|-------|
 | Host | `srv-linux-01` (`192.168.1.20`) |
+| Host template | `OS-Linux-SNMP-custom` (provided by the Linux SNMP Monitoring Connector) |
 | Parent host | `rtr-site-a` (the router in front of the server) |
 | Host check command | `base_host_alive` (runs `check_icmp`) |
 | Check interval | 5 minutes |
@@ -62,6 +63,10 @@ For `srv-linux-01`, the check runs:
 ```
 
 The journey of this command, from scheduling to execution, is described in [Journey of a service check](./workflow-service-check.md).
+
+> **From the Monitoring Connector:** the host check command, its thresholds, the check intervals and the max check attempts are not set on the host itself. They are inherited from the host template applied to the host, here `OS-Linux-SNMP-custom`, provided by the Monitoring Connector. You can override them on the host if needed.
+>
+> Steps 2 to 5 are handled by Centreon Engine and don't depend on the Monitoring Connector. The parent hosts used in Step 3 are defined in the host configuration.
 
 ## Step 2: The exit code gives a preliminary state
 
