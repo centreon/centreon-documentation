@@ -37,16 +37,7 @@ module.exports = {
                 {
               type: 'doc',
               id: 'integrations/plugin-packs/getting-started/how-to-guides/rust-collections'
-            },
-            {
-              type: 'doc',
-              id: 'integrations/plugin-packs/getting-started/how-to-guides/azure-credential-configuration'
-            },
-            {
-          type: 'doc',
-          id: 'integrations/plugin-packs/getting-started/develop-plugin'
-        },
-    
+            },    
     {
       type: 'category',
       label: 'Connector types and configuration',
@@ -92,7 +83,6 @@ module.exports = {
           ]
         },
         {
-
           type: 'category',
           label: 'Protocol-based connectors',
           link: {
@@ -134,7 +124,6 @@ module.exports = {
         {
           type: 'doc',
           id: 'check-workflow'
-
         },
         {
           type: 'doc',
