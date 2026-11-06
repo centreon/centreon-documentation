@@ -6,7 +6,9 @@ description: "What steps does a service check go through, from the moment it is 
 
 ## Journey of a service check: a ping on a Linux server
 
-This topic follows a single service check from the moment you configure it in Centreon Web to the moment its result is displayed. It uses a ping on a Linux server as an example, and explains where Centreon connectors come into play.
+This topic follows a single service check from the moment you configure it in Centreon Web to the moment its result is displayed. It uses a ping on a Linux server as an example.
+<!-- , and explains where Centreon connectors come into play. -->
+
 
 ## Example used in this topic
 
@@ -19,7 +21,7 @@ This topic follows a single service check from the moment you configure it in Ce
 | Plugin | `check_icmp` |
 | Check interval | 5 minutes |
 
-> **Note:** Plugin paths, macros and thresholds depend on your Plugin Pack version and operating system. The values below are typical examples.
+> **Note:** Plugin paths, macros and thresholds depend on your Monitoring Connector version and operating system. The values below are typical examples.
 
 ## Overview
 
@@ -53,7 +55,7 @@ WARNING=200,20%
 CRITICAL=400,50%
 ```
 
-The command's **Connector** field is empty. See [Step 4](#step-4-engine-chooses-how-to-run-the-command) for why this matters.
+<!-- The command's **Connector** field is empty. See [Step 4](#step-4-engine-chooses-how-to-run-the-command) for why this matters. -->
 
 ## Step 2: Export the configuration
 
@@ -77,6 +79,11 @@ Every 5 minutes, Centreon Engine runs the **Ping** service. It replaces each mac
 /usr/lib/nagios/plugins/check_icmp -H 192.168.1.20 -n 5 -w 200,20% -c 400,50%
 ```
 
+## Step 4: Engine runs the plugin
+
+Centreon Engine starts a new process on the poller and runs `check_icmp` with this command line.
+
+<!--
 ## Step 4: Engine chooses how to run the command
 
 This is where a connector would come into play.
@@ -86,6 +93,7 @@ Centreon Engine checks whether a connector is defined for the command. Here, non
 This is the right choice for a ping: `check_icmp` is a small compiled C program that starts in a few milliseconds, so a connector would bring no benefit.
 
 Connectors matter for Perl plugins and SSH checks, where starting from scratch on every check is expensive. See [The role of the connector](#the-role-of-the-connector).
+-->
 
 ## Step 5: The plugin pings the server
 
@@ -141,6 +149,7 @@ In **Monitoring > Resources Status**, the **Ping** service of `srv-linux-01` is 
 
 Five minutes later, Centreon Engine starts again at [Step 3](#step-3-engine-schedules-the-check-and-builds-the-command).
 
+<!--
 ## The role of the connector
 
 A connector is a long-lived process running on the poller. When a command is linked to a connector, Centreon Engine doesn't start a new process for each check: it sends the command line to the connector, which runs it and returns the result.
@@ -161,3 +170,4 @@ Comparison for a single check:
 | SSH check | Fork, open SSH session, authenticate, run | Run in existing session |
 
 On pollers that run thousands of Perl or SSH checks, connectors significantly reduce CPU load and check latency. To use one, select it in the **Connector** field of the command definition.
+-->

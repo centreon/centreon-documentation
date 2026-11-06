@@ -162,7 +162,10 @@ The **Supervisors** contact group receives an email listing the services created
 
 The poller configuration is exported and Centreon Engine on `poller-01` is reloaded. `Traffic-eth0` and `Traffic-eth1` are now scheduled like any other service.
 
-From here, each check follows the journey described in [Journey of a check](./workflow-service-check.md). These traffic checks use a Perl plugin, so they benefit from Centreon Connector Perl if the command is linked to it.
+From here, each check follows the journey described in [Journey of a check](./workflow-service-check.md).
+
+<!-- These traffic checks use a Perl plugin, so they benefit from Centreon Connector Perl if the command is linked to it. -->
+
 
 ## Host discovery versus service discovery
 
