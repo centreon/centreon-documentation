@@ -35,10 +35,6 @@ module.exports = {
       ],
     },
     {
-      type: "doc",
-      id: "integrations/plugin-packs/releases/release-notes",
-    },
-    {
       type: "category",
       label: "Connector types and configuration",
       link: {
