@@ -1,7 +1,7 @@
 ---
 id: sms-notifications
 title: SMS notifications
-description: "Send host and service alerts by SMS using OVH SMS"
+description: "Send Centreon host and service notifications by SMS, using OVH SMS as an example: install the SMS plugin, create notification commands and configure users."
 ---
 
 You can send notification SMS using an SMS provider and a custom notification command in Centreon. Here is an example with OVH SMS.

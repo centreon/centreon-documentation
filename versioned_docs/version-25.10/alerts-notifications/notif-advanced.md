@@ -1,7 +1,7 @@
 ---
 id: notif-advanced
 title: To go further
-description: "Customize notification commands and forward events with stream connectors"
+description: "Customize the commands Centreon uses to send notifications to contacts, and forward monitoring events to third-party tools with stream connectors."
 ---
 
 ## Commands

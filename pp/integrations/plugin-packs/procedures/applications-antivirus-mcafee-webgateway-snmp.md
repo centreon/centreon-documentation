@@ -1,7 +1,7 @@
 ---
 id: applications-antivirus-mcafee-webgateway-snmp
 title: McAfee Web Gateway
-description: "This McAfee Web Gateway SNMP connector is discontinued; monitor Skyhigh Security Web Gateway via SNMP instead."
+description: "The McAfee Web Gateway SNMP connector is no longer maintained and has been replaced: use the Skyhigh Security Web Gateway SNMP connector instead."
 ---
 
 > This Monitoring Connector is no longer maintained ([see official documentation](https://success.skyhighsecurity.com/Skyhigh_Secure_Web_Gateway_(On_Prem)/Secure_Web_Gateway_Overview/End-of-life_(EOL)_Dates_for_Secure_Web_Gateway)) and should not be used. 

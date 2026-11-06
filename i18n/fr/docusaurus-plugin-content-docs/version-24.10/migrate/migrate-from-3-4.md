@@ -1,7 +1,7 @@
 ---
 id: migrate-from-3-4
 title: Migration depuis une plateforme Centreon 3.4
-description: "Migrer les données et la configuration depuis une plateforme Centreon 3.4"
+description: "Migrez une plateforme Centreon 3.4 vers un nouveau serveur central : installez-le, synchronisez données, bases et plugins, puis mettez à jour Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

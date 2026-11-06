@@ -1,7 +1,7 @@
 ---
 id: network-aruba-instant-snmp
 title: Aruba Instant SNMP
-description: "Supervisez les points d'accès Aruba Instant via SNMP : usage des AP, CPU, mémoire et statut des SSID."
+description: "Supervisez les points d'accès Aruba Instant via SNMP : nombre et statut des AP, clients connectés, CPU et mémoire par AP, et statut des SSID."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -399,3 +399,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=ssid-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [24.02](../releases/release-notes.md#2024-02) - Bug fix: Fixed an "uninitialized value in concatenation" issue on AP-Usage.

@@ -1,14 +1,12 @@
 ---
 id: debug
 title: Debug
-description: "Enable debug-level logging for Centreon processes"
+description: "Enable debug-level logging for Centreon processes from Administration > Parameters > Debug, and choose which components write debug logs."
 ---
 
 This section describes how to enable debug level logging of Centreon processes.
 
 Go to **Administration > Parameters > Debug**.
-
-![image](../../assets/administration/parameters-debug.png)
 
 - The **Logs Directory** field defines the path where event logs will be recorded
 - The **Authentication debug** box can be used to log authentications to the

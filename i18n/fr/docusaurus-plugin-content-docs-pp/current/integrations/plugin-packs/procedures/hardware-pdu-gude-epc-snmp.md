@@ -1,7 +1,7 @@
 ---
 id: hardware-pdu-gude-epc-snmp
 title: Gude EPC PDU SNMP
-description: "Supervisez les PDU Gude EPC via SNMP : power channels, ports unitaires, tension, courant et énergie."
+description: "Supervisez les PDU Gude EPC via SNMP : canaux d'alimentation, canaux à port unique, tension, courant et énergie, avec découverte des hôtes et services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

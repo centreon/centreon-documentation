@@ -541,3 +541,7 @@ All available options for a given mode can be displayed by adding the
 	--custommode='standard' \
 	--help
 ```
+
+## Changelog
+
+- [24.02](../releases/release-notes.md#2024-02) - New connector: First release of Centreon Map Engine monitoring connector.

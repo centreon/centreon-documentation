@@ -1,7 +1,7 @@
 ---
 id: network-switchs-cisco-smallbusiness-standard-snmp
 title: Cisco Small Business SNMP
-description: "Monitor Cisco Small Business switches via SNMP: CPU, environment, packet errors, spanning tree, stack, and traffic."
+description: "Monitor Cisco Small Business switches via SNMP: CPU, fans and power supplies, spanning tree, stack, and interface traffic and packet errors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -782,3 +782,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [25.05](../releases/release-notes.md#2025-05) - Enhancement: Added a new **stack** mode, based on community contribution [PR 5317](https://github.com/centreon/centreon-plugins/pull/5317).

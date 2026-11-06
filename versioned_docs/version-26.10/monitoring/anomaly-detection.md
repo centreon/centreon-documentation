@@ -1,7 +1,7 @@
 ---
 id: anomaly-detection
 title: Anomaly detection
-description: "Detect abnormal service behavior using dynamic thresholds and predictive models"
+description: "Detect abnormal service behavior with Centreon Anomaly Detection: install the module, create services with dynamic thresholds, and view anomalies."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -56,13 +56,6 @@ To use Anomaly Detection, you will need:
 Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-anomaly-detection
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -70,7 +63,14 @@ dnf install centreon-anomaly-detection
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-anomaly-detection
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ``` shell
 apt update && apt install centreon-anomaly-detection

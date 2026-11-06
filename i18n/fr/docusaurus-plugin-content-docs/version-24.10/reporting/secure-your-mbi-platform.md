@@ -1,7 +1,7 @@
 ---
 id: secure-your-mbi-platform
 title: Sécuriser votre plateforme MBI
-description: "Sécuriser la connexion entre Centreon MBI et votre base de données avec TLS"
+description: "Activez TLS entre Centreon MBI et MySQL ou MariaDB : générez les certificats, configurez le serveur, l'utilisateur et JDBC, puis redémarrez MBI."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

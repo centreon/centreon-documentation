@@ -491,3 +491,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=drive-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: Fixed the App-Netbackup-SSH-Drive-Cleaning command.

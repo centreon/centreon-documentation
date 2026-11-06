@@ -1,7 +1,7 @@
 ---
 id: add-a-remote-server-to-configuration
 title: Attach a remote server to a central server
-description: "Configure and connect a new remote server to a central server"
+description: "Attach a new remote server to a Centreon central server with the configuration wizard, enable communication between them, and export the configuration."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -241,7 +241,7 @@ it with the following command from the **Central server**:
 
 ## Step 3: Export the configuration
 
-1. From the poller list, select the remote server and click **Export
+1. On the central server, return to the **Configuration > Pollers > Pollers** menu, select the remote server and click **Export
 configuration**.
 
 2. Then check the first three boxes and click **Export**:

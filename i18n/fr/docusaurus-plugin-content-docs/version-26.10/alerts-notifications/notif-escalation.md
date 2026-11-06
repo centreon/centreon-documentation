@@ -1,7 +1,7 @@
 ---
 id: notif-escalation
 title: Les escalades de notifications
-description: "Faire remonter les notifications vers différents groupes de contacts"
+description: "Configurez des escalades de notifications dans Centreon pour prévenir d'autres groupes de contacts quand une alerte persiste sur un hôte ou un service."
 ---
 
 ## Definition
@@ -15,7 +15,7 @@ Une escalade de notifications permet de contacter différents groupes de
 contacts au fil des notifications envoyées ou de changer le moyen de
 notification (remplacer les mails par un SMS). La définition d'une
 escalade de notification pour un hôte, un groupe d'hôte, un service, un
-groupe de services ou un méta-service écrase la configuration classique
+groupe de services ou un métaservice écrase la configuration classique
 des notifications pour cet objet.
 
 Exemple : Un service A est paramétré pour envoyer des notifications à un
@@ -97,6 +97,6 @@ Pour ajouter une escalade de notification, rendez-vous dans le menu
 
 Pour sélectionner les différents objets qui seront concernés par cette
 escalade, les onglets **Hosts Escalation**, **Services Escalation**,
-**Hostgroups Escalation**, **Meta Service Escalation** et
+**Hostgroups Escalation**, **Métaservice Escalation** et
 **Servicegroups Escalation** permettent de choisir les objets sur
 lesquels les escalades sont appliquées.

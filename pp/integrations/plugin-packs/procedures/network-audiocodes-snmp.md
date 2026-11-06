@@ -1,7 +1,7 @@
 ---
 id: network-audiocodes-snmp
 title: AudioCodes SNMP
-description: "Monitor AudioCodes SBC devices via SNMP: CPU, memory, hardware, interfaces, trunk status, and SBC calls."
+description: "Monitor AudioCodes SBC devices via SNMP: CPU, memory, hardware, interfaces, trunk status, and SBC calls, with discovery of network interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -635,3 +635,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu \
 	--help
 ```
+
+## Changelog
+
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Added Sbc-Calls service.

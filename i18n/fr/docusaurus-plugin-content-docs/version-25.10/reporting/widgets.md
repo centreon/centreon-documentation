@@ -1,7 +1,7 @@
 ---
 id: widgets
 title: Widgets MBI
-description: "Aperçu des widgets MBI disponibles pour les tableaux de bord et vues personnalisées"
+description: "Ajoutez les widgets Centreon MBI à vos vues personnalisées : disponibilité, évènements, capacité, performance et activités métier."
 ---
 
 > Les widgets Centreon MBI suivants sont disponibles dans [Dashboards](../alerts-notifications/dashboards.md) :

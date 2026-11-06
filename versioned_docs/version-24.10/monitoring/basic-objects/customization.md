@@ -1,7 +1,7 @@
 ---
 id: customization
 title: Changing your Centreon account's settings
-description: "Customize your Centreon account's display mode, language, and default page"
+description: "Customize your Centreon account settings: switch to dark mode, change the interface language, reset your password, and set a default page after login."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

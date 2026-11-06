@@ -1,7 +1,7 @@
 ---
 id: sc-opsgenie-events
 title: Opsgenie Events
-description: "Send host and service status events from Centreon to Opsgenie"
+description: "Install and configure the Opsgenie Events stream connector to send Centreon host and service status events to Opsgenie as alerts or incidents."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -37,14 +37,6 @@ remote server, poller).
 2. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-opsgenie
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -53,7 +45,15 @@ dnf install centreon-stream-connector-opsgenie
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-opsgenie
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-opsgenie

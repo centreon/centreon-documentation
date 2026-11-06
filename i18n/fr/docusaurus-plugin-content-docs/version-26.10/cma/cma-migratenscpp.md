@@ -1,7 +1,7 @@
 ---
 id: cma-migratenscpp
 title: Migrer vers CMA depuis NSClient++
-description: "Migrer les hôtes supervisés de NSClient++ ou NRPE vers CMA"
+description: "Migrez vos hôtes de NSClient++ ou NRPE vers Centreon Monitoring Agent (CMA) : déployez l'agent, installez les connecteurs, adaptez modèles et services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

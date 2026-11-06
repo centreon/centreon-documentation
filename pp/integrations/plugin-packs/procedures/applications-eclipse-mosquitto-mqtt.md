@@ -1,7 +1,7 @@
 ---
 id: applications-eclipse-mosquitto-mqtt
 title: Eclipse Mosquitto MQTT
-description: "Monitor Eclipse Mosquitto MQTT brokers: connected clients, message statistics, and server uptime."
+description: "Monitor Eclipse Mosquitto brokers via MQTT: connected clients, message statistics, and uptime, plus numeric or string values read from any topic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -485,3 +485,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=uptime \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Fixed `format-custom` option.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed a syntax error and an issue with encoding occurring when topic names contained accents.
+- [25.04](../releases/release-notes.md#2025-04) - Bug fix: Fixed perfdata options in **numeric-value** mode, from community contribution [PR 5462](https://github.com/centreon/centreon-plugins/pull/5462).
+- [24.11](../releases/release-notes.md#2024-11) - Bug fix: Fixed `warning-regexp` and `critical-regexp` options.
+- [24.06](../releases/release-notes.md#2024-06) - New connector: Initial release of Eclipse Mosquitto MQTT.

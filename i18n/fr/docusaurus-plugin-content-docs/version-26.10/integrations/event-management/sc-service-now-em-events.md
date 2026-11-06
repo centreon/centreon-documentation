@@ -1,7 +1,7 @@
 ---
 id: sc-service-now-em-events
 title: ServiceNow Event Manager Events
-description: "Envoyer les événements d'hôtes et de services vers ServiceNow Event Manager"
+description: "Installez et configurez le stream connector ServiceNow Event Manager Events pour envoyer les évènements des hôtes et services Centreon vers ServiceNow."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -30,14 +30,6 @@ Faites l'installation sur le serveur qui enverra les données à ServiceNow Even
 2. Exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-servicenow
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -46,7 +38,15 @@ dnf install centreon-stream-connector-servicenow
 
 </TabItem>
 
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-servicenow
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-servicenow

@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-openmetrics
 title: OpenMetrics
-description: "Monitor OpenMetrics-compatible applications over HTTP/HTTPS by scraping metrics from files or web endpoints."
+description: "Monitor OpenMetrics-compatible applications over HTTP/HTTPS by scraping metrics from a web page or from a formatted file on a remote host."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -331,3 +331,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=scrape-metrics \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **App-Monitoring-Openmetrics-File-Scrape-Metrics** command.

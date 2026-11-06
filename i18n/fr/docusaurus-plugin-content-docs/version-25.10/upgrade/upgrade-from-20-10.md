@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-20-10
 title: Montée de version depuis Centreon 20.10
-description: "Passer une plateforme Centreon de la version 20.10 à la 25.10"
+description: "Mettez à jour Centreon de la 20.10 vers la 25.10 : sauvegardez, mettez à jour le serveur central et sa base, puis les serveurs distants et collecteurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -219,7 +219,7 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
-Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256mb. Ajoutez cette limite manuellement si nécessaire.
+Assurez vous que le paramètre `memory_limit` contenu dans `/etc/php.d/50-centreon.ini` est fixé à au moins 256M. Ajoutez cette limite manuellement si nécessaire.
 
 Puis, finissez la montée de version de la solution Centreon.
 

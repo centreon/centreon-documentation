@@ -1,7 +1,7 @@
 ---
 id: migrate-from-el-to-debian
 title: Migrer depuis un OS de type EL vers Debian
-description: "Migrer une plateforme Centreon d'un OS de type EL vers Debian"
+description: "Migrez une plateforme Centreon 18.10 ou plus récente d'un OS de type EL, comme CentOS 7, vers Debian sur un nouveau serveur, puis mettez à jour Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -224,6 +224,8 @@ Si vous utilisez vos propres plugins personnalisés, synchronisez les répertoir
          username: "@GORGONE_USER@"
          password: "@GORGONE_PASSWORD@"
    ```
+
+   > Si vous avez [personnalisé l'URI de Centreon](../administration/secure-platform.md#uri-personnalisée), remplacez **/centreon** par votre chemin personnalisé dans la valeur **base_url**.
 
 7. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) de tous vos serveurs de supervision (y compris celle du central).
 

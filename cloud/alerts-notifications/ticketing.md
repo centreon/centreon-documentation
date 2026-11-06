@@ -1,7 +1,7 @@
 ---
 id: ticketing
 title: Configuring Open Tickets
-description: "How administrators set up notification rules, macros, and widgets to enable ticket creation in Centreon Cloud"
+description: "How administrators set up Open Tickets in Centreon Cloud: create a rule for an ITSM provider, add a TICKET_ID macro to templates, and configure the widgets"
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

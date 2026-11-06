@@ -1,12 +1,12 @@
 ---
 id: improve-dss
 title: Améliorer votre Score de Sobriété Numérique
-description: Utiliser des recommandations par étape pour améliorer votre Score de Sobriété Numérique
+description: "Améliorez votre Score de Sobriété Numérique grâce aux recommandations par étape de parcours ou par page RUM, puis comparez les audits pour mesurer l'effet."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Le Score de Sobriété Numérique (SSN) est un calcul des émissions carbone de votre site [prenant en compte divers facteurs](https://docs.centreon.com/fr/experience-monitoring/experience-monitoring/digital-sobriety/digital-sobriety-score/). En plus de le calculer, Centreon Experience Monitoring peut vous conseiller sur les améliorations à apporter.
+Le Score de Sobriété Numérique (SSN) est un calcul des émissions carbone de votre site [prenant en compte divers facteurs](./digital-sobriety-score.md). En plus de le calculer, Centreon Experience Monitoring peut vous conseiller sur les améliorations à apporter.
 
 Les détails de votre SSN et les pistes d'amélioration sont accessibles depuis le widget correspondant, situé dans la page **Vue Globale**.
 

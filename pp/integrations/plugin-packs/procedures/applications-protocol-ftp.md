@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-ftp
 title: FTP Server
-description: "Monitor FTP servers via login checks, remote command execution, file date tracking, and file counting in directories."
+description: "Monitor FTP servers: test login, run remote commands, check the date of files in a directory, and count files, with response time metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -407,3 +407,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=login \
 	--help
 ```
+
+## Changelog
+
+- [24.05](../releases/release-notes.md#2024-05) - Bug fix: Fixed file processing when both `--filter-file` and `--max-depth` options were used.

@@ -1,7 +1,7 @@
 ---
 id: applications-webservers-tomcat-jmx
 title: Tomcat JMX
-description: "Supervisez Apache Tomcat via JMX/Jolokia : mémoire JVM, charge CPU, threads, utilisation des connecteurs et des datasources, et sessions des applications web."
+description: "Supervisez Apache Tomcat via JMX/Jolokia : mémoire JVM, charge CPU, threads, utilisation des connecteurs et datasources, sessions des applications web."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -652,3 +652,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=webapps-sessions \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed the plugin dependencies.

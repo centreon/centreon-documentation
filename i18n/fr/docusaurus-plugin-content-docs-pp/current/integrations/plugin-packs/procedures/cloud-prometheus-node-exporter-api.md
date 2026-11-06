@@ -1,7 +1,7 @@
 ---
 id: cloud-prometheus-node-exporter-api
 title: Node Exporter w/ Prometheus API
-description: "Supervisez Node Exporter via l'API Prometheus : utilisation CPU, charge, mémoire et stockage des nœuds Linux."
+description: "Supervisez les nœuds Linux via Node Exporter et l'API Prometheus : utilisation CPU globale et détaillée, charge, mémoire et stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -533,3 +533,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Added **uptime** mode, **storage** mode and its discovery and **interfaces** mode and its discovery.

@@ -1,7 +1,7 @@
 ---
 id: create-graphical-view
 title: Create a graphical view
-description: "How to create real-time infrastructure views with Centreon MAP"
+description: "Create real-time views of your infrastructure with Centreon MAP: build a logical view in the desktop client, add a geographic view and share your views."
 ---
 
 The objective of this tutorial is to help you understand how you can provide

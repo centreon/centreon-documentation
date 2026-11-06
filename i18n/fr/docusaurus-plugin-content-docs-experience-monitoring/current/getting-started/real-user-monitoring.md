@@ -1,7 +1,7 @@
 ﻿---
 id: real-user-monitoring
 title: Le Real User Monitoring (ou RUM)
-description: Introduction à la mesure de la performance réelle des visiteurs avec le RUM
+description: "Le Real User Monitoring (RUM) mesure les performances du site depuis le navigateur de vrais utilisateurs, via une balise HTML légère conforme au RGPD."
 ---
 
 Le module **Real User Monitoring** (ou RUM) vous permet de mesurer les performances d'un site web directement depuis les navigateurs de vrais utilisateurs.

@@ -1,7 +1,7 @@
 ---
 id: network-westermo-standard-snmp
 title: Westermo Standard SNMP
-description: "Monitor Westermo network devices via SNMP: CPU, memory, sensors, uptime, interfaces, and Spanning Tree status."
+description: "Monitor Westermo network devices via SNMP: CPU, memory, sensors, uptime, interfaces, Spanning Tree status, and TCP/UDP connections, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -773,3 +773,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=spanning-tree \
 	--help
 ```
+
+## Changelog
+
+- [26.05](../releases/release-notes.md#2026-05) - New connector: Initial release, based on community contribution [PR 5696](https://github.com/centreon/centreon-plugins/pull/5696).

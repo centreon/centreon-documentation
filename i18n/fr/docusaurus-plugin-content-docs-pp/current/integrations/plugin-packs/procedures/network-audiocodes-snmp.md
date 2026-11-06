@@ -1,7 +1,7 @@
 ---
 id: network-audiocodes-snmp
 title: AudioCodes SNMP
-description: "Supervisez les équipements AudioCodes en SNMP : CPU, mémoire, matériel, interfaces, statut des trunks et appels SBC."
+description: "Supervisez les équipements AudioCodes en SNMP : CPU, mémoire, matériel, interfaces, statut des trunks et appels SBC, avec découverte des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -635,3 +635,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=cpu \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - Enhancement: Added Sbc-Calls service.

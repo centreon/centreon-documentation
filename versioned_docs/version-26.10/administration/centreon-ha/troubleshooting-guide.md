@@ -1,10 +1,12 @@
 ---
 id: troubleshooting-guide
 title: Troubleshooting HA
-description: "Diagnose and fix common Centreon HA cluster resource issues"
+description: "Troubleshoot a Centreon HA cluster: clear failed actions shown in crm_mon and fix resources or resource groups that do not start on any node."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+
+> Note that some commands, options or outputs may differ with your version of Pacemaker/Corosync. Refer to the official documentation of your version.
 
 ## A failed action is displayed in `crm_mon` but the resource seems to be working fine
 

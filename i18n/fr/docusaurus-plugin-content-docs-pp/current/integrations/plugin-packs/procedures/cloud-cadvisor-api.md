@@ -1,7 +1,7 @@
 ---
 id: cloud-cadvisor-api
 title: cAdvisor API
-description: "Supervisez vos conteneurs Docker via l'API REST cAdvisor : CPU, mémoire, I/O disque, trafic réseau et statut du nœud."
+description: "Supervisez vos conteneurs Docker via l'API REST cAdvisor : CPU, mémoire, I/O disque, trafic réseau et statut du nœud, avec découverte des conteneurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -513,3 +513,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=node-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.10](../releases/release-notes.md#2023-10) - Bug fix: Fixed a **Use of uninitialized value** error in **container-usage** mode.

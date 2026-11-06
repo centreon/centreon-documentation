@@ -1,7 +1,7 @@
 ---
 id: ba-settings
 title: Settings
-description: "Configure default and user-specific settings for Business Activities"
+description: "Configure Centreon BAM default settings for impacts, Business Activities, and Boolean rules, and set user preferences such as a custom overview."
 ---
 
 ## Default Settings

@@ -1,7 +1,7 @@
 ---
 id: map-web-backup-restore
 title: Sauvegarder et restaurer votre serveur Centreon MAP
-description: "Sauvegarder et restaurer la configuration et la base de données du serveur MAP"
+description: "Sauvegardez la configuration et la base centreon_map du serveur Centreon MAP via la tâche cron quotidienne, réglez ses paramètres et restaurez vos données."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: enable-snmp-traps
 title: Enable SNMP Traps
-description: "Configure the architecture and services that process incoming SNMP traps"
+description: "Enable SNMP traps in Centreon: see how the central server or a poller processes traps, and configure snmptrapd, centreontrapdforward, and centreontrapd."
 ---
 
 ## Description
@@ -118,7 +118,9 @@ Two configuration files exist in centreontrapd:
 * **/etc/centreon/conf.pm** contains the connection information to the MariaDB/MySQL database
 * **/etc/centreon/centreontrapd.pm** contains the configuration of the centreontrapd service
 
-#### Configuration of the service
+#### Advanced: tuning centreontrapd
+
+> Only advanced users should modify these files.
 
 In the file **/etc/centreon/centreontrapd.pm** we advise changing three settings only (if necessary):
 
