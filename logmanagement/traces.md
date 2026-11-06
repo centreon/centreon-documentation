@@ -423,7 +423,7 @@ The following are planned but **not available** in the current Beta:
 
 ---
 
-*Related product documentation lives under [`docs/`](docs/): the framing note
+*Related product documentation lives under `docs/`: the framing note
 (`note-cadrage-tracing-beta.md`), the story map (`story-map.md`), user journeys
 (`user-journeys.md`), and the demo environment runbook
 (`prism-demo-environment-runbook.md`).*
