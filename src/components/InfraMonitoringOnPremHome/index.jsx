@@ -89,5 +89,5 @@ export default function InfraMonitoringOnPremHome() {
   const versioned = Object.fromEntries(
     Object.entries(content).map(([locale, t]) => [locale, withVersion(t, version)]),
   );
-  return <SectionHome content={versioned} />;
+  return <SectionHome content={versioned} searchContext="docs" />;
 }

@@ -52,12 +52,12 @@
   font: inherit;
   font-size: 1rem;
   text-align: left;
-  cursor: pointer;
+  cursor: text;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search:hover,
-.search:focus-visible {
+.search:focus-within {
   border-color: rgb(170 180 255 / 0.7);
   box-shadow: 0 0 0 4px rgb(120 130 255 / 0.25), 0 10px 40px rgb(80 90 255 / 0.5);
   outline: none;
@@ -67,8 +67,26 @@
   color: #fff;
 }
 
-.search > span {
+.searchInput {
   flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.searchInput::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+.searchInput::-webkit-search-cancel-button {
+  display: none;
 }
 
 .kbd {

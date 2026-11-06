@@ -59,5 +59,5 @@ const content = {
 };
 
 export default function LogManagementHome() {
-  return <SectionHome content={content} />;
+  return <SectionHome content={content} searchContext="logmanagement" />;
 }

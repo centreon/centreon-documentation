@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import SearchBox from '@site/src/components/SearchBox';
 import styles from './styles.module.css';
 
 // Landing page layout shared by the documentation sections
@@ -57,11 +58,6 @@ function Icon({name, className}) {
   );
 }
 
-// Opens the navbar search, which is already scoped to the current section.
-function focusNavbarSearch() {
-  const input = document.querySelector('.navbar__search-input');
-  if (input) input.focus();
-}
 
 function ResourceRow({item}) {
   const inner = (
@@ -80,7 +76,7 @@ function ResourceRow({item}) {
   );
 }
 
-export default function SectionHome({content}) {
+export default function SectionHome({content, searchContext}) {
   const {i18n} = useDocusaurusContext();
   const t = content[i18n.currentLocale] ?? content.en;
 
@@ -91,11 +87,14 @@ export default function SectionHome({content}) {
         <h1 className={styles.title}>{t.title}</h1>
         <p className={styles.tagline}>{t.tagline}</p>
 
-        <button type="button" className={styles.search} onClick={focusNavbarSearch}>
-          <Icon name="search" className={styles.searchIcon} />
-          <span>{t.search}</span>
-          <kbd className={styles.kbd}>⌘K</kbd>
-        </button>
+        <SearchBox
+          placeholder={t.search}
+          context={searchContext}
+          className={styles.search}
+          inputClassName={styles.searchInput}
+          iconClassName={styles.searchIcon}
+          kbdClassName={styles.kbd}
+        />
 
         <div className={styles.heroFooter}>
           {t.stats?.length > 0 && (

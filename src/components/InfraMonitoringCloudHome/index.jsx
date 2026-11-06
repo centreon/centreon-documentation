@@ -71,5 +71,5 @@ const content = {
 };
 
 export default function InfraMonitoringCloudHome() {
-  return <SectionHome content={content} />;
+  return <SectionHome content={content} searchContext="cloud" />;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import SearchBox from '@site/src/components/SearchBox';
 import styles from './styles.module.css';
 
 // Hero and product picker of the site home page.
@@ -95,11 +96,6 @@ function Arrow() {
   );
 }
 
-// Opens the navbar search, which searches every product from the home page.
-function focusNavbarSearch() {
-  const input = document.querySelector('.navbar__search-input');
-  if (input) input.focus();
-}
 
 function ProductCard({product, t}) {
   return (
@@ -155,14 +151,12 @@ export default function HomeHero() {
             {t.kicker}
           </p>
           <h1 className={styles.title}>{t.title}</h1>
-          <button type="button" className={styles.search} onClick={focusNavbarSearch}>
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-              strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-              <path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14Zm9 16-4.35-4.35" />
-            </svg>
-            <span>{t.search}</span>
-            <kbd className={styles.kbd}>⌘K</kbd>
-          </button>
+          <SearchBox
+            placeholder={t.search}
+            className={styles.search}
+            inputClassName={styles.searchInput}
+            kbdClassName={styles.kbd}
+          />
         </div>
       </header>
 

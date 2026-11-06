@@ -104,19 +104,37 @@
   font: inherit;
   font-size: 0.92rem;
   text-align: left;
-  cursor: pointer;
+  cursor: text;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search:hover,
-.search:focus-visible {
+.search:focus-within {
   border-color: var(--lm-accent);
   box-shadow: 0 0 0 4px var(--lm-accent-soft), var(--lm-shadow);
   outline: none;
 }
 
-.search > span {
+.searchInput {
   flex: 1;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--lm-ink);
+  font: inherit;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.searchInput::placeholder {
+  color: inherit;
+  opacity: 1;
+}
+
+.searchInput::-webkit-search-cancel-button {
+  display: none;
 }
 
 .searchIcon {

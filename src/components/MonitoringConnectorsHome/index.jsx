@@ -64,5 +64,5 @@ const content = {
 };
 
 export default function MonitoringConnectorsHome() {
-  return <SectionHome content={content} />;
+  return <SectionHome content={content} searchContext="pp" />;
 }

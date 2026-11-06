@@ -61,5 +61,5 @@ const content = {
 };
 
 export default function ExperienceMonitoringHome() {
-  return <SectionHome content={content} />;
+  return <SectionHome content={content} searchContext="experience-monitoring" />;
 }
