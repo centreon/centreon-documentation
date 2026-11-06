@@ -149,7 +149,6 @@ jobs:
         run: pnpm build --locale ${{ matrix.locale }}
         env:
           NODE_OPTIONS: --max_old_space_size=16000
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           VERSIONS: ${{ matrix.site == 'staging' && needs.sites.outputs.staging_versions || needs.sites.outputs.next_version }}
           BASE_URL: /${{ needs.sites.outputs.slug }}/${{ matrix.site == 'next' && 'next/' || '' }}
           # Same output, faster build (opt-in flags of docusaurus.config.js).
