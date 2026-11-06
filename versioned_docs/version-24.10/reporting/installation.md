@@ -1,7 +1,7 @@
 ---
 id: installation
 title: Installing MBI
-description: "Install and configure the Centreon MBI reporting server and interface"
+description: "Install Centreon MBI: review the architecture and requirements, install the extension on the central server, then set up the dedicated reporting server."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -82,7 +82,7 @@ considerations.
 <Tabs groupId="os" queryString>
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-- Centreon Web 25.10
+- Centreon Web 24.10
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini` or `/etc/php.d/20-timezone.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
@@ -100,7 +100,7 @@ considerations.
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-- Centreon Web 25.10
+- Centreon Web 24.10
 - Check that `date.timezone` is correctly configured in the `/etc/php.d/50-centreon.ini` or `/etc/php.d/20-timezone.ini`
   file (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/my.cnf`. They interrupt the
@@ -118,7 +118,7 @@ considerations.
 </TabItem>
 <TabItem value="Debian 12" label="Debian 12">
 
-- Centreon Web 25.10
+- Centreon Web 24.10
 - Check that `date.timezone` is correctly configured in the `/etc/php/8.2/mods-available/centreon.ini` or `/etc/php/8.2/mods-available/timezone.ini` file
   (same as the one returned by the `timedatectl status` command).
 - Avoid using the following variables in the configuration file `/etc/mysql/mariadb.cnf`. They interrupt the
@@ -147,7 +147,7 @@ considerations.
 
 #### Hardware layer
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Up to 500 hosts" label="Up to 500 hosts">
 
 | Element                     | Value     |
@@ -248,7 +248,27 @@ This is how your MBI server should be partitioned:
 | vg_data |   | Free space (unallocated) | 5 GB                               |
 
 </TabItem>
-<TabItem value="Over 10,000 hosts" label="Over 10,000 hosts">
+<TabItem value="Up to 20,000 hosts" label="Up to 20,000 hosts">
+
+| Element                     | Value     |
+| ----------------------------| --------- |
+| CPU   | 16 vCPU    |
+| RAM                         | 64 GB      |
+
+This is how your MBI server should be partitioned:
+
+| Volume group (LVM) | File system                | Description | Size                                                     |
+|-| ----------------------------|-------------|----------------------------------------------------------|
+| | /boot | boot images | 2 GB |
+|  vg_root | /                          | system root            | 20 GB                                |
+| vg_root | swap                       | swap | 8 GB                               |
+| vg_root | /var/log                   | contains all log files | 10 GB                                |
+| vg_data | /var/lib/mysql  | database | 8462 GB                               |
+| vg_data | /var/backup | backup directory | 10 GB |
+| vg_data |   | Free space (unallocated) | 5 GB                               |
+
+</TabItem>
+<TabItem value="Over 20,000 hosts" label="Over 20,000 hosts">
 
 For very large amounts of data, contact your sales representative.
 
@@ -624,7 +644,7 @@ During database installation, note the password for the database's **root** acco
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el8/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el8/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -634,7 +654,7 @@ dnf update
 
 ```shell
 dnf install -y dnf-plugins-core
-dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/25.10/el9/centreon-25.10.repo
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/24.10/el9/centreon-24.10.repo
 dnf clean all --enablerepo=*
 dnf update
 ```
@@ -651,7 +671,7 @@ apt install lsb-release ca-certificates apt-transport-https software-properties-
 Install the Centreon repositories:
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-24.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-24.10-stable.list
 echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
 ```
 
@@ -852,7 +872,7 @@ systemctl restart mysql
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```shell
-echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-25.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-25.10-stable.list
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-24.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-24.10-stable.list
 dnf install centreon-bi-reporting-server
 ```
 

@@ -1,7 +1,7 @@
 ---
 id: electric-consumption-reports
 title: Electric consumption reports
-description: "Report on the electric consumption of UPS-connected hosts"
+description: "Centreon MBI electric consumption report: view statistics on the energy consumption of hosts in a host group connected to an uninterruptible power supply."
 ---
 
 ### Hostgroup-Electricity-Consumption-1

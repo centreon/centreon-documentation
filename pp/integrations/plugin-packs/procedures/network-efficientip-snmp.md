@@ -1,7 +1,7 @@
 ---
 id: network-efficientip-snmp
 title: Efficient IP SNMP
-description: "Monitor EfficientIP SOLID servers via SNMP, covering DHCP usage, DNS traffic and DNSSEC validation, and server status."
+description: "Monitor EfficientIP SOLID servers via SNMP, covering DHCP usage, DNS answers, traffic, transfers and DNSSEC validation, and server status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -849,3 +849,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=dhcp-usage \
 	--help
 ```
+
+## Changelog
+
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added SOLID server service template.

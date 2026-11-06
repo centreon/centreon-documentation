@@ -1,7 +1,7 @@
 ---
 id: network-aruba-orchestrator-restapi
 title: Aruba Orchestrator Rest API
-description: "Monitor Aruba Orchestrator via REST API: track alarms by severity and appliance status, sync, and detection counts."
+description: "Monitor Aruba Orchestrator via REST API: count alarms by severity (minor to critical) and track the status and number of detected appliances."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -374,3 +374,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=appliances \
 	--help
 ```
+
+## Changelog
+
+- [22.10](../releases/release-notes.md#2022-10) - New connector: New Pack monitoring the orchestrator using its restapi.

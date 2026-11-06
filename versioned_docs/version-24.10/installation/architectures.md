@@ -1,7 +1,7 @@
 ---
 id: architectures
 title: Architectures
-description: "Choose the right monitoring architecture for your platform size and needs"
+description: "Compare Centreon architectures (standalone central server, distributed with pollers and remote servers, remote DBMS) and choose one that fits your volume."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -16,7 +16,7 @@ All servers (central, remote and pollers) in your architecture must have the sam
 
 ### Standalone central server
 
-If you are not monitoring many hosts, you may only need one central server. The central server will do all of the monitoring itself.
+If you are not monitoring many hosts, you may only need one central server. The central server will do all of the monitoring itself. Check our [sizing guide](./prerequisites.md#architecture-and-centraldatabase-sizing) to figure out the right architecture for you.
 
 ### Distributed architecture
 

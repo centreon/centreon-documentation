@@ -1,7 +1,7 @@
 ---
 id: map-web-backup-restore
 title: Backing up and restoring your MAP server
-description: "Back up and restore your Centreon MAP server configuration and database"
+description: "Back up the Centreon MAP server configuration files and centreon_map database with the daily cron job, set backup parameters, and restore your data."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -15,7 +15,7 @@ The saved items are:
 - Saving configuration files (**/etc/centreon-map**)
 - Saving database **centreon\_map**
 
-### How it works?
+### How it works
 
 The backup script is executed on a daily basis (2AM) with a cron job located in
 **/etc/cron.d/centreon-map-engine-backup**:
@@ -43,11 +43,11 @@ Backup parameters are stored in **/etc/centreon-map/backup.conf**
 - BACKUP\_DIR: where the backup is stored (default value: /var/cache/centreon-map/backup)
 - RETENTION\_AGE: backup retention in days (default value: 8)
 
-> **We advise to export backups to another resource in order to secure them.**
+> **We recommend exporting backups to another server to keep them safe.**
 
 ## Restoring data from Centreon MAP server
 
-Restore process is divided in several steps:
+The restore process is divided into several steps:
 
 - Extracting backup
 - Restoring configuration files
@@ -58,7 +58,7 @@ Restore process is divided in several steps:
 
 ### Extract backup
 
-Get the last **centreon-map-engine-yyyy-mm-dd.tar.gz** backup and extract it
+Get the latest **centreon-map-engine-yyyy-mm-dd.tar.gz** backup and extract it
 into **/tmp** directory:
 
 ```shell

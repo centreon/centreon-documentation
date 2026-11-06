@@ -1,7 +1,7 @@
 ---
 id: concepts
 title: Bases de la supervision
-description: "Introduction aux hôtes, aux services et au fonctionnement de Centreon"
+description: "Bases de la supervision avec Centreon : hôtes, services et métriques, collecte des données par les plugins et Centreon Engine, consultation des ressources."
 ---
 
 ## Que supervise Centreon?

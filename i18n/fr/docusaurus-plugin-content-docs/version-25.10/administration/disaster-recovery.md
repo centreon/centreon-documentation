@@ -1,7 +1,7 @@
 ---
 id: disaster-recovery
 title: Reprise après sinistre
-description: "Préparer sauvegardes et collecteurs de secours pour assurer la résilience"
+description: "Rendez votre plateforme Centreon résiliente aux pannes en stockant sur un autre serveur les sauvegardes du serveur central, des collecteurs et des bases."
 ---
 
 Pour que votre plateforme résiste aux pannes, assurez-vous de faire des sauvegardes, stockées sur un autre serveur. Vous pouvez :

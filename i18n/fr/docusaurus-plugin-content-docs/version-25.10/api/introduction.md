@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: "Présentation des API disponibles pour la configuration et les données temps réel"
+description: "Choisissez l'API Centreon adaptée à vos scripts et automatisations : CLAPI, API REST v1 ou v2 pour la configuration et le temps réel, ou API MAP."
 ---
 
 Centreon met à disposition plusieurs API pour manipuler ou récupérer la

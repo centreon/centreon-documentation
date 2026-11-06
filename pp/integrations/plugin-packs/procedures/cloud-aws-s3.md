@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-s3
 title: Amazon S3
-description: "Monitor Amazon S3 buckets via the AWS CloudWatch API: track bucket size, object count, and request metrics."
+description: "Monitor Amazon S3 buckets via the AWS CloudWatch API: bucket size by storage type, number of objects, and GET, PUT, DELETE, and other request counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -469,3 +469,10 @@ All available options for a given mode can be displayed by adding the
 	--mode=requests \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed bug with assume-role option.

@@ -1,7 +1,7 @@
 ---
 id: applications-openvpn-omi
 title: OpenVPN OMI
-description: "Monitor OpenVPN servers via the OMI management interface: current client count and inbound/outbound traffic."
+description: "Monitor OpenVPN servers via the OMI management interface: number of connected clients and inbound and outbound server traffic, in bits per second."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

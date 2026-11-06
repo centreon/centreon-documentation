@@ -1,7 +1,7 @@
 ---
 id: applications-vtom-restapi
 title: Absyss VTOM Rest API
-description: "Monitor Absyss VTOM job scheduling via REST API, tracking job status, execution counts, and success rates."
+description: "Monitor Absyss VTOM job scheduling via REST API: running, failed, waiting, and finished job counts, job status, and success rates, with job discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -418,3 +418,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=jobs \
 	--help
 ```
+
+## Changelog
+
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Fixed an issue leading to `Unknown option --token` in **jobs** mode.
+- [22.02](../releases/release-notes.md#2022-02) - Breaking change: Use official and latest API.

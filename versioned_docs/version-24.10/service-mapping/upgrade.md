@@ -1,7 +1,7 @@
 ---
 id: upgrade
 title: Upgrade the extension
-description: "Upgrade the Centreon BAM extension and its license"
+description: "Upgrade the Centreon BAM extension: upgrade Centreon on the central server, install the Business repository and RPM signing key, then update the package."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

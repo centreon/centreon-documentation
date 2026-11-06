@@ -1,7 +1,7 @@
 ---
 id: map-web-advanced
-title: Paramètres avancés dans MAP
-description: "Configurer les paramètres avancés de calcul du statut hérité dans MAP"
+title: Personnaliser le calcul du statut
+description: "Paramétrez le calcul du statut hérité dans MAP Engine : statuts HARD seuls, exclusion des ressources en maintenance, acquittées ou selon leur sévérité."
 ---
 
 ## Définir les paramètres de calcul du statut

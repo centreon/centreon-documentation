@@ -1,7 +1,7 @@
 ---
 id: applications-databases-influxdb
 title: InfluxDB
-description: "Supervisez vos bases de données InfluxDB via l'API REST : temps de connexion, statistiques des bases de données, du serveur HTTP, des écritures et requêtes personnalisées."
+description: "Supervisez InfluxDB via l'API REST : temps de connexion, statistiques des bases, du serveur HTTP et des écritures, et requêtes personnalisées."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -520,3 +520,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=write-statistics \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.10](../releases/release-notes.md#2025-10) - Bug fix: Fixed an error in **query** mode command.
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed a bug causing unknown status with "uninitialized values" when running multiple queries.

@@ -1,7 +1,7 @@
 ---
 id: secure-platform
 title: Secure your platform
-description: "Harden Centreon with SELinux, firewalls, HTTPS, and other measures"
+description: "Secure your Centreon platform: change default passwords, enable SELinux, firewalld, and fail2ban, set up HTTPS, and secure communications between servers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1431,6 +1431,21 @@ systemctl restart apache2
 
 </TabItem>
 </Tabs>
+
+4. Update the URL used by Gorgone to call the Centreon API. In the **/etc/centreon-gorgone/config.d/31-centreon-api.yaml** file, replace **/centreon** with your new path in the **base_url** value:
+
+```yaml
+   gorgone:
+     tpapi:
+       - name: centreonv2
+         base_url: "https://<central-server-address>/monitoring/api/latest/"
+```
+
+5. Restart Gorgone:
+
+```shell
+   systemctl restart gorgoned
+```
 
 ## Enabling http2
 

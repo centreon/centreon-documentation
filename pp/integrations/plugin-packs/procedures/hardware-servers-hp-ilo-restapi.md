@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-hp-ilo-restapi
 title: HP iLO Rest API
-description: "Monitor HP iLO hardware via REST API: chassis, drives, fans, power supplies, storage, and temperature status."
+description: "Monitor HP servers through the iLO REST API: chassis, drives, fans, power supplies, storage controllers, volumes, and temperature status and values."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -348,3 +348,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=hardware \
 	--help
 ```
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - Bug fix: Removed perl warnings displayed when running the command in some modes.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed an issue with some firmware versions to exclude enclosure.

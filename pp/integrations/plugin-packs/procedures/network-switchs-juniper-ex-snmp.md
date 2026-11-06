@@ -1,7 +1,7 @@
 ---
 id: network-switchs-juniper-ex-snmp
 title: Juniper EX Series SNMP
-description: "Monitor Juniper EX Series switches via SNMP: CPU, memory, hardware status, disk usage, and interface traffic."
+description: "Monitor Juniper EX Series switches via SNMP: routing engine CPU and memory, hardware status, disk usage, and interface traffic, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -667,3 +667,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.

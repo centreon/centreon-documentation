@@ -1,7 +1,7 @@
 ---
 id: network-keysight-nvos-restapi
 title: Keysight NVOS Rest API
-description: "Monitor Keysight NVOS network devices via REST API: hardware health, license status, ports, uptime, and time sync."
+description: "Monitor Keysight NVOS network devices via REST API: hardware health, license status, ports, dynamic filters, uptime, and time synchronization."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -563,3 +563,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=dynamic-filters \
 	--help
 ```
+
+## Changelog
+
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Enhanced **ports** mode and added **license** mode.
+- [23.05](../releases/release-notes.md#2023-05) - New connector: Initial release.

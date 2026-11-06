@@ -1,7 +1,7 @@
 ---
 id: network-libraesva-snmp
 title: Libraesva SNMP
-description: "Monitor Libraesva email security appliances via SNMP: interfaces, storage, load, memory, swap, and mail system metrics."
+description: "Monitor Libraesva email security appliances via SNMP: interfaces, storage, load, memory, swap, and mail system metrics, with discovery rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -665,3 +665,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage \
 	--help
 ```
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - New connector: Initial release.

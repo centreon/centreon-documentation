@@ -1,7 +1,7 @@
 ---
 id: monitoring-dem-mip
 title: Maltem Insight Performances Rest API 
-description: "Se connecter à l'API REST MIP pour superviser les scénarios utilisateurs"
+description: "Supervisez dans Centreon les scénarios d'expérience utilisateur de Maltem Insight Performances (MIP) via son API REST, puis configurez hôtes et services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

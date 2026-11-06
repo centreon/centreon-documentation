@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-synology-snmp
 title: Synology SNMP
-description: "Monitor Synology NAS devices via SNMP: CPU, memory, disk storage, temperature, UPS, and network traffic."
+description: "Monitor Synology NAS devices via SNMP: CPU, memory, load, disk storage, hardware, temperature, UPS, uptime, and network traffic, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -822,3 +822,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=ups \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.
+- [23.12](../releases/release-notes.md#2023-12) - Bug fix: Fixed an issue with the status that was returned when disks were failing.

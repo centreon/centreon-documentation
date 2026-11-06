@@ -1,7 +1,7 @@
 ---
 id: applications-rubrik-graphql
 title: Rubrik Security Cloud GraphQL API
-description: "Monitor Rubrik Security Cloud via GraphQL API: cluster, disk, node, storage, task, job, and SLA compliance status."
+description: "Monitor Rubrik Security Cloud via GraphQL API: cluster I/O, disks, nodes, storage, tasks, jobs, and SLA compliance, with service discovery for jobs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -869,3 +869,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=tasks \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed display of job details in long output in **jobs** mode.
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added **SLA Unprotected** service and misc enhancements.
+- [26.05](../releases/release-notes.md#2026-05) - New connector: Initial release.

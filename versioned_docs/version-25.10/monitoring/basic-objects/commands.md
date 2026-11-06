@@ -1,7 +1,7 @@
 ---
 id: commands
 title: Commands
-description: "Configure commands, whitelists, and connectors used to run monitoring checks"
+description: "Create commands in Centreon, add them to the command whitelist, and use the SSH and Perl connectors to optimize plugin execution."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

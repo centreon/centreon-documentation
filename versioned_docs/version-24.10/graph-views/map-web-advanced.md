@@ -1,7 +1,7 @@
 ---
 id: map-web-advanced
-title: Advanced parameters in MAP
-description: "Configure advanced parameters for inherited status computation in MAP"
+title: Customizing status computation
+description: "Customize how Centreon MAP Engine computes inherited statuses: use hard states only, or ignore resources in downtime, acknowledged, or above a severity."
 ---
 
 ## Define status computation parameters

@@ -1,7 +1,7 @@
 ---
 id: ba-monitoring-reports
 title: Rapports d'activité métier (BAM)
-description: "Rapports sur la disponibilité et la performance des activités et vues métier"
+description: "Rapports Centreon MBI sur les activités et vues métier : disponibilité, évènements, santé actuelle comparée au passé et calendriers de disponibilité."
 ---
 
 ### BV-BA-Availabilities-1

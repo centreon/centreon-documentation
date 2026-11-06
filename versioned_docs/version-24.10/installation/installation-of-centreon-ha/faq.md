@@ -1,7 +1,7 @@
 ---
 id: ha-faq
 title: Centreon HA general FAQ
-description: "Frequently asked questions about Centreon HA"
+description: "Answers to common Centreon HA questions: when you need it, who installs it, extension licenses, supported OSs and DBMS, and modules that support HA."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

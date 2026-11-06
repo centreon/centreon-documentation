@@ -430,3 +430,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=email-activity \
 	--help
 ```
+
+## Changelog
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Changed service template aliases to avoid service deployment issues.

@@ -1,7 +1,7 @@
 ---
 id: map-web-install
 title: Installer MAP
-description: "Installer et configurer le moteur et le client web Centreon MAP"
+description: "Installez Centreon MAP : vérifiez la licence et les prérequis, préparez le serveur, puis installez le serveur MAP Engine et le client web."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -14,28 +14,7 @@ Cette page décrit comment installer Centreon MAP. Il est recommandé d'installe
 
 Si vous avez besoin d'une [licence](../administration/licenses.md) supplémentaire pour Centreon MAP, veuillez contacter l'[équipe support de Centreon](https://support.centreon.com/) pour obtenir et installer votre clé de licence.
 
-## Architecture
-
-Le schéma ci-dessous décrit l'architecture de MAP.
-
-- Vous pouvez installer Centreon MAP soit sur un serveur dédié, soit sur le serveur central.
-- Centreon MAP ne nécessite aucune installation sur votre machine : cette solution est entièrement disponible dans l'interface web Centreon.
-
-![image](../assets/graph-views/ng/map-web-schema.png)
-
-### Tableau des flux du réseau
-
-
-| Application    | Source     | Destination               | Port      | Protocole  | Objet                                                       |
-|----------------|------------|---------------------------|-----------|------------|------------------------------------------------------------ |
-| MAP Server     | MAP server | Centreon central broker   | 5758      | TCP        | Obtenez des mises à jour du statut en temps réel            |
-| MAP Server     | MAP server | Centreon MariaDB database | 3306      | TCP        | Récupérer la configuration et d'autres données de Centreon  |
-| MAP Server     | MAP server | MAP server database       | 3306      | TCP        | Stocker toutes les vues et données relatives à Centreon MAP |
-| Web            | MAP server | Centreon central          | 80/443    | HTTP/HTTPS | Authentification et récupération des données                |
-| Web interface  | User       | MAP server                | 8081/9443 | HTTP/HTTPS | Récupérer les vues et le contenu                            |
-| Web interface  | User       | Internet\* (Mapbox)       | 443       | HTTPS      | Récupérer les données Mapbox                                |
-
-\**Avec ou sans proxy*
+Pour plus d'informations sur l'architecture de MAP, consultez la page [Architecture de MAP](map-architecture.md).
 
 ## Prérequis
 
@@ -51,7 +30,7 @@ Voir les [prérequis logiciels](../installation/prerequisites.md#caractéristiqu
 
 #### Matériel
 
-<Tabs groupId="sync">
+<Tabs groupId="sizing" queryString>
 <TabItem value="Jusqu'à 500 hôtes" label="Jusqu'à 500 hôtes">
 
 | Élément                     | Valeur    |
@@ -149,7 +128,26 @@ Votre serveur MAP doit être partitionné de la manière suivante :
 | vg_data |   | Espace libre (non alloué) | 2 Go                              |
 
 </TabItem>
-<TabItem value="Plus de 10 000 hôtes" label="Plus de 10 000 hôtes">
+<TabItem value="Jusqu'à 20 000 hôtes" label="Jusqu'à 20 000 hôtes">
+
+| Élément | Valeur |
+| ------- | ------ |
+| CPU     | 8 vCPU |
+| RAM     | 18 Go  |
+
+Voici comment votre serveur MAP doit être partitionné :
+
+| Groupe de volumes (LVM) | Partition | Description                         | Taille |
+| ----------------------- | ------------------- | ----------------------------------- | ------ |
+|                         | /boot               | images de boot                 | 2 Go   |
+| vg_root                 | /                   | racine du système                   | 20 Go  |
+| vg_root                 | swap                | swap             | 8 Go   |
+| vg_root                 | /var/log            | contient tous les fichiers de log | 10 Go  |
+| vg_data                 | /var/lib/mysql      | base de données                     | 5 Go   |
+| vg_data                 |                     | espace libre (non alloué)           | 2 Go   |
+
+</TabItem>
+<TabItem value="Plus de 20 000 hôtes" label="Plus de 20 000 hôtes">
 
 Pour de grosses volumétries de données, contactez votre commercial Centreon.
 
@@ -706,12 +704,12 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    systemctl restart mariadb
    ```
 
-Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera automatiquement installé, si nécessaire.
+Lors de l'installation du serveur Centreon MAP Engine, Java (OpenJDK 17) sera automatiquement installé, si nécessaire.
 
 > Suivez cette procédure de dépannage si OpenJDK 17 cause un incident [empêchant l'installation de centreon-map-engine](./map-web-troubleshooting.md#centreon-map-engine-et-toutes-ses-dépendances-ne-peuvent-pas-être-installés-sur-alma-linux-8).
 
 #### Prérequis Java
-  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  > Assurez-vous qu'OpenJDK 17 est installé avant de commencer la procédure. Il est installé automatiquement avec le paquet centreon-map-engine s'il n'est pas déjà présent.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
@@ -719,14 +717,14 @@ Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera au
   java -version
   ```
   
-  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+  - Pour installer ou mettre à jour vers OpenJDK 17, utilisez le gestionnaire de paquets de votre distribution (par exemple `dnf install java-17-openjdk` sur Alma/RHEL/Oracle Linux, `apt install openjdk-17-jdk` sur Debian). Si vous avez spécifiquement besoin d'Oracle JDK plutôt que d'OpenJDK, allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 :
   ```shell
   sudo update-alternatives --config java
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
 
 </TabItem>
 <TabItem value="MySQL" label="MySQL"> 
@@ -821,12 +819,12 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    systemctl restart mysql
    ```
 
-Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera automatiquement installé, si nécessaire.
+Lors de l'installation du serveur Centreon MAP Engine, Java (OpenJDK 17) sera automatiquement installé, si nécessaire.
 
 > Suivez cette procédure de dépannage si OpenJDK 17 cause un incident [empêchant l'installation de centreon-map-engine](./map-web-troubleshooting.md#centreon-map-engine-et-toutes-ses-dépendances-ne-peuvent-pas-être-installés-sur-alma-linux-8).
 
 #### Prérequis Java
-  > Assurez-vous qu'une version de Java 17 (ou 18) est installée avant de commencer la procédure.
+  > Assurez-vous qu'OpenJDK 17 est installé avant de commencer la procédure. Il est installé automatiquement avec le paquet centreon-map-engine s'il n'est pas déjà présent.
   
   - Pour vérifier quelle version de Java est installée, entrez la commande suivante :
   
@@ -834,14 +832,14 @@ Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 17) sera au
   java -version
   ```
   
-  - Pour une mise à jour de Java en version 17 (ou 18), allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
+  - Pour installer ou mettre à jour vers OpenJDK 17, utilisez le gestionnaire de paquets de votre distribution (par exemple `dnf install java-17-openjdk` sur Alma/RHEL/Oracle Linux, `apt install openjdk-17-jdk` sur Debian). Si vous avez spécifiquement besoin d'Oracle JDK plutôt que d'OpenJDK, allez sur la [page officielle de téléchargement d'Oracle](https://www.oracle.com/java/technologies/downloads/#java17).
 
-  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 (ou 18) :
+  - Si plusieurs versions de Java sont installées, vous devez activer la bonne version. Affichez les versions installées avec la commande suivante puis sélectionnez la version 17 :
   ```shell
   sudo update-alternatives --config java
   ```
 
-  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java (ou 18) ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
+  - Si vous souhaitez configurer votre plateforme en HTTPS, vous aurez besoin de générer un fichier keystore pour la version 17 de Java ([voir procédure](./secure-your-map-platform.md#configuration-httpstls-avec-une-clé-auto-signée)).
 
 </TabItem>
 </Tabs>
@@ -1000,7 +998,7 @@ Vérifiez la configuration du serveur MAP Engine avec cette commande :
 /etc/centreon-map/diagnostic.sh
 ```
 
-> En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépannage de MAP](map-web-troubleshooting.md#exécuter-notre-outil-de-diagnostic).
+> En cas d'erreur, consultez la section **Lancement de l'outil de diagnostic** à la page [Dépanner MAP](map-web-troubleshooting.md#exécuter-notre-outil-de-diagnostic).
 
 Si la configuration est correcte, le service **centreon-map-engine** peut être lancé à partir du serveur Centreon MAP (Legacy) :
 

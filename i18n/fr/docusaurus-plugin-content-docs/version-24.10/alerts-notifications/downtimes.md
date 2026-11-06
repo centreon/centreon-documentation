@@ -1,7 +1,7 @@
 ---
 id: downtimes
 title: Planifier un temps d'arrêt
-description: "Planifier des temps d'arrêt fixes ou récurrents pour éviter les faux positifs"
+description: "Planifiez des temps d'arrêt ponctuels ou récurrents dans Centreon pour désactiver les notifications pendant une maintenance et éviter les faux positifs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: plugin-telegram
 title: Notifications Telegram
-description: "Envoyer des alertes d'hôtes et de services vers Telegram via un bot"
+description: "Envoyez les notifications d'hôtes et de services Centreon vers Telegram via un bot, avec le plugin communautaire Telegram et des commandes dédiées."
 ---
 
 ## Introduction

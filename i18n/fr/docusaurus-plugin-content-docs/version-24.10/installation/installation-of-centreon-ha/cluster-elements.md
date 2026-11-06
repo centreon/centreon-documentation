@@ -1,7 +1,7 @@
 ---
 id: cluster-elements
 title: Éléments d'un cluster Centreon HA
-description: "Introduction aux composants et processus d'un cluster Centreon HA"
+description: "Composition d'un cluster Centreon HA : nœuds centraux et de base de données, quorum device, processus gérés et rôles des nœuds actif et passif."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

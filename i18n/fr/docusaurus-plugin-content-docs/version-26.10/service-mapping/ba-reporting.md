@@ -1,7 +1,7 @@
 ---
 id: ba-reporting
 title: Reporting
-description: "Consulter les rapports de disponibilité et recalculer les statistiques des BA"
+description: "Consultez l'historique de disponibilité des activités métier Centreon BAM (reporting, journaux, graphiques) et forcez le calcul des statistiques."
 ---
 
 Consulter à tout moment les évolutions des données archivées et

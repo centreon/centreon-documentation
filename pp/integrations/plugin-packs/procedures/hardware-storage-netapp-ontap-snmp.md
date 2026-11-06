@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-netapp-ontap-snmp
 title: NetApp Ontap SNMP
-description: "Monitor NetApp ONTAP storage systems via SNMP: CPU, disks, aggregates, snapshots, cluster nodes, and hardware health."
+description: "Monitor NetApp ONTAP storage systems via SNMP: CPU, disks, aggregates, volumes, snapshots, SnapMirror lag, cluster nodes, quotas, and hardware health."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1130,3 +1130,11 @@ All available options for a given mode can be displayed by adding the
 	--mode=volumeoptions \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added the **snapmirrorlag** service template.
+- [25.01](../releases/release-notes.md#2025-01) - Enhancement: Added **uptime** mode and service template.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Disk-Failed** command.
+- [23.08](../releases/release-notes.md#2023-08) - Bug fix: Fixed the $_HOSTSNMPEXTRAOPTIONS$ macros.

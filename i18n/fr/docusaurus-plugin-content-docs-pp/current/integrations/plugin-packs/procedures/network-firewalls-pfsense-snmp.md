@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-pfsense-snmp
 title: pfSense SNMP
-description: "Supervisez les pare-feu pfSense via SNMP : CPU, mémoire, charge, uptime et statistiques de paquets du pare-feu."
+description: "Supervisez les pare-feu pfSense via SNMP : CPU, mémoire, swap, charge, uptime et statistiques de paquets du pare-feu (bloqués, fragmentés, courts…)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -866,3 +866,9 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=packet-stats \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Added new modes: **cpu**, **cpu-detailed**, **load**, **memory**, **swap** and **uptime**.
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Split **Net-FW-Pfsense-SNMP-Packet-Stats** into 6 dedicated commands.

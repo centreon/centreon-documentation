@@ -41,14 +41,14 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias                | Modèle de service                        | Description                                                                                             |
-|:---------------------|:-----------------------------------------|:--------------------------------------------------------------------------------------------------------|
-| Backup-Age           | App-DB-MSSQL-Backup-Age-custom           | Contrôle permettant de vérifier les sauvegardes des bases données MSSQL                                 |
+| Alias                | Modèle de service                        | Description                                                                                           |
+|:---------------------|:-----------------------------------------|:------------------------------------------------------------------------------------------------------|
+| Backup-Age           | App-DB-MSSQL-Backup-Age-custom           | Contrôle permettant de vérifier les sauvegardes des bases données MSSQL                               |
 | Cache-Hitratio       | App-DB-MSSQL-Cache-Hitratio-custom       | Contrôle permettant de vérifier le "Data Buffer Cache Hit Ratio" du serveur. Aucune alerte par défaut |
-| Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Contrôle permettant de vérifier le nombre de "locks-waits" par seconde du serveur                       |
-| Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Contrôle permettant de vérifier le "Page Life Expectancy" du serveur. Aucune alerte par défaut         |
-| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique             |
-| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaîne de caractères         |
+| Locks-Waits          | App-DB-MSSQL-Locks-Waits-custom          | Contrôle permettant de vérifier le nombre de "locks-waits" par seconde du serveur                     |
+| Page-Life-Expectancy | App-DB-MSSQL-Page-Life-Expectancy-custom | Contrôle permettant de vérifier le "Page Life Expectancy" du serveur. Aucune alerte par défaut        |
+| Sql-Statement        | App-DB-MSSQL-Sql-Statement-custom        | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une donnée numérique           |
+| Sql-Statement-String | App-DB-MSSQL-Sql-Statement-String-custom | Contrôle permettant d'exécuter une requête SQL personnalisée renvoyant une chaîne de caractères       |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -552,6 +552,10 @@ OK: total transactions: 52806/s All databases are ok | 'databases.transactions.p
 
 ### Diagnostic des erreurs communes
 
+> Assurez vous de disposer de la dernière version de `freetds` pour éviter toute erreur notamment conduisant à des coredump sur certains services (SQL queries not fetching integers stored in database).
+
+> Sur Debian, le paquet `freetds` n’existe pas, il faut donc installer `freetds-bin` sur cette distribution. 
+
 Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
 pour le diagnostic des erreurs communes des plugins Centreon.
 
@@ -825,3 +829,20 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--hostname 10.0.0.1 \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed empty output for mssql **database-size** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed a bad query issue revealed by a previous fix.
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Enhanced status threshold for **failed-jobs** mode.
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Added new filtering and threshold options.
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added an option to the **connected-users** mode to filter by database name ([PR 5195](https://github.com/centreon/centreon-plugins/pull/5195)).
+- [26.01](../releases/release-notes.md#2026-01) - Bug fix: Forced the version of a dependency, to fix a segmentation fault issue.
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed wrong output unit in **locks-wait** mode.
+- [25.10](../releases/release-notes.md#2025-10) - Bug fix: Fixed an issue where **deadlocks** mode returned false positives.
+- [24.01](../releases/release-notes.md#2024-01) - Bug fix: Fixed a regression in **sql-string** mode.
+- [23.10](../releases/release-notes.md#2023-10) - Enhancement: Option `--printf-value` of mode **sql-string** supports a new format for variable names (e.g. `--printf-value="%{value_field}"`).
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed `sql-statement` option protection.
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Replace a standard command by dedicated ones.
+- [22.04](../releases/release-notes.md#2022-04) - Enhancement: Added new threshold to Backup-age service.
+- [22.01](../releases/release-notes.md#2022-01) - Breaking change: Changed thresholds for Backup-age service.

@@ -1,7 +1,7 @@
 ---
 id: sc-elastic-events
 title: Elastic Events
-description: "Envoyer les évènements hôtes et services vers Elasticsearch avec indexation automatique"
+description: "Configurez le stream connector Elastic Events pour envoyer les évènements des hôtes et services Centreon vers Elasticsearch, avec indexation automatique."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -17,14 +17,6 @@ Un index template adapté est créé automatiquement par le stream connector afi
 Faites l'installation en tant que `root` sur le serveur qui enverra les données vers Elasticsearch (serveur central, serveur distant, collecteur).
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-elasticsearch
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -33,7 +25,15 @@ dnf install centreon-stream-connector-elasticsearch
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-elasticsearch
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-elasticsearch

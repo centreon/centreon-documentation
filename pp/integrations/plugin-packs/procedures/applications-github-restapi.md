@@ -1,7 +1,7 @@
 ---
 id: applications-github-restapi
 title: GitHub Rest API
-description: "Monitor GitHub via REST API: repository commits, issues, pull requests, statistics, and GitHub service status."
+description: "Monitor GitHub via REST API: repository commits, issues, and pull requests, statistics such as forks, watchers, and stars, and GitHub service status."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -472,3 +472,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=stats \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **App-Github-Restapi-Repositories-Statistics**, **App-Github-Restapi-Repositories-Pull-Requests**, **App-Github-Restapi-Repositories-Issues** and **App-Github-Restapi-Repositories-Commits** commands as well as the default port and protocol.

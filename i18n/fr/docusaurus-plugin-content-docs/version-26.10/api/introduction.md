@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: "Présentation des API disponibles pour la configuration et les données temps réel"
+description: "Choisissez l'API Centreon adaptée à vos scripts et automatisations : CLAPI, API REST v1 ou v2 pour la configuration et le temps réel, ou API MAP."
 ---
 
 Centreon met à disposition plusieurs API pour manipuler ou récupérer la
@@ -13,5 +13,4 @@ choisir parmis les documentations suivantes :
 - [API en ligne de commande (CLAPI)](clapi.md) pour gérer la configuration
 - [Rest API (v1)](rest-api-v1.md) pour gérer la configuration ou [Rest API
   (v2)](rest-api-v2.md) pour gérer la configuration et les données temps réel
-- [MAP API](graph-views-map-api.md) pour gérer certaines
-  données de vues graphiques
+- [MAP API](map-api.md) pour automatiser la création et gestion de maps à l'aide de notre API.

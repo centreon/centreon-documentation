@@ -674,3 +674,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=trunks \
 	--help
 ```
+
+## Changelog
+
+- [22.09](../releases/release-notes.md#2022-09) - Enhancement: Added new service Trunk and new metrics to Domain-Usage.

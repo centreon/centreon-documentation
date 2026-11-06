@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-emc-clariion-navisphere
 title: EMC Clariion Navisphere
-description: "Monitor EMC Clariion/VNX storage arrays via Navisphere CLI: cache, controller, disks, faults, HBA and port status."
+description: "Monitor EMC Clariion/VNX storage arrays via Navisphere CLI: cache, controller, disks, faults, hardware, HBA and SP port status, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
