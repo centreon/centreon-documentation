@@ -224,26 +224,42 @@ jobs:
       # --size-only since a known name always holds the same content, so only
       # new assets are uploaded. Everything else (HTML, sitemap, images under
       # img/...) is revalidated on each visit. Each pass only deletes the files
-      # it covers; the staging passes leave next/ and meta.json alone.
+      # it covers; the staging passes leave next/ and meta.json alone. All .txt
+      # files (robots.txt, llms.txt...) get an explicit UTF-8 charset: the
+      # guessed bare text/plain can be read as Latin-1.
       - name: Sync the staging site
         if: env.STAGING_STATUS == 'built'
+        shell: bash
         run: |
+          set -euo pipefail
           aws s3 sync ./build-staging "s3://${BUCKET}/${PREFIX}/" \
             --delete --exclude "*" --include "assets/*" --include "fr/assets/*" --size-only \
             --cache-control "public,max-age=31536000,immutable"
           aws s3 sync ./build-staging "s3://${BUCKET}/${PREFIX}/" \
             --delete --exclude "assets/*" --exclude "fr/assets/*" --exclude "next/*" --exclude "meta.json" \
+            --exclude "*.txt" \
             --cache-control "public,max-age=0,must-revalidate"
+          aws s3 sync ./build-staging "s3://${BUCKET}/${PREFIX}/" \
+            --delete --exclude "*" --include "*.txt" --exclude "assets/*" --exclude "fr/assets/*" \
+            --exclude "next/*" \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --content-type "text/plain; charset=utf-8"
 
       - name: Sync the next site
         if: env.NEXT_STATUS == 'built'
+        shell: bash
         run: |
+          set -euo pipefail
           aws s3 sync ./build-next "s3://${BUCKET}/${PREFIX}/next/" \
             --delete --exclude "*" --include "assets/*" --include "fr/assets/*" --size-only \
             --cache-control "public,max-age=31536000,immutable"
           aws s3 sync ./build-next "s3://${BUCKET}/${PREFIX}/next/" \
-            --delete --exclude "assets/*" --exclude "fr/assets/*" \
+            --delete --exclude "assets/*" --exclude "fr/assets/*" --exclude "*.txt" \
             --cache-control "public,max-age=0,must-revalidate"
+          aws s3 sync ./build-next "s3://${BUCKET}/${PREFIX}/next/" \
+            --delete --exclude "*" --include "*.txt" --exclude "assets/*" --exclude "fr/assets/*" \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --content-type "text/plain; charset=utf-8"
 
       # A site the PR no longer changes falls back to the staging branch
       # preview: drop the stale copy left by an earlier push.
