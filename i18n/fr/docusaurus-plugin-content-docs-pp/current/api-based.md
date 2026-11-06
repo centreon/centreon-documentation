@@ -33,6 +33,6 @@ As with the others, you enter these values through the connector's macros after 
 
 ## Troubleshooting API-based connectors
 
-* See the [**HTTP and API checks** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+* See the [**HTTP and API checks** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api).
 * See also [**Troubleshooting AWS**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-aws).
-* The [**Common problems**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#common-problems) section may also help.
+* The [**Common problems**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#problèmes-communs) section may also help.

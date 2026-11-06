@@ -26,5 +26,5 @@ A note worth adding: Centreon now recommends migrating NSClient++ and NRPE setup
 
 ## Troubleshooting agent-based connectors
 
-* See the [**NRPE checks** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#nrpe-checks).
-* The [**Common problems**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#common-problems) section may also help.
+* See the [**NRPE checks** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-nrpe).
+* The [**Common problems**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#problèmes-communs) section may also help.

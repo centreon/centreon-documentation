@@ -24,6 +24,6 @@ One thing worth confirming per connector: some database or application checks re
 
 ## Troubleshooting protocol-based connectors
 
-* See the [HTTP part of the **HTTP and API checks** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks).
+* See the [HTTP part of the **HTTP and API checks** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api).
 * See the [**SSH and CLI checks** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#ssh-and-cli-checks).
-* The [**Common problems**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#common-problems) section may also help.
+* The [**Common problems**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#problèmes-communs) section may also help.

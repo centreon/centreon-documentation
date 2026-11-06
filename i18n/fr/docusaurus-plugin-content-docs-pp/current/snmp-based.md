@@ -27,8 +27,8 @@ Once the template is applied, you fill in these values through the connector's m
 
 ## Troubleshooting SNMP-based connectors
 
-* See the [**Troubleshooting SNMP** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#troubleshooting-snmp).
-* The [**Common problems**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#common-problems) section may also help.
+* See the [**Troubleshooting SNMP** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#dépannage-de-snmp).
+* The [**Common problems**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#problèmes-communs) section may also help.
 
 ## How SNMP works
 
