@@ -1,12 +1,12 @@
 ---
 id: workflow-service-check
-title: End-to-end journey of a check
-description: "What steps does a check go through, from the moment it is triggered to when the results appear in Resource status?"
+title: Journey of a service check
+description: "What steps does a service check go through, from the moment it is triggered to when the results appear in Resource status?"
 ---
 
-## Journey of a check: a ping on a Linux server
+## Journey of a service check: a ping on a Linux server
 
-This topic follows a single check from the moment you configure it in Centreon Web to the moment its result is displayed. It uses a ping on a Linux server as an example, and explains where Centreon connectors come into play.
+This topic follows a single service check from the moment you configure it in Centreon Web to the moment its result is displayed. It uses a ping on a Linux server as an example, and explains where Centreon connectors come into play.
 
 ## Example used in this topic
 
