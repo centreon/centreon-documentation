@@ -4,7 +4,7 @@ title: Journey of a service discovery rule
 description: "What steps does a service discovery rule go through, from the moment it is triggered to when the results appear in the interface?"
 ---
 
-## Journey of a service discovery: finding network interfaces on a Linux server
+## Journey of a service discovery rule: finding network interfaces on a Linux server
 
 This topic follows a service discovery from its trigger to the moment the discovered services are monitored. It uses the discovery of network interfaces on a Linux server as an example.
 

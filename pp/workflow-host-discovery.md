@@ -4,7 +4,7 @@ title: Journey of a host discovery job
 description: "What steps does a host discovery job go through, from the moment it is triggered to when the results appear in the interface?"
 ---
 
-## Journey of a discovery job: finding Linux servers with SNMP
+## Journey of a host discovery job: finding Linux servers with SNMP
 
 This topic follows a host discovery job from the moment you create it in Centreon Web to the moment the discovered hosts are monitored. It uses an SNMP discovery of Linux servers on a subnet as an example.
 
@@ -25,16 +25,16 @@ This topic follows a host discovery job from the moment you create it in Centreo
 
 ```mermaid
 flowchart LR
-    A[Centreon Web<br>Auto Discovery module] -->|job| B[Gorgone<br>central]
-    B -->|forwards job| C[Gorgone<br>poller-01]
-    C -->|runs| D[Discovery plugin]
-    D -->|SNMP requests| E[192.168.1.0/24]
+    A["Centreon Web<br/>Auto Discovery module"] -->|job| B["Gorgone<br/>central"]
+    B -->|forwards job| C["Gorgone<br/>poller-01"]
+    C -->|runs| D["Discovery plugin"]
+    D -->|SNMP requests| E["192.168.1.0/24"]
     E -->|SNMP replies| D
     D -->|JSON results| C
     C --> B
-    B -->|stores results| F[(Database)]
+    B -->|stores results| F[("Database")]
     F -->|mappers applied| A
-    A -->|hosts created, export| G[Centreon Engine]
+    A -->|hosts created, export| G["Centreon Engine"]
 ```
 
 ## Step 1: Create the discovery job
@@ -140,7 +140,7 @@ With **Manual analysis**, select `srv-linux-01` and click **Save**. With **Autom
 
 Export the configuration of `poller-01` and reload it. If **Export and reload pollers configuration** was selected in the job wizard, this happens automatically. Centreon Engine on `poller-01` now knows about `srv-linux-01` and starts scheduling its checks.
 
-From here, each check follows the journey described in [Journey of a check: a ping on a Linux server](check-workflow.md).
+From here, each check follows the journey described in [Journey of a check: a ping on a Linux server](./workflow-service-check.md.md).
 
 ## Discovery versus checks
 
