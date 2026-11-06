@@ -26,6 +26,10 @@ module.exports = {
         },
         {
           type: "doc",
+          id: "integrations/plugin-packs/getting-started/how-to-guides/connectors-test",
+        },
+        {
+          type: "doc",
           id: "integrations/plugin-packs/getting-started/how-to-guides/connectors-licenses",
         },
       ],
