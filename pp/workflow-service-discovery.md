@@ -8,7 +8,7 @@ description: "What steps does a service discovery rule go through, from the mome
 
 This topic follows a service discovery from its trigger to the moment the discovered services are monitored. It uses the discovery of network interfaces on a Linux server as an example.
 
-It follows on from [Journey of a discovery job](journey-of-a-discovery-job.md): the host `srv-linux-01` has been created with the host template `OS-Linux-SNMP-custom`.
+It follows on from [Journey of a host discovery job](./workflow-host-discovery.md): the host `srv-linux-01` has been created with the host template `OS-Linux-SNMP-custom`.
 
 ## Example used in this topic
 
