@@ -26,7 +26,7 @@ module.exports = {
         },
         {
           type: "doc",
-          id: "integrations/plugin-packs/getting-started/how-to-guides/connectors-test",
+          id: "connectors-test",
         },
         {
           type: "doc",
