@@ -1,0 +1,188 @@
+---
+id: using-packages
+title: Using packages (poller)
+description: "Install and register a poller using RPM or DEB packages"
+---
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+import InstallCommon from '../_install-common.mdx';
+
+You must run the installation procedure as a privileged user.
+
+> When you run a command, check its output. If you get an error message, stop the procedure and fix the issue.
+
+### Install the repositories
+
+#### Dependencies
+
+<Tabs groupId="sync">
+<Tab value="Alma 9" label="Alma 9">
+
+```shell
+dnf install dnf-plugins-core
+dnf install epel-release
+dnf config-manager --set-enabled crb
+```
+
+</Tab>
+<Tab value="RHEL 9" label="RHEL 9">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y http://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+```
+
+</Tab>
+<Tab value="Oracle Linux 9" label="Oracle Linux 9">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+dnf config-manager --set-enabled ol9_codeready_builder
+```
+
+</Tab>
+<Tab value="Alma Linux 10" label="Alma Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf config-manager --set-enabled crb
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+```
+
+</Tab>
+<Tab value="RHEL Linux 10" label="RHEL Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
+```
+
+If your server is a Cloud RHEL instance, you will have to execute the following command:
+
+```shell
+dnf config-manager --set-enabled codeready-builder-for-rhel-9-rhui-rpms
+```
+
+</Tab>
+<Tab value="Oracle Linux 10" label="Oracle Linux 10">
+
+```shell
+dnf install dnf-plugins-core -y
+dnf install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
+dnf config-manager --set-enabled ol10_codeready_builder
+```
+
+</Tab>
+<Tab value="Debian 13" label="Debian 13">
+
+```shell
+apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
+```
+
+</Tab>
+</Tabs>
+
+#### Centreon repository
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el9/centreon-26.10.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y dnf-plugins-core
+dnf config-manager --add-repo https://packages.centreon.com/rpm-standard/26.10/el10/centreon-26.10.repo
+dnf clean all --enablerepo=*
+dnf update
+```
+
+</Tab>
+<Tab value="Debian 13" label="Debian 13">
+
+```shell
+echo "deb https://packages.centreon.com/apt-standard/ $(lsb_release -sc)-26.10-stable main" | tee -a /etc/apt/sources.list.d/centreon-26.10-stable.list
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
+```
+
+Then import the repository key:
+
+```shell
+wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
+apt update
+```
+
+</Tab>
+</Tabs>
+
+## Step 2: Install the server
+
+To install the monitoring engine, run the following command:
+
+<Tabs groupId="sync">
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install -y centreon-poller
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install -y centreon-poller
+```
+
+</Tab>
+<Tab value="Debian 13" label="Debian 13">
+
+```shell
+apt install -y --no-install-recommends centreon-poller
+```
+
+</Tab>
+</Tabs>
+
+To make services start automatically during system bootup, run the following
+command:
+
+```shell
+systemctl enable centreon centengine centreontrapd snmptrapd gorgoned
+```
+
+Passive monitoring services can be started:
+
+```shell
+systemctl start centreontrapd snmptrapd gorgoned
+```
+
+Restart Centreon Engine:
+
+```shell
+systemctl restart centengine
+```
+
+## Step 3: Attach the poller to a central or remote server
+
+Go to [Attach a poller to a central or a remote server](../../monitoring/monitoring-servers/add-a-poller-to-configuration.md).
+
+## Step 4: Secure your platform
+
+Remember to secure your Centreon platform following our
+[recommendations](../../administration/secure-platform.md).

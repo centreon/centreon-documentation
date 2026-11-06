@@ -1,0 +1,25 @@
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+### Network flow
+
+Only one TCP flow must be open from the host to the poller.
+
+| Source         | Destination | Protocol | Port | Purpose                                              |
+|----------------|-------------|----------|------|------------------------------------------------------|
+| Monitored host | Collecteur  | TCP      | 4317 | Configuration retrieval, and OpenTelemetry data flow |
+
+### Installing the Centreon Monitoring Agent
+
+<Tabs groupId="version" queryString>
+<Tab value="OnPrem" label="OnPrem">
+
+The installation and configuration procedure of the Centreon Monitoring Agent is detailed in [this dedicated page](../../../../26.10/cma/cma-setup). This includes installing the agent, and installing the plugins that will execute the non-native checks. (This link directs you to the latest version of the OnPrem documentation. Use the version selector in the top right corner to switch to another version if you need to.)
+
+</Tab>
+<Tab value="Cloud" label="Cloud">
+
+The installation and configuration procedure of the Centreon Monitoring Agent is detailed in [this dedicated page](/cloud/cma/cma-setup). This includes installing the agent, and installing the plugins that will execute the non-native checks.
+
+</Tab>
+</Tabs>

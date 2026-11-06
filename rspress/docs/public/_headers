@@ -1,0 +1,4 @@
+# Cloudflare Pages headers. Build assets under /static/ have a content hash in
+# their name, so browsers can keep them; pages and /img/ keep revalidating.
+/static/*
+  Cache-Control: public, max-age=31536000, immutable

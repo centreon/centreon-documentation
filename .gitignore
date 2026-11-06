@@ -4,9 +4,11 @@
 # Production
 /build
 
-# Generated files 
+# Generated files
 .cache-loader
 .docusaurus/
+rspress/doc_build
+rspress/node_modules
 harmonize_tabs.php
 migrate_tabs.php
 clean_file.php

@@ -1,0 +1,64 @@
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+<Tabs groupId="db">
+
+<Tab value="MariaDB" label="MariaDB">
+
+<Tabs groupId="os">
+
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf module enable -y mariadb:10.11
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf module enable -y mariadb:10.11
+```
+
+</Tab>
+<Tab value="Debian 12" label="Debian 12">
+
+```shell
+curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup | sudo bash -s -- --os-type=debian --os-version=12 --mariadb-server-version="mariadb-10.11"
+```
+
+</Tab>
+</Tabs>
+
+</Tab>
+<Tab value="MySQL" label="MySQL">
+
+<Tabs groupId="os">
+
+<Tab value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el8-1.noarch.rpm -y
+```
+
+</Tab>
+<Tab value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
+
+```shell
+dnf install https://dev.mysql.com/get/mysql84-community-release-el9-1.noarch.rpm -y
+```
+
+</Tab>
+<Tab value="Debian 12" label="Debian 12">
+
+```shell
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.36-1_all.deb
+sudo dpkg -i mysql-apt-config_0.8.36-1_all.deb
+apt update
+```
+
+</Tab>
+</Tabs>
+
+</Tab>
+</Tabs>

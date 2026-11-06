@@ -1,7 +1,15 @@
 minimumReleaseAge: 10080
+minimumReleaseAgeExclude:
+  - '@rspress/core'
+  - '@rspress/shared'
+
+packages:
+  - rspress
 
 onlyBuiltDependencies:
   - '@swc/core'
+  - 'ffmpeg-static'
+  - 'gifsicle'
   - core-js
   - core-js-pure
   - sharp

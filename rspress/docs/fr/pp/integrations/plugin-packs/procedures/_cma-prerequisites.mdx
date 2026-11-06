@@ -1,0 +1,27 @@
+import { Tabs } from '@rspress/core/theme';
+import { Tab } from '@rspress/core/theme';
+
+### Flux réseau
+
+Un flux TCP doit être ouvert depuis l'hôte supervisé vers le collecteur.
+
+| Source         | Destination | Protocole | Port | Objet                                                                       |
+|----------------|-------------|-----------|------|-----------------------------------------------------------------------------|
+| Hôte supervisé | Collecteur  | TCP       | 4317 | Obtention de la configuration et envoi des données au format OpenTelemetry. |
+
+### Installation de Centreon Monitoring Agent
+
+<Tabs groupId="version" queryString>
+<Tab value="OnPrem" label="OnPrem">
+
+La procédure d'installation et de configuration de Centreon Monitoring Agent pour Windows est détaillée dans 
+[la documentation dédiée à ce sujet](../../../../26.10/cma/cma-setup).
+Cela comprend l'installation de l'agent et des plug-ins qui exécuteront les contrôles non natifs. (Ce lien vous redirige vers la dernière version de la documentation OnPrem. Utilisez le sélecteur de version dans le coin supérieur droit pour passer à une autre version si nécessaire.)
+
+</Tab>
+<Tab value="Cloud" label="Cloud">
+
+La procédure d'installation et de configuration de Centreon Monitoring Agent est détaillée dans [une page dédiée](/cloud/cma/cma-setup). Elle comprend l'installation de l'agent et l'installation des plugins qui exécuteront les contrôles non natifs.
+
+</Tab>
+</Tabs>
