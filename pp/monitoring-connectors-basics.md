@@ -9,7 +9,7 @@ description: "Learn what a Centreon Monitoring Connector is, what you can monito
 A Centreon Monitoring Connector is a combination of two elements used to monitor a specific type of IT resource:
 
 * a plugin : the script that runs the actual checks from a poller
-* a pack: the commands, host templates, and service templates, with default thresholds. Some connectors also include discovery rules.
+* a pack: the commands, host templates, and service templates, with default thresholds. Some connectors also include discovery elements: a host discovery provider (to find hosts) and/or service discovery rules (to find items to monitor on a host).
 
 The two are installed separately but work together as the connector. (Formerly called a "Plugin Pack.")
 
@@ -19,7 +19,11 @@ With a Centreon Monitoring Connector you can:
 
 * Set up monitoring quickly for a specific resource (server, database, network device, etc.) by applying its ready-made templates.
 * Track the relevant metrics automatically—like CPU, memory, disk, or network traffic—with default alert thresholds you can fine-tune.
-* Auto-discover related assets (with some connectors), such as disk partitions or network interfaces.
+* Discover resources automatically (with some connectors and the Auto Discovery module):
+  * hosts, such as the servers on a subnet, the virtual machines of a VMware cluster or the resources of a cloud account;
+  * services on existing hosts, such as disk partitions or network interfaces.
+
+  See [To perform host or service discovery](./using-connectors.md#to-perform-host-or-service-discovery).
 
 ## What can I monitor with a connector?
 
@@ -41,10 +45,9 @@ You can monitor almost any IT resource. Our catalog includes the following categ
 
 ## How does the connector actually collect data?
 
-* SNMP-based — polls devices via SNMP (common for network gear, sensors, UPS).
-* API-based — queries a REST or other API (common for cloud services and modern apps, e.g. Azure, VMware RESTAPI).
-* Agent-based — data collected via an agent on the host (e.g. NRPE, CMA).
-* Protocol/command-based — direct checks over protocols like HTTP, SSH, or database connections.
+There are several [types of Monitoring Connectors](./types-of-connectors.md), depending on how they reach the resource you want to monitor: through an agent, an API, a standard protocol or SNMP. The type only changes what you need to set up: an agent to install, an API to reach, credentials to provide, and so on.
+
+Whatever the type, all Monitoring Connectors follow the same pattern: Centreon Engine runs the connector's plugin from a poller, using the commands and templates provided by the connector, and the results are sent back to the central server. Discovery follows the same logic, using the discovery providers and rules provided by the connector. See [How connectors work](./workflow-service-check.md) for a step-by-step example.
 
 ## Does a monitoring connector need anything besides a plugin and a pack?
 

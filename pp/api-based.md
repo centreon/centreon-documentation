@@ -12,7 +12,10 @@ For API-based connectors, the connector queries the target's API (usually REST) 
 * Protocol — usually HTTPS, so certificate considerations may apply.
 * Network connectivity — the Centreon poller must be able to reach the API endpoint (and any proxy in between, if one is required).
 
-## Authentication — this is the key part, and it varies by service
+## Authentication
+
+Authentication requirements vary from one service to another. You may need:
+
 
 * An API key or token.
 * Client credentials — often a client ID and client secret (common with OAuth 2.0, e.g. Azure, AWS).
@@ -24,12 +27,12 @@ For API-based connectors, the connector queries the target's API (usually REST) 
 * The specific resource or object to monitor (e.g. a particular database, VM, or bucket).
 * Sometimes an API version if the service supports several.
 
-## Other things worth checking per connector
+## Other points to check for each connector
 
 * Rate limits — some APIs cap how often you can query, which affects your check interval.
 * Whether the connector needs a proxy configured to reach the internet (common when the poller is behind a firewall).
 
-As with the others, you enter these values through the connector's macros after applying its template, and it's good practice to test the check from the poller CLI before deploying. The connector's monitoring procedure will list exactly which credentials and parameters that specific API requires.
+You enter these values through the connector's macros after applying its template. We recommend that you [test the check from the poller's command line](./connectors-test.md) before deploying the configuration. The connector's monitoring procedure lists the credentials and parameters that its API requires.
 
 ## Troubleshooting API-based connectors
 

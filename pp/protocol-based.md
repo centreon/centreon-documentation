@@ -18,9 +18,9 @@ For protocol/command-based connectors, the connector connects directly to a serv
 * SSH — the SSH port (usually 22), and authentication: either username/password or an SSH key. The poller must be authorized to connect, and often the remote command or check needs to run under an account with the right permissions.
 * Database connections — the database port (e.g. 3306 for MySQL, 5432 for PostgreSQL, 1521 for Oracle), a database username and password, and often the specific database/instance name. The account usually needs read permissions on whatever you're monitoring.
 
-In all cases you enter these values through the connector's macros after applying its template, and it's good practice to test the check from the poller CLI before deploying.
+In all cases, you enter these values through the connector's macros after applying its template. We recommend that you [test the check from the poller's command line](./connectors-test.md) before deploying the configuration.
 
-One thing worth confirming per connector: some database or application checks require an extra driver or client library installed on the poller—the connector's monitoring procedure will tell you if so.
+Some database or application checks require an extra driver or client library on the poller. If so, the connector's monitoring procedure tells you which one to install.
 
 ## Troubleshooting protocol-based connectors
 

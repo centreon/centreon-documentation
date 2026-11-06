@@ -43,7 +43,7 @@ Some Monitoring Connectors also require a Connector (e.g. AS400, VMWare) or an a
 
 | Connector  | Description                                                                           |
 | ---------- | ------------------------------------------------------------------------------------- |
-| NRPE       | NRPE server, packaged by Centreon, with patches required to comply with Plugins Packs |
+| NRPE       | NRPE server, packaged by Centreon, with patches required to comply with Monitoring Connectors |
 | NSClient++ | NSClient++, packaged by Centreon, ready to use with embedded Centreon Plugins         |
 | VMWare     | Perl daemon using VMware SDK to monitor VMware platforms                              |
 | AS400      | Java-based connector allowing you to execute checks on an AS400                       |

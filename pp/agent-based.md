@@ -22,7 +22,7 @@ Uses the NSClient++ agent but communicates over its REST API instead of NRPE (e.
 
 The standard NRPE protocol, mainly for Linux servers (e.g. Linux NRPE4). NRPE4 uses the newer NRPE v4 protocol and replaced the deprecated NRPE3 connector.
 
-A note worth adding: Centreon now recommends migrating NSClient++ and NRPE setups to the Centreon Monitoring Agent, so the CMA connectors are the direction the catalog is moving toward, with many existing NSClient/NRPE connectors getting CMA equivalents.
+> Centreon recommends migrating NSClient++ and NRPE setups to the Centreon Monitoring Agent. Many existing NSClient++ and NRPE connectors now have a CMA equivalent.
 
 ## Troubleshooting agent-based connectors
 
