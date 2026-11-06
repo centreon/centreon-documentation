@@ -262,6 +262,8 @@ const config = {
         },
       ],
       'docusaurus-plugin-image-zoom',
+      // Writes the llms.txt files (https://llmstxt.org) of each locale build.
+      './src/plugins/llms-txt',
     ];
 
     if (cloud) {
