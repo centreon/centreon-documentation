@@ -86,7 +86,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 1. Update your Centreon 24.04 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/24.04/el8/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -114,7 +114,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 1. Update your Centreon 24.04 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el9/centreon-24.04-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/24.04/el9/centreon-24.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -123,7 +123,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 2. Remove the repository files:
 
    ```shell
-   rm /etc/yum.repos.d/centreon-24.04-el9.repo
+   rm /etc/yum.repos.d/centreon-24.04.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 

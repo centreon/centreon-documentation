@@ -84,7 +84,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 1. Mettez à jour votre Centreon 23.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el8/centreon-23.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/23.10/el8/centreon-23.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -111,7 +111,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 1. Mettez à jour votre Centreon 23.10 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.10/el9/centreon-23.10-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/23.10/el9/centreon-23.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -119,7 +119,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 2. Supprimez les fichiers des dépôts :
 
    ```shell
-   rm /etc/yum.repos.d/centreon-23.10-el9.repo
+   rm /etc/yum.repos.d/centreon-23.10.repo
    rm /etc/yum.repos.d/centreon.repo
    ```
 
