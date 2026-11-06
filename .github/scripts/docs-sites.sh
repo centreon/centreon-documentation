@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Decides which documentation sites deploy-dev builds, like get-versions in
-# documentation.yml:
+# Decides which documentation sites deploy-dev builds (deploy-prod builds the
+# staging one only):
 #
 #   staging  every version of versions.json except the next one
 #   next     the version of nextVersion.json alone, when versions.json has it

@@ -1,7 +1,7 @@
 # =============================================================================
 #  Dev deployment of the documentation (S3 + CloudFront), one preview per branch.
 #
-#  Two sites, like documentation.yml (see .github/scripts/docs-sites.sh):
+#  Two sites (see .github/scripts/docs-sites.sh):
 #    staging  every version except the one of nextVersion.json
 #    next     the next version alone
 #
@@ -96,8 +96,8 @@ jobs:
   # `--locale fr` writes build/fr/, so the deploy job only merges artifacts.
   build:
     needs: [sites]
-    # GitHub-hosted, like the build of documentation.yml: the jobs that reach
-    # AWS stay on the self-hosted documentation runners.
+    # GitHub-hosted: only the jobs that reach AWS run on the self-hosted
+    # documentation runners.
     runs-on: ubuntu-24.04
     strategy:
       # A failed site or locale never cancels the others.

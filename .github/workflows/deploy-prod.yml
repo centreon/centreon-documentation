@@ -34,11 +34,11 @@ jobs:
   # One job per locale, in parallel: `--locale en` writes build/, `--locale fr`
   # writes build/fr/, so the deploy job only has to merge both artifacts.
   # No rspack cache here: a release is always built from scratch.
-  # Like the current production (the staging site of documentation.yml): every
-  # version of versions.json except the next one, which is not released yet.
+  # The staging site of docs-sites.sh: every version of versions.json except
+  # the next one, which is not released yet.
   build:
-    # GitHub-hosted, like the build of documentation.yml: the jobs that reach
-    # AWS stay on the self-hosted documentation runners.
+    # GitHub-hosted: only the jobs that reach AWS run on the self-hosted
+    # documentation runners.
     runs-on: ubuntu-24.04
     strategy:
       fail-fast: true
