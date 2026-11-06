@@ -760,6 +760,10 @@ module.exports = {
             },
             {
               "type": "doc",
+              "id": "integrations/itsm/ot-matrix42"
+            },
+            {
+              "type": "doc",
               "id": "integrations/itsm/ot-otrs-restapi"
             },
             {
