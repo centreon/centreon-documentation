@@ -1,7 +1,7 @@
 ---
-id: discovery-workflow
-title: End-to-end journey of a discovery job
-description: "What steps does a discovery job go through, from the moment it is triggered to when the results appear in the interface?"
+id: workflow-host-discovery
+title: Journey of a host discovery job
+description: "What steps does a host discovery job go through, from the moment it is triggered to when the results appear in the interface?"
 ---
 
 ## Journey of a discovery job: finding Linux servers with SNMP

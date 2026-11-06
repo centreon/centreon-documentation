@@ -1,5 +1,5 @@
 ---
-id: check-workflow
+id: workflow-service-check
 title: End-to-end journey of a check
 description: "What steps does a check go through, from the moment it is triggered to when the results appear in Resource status?"
 ---

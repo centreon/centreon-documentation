@@ -123,12 +123,16 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'check-workflow'
+          id: 'workflow-service-check'
         },
         {
           type: 'doc',
-          id: 'discovery-workflow'
+          id: 'workflow-host-discovery'
         },
+        {
+          type: 'doc',
+          id: 'workflow-service-discovery'
+        }
       ]
     },
     {
