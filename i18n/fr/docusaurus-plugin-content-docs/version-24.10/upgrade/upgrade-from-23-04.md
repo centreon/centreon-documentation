@@ -84,7 +84,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el8/centreon-23.04-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/23.04/el8/centreon-23.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -111,7 +111,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 1. Mettez à jour votre Centreon 23.04 jusqu'à la dernière version mineure.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/23.04/el9/centreon-23.04-el9.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/23.04/el9/centreon-23.04.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

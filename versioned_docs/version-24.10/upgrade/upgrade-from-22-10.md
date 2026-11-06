@@ -83,7 +83,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 1. Update your Centreon 22.10 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/22.10/el8/centreon-22.10-el8.repo
+   dnf config-manager --add-repo https://packages.centreon.com/archives/repo-files/standard/rpm/22.10/el8/centreon-22.10.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

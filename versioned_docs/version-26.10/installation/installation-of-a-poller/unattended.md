@@ -65,7 +65,7 @@ The script will perform all installation steps. You must then [attach the poller
 2. Download the script:
 
    ```shell
-   curl -L https://download.centreon.com/26.10/unattended.sh --output /tmp/unattended.sh
+   curl -L https://raw.githubusercontent.com/centreon/centreon/26.10-latest/centreon/unattended.sh --output /tmp/unattended.sh
    ```
 
 ## Installation procedure
