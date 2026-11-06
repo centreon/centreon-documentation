@@ -4,7 +4,7 @@ title: Centreon Cloud release notes
 description: "Release notes for Centreon Cloud, listing the new features, improvements, and bug fixes delivered in each release, grouped by date and by product area"
 ---
 
-## November 5th, 2026
+## November 12th, 2026
 
 ### Centreon IT Edition
 
