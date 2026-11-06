@@ -1,5 +1,5 @@
 ---
-id:workflow-host-check
+id: workflow-host-check
 title: How the status of a host is computed
 description: "Learn how Centreon Engine turns a host check result into an UP, DOWN or UNREACHABLE status, using parent hosts and SOFT and HARD states."
 ---
