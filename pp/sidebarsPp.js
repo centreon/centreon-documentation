@@ -119,6 +119,10 @@ module.exports = {
       items: [
         {
           type: "doc",
+          id: "workflow-host-check",
+        },        
+        {
+          type: "doc",
           id: "workflow-service-check",
         },
         {
