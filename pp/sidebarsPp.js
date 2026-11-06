@@ -155,15 +155,7 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/introduction'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/plugins-guidelines'
-        },
-        {
-          type: 'doc',
-          id: 'integrations/plugin-packs/dev-resources/develop-with-centreon-plugins'
+          id: 'integrations/plugin-packs/getting-started/develop-plugin'
         }
       ]
     },
