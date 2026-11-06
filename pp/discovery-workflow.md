@@ -140,7 +140,7 @@ With **Manual analysis**, select `srv-linux-01` and click **Save**. With **Autom
 
 Export the configuration of `poller-01` and reload it. If **Export and reload pollers configuration** was selected in the job wizard, this happens automatically. Centreon Engine on `poller-01` now knows about `srv-linux-01` and starts scheduling its checks.
 
-From here, each check follows the journey described in [Journey of a check: a ping on a Linux server](journey-of-a-check.md).
+From here, each check follows the journey described in [Journey of a check: a ping on a Linux server](check-workflow.md).
 
 ## Discovery versus checks
 
