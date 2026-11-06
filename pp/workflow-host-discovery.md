@@ -152,9 +152,9 @@ A discovery job and a monitoring check both run plugins on a poller, but they fo
 | Run by | Gorgone | Centreon Engine |
 | Plugin output | JSON list of discovered items | Exit code, output and performance data |
 | Results go to | Auto Discovery module, then host configuration | Centreon Broker, then real-time status and graphs |
-| Uses Centreon connectors | No | Yes, if one is set on the command |
+| Provided by the Monitoring Connector | The discovery provider | The command and the host and service templates |
 
-Because discovery commands are run by Gorgone and not by Centreon Engine, Centreon connectors play no part in discovery. They only apply to monitoring checks.
+In both cases, the Monitoring Connector supplies what is needed: the discovery provider that defines the discovery command, and the templates and commands used by the checks on the hosts it creates.
 
 ## Behavior to keep in mind
 
