@@ -4,6 +4,50 @@ title: Centreon Experience Monitoring release notes
 description: "New features and improvements in each Centreon Experience Monitoring release, such as token management, internal probes and user journey actions."
 ---
 
+## November 9th, 2026
+
+**Quanta becomes Centreon Experience Monitoring**
+
+The product has a new name and now uses the Centreon visual identity.
+
+**New interface**
+
+* New logo and new navigation bar in Centreon colors.
+* New design system applied to all pages.
+* New login page.
+* New favicon and new browser tab title.
+
+**Redesigned emails**
+
+* New visual identity in all emails, alerts, reports and notifications.
+* New footer with up-to-date links to The Watch community, the documentation, support and the application.
+* Updated email subjects.
+
+**Interface text**
+
+* More than 100 labels have been reviewed.
+* Obsolete links have been removed or now point to the Centreon documentation and support.
+
+**Integrations**
+
+* The Slack app has been updated: name, logo and notification labels.
+
+**New address**
+
+* The application is now available at [https://exp.mycentreon.com](https://exp.mycentreon.com).
+* The former address, `https://app.quanta.io`, remains fully functional. It will be automatically redirected to the new address at a date announced in advance.
+
+**What does not change**
+
+* Your credentials, data, configurations and history are unchanged.
+* No action is required to keep using the service.
+
+**What we recommend**
+
+* Update your bookmarks.
+* Use the new address in your scripts and in your integrations that use the API. Note that some HTTP clients, such as cURL, do not follow redirects by default: your scripts must point directly to the new address before the redirection is set up.
+* If your network filters allowed domains, add `exp.mycentreon.com`, especially if you host [internal probes](configuration/user-journey/stm-zones.md).
+
 ## September 8th, 2026
 
 **Redesigned token management**
