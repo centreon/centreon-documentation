@@ -173,6 +173,16 @@ const config = {
           lastmod: 'date',
           changefreq: null,
           priority: null,
+          // Only the pages worth indexing: the current version of the docs
+          // (older versions duplicate it), and pages that have a last update
+          // date (generated category indexes have none). The search page is
+          // also left out (it has no date, and is noindex).
+          createSitemapItems: async ({ defaultCreateSitemapItems, ...params }) => {
+            const items = await defaultCreateSitemapItems(params);
+            return items.filter(
+              (item) => item.lastmod && !/\/docs\/(\d+\.\d+|next)\//.test(item.url),
+            );
+          },
         },
         theme: {
           customCss: ['./src/css/custom.css'],
