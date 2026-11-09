@@ -80,3 +80,10 @@
   color: var(--ifm-color-primary);
   font-weight: 600;
 }
+
+/* The "Edit" button of the base URL is always visible (the theme shows it on
+   hover only): readers set the address of their platform there. */
+.openapi-explorer__floating-btn:has(.openapi-explorer__server-url) button {
+  visibility: visible;
+  opacity: 1;
+}

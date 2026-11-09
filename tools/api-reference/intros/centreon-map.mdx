@@ -12,6 +12,12 @@ https://<map-server>:9443/centreon-map/api/latest
 
 Without TLS, use `http://<map-server>:8081/centreon-map/api/latest`.
 
+:::tip Use your own server in this reference
+
+On any endpoint page, click **Edit** next to **Base URL** in the request panel and enter the address of your MAP server. The code samples and **Send API Request** then use it, on every page, until you close the browser.
+
+:::
+
 ### 2. Get a token
 
 Sign in with a Centreon user. Every MAP call also needs the `X-Client-Version` header, set to the version of your MAP server:
