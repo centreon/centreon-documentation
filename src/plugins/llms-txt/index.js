@@ -111,8 +111,8 @@ const TEXTS = {
     latest: 'dernière version',
     onpremVersion: (version, latest, urlPath) =>
       latest
-        ? `Pages d'Infra Monitoring OnPrem ${version}, la version actuelle, servie sous ${urlPath}.`
-        : `Pages d'Infra Monitoring OnPrem ${version}, servie sous ${urlPath}.`,
+        ? `Pages d'Infra Monitoring OnPrem ${version}, la version actuelle, servies sous ${urlPath}.`
+        : `Pages d'Infra Monitoring OnPrem ${version}, servies sous ${urlPath}.`,
     otherProducts: 'Autres produits',
     otherLanguages: 'Autres langues',
     pageCount: (count) => `${count} pages`,
@@ -200,7 +200,7 @@ module.exports = function llmsTxtPlugin(context) {
   const { siteConfig, i18n, baseUrl } = context;
 
   // Non-indexed builds (archived versions) get no llms.txt.
-  if (siteConfig.noIndex || process.env.ARCHIVED_VERSION) {
+  if (siteConfig.noIndex) {
     return { name: 'llms-txt' };
   }
 
@@ -318,7 +318,8 @@ module.exports = function llmsTxtPlugin(context) {
 
       const root = [`# ${texts.title}`, '', `> ${texts.summary}`, '', texts.usage];
       if (onpremLines.length > 0) {
-        root.push('', `## ${SECTIONS[0].title[locale] ?? SECTIONS[0].title.en}`, '', ...onpremLines);
+        const onprem = SECTIONS.find((section) => section.id === ONPREM_ID);
+        root.push('', `## ${onprem.title[locale] ?? onprem.title.en}`, '', ...onpremLines);
       }
       if (productLines.length > 0) {
         root.push('', `## ${texts.otherProducts}`, '', ...productLines);
