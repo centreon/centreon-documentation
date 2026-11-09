@@ -1,6 +1,7 @@
 ---
 id: cma-setup-manual
 title: Configurer CMA manuellement
+description: "Configurez Centreon Monitoring Agent (CMA) manuellement : préparez Centreon, le pare-feu et le chiffrement du collecteur, puis installez l'agent."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -265,7 +266,7 @@ dnf install -y centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 1. Exécutez les commandes suivantes :
 
@@ -728,7 +729,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 > ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
@@ -1002,7 +1003,7 @@ dnf update centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```shell
 apt-get update && apt-get upgrade centreon-monitoring-agent
@@ -1024,6 +1025,22 @@ Redémarrez ensuite l'agent :
 systemctl restart centagent
 ```
 
+Cette commande met à jour uniquement l'agent. Les plugins (paquets `centreon-plugin-*`) sont des paquets distincts qui ne sont pas concernés par cette commande.
+
+Pour ne mettre à jour que les plugins, sans toucher à l'agent, utilisez votre gestionnaire de paquets sur le ou les paquets `centreon-plugin-*` concernés, par exemple :
+
+```shell
+dnf update centreon-plugin-Operatingsystems-Linux-Local
+```
+
+Ou, pour mettre à jour tous les plugins Centreon installés sur l'hôte :
+
+```shell
+dnf update 'centreon-plugin-*'
+```
+
+Sur Debian/Ubuntu, remplacez `dnf update` par `apt-get update && apt-get upgrade`. Aucun redémarrage de l'agent n'est nécessaire après une mise à jour des plugins uniquement.
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
@@ -1039,6 +1056,12 @@ systemctl restart centagent
    * **Mise à jour** : permet de mettre à jour à la fois les binaires et la configuration. Sélectionnez l'instance à mettre à jour — les champs de configuration sont pré-remplis avec les valeurs actuelles et peuvent être modifiés.
 2. Sélectionnez **Mise à jour**, choisissez l'instance à mettre à jour, ajustez la configuration si nécessaire, et terminez l'assistant.
 
+Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent :
+
+1. Arrêtez d'abord le service de l'agent (par exemple depuis la console **Services** de Windows, ou avec `net stop "ServiceName"` dans une invite de commande lancée en tant qu'administrateur).
+2. Lancez l'installeur, décochez l'agent dans la liste des composants (binaires) et laissez uniquement **Plugins** coché avant de terminer l'assistant.
+3. Redémarrez le service de l'agent (par exemple `net start "ServiceName"`).
+
 </TabItem>
 <TabItem value="Mode silencieux" label="Mode silencieux (console)">
 
@@ -1049,6 +1072,14 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATE /AGENTINSTANCE="ServiceNam
 ```
 
 Cette commande met à jour les binaires et la configuration de l'instance spécifiée.
+
+Pour ne mettre à jour que les plugins, sans mettre à jour les binaires de l'agent, arrêtez d'abord le service de l'agent, lancez l'installeur avec `/COMPONENTS=plugins`, puis redémarrez le service :
+
+```shell
+net stop "ServiceName"
+start /wait centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+net start "ServiceName"
+```
 
 </TabItem>
 </Tabs>

@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-cloudwatchlogs
 title: Amazon CloudWatch Logs
-description: "Monitor Amazon CloudWatch Logs via the AWS API (awscli or paws): retrieve and filter log entries by group and stream."
+description: "Monitor Amazon CloudWatch Logs via the AWS API (awscli or paws): retrieve log entries by group and stream and filter them to raise alerts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

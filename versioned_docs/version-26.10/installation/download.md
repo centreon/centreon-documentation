@@ -1,7 +1,7 @@
 ---
 id: download
 title: Download
-description: "Available formats for downloading and installing Centreon software"
+description: "Download Centreon as RPM or DEB packages (recommended), as a ready-to-use virtual machine in OVA or OVF format, or as source archives."
 ---
 
 Open Source software supplied by Centreon is generally available in [3 formats](../installation/compatibility.md#operating-systems):

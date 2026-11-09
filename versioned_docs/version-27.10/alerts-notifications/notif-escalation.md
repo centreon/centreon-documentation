@@ -1,7 +1,7 @@
 ---
 id: notif-escalation
 title: Escalation
-description: "Escalate notifications to different contact groups over time"
+description: "Configure notification escalations in Centreon to contact different contact groups as an alert persists, and choose the hosts and services they apply to."
 ---
 
 ## Definition

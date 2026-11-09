@@ -15,6 +15,16 @@ The TLS (1.3) connection is negotiated by the client (poller or agent, depending
 Depending on the connection direction, the agent/the poller checks that the IP/DNS used to reach the server strictly matches the information in the certificate. If this is not the case, the connection is not allowed.
 The verification is performed on the **alt_names** block of the certificate, which may contain several DNS, IP, or CN entries.
 
+> **Important**: In TLS mode, the hostname or IP you declare as the endpoint (the **Poller endpoint**/**endpoint** parameter on the agent side, or the host's address on the poller side) is not only used to open the network connection: it is also the value checked against the certificate's SubjectAltNames (SAN) or CN during the TLS handshake. A successful `telnet`/TCP connectivity test on a given hostname does **not** guarantee that the TLS handshake will succeed with that same hostname — if the value doesn't match any SAN/CN entry in the certificate, the connection will be refused at the TLS layer even though the network path is open.
+>
+> We recommend declaring the endpoint using a value (FQDN or IP) that is actually present in the certificate's SAN list. See [how to generate a self-signed certificate](#how-to-generate-a-self-signed-certificate-optional) for details on how DNS and IP alternative names are declared and taken into account.
+
+> **Automatic certificates**: The certificate that Centreon generates automatically for a poller (see [How are certificates managed?](cma-setup.md#how-are-certificates-managed)) only contains the **host name** of the poller (for example `ip-10-25-10-99.eu-west-1.compute.internal`), not its IP address. As a consequence:
+>
+> * Use the host name of the poller as the agent's endpoint, and make sure the machine where the agent is installed can resolve this name (DNS or `hosts` file).
+> * If the agent connects to the poller using its IP address, the connection is refused. The ready-to-run installation command displayed in Centreon may propose the IP address of the poller as the endpoint: replace it with the host name of the poller before running the command.
+> * To connect using an IP address, use a custom certificate that contains this IP address in its SANs (see [how to generate a self-signed certificate](#how-to-generate-a-self-signed-certificate-optional)).
+
 ### Certificate files
 
 Supported formats are :
@@ -184,6 +194,8 @@ You can leave the connection unencrypted **for test purposes only**. In this mod
 
 > Note that this connection will only last for one hour. Do not use this setting in production!
 
+> **Security warning**: in **No TLS** mode, all traffic between the agent and the poller is sent in clear text, including the authentication token. Anyone able to intercept this traffic can read the token and reuse it.
+
 To configure this mode, select **No TLS** from the **Encryption level** list in the [**Agent configuration** window](cma-setup-manual.md#configure-polleragent-communication).
 
 The agent will be configured the following way on the host:
@@ -222,3 +234,13 @@ The agent will be configured the following way on the host:
 
 </TabItem>
 </Tabs>
+
+### Switching from No TLS to TLS
+
+Because the authentication token was sent in clear text while the connection was unencrypted, we recommend that you replace it when you switch to an encrypted mode (TLS or insecure TLS):
+
+1. [Create a new authentication token](cma-setup-manual.md#authentication-token) with the **Centreon Monitoring Agent** type.
+2. In the [**Agent configuration** window](cma-setup-manual.md#configure-polleragent-communication), select the new encryption level and enter the paths to the certificate files (see the [TLS](#tls) and [Insecure TLS](#insecure-tls) sections). If the poller connects to the agent, also select the new token for each host.
+3. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
+4. On each host, [update the agent configuration](cma-setup-manual.md#updating-an-existing-configuration) with the new token and the encryption parameters.
+5. Once all agents use the new token, go to **Administration > Authentication tokens** and delete or disable the old token, then [deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md) again.

@@ -1,7 +1,7 @@
 ---
 id: network-peplink-pepwave-snmp
 title: Peplink Pepwave SNMP
-description: "Monitor Peplink Pepwave routers via SNMP: CPU, memory, WAN usage, and interface status."
+description: "Monitor Peplink Pepwave routers via SNMP: CPU, memory, WAN usage, and network interface status and traffic, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

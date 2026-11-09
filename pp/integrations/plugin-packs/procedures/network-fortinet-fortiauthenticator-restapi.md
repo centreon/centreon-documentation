@@ -1,7 +1,7 @@
 ---
 id: network-fortinet-fortiauthenticator-restapi
 title: Fortinet FortiAuthenticator RestAPI
-description: "Monitor Fortinet FortiAuthenticator via REST API: track FortiToken assignment, pending, and availability counts."
+description: "Monitor Fortinet FortiAuthenticator via REST API: track total, assigned, pending, and available FortiToken counts and their usage percentages."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

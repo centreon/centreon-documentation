@@ -1,7 +1,7 @@
 ---
 id: update-centreon-platform
 title: Mise à jour d'une plateforme Centreon 25.10
-description: "Étapes pour mettre à jour une version mineure de Centreon 25.10"
+description: "Mettez à jour Centreon 25.10 vers une version mineure : sauvegardez votre environnement, puis mettez à jour le central, les extensions et les collecteurs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

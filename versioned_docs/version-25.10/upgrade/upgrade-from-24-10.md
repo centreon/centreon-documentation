@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-24-10
 title: Upgrade from Centreon 24.10
-description: "Upgrade a Centreon platform from version 24.10 to 25.10"
+description: "Upgrade Centreon from version 24.10 to 25.10: back up your data, upgrade and finalize the central server, then upgrade remote servers and pollers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

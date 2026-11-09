@@ -1,7 +1,7 @@
 ---
 id: developer-gorgone-rebound-mode
 title : Configurer Gorgone en mode rebound
-description: "Configurer le mode rebound de Gorgone via un serveur relais"
+description: "Configurez Centreon Gorgone en mode rebound pour relayer la communication entre un collecteur distant et le serveur central via un serveur intermédiaire."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

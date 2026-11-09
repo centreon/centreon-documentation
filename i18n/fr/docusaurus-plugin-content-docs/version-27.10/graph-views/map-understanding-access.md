@@ -1,7 +1,7 @@
 ---
 id: map-understanding-access
 title: Comprendre les droits d'accès aux cartes (ACL)
-description: "Comprendre le fonctionnement du contrôle d'accès et des privilèges pour les vues Centreon MAP"
+description: "Comprenez l'accès aux vues Centreon MAP : les privilèges sont accordés aux groupes d'accès, et non aux utilisateurs, et définissent les actions possibles."
 ---
 
 Cette page explique comment les utilisateurs accèdent aux cartes en fonction de privilèges bien définis.

@@ -1,7 +1,7 @@
 ---
 id: manage-alerts
 title: Gestion des alertes
-description: "Acquitter des alertes, planifier des temps d'arrêt et gérer les contrôles"
+description: "Gérez les alertes dans Centreon : acquittez des incidents, planifiez des temps d'arrêt, ajoutez des commentaires, gérez contrôles et notifications."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

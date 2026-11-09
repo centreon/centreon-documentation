@@ -1,7 +1,7 @@
 ---
 id: update-centreon-platform
 title: Update a Centreon 25.10 platform
-description: "Steps to update between minor versions of Centreon 25.10"
+description: "Update a Centreon 25.10 platform between minor versions: back up your environment, then update the central server, extensions, remote servers, and pollers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

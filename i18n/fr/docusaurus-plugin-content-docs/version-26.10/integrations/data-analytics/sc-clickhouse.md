@@ -1,7 +1,7 @@
 ---
 id: sc-clickhouse
 title: Clickhouse
-description: "Insérer les métriques de performance hôtes et services dans une table Clickhouse"
+description: "Installez et configurez le stream connector Clickhouse pour insérer les métriques de performance des hôtes et services Centreon dans une table Clickhouse."
 ---
 
 import Tabs from '@theme/Tabs';

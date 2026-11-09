@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-ax-cma
 title: Dynamics AX CMA
+description: "Supervisez Microsoft Dynamics AX avec l'agent CMA : fichiers RIS à importer, erreurs d'import et état du service Recurring Integrations Scheduler."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

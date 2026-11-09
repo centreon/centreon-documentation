@@ -1,7 +1,7 @@
 ---
 id: applications-docker-restapi
 title: Docker Rest API
-description: "Monitor Docker via its REST API: container CPU, memory, disk I/O, and traffic usage, plus node status."
+description: "Monitor Docker via its REST API: container status and CPU, memory, disk I/O, and traffic usage, plus node and service status, with container discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

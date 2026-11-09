@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-datacore-api
 title: Datacore RestApi
-description: "Supervisez le stockage DataCore SANsymphony via l'API REST : alertes, statut des monitors et utilisation des pools."
+description: "Supervisez le stockage DataCore SANsymphony via l'API REST : alertes par sévérité, statut des objets monitors et utilisation des pools, avec découverte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

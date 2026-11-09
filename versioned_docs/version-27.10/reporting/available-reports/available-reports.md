@@ -1,7 +1,7 @@
 ---
 id: available-reports
 title: Available reports
-description: "Overview of the report design categories available in Centreon MBI"
+description: "Browse the Centreon MBI report designs by category, with a preview of each design and details on its parameters and prerequisites."
 ---
 
 Here you can preview report designs and get information on their parameters and prerequisites. Report designs are grouped by the type of data they contain.

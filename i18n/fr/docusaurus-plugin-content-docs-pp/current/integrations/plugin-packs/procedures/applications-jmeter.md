@@ -1,7 +1,7 @@
 ---
 id: applications-jmeter
 title: JMeter
-description: "Supervisez les scénarios Apache JMeter via le plugin en CLI : temps d'exécution, nombre d'étapes et disponibilité."
+description: "Supervisez des scénarios Apache JMeter exécutés en ligne de commande : temps d'exécution du scénario, nombre d'étapes et pourcentage de disponibilité."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

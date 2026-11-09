@@ -110,6 +110,20 @@ module.exports = {
         {
           "collapsed": true,
           "type": "category",
+          "label": "Integrations",
+          "link": {
+            "type": "generated-index",
+          },
+          items: [
+        {
+          type: 'doc',
+          id: 'integrations/mcp-server'
+        }
+       ]
+    },
+        {
+          "collapsed": true,
+          "type": "category",
           "label": "Administration",
           "link": {
             "type": "generated-index",

@@ -1,7 +1,7 @@
 ---
 id: using-packages
 title: À partir des paquets (serveur distant)
-description: "Installer et enregistrer un serveur distant à partir des paquets RPM ou DEB"
+description: "Installez un serveur distant Centreon à partir des paquets RPM ou DEB, activez TLS, puis enregistrez-le auprès du serveur central."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

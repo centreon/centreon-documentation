@@ -1,7 +1,7 @@
 ---
 id: applications-ibmmq-mqi
 title: IBM MQ MQI
-description: "Monitor IBM MQ via the MQI client library: track channel traffic, queue manager connections, and queue depths."
+description: "Monitor IBM MQ via the MQI client library: channel status and traffic, queue manager status and connections, and queue depth and oldest message age."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

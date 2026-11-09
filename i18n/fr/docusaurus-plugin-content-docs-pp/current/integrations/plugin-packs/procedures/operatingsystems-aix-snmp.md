@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-aix-snmp
 title: AIX SNMP
-description: "Supervisez les serveurs IBM AIX en SNMP : CPU, swap, synchronisation NTP, espace disque, processus et trafic réseau."
+description: "Supervisez les serveurs IBM AIX en SNMP : CPU, swap, synchronisation NTP, espace disque, processus et trafic réseau, avec découverte automatique."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

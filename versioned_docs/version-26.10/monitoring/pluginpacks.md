@@ -1,7 +1,7 @@
 ---
 id: pluginpacks
 title: Monitoring Connectors
-description: "Install, update, and uninstall Monitoring Connectors to monitor your infrastructure"
+description: "Install, use, update, and uninstall Centreon Monitoring Connectors and their plugins to monitor your infrastructure with ready-to-use templates."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

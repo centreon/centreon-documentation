@@ -1,7 +1,7 @@
 ---
 id: applications-rubrik-graphql
 title: Rubrik Security Cloud GraphQL API
-description: "Monitor Rubrik Security Cloud via GraphQL API: cluster, disk, node, storage, task, job, and SLA compliance status."
+description: "Monitor Rubrik Security Cloud via GraphQL API: cluster I/O, disks, nodes, storage, tasks, jobs, and SLA compliance, with service discovery for jobs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

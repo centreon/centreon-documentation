@@ -1,7 +1,7 @@
 ---
 id: event-handler
 title: Auto Remediation
-description: "Configurer des gestionnaires d'événements pour corriger automatiquement les problèmes"
+description: "Configurez des gestionnaires d'évènements dans Centreon pour lancer des scripts d'auto-remédiation lors d'un changement d'état d'un hôte ou d'un service."
 ---
 
 ## Introduction

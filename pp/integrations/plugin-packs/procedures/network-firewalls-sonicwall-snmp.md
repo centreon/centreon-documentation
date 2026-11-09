@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-sonicwall-snmp
 title: Sonicwall SNMP
-description: "Monitor SonicWall firewalls via SNMP: connection usage, CPU, memory, and VPN tunnel traffic."
+description: "Monitor SonicWall firewalls via SNMP: connection usage, CPU, memory, and VPN tunnel traffic, with an SNMP host discovery rule."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

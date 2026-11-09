@@ -1,7 +1,7 @@
 ---
 id: applications-cisco-dnac-restapi
 title: Cisco DNA Center Rest API
-description: "Supervisez Cisco DNA Center via l'API REST en suivant l'état des équipements réseau et des sites."
+description: "Supervisez Cisco DNA Center via l'API REST : nombre total d'équipements réseau et, par site, nombre et pourcentage d'équipements et de clients sains."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

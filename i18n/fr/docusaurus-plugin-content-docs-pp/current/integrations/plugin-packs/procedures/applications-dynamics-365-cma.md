@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-365-cma
 title: Dynamics365 CMA
+description: "Supervisez Microsoft Dynamics 365 avec Centreon Monitoring Agent (CMA) : présence et ancienneté des fichiers de nouvelles commandes, avec seuils d'alerte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

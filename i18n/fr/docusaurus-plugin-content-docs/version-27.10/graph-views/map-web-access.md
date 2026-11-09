@@ -1,7 +1,7 @@
 ---
 id: map-web-access
 title: Gérer les droits d'accès dans MAP
-description: "Gérer les privilèges et droits d'accès aux vues Centreon MAP"
+description: "Gérez qui peut créer des cartes dans Centreon MAP : vérifiez quels utilisateurs ont le rôle de créateur et attribuez ce rôle à des groupes d'accès."
 ---
 
 Cette page explique comment les administrateurs peuvent gérer qui est autorisé à créer des cartes dans Centreon MAP.

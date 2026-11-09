@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-picos-snmp
 title: PICOS SNMP
-description: "Monitor Pica8 PICOS switches via SNMP: CPU, memory, temperature, hardware, and network interfaces."
+description: "Monitor Pica8 PICOS switches via SNMP: CPU, memory, switch and chip temperature, hardware, and network interfaces, with automatic interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

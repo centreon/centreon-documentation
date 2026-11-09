@@ -1,7 +1,7 @@
 ---
 id: map-web-monitoring
 title: Monitoring your MAP server
-description: "Monitor your Centreon MAP server using the dedicated connector"
+description: "Monitor your Centreon MAP server with the Centreon MAP Engine connector: configure the host templates and JVM macros, then check that the server is up."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

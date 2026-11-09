@@ -1,7 +1,7 @@
 ---
 id: applications-zookeeper-jmx
 title: Zookeeper
-description: "Monitor Apache Zookeeper via JMX and Jolokia: request latency, connections, and packet statistics."
+description: "Monitor Apache Zookeeper via JMX and Jolokia: average and maximum request latency, outstanding requests, connections, and packets sent and received."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

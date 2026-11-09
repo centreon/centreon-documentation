@@ -1,7 +1,7 @@
 ---
 id: hosts
 title: Creating hosts manually
-description: "Detailed reference for host configuration fields, notifications, and dependencies"
+description: "Create a host manually in Centreon: reference for host configuration fields, check and scheduling options, notifications, relations, and data processing."
 ---
 
 To create a host manually:

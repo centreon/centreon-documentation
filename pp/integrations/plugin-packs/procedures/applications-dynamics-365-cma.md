@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-365-cma
 title: Dynamics365 CMA
+description: "Monitor Microsoft Dynamics 365 with Centreon Monitoring Agent (CMA): check the presence and age of new order files, with warning and critical file counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

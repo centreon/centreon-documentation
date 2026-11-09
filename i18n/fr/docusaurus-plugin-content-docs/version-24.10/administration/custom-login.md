@@ -1,7 +1,7 @@
 ---
 id: customize-centreon
 title: Personnaliser Centreon
-description: "Personnaliser la page de connexion et le nom de la plateforme Centreon"
+description: "Personnalisez votre plateforme Centreon avec IT Edition Extensions : fond et logo de la page de connexion, nom de la plateforme et mise à jour."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

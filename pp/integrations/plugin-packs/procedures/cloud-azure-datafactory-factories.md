@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-datafactory-factories
 title: Azure Data Factory
-description: "Monitor Azure Data Factory via REST API: track factory usage, size, entities, and integration runtime utilization."
+description: "Monitor Azure Data Factory via REST API or Azure CLI: factory usage, size and entities, integration runtime CPU, memory, and queue, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

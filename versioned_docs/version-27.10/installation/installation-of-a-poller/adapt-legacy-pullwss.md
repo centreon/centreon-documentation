@@ -1,7 +1,7 @@
 ---
 id: adapt-legacy-pullwss
 title: Adapting legacy pullwss poller setups
-description: How to adapt legacy pullwss connections to the new pollers in containers configuration
+description: "Adapt pollers that used pullwss mode before your upgrade to 27.10 so you can add pollers in containers, using port 443 or a traffic redirection to Gorgone."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

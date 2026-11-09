@@ -1,7 +1,7 @@
 ---
 id: lifecycle
 title: Product lifecycle policy
-description: "Centreon's version numbering, release frequency, and support policy"
+description: "Learn how Centreon versions are numbered, how often they are released and how long each version receives maintenance and security updates."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

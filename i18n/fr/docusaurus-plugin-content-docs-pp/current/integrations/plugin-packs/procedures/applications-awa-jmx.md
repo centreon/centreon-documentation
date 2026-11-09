@@ -1,7 +1,7 @@
 ---
 id: applications-awa-jmx
 title: AWA (Automic Workload Automation) JMX
-description: "Supervisez les agents, files d'attente et serveurs AWA (Automic Workload Automation) via JMX avec l'agent Jolokia."
+description: "Supervisez Automic Workload Automation (AWA) via JMX avec l'agent Jolokia : statut des agents, des files d'attente et des serveurs AWA."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

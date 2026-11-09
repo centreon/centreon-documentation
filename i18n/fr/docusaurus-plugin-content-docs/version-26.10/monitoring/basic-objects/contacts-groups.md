@@ -1,7 +1,7 @@
 ---
 id: contacts-groups
 title: Utiliser des groupes de contacts
-description: "Regrouper des contacts pour simplifier les notifications et le contrôle d'accès"
+description: "Créez des groupes de contacts dans Centreon pour notifier plusieurs utilisateurs depuis un hôte, un service ou une escalade, et pour les groupes d'accès."
 ---
 
 ### Les groupes de contacts

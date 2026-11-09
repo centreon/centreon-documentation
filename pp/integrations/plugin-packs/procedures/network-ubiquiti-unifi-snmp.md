@@ -1,7 +1,7 @@
 ---
 id: network-ubiquiti-unifi-snmp
 title: Ubiquiti UniFi SNMP
-description: "Monitor Ubiquiti UniFi devices via SNMP, covering CPU, memory, disks, interfaces, uptime, and virtual access points."
+description: "Monitor Ubiquiti UniFi devices via SNMP: CPU, load, memory, swap, disks, uptime, interfaces, and virtual access points, with interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

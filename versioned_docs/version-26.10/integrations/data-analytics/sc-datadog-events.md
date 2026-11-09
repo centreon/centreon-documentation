@@ -1,7 +1,7 @@
 ---
 id: sc-datadog-events
 title: Datadog Events
-description: "How the stream connector sends host and service events to Datadog"
+description: "Install and configure the Datadog Events stream connector to send Centreon host and service status events to Datadog, then filter, format and test them."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
