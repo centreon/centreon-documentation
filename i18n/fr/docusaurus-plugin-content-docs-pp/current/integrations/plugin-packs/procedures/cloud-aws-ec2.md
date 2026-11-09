@@ -1,12 +1,56 @@
 ---
 id: cloud-aws-ec2
-title: Amazon EC2
-description: "Supervisez les instances Amazon EC2, les Auto Scaling Groups et les Spot Fleet Requests via l'API AWS : CPU, réseau, disques et statut."
+title: Supervision d'Amazon EC2
+sidebar_label: Amazon EC2
+description: "Supervisez Amazon EC2 avec Centreon : contrôles de statut, CPU et crédits CPU, réseau, E/S disque, groupes Auto Scaling et Spot Fleets, via l’API AWS."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Amazon Elastic Compute Cloud (Amazon EC2) offre une capacité de calcul évolutive dans le cloud Amazon Web Services (AWS). L'utilisation d'Amazon EC2 vous dispense d'investir à l'avance dans du matériel et, par conséquent, vous pouvez développer et déployer les applications plus rapidement. Vous pouvez utiliser Amazon EC2 pour lancer autant de serveurs virtuels que nécessaire, configurer la sécurité et la mise en réseau, et gérer le stockage.
+Supervisez vos instances Amazon EC2, vos groupes Auto Scaling et vos Spot Fleets avec Centreon : contrôles de statut, CPU et crédits CPU, réseau, E/S disque et inventaire, collectés via l'API AWS, avec des alertes avant que vos utilisateurs ne voient le problème.
+
+## Qu'est-ce qu'Amazon EC2 ?
+
+Amazon Elastic Compute Cloud (Amazon EC2) est le service AWS qui fait tourner des serveurs virtuels, appelés **instances**, dans le cloud. Vous choisissez un type d'instance (CPU, mémoire, réseau), un système d'exploitation et du stockage (volumes Amazon EBS), et vous payez ce qui tourne. EC2 héberge une grande partie des charges de travail déployées sur AWS : sites web, back-ends applicatifs, bases de données, traitements par lots, runners de CI.
+
+Trois façons de faire tourner des instances changent la manière de les superviser :
+
+- Les **groupes Auto Scaling** ajoutent et retirent des instances pour suivre la charge : les instances passent, le groupe reste.
+- Les **instances Spot** utilisent la capacité inutilisée d'AWS avec une forte remise, mais AWS peut les reprendre avec un préavis de deux minutes. Une **Spot Fleet** maintient un nombre cible de ces instances.
+- Les **instances à performance extensible** (famille T : T3, T4g…) tournent à un niveau de CPU de référence et dépensent des **crédits CPU** pour le dépasser.
+
+## Pourquoi superviser Amazon EC2 ?
+
+AWS gère le matériel. Vos instances, leur dimensionnement et leur facture restent sous votre responsabilité. Superviser EC2 répond aux questions que les équipes d'exploitation se posent tous les jours :
+
+- **L'instance est-elle en bonne santé ?** AWS a-t-il détecté un problème sur l'hôte sous-jacent, ou l'instance elle-même ne répond-elle plus ?
+- **Est-elle bien dimensionnée ?** Le CPU est-il saturé, ou payez-vous une capacité que vous n'utilisez jamais ?
+- **Une instance extensible va-t-elle ralentir ?** Quand ses crédits CPU sont épuisés, une instance T est bridée à son niveau de référence, sans aucun message d'erreur.
+- **Le groupe Auto Scaling suit-il la charge ?** Fait-il tourner le nombre attendu d'instances en bonne santé ?
+- **Qu'est-ce qui tourne, et combien cela va-t-il coûter ?** Combien d'instances, de quels types et dans quel état, dans chaque région ?
+
+Le connecteur de supervision **Amazon EC2** collecte ces indicateurs via l'API AWS (EC2 et CloudWatch). Centreon les affiche à côté du reste de votre infrastructure (serveurs sur site, réseau, autres services cloud), avec les mêmes alertes, notifications et tableaux de bord.
+
+## Que superviser sur Amazon EC2 ?
+
+| Indicateur | Pourquoi c'est important | Service |
+|:-----------|:-------------------------|:--------|
+| Contrôles de statut | Le contrôle *système* échoue quand AWS détecte un problème sur l'hôte (matériel, alimentation, réseau). Le contrôle *instance* échoue quand l'instance elle-même ne répond plus (panne du système d'exploitation, mémoire épuisée, configuration réseau). Dans les deux cas, l'application est en général indisponible. | Ec2-Status |
+| Utilisation du CPU | Un CPU élevé dans la durée ralentit les applications. Un CPU toujours bas signifie que l'instance est surdimensionnée et coûte plus que nécessaire. | Ec2-Cpu-Usage |
+| Crédits CPU (instances T) | Sans crédit restant, une instance extensible est bridée à son niveau de référence. En mode illimité, elle continue de dépasser ce niveau et AWS facture les crédits excédentaires. | Ec2-Cpu-Credit |
+| Trafic et paquets réseau | Révèle les pics de trafic, les flux inattendus et les instances qui atteignent la bande passante de leur type. | Ec2-Network |
+| E/S disque et EBS | Montre les goulets d'étranglement du stockage : les volumes EBS ont des limites de débit et d'IOPS, et un disque saturé ralentit toute l'instance. | Ec2-Diskio |
+| Capacité des groupes Auto Scaling | Vérifie que le groupe fait tourner le nombre attendu d'instances, et qu'elles sont en bonne santé et en service. | Ec2-Asg-Status-Global |
+| États et types d'instances | Compte les instances d'une région par état (en cours d'exécution, arrêtée, résiliée…) et par type : les instances oubliées et les types inattendus apparaissent avant la facture. | Ec2-Instances-Status-Global, Ec2-Instances-Types-Global |
+| Instances d'une Spot Fleet | Compte les instances actives, saines et défaillantes d'une demande de Spot Fleet, pour voir les interruptions au moment où elles arrivent. | EC2Spot-Active-Instances |
+
+## Ce qu'il faut éviter
+
+- **Compter sur CloudWatch seul pour la mémoire et l'espace disque.** Les métriques EC2 viennent de l'hyperviseur : sans l'agent CloudWatch, AWS ne connaît ni la mémoire utilisée ni l'espace disque libre d'une instance. Pour voir l'intérieur du système d'exploitation, supervisez aussi l'instance avec le connecteur [Linux CMA](./operatingsystems-linux-centreon-monitoring-agent.md) ou [Windows CMA](./operatingsystems-windows-centreon-monitoring-agent.md).
+- **Interroger plus vite que les données.** Par défaut, EC2 envoie ses métriques à CloudWatch toutes les 5 minutes (surveillance de base). Des données à la minute demandent la surveillance détaillée, facturée par AWS. Interroger toutes les minutes en surveillance de base renvoie les mêmes valeurs et multiplie les appels à l'API CloudWatch, facturés au-delà de l'offre gratuite. Alignez l'intervalle de contrôle et les options `--timeframe` et `--period` sur la granularité réelle.
+- **Alerter sur chaque instance d'un groupe Auto Scaling.** Les instances sont remplacées en permanence : des alertes sur chacune créent du bruit et des hôtes qui disparaissent. Supervisez le groupe avec le modèle d'hôte **Cloud-Aws-Ec2-Asg-custom**, gardez les contrôles par instance pour les instances durables, et utilisez la découverte d'hôtes pour tenir la liste des instances à jour.
+- **Ignorer les crédits CPU.** Une instance T peut sembler calme, avec un CPU bas, alors qu'elle est bridée à son niveau de référence, ou coûter plus que prévu en mode illimité. Surveillez le solde de crédits et les crédits excédentaires facturés.
+- **Utiliser des identifiants AWS trop larges.** Le connecteur ne fait que lire des données et n'a besoin que de trois autorisations (voir [Prérequis](#prérequis)). Donnez-les à un utilisateur ou à un rôle dédié, jamais aux clés du compte root.
 
 ## Contenu du pack
 
