@@ -3,8 +3,6 @@ id: alert-events
 title: Defining alert rules
 description: "Create alert rules in Centreon Log Management to detect abnormal log patterns, generate alert events with a status, and view the latest event per rule."
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## From logs to alert events
 
@@ -21,7 +19,7 @@ An alert rule evaluates specific criteria over a defined time period and with a 
 * frequency: 5 minutes
 * alert conditions: if > 50, then alert status = CRITICAL
 
-![image](./assets/alert_rule.png)
+![Configuration of an alert rule](./assets/alert_rule.png)
 
 ### Alert event statuses
 
@@ -31,29 +29,47 @@ Possible alert event statuses are:
 * <span style={{color:'#fd9b27'}}>**ERROR**</span>
 * <span style={{color:'#ffca34'}}>**WARNING**</span>
 * <span style={{color:'#88b917'}}>**OK**</span>
-* <span style={{color:'#bcbdc0'}}>**UNKNOWN**</span>
+
+## Health of an alert event
+
+Health — The reliability of the evaluation itself, independent of the alert even status. Eval Error is one of its values, alongside flapping_detected and no_data.
 
 ## Defining an alert rule
 
-<!--For the beta program, you can create up to 10 alert rules.-->
-
 1. Go to **Alerts & notifications > Alert rules**.
 2. Click **Add**.
-3. In the window that appears, enter a name and a description for your alert rule, then define the criteria you want.
+3. In the window that appears, 
+
+
+
+enter a name and a description for your alert rule, then define the criteria you want.
    * **Alert type**: 
       * **Count** means that the query will return the number of log entries that match the query.
-      * **Ratio** means that you divide the results of a query by the results of another query.
+      * **Ratio** means that you divide the results of a query by the results of another query. The ratio is expressed as a percentage.
    * **Frequency**: this field defines both the frequency of the check and the time period covered by it. For instance, if you select **Every 5 minutes**, a check will be performed every 5 minutes on the data of the last 5 minutes.
-   * **Query**: use the correct [query syntax](query-syntax.md).
-   * **Conditions**: define which [alert status the alert event should have](#alert-event-statuses).
-4. Save your alert rule. The window is closed and your alert rule appears in the list of alert rules. The rule starts being evaluated and producing alert events.
+   * **Query**: use the correct [query syntax](query-syntax.md). You can build it with the visual editor or switch to code mode using the **\</>** icon.
+   
+   The **Live preview** panel on the right starts simulating the behaviour of the rule once a query is configured.
+   
+   
+   
+   * **Alert conditions**: define which [alert status the alert event should have](#alert-event-statuses).
+      * **Manual threshold**: the alert is triggered when the number of logs crosses a value you set. Define which [alert status the alert event should have](#alert-event-statuses).
+      * **Anomaly detection**: the rule's behavior is evaluated against its usual values, and deviations generate alert events.
+
+Use the **Evaluation error handling** section to choose which alert event status the rule returns when it can't be evaluated.
+
+Flapping detection pendant un épisode d'oscillation détecté, le statut est forcé à OK pour éviter un flot de notifications. <!--Le signal réel reste visible dans la colonne santé de la liste des événements d'alerte.-->
+
+4. If you want, link the alert rule to a [notification channel](./notifications.md) so that messages are sent or posted either when the alert event status changes, or for every single alert event.
+5. Save your alert rule. The window is closed and your alert rule appears in the list of alert rules. The rule starts being evaluated and producing alert events.
 
 ## Viewing the last alert event for an alert rule
 
 Go to **Alerts & notifications > Alert events**. Use the search bar and its filter button to find alert events.
 
-![image](./assets/alert_events.png)
+![List of alert events](./assets/alert_events.png)
 
 You can expand each alert event to view more information about it, including the alert rule evaluation history. Hover over the graph to display the start and end dates for each period spent in a status.
 
-![image](./assets/alert_events_detail.png)
+![Details of an alert event](./assets/alert_events_detail.png)
