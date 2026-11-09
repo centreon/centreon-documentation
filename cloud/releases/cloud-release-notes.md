@@ -47,7 +47,7 @@ The look and feel of the interface has been refreshed this cycle:
 - [Configuration] Exporting the configuration of pollers with many services is now faster, especially when services use many templates.
 - [Configuration] Exporting the configuration no longer hangs at 0% when a resource macro linked to a poller has an empty value.
 - [Custom Views] The Host Monitoring widget's CSV export now includes each host's last comment instead of always showing "-".
-- [Dashboards] Acknowledgment and downtime modals in resource table widget now use the configured Monitoring defaults.
+- [Dashboards] Acknowledgment and downtime modals in resource table widgets now use the configured monitoring defaults.
 - [Dashboards] Playlists now play dashboards in the order defined in the playlist, instead of falling back to alphabetical order.
 - [Dashboards] The quick access menu now lists all dashboards, not only search results.
 - [Dashboards] The resource table widget now requires an Open Ticket rule when ticket management is enabled.
