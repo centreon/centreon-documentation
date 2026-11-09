@@ -10,8 +10,25 @@
  },
  "servers": [
   {
-   "url": "http://localhost:8081/centreon-map/api",
-   "description": "Centreon Map API"
+   "url": "{protocol}://{server}:{port}/centreon-map/api/latest",
+   "variables": {
+    "protocol": {
+     "enum": [
+      "https",
+      "http"
+     ],
+     "default": "https",
+     "description": "HTTP scheme"
+    },
+    "server": {
+     "default": "your-map-server",
+     "description": "IP address or hostname of your Centreon MAP server"
+    },
+    "port": {
+     "default": "9443",
+     "description": "Port of the MAP server (9443 with TLS, 8081 without)"
+    }
+   }
   }
  ],
  "security": [
@@ -26,7 +43,7 @@
   "/maps/{mapId}/mx-views/{viewId}": {
    "get": {
     "tags": [
-     "mx-view-controller"
+     "Views"
     ],
     "operationId": "getMxView",
     "parameters": [
@@ -75,11 +92,12 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a view (MX format)"
    },
    "put": {
     "tags": [
-     "mx-view-controller"
+     "Views"
     ],
     "operationId": "updateMxView",
     "parameters": [
@@ -136,13 +154,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Update a view (MX format)"
    }
   },
   "/maps": {
    "get": {
     "tags": [
-     "map-rest"
+     "Maps"
     ],
     "operationId": "getAllMaps",
     "parameters": [
@@ -223,11 +242,12 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List maps"
    },
    "put": {
     "tags": [
-     "map-rest-controller"
+     "Maps"
     ],
     "operationId": "updateMap",
     "requestBody": {
@@ -266,11 +286,12 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Update a map"
    },
    "post": {
     "tags": [
-     "map-rest-controller"
+     "Maps"
     ],
     "operationId": "createMap",
     "requestBody": {
@@ -309,13 +330,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Create a map"
    }
   },
   "/maps/{mapId}/views": {
    "put": {
     "tags": [
-     "view-rest-controller"
+     "Views"
     ],
     "operationId": "updateView",
     "parameters": [
@@ -365,13 +387,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Update the views of a map"
    }
   },
   "/maps/{mapId}/views/{viewId}/perspective": {
    "put": {
     "tags": [
-     "view-rest-controller"
+     "Views"
     ],
     "operationId": "updateViewPerspective",
     "parameters": [
@@ -430,13 +453,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Update the perspective of a view"
    }
   },
   "/geo-views/{id}": {
    "get": {
     "tags": [
-     "geo-view-rest-end-point"
+     "Geographic views"
     ],
     "operationId": "retrieveGeoView",
     "parameters": [
@@ -476,11 +500,12 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a geographic view"
    },
    "put": {
     "tags": [
-     "geo-view-rest-end-point"
+     "Geographic views"
     ],
     "operationId": "updateGeoView",
     "parameters": [
@@ -530,11 +555,12 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Update a geographic view"
    },
    "delete": {
     "tags": [
-     "geo-view-rest-end-point"
+     "Geographic views"
     ],
     "operationId": "deleteGeoView",
     "parameters": [
@@ -568,13 +594,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Delete a geographic view"
    }
   },
   "/geo-views/{geoViewId}/host-groups/{hostGroupId}": {
    "get": {
     "tags": [
-     "geo-view-resource-rest-controller"
+     "Geographic views"
     ],
     "operationId": "getGeoViewHostGroup",
     "parameters": [
@@ -624,13 +651,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a host group of a geographic view"
    }
   },
   "/geo-views/{geoViewId}/host-groups/{hostGroupId}/hosts": {
    "get": {
     "tags": [
-     "geo-view-resource-rest-controller"
+     "Geographic views"
     ],
     "operationId": "getGeoViewHostGroupHosts",
     "parameters": [
@@ -749,13 +777,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List the hosts of a host group in a geographic view"
    }
   },
   "/geo-views/{geoViewId}/ba-groups/{businessViewId}/business-activities": {
    "get": {
     "tags": [
-     "geo-view-resource-rest-controller"
+     "Geographic views"
     ],
     "operationId": "getGeoViewBusinessActivities",
     "parameters": [
@@ -876,13 +905,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List the business activities of a geographic view"
    }
   },
   "/geo-views/{geoViewId}/maps": {
    "get": {
     "tags": [
-     "geo-view-resource-rest-controller"
+     "Geographic views"
     ],
     "operationId": "getGeoViewMaps",
     "parameters": [
@@ -922,13 +952,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List the maps of a geographic view"
    }
   },
   "/aclgroups/roles": {
    "get": {
     "tags": [
-     "acl-group-rest-end-controller"
+     "Access rights"
     ],
     "operationId": "getAclGroupsAndRoles",
     "responses": {
@@ -957,11 +988,12 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List access groups and their roles"
    },
    "put": {
     "tags": [
-     "acl-group-rest-end-controller"
+     "Access rights"
     ],
     "operationId": "updateAclGroupsAndRoles",
     "requestBody": {
@@ -1006,13 +1038,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Update the roles of access groups"
    }
   },
   "/aclgroups/privileges/{mapId}": {
    "get": {
     "tags": [
-     "acl-group-rest-end-controller"
+     "Access rights"
     ],
     "operationId": "getAclGroupsAndPrivileges",
     "parameters": [
@@ -1052,11 +1085,12 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List the privileges on a map"
    },
    "put": {
     "tags": [
-     "acl-group-rest-end-controller"
+     "Access rights"
     ],
     "operationId": "updateAclGroupsAndPrivileges",
     "parameters": [
@@ -1112,13 +1146,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Update the privileges on a map"
    }
   },
   "/aclgroups/privileges/geo/{geoId}": {
    "get": {
     "tags": [
-     "acl-group-rest-end-controller"
+     "Access rights"
     ],
     "operationId": "getAclGroupsAndPrivilegesGeo",
     "parameters": [
@@ -1158,11 +1193,12 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List the privileges on a geographic view"
    },
    "put": {
     "tags": [
-     "acl-group-rest-end-controller"
+     "Access rights"
     ],
     "operationId": "updateAclGroupsAndPrivilegesGeo",
     "parameters": [
@@ -1218,13 +1254,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Update the privileges on a geographic view"
    }
   },
   "/maps/{mapId}/hosts/{hostId}/services/{serviceId}/process": {
    "post": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "executeCommand",
     "parameters": [
@@ -1285,13 +1322,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Run an action on a service of a map"
    }
   },
   "/maps/import": {
    "post": {
     "tags": [
-     "map-rest-controller"
+     "Maps"
     ],
     "operationId": "importMap",
     "requestBody": {
@@ -1330,13 +1368,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Import a map"
    }
   },
   "/maps/duplicate/{mapId}": {
    "post": {
     "tags": [
-     "map-rest-controller"
+     "Maps"
     ],
     "operationId": "duplicateMap",
     "parameters": [
@@ -1376,13 +1415,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Duplicate a map"
    }
   },
   "/geo-views/": {
    "post": {
     "tags": [
-     "geo-view-rest-end-point"
+     "Geographic views"
     ],
     "operationId": "createGeoView",
     "requestBody": {
@@ -1421,13 +1461,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Create a geographic view"
    }
   },
   "/geo-views/import": {
    "post": {
     "tags": [
-     "geo-view-rest-end-point"
+     "Geographic views"
     ],
     "operationId": "createGeoView_1",
     "requestBody": {
@@ -1466,13 +1507,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Import a geographic view"
    }
   },
   "/admins": {
    "get": {
     "tags": [
-     "studio-admin-rest-controller"
+     "MAP administrators"
     ],
     "operationId": "getAllStudioAdmins",
     "responses": {
@@ -1504,11 +1546,12 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List MAP administrators"
    },
    "post": {
     "tags": [
-     "studio-admin-rest-controller"
+     "MAP administrators"
     ],
     "operationId": "createStudioAdmin",
     "requestBody": {
@@ -1547,13 +1590,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Add a MAP administrator"
    }
   },
   "/ResourceSynchronizer/{delay}": {
    "post": {
     "tags": [
-     "resource-reloader-rest-end-controller"
+     "Resource synchronization"
     ],
     "operationId": "reloadResources",
     "parameters": [
@@ -1593,13 +1637,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Synchronize resources with Centreon"
    }
   },
   "/maps/{mapId}": {
    "get": {
     "tags": [
-     "map-rest-controller"
+     "Maps"
     ],
     "operationId": "readMap",
     "parameters": [
@@ -1639,13 +1684,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a map"
    }
   },
   "/maps/{mapId}/views/{viewId}": {
    "get": {
     "tags": [
-     "view-rest-controller"
+     "Views"
     ],
     "operationId": "getViewById",
     "parameters": [
@@ -1694,13 +1740,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a view"
    }
   },
   "/maps/{mapId}/views/{viewId}/breadcrumb": {
    "get": {
     "tags": [
-     "view-rest-controller"
+     "Views"
     ],
     "operationId": "getBreadcrumb",
     "parameters": [
@@ -1770,13 +1817,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get the breadcrumb of a view"
    }
   },
   "/maps/{mapId}/resources/{type}/{resourceId}": {
    "get": {
     "tags": [
-     "resource-element-rest-controller"
+     "Map resources"
     ],
     "operationId": "getChildrenAsView",
     "parameters": [
@@ -1843,13 +1891,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a resource of a map as a view"
    }
   },
   "/maps/{mapId}/hosts/{id}": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getMapHost",
     "parameters": [
@@ -1899,13 +1948,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a host of a map"
    }
   },
   "/maps/{mapId}/hosts/{hostId}/services": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getMapHostServices",
     "parameters": [
@@ -2019,13 +2069,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List the services of a host of a map"
    }
   },
   "/maps/{mapId}/hosts/{hostId}/services/{serviceId}": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getMapServiceById",
     "parameters": [
@@ -2084,13 +2135,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a service of a map"
    }
   },
   "/maps/{mapId}/meta-services/{id}": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getMapMetaService",
     "parameters": [
@@ -2140,13 +2192,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a meta-service of a map"
    }
   },
   "/maps/{mapId}/business-activities/{id}": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getMapBusinessActivity",
     "parameters": [
@@ -2196,13 +2249,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get a business activity of a map"
    }
   },
   "/maps/{mapId}/business-activities/{baId}/kpis": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getMapKpis",
     "parameters": [
@@ -2303,13 +2357,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List the KPIs of a business activity"
    }
   },
   "/maps/{mapId}/service-groups/{id}/_statistics": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getMapServiceGroupStatistics",
     "parameters": [
@@ -2358,13 +2413,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get the statistics of a service group"
    }
   },
   "/maps/{mapId}/host-groups/{id}/_statistics": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getMapHostGroupStatistics",
     "parameters": [
@@ -2413,13 +2469,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get the statistics of a host group"
    }
   },
   "/maps/{mapId}/hosts/{hostId}/services/{serviceId}/graph": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getServiceGraph",
     "parameters": [
@@ -2511,13 +2568,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get the graph of a service"
    }
   },
   "/maps/{mapId}/meta-services/{id}/graph": {
    "get": {
     "tags": [
-     "map-resource-rest-controller"
+     "Map resources"
     ],
     "operationId": "getMetaServiceGraph",
     "parameters": [
@@ -2600,13 +2658,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Get the graph of a meta-service"
    }
   },
   "/maps/export/{mapId}": {
    "get": {
     "tags": [
-     "map-rest-controller"
+     "Maps"
     ],
     "operationId": "exportMap",
     "parameters": [
@@ -2646,13 +2705,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Export a map"
    }
   },
   "/geo-views": {
    "get": {
     "tags": [
-     "geo-view-rest-end-point"
+     "Geographic views"
     ],
     "operationId": "retrieveGeoViews",
     "parameters": [
@@ -2699,13 +2759,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "List geographic views"
    }
   },
   "/maps/{id}": {
    "delete": {
     "tags": [
-     "map-rest-controller"
+     "Maps"
     ],
     "operationId": "deleteMap",
     "parameters": [
@@ -2745,13 +2806,14 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Delete a map"
    }
   },
   "/admins/{aclGroupId}": {
    "delete": {
     "tags": [
-     "studio-admin-rest-controller"
+     "MAP administrators"
     ],
     "operationId": "deleteStudioAdmin",
     "parameters": [
@@ -2785,7 +2847,8 @@
      "500": {
       "$ref": "#/components/responses/InternalServerError"
      }
-    }
+    },
+    "summary": "Remove a MAP administrator"
    }
   }
  },
@@ -5800,5 +5863,28 @@
     "name": "X-AUTH-TOKEN"
    }
   }
- }
+ },
+ "tags": [
+  {
+   "name": "Maps"
+  },
+  {
+   "name": "Views"
+  },
+  {
+   "name": "Map resources"
+  },
+  {
+   "name": "Geographic views"
+  },
+  {
+   "name": "Access rights"
+  },
+  {
+   "name": "MAP administrators"
+  },
+  {
+   "name": "Resource synchronization"
+  }
+ ]
 }

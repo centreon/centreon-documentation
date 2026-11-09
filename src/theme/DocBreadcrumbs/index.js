@@ -80,6 +80,9 @@ export default function DocBreadcrumbs() {
   } else if (docSection === 'experience-monitoring') {
     homePath = '/experience-monitoring/getting-started/welcome';
     homeLabel = 'Centreon Experience Monitoring';
+  } else if (docSection === 'api') {
+    homePath = '/api/';
+    homeLabel = 'API reference';
   } else if (docSection === 'logmanagement') {
     homePath = '/logmanagement/getting-started/welcome';
     homeLabel = 'Centreon Log Management';

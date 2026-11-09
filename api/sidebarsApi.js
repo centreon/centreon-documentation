@@ -24,9 +24,31 @@ function generated(path) {
   }
 }
 
+// Top of each sidebar: back to the list of APIs, and the version switch.
+const allApis = { type: 'link', label: 'All APIs', href: '/api/', className: 'api-sidebar-back' };
+
+function versions(current) {
+  const list = [
+    { version: '26.10', href: '/api/centreon-web/centreon-web-restapi/' },
+    { version: '25.10', href: '/api/centreon-web/25.10/centreon-web-restapi/' },
+  ];
+  return {
+    type: 'category',
+    label: `Version ${current}`,
+    className: 'api-sidebar-version',
+    collapsed: true,
+    items: list.map(({ version, href }) => ({
+      type: 'link',
+      label: version === '26.10' ? `${version} (latest)` : version,
+      href,
+      className: version === current ? 'api-sidebar-version--current' : undefined,
+    })),
+  };
+}
+
 module.exports = {
-  centreonWeb: generated('./centreon-web/sidebar.ts'),
-  centreonWeb2510: generated('./centreon-web/25.10/sidebar.ts'),
-  centreonCloud: generated('./centreon-cloud/sidebar.ts'),
-  centreonMap: generated('./centreon-map/sidebar.ts'),
+  centreonWeb: [allApis, versions('26.10'), ...generated('./centreon-web/sidebar.ts')],
+  centreonWeb2510: [allApis, versions('25.10'), ...generated('./centreon-web/25.10/sidebar.ts')],
+  centreonCloud: [allApis, ...generated('./centreon-cloud/sidebar.ts')],
+  centreonMap: [allApis, ...generated('./centreon-map/sidebar.ts')],
 };

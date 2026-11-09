@@ -186,7 +186,7 @@ const config = {
           priority: null,
         },
         theme: {
-          customCss: ['./src/css/custom.css'],
+          customCss: ['./src/css/custom.css', './src/css/api-reference.css'],
         },
         gtag: {
           trackingID: 'G-BGL69N5GPJ',
@@ -430,6 +430,17 @@ const config = {
         config: {}
       },
 
+      // Code samples of the API reference, in this order (curl first).
+      languageTabs: [
+        { language: 'curl' },
+        { language: 'python' },
+        { language: 'nodejs' },
+        { language: 'go' },
+        { language: 'java' },
+        { language: 'powershell' },
+        { language: 'csharp' },
+      ],
+
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
@@ -445,6 +456,8 @@ const config = {
           'bash',
           'perl',
           'powershell',
+          'go',
+          'csharp',
         ],
       },
 
@@ -553,7 +566,7 @@ const config = {
               ...items,
               {
                 to: '/api/',
-                label: 'API',
+                label: 'API reference',
                 position: 'left',
                 activeBaseRegex: '/api/',
               },

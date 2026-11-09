@@ -1,0 +1,53 @@
+The Centreon Cloud REST API lets your scripts and tools configure your Centreon Cloud platform: hosts, services and their templates, host groups, notifications and resource access rules.
+
+## Get started in 3 steps
+
+### 1. Find your API URL
+
+Every endpoint of this reference is relative to the URL of your Centreon Cloud instance:
+
+```text
+https://<organization>.<region>.centreon.cloud/<instance-name>
+```
+
+### 2. Get a token
+
+Create an **API token** in **Administration > Authentication tokens** (see [Using APIs with Centreon Cloud](/cloud/administration/api-tokens)). It belongs to a user and stays valid until it expires or is revoked.
+
+### 3. Call the API
+
+Send the token in the `X-AUTH-TOKEN` header of every request. For example, to list 20 hosts:
+
+```bash
+curl -s "https://<organization>.<region>.centreon.cloud/<instance-name>/api/latest/configuration/hosts?limit=20" \
+  -H "X-AUTH-TOKEN: <token>"
+```
+
+Each call runs with the rights of the user the token belongs to.
+
+## Filter, sort and paginate
+
+Listing endpoints share the same query parameters:
+
+| Parameter | Use | Example |
+|:----------|:----|:--------|
+| `limit` | Number of items per page (10 by default) | `limit=50` |
+| `page` | Page to return, starting at 1 | `page=2` |
+| `search` | Filter, in JSON | `search={"name":{"$lk":"srv-%"}}` |
+| `sort_by` | Sort, in JSON | `sort_by={"name":"ASC"}` |
+
+Listings return the items in `result` and the pagination in `meta` (`page`, `limit`, `total`). Dates use the ISO 8601 format.
+
+:::info
+
+This reference covers the main configuration endpoints. Many endpoints of the [Centreon Web REST API](/api/centreon-web/centreon-web-restapi) also work on Centreon Cloud, except those that administer the platform itself.
+
+:::
+
+## Errors
+
+An error returns an HTTP status code and a JSON body with a `code` and a `message`. The most common: `400` (invalid request), `401` (missing or expired token), `403` (insufficient rights), `404` (resource not found).
+
+## Tools
+
+- **OpenAPI definition**: download it with the **Export** button at the top of this page, to generate a client or import the API into your tools.
