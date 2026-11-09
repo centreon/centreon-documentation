@@ -13,10 +13,18 @@
  * Pages are grouped by top-level sidebar category, in sidebar order (top-level
  * docs first under "General", docs in no sidebar last, by permalink).
  * Unlisted docs and connector procedure pages are left out.
+ *
+ * With the "markdown" option (on by default), every doc not marked unlisted,
+ * connector procedures included, is also published as Markdown next to its page
+ * (/docs/foo/ gives /docs/foo.md), and the indexes link to these files. The
+ * HTML to Markdown conversion lives in markdown.mjs, its URL helpers in links.js.
  */
 
 const fs = require('fs/promises');
 const path = require('path');
+const { pathToFileURL } = require('url');
+
+const { markdownPath, createUrlRewriter } = require('./links');
 
 const DOCS_PLUGIN_NAME = 'docusaurus-plugin-content-docs';
 
@@ -196,8 +204,9 @@ function groupDocs(version, sectionId, texts) {
   return groups.filter((group) => group.docs.length > 0);
 }
 
-module.exports = function llmsTxtPlugin(context) {
+module.exports = function llmsTxtPlugin(context, options = {}) {
   const { siteConfig, i18n, baseUrl } = context;
+  const markdownEnabled = options.markdown ?? true;
 
   // Non-indexed builds (archived versions) get no llms.txt.
   if (siteConfig.noIndex) {
@@ -211,8 +220,63 @@ module.exports = function llmsTxtPlugin(context) {
   const toUrl = (permalink) => siteUrl + applyTrailingSlash(permalink, siteConfig.trailingSlash);
   // baseUrl is the localized one ("/fr/" for French).
   const rootIndexUrl = `${siteUrl}${baseUrl}llms.txt`;
+  const markdownUrl = (permalink) => siteUrl + markdownPath(permalink);
+  const pageLink = (doc) => (markdownEnabled ? markdownUrl(doc.permalink) : toUrl(doc.permalink));
 
   let docsInstances = {};
+
+  /** Returns the output path of a permalink, relative to the locale outDir. */
+  function relativePath(permalink) {
+    const relative = permalink.startsWith(baseUrl) ? permalink.slice(baseUrl.length).replace(/\/+$/, '') : '';
+    if (relative === '') {
+      // A page at (or outside) the locale root has no "<path>.md" next to it.
+      throw new Error(`[llms-txt] Cannot place the Markdown of "${permalink}" below baseUrl "${baseUrl}".`);
+    }
+    return relative;
+  }
+
+  /**
+   * Publishes the Markdown version of every doc not marked unlisted in the given sections,
+   * from its built HTML page. Links to other published docs are rewritten to
+   * their Markdown version.
+   */
+  async function writeMarkdownPages(outDir, sections) {
+    const { createMarkdownConverter, frontMatter } = await import(
+      pathToFileURL(path.join(__dirname, 'markdown.mjs')).href
+    );
+    const converter = createMarkdownConverter();
+
+    const pages = sections.flatMap((section) =>
+      (docsInstances[section.id]?.loadedVersions ?? []).flatMap((version) =>
+        version.docs.filter((doc) => !doc.unlisted).map((doc) => ({ section, version, doc })),
+      ),
+    );
+    const markdownUrlByPageUrl = new Map(pages.map(({ doc }) => [toUrl(doc.permalink), markdownUrl(doc.permalink)]));
+    const rewriteUrl = createUrlRewriter(markdownUrlByPageUrl);
+
+    for (const { section, version, doc } of pages) {
+      const relative = relativePath(doc.permalink);
+      let markdown;
+      try {
+        const html = await fs.readFile(path.join(outDir, relative, 'index.html'), 'utf8');
+        const body = await converter.convert(html, { pageUrl: toUrl(doc.permalink), rewriteUrl });
+        const header = frontMatter({
+          title: doc.title,
+          description: doc.description,
+          product: section.title[locale] ?? section.title.en,
+          version: section.id === ONPREM_ID ? version.versionName : undefined,
+          latest: section.id === ONPREM_ID && version.isLast ? true : undefined,
+          url: toUrl(doc.permalink),
+          last_update: doc.lastUpdatedAt ? new Date(doc.lastUpdatedAt).toISOString().slice(0, 10) : undefined,
+        });
+        markdown = `${header}\n${body}`;
+      } catch (error) {
+        throw new Error(`[llms-txt] Cannot convert ${doc.source} to Markdown: ${error.message}`, { cause: error });
+      }
+      await fs.writeFile(path.join(outDir, `${relative}.md`), markdown, 'utf8');
+    }
+    console.log(`[llms-txt] ${pages.length} Markdown pages written for locale "${locale}".`);
+  }
 
   /** Renders the llms.txt index of one version of a docs instance. */
   function renderIndex(name, version, sectionId) {
@@ -225,7 +289,7 @@ module.exports = function llmsTxtPlugin(context) {
         if (sectionId === 'pp' && doc.id === CONNECTORS_LANDING_ID) {
           description = `${texts.connectorsIndex} ${description ?? ''}`;
         }
-        lines.push(linkLine(doc.title, toUrl(doc.permalink), description));
+        lines.push(linkLine(doc.title, pageLink(doc), description));
         count += 1;
       }
     }
@@ -274,6 +338,10 @@ module.exports = function llmsTxtPlugin(context) {
           .filter((id) => !known.has(id))
           .map((id) => ({ id, title: { en: id } })),
       ];
+
+      if (markdownEnabled) {
+        await writeMarkdownPages(outDir, sections);
+      }
 
       const onpremLines = [];
       const productLines = [];

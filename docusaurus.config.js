@@ -263,7 +263,8 @@ const config = {
       ],
       'docusaurus-plugin-image-zoom',
       // Writes the llms.txt files (https://llmstxt.org) of each locale build.
-      './src/plugins/llms-txt',
+      // Also publishes each doc as Markdown, unlisted ones excepted: /docs/foo/ gives /docs/foo.md.
+      ['./src/plugins/llms-txt', { markdown: true }],
     ];
 
     if (cloud) {
