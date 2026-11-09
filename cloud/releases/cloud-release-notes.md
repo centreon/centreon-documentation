@@ -16,7 +16,7 @@ This release brings container support to Centreon Cloud pollers, along with a si
 - A **Create new poller** button (Beta) is now available in the top banner, replacing the former **Copy install command** button. It opens a short form where you choose between a virtual machine and a container, and generates the single command line that installs the poller and registers it with your platform.
 - In *Configuration > Pollers*, a copy icon in the **Actions** column of each enabled poller copies its full installation command to the clipboard. The same command also updates an existing poller, so you can retrieve it at any time to install or update that poller.
 
-  > **Note:** this command does not work on pollers running Centreon 25.10 or older on AlmaLinux 8 or an equivalent OS. On these pollers, run `dnf update` instead. See the [documentation](../installation/poller-update-upgrade.md).
+  > **Note:** this command does not work on pollers running Centreon 25.10 or older on AlmaLinux 8 or an equivalent OS. On these pollers, run `dnf update` instead. See the [documentation](/cloud/installation/poller-update-upgrade).
 
 **Centreon Monitoring Agent (CMA)**
 
