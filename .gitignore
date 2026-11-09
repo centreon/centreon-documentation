@@ -24,3 +24,6 @@ yarn-error.log*
 .idea/
 package-lock.json
 .claude/settings.local.json
+
+# API reference: pages generated from openapi/ by `pnpm gen-api`
+api/*/
