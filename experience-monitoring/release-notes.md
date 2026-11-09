@@ -8,45 +8,19 @@ description: "New features and improvements in each Centreon Experience Monitori
 
 **Quanta becomes Centreon Experience Monitoring**
 
-The product has a new name and now uses the Centreon visual identity.
+The product has a new name and now uses the Centreon visual identity. Your credentials, data, configurations and history are unchanged, and no action is required to keep using the service.
 
-**New interface**
+**Redesigned interface and emails**
 
-* New logo and new navigation bar in Centreon colors.
-* New design system applied to all pages.
-* New login page.
-* New favicon and new browser tab title.
+The interface, login page, emails, alerts and reports have a new look. Interface text has been reviewed for clarity, and links now point to the Centreon documentation, support and The Watch community. The Slack app has also been updated with the new name, logo and notification labels.
 
-**Redesigned emails**
+**New application address**
 
-* New visual identity in all emails, alerts, reports and notifications.
-* New footer with up-to-date links to The Watch community, the documentation, support and the application.
-* Updated email subjects.
+The application is now available at [https://exp.mycentreon.com](https://exp.mycentreon.com). The former address, `https://app.quanta.io`, continues to work and will later redirect to the new one, on a date announced in advance.
 
-**Interface text**
+**What to update on your side**
 
-* More than 100 labels have been reviewed.
-* Obsolete links have been removed or now point to the Centreon documentation and support.
-
-**Integrations**
-
-* The Slack app has been updated: name, logo and notification labels.
-
-**New address**
-
-* The application is now available at [https://exp.mycentreon.com](https://exp.mycentreon.com).
-* The former address, `https://app.quanta.io`, remains fully functional. It will be automatically redirected to the new address at a date announced in advance.
-
-**What does not change**
-
-* Your credentials, data, configurations and history are unchanged.
-* No action is required to keep using the service.
-
-**What we recommend**
-
-* Update your bookmarks.
-* Use the new address in your scripts and in your integrations that use the API. Note that some HTTP clients, such as cURL, do not follow redirects by default: your scripts must point directly to the new address before the redirection is set up.
-* If your network filters allowed domains, add `exp.mycentreon.com`, especially if you host [internal probes](configuration/user-journey/stm-zones.md).
+Update your bookmarks, and use the new address in your scripts and API integrations rather than relying on the redirection: some HTTP clients do not follow redirects, or drop authentication when redirected to another domain. If your network only allows specific domains, add `exp.mycentreon.com`, especially if you host [internal probes](configuration/user-journey/stm-zones.md). As email subjects have changed, check any email rules based on them.
 
 ## September 8th, 2026
 

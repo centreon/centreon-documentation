@@ -8,45 +8,19 @@ title: Centreon Experience Monitoring - notes de release
 
 **Quanta devient Centreon Experience Monitoring**
 
-Le produit change de nom et adopte l'identité visuelle Centreon.
+Le produit change de nom et adopte l'identité visuelle Centreon. Vos identifiants, données, configurations et historiques sont inchangés, et aucune action n'est nécessaire pour continuer à utiliser le service.
 
-**Nouvelle interface**
+**Interface et emails repensés**
 
-* Nouveau logo et nouvelle barre de navigation aux couleurs Centreon.
-* Nouveau design system appliqué à l'ensemble des pages.
-* Nouvelle page de connexion.
-* Nouveau favicon et nouveau titre d'onglet.
+L'interface, la page de connexion, les emails, alertes et rapports font peau neuve. Les textes de l'interface ont été revus pour plus de clarté, et les liens pointent désormais vers la documentation, le support et la communauté The Watch de Centreon. L'application Slack a également été mise à jour : nouveau nom, logo et libellés des notifications.
 
-**Emails repensés**
+**Nouvelle adresse de l'application**
 
-* Nouvelle identité visuelle dans tous les emails, alertes, rapports et notifications.
-* Nouveau pied de page avec des liens à jour vers la communauté The Watch, la documentation, le support et l'application.
-* Objets d'emails mis à jour.
-
-**Textes de l'interface**
-
-* Plus de 100 libellés revus.
-* Liens obsolètes supprimés ou redirigés vers la documentation et le support Centreon.
-
-**Intégrations**
-
-* Application Slack mise à jour : nom, logo et libellés des notifications.
-
-**Nouvelle adresse**
-
-* L'application est désormais accessible sur [https://exp.mycentreon.com](https://exp.mycentreon.com).
-* L'ancienne adresse, `https://app.quanta.io`, reste pleinement fonctionnelle. Elle sera redirigée automatiquement vers la nouvelle adresse à une date annoncée à l'avance.
-
-**Ce qui ne change pas**
-
-* Vos identifiants, vos données, vos configurations et vos historiques sont inchangés.
-* Aucune action n'est nécessaire pour continuer à utiliser le service.
+L'application est désormais accessible sur [https://exp.mycentreon.com](https://exp.mycentreon.com). L'ancienne adresse, `https://app.quanta.io`, continue de fonctionner et redirigera ensuite vers la nouvelle, à une date annoncée à l'avance.
 
 **Ce que nous vous recommandons**
 
-* Mettez à jour vos favoris.
-* Utilisez la nouvelle adresse dans vos scripts et dans vos intégrations qui utilisent l'API. Attention, certains clients HTTP comme cURL ne suivent pas les redirections par défaut : vos scripts doivent pointer directement vers la nouvelle adresse avant la mise en place de la redirection.
-* Si votre réseau filtre les domaines autorisés, ajoutez `exp.mycentreon.com`, en particulier si vous hébergez des [sondes internes](configuration/user-journey/stm-zones.md).
+Mettez à jour vos favoris, et utilisez la nouvelle adresse dans vos scripts et intégrations API plutôt que de compter sur la redirection : certains clients HTTP ne suivent pas les redirections, ou perdent l'authentification lorsqu'ils sont redirigés vers un autre domaine. Si votre réseau n'autorise que certains domaines, ajoutez `exp.mycentreon.com`, en particulier si vous hébergez des [sondes internes](configuration/user-journey/stm-zones.md). Les objets des emails ayant changé, vérifiez vos éventuelles règles de tri basées sur ces objets.
 
 ## 8 septembre 2026
 
