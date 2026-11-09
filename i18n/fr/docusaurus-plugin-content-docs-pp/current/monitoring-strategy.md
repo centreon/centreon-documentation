@@ -1,7 +1,7 @@
 ---
 id: monitoring-strategy
-title: Choosing your monitoring strategy
-description: "Choosing your monitoring strategy"
+title: Choisir votre stratégie de supervision
+description: "Choisir votre stratégie de supervision"
 ---
 
-Choosing your monitoring strategy
+Choisir votre stratégie de supervision

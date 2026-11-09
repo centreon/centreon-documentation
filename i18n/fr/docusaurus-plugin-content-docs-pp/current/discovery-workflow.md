@@ -1,7 +1,7 @@
 ---
 id: discovery-workflow
-title: End-to-end journey of a discovery job
-description: "What steps does a discovery job go through, from the moment it is triggered to when the results appear in the interface?"
+title: Parcours complet d'une tâche de découverte
+description: "Par quelles étapes passe une tâche de découverte, depuis son déclenchement jusqu'à l'affichage des résultats dans l'interface ?"
 ---
 
-Schéma "End-to-end journey of a discovery job"
+Schéma « Parcours complet d'une tâche de découverte »

@@ -1,56 +1,59 @@
 ---
 id: monitoring-connectors-basics
-title: Monitoring connectors basics
-description: "Learn what a Centreon Monitoring Connector is, what you can monitor with it, and how it collects data. Start here before you set one up."
+title: Les bases des connecteurs de supervision
+description: "Découvrez ce qu'est un connecteur de supervision Centreon, ce que vous pouvez superviser avec et comment il collecte les données. Commencez par là avant d'en configurer un."
 ---
 
-## What is a monitoring connector?
+## Qu'est-ce qu'un connecteur de supervision ?
 
-A Centreon Monitoring Connector is a combination of two elements used to monitor a specific type of IT resource:
+Un connecteur de supervision Centreon associe deux éléments qui servent à superviser un type de ressource informatique précis :
 
-* a plugin : the script that runs the actual checks from a poller
-* a pack: the commands, host templates, and service templates, with default thresholds. Some connectors also include discovery rules.
+* un plugin : le script qui exécute les contrôles depuis un collecteur ;
+* un pack : les commandes, les modèles d'hôtes et les modèles de services, avec des seuils par défaut. Certains connecteurs incluent aussi des éléments de découverte : un fournisseur de découverte d'hôtes (pour trouver des hôtes) et/ou des règles de découverte de services (pour trouver les éléments à superviser sur un hôte).
 
-The two are installed separately but work together as the connector. (Formerly called a "Plugin Pack.")
+Ces deux éléments s'installent séparément, mais fonctionnent ensemble pour former le connecteur. (Anciennement appelé « Plugin Pack ».)
 
-## What can I do with a monitoring connector?
+## Que puis-je faire avec un connecteur de supervision ?
 
-With a Centreon Monitoring Connector you can:
+Un connecteur de supervision Centreon vous permet de :
 
-* Set up monitoring quickly for a specific resource (server, database, network device, etc.) by applying its ready-made templates.
-* Track the relevant metrics automatically—like CPU, memory, disk, or network traffic—with default alert thresholds you can fine-tune.
-* Auto-discover related assets (with some connectors), such as disk partitions or network interfaces.
+* Mettre rapidement en place la supervision d'une ressource précise (serveur, base de données, équipement réseau, etc.) en lui appliquant ses modèles prêts à l'emploi.
+* Suivre automatiquement les métriques utiles, comme le CPU, la mémoire, le disque ou le trafic réseau, avec des seuils d'alerte par défaut que vous pouvez ajuster.
+* Découvrir automatiquement des ressources (avec certains connecteurs et le module Auto Discovery) :
+  * des hôtes, comme les serveurs d'un sous-réseau, les machines virtuelles d'un cluster VMware ou les ressources d'un compte cloud ;
+  * des services sur des hôtes existants, comme les partitions de disque ou les interfaces réseau.
 
-## What can I monitor with a connector?
+  Voir [Effectuer une découverte d'hôtes ou de services](./using-connectors.md#effectuer-une-découverte-dhôtes-ou-de-services).
 
-You can monitor almost any IT resource. Our catalog includes the following categories:
+## Que puis-je superviser avec un connecteur ?
 
-* Applications – business and web apps (e.g. Apache, Microsoft Exchange)
-* Centreon – monitoring of Centreon's own components
-* Cloud – cloud services like Azure and AWS
-* Database – MySQL, PostgreSQL, Oracle, etc.
-* Hardware – physical servers and components
-* Network – switches, routers, firewalls
-* Operating System – Linux, Windows
-* Protocol – generic checks over SNMP, HTTP, etc.
-* Sensor – temperature, environmental probes
-* Storage – SAN/NAS systems
-* ToIP-VoIP – telephony and voice
-* UPS-PDU – power supplies and distribution units
-* Virtualization – VMware, Hyper-V, and similar
+Vous pouvez superviser presque n'importe quelle ressource informatique. Notre catalogue comprend les catégories suivantes :
 
-## How does the connector actually collect data?
+* Applications : applications métier et web (par exemple Apache, Microsoft Exchange)
+* Centreon : supervision des composants de Centreon
+* Cloud : services cloud comme Azure et AWS
+* Base de données : MySQL, PostgreSQL, Oracle, etc.
+* Matériel : serveurs physiques et composants
+* Réseau : commutateurs, routeurs, pare-feu
+* Système d'exploitation : Linux, Windows
+* Protocole : contrôles génériques en SNMP, HTTP, etc.
+* Capteur : température, sondes environnementales
+* Stockage : systèmes SAN/NAS
+* ToIP-VoIP : téléphonie et voix
+* UPS-PDU : onduleurs et unités de distribution d'alimentation
+* Virtualisation : VMware, Hyper-V, etc.
 
-* SNMP-based — polls devices via SNMP (common for network gear, sensors, UPS).
-* API-based — queries a REST or other API (common for cloud services and modern apps, e.g. Azure, VMware RESTAPI).
-* Agent-based — data collected via an agent on the host (e.g. NRPE, CMA).
-* Protocol/command-based — direct checks over protocols like HTTP, SSH, or database connections.
+## Comment le connecteur collecte-t-il les données ?
 
-## Does a monitoring connector need anything besides a plugin and a pack?
+Il existe plusieurs [types de connecteurs de supervision](./types-of-connectors.md), selon la façon dont ils accèdent à la ressource à superviser : par un agent, une API, un protocole standard ou SNMP. Le type change seulement ce que vous devez mettre en place : un agent à installer, une API à joindre, des identifiants à fournir, etc.
 
-* Plugin + pack only — the standard setup. The plugin runs the checks from the poller, the pack provides the templates. Nothing else needed.
-* Plugin + pack + a Connector — some require an extra Centreon Connector component (e.g. AS400, VMware).
-* Plugin + pack + an agent — some require an agent installed on the monitored host (e.g. Windows NRPE, or the Centreon Monitoring Agent / CMA).
+Quel que soit leur type, tous les connecteurs de supervision fonctionnent sur le même principe : Centreon Engine exécute le plugin du connecteur depuis un collecteur, à l'aide des commandes et des modèles fournis par le connecteur, puis les résultats sont renvoyés au serveur central. La découverte suit la même logique, avec les fournisseurs et les règles de découverte fournis par le connecteur. Voir [Fonctionnement des connecteurs](./workflow-service-check.md) pour un exemple détaillé, étape par étape.
+
+## Un connecteur de supervision a-t-il besoin d'autre chose qu'un plugin et un pack ?
+
+* Plugin + pack uniquement : c'est le cas standard. Le plugin exécute les contrôles depuis le collecteur et le pack fournit les modèles. Rien d'autre n'est nécessaire.
+* Plugin + pack + un connecteur : certains connecteurs de supervision nécessitent un composant supplémentaire, un connecteur Centreon (par exemple pour AS400 ou VMware).
+* Plugin + pack + un agent : certains nécessitent un agent installé sur l'hôte supervisé (par exemple Windows NRPE, ou l'agent CMA).
 
 <!-- 
 old contents

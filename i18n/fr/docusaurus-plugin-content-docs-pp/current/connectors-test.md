@@ -1,25 +1,25 @@
 ---
 id: connectors-test
-title: Testing a monitoring connector
-description: "Steps to test that a connector actually works."
+title: Tester un connecteur de supervision
+description: "Les étapes pour vérifier qu'un connecteur de supervision fonctionne réellement."
 ---
 
-Before you rely on a connector in production, it is good practice to test it directly from the poller's command line. Running the plugin manually confirms that the poller can reach the monitored resource, that the credentials and parameters are correct, and that the check returns data - before you apply the template to a host and deploy. This is faster to troubleshoot than waiting for a scheduled check, because the plugin prints the exact error it encounters.
+Avant de vous appuyer sur un connecteur en production, nous vous recommandons de le tester directement depuis la ligne de commande du collecteur. Exécuter le plugin à la main permet de vérifier que le collecteur peut joindre la ressource supervisée, que les identifiants et les paramètres sont corrects, et que le contrôle renvoie des données. Vous le faites avant d'appliquer le modèle à un hôte et de déployer la configuration. C'est plus rapide à dépanner que d'attendre un contrôle planifié, car le plugin affiche l'erreur exacte qu'il rencontre.
 
-## Before you start
+## Avant de commencer
 
-The plugin must already be installed on the poller you are testing from. If it is not, install it first (see [Installing a Monitoring Connector](./installing-connectors.md)). You will also need the connection details the connector requires—typically the host address, credentials, and any connector-specific parameters listed in its monitoring procedure.
+Le plugin doit déjà être installé sur le collecteur depuis lequel vous faites le test. Si ce n'est pas le cas, installez-le d'abord (voir [Installer des connecteurs de supervision](./installing-connectors.md)). Vous aurez aussi besoin des informations de connexion demandées par le connecteur : en général l'adresse de l'hôte, les identifiants et les paramètres propres au connecteur, indiqués dans sa procédure de supervision.
 
-## Running a check from the poller CLI
+## Exécuter un contrôle depuis la ligne de commande du collecteur
 
-1. Connect to the poller by SSH.
-2. Go to the plugins directory:
+1. Connectez-vous au collecteur en SSH.
+2. Allez dans le répertoire des plugins :
 
 ```bash
    cd /usr/lib/centreon/plugins/
 ```
 
-3. Run the plugin with the parameters for the resource you want to monitor. The exact command is given in each connector's monitoring procedure; it follows this general form:
+3. Exécutez le plugin avec les paramètres de la ressource à superviser. La commande exacte est donnée dans la procédure de supervision de chaque connecteur. Elle a la forme générale suivante :
 
 ```bash
    ./centreon_plugin.pl \
@@ -30,33 +30,33 @@ The plugin must already be installed on the poller you are testing from. If it i
      [--warning=<value> --critical=<value>]
 ```
 
-4. Read the output.
+4. Lisez la sortie.
 
-## Understanding the result
+## Comprendre le résultat
 
-The plugin returns one line beginning with a status keyword, optionally followed by performance data after a `|`:
+Le plugin renvoie une ligne qui commence par un mot-clé de statut, éventuellement suivie de données de performance après un `|` :
 
-* **OK** — the check succeeded and the values are within thresholds.
-* **WARNING** / **CRITICAL** — the check succeeded but a value crossed the threshold you set.
-* **UNKNOWN** — the check could not complete. This usually points to a configuration problem: an unreachable host, a wrong port, bad credentials, or a missing option.
+* **OK** : le contrôle a réussi et les valeurs sont dans les seuils.
+* **ALERTE** / **CRITIQUE** : le contrôle a réussi, mais une valeur a dépassé le seuil que vous avez défini.
+* **INCONNU** : le contrôle n'a pas pu aboutir. Cela indique en général un problème de configuration : hôte injoignable, mauvais port, identifiants incorrects ou option manquante.
 
-A successful run looks something like this:
+Une exécution réussie ressemble à ceci :
 
 ```bash
 OK: CPU(s) average usage is 0.84 % | 'cpu.utilization.percentage'=0.84%;;;0;100
 ```
 
-The text before the `|` is the human-readable status; everything after it is the performance data Centreon turns into graphs and thresholds.
+Le texte avant le `|` est le statut lisible par un humain. Tout ce qui suit correspond aux données de performance, que Centreon transforme en graphiques et compare aux seuils.
 
-## If the check fails
+## Si le contrôle échoue
 
-An UNKNOWN result, or an error instead of a status line, almost always comes from the connection rather than the plugin itself. Work through the usual causes:
+Un résultat INCONNU, ou une erreur à la place d'une ligne de statut, vient presque toujours de la connexion et non du plugin lui-même. Vérifiez les causes habituelles :
 
-* The poller cannot reach the target on the required port (check network paths and firewalls).
-* The credentials are wrong, or the account lacks the permissions the connector needs.
-* A required parameter is missing or mistyped.
-* A prerequisite is not met—some connectors need an extra component or agent on the target, as noted in their monitoring procedure.
+* Le collecteur ne peut pas joindre la cible sur le port requis (vérifiez les chemins réseau et les pare-feux).
+* Les identifiants sont incorrects, ou le compte n'a pas les droits dont le connecteur a besoin.
+* Un paramètre obligatoire est manquant ou mal saisi.
+* Un prérequis n'est pas rempli : certains connecteurs ont besoin d'un composant ou d'un agent supplémentaire sur la cible, comme l'indique leur procédure de supervision.
 
-Add `--verbose` to the command for more detail, and use `--help` to list every option available for the plugin and mode you are testing. Once the command returns the expected result from the CLI, you can apply the connector's template to a host and deploy with confidence that the check will work.
+Ajoutez `--verbose` à la commande pour obtenir plus de détails, et utilisez `--help` pour afficher toutes les options disponibles pour le plugin et le mode que vous testez. Une fois que la commande renvoie le résultat attendu en ligne de commande, vous pouvez appliquer le modèle du connecteur à un hôte et déployer la configuration en sachant que le contrôle fonctionnera.
 
-See also: [Troubleshooting plugin errors](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md).
+Voir aussi : [Dépanner les erreurs des plugins](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md).

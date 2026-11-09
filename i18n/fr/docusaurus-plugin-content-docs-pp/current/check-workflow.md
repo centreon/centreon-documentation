@@ -1,7 +1,7 @@
 ---
 id: check-workflow
-title: End-to-end journey of a check
-description: "What steps does a check go through, from the moment it is triggered to when the results appear in Resource status?"
+title: Parcours complet d'un contrôle
+description: "Par quelles étapes passe un contrôle, depuis son déclenchement jusqu'à l'affichage des résultats dans la page Statut des ressources ?"
 ---
 
-Schéma "End-to-end journey of a check"
+Schéma « Parcours complet d'un contrôle »

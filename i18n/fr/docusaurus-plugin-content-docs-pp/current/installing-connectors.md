@@ -1,36 +1,28 @@
 ---
 id: installing-connectors
-title: Installing monitoring connectors
-description: "How to install, use, update, and uninstall Centreon Monitoring Connectors, including prerequisites like the Connector Manager module and licensing."
+title: Installer des connecteurs de supervision
+description: "Comment installer, utiliser, mettre à jour et désinstaller les connecteurs de supervision Centreon, y compris les prérequis comme le module Monitoring Connector Manager et la licence."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Prerequisites
+## Prérequis
 
 ### Centreon Monitoring Connector Manager
 
-The **Centreon Monitoring Connector Manager** module can install, update or remove Plugin
-Packs. It is installed by default. We recommend that you keep this module regularly updated.
+Le module **Centreon Monitoring Connector Manager** permet d'installer, de mettre à jour ou de supprimer des connecteurs. Il est installé par défaut. Nous vous recommandons de le mettre à jour régulièrement.
 
-To update this module, run the following command:
+Pour mettre à jour ce module, exécutez la commande suivante :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```shell
 dnf update centreon-pp-manager
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf update centreon-pp-manager
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```shell
 apt install --only-upgrade centreon-pp-manager
@@ -39,56 +31,47 @@ apt install --only-upgrade centreon-pp-manager
 </TabItem>
 </Tabs>
 
-### License
+### Licence
 
-A [license](./integrations/plugin-packs/getting-started/how-to-guides/connectors-licenses.md) is required to access the full Monitoring Connectors catalog. Contact the
-[Centreon support team](https://support.centreon.com) to get your license.
+Une [licence](./integrations/plugin-packs/getting-started/how-to-guides/connectors-licenses.md) est nécessaire pour accéder à l'ensemble du catalogue des connecteurs de supervision. Contactez l'[équipe support de Centreon](https://support.centreon.com) pour obtenir votre licence.
 
-### Connectors
+### Connecteurs
 
-Some Monitoring Connectors also require a Connector (e.g. AS400, VMWare) or an agent
-(e.g. Windows NRPE). In that case, it is explained in the monitoring procedure for the Monitoring Connector. The connectors are included in the Monitoring Connectors license.
+Certains connecteurs de supervision nécessitent aussi un connecteur (par exemple AS400 ou VMware) ou un agent (par exemple Windows NRPE). Dans ce cas, la procédure de supervision du connecteur de supervision l'indique. Ces connecteurs sont inclus dans la licence des connecteurs de supervision.
 
-| Connector  | Description                                                                           |
-| ---------- | ------------------------------------------------------------------------------------- |
-| NRPE       | NRPE server, packaged by Centreon, with patches required to comply with Plugins Packs |
-| NSClient++ | NSClient++, packaged by Centreon, ready to use with embedded Centreon Plugins         |
-| VMWare     | Perl daemon using VMware SDK to monitor VMware platforms                              |
-| AS400      | Java-based connector allowing you to execute checks on an AS400                       |
+| Connecteur | Description                                                                                         |
+| ---------- | --------------------------------------------------------------------------------------------------- |
+| NRPE       | Serveur NRPE, packagé par Centreon, avec les correctifs nécessaires pour fonctionner avec les connecteurs de supervision |
+| NSClient++ | NSClient++, packagé par Centreon, prêt à l'emploi avec les plugins Centreon intégrés                |
+| VMWare     | Démon Perl qui utilise le SDK VMware pour superviser les plateformes VMware                          |
+| AS400      | Connecteur Java qui permet d'exécuter des contrôles sur un AS400                                     |
 
-## Installing a Monitoring Connector
+## Installer un connecteur de supervision
 
-Installing a Monitoring Connector is a 4-step process:
+L'installation d'un connecteur de supervision se fait en 4 étapes :
 
-1. Accessing the Monitoring Connectors catalog.
-2. Installing the pack.
-3. Checking the monitoring procedure.
-4. Installing the plugin.
+1. Accéder au catalogue des connecteurs de supervision.
+2. Installer le pack.
+3. Consulter la procédure de supervision.
+4. Installer le plugin.
 
-### Accessing the Monitoring Connectors catalog
+### Accéder au catalogue des connecteurs de supervision
 
-* If you have an online [license](./integrations/plugin-packs/getting-started/how-to-guides/connectors-licenses.md), the Monitoring Connectors catalog is already available on your platform, on the **Configuration > Connectors > Monitoring Connectors** page.
+* Si vous avez une [licence](./integrations/plugin-packs/getting-started/how-to-guides/connectors-licenses.md) en ligne, le catalogue des connecteurs de supervision est déjà disponible sur votre plateforme, à la page **Configuration > Connecteurs > Connecteurs de supervision**.
 
-* If you have an offline license:
-    - install the Monitoring Connectors repository (go to the [Centreon support portal](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories) for its address)
-    - install or update the Monitoring Connectors catalog from your Centreon Central server:
+* Si vous avez une licence hors ligne :
+    - installez le dépôt des connecteurs de supervision (son adresse est disponible sur le [portail support de Centreon](https://support.centreon.com/hc/en-us/categories/10341239833105-Repositories)) ;
+    - installez ou mettez à jour le catalogue des connecteurs de supervision depuis votre serveur central Centreon :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```shell
 dnf install centreon-pack-*
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install centreon-pack-*
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```shell
 apt install centreon-pack-*
@@ -97,77 +80,67 @@ apt install centreon-pack-*
 </TabItem>
 </Tabs>
 
-> Please note that although this command is called `install`, it only makes Monitoring Connectors available in the Centreon interface. It will not install the Monitoring Connectors themselves. Please follow the rest of the procedure.
+> Bien que cette commande s'appelle `install`, elle ne fait que rendre les connecteurs de supervision disponibles dans l'interface de Centreon. Elle n'installe pas les connecteurs de supervision eux-mêmes. Suivez la suite de la procédure.
 
-### Installing the pack
+### Installer le pack
 
-You now have access to the Monitoring Connectors catalog, on page **Configuration > Connectors > Monitoring Connectors**:
+Vous avez maintenant accès au catalogue des connecteurs de supervision, à la page **Configuration > Connecteurs > Connecteurs de supervision** :
 
 ![image](assets/pp_list.png)
 
-To install a pack, hover over the icon with the mouse and click the ``+``
+Pour installer un pack, survolez son icône avec la souris et cliquez sur le ``+`` :
 
 ![image](assets/install_pp.png)
 
-You can also click the Monitoring Connector to display more details and click the ``+``
+Vous pouvez aussi cliquer sur le connecteur de supervision pour afficher plus de détails, puis cliquer sur le ``+`` :
 
 ![image](assets/install_pp_2.png)
 
-Once the pack is installed, it has a green outline and a green check mark.
+Une fois le pack installé, il est entouré de vert et porte une coche verte.
 
-| **Before installation**                                          | **After installation**                                          |
+| **Avant l'installation**                                          | **Après l'installation**                                          |
 | ---------------------------------------------------------------- | --------------------------------------------------------------- |
 | ![image](assets/before_install.png) | ![image](assets/after_install.png) |
 
-### Managing dependencies
+### Gérer les dépendances
 
-During installation, some objects in the pack may not be installed. These objects are often additional configuration
-objects and are not required to deploy the configuration templates provided by the pack.
+Pendant l'installation, il peut arriver que certains objets du pack ne soient pas installés. Il s'agit souvent d'objets de configuration supplémentaires, qui ne sont pas nécessaires pour déployer les modèles de configuration fournis par le pack.
 
-Most of the time, it is necessary to update your Centreon platform and then reinstall your pack.
+La plupart du temps, il faut mettre à jour votre plateforme Centreon, puis réinstaller le pack.
 
-### Checking the monitoring procedure
+### Consulter la procédure de supervision
 
-Some Monitoring Connectors require extra configuration steps. Read the monitoring procedure for each installed pack
-to understand the contents of the pack and to find out about any prerequisites. Click the ``i`` icon of each pack to access its documentation:
+Certains connecteurs de supervision demandent des étapes de configuration supplémentaires. Lisez la procédure de supervision de chaque pack installé pour connaître son contenu et ses éventuels prérequis. Cliquez sur l'icône ``i`` de chaque pack pour accéder à sa documentation :
 
 ![image](assets/doc.png)
 
-### Installing the plugin
+### Installer le plugin
 
-Plugins can be installed from the command line or automatically.
+Les plugins peuvent être installés en ligne de commande ou automatiquement.
 
-#### Automatic installation
+#### Installation automatique
 
-1. [Install the pack](#installing-the-pack).
-2. [Check the monitoring procedure](#checking-the-monitoring-procedure) for extra configuration steps.
-3. On the **Configuration > Connectors > Monitoring Connectors** page, set **Automatic installation of plugins** to **ON**.
-4. Use a template provided by the pack to monitor a host or a service.
-5. [Deploy the configuration](./using-connectors.md#deploying-the-configuration) for the pollers that monitor these hosts or services: the corresponding plugins will be automatically installed on these pollers.
+1. [Installez le pack](#installer-le-pack).
+2. [Consultez la procédure de supervision](#consulter-la-procédure-de-supervision) pour connaître les étapes de configuration supplémentaires.
+3. À la page **Configuration > Connecteurs > Connecteurs de supervision**, passez **Installation automatique des plugins** à **ON**.
+4. Utilisez un modèle fourni par le pack pour superviser un hôte ou un service.
+5. [Déployez la configuration](./using-connectors.md#déployer-la-configuration) des collecteurs qui supervisent ces hôtes ou ces services : les plugins correspondants sont installés automatiquement sur ces collecteurs.
 
-#### Manual installation
+#### Installation manuelle
 
-The monitoring procedure contains an **Installation** section that explains how to install the plugin
-(with an online or an offline license). Install the plugin on each poller that will execute the plugin checks.
+La procédure de supervision contient une section **Installation** qui explique comment installer le plugin (avec une licence en ligne ou hors ligne). Installez le plugin sur chaque collecteur qui exécutera les contrôles du plugin.
 
-The installation command looks like this:
+La commande d'installation ressemble à ceci :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```shell
 dnf install centreon-plugin-$PLUGIN-PACK$
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install centreon-plugin-$PLUGIN-PACK$
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```shell
 apt install centreon-plugin-$PLUGIN-PACK$
@@ -176,25 +149,18 @@ apt install centreon-plugin-$PLUGIN-PACK$
 </TabItem>
 </Tabs>
 
-Where ``$PLUGIN-PACK$`` is the name of the pack. Example:
+Où ``$PLUGIN-PACK$`` est le nom du pack. Exemple :
 
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```shell
 dnf install centreon-plugin-Cloud-Aws-Ec2-Api
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf install centreon-plugin-Cloud-Aws-Ec2-Api
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```shell
 apt install centreon-plugin-cloud-aws-ec2-api
@@ -203,65 +169,58 @@ apt install centreon-plugin-cloud-aws-ec2-api
 </TabItem>
 </Tabs>
 
-## Updating Monitoring Connectors
+## Mettre à jour les connecteurs de supervision
 
-> You need to update both the plugin and the pack.
+> Vous devez mettre à jour à la fois le plugin et le pack.
 
-### Updating one pack/all packs
+### Mettre à jour un pack ou tous les packs
 
-**To update one pack:**
+**Pour mettre à jour un pack :**
 
-If an arrow appears on a Monitoring Connector, it means that an update is available.
+Si une flèche apparaît sur un connecteur de supervision, une mise à jour est disponible.
 
 ![image](assets/update.png)
 
-Hover over the Monitoring Connector and click the arrow,
+Survolez le connecteur de supervision et cliquez sur la flèche,
 
 ![image](assets/update2.png)
 
-or click the Monitoring Connector to display more details, and then click the arrow. 
+ou cliquez sur le connecteur de supervision pour afficher plus de détails, puis cliquez sur la flèche.
 
 ![image](assets/update3.png)
 
-Confirm the update.
+Confirmez la mise à jour.
 
 ![image](assets/update_confirm.png)
 
-Your pack is up to date. You can now [update the plugin](#updating-the-plugins).
+Votre pack est à jour. Vous pouvez maintenant [mettre à jour le plugin](#mettre-à-jour-les-plugins).
 
 ![image](assets/update_finish.png)
 
-**To update all packs:**
+**Pour mettre à jour tous les packs :**
 
-You can also update all the packs at the same time: when pack updates are available, an **Update all** button appears.
-Note that you will still have to [update the plugins](#updating-the-plugins). 
+Vous pouvez aussi mettre à jour tous les packs en même temps : lorsque des mises à jour de packs sont disponibles, un bouton **Tout mettre à jour** apparaît.
+Vous devrez quand même [mettre à jour les plugins](#mettre-à-jour-les-plugins).
 
 ![image](assets/update_all.png)
 
-### Updating the plugins
+### Mettre à jour les plugins
 
-On the **Configuration > Connectors > Monitoring Connectors** page, if **Automatic installation of plugins** is set to **ON**, plugins will be updated automatically when you deploy the configuration for a poller that monitors a host that uses these plugins.
+À la page **Configuration > Connecteurs > Connecteurs de supervision**, si **Installation automatique des plugins** est à **ON**, les plugins sont mis à jour automatiquement lorsque vous déployez la configuration d'un collecteur qui supervise un hôte utilisant ces plugins.
 
-If **Automatic installation of plugins** is set to **OFF**, use the following command to update the plugins:
+Si **Installation automatique des plugins** est à **OFF**, mettez à jour les plugins de la façon suivante :
 
-1. Execute the following command on all pollers:
+1. Exécutez la commande suivante sur tous les collecteurs :
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
+<TabItem value="Alma / RHEL / Oracle Linux 8, 9 & 10" label="Alma / RHEL / Oracle Linux 8, 9 & 10">
 
 ```shell
 dnf update centreon-plugin\*
 ```
 
 </TabItem>
-<TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
-
-```shell
-dnf update centreon-plugin\*
-```
-
-</TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```shell
 apt-get --only-upgrade install centreon-plugin\*
@@ -270,50 +229,46 @@ apt-get --only-upgrade install centreon-plugin\*
 </TabItem>
 </Tabs>
 
-2. [Deploy the configuration](./using-connectors.md#deploying-the-configuration) for all pollers. The **Restart Monitoring Engine** 
-option must be set to **Restart**.
+2. [Déployez la configuration](./using-connectors.md#déployer-la-configuration) de tous les collecteurs. L'option **Redémarrer l'ordonnanceur** doit être réglée sur **Redémarrer**.
 
-3. Check that you do not have new errors while executing new plugins.
+3. Vérifiez que l'exécution des nouveaux plugins ne génère pas de nouvelles erreurs.
 
-> It is your choice whether to install all the plugins on every poller, or just the required plugins. Keep in mind that
-> you may encounter errors if you migrate a monitored host to a poller that happens to be missing the necessary plugins.
-> If you update the plugins on the Centreon central server, be sure to update them on each poller also.
+> Vous pouvez choisir d'installer tous les plugins sur chaque collecteur, ou seulement les plugins nécessaires. Gardez à l'esprit que vous pouvez rencontrer des erreurs si vous déplacez un hôte supervisé vers un collecteur sur lequel les plugins nécessaires ne sont pas installés.
+> Si vous mettez à jour les plugins sur le serveur central Centreon, pensez à les mettre à jour aussi sur chaque collecteur.
 
-## Uninstalling Monitoring Connectors
+## Désinstaller des connecteurs de supervision
 
-As with installation, you can remove a pack either by hovering over the desired pack in the UI and clicking on the red
-cross:
+Comme pour l'installation, vous pouvez supprimer un pack en survolant le pack voulu dans l'interface et en cliquant sur la croix rouge :
 
 ![image](assets/uninstall.png)
 
-or by clicking first the pack and then the red cross:
+ou en cliquant d'abord sur le pack, puis sur la croix rouge :
 
 ![image](assets/uninstall_2.png)
 
-Confirm the uninstallation.
+Confirmez la désinstallation.
 
 ![image](assets/uninstall_confirm.png)
 
-Your Monitoring Connector is now uninstalled.
+Votre connecteur de supervision est maintenant désinstallé.
 
 ![image](assets/uninstall_3.png)
 
-#### Managing dependencies
+#### Gérer les dépendances
 
-If host or service templates provided by the monitoring connector are used by a host, service or template, the monitoring connector cannot be uninstalled.
+Si des modèles d'hôtes ou de services fournis par le connecteur de supervision sont utilisés par un hôte, un service ou un modèle, le connecteur de supervision ne peut pas être désinstallé.
 
 ![image](assets/uninstall_pp_used.png)
 
-If the connector is used by a host or by a service, in order to uninstall it, you will need to:
+Si le connecteur est utilisé par un hôte ou un service, vous devez, pour le désinstaller :
 
-* either delete the hosts or services linked to the templates provided by this monitoring connector
-* or unlink hosts linked to templates provided by this monitoring connector (note that if this was the only host template applied to this host, it will no longer be monitored).
+* soit supprimer les hôtes ou les services liés aux modèles fournis par ce connecteur de supervision ;
+* soit délier les hôtes liés aux modèles fournis par ce connecteur de supervision (si c'était le seul modèle d'hôte appliqué à un hôte, celui-ci ne sera plus supervisé).
 
-If a template provided by the connector is used by another template, you will need to remove the link between templates before you can remove the connector, even if the other template is not used by any host or service.
+Si un modèle fourni par le connecteur est utilisé par un autre modèle, vous devez supprimer le lien entre les modèles avant de pouvoir supprimer le connecteur, même si l'autre modèle n'est utilisé par aucun hôte ni service.
 
-Besides, if you try to uninstall a connector on which another connector depends, the uninstallation can only be performed if
-neither connector is in use. 
-Example: the **Centreon Central** connector uses the **Linux SNMP** connector as a dependency. (The **Centreon Central** connector depends on the **Linux SNMP** connector.)
+Par ailleurs, si vous essayez de désinstaller un connecteur dont dépend un autre connecteur, la désinstallation n'est possible que si aucun des deux connecteurs n'est utilisé.
+Exemple : le connecteur **Centreon Central** utilise le connecteur **Linux SNMP** comme dépendance (le connecteur **Centreon Central** dépend du connecteur **Linux SNMP**).
 
-* If you attempt to uninstall the **Linux SNMP** connector, you will get an error indicating that it is being used by the **Centreon Central** connector.
-* If neither the **Centreon Central** nor the **Linux SNMP** connector are in use, uninstallation will be possible.
+* Si vous essayez de désinstaller le connecteur **Linux SNMP**, vous obtenez une erreur indiquant qu'il est utilisé par le connecteur **Centreon Central**.
+* Si ni le connecteur **Centreon Central** ni le connecteur **Linux SNMP** ne sont utilisés, la désinstallation est possible.

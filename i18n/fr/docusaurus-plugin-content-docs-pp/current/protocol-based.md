@@ -1,29 +1,29 @@
 ---
 id: protocol-based
-title: Protocol-based connectors
-description: "Learn what information a protocol/command-based connector needs, from host details and connectivity to protocol-specific requirements for HTTP, SSH, and databases."
+title: Connecteurs à base de protocole
+description: "Découvrez les informations dont un connecteur à base de protocole a besoin, des informations sur l'hôte et la connectivité aux exigences propres à HTTP, SSH et aux bases de données."
 ---
 
-For protocol/command-based connectors, the connector connects directly to a service or runs a check over a standard protocol. The basic information you need depends on the protocol, but generally:
+Un connecteur à base de protocole se connecte directement à un service ou exécute un contrôle via un protocole standard. Les informations dont vous avez besoin dépendent du protocole, mais en général, il s'agit des éléments suivants.
 
-## Common to all
+## Pour tous les protocoles
 
-* The host details: name, alias, and IP address/DNS.
-* Network connectivity — the Centreon poller must be able to reach the target on the relevant port.
-* Credentials to authenticate, if the service requires them.
+* Les informations sur l'hôte : nom, alias et adresse IP ou nom DNS.
+* La connectivité réseau : le collecteur Centreon doit pouvoir joindre la cible sur le port concerné.
+* Des identifiants, si le service demande une authentification.
 
-## By protocol, more specifically
+## Selon le protocole
 
-* HTTP/HTTPS — the target URL or endpoint, the port (usually 80/443), and for HTTPS any certificate considerations. Often credentials (e.g. basic auth, an API token) plus what you're checking for (status code, response time, a string in the page).
-* SSH — the SSH port (usually 22), and authentication: either username/password or an SSH key. The poller must be authorized to connect, and often the remote command or check needs to run under an account with the right permissions.
-* Database connections — the database port (e.g. 3306 for MySQL, 5432 for PostgreSQL, 1521 for Oracle), a database username and password, and often the specific database/instance name. The account usually needs read permissions on whatever you're monitoring.
+* HTTP/HTTPS : l'URL ou le point de terminaison cible, le port (en général 80 ou 443) et, pour HTTPS, la gestion des certificats. Souvent, des identifiants (par exemple une authentification basique ou un jeton d'API), ainsi que ce que vous contrôlez (code de statut, temps de réponse, présence d'une chaîne dans la page).
+* SSH : le port SSH (en général 22) et l'authentification, par nom d'utilisateur et mot de passe ou par clé SSH. Le collecteur doit être autorisé à se connecter, et la commande ou le contrôle distant doit souvent s'exécuter avec un compte disposant des droits nécessaires.
+* Connexions aux bases de données : le port de la base (par exemple 3306 pour MySQL, 5432 pour PostgreSQL, 1521 pour Oracle), un nom d'utilisateur et un mot de passe pour la base, et souvent le nom de la base ou de l'instance. Le compte a généralement besoin de droits de lecture sur ce que vous supervisez.
 
-In all cases you enter these values through the connector's macros after applying its template, and it's good practice to test the check from the poller CLI before deploying.
+Dans tous les cas, vous renseignez ces valeurs dans les macros du connecteur après avoir appliqué son modèle. Nous vous recommandons de [tester le contrôle en ligne de commande depuis le collecteur](./connectors-test.md) avant de déployer la configuration.
 
-One thing worth confirming per connector: some database or application checks require an extra driver or client library installed on the poller—the connector's monitoring procedure will tell you if so.
+Certains contrôles de bases de données ou d'applications nécessitent un pilote ou une bibliothèque cliente supplémentaire sur le collecteur. Dans ce cas, la procédure de supervision du connecteur indique lequel installer.
 
-## Troubleshooting protocol-based connectors
+## Résoudre les problèmes des connecteurs à base de protocole
 
-* See the [HTTP part of the **HTTP and API checks** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api).
-* See the [**SSH and CLI checks** section of our troubleshooting page](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#ssh-and-cli-checks).
-* The [**Common problems**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#problèmes-communs) section may also help.
+* Voir la partie HTTP de la section [**Contrôles HTTP et API** de notre page de résolution des problèmes](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#contrôles-http-et-api).
+* Voir la section [**SSH and CLI checks** de notre page de résolution des problèmes](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#ssh-and-cli-checks).
+* La section [**Problèmes communs**](./integrations/plugin-packs/getting-started/how-to-guides/troubleshooting-plugins.md#problèmes-communs) peut aussi vous aider.
