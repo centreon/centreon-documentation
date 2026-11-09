@@ -1,7 +1,7 @@
 ---
 id: troubleshooting
 title: Dépanner MBI
-description: "Diagnostiquer et résoudre les problèmes courants de Centreon MBI"
+description: "Dépannez Centreon MBI : diagnostic, données ou partitions manquantes, démarrage de CBIS, emplacement des logs, rapports vides ou non téléchargeables."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

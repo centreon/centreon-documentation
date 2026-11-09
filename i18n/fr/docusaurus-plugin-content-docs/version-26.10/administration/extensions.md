@@ -1,7 +1,7 @@
 ---
 id: extensions
 title: Extensions
-description: "Installer et gérer les extensions Centreon depuis l'administration"
+description: "Installez, mettez à jour et gérez les extensions et widgets Centreon depuis le menu Administration > Extensions > Gestionnaire."
 ---
 
 Les extensions permettent d'ajouter des fonctionnalités supplémentaires à

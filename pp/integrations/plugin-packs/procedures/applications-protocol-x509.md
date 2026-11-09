@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-x509
 title: X509 Certificate
-description: "Monitor X509 certificate expiration dates via HTTPS, TCP, or OpenSSL, and get alerted before certificates expire."
+description: "Monitor X509 certificate expiration dates via HTTPS, TCP, OpenSSL, or a file, and get alerted before certificates expire on your resources."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

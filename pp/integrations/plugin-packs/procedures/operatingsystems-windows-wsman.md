@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-windows-wsman
 title: Windows WSMAN
-description: "Monitor Windows servers via WSMAN: CPU, memory, disk space, services, processes, uptime, certificates, and more."
+description: "Monitor Windows servers via WSMAN: CPU, memory, swap, disk space, services, processes, traffic, uptime, certificates, updates, and more, with discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

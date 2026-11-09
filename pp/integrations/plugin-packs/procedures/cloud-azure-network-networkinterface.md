@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-networkinterface
 title: Azure Network Interface
-description: "Monitor Azure Network Interface traffic via API, tracking bytes and packets sent and received rates."
+description: "Monitor Azure network interfaces via API or Azure CLI: bytes and packets sent and received rates, with automatic host discovery in a subscription."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

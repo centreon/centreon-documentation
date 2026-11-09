@@ -1,7 +1,7 @@
 ---
 id: network-cisco-firepower-snmp
 title: Cisco Firepower SNMP
-description: "Monitor Cisco Firepower appliances via SNMP: CPU, memory, hardware status, faults, and network interfaces."
+description: "Monitor Cisco Firepower appliances via SNMP: CPU, memory, hardware status, faults, and network interfaces, with host and interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

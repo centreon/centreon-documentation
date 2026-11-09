@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-network-appgateway
 title: Azure Application Gateway
-description: "Monitor Azure Application Gateway via REST API: backend health, connections, requests, throughput, and response times."
+description: "Monitor Azure Application Gateway via REST API: backend health, connections, requests, throughput, response times, and units, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

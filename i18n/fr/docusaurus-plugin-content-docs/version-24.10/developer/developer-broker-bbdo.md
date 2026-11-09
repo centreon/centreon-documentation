@@ -1,7 +1,7 @@
 ---
 id: developer-broker-bbdo
 title: Le protocole BBDO
-description: "Présentation du protocole BBDO utilisé par Centreon Broker"
+description: "Référence du protocole BBDO de Centreon Broker : types, format des paquets, catégories d'évènements, établissement de la connexion et acquittement."
 ---
 
 Le protocole BBDO a été créé pour être le protocole par défaut de Centreon Broker. Il est léger, facile à décoder et spécialement conçu pour la surveillance des ressources avec Centreon Broker.

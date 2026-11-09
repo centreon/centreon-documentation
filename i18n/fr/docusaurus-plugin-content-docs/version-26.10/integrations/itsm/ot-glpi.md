@@ -1,7 +1,7 @@
 ---
 id: ot-glpi
 title: GLPI
-description: "Configurez le fournisseur de tickets GLPI utilisant l'ancien plugin webservice, compatible avec GLPI 8.5 à 9.0"
+description: "Configurez le fournisseur GLPI de Centreon Open Tickets basé sur l'ancien plugin webservice, compatible avec GLPI 8.5 à 9.0. Préférez la version API REST."
 ---
 
 > GLPI web services are no longer maintained, so we recommend that you use the Rest API version to benefit from the latest enhancements and features.

@@ -1,7 +1,7 @@
 ---
 id: cma
 title: Introduction to CMA
-description: "Introduction to the Centreon Monitoring Agent and its use cases"
+description: "Introduction to Centreon Monitoring Agent (CMA): when to use an agent, supported OSs and applications, and how the host and poller interact."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -36,7 +36,6 @@ The CMA can be installed on and monitor the following OSs:
 * RHEL/Oracle Linux/Alma Linux 8
 * RHEL/Oracle Linux/Alma Linux 9
 * RHEL/Oracle Linux/Alma Linux 10
-* Debian 11
 * Debian 12
 * Debian 13
 * Ubuntu 22.04/24.04 LTS

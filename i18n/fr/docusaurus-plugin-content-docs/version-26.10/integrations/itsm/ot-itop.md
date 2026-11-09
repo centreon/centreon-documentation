@@ -1,7 +1,7 @@
 ---
 id: ot-itop
 title: iTop
-description: "Configurez le fournisseur de tickets iTop qui se connecte à votre serveur iTop via son API REST"
+description: "Configurez le fournisseur iTop de Centreon Open Tickets pour ouvrir des tickets depuis vos alertes de supervision via l'API REST d'iTop, puis testez-le."
 ---
 
 ## How it works

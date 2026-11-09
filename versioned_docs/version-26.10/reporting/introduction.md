@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction to MBI
-description: "Introduction to Centreon MBI and the reports it generates"
+description: "Centreon MBI is an extension that generates reports on host groups, host categories, and service categories. Learn what it does and its output formats."
 ---
 
 ## What is Centreon MBI?

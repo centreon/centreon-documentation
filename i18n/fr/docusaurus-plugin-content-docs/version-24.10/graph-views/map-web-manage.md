@@ -1,7 +1,7 @@
 ---
 id: map-web-manage
 title: Gérer les cartes dans MAP
-description: "Gérer, partager et supprimer des cartes depuis l'interface Centreon MAP"
+description: "Gérez vos cartes et vues géographiques Centreon MAP : consultez leur statut, dupliquez, supprimez ou modifiez une carte, partagez-la et copiez son URL."
 ---
 
 Cette page décrit comment créer et gérer les cartes à partir de l'interface Centreon MAP. Vous pouvez créer deux types de cartes :

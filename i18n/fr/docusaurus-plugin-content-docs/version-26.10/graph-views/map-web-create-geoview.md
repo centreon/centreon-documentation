@@ -1,7 +1,7 @@
 ---
 id: map-web-create-geoview
 title: Créer une vue géographique
-description: "Créer et configurer des vues géographiques pour afficher vos ressources"
+description: "Créez des vues géographiques dans Centreon MAP pour placer vos ressources sur une carte : affichage, regroupement, clignotement et couches de données."
 ---
 
 Cette page explique comment créer des vues géographiques à partir de l'interface Centreon MAP.

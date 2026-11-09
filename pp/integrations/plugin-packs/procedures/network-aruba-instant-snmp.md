@@ -1,7 +1,7 @@
 ---
 id: network-aruba-instant-snmp
 title: Aruba Instant SNMP
-description: "Monitor Aruba Instant access points via SNMP: track AP usage, CPU, memory, and SSID status."
+description: "Monitor Aruba Instant access points via SNMP: AP count and status, connected clients, CPU and memory per AP, and SSID status, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

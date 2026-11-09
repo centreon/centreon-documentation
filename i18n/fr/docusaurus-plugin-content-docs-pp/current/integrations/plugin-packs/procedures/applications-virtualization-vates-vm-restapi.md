@@ -1,7 +1,7 @@
 ---
 id: applications-virtualization-vates-vm-restapi
 title: Vates VM REST API
-description: "Supervisez les machines virtuelles Vates Xen Orchestra via l'api REST : CPU, mémoire, état de la VM."
+description: "Supervisez les machines virtuelles Vates via l'API REST de Xen Orchestra : utilisation CPU et mémoire des VM, avec découverte d'hôtes des machines."
 
 ---
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: dashboards
 title: Tableaux de bord
-description: "Créer des tableaux de bord, ajouter des widgets et gérer des listes de diffusion"
+description: "Créez des tableaux de bord Centreon, ajoutez des widgets, partagez-les avec des droits d'accès et gérez des listes de diffusion pour suivre vos ressources."
 ---
 
 Commencez par créer des tableaux de bord et ajoutez des widgets spécialement conçus pour optimiser votre expérience utilisateur. Bénéficiez ensuite d'options de visualisation de données pour afficher et suivre vos ressources en temps réel.

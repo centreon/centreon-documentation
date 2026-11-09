@@ -1,7 +1,7 @@
 ---
 id: sc-warp10
 title: Warp10
-description: "Envoyer les évènements hôtes et services Centreon vers Warp10"
+description: "Installez et configurez le stream connector Warp10 pour envoyer les évènements des hôtes et services Centreon vers une base de séries temporelles Warp10."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

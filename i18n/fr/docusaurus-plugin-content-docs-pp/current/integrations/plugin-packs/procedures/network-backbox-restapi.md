@@ -1,7 +1,7 @@
 ---
 id: network-backbox-restapi
 title: Backbox Rest API
-description: "Supervisez les appareils Backbox via l'API REST : statut des sauvegardes, des configurations et des intellichecks."
+description: "Supervisez Backbox via l'API REST : sauvegardes (succès, suspectes, échecs), changements de configuration, intellichecks et statut des équipements."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

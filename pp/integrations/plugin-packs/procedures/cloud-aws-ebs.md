@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-ebs
 title: Amazon EBS
-description: "Monitor Amazon EBS volumes via the AWS CloudWatch API: track IOPS, read/write time, and volume I/O throughput."
+description: "Monitor Amazon EBS volumes via the AWS CloudWatch API: read/write IOPS, throughput, queue length, read/write and idle time, and volume I/O bytes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

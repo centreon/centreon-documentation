@@ -1,7 +1,7 @@
 ---
 id: what-is-centreon-ceip
 title: What is Centreon CEIP?
-description: "Introduction to the Customer Experience Improvement Program"
+description: "Learn what data the Centreon Customer Experience Improvement Program (CEIP) collects, how it is anonymized and used, and how to configure it."
 ---
 
 Joining the Centreon Customer Experience Improvement Program

@@ -1,7 +1,7 @@
 ---
 id: map-web-known-issues
 title: Problèmes connus dans MAP
-description: "Problèmes connus actuellement traités par l'équipe MAP"
+description: "Problèmes connus de Centreon MAP en cours de correction : détection d'anomalies, propriétés de police, migration des Geo Maps et couleurs des courbes."
 ---
 
 Cette page répertorie les problèmes connus sur lesquels l'équipe Centreon travaille actuellement :

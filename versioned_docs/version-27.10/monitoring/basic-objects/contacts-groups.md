@@ -1,7 +1,7 @@
 ---
 id: contacts-groups
 title: Using contact groups
-description: "Group contacts together to simplify notifications and access control"
+description: "Create contact groups in Centreon to notify several users at once from hosts, services, or escalations, and to define access groups for ACLs."
 ---
 
 ### Contact Groups

@@ -1,6 +1,7 @@
 ---
 id: applications-quadstor-cma
 title: Quadstor CMA
+description: "Supervisez les bibliothèques de sauvegarde VTL Quadstor via l'agent de supervision Centreon (CMA) : utilisation des disques, état des jobs et des bandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

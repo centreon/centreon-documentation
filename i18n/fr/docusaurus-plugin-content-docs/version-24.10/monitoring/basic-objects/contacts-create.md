@@ -1,7 +1,7 @@
 ---
 id: contacts-create
 title: Créer des utilisateurs/contacts manuellement
-description: "Créer un utilisateur manuellement et configurer ses paramètres de notification et d'authentification"
+description: "Créez manuellement un utilisateur Centreon depuis la page Contacts/Utilisateurs et configurez ses informations, ses notifications et son authentification."
 ---
 
 Pour ajouter un contact, allez à la page **Configuration > Utilisateurs > Contacts/Utilisateurs**, puis cliquez sur **Add**.

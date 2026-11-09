@@ -1,7 +1,7 @@
 ---
 id: inventory-configuration-reports
 title: Inventory and Configuration reports
-description: "Reports listing host and service configuration inventory and unclassified resources"
+description: "Centreon MBI inventory reports: hosts and services with their templates, groups, and categories, poller performance, and unclassified resources."
 ---
 
 ### Hostgroups-Host-Templates

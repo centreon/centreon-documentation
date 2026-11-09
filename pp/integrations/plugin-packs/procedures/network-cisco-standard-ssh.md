@@ -1,7 +1,7 @@
 ---
 id: network-cisco-standard-ssh
 title: Cisco Standard SSH
-description: "Monitor Cisco devices via SSH: track CPU utilization and voice dial peer status with this connector."
+description: "Monitor Cisco devices via SSH: track CPU utilization over 5 seconds, 1 minute, and 5 minutes, and the operational status of voice dial peers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

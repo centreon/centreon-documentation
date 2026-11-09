@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-centreon-clm-restapi
 title: Centreon Log Management Rest API
-description: "Supervisez Centreon Log Management via API REST : suivez le nombre d'alertes par statut et le volume de logs ingérés."
+description: "Supervisez Centreon Log Management via l'API REST : nombre d'alertes en cours par statut et volume de logs ingérés sur la dernière heure pour une requête."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

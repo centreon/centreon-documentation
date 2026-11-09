@@ -1,6 +1,7 @@
 ---
 id: cma-setup-manual
 title: Setting up CMA manually
+description: "Set up Centreon Monitoring Agent (CMA) manually: configure Centreon, prepare the poller firewall and encryption, then install the agent on the host."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -264,7 +265,7 @@ dnf install  compat-openssl11 centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 1. Execute the following commands:
 
@@ -732,7 +733,7 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 > ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 12" label="Debian 12">
 
 ```bash
 apt update && apt install lsb-release ca-certificates apt-transport-https software-properties-common wget gnupg2 curl
@@ -1006,7 +1007,7 @@ dnf update centreon-monitoring-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11, 12 & 13" label="Debian 11, 12 & 13">
+<TabItem value="Debian 12 & 13" label="Debian 12 & 13">
 
 ```shell
 apt-get update && apt-get upgrade centreon-monitoring-agent
@@ -1028,6 +1029,22 @@ Then restart the agent:
 systemctl restart centagent
 ```
 
+This updates the agent only. Plugins (`centreon-plugin-*` packages) are separate packages that are not affected by this command.
+
+To update only the plugins, without touching the agent, use your package manager on the relevant `centreon-plugin-*` package(s), e.g.:
+
+```shell
+dnf update centreon-plugin-Operatingsystems-Linux-Local
+```
+
+Or, to update all the Centreon plugins installed on the host:
+
+```shell
+dnf update 'centreon-plugin-*'
+```
+
+On Debian/Ubuntu, replace `dnf update` with `apt-get update && apt-get upgrade`. No agent restart is required after updating plugins only.
+
 </TabItem>
 <TabItem value="Windows" label="Windows">
 
@@ -1043,6 +1060,12 @@ systemctl restart centagent
    * **Update**: allows you to update both the agent binaries and the configuration. Select the instance to update — the configuration fields are pre-filled with the current values and can be modified.
 2. Select **Update**, choose the instance to update, adjust the configuration if needed, and complete the wizard.
 
+To update only the plugins, without updating the agent binaries:
+
+1. Stop the agent service first (e.g. from the Windows **Services** console, or with `net stop "ServiceName"` in a command prompt run as administrator).
+2. Launch the installer, uncheck the agent in the list of components (binaries) and leave only **Plugins** checked before completing the wizard.
+3. Start the agent service again (e.g. `net start "ServiceName"`).
+
 </TabItem>
 <TabItem value="Silent mode" label="Silent mode (console)">
 
@@ -1053,6 +1076,14 @@ centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /AGENTINSTANCE="Servic
 ```
 
 This updates both the agent binaries and the configuration of the specified instance.
+
+To update only the plugins, without updating the agent binaries, stop the agent service first, run the installer with `/COMPONENTS=plugins`, then start the service again:
+
+```shell
+net stop "ServiceName"
+start /wait centreon-monitoring-agent-xxx.exe /VERYSILENT /UPDATEONLY /COMPONENTS=plugins /AGENTINSTANCE="ServiceName"
+net start "ServiceName"
+```
 
 </TabItem>
 </Tabs>

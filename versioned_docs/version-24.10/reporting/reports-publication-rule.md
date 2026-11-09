@@ -1,7 +1,7 @@
 ---
 id: reports-publication-rule
 title: Report publication rules
-description: "Configure publication rules to share generated MBI reports automatically"
+description: "Share Centreon MBI reports with publication rules: send them by email or copy them to a server each time a job runs, and configure the Default rule."
 ---
 
 import Tabs from '@theme/Tabs';

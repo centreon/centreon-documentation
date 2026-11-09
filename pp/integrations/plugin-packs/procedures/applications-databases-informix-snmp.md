@@ -1,7 +1,7 @@
 ---
 id: applications-databases-informix-snmp
 title: Informix DB SNMP
-description: "Monitor IBM Informix databases via SNMP: backups, chunk status, dbspace and log usage, cache, locks, and sessions."
+description: "Monitor IBM Informix databases via SNMP: level-0 archives, chunk status, dbspace and log file usage, global cache, lock statistics, and sessions."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: extensions
 title: Extensions
-description: "Install and manage Centreon extensions from the Administration menu"
+description: "Install, update, and manage Centreon extensions and widgets from the Administration > Extensions > Manager menu after installing their packages."
 ---
 
 Extensions can be used to add additional features to Centreon. It is

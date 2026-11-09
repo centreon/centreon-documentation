@@ -1,7 +1,7 @@
 ---
 id: logs
 title: List of Centreon logs
-description: "Reference list of Centreon log files and what they reveal"
+description: "Reference list of Centreon log files for the web interface, API, business modules, and pollers, with their location and the information they contain."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

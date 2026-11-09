@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-vpn
 title: AWS VPN
-description: "Monitor AWS VPN connections via the CloudWatch API, tracking tunnel state and inbound/outbound traffic."
+description: "Monitor AWS VPN connections via the CloudWatch API: tunnel state and inbound/outbound traffic per tunnel or globally, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

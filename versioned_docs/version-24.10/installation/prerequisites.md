@@ -1,7 +1,7 @@
 ---
 id: prerequisites
 title: Prerequisites
-description: "Sizing guidelines to determine your Centreon platform requirements"
+description: "Size your Centreon platform: estimate the CPU, RAM and storage needed for central, database and poller servers based on the number of monitored services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

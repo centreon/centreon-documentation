@@ -1,7 +1,7 @@
 ---
 id: web-and-post-installation
 title: Installation Web
-description: "Terminer l'assistant d'installation web et initialiser la supervision"
+description: "Suivez l'assistant d'installation web de Centreon, initialisez la supervision, ajoutez une licence, installez les extensions et sécurisez votre plateforme."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

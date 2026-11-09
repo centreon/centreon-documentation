@@ -1,7 +1,7 @@
 ---
 id: administration
 title: Administration
-description: "Mettre à jour, désinstaller et configurer le module Auto Discovery et Gorgone"
+description: "Mettez à jour ou désinstallez le module Centreon Auto Discovery et configurez son module Gorgone (architecture distribuée, tâche planifiée, accès API)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

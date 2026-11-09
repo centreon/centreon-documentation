@@ -1,7 +1,7 @@
 ---
 id: adapt-legacy-pullwss
 title: Adapter les anciennes configurations de collecteurs pullwss
-description: "Comment adapter les anciennes connexions pullwss à la nouvelle configuration des collecteurs en conteneur"
+description: "Adaptez vos anciens collecteurs pullwss après une mise à jour en 27.10 pour utiliser des collecteurs en conteneur, via le port 443 ou Gorgone."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

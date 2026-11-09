@@ -1,7 +1,7 @@
 ---
 id: applications-haproxy-snmp
 title: Haproxy SNMP
-description: "Monitor HAProxy via SNMP: track backend and frontend usage, sessions, traffic, and queue status."
+description: "Monitor HAProxy via SNMP: backend and frontend status, current and total sessions, inbound and outbound traffic, and backend queue size."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

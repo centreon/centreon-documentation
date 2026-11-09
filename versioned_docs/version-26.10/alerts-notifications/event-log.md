@@ -1,7 +1,7 @@
 ---
 id: event-log
 title: Event Logs
-description: "View status changes and sent notifications in the event log"
+description: "View the Centreon event logs to see host and service status changes and the notifications sent, and filter them by period, resource, or group."
 ---
 
 Use event logs to:

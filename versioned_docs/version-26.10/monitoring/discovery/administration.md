@@ -1,7 +1,7 @@
 ---
 id: administration
 title: Administration
-description: "Update, uninstall, and configure the Auto Discovery module and its Gorgone settings"
+description: "Update or uninstall the Centreon Auto Discovery module and configure its Gorgone module for distributed architectures, scheduled jobs, and API access."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: overview
 title: How Centreon HA works
-description: "How a Centreon HA cluster fails over and recovers"
+description: "Understand how a Centreon HA cluster works with Pacemaker and Corosync: how the passive node takes over when the active node fails, and how it recovers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

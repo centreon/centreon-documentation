@@ -1,7 +1,7 @@
 ---
 id: architectures
 title: Architectures
-description: "Choose the right monitoring architecture for your platform size and needs"
+description: "Compare Centreon architectures (standalone central server, distributed with pollers and remote servers, remote DBMS) and choose one that fits your volume."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
