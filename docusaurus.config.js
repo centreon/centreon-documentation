@@ -1,4 +1,5 @@
 import { themes as prismThemes } from 'prism-react-renderer';
+import { lastContentUpdate } from './tools/last-update/index.mjs';
 
 import availableVersions from './versions.json';
 import archivedVersions from './archivedVersions.json';
@@ -95,6 +96,19 @@ const config = {
   baseUrl,
   onBrokenLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
   markdown: {
+    // Pages whose last commit did not change their content (listed in
+    // .lastupdate-ignore-revs, or tagged [skip-last-update]) keep the date of
+    // their previous change. See tools/last-update/README.md.
+    parseFrontMatter: async (params) => {
+      const result = await params.defaultParseFrontMatter(params);
+      if (!result.frontMatter.last_update) {
+        const date = lastContentUpdate(params.filePath);
+        if (date) {
+          result.frontMatter.last_update = { date: date.toISOString() };
+        }
+      }
+      return result;
+    },
     hooks: {
       onBrokenMarkdownLinks: archivedVersion || !cloud || !pp || !experienceMonitoring || !logmanagement ? 'log' : 'throw',
     }
