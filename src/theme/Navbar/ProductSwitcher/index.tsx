@@ -55,6 +55,12 @@ export function getProducts(items: NavbarItemConfig[]): Product[] {
         to,
         pluginId: 'pp',
       });
+    } else if (to === '/api/') {
+      sections.push({
+        label: translate({id: 'navbar.product.cim.api', message: 'API reference'}),
+        to,
+        pluginId: 'api',
+      });
     }
   }
 

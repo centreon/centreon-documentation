@@ -26,23 +26,23 @@
    "variables": {
     "protocol": {
      "enum": [
-      "http",
-      "https"
+      "https",
+      "http"
      ],
-     "default": "http",
-     "description": "HTTP schema"
+     "default": "https",
+     "description": "HTTP scheme"
     },
     "server": {
-     "default": "localhost",
-     "description": "IP address or hostname of Centreon server"
+     "default": "your-centreon-server",
+     "description": "IP address or hostname of your Centreon central server"
     },
     "port": {
-     "default": "80",
-     "description": "Port used by HTTP server"
+     "default": "443",
+     "description": "Port of the web server"
     },
     "version": {
-     "default": "v25.10",
-     "description": "Version of the API"
+     "default": "latest",
+     "description": "API version: latest, or v<major>.<minor> (for example v26.10)"
     }
    }
   }

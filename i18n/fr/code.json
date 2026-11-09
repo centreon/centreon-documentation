@@ -658,6 +658,10 @@
     "message": "Connecteurs de supervision",
     "description": "navbar.product.cim.connectors"
   },
+  "navbar.product.cim.api": {
+    "message": "Référence API",
+    "description": "navbar.product.cim.api"
+  },
   "navbar.product.cxm": {
     "message": "Experience Monitoring",
     "description": "navbar.product.cxm"

@@ -22,23 +22,19 @@
  },
  "servers": [
   {
-   "url": "{protocol}://{server}:{port}/centreon",
+   "url": "https://{organization}.{region}.centreon.cloud/{instance}",
    "variables": {
-    "protocol": {
-     "enum": [
-      "http",
-      "https"
-     ],
-     "default": "http",
-     "description": "HTTP schema"
+    "organization": {
+     "default": "your-organization",
+     "description": "Name of your organization"
     },
-    "server": {
-     "default": "localhost",
-     "description": "IP address or hostname of Centreon server"
+    "region": {
+     "default": "your-region",
+     "description": "Region of your Centreon Cloud platform"
     },
-    "port": {
-     "default": "80",
-     "description": "Port used by HTTP server"
+    "instance": {
+     "default": "your-instance",
+     "description": "Name of your Centreon Cloud instance"
     }
    }
   }
