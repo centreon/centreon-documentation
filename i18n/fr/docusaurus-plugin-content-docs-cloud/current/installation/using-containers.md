@@ -146,7 +146,6 @@ Ajoutez les options suivantes à la commande d'installation pour inclure des fon
 
 | Option | Effet |
 |------|--------|
-| `--with-snmptrap` | Ajoute les services `snmptrapd` et `centreontrapd`, pour la supervision passive via les [traps SNMP](../../monitoring/passive-monitoring/enable-snmp-traps.md). |
 | `--with-vmware` | [Permet au collecteur de superviser des ressources VMware](using-containers-advanced-configuration.md#permettre-au-collecteur-de-superviser-des-ressources-vmware) (ajoute le service `centreon-vmware` au docker-compose). |
 | `--with-cma` | [Permet au collecteur de recevoir des données des agents CMA](./using-containers-advanced-configuration.md#permettre-au-collecteur-de-recevoir-des-données-des-agents-cma). Monte les certificats TLS et expose le port 4317, pour les collecteurs qui acceptent les connexions de l'agent CMA (Centreon Monitoring Agent) via OpenTelemetry gRPC. |
 | `--tz <timezone>` | Définit le fuseau horaire des conteneurs (par défaut : `UTC`). |
