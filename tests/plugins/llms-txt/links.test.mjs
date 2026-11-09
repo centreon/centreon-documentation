@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
-import { createUrlRewriter, markdownPath } from './links.js';
+import { createUrlRewriter, markdownPath } from '../../../src/plugins/llms-txt/links.js';
 
 describe('markdownPath', () => {
   it('replaces the trailing slash of a page path with .md', () => {

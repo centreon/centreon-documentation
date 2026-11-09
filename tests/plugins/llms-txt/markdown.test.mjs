@@ -5,7 +5,7 @@
 import assert from 'node:assert/strict';
 import { describe, it } from 'node:test';
 
-import { createMarkdownConverter, frontMatter } from './markdown.mjs';
+import { createMarkdownConverter, frontMatter } from '../../../src/plugins/llms-txt/markdown.mjs';
 
 const PAGE_URL = 'https://docs.centreon.com/docs/admin/page/';
 const converter = createMarkdownConverter();
