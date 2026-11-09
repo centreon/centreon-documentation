@@ -8,6 +8,7 @@ docusaurus.config.js                @centreon/owners-pipelines
 .github/**                    @centreon/owners-pipelines
 .yamlfix.toml                 @centreon/owners-pipelines
 src/plugins/**                @centreon/owners-pipelines
+tests/plugins/**              @centreon/owners-pipelines
 
 # Security Codeowners rules
 .githooks/pre-commit                 @centreon/owners-security
