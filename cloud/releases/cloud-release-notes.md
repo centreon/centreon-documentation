@@ -58,7 +58,7 @@ The look and feel of the interface has been refreshed this cycle:
 - [Open Tickets] Category and group lists now load correctly with the GLPI provider on GLPI 9.5 and later.
 - [Open Tickets] The widget loads faster and no longer overloads the database server on large platforms.
 - [Performance Graphs] Metaservice graphs now display the metaservice name as their title, so they are easier to identify on the page.
-- [Web] Fixed broker config export adding an event_script logger that broke connectivity on pollers older than 25.10.03.
+- [Web] Fixed an issue where exporting the configuration caused pollers running Centreon Broker versions prior to 25.10.3 to lose connection to the Central server.
 
 </details>
 
