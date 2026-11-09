@@ -101,7 +101,7 @@ The improvements below have been released on the collect components since the pr
 - [MAP] Fixed an issue where error messages were displayed when an authentication token expired.
 - [MAP] Fixed an issue where the Geoview widget was not displaying resources when viewed through a public playlist.
 - [MAP] Fixed an issue where updating a container's image failed to save and reverted to the default image.
-- [MAP] Fixed label truncated.
+- [MAP] Fixed a truncated label.
 - [MAP] Fixed map latest graph API from centreon call.
 
 </details>
