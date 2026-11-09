@@ -96,7 +96,7 @@ The improvements below have been released on the collect components since the pr
 - [BAM] The event handler command now stays visible in the Business Activity configuration form after saving and reopening it.
 - [MAP] Fixed an issue in Centreon MAP where duplicating a multi-selection of different object types caused the map to break upon saving.
 - [MAP] Fixed an issue in Centreon MAP where hovering over a host inside a host group resource caused an error and failed to display host information when the host was not directly added to the map.
-- [MAP] Fixed an issue in Centreon MAP where switching a Gauge or Metric Link widget's resource type from Meta service to Service caused a "can't load module" error.
+- [MAP] Fixed an issue in Centreon MAP where switching a Gauge or Metric Link widget's resource type from metaservice to service caused a "can't load module" error.
 - [MAP] Fixed an issue in Centreon Map where business activities hosted on an additional poller did not display their real-time status and output on maps.
 - [MAP] Fixed an issue where error messages were displayed when an authentication token expired.
 - [MAP] Fixed an issue where the Geoview widget was not displaying resources when viewed through a public playlist.
