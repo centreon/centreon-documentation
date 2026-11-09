@@ -1,0 +1,30 @@
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.6rem;
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.badge {
+  padding: 0.05rem 0.55rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-100);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ifm-color-emphasis-800);
+}
+
+.part + .part::before {
+  content: '·';
+  margin-right: 0.6rem;
+}
+
+.badge + .part::before {
+  content: '·';
+  margin-right: 0.6rem;
+}
+
