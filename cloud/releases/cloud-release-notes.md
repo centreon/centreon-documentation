@@ -57,7 +57,7 @@ The look and feel of the interface has been refreshed this cycle:
 - [Monitoring] Host group and service group listings no longer time out on large platforms.
 - [Open Tickets] Category and group lists now load correctly with the GLPI provider on GLPI 9.5 and later.
 - [Open Tickets] Widget loads faster and no longer overload the database server on large platforms.
-- [Performance Graphs] Meta service graphs now display the meta service name as their title, so they are easier to identify on the page.
+- [Performance Graphs] Metaservice graphs now display the metaservice name as their title, so they are easier to identify on the page.
 - [Web] Fixed broker config export adding an event_script logger that broke connectivity on pollers older than 25.10.03.
 
 </details>
