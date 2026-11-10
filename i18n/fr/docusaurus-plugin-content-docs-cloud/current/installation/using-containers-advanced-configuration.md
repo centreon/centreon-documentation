@@ -8,101 +8,6 @@ Cette page décrit la configuration optionnelle d'un collecteur [déployé dans 
 conteneur](./using-containers.md),
 au-delà des services `centengine` et `gorgone` présents par défaut.
 
-## Permettre au collecteur d'envoyer des notifications par e-mail
-
-Cette section s'applique si vous souhaitez que votre collecteur puisse envoyer des notifications.
-
-Un collecteur en conteneur dispose de deux moyens d'envoyer des notifications par e-mail :
-utilisez celui qui convient le mieux à votre infrastructure.
-
-* Une [commande SMTP native](#option-1--commande-smtp-native), qui utilise la commande `mail` (du paquet `mailutils`)
-  relayée par `msmtp`.
-* Le [connecteur **centreon-plugin-notification-email**](#option-2--connecteur-centreon-plugin-notification-email).
-
-### Option 1 : Commande SMTP native
-
-Il s'agit de la manière la plus courante d'[envoyer des notifications](../alerts-notifications/notif-configuration.md).
-
-La commande SMTP native a besoin d'un relais SMTP pour envoyer les e-mails. Configurez-le à l'aide de variables d'environnement sur le service `centengine`, dans le fichier docker-compose.
-
-| Variable | Effet |
-|----------|--------|
-| `SMTP_HOST` | Adresse du relais SMTP. Obligatoire pour la commande SMTP native : tant que cette variable est vide, les notifications ne sont pas envoyées, et aucune erreur n'est remontée. |
-| `SMTP_PORT` | Port du relais SMTP (par défaut : `25`). |
-| `SMTP_FROM` | Adresse utilisée dans le champ `From:` des e-mails de notification envoyés. |
-| `SMTP_TLS` | Définissez cette variable sur `on` pour utiliser TLS lors de la connexion au relais (par défaut : `off`). |
-
-Si vous utilisez la commande SMTP native, sachez que le fichier `docker-compose.yaml` généré
-par le script d'installation ne renseigne pas ces variables par défaut. Ajoutez-les
-directement dans le bloc `environment:` du service `centengine` ou, pour les garder hors du
-fichier `.env` que le script d'installation régénère à chaque exécution, placez-les dans un
-fichier distinct référencé comme `env_file` supplémentaire :
-
-Ajoutez les 3 dernières lignes à votre fichier docker-compose.
-
-```yaml
-services:
-  centengine:
-    # ...
-    env_file:
-      - .env
-      - .env.smtp
-```
-
-Stockez ensuite vos variables d'environnement dans un fichier `.env.smtp` situé dans le même répertoire que le fichier docker-compose.
-
-```shell
-# .env.smtp
-SMTP_HOST=smtp.example.com
-SMTP_PORT=25
-SMTP_FROM=centreon-engine@example.com
-SMTP_TLS=off
-```
-
-Redémarrez le service `centengine` (`docker compose up -d`) après avoir modifié ces variables.
-
-`mailutils` et `msmtp` sont préinstallés dans l'image. Au démarrage, `centengine` écrit une
-configuration `msmtp` à partir des variables `SMTP_*` ci-dessus : `/usr/bin/mail` envoie donc
-les messages via votre relais, sans configuration supplémentaire.
-
-### Option 2 : Connecteur centreon-plugin-notification-email
-
-Les paramètres du relais SMTP du connecteur sont de simples options en ligne de commande : vous pouvez donc les définir directement dans la commande.
-
-Le connecteur est préinstallé dans `$CENTREONPLUGINS$` (généralement
-`/usr/lib/centreon/plugins/`), sous le nom `centreon_notification_email.pl`. Ses options
-`--smtp-address`, `--smtp-port` et `--from-address` suffisent à renseigner votre relais,
-sans aucune variable d'environnement.
-
-Le connecteur choisit entre son modèle de notification d'hôte et son modèle de notification de
-service selon que l'option `--service-description` est renseignée ou non : la **même
-command_line** peut donc servir à la fois de commande de notification d'hôte et de service.
-Remplacez les valeurs SMTP, l'URL Centreon et le jeton de l'exemple ci-dessous par les vôtres,
-puis définissez la commande à la page **Configuration > Commandes** :
-
-```shell
-$CENTREONPLUGINS$centreon_notification_email.pl --plugin=notification::email::plugin --mode=alert --to-address='$CONTACTEMAIL$' --host-address='$HOSTADDRESS$' --host-name='$HOSTNAME$' --host-alias='$HOSTALIAS$' --host-state='$HOSTSTATE$' --host-output='$HOSTOUTPUT$' --host-attempts='$HOSTATTEMPT$' --max-host-attempts='$MAXHOSTATTEMPTS$' --host-duration='$HOSTDURATION$' --date='$SHORTDATETIME$' --type='$NOTIFICATIONTYPE$' --service-description='$SERVICEDESC$' --service-displayname='$SERVICEDISPLAYNAME$' --service-state='$SERVICESTATE$' --service-output='$SERVICEOUTPUT$' --service-longoutput='$LONGSERVICEOUTPUT$' --service-attempts='$SERVICEATTEMPT$' --max-service-attempts='$MAXSERVICEATTEMPTS$' --service-duration='$SERVICEDURATION$' --host-id='$HOSTID$' --service-id='$SERVICEID$' --notif-author='$NOTIFICATIONAUTHOR$' --notif-comment='$NOTIFICATIONCOMMENT$' --centreon-url='https://central.example.com' --smtp-address='smtp.example.com' --smtp-port='25' --from-address='centreon-engine@example.com' --centreon-user='admin' --centreon-token='your-autologin-key' --smtp-nossl
-```
-
-* `--centreon-url`, `--centreon-user` et `--centreon-token` (une clé d'auto-connexion Centreon,
-  **Administration > Comptes > votre utilisateur > Sécurité**) permettent d'inclure dans
-  l'e-mail un lien vers la ressource ainsi que son graphique de performance. Omettez ces trois
-  options si vous n'en avez pas besoin : l'e-mail est envoyé quand même.
-* `--insecure` ignore la vérification du certificat TLS lors de la récupération de ce graphique,
-  ce qui est utile lorsque `--centreon-url` utilise un certificat autosigné.
-* Ajoutez `--smtp-user` et `--smtp-password` si votre relais nécessite une authentification,
-  et supprimez `--smtp-nossl` pour utiliser TLS.
-
-> Stocker `--centreon-token` dans une définition de commande revient à l'écrire en clair
-> dans la configuration de Centreon Engine. Utilisez un jeton associé à un compte dédié
-> disposant de droits limités plutôt qu'à un compte administrateur.
-
-Ces options peuvent également utiliser les macros de ressources du collecteur
-`$SMTPADDRESS$`, `$SMTPPORT$` et `$SMTPFROMADDRESS$`. Dans un conteneur, ces
-macros sont écrasées à chaque démarrage du conteneur par les valeurs des
-variables `SMTP_HOST`, `SMTP_PORT` et `SMTP_FROM` (voir l'option 1) : définissez
-ces variables plutôt que de définir les macros dans l'interface de Centreon.
-
 ## Permettre au collecteur d'utiliser des plugins personnalisés pour la supervision
 
 Cette section s'applique uniquement si vous souhaitez utiliser vos propres plugins personnalisés pour la supervision. Aucune action n'est nécessaire pour utiliser les connecteurs de supervision officiels Centreon.
@@ -132,6 +37,8 @@ Dans le fichier `docker-compose.yaml` généré, ajoutez les volumes suivants au
   déclenche automatiquement l'installation des paquets listés, sans qu'il soit nécessaire de
   redémarrer le conteneur. L'installation des paquets s'exécute en arrière-plan : `centengine`
   n'est donc pas bloqué pendant ce temps.
+
+* Vous devrez ajouter vos commandes personnalisées à la [liste blanche de commandes du collecteur](../monitoring/basic-objects/commands.Md#ajouter-une-commande-à-la-liste-blanche).
 
 ### Intégrer les dépendances dans une image personnalisée
 

@@ -39,6 +39,8 @@ In the generated `docker-compose.yaml`, add the following volumes to the `centen
   installation runs in the background, so `centengine` is not blocked while
   it happens.
 
+* You will need to add your custom commands to the [poller's command whitelist](../monitoring/basic-objects/commands.md#add-a-command-to-the-whitelist).
+
 ### Baking dependencies into a custom image
 
 If you have a large number of dependencies, you can build a custom image on top of the official one instead of adding the dependencies one by one to the `custom-deps.json` file. Your custom image will be deployed using the docker-compose.

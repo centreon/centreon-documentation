@@ -14,7 +14,7 @@ A ready-to-use installation command for container-based pollers can be retrieved
 Container-based pollers use Debian 13.
 
 Instead of a single monolithic container, each poller component runs in its own dedicated container
-(Centreon Engine, Gorgone, and optionally SNMP trap handling and VMware
+(Centreon Engine, Gorgone, and optionally VMware
 monitoring), orchestrated by a single `docker-compose.yaml` file.
 
 This deployment method relies on a generated installation command that downloads

@@ -14,7 +14,7 @@ Une commande d'installation prête à l'emploi et adaptée à votre plateforme e
 Les collecteurs en conteneur utilisent Debian 13.
 
 Plutôt qu'un seul conteneur monolithique, chaque composant du collecteur s'exécute dans son
-propre conteneur (Centreon Engine, Gorgone et, en option, la gestion des traps SNMP et la
+propre conteneur (Centreon Engine, Gorgone et, en option, la
 supervision VMware), le tout orchestré par un unique fichier `docker-compose.yaml`.
 
 Cette méthode de déploiement repose sur une commande d'installation générée, qui télécharge
@@ -32,8 +32,6 @@ fichiers `.env` et `docker-compose.yaml`, puis démarre l'ensemble des services.
   installés (la commande `docker compose version` doit aboutir).
 * Vous devez avoir créé un jeton d'authentification de type collecteur.
 * Un accès réseau sortant depuis cet hôte vers votre serveur central Centreon : port web (443 pour HTTPS, 80 pour HTTP) et port TCP 5669 (Centreon Broker).
-* Si vous prévoyez de recevoir des traps SNMP sur ce collecteur, le port UDP 162 doit être
-  accessible sur cet hôte.
 * Si vous prévoyez de superviser une infrastructure VMware depuis ce collecteur, l'image
   Docker `centreon-vmware` doit avoir été construite au préalable (voir
   [Conteneur centreon-vmware](./using-containers-advanced-configuration.md#permettre-au-collecteur-de-superviser-des-ressources-vmware)).
