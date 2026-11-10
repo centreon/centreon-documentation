@@ -454,7 +454,6 @@ const config = {
         { language: 'go' },
         { language: 'java' },
         { language: 'powershell' },
-        { language: 'csharp' },
       ],
 
       prism: {
@@ -473,7 +472,6 @@ const config = {
           'perl',
           'powershell',
           'go',
-          'csharp',
         ],
       },
 
