@@ -433,8 +433,10 @@ const config = {
       // Code samples of the API reference, in this order (curl first).
       languageTabs: [
         { language: 'curl' },
-        { language: 'python' },
+        { language: 'http' },
+        { language: 'python', variant: 'Requests', variants: ['Requests', 'http.client'] },
         { language: 'nodejs' },
+        { language: 'php', variant: 'Guzzle', variants: ['Guzzle', 'cURL'] },
         { language: 'go' },
         { language: 'java' },
         { language: 'powershell' },
