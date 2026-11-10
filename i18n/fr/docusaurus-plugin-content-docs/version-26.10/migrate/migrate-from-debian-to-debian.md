@@ -1,14 +1,14 @@
 ---
 id: migrate-from-debian-to-debian
 title: Migrer vers une version plus récente de Debian
-description: "Migrer une plateforme Centreon vers une version plus récente de Debian"
+description: "Migrez Centreon vers une version plus récente de Debian sur un nouveau serveur : installez le central, synchronisez les données, puis mettez à jour."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 ## Prérequis
 
-Cette procédure ne s'applique que si vous souhaitez migrer de Debian vers une version plus récente de Debian, sur des serveurs différents. La procédure de migration de Debian 12 vers Debian 13 sur le même serveur (migration in-place) est disponible sur notre plateforme communautaire The Watch.
+Cette procédure ne s'applique que si vous souhaitez migrer de Debian vers une version plus récente de Debian, sur des serveurs différents. La [procédure de migration de Debian 12 vers Debian 13 sur le même serveur (migration in-place) est disponible sur notre plateforme communautaire The Watch](https://thewatch.centreon.com/infra-monitoring-product-how-to-21/migrating-from-debian-12-to-debian-13-on-the-same-server-while-upgrading-centreon-to-version-26-10-5985).
 
 Tous les serveurs de votre architecture (serveur central, serveurs distants et collecteurs) doivent avoir la même version majeure de Centreon. Il est également recommandé d'avoir la même version mineure.
 

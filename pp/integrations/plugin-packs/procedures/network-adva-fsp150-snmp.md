@@ -1,7 +1,7 @@
 ---
 id: network-adva-fsp150-snmp
 title: Adva FSP 150 SNMP
-description: "Monitor Adva FSP 150 devices via SNMP, tracking alarms, hardware, interface traffic, and CPU and memory usage."
+description: "Monitor Adva FSP 150 devices via SNMP: alarms, card and shelf counts, system CPU and memory usage, and interface traffic, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

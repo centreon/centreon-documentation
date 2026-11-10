@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-hpux-snmp
 title: HP-UX SNMP
-description: "Monitor HP-UX servers via SNMP: CPU, load average, memory and swap usage, disk storage, uptime, and processes."
+description: "Monitor HP-UX servers via SNMP: system CPUs, load average, memory and swap usage, free space on disks, system uptime, and running processes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -543,3 +543,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=storage \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.

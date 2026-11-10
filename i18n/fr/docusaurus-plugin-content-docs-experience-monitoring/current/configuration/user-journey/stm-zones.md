@@ -1,7 +1,7 @@
 ---
 id: stm-zones
 title: Superviser des parcours utilisateur non publics
-description: Mettre en place une zone privée pour superviser des parcours internes non publics
+description: "Supervisez des parcours utilisateur sur des sites internes en créant une zone STM privée et en déployant une sonde dans votre infrastructure."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -13,7 +13,7 @@ Les sondes peuvent stocker leurs données en cache pour couvrir d'éventuelles c
 
 ## Prérequis
 
-- Une machine située dans votre infrastructure devra héberger une sonde. Elle devra pouvoir accéder à l'application à superviser. Lisez notre [page dédiée sur les prérequis matériels]().
+- Une machine pouvant accéder à l'application à superviser pour héberger la sonde. Cette machine devrait avoir au moins deux coeurs logiques de 3 GHz dédiés et 4Go de RAM (8Go dans l'idéal). Ces valeurs sont le standard pour un seul parcours utilisateur mais peuvent être affinées pour répondre à vos besoins.
 - Un parcours utilisateur doit être configuré sur l'application interne à superviser.
 
 ## Étape 1 : Créer une nouvelle zone STM

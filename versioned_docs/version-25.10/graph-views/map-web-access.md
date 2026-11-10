@@ -1,7 +1,7 @@
 ---
 id: map-web-access
 title: Managing access rights in MAP
-description: "Manage user privileges and access rights on Centreon MAP views"
+description: "Manage who can create maps in Centreon MAP: check which users have the creator role and grant this role to access groups as a Centreon administrator."
 ---
 
 This topic explains how administrators can manage who is allowed to create maps in Centreon MAP.

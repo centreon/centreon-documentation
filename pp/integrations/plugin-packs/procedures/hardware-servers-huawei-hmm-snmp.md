@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-huawei-hmm-snmp
 title: Huawei HMM SNMP
-description: "Monitor Huawei HMM servers via SNMP to check chassis and blade component status."
+description: "Monitor Huawei HMM (Hardware Management Module) via SNMP: component status of chassis and blades, with host discovery through an SNMP scan."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -410,3 +410,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=chassis \
 	--help
 ```
+
+## Changelog
+
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed `no-component` option.
+- [25.07](../releases/release-notes.md#2025-07) - Bug fix: Removed experimental keys on scalar in **blade** mode components.

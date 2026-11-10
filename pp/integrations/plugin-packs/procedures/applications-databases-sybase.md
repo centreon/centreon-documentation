@@ -1,7 +1,7 @@
 ---
 id: applications-databases-sybase
 title: Sybase
-description: "Monitor Sybase databases via SQL queries: blocked processes, connected users, connection time, and database size."
+description: "Monitor Sybase databases via SQL queries: blocked processes, connected users, connection time, database size, and custom SQL queries with thresholds."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -449,3 +449,8 @@ All available options for a given mode can be displayed by adding the
 	--hostname='10.0.0.1' \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **App-DB-Sybase-Databases-Size** command.
+- [22.12](../releases/release-notes.md#2022-12) - Breaking change: Changed `sql-statement` option protection.

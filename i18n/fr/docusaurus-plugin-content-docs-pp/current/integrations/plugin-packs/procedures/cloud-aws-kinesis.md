@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-kinesis
 title: Amazon Kinesis
-description: "Supervisez les flux Amazon Kinesis via l'API AWS : débit, latence et taux de succès des enregistrements et des flux."
+description: "Supervisez les flux Amazon Kinesis via l'API AWS CloudWatch : latence, volume et succès des lectures/écritures, données entrantes et sortantes des flux."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -433,3 +433,10 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=streams \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Changed host status checks output.
+- [25.08](../releases/release-notes.md#2025-08) - Bug fix: Fixed AWS discovery that failed when `aws-access-key` and `aws-secret-key` were not set.
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
+- [22.10](../releases/release-notes.md#2022-10) - Bug fix: Fixed bug with assume-role option.

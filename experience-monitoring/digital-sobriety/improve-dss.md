@@ -1,7 +1,7 @@
 ---
 id: improve-dss
 title: Improving your Digital Sobriety Score
-description: Use per-step recommendations to raise your Digital Sobriety Score
+description: "Improve your Digital Sobriety Score using the recommendations for each user journey step or RUM page, then compare audits to measure the impact."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

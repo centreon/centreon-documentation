@@ -1,7 +1,7 @@
 ---
 id: applications-virtualization-vates-xenorchestra-restapi
 title: Vates Xen Orchestra REST API
-description: Supervisez les statuts des VM et l'utilisation des plusieurs storage repositories d'un environnement de virtualisation Xen Orchestra
+description: "Supervisez un environnement de virtualisation Vates Xen Orchestra via l'API REST : nombre de VM par état et utilisation des storage repositories."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -26,8 +26,8 @@ Le connecteur apporte les modèles de service suivants
 <Tabs groupId="sync">
 <TabItem value="Virt-Vates-Xenorchestra-Restapi-custom" label="Virt-Vates-Xenorchestra-Restapi-custom">
 
-| Alias     | Modèle de service                                 | Description                                                                                     |
-|:----------|:--------------------------------------------------|:------------------------------------------------------------------------------------------------|
+| Alias     | Modèle de service                                 | Description                                                                               |
+|:----------|:--------------------------------------------------|:------------------------------------------------------------------------------------------|
 | Vm-Status | Virt-Vates-Xen-Orchestra-Vm-Status-Restapi-custom | Supervision du nombre de VMs dans chaque état (running, suspended, halted, paused, total) |
 
 > Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **Virt-Vates-Xenorchestra-Restapi-custom** est utilisé.
@@ -35,9 +35,9 @@ Le connecteur apporte les modèles de service suivants
 </TabItem>
 <TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Alias              | Modèle de service                                          | Description                                                        | Découverte |
-|:-------------------|:-----------------------------------------------------------|:-------------------------------------------------------------------|:----------:|
-| Storage-Repository | Virt-Vates-Xen-Orchestra-Storage-Repository-Restapi-custom | Supervision de l'utilisation d'un ou plusieurs storage repository | X          |
+| Alias              | Modèle de service                                          | Description                                                       | Découverte |
+|:-------------------|:-----------------------------------------------------------|:------------------------------------------------------------------|:----------:|
+| Storage-Repository | Virt-Vates-Xen-Orchestra-Storage-Repository-Restapi-custom | Supervision de l'utilisation d'un ou plusieurs storage repository |      X     |
 
 > Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
@@ -50,9 +50,9 @@ Le connecteur apporte les modèles de service suivants
 
 #### Découverte de services
 
-| Nom de la règle                                  | Description                                                                         |
-|:-------------------------------------------------|:------------------------------------------------------------------------------------|
-| Virt-Vates-Xen-Orchestra-Storage-Repository-Name | Découvre les partitions du disque en utilisant son nom et supervise l'espace occupé |
+| Nom de la règle                                  | Description                                          |
+|:-------------------------------------------------|:-----------------------------------------------------|
+| Virt-Vates-Xen-Orchestra-Storage-Repository-Name | Découvre les storage repository en utilisant son nom |
 
 Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
 pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
@@ -122,17 +122,10 @@ dnf install centreon-pack-applications-virtualization-vates-xenorchestra-restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-pack-applications-virtualization-vates-xenorchestra-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-pack-applications-virtualization-vates-xenorchestra-restapi
 ```
 
 </TabItem>
@@ -167,17 +160,10 @@ dnf install centreon-plugin-Virtualization-Vates-Xen-Orchestra-Restapi
 ```
 
 </TabItem>
-<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
+<TabItem value="Debian 11 & 12 & 13" label="Debian 11 & 12 & 13">
 
 ```bash
 apt install centreon-plugin-virtualization-vates-xen-orchestra-restapi
-```
-
-</TabItem>
-<TabItem value="CentOS 7" label="CentOS 7">
-
-```bash
-yum install centreon-plugin-Virtualization-Vates-Xen-Orchestra-Restapi
 ```
 
 </TabItem>
@@ -440,3 +426,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vm-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.09](../releases/release-notes.md#2026-09) - New connector: Initial release.

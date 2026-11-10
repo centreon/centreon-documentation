@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-snmp-rs
 title: Linux SNMP (Rust)
-description: "Monitor Linux servers via SNMP. Experimental: Rust plugin in beta"
+description: "Monitor Linux servers via SNMP with an experimental Rust plugin in beta: CPU, memory, swap, uptime, disk space, and processes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -460,3 +460,7 @@ All available options for a given mode can be displayed by adding the
 	--warning-seconds='' \
 	--help
 ```
+
+## Changelog
+
+- [26.09](../releases/release-notes.md#2026-09) - New connector: Initial release (experimental).

@@ -1,7 +1,7 @@
 ---
 id: upgrade-from-24-04
 title: Upgrade from Centreon 24.04
-description: "Upgrade a Centreon platform from version 24.04 to 25.10"
+description: "Upgrade Centreon from version 24.04 to 25.10: back up your data, upgrade and finalize the central server, then upgrade remote servers and pollers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -86,7 +86,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 1. Update your Centreon 24.04 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el8/centreon-24.04-el8.repo
    dnf clean all --enablerepo=*
    dnf update
    ```
@@ -114,7 +114,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 1. Update your Centreon 24.04 to the latest minor version.
 
    ```shell
-   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el9/centreon-24.04.repo
+   dnf config-manager --add-repo https://archives.centreon.com/standard/24.04/el9/centreon-24.04-el9.repo
    dnf clean all --enablerepo=*
    dnf update
    ```

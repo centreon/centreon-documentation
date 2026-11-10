@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-linux-snmp-rs
 title: Linux SNMP (Rust)
-description: "Supervisez vos serveurs Linux via SNMP (plugin Rust expérimental)"
+description: "Supervisez vos serveurs Linux via SNMP avec un plugin Rust expérimental en bêta : CPU, mémoire, swap, uptime, espace disque et processus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -462,3 +462,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--warning-seconds='' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.09](../releases/release-notes.md#2026-09) - New connector: Initial release (experimental).

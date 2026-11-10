@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-aix-ssh
 title: AIX SSH
-description: "Supervisez les systèmes AIX via SSH : erreurs (errpt), synchronisation des volumes logiques, processus, inodes, espace de stockage et codes retour de commandes."
+description: "Supervisez les systèmes AIX via SSH : messages errpt, synchronisation des volumes logiques, processus, inodes, stockage et codes retour de commandes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -530,3 +530,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.02](../releases/release-notes.md#2026-02) - Enhancement: Added a `FILTERARG` macro to the **Process** service template to filter on the process' arguments. Also added the ability to display details of all processes (including "OK" processes) in the long output (issue [#5945](https://github.com/centreon/centreon-plugins/issues/5945)).
+- [24.12](../releases/release-notes.md#2024-12) - Enhancement: Added `--warning-usage-prct` and `--critical-usage-prct` to the `OS-AIX-SSH-Storage` command.

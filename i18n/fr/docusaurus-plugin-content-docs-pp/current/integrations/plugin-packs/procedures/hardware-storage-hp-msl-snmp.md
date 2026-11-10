@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hp-msl-snmp
 title: HP MSL SNMP
-description: "Supervisez les librairies de sauvegarde HP MSL via SNMP en surveillant le statut matériel et l'état de la librairie."
+description: "Supervisez les librairies de sauvegarde HP MSL via SNMP : statut matériel et nombre de librairies détectées, avec découverte des hôtes par scan SNMP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -338,3 +338,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=hardware \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.

@@ -1,7 +1,7 @@
 ---
 id: ot-easyvista-rest-api
 title: EasyVista RestAPI
-description: "Set up the EasyVista open-tickets provider using the EasyVista REST API, including custom fields and connector testing"
+description: "Configure the EasyVista provider in Centreon Open Tickets with the EasyVista REST API to open and close tickets, add custom fields and test the connection."
 ---
 
 The EasyVista Open Tickets provider uses the EasyVista Rest API to open incidents about your monitoring alerts.

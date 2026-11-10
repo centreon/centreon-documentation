@@ -260,7 +260,7 @@ yum install centreon-plugin-Applications-Monitoring-Centreon-DEM-Restapi
 
 | Macro                        | Description                                                                                                                                      | Default value | Mandatory |
 |:-----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|:---------:|
-| TIMEFRAME                    | Set timeframe in seconds                                                                                                                         | 3600          |           |
+| TIMEFRAME                    | Set timeframe in seconds                                                                                                                         | 86400         |           |
 | WARNINGCARBONFOOTPRINT       | Warning threshold for carbon footprint                                                                                                           |               |           |
 | CRITICALCARBONFOOTPRINT      | Critical threshold for carbon footprint                                                                                                          |               |           |
 | WARNINGDIGITALSOBRIETYSCORE  | Warning threshold for digital sobriety score                                                                                                     |               |           |
@@ -491,7 +491,7 @@ All available options for each service template are listed below:
 | Option                            | Description                                    |
 |:----------------------------------|:-----------------------------------------------|
 | --site-id                         | Set ID of the site (mandatory option).         |
-| --timeframe                       | Set timeframe in seconds (default: 3600).      |
+| --timeframe                       | Set timeframe in seconds (default: 86400).     |
 | --warning-performance-score       | Warning threshold for performance score.       |
 | --critical-performance-score      | Critical threshold for performance score.      |
 | --warning-digital-sobriety-score  | Warning threshold for digital sobriety score.  |
@@ -557,3 +557,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=user-journey-statistics  \
 	--help
 ```
+
+## Changelog
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Changed the default value of the `timeframe` option (from 3600 to 86400 seconds).
+- [26.02](../releases/release-notes.md#2026-02) - Bug fix: The connector now returns an OK status when no incidents are found (instead of UNKNOWN).
+- [26.01](../releases/release-notes.md#2026-01) - New connector: Initial release.

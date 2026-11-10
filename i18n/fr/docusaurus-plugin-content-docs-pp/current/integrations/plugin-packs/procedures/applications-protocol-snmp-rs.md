@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-snmp-rs
 title: Generic SNMP (Rust)
-description: Supervisez n'importe quel équipement supportant SNMP via des OID génériques avec le plugin Rust SNMP
+description: "Supervisez tout équipement compatible SNMP avec le plugin Rust SNMP, en bêta : contrôles d'OID génériques, dont la durée de fonctionnement (uptime)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -262,3 +262,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--warning-seconds='' \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.09](../releases/release-notes.md#2026-09) - New connector: Initial release (experimental).

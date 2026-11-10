@@ -1,7 +1,7 @@
 ---
 id: create-custom-view
 title: Creating a custom view
-description: "Create your first custom view using dashboard widgets"
+description: "Create your first custom view in Centreon from the Home > Custom Views menu: name it, choose a column layout and add widgets such as a top 10 CPU chart."
 ---
 
 ## What is a custom view?

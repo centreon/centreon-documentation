@@ -1,7 +1,7 @@
 ---
 id: network-adva-fsp3000-snmp
 title: Adva FSP 3000 SNMP
-description: "Monitor Adva FSP 3000 optical transport systems via SNMP: alarms, interface traffic, memory, and uptime."
+description: "Monitor Adva FSP 3000 optical transport systems via SNMP: alarms, interface traffic, memory, and uptime, with host and network interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -579,3 +579,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [23.06](../releases/release-notes.md#2023-06) - Bug fix: Fixed options for **interfaces** mode.

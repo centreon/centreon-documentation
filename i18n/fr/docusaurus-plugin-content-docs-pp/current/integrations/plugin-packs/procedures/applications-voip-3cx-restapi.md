@@ -1,7 +1,7 @@
 ---
 id: applications-voip-3cx-restapi
 title: 3CX Rest API
-description: "Supervisez les systèmes téléphoniques 3CX via l'API REST : appels actifs, extensions enregistrées et état du système."
+description: "Supervisez les systèmes téléphoniques 3CX via l'API REST : utilisation des appels actifs, extensions enregistrées et statut des services 3CX."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -401,3 +401,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=system \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added support for versions 20 and above and added **license** mode, based on a [community idea](https://thewatch.centreon.com/ideas/request-to-upgrade-connector-3cx-4418) and community contribution.
+- [24.08](../releases/release-notes.md#2024-08) - Enhancement: Added support for authentication on versions higher than 18.0.5 and made the default values more explicit.

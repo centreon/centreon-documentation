@@ -1,7 +1,7 @@
 ---
 id: map-web-install
 title: Installer MAP
-description: "Installer et configurer le moteur et le client web Centreon MAP"
+description: "Installez Centreon MAP : vérifiez la licence et les prérequis, préparez le serveur, puis installez le serveur MAP Engine et le client web."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -706,7 +706,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    systemctl restart mariadb
    ```
 
-Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 25) sera automatiquement installé, si nécessaire.
+L'installation du serveur MAP installe également Java (OpenJDK 25) si nécessaire.
 
 #### Prérequis Java
   > Assurez-vous qu'une version de Java 25 est installée avant de commencer la procédure.
@@ -819,7 +819,7 @@ Cette procédure permet de s'assurer que le fichier de configuration peut être 
    systemctl restart mysql
    ```
 
-Lors de l'installation du serveur Centreon MAP Engine, java (OpenJDK 25) sera automatiquement installé, si nécessaire.
+L'installation du serveur MAP installe également Java (OpenJDK 25) si nécessaire.
 
 #### Prérequis Java
   > Assurez-vous qu'une version de Java 25 est installée avant de commencer la procédure.

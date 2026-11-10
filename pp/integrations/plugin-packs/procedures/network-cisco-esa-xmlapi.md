@@ -1,7 +1,7 @@
 ---
 id: network-cisco-esa-xmlapi
 title: Cisco ESA XMLAPI
-description: "Monitor Cisco ESA (Email Security Appliance) via the XML API: CPU, memory, disk I/O, and message queue usage."
+description: "Monitor Cisco ESA (Email Security Appliance) via the XML API: system status, CPU, memory, disk I/O, connections, and message queue usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: lifecycle
 title: Politique de cycle de vie des solutions
-description: "Numérotation des versions, cadence de publication et politique de support Centreon"
+description: "Comprenez la numérotation des versions Centreon, leur fréquence de publication et la durée de maintenance et de correctifs de sécurité de chaque version."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

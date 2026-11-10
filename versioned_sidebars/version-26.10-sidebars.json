@@ -876,6 +876,10 @@
               "items": [
                 {
                   "type": "doc",
+                  "id": "graph-views/map-best-practices"
+                },
+                {
+                  "type": "doc",
                   "id": "graph-views/map-web-manage"
                 },
                 {
@@ -1537,6 +1541,10 @@
             {
               "type": "doc",
               "id": "integrations/itsm/ot-mail"
+            },
+            {
+              "type": "doc",
+              "id": "integrations/itsm/ot-matrix42"
             },
             {
               "type": "doc",

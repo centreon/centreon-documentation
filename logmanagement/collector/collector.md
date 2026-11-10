@@ -1,7 +1,7 @@
 ﻿---
 id: collector
 title: Manual collector configuration
-description: Configure an OpenTelemetry collector to collect multiple log sources from one host
+description: "Manually install and configure an OpenTelemetry collector on a host to send logs from several sources to Centreon Log Management, step by step."
 ---
 
 import Tabs from '@theme/Tabs';

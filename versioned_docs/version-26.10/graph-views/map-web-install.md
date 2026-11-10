@@ -1,7 +1,7 @@
 ---
 id: map-web-install
 title: Installing MAP
-description: "Install and configure the Centreon MAP engine and web client"
+description: "Install Centreon MAP: check the license and prerequisites, prepare the server, install the MAP Engine server and web client, and configure the database."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -185,7 +185,7 @@ Note that the MAP web interface has the same requirements as the Centreon web in
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** by **disabled**. You can also run the following command:
+**enforcing** with **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -217,7 +217,7 @@ Disabled
 <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
 
 During installation, SELinux should be disabled. To do this, edit the file **/etc/selinux/config** and replace
-**enforcing** by **disabled**. You can also run the following command:
+**enforcing** with **disabled**. You can also run the following command:
 
 ```shell
 sed -i s/^SELINUX=.*$/SELINUX=disabled/ /etc/selinux/config
@@ -714,8 +714,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    systemctl restart mariadb
    ```
 
-When installing Centreon MAP Engine server, it will automatically install java
-(OpenJDK 25) if needed.
+Installing the MAP server also installs Java (OpenJDK 25) if needed.
 
 #### Java requirement
   > Ensure a version of Java 25 is installed before you start the procedure.
@@ -829,8 +828,7 @@ This procedure is to ensure that the configuration file can be used for both MAP
    systemctl restart mysql
    ```
 
-When installing Centreon MAP Engine server, it will automatically install java
-(OpenJDK 25) if needed.
+Installing the MAP server also installs Java (OpenJDK 25) if needed.
 
 
 #### Java requirement

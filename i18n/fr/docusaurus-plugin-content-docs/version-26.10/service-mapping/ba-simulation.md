@@ -1,7 +1,7 @@
 ---
 id: ba-simulation
 title: Simulation
-description: "Simuler l'état d'un arbre de dépendances d'une activité métier avant d'enregistrer votre configuration et de la pousser en production"
+description: "Simuler l'état d'un arbre de dépendances d'une activité métier avant d'enregistrer votre configuration et de la pousser en production."
 ---
 
 Utilisez le mode simulation pour valider le comportement de l'arbre de dépendances d'une activité métier (BA) avant d'enregistrer vos modifications et de pousser la configuration en production.

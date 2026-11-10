@@ -358,5 +358,9 @@
   "sidebar.docs.category.Manual setup (advanced)": {
     "message": "Installation manuelle",
     "description": "The label for category Manual setup (advanced) in sidebar docs"
+  },        
+  "sidebar.docs.category.Prerequisites for pollers in pullwss mode": {
+    "message": "Prérequis des collecteurs en mode pullwss",
+    "description": "The label for category Prerequisites for pollers in pullwss mode in sidebar docs"
   }
 }

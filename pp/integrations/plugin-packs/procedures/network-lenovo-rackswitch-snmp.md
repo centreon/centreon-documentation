@@ -1,7 +1,7 @@
 ---
 id: network-lenovo-rackswitch-snmp
 title: Lenovo RackSwitch SNMP
-description: "Monitor Lenovo RackSwitch devices via SNMP, tracking CPU, memory, hardware sensors, uptime, and network interfaces."
+description: "Monitor Lenovo RackSwitch devices via SNMP, tracking CPU, memory, hardware sensors, uptime, and network interfaces, with discovery rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -567,3 +567,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [22.01](../releases/release-notes.md#2022-01) - New connector: Initial release.

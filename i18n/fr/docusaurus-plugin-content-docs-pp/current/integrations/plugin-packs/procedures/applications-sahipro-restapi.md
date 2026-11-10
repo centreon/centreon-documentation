@@ -1,7 +1,7 @@
 ---
 id: applications-sahipro-restapi
 title: Sahi Pro Rest API
-description: "Supervisez les scénarios de test Sahi Pro via l'API REST : statut d'exécution, étapes, échecs et erreurs."
+description: "Supervisez les scénarios de test Sahi Pro via l'API REST : statut, temps d'exécution, nombre d'étapes, d'échecs et d'erreurs, et durée de chaque étape."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -341,3 +341,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=scenario \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.09](../releases/release-notes.md#2023-09) - New connector: Initial release.

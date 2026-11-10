@@ -1,7 +1,7 @@
 ---
 id: self-signed-certificate
 title: Créer un certificat auto-signé
-description: "Créer un certificat auto-signé avec OpenSSL"
+description: "Créez une autorité de certification et un certificat auto-signé avec OpenSSL pour sécuriser en TLS l'interface web et la base de données Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

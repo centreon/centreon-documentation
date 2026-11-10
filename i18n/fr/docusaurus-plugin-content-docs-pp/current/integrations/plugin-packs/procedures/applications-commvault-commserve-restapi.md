@@ -1,7 +1,7 @@
 ---
 id: applications-commvault-commserve-restapi
 title: Commvault CommServe Rest API
-description: "Supervisez Commvault CommServe via l'API REST : alertes, jobs, media agents et espace de stockage."
+description: "Supervisez Commvault CommServe via l'API REST : alertes, statut et durée des jobs, media agents avec découverte, statut et espace des pools de stockage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -536,3 +536,11 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage-pools \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed a token expiration issue.
+- [26.06](../releases/release-notes.md#2026-06) - Bug fix: Fixed issues related to tokens in commands and removed undefined ARRAY value if no jobs have been sent in **jobs** mode.
+- [26.01](../releases/release-notes.md#2026-01) - Enhancement: Added client name to the output prefix of the **jobs** mode.
+- [25.10](../releases/release-notes.md#2025-10) - Bug fix: Fixed an error with **jobs** mode occurring when the output was too long.
+- [24.12](../releases/release-notes.md#2024-12) - Bug fix: Fixed **storagepools** mode to avoid division by 0, from community feedback [PR 5141](https://github.com/centreon/centreon-plugins/pull/5141).

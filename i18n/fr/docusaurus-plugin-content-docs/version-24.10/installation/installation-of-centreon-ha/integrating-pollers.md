@@ -1,7 +1,7 @@
 ---
 id: integrating-pollers
 title: Intégrer des collecteurs dans un cluster Centreon HA
-description: "Autoriser et configurer des collecteurs dans un cluster Centreon HA"
+description: "Ajoutez un collecteur à un cluster Centreon HA : récupérez les empreintes des deux nœuds centraux, déclarez le collecteur et configurez son Gorgone."
 ---
 
 ## Obtention des empreintes des nœuds centraux

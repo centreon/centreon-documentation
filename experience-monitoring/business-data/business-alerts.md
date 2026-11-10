@@ -1,7 +1,7 @@
 ---
 id: business-alerts
 title: Business alerts
-description: Configure alerts on abnormal traffic or conversion drops from Google Analytics
+description: "Set up business alerts that detect abnormal drops in conversion rate or page views from Google Analytics data, and define their thresholds and schedules."
 ---
 
 > Available by default on Business and Full licenses; optional on other plans.

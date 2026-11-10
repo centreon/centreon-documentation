@@ -1,6 +1,6 @@
 ---
 id: rum
-description: Aperçu de la section Real User Monitoring
+description: "Section consacrée au Real User Monitoring (RUM) : collecte des données d'usage réelles via le tag RUM, lecture des résultats et recommandations."
 title: Real User Monitoring (RUM)
 ---
 

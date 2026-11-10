@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-365-cma
 title: Dynamics365 CMA
+description: "Monitor Microsoft Dynamics 365 with Centreon Monitoring Agent (CMA): check the presence and age of new order files, with warning and critical file counts."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -173,3 +174,8 @@ Checks files in a directory tree, applies filters, and evaluates file metadata (
 
 Please find the troubleshooting documentation for the API-based plugins in
 this [chapter](../getting-started/how-to-guides/troubleshooting-plugins.md#http-and-api-checks) if you cannot find the solution to your issue below.
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed missing command for **New Orders** service.
+- [26.07](../releases/release-notes.md#2026-07) - New connector: Initial release.

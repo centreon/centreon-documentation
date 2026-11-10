@@ -694,3 +694,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: **Nortel standard SNMP** rebranded to Extreme SNMP.
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Added stack service.

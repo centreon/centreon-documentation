@@ -1,7 +1,7 @@
 ---
 id: metaservices
 title: Créer des métaservices
-description: "Agréger les métriques de plusieurs services au sein d'un métaservice virtuel"
+description: "Créez des métaservices dans Centreon pour agréger les métriques de plusieurs services par moyenne, somme, minimum ou maximum, avec seuils et notifications."
 ---
 
 ## Definition

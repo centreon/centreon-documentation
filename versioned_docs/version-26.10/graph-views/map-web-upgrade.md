@@ -1,7 +1,7 @@
 ---
 id: map-web-upgrade
 title: Upgrading MAP
-description: "Upgrade Centreon MAP to a new major version"
+description: "Upgrade Centreon MAP to a new major version: check your operating system and database versions, update the RPM signing key, and update the packages."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -13,8 +13,6 @@ import TabItem from '@theme/TabItem';
 > From Centreon 24.10, MAP Legacy is no longer available. Follow this [link](https://archives-docs.centreon.com/24.04/docs/graph-views/introduction/) to see the latest available version of the MAP Legacy documentation (archived version).
 
 ## Prerequisites
-
-> You can upgrade from 
 
 ### Check your operating system
 

@@ -1,7 +1,7 @@
 ---
 id: hardware-devices-aeg-acm-snmp
 title: AEG ACM SNMP
-description: "Monitor AEG ACM power systems via SNMP: AC status, alarms, battery, load, and rectifier status."
+description: "Monitor AEG ACM power systems via SNMP: AC plant status, alarms, battery status, load plant statistics, and rectifier status, with host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

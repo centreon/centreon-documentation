@@ -1,7 +1,7 @@
 ---
 id: unattended-install-poller
 title: Installation silencieuse d'un collecteur
-description: "Installer rapidement un collecteur à l'aide d'un script"
+description: "Installez rapidement un collecteur Centreon à l'aide du script d'installation silencieuse, puis rattachez-le au serveur central ou à un serveur distant."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-netgear-readynas-snmp
 title: Netgear Readynas SNMP
-description: "Monitor Netgear ReadyNAS storage devices via SNMP: CPU, memory, load, storage usage, and network interfaces."
+description: "Monitor Netgear ReadyNAS storage devices via SNMP: CPU, memory, load, hardware health, storage usage, and network interfaces, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

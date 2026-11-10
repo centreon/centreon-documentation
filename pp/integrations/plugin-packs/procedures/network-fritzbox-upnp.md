@@ -1,7 +1,7 @@
 ---
 id: network-fritzbox-upnp
 title: Fritz!Box UPnP
-description: "Monitor Fritz!Box routers via UPnP: connection status, system uptime, and WAN traffic."
+description: "Monitor Fritz!Box routers via UPnP: connection and link status, system uptime, and inbound and outbound WAN interface traffic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -352,3 +352,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=traffic \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Bug fix: Fixed **system** mode status thresholds.

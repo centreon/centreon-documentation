@@ -1,7 +1,7 @@
 ---
 id: map-web-troubleshooting
 title: MAP troubleshooting
-description: "Troubleshoot common installation and configuration issues in MAP"
+description: "Troubleshoot Centreon MAP: fix slow restarts, memory, authentication, and HTTPS issues, check RPMs, raise the log level, and run the diagnostic tool."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -128,7 +128,7 @@ If you are using IPv6, you need to force the MAP server to use IPv4.
   </TabItem>
   </Tabs>
 
-2. In the output, **Repository** should read **centreon-stable-noarch**. If this is not the case, you do not have the correct packages installed. Do the following :
+2. In the output, **Repository** should read **centreon-stable-noarch**. If this is not the case, you do not have the correct packages installed. Do the following:
 
   <Tabs groupId="sync">
   <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">

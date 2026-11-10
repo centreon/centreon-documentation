@@ -11,6 +11,7 @@ import TabItem from '@theme/TabItem';
 The following monitoring connectors will be installed when you install the **Veeam NSClient API** connector through the
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
+* [Windows NSClient API](./operatingsystems-windows-nsclient-05-restapi.md)
 
 ## Pack assets
 
@@ -25,11 +26,13 @@ The connector brings the following service templates (sorted by the host templat
 <Tabs groupId="sync">
 <TabItem value="App-Veeam-NSClient-05-Restapi-custom" label="App-Veeam-NSClient-05-Restapi-custom">
 
-| Service Alias | Service Template                               | Service Description |
-|:--------------|:-----------------------------------------------|:--------------------|
-| Job-Status    | App-Veeam-Job-Status-NSClient05-Restapi-custom | Check job status    |
+| Service Alias | Service Template                               | Service Description | Discovery |
+|:--------------|:-----------------------------------------------|:--------------------|:---------:|
+| Job-Status    | App-Veeam-Job-Status-NSClient05-Restapi-custom | Check job status    | X         |
 
 > The services listed above are created automatically when the **App-Veeam-NSClient-05-Restapi-custom** host template is used.
+
+> If **Discovery** is checked, it means a service discovery rule exists for this service template.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
@@ -45,6 +48,17 @@ The connector brings the following service templates (sorted by the host templat
 
 </TabItem>
 </Tabs>
+
+### Discovery rules
+
+#### Service discovery
+
+| Rule name                             | Description   |
+|:--------------------------------------|:--------------|
+| App-Veeam-NSClient05-Restapi-Job-Name | Discover Jobs |
+
+More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
+and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
 
 ### Collected metrics & status
 
@@ -549,3 +563,17 @@ All available options for a given mode can be displayed by adding the
 	--mode=query \
 	--help
 ```
+
+## Changelog
+
+- [26.10](../releases/release-notes.md#2026-10) - Enhancement: Improved job execution performance when filtering by specific jobs in **job-status** mode.
+- [26.08](../releases/release-notes.md#2026-08) - Bug fix: Fixed `job-type` and `session` values in **job-status** mode.
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Enhanced message displayed when using wrong powershell version with veeam 13.
+- [26.07](../releases/release-notes.md#2026-07) - Bug fix: Fixed Veeam job retrieval in **job-status** mode.
+- [26.05](../releases/release-notes.md#2026-05) - Bug fix: Fixed warnings about uninitialized values in **job-status** mode.
+- [26.04](../releases/release-notes.md#2026-04) - Bug fix: Fixed a regression causing an "Undefined subroutine" error.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Allow compatibility with version 13.
+- [26.02](../releases/release-notes.md#2026-02) - Breaking change: This connector is now compatible with NSClient++ 0.11.8, which is currently available as a pre-release [here](https://github.com/centreon/centreon-nsclient-build/releases). A breaking change occurs if you update NSClient++ without updating the connector. Updating the connector alone is safe. Fixing issue [#95](https://github.com/centreon/centreon-nsclient-build/issues/95).
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Improved execution time in **job-status** mode.
+- [25.11](../releases/release-notes.md#2025-11) - Bug fix: Added Veeam 12 compatibility by using the correct cmdlets in **vsb-jobs** mode.
+- [25.09](../releases/release-notes.md#2025-09) - Bug fix: Added Veeam Agent compatibility for job monitoring in **job-status** mode.

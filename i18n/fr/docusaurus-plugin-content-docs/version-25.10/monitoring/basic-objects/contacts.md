@@ -1,7 +1,7 @@
 ---
 id: contacts
 title: Les utilisateurs/contacts
-description: "Présentation des comptes utilisateurs, des notifications et du déblocage des utilisateurs"
+description: "Présentation des utilisateurs et contacts Centreon : ce qu'ils peuvent faire, comme recevoir des notifications, et comment débloquer un utilisateur."
 ---
 
 Dans Centreon, les utilisateurs/contacts peuvent :

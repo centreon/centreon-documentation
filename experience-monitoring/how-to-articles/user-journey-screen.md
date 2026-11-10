@@ -1,7 +1,7 @@
 ---
 id: user-journey-screen
 title: Journey overview
-description: Navigate the Journey overview screen and its actions
+description: "Use the User Journey page to check each scenario's performance, export incidents and HAR files, and open a detailed per-step journey overview."
 ---
 
 By clicking **User Journey** from the main menu, you will be taken to a page regrouping all the scenarios that have been created for your site.

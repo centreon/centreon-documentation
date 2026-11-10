@@ -1,6 +1,6 @@
 ---
 id: total-blocking-time
-description: Métrique Web Vitals TBT pour le temps de blocage du thread principal
+description: "Le TBT, métrique Web Vitals, mesure le temps total pendant lequel le thread principal est bloqué entre le FCP et le TTI. Définition et seuils de notation."
 title: TBT - Total Blocking Time (Web Vital)
 --- 
 

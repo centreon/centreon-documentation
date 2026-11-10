@@ -1,7 +1,7 @@
 ---
 id: network-security-cato-networks-api
 title: Cato Networks API
-description: "Monitor Cato Networks via its GraphQL API: site connectivity, security events, and custom queries."
+description: "Monitor Cato Networks via its GraphQL API: site connectivity (jitter, packet loss, latency), security events, and custom queries, with site discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -524,3 +524,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=events \
 	--help
 ```
+
+## Changelog
+
+- [25.12](../releases/release-notes.md#2025-12) - New connector: Initial release, based on a [The Watch idea](https://thewatch.centreon.com/ideas/create-a-new-cato-network-connector-4025).

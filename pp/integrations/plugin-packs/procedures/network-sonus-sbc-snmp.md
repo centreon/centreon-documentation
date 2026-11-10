@@ -1,7 +1,7 @@
 ---
 id: network-sonus-sbc-snmp
 title: Sonus SBC SNMP
-description: "Monitor Sonus SBC devices via SNMP: call statistics, channels, CPU, memory, disks, and interfaces."
+description: "Monitor Sonus SBC devices via SNMP: call and DSP statistics, channels, CPU, load, memory, swap, disks, and network interfaces, with interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -870,3 +870,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [25.04](../releases/release-notes.md#2025-04) - Bug fix: Fixed unknown call method map instance in **dsp-stats** mode, based on community contribution [PR 5477](https://github.com/centreon/centreon-plugins/pull/5477).
+- [24.08](../releases/release-notes.md#2024-08) - Bug fix: Fixed the CPU service template.
+- [23.05](../releases/release-notes.md#2023-05) - Enhancement: Changed thresholds names.

@@ -1,7 +1,7 @@
 ---
 id: ba-simulation
 title: Simulate Business Activities
-description: "Simulate the status of a Business Activity dependency tree before saving your configuration and pushing it to production"
+description: "Simulate the status of a Business Activity dependency tree before saving your configuration and pushing it to production."
 ---
 
 Use the simulation mode to validate the behavior of a Business Activity (BA) dependency tree before saving your changes and pushing the configuration to production.

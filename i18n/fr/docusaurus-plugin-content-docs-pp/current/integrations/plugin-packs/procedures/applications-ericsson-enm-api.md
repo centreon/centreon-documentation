@@ -365,3 +365,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=nodes \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.08](../releases/release-notes.md#2023-08) - Breaking change: Now using "*-custom" host templates as Host Discovery default template.
