@@ -87,3 +87,37 @@
   visibility: visible;
   opacity: 1;
 }
+
+/* Code sample tabs: cURL and HTTP get line icons drawn in the theme color
+   (a mask filled with currentColor), instead of the dark Bash logo on a
+   grey pill in dark mode and an icon that stays black. */
+.openapi-tabs__code-container .openapi-tabs__code-item--curl,
+.openapi-tabs__code-container .openapi-tabs__code-item--http {
+  color: var(--ifm-color-primary);
+  --openapi-code-tab-border-color-http: var(--ifm-color-primary);
+}
+
+.openapi-tabs__code-container .openapi-tabs__code-item--curl::after,
+.openapi-tabs__code-container .openapi-tabs__code-item--http::after {
+  width: var(--code-tab-logo-width);
+  height: var(--code-tab-logo-height);
+  margin: auto 0 0;
+  border-radius: 0;
+  background: currentColor;
+  -webkit-mask: var(--code-tab-icon) center / contain no-repeat;
+  mask: var(--code-tab-icon) center / contain no-repeat;
+}
+
+.openapi-tabs__code-container .openapi-tabs__code-item--curl {
+  --code-tab-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='2.5' y='3.5' width='19' height='17' rx='3'/%3E%3Cpath d='m7 9.5 3 2.5-3 2.5M12.5 15H17'/%3E%3C/svg%3E");
+}
+
+.openapi-tabs__code-container .openapi-tabs__code-item--http {
+  --code-tab-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 8h15M15 4l4 4-4 4M20 16H5M9 12l-4 4 4 4'/%3E%3C/svg%3E");
+}
+
+.openapi-tabs__code-container .openapi-tabs__code-item--curl.active,
+.openapi-tabs__code-container .openapi-tabs__code-item--http.active {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ifm-color-primary) 22%, transparent);
+}
