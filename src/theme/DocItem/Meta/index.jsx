@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { translate } from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { useDoc } from '@docusaurus/plugin-content-docs/client';
+import { useDoc, useDocsVersion } from '@docusaurus/plugin-content-docs/client';
+import DocVersionBadge from '@theme/DocVersionBadge';
 import styles from './styles.module.css';
 
 // Page types (front matter `doc_type`), following the Diátaxis split.
@@ -44,13 +45,15 @@ function useOptionalDoc() {
 }
 
 /**
- * Line shown above the page title: page type, reading time, last update.
+ * Line shown above the page title: page type, reading time, last update,
+ * and the version badge at the right end.
  * Hidden on product landing pages (front matter `landing: true`).
  */
 export default function DocMeta() {
   const doc = useOptionalDoc();
   const { i18n } = useDocusaurusContext();
   const minutes = useReadingTime();
+  const version = useDocsVersion();
 
   if (!doc || doc.frontMatter.landing) {
     return null;
@@ -70,7 +73,7 @@ export default function DocMeta() {
     updated && translate({ id: 'doc.meta.updated', message: 'Updated {date}' }, { date: updated }),
   ].filter(Boolean);
 
-  if (!typeLabel && parts.length === 0) {
+  if (!typeLabel && parts.length === 0 && !version.badge) {
     return null;
   }
 
@@ -82,6 +85,7 @@ export default function DocMeta() {
           {part}
         </span>
       ))}
+      <DocVersionBadge inMeta className={styles.version} />
     </div>
   );
 }
