@@ -51,8 +51,8 @@ function SectionTitle({ title, subtitle }) {
 
 /**
  * Landing page of a product: a hero (title, tagline, search, key figures and
- * a card pointing to the other deployment), the most frequent tasks, and the
- * reference resources.
+ * a card pointing to a related product, with one link or several in
+ * `alternative.links`), the most frequent tasks, and the reference resources.
  */
 export default function ProductLanding({
   title,
@@ -95,10 +95,14 @@ export default function ProductLanding({
               <p className={styles.alternativeEyebrow}>{alternative.eyebrow}</p>
               <p className={styles.alternativeTitle}>{alternative.title}</p>
               <p className={styles.alternativeText}>{alternative.text}</p>
-              <Link to={v.href(alternative.href)} className={styles.alternativeButton}>
-                {alternative.label}
-                <Icon name="arrow" size={16} />
-              </Link>
+              <div className={styles.alternativeActions}>
+                {(alternative.links ?? [{ label: alternative.label, href: alternative.href }]).map((link) => (
+                  <Link key={link.href} to={v.href(link.href)} className={styles.alternativeButton}>
+                    {link.label}
+                    <Icon name="arrow" size={16} />
+                  </Link>
+                ))}
+              </div>
             </aside>
           )}
         </div>

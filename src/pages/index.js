@@ -125,7 +125,7 @@ function getProducts(docsPath, version) {
       pluginId: 'pp',
       name: 'Monitoring connectors',
       shortName: 'Monitoring connectors',
-      href: '/pp/integrations/plugin-packs/getting-started/introduction/',
+      href: '/pp/integrations/plugin-packs/welcome/',
       badge: available,
       description: translate({
         id: 'home.product.connectors.description',

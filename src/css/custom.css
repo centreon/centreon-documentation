@@ -875,14 +875,16 @@ html:root {
     --sidebar-panel-muted: rgba(255, 255, 255, 0.78);
     border-right: 0;
   }
-  aside.theme-doc-sidebar-container [class^='sidebarViewport'] {
-    padding: 0 0.5rem 0 0.75rem;
-  }
   /* Docusaurus pads the sidebar by the navbar height: the panel starts below
-     the navbar instead, with a small gap all around */
+     the navbar instead, with a small gap all around. The offset is a padding
+     of the sticky viewport, not a margin of the panel: a margin would collapse
+     through the viewport, which then sticks at the top of the window and lets
+     the panel slide under the navbar on scroll. */
+  aside.theme-doc-sidebar-container [class^='sidebarViewport'] {
+    padding: calc(var(--ifm-navbar-height) + 0.75rem) 0.5rem 0 0.75rem;
+  }
   aside.theme-doc-sidebar-container [class^='sidebar_'] {
     height: calc(100vh - var(--ifm-navbar-height) - 1.5rem);
-    margin-top: calc(var(--ifm-navbar-height) + 0.75rem);
     width: 100%;
     padding-top: 0;
     border-radius: 20px;

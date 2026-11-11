@@ -449,7 +449,7 @@ const config = {
             items = [
               ...items,
               {
-                to: '/pp/integrations/plugin-packs/getting-started/introduction',
+                to: '/pp/integrations/plugin-packs/welcome',
                 label: 'Connectors',
                 position: 'left',
                 activeBaseRegex: '/pp/',

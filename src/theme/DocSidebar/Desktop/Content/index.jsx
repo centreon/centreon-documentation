@@ -13,7 +13,7 @@ const PRODUCTS = {
   pp: {
     code: 'CIM',
     name: 'Monitoring connectors',
-    home: '/pp/integrations/plugin-packs/getting-started/introduction/',
+    home: '/pp/integrations/plugin-packs/welcome/',
   },
   'experience-monitoring': {
     code: 'CXM',

@@ -130,7 +130,7 @@ html[data-theme='dark'] .search :global(.navbar__search-input) {
   color: var(--pl-muted);
 }
 
-/* Card pointing to the other deployment (OnPrem <-> Cloud) */
+/* Card pointing to a related product (OnPrem <-> Cloud, connectors, CXM) */
 .alternative {
   padding: 1.5rem 1.5rem 1.35rem;
   border-radius: 18px;
@@ -161,6 +161,12 @@ html[data-theme='dark'] .search :global(.navbar__search-input) {
   margin: 0 0 1rem;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.85);
+}
+
+.alternativeActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .alternativeButton {

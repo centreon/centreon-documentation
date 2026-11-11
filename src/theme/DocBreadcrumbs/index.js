@@ -123,7 +123,7 @@ export default function DocBreadcrumbs() {
   if (docSection === 'docs' && activeVersion) {
     homePath = `${activeVersion.path}/${activeVersion.mainDocId}`;
   } else if (docSection === 'pp') {
-    homePath = '/pp/integrations/plugin-packs/getting-started/introduction';
+    homePath = '/pp/integrations/plugin-packs/welcome';
     homeLabel = 'Monitoring Connectors';
   } else if (docSection === 'cloud') {
     homePath = '/cloud/getting-started/welcome';
