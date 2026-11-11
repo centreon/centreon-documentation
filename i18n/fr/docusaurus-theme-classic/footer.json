@@ -1,12 +1,4 @@
 {
-  "link.item.label.Corporate Website": {
-    "message": "Site Corporate",
-    "description": "The label of footer link with label=Corporate Website linking to https://www.centreon.com/en/"
-  },
-  "link.item.label.Blog": {
-    "message": "Blog",
-    "description": "The label of footer link with label=Blog linking to https://www.centreon.com/en/blog/"
-  },
   "link.item.label.Download": {
     "message": "Télécharger",
     "description": "The label of footer link with label=Download linking to https://download.centreon.com/"
@@ -59,8 +51,8 @@
     "message": "The Watch",
     "description": "The label of footer link with label=The Watch"
   },
-  "link.item.label.GitHub": {
-    "message": "GitHub",
-    "description": "The label of footer link with label=GitHub"
+  "link.item.label.Support": {
+    "message": "Support",
+    "description": "The label of footer link with label=Support linking to https://support.centreon.com/"
   }
 }

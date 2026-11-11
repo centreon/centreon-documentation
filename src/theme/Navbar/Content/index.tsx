@@ -16,7 +16,6 @@ import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import {useActivePlugin} from '@docusaurus/plugin-content-docs/client';
 
-import {translate} from '@docusaurus/Translate';
 import ProductSwitcher from '../ProductSwitcher';
 import ReaderSettings from '../ReaderSettings';
 
@@ -87,9 +86,6 @@ export default function NavbarContent(): ReactNode {
         <>
           {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
           <NavbarLogo />
-          <span className={styles.platform}>
-            {translate({id: 'navbar.platform', message: 'Observability Platform'})}
-          </span>
           <ProductSwitcher items={items} activePluginId={pluginId} />
         </>
       }

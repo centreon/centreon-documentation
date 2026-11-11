@@ -38,107 +38,178 @@ function getKeyFigures() {
   ];
 }
 
-// Products, in the order of the navbar switcher. `pluginId` is used to hide a
-// product whose documentation is not part of the current build.
-function getProducts(docsPath) {
+// LTS versions are the ones released in even years (see releases/lifecycle).
+function isLts(version) {
+  return Number(version?.split('.')[0]) % 2 === 0;
+}
+
+// Products, in the order of the navbar switcher. Infra Monitoring comes in
+// three spaces (OnPrem, Cloud, connectors), shown as three small cards.
+// `pluginId` hides a product whose documentation is not part of the build.
+function getProducts(docsPath, version) {
+  const available = translate({ id: 'home.badge.available', message: 'Available' });
+  const upgradeLabel = translate(
+    { id: 'home.product.onprem.task.upgrade', message: 'Upgrade ({version})' },
+    { version: isLts(version) ? `${version} LTS` : version },
+  );
+
   return [
     {
-      code: "CIM",
-      pluginId: "default",
-      name: "Infra Monitoring",
+      id: 'onprem',
+      code: 'CIM',
+      group: 'cim',
+      pluginId: 'default',
+      name: 'Centreon Infra Monitoring OnPrem',
+      shortName: 'Infra Monitoring OnPrem',
       href: `${docsPath}/getting-started/welcome/`,
-      badge: translate({ id: "home.badge.available", message: "Available" }),
+      badge: available,
       description: translate({
-        id: "home.product.cim.description",
-        message: "Monitor your entire infrastructure, on-premises or in the cloud.",
+        id: 'home.product.onprem.description',
+        message: 'Install the platform on your premises: your data stays in your information system.',
       }),
       tasks: [
         {
-          icon: "send",
-          label: translate({ id: "home.product.cim.task.poller", message: "Install a poller" }),
-          href: `${docsPath}/installation/installation-of-a-poller/using-packages/`,
+          icon: 'administer',
+          label: translate({
+            id: 'home.product.onprem.task.architecture',
+            message: 'Plan the architecture: pollers, high availability, remote servers',
+          }),
+          href: `${docsPath}/installation/architectures/`,
         },
         {
-          icon: "server",
-          label: translate({ id: "home.product.cim.task.host", message: "Add a host" }),
-          href: `${docsPath}/monitoring/basic-objects/hosts-create/`,
+          icon: 'install',
+          label: translate({
+            id: 'home.product.onprem.task.install',
+            message: 'Install the central server and the pollers',
+          }),
+          href: `${docsPath}/installation/introduction/`,
+        },
+        ...(version ? [{ icon: 'upgrade', label: upgradeLabel, href: `${docsPath}/upgrade/introduction/` }] : []),
+      ],
+    },
+    {
+      id: 'cloud',
+      code: 'CIM',
+      group: 'cim',
+      pluginId: 'cloud',
+      name: 'Centreon Infra Monitoring Cloud',
+      shortName: 'Infra Monitoring Cloud',
+      href: '/cloud/getting-started/welcome/',
+      badge: available,
+      description: translate({
+        id: 'home.product.cloud.description',
+        message: 'Monitor without managing the platform: Centreon hosts it and keeps it up to date.',
+      }),
+      tasks: [
+        {
+          icon: 'install',
+          label: translate({ id: 'home.product.cloud.task.poller', message: 'Deploy a poller' }),
+          href: '/cloud/installation/deploy-poller/',
         },
         {
-          icon: "alert",
-          label: translate({ id: "home.product.cim.task.notifications", message: "Set up notifications" }),
-          href: `${docsPath}/alerts-notifications/notif-configuration/`,
+          icon: 'server',
+          label: translate({ id: 'home.product.cloud.task.host', message: 'Add a host' }),
+          href: '/cloud/monitoring/basic-objects/hosts-create/',
         },
         {
-          icon: "dashboard",
-          label: translate({ id: "home.product.cim.task.dashboard", message: "Create a dashboard" }),
-          href: `${docsPath}/alerts-notifications/dashboards/`,
+          icon: 'alert',
+          label: translate({ id: 'home.product.cloud.task.notifications', message: 'Set up notifications' }),
+          href: '/cloud/alerts-notifications/notif-configuration/',
         },
       ],
     },
     {
-      code: "CXM",
-      pluginId: "experience-monitoring",
-      name: "Experience Monitoring",
-      href: "/experience-monitoring/getting-started/welcome/",
-      badge: translate({ id: "home.badge.available", message: "Available" }),
+      id: 'connectors',
+      code: 'CIM',
+      group: 'cim',
+      pluginId: 'pp',
+      name: 'Monitoring connectors',
+      shortName: 'Monitoring connectors',
+      href: '/pp/integrations/plugin-packs/getting-started/introduction/',
+      badge: available,
       description: translate({
-        id: "home.product.cxm.description",
-        message: "Measure real user experience and web performance.",
+        id: 'home.product.connectors.description',
+        message: 'More than 700 ready-to-use connectors for Infra Monitoring.',
       }),
       tasks: [
         {
-          icon: "discover",
-          label: translate({ id: "home.product.cxm.task.start", message: "Get started with Experience Monitoring" }),
-          href: "/experience-monitoring/getting-started/welcome/",
+          icon: 'discover',
+          label: translate({ id: 'home.product.connectors.task.start', message: 'Get started with connectors' }),
+          href: '/pp/integrations/plugin-packs/getting-started/introduction/',
         },
         {
-          icon: "journey",
-          label: translate({ id: "home.product.cxm.task.journey", message: "Create a user journey" }),
-          href: "/experience-monitoring/configuration/user-journey/user-journey-intro/",
+          icon: 'connector',
+          label: translate({
+            id: 'home.product.connectors.task.agent',
+            message: 'Monitor Linux with the Centreon Monitoring Agent',
+          }),
+          href: '/pp/integrations/plugin-packs/procedures/operatingsystems-linux-centreon-monitoring-agent/',
         },
         {
-          icon: "user",
-          label: translate({ id: "home.product.cxm.task.rum", message: "Set up Real User Monitoring" }),
-          href: "/experience-monitoring/rum/rum-intro/",
-        },
-        {
-          icon: "dashboard",
-          label: translate({ id: "home.product.cxm.task.dashboards", message: "Analyze performance dashboards" }),
-          href: "/experience-monitoring/performance-analysis/dashboards/",
+          icon: 'reference',
+          label: translate({ id: 'home.product.connectors.task.releases', message: 'Read the connectors release notes' }),
+          href: '/pp/integrations/plugin-packs/releases/release-notes/',
         },
       ],
     },
     {
-      code: "CLM",
-      pluginId: "logmanagement",
-      name: "Log Management",
-      href: "/logmanagement/getting-started/welcome/",
-      badge: translate({ id: "home.badge.new", message: "New" }),
+      id: 'cxm',
+      code: 'CXM',
+      pluginId: 'experience-monitoring',
+      name: 'Experience Monitoring',
+      shortName: 'Experience Monitoring',
+      href: '/experience-monitoring/getting-started/welcome/',
+      badge: available,
+      description: translate({
+        id: 'home.product.cxm.description',
+        message: 'Measure real user experience and web performance.',
+      }),
+      tasks: [
+        {
+          icon: 'discover',
+          label: translate({ id: 'home.product.cxm.task.start', message: 'Get started with Experience Monitoring' }),
+          href: '/experience-monitoring/getting-started/welcome/',
+        },
+        {
+          icon: 'journey',
+          label: translate({ id: 'home.product.cxm.task.journey', message: 'Create a user journey' }),
+          href: '/experience-monitoring/configuration/user-journey/user-journey-intro/',
+        },
+        {
+          icon: 'user',
+          label: translate({ id: 'home.product.cxm.task.rum', message: 'Set up Real User Monitoring' }),
+          href: '/experience-monitoring/rum/rum-intro/',
+        },
+      ],
+    },
+    {
+      id: 'clm',
+      code: 'CLM',
+      pluginId: 'logmanagement',
+      name: 'Log Management',
+      shortName: 'Log Management',
+      href: '/logmanagement/getting-started/welcome/',
+      badge: translate({ id: 'home.badge.new', message: 'New' }),
       isNew: true,
       description: translate({
-        id: "home.product.clm.description",
-        message: "Centralize and analyze your logs in real time.",
+        id: 'home.product.clm.description',
+        message: 'Centralize and analyze your logs in real time.',
       }),
       tasks: [
         {
-          icon: "send",
-          label: translate({ id: "home.product.clm.task.send", message: "Send your first logs" }),
-          href: "/logmanagement/collector/collector-generator/",
+          icon: 'send',
+          label: translate({ id: 'home.product.clm.task.send', message: 'Send your first logs' }),
+          href: '/logmanagement/collector/collector-generator/',
         },
         {
-          icon: "explore",
-          label: translate({ id: "home.product.clm.task.search", message: "Search your logs" }),
-          href: "/logmanagement/log-explorer/",
+          icon: 'explore',
+          label: translate({ id: 'home.product.clm.task.search', message: 'Search your logs' }),
+          href: '/logmanagement/log-explorer/',
         },
         {
-          icon: "alert",
-          label: translate({ id: "home.product.clm.task.alert", message: "Create a log alert" }),
-          href: "/logmanagement/alert-events/",
-        },
-        {
-          icon: "discover",
-          label: translate({ id: "home.product.clm.task.concepts", message: "Learn the basics" }),
-          href: "/logmanagement/getting-started/concepts/",
+          icon: 'alert',
+          label: translate({ id: 'home.product.clm.task.alert', message: 'Create a log alert' }),
+          href: '/logmanagement/alert-events/',
         },
       ],
     },
@@ -171,17 +242,13 @@ function Hero() {
     <section className={styles.hero}>
       <div className={clsx(styles.container, styles.heroInner)}>
         <div className={styles.heroMain}>
-          <p className={styles.heroEyebrow}>
-            <Icon name="reference" size={16} />
-            {translate({ id: "home.hero.eyebrow", message: "Centreon documentation" })}
-          </p>
           <h1 className={styles.heroTitle}>
             {translate({ id: "home.hero.title", message: "Search. Find. Act." })}
           </h1>
           <HeroSearch />
         </div>
         <aside className={styles.figures}>
-          <p className={styles.label}>
+          <p className={styles.figuresTitle}>
             {translate({ id: "home.figures.title", message: "Key figures" })}
           </p>
           <dl className={styles.figuresList}>
@@ -194,7 +261,7 @@ function Hero() {
           </dl>
           <Link to={THE_WATCH_URL} className={styles.figuresLink}>
             <Icon name="community" size={18} />
-            <span>{translate({ id: "home.figures.community", message: "Join The Watch community" })}</span>
+            <span>{translate({ id: "home.figures.community", message: "Join The Watch" })}</span>
             <Icon name="arrow" size={18} className={styles.pushRight} />
           </Link>
         </aside>
@@ -203,52 +270,75 @@ function Hero() {
   );
 }
 
+function ProductCard({ product, isActive, onActivate, compact }) {
+  return (
+    <Link
+      to={product.href}
+      className={clsx(styles.product, compact && styles.productCompact, isActive && styles.productActive)}
+      onMouseEnter={onActivate}
+      onFocus={onActivate}
+    >
+      <span className={styles.productHead}>
+        <span className={styles.productCode}>{product.code}</span>
+        {!compact && <span className={styles.productName}>{product.name}</span>}
+        <span className={clsx(styles.badge, product.isNew && styles.badgeNew)}>{product.badge}</span>
+      </span>
+      {compact && <span className={styles.productName}>{product.name}</span>}
+      <span className={styles.productText}>{product.description}</span>
+    </Link>
+  );
+}
+
 function ProductChooser({ products }) {
-  const [activeCode, setActiveCode] = useState(products[0]?.code);
-  const active = products.find((product) => product.code === activeCode) ?? products[0];
+  const [activeId, setActiveId] = useState(products[0]?.id);
+  const active = products.find((product) => product.id === activeId) ?? products[0];
 
   if (!active) {
     return null;
   }
 
+  const cim = products.filter((product) => product.group === "cim");
+  const others = products.filter((product) => product.group !== "cim");
+  const card = (product, compact) => (
+    <li key={product.id}>
+      <ProductCard
+        product={product}
+        compact={compact}
+        isActive={product.id === active.id}
+        onActivate={() => setActiveId(product.id)}
+      />
+    </li>
+  );
+
   return (
-    <section className={styles.container}>
+    <section className={clsx(styles.container, styles.chooserSection)}>
       <h2 className={styles.sectionTitle}>
         {translate({ id: "home.products.title", message: "Choose a product" })}
       </h2>
       <div className={styles.chooser}>
-        <ul className={styles.productList}>
-          {products.map((product) => (
-            <li key={product.code}>
-              <Link
-                to={product.href}
-                className={clsx(
-                  styles.product,
-                  product.code === active.code && styles.productActive,
-                )}
-                onMouseEnter={() => setActiveCode(product.code)}
-                onFocus={() => setActiveCode(product.code)}
-              >
-                <span className={styles.productCode}>{product.code}</span>
-                <span className={styles.productBody}>
-                  <span className={styles.productHead}>
-                    <span className={styles.productName}>{product.name}</span>
-                    <span className={clsx(styles.badge, product.isNew && styles.badgeNew)}>
-                      {product.badge}
-                    </span>
-                  </span>
-                  <span className={styles.productText}>{product.description}</span>
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.productColumn}>
+          {cim.length > 0 && (
+            <ul className={styles.cimGrid} style={{ "--cim-count": cim.length }}>
+              {cim.map((product) => card(product, true))}
+            </ul>
+          )}
+          <ul className={styles.productList}>{others.map((product) => card(product, false))}</ul>
+        </div>
         <div className={styles.tasks} aria-live="polite">
-          <p className={styles.label}>
-            {translate({ id: "home.products.getStarted", message: "Get started" })}
-            {" · "}
-            {active.name}
-          </p>
+          <div className={styles.tasksHead}>
+            <p className={styles.tasksLabel}>
+              <Icon name="server" size={16} />
+              <span>
+                {translate({ id: "home.products.getStarted", message: "Get started" })}
+                {" · "}
+                {active.shortName}
+              </span>
+            </p>
+            <Link to={active.href} className={styles.productPage}>
+              {translate({ id: "home.products.page", message: "Product page" })}
+              <Icon name="arrow" size={14} />
+            </Link>
+          </div>
           <ul>
             {active.tasks.map((task) => (
               <li key={task.href}>
@@ -273,11 +363,11 @@ function NewsAndPopular({ version, docsPath }) {
       href: `${docsPath}/monitoring/basic-objects/hosts-create/`,
     },
     {
-      label: translate({ id: "home.popular.resourceStatus", message: "Resource Status" }),
-      href: `${docsPath}/alerts-notifications/resources-status/`,
+      label: translate({ id: "home.popular.notifications", message: "Set up notifications" }),
+      href: `${docsPath}/alerts-notifications/notif-configuration/`,
     },
     {
-      label: translate({ id: "home.popular.apiTokens", message: "Authentication tokens" }),
+      label: translate({ id: "home.popular.apiTokens", message: "API tokens" }),
       href: `${docsPath}/api/authentication-tokens/`,
     },
   ];
@@ -341,7 +431,8 @@ function Previews({ docsPath }) {
   return (
     <section className={styles.previewsBand}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>
+        <h2 className={clsx(styles.sectionTitle, styles.withIcon)}>
+          <Icon name="image" size={18} />
           {translate({ id: "home.previews.title", message: "Product previews" })}
         </h2>
         <div className={styles.previews}>
@@ -377,7 +468,7 @@ export default function Home() {
     return <Redirect to={`${docsPath}/${defaultPage}`} />;
   }
 
-  const products = getProducts(docsPath).filter((product) => docsPlugins[product.pluginId]);
+  const products = getProducts(docsPath, latestVersion?.name).filter((product) => docsPlugins[product.pluginId]);
 
   return (
     <Layout

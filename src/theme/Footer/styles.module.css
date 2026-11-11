@@ -1,10 +1,13 @@
 .footer {
-  background: #00003d;
+  background:
+    radial-gradient(55% 140% at 92% 0%, rgba(110, 80, 255, 0.38), transparent 62%),
+    radial-gradient(40% 90% at 0% 100%, rgba(49, 2, 221, 0.22), transparent 70%),
+    #00003d;
   color: #ffffff;
-  padding: 3rem 0 1.5rem;
+  padding: 3.25rem 0 1.5rem;
 }
 
-/* Width is shared with the navbar: see "HEADER AND FOOTER WIDTH" in custom.css */
+/* Width is shared with the navbar: see "LAYOUT WIDTH" in custom.css */
 .inner {
   padding: 0 var(--ifm-navbar-padding-horizontal);
 }
@@ -21,42 +24,56 @@
 
 .logo img {
   display: block;
-  height: 31px;
+  height: 28px;
   width: auto;
 }
 
 .brand p {
   margin: 1rem 0 0;
-  max-width: 30ch;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  max-width: 28ch;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .title {
   margin: 0 0 0.9rem;
   font-family: var(--ifm-font-family-monospace);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.62);
 }
 
-.column ul {
+.column ul,
+.legal {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.column ul {
   display: grid;
   gap: 0.55rem;
 }
 
-.column a {
-  color: #ffffff;
-  font-weight: 700;
+.column li {
+  margin: 0;
 }
 
-.column a:hover,
-.column a:focus-visible {
+.link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.link:hover,
+.link:focus-visible,
+.legal a:hover,
+.legal a:focus-visible {
   color: #37d6ae;
   text-decoration: none;
 }
@@ -64,13 +81,24 @@
 .bottom {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
   gap: 0.5rem 1.5rem;
-  margin-top: 2.5rem;
+  margin-top: 2.75rem;
   padding-top: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.14);
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.legal {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.legal a {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 @media (max-width: 996px) {

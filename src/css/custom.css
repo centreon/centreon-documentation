@@ -336,15 +336,20 @@ div:has(> .navbar__search) {
   padding-bottom: 0;
 }
 
-/* Search */
+/* Search: a light input with a single "⌘K" hint, as in the UX/UI mockup */
 .navbar__search-input {
-  --search-local-input-active-border-color: var(--docusaurus-collapse-button-bg);
-  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
-  --ifm-navbar-search-input-placeholder-color: var(--ifm-color-gray-200);
-  width: 18rem;
-  height: 40px;
-  background-color: var(--ifm-color-dark);
-  color: white;
+  --search-local-input-active-border-color: var(--ifm-color-primary);
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%2300003d" stroke-width="1.6" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16px" width="16px"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>');
+  --ifm-navbar-search-input-placeholder-color: #5b5f78;
+  width: 16rem;
+  height: 38px;
+  padding-left: 2.4rem;
+  border: 1px solid #dcdfea;
+  border-radius: 8px;
+  background-color: #ffffff;
+  background-position: 0.85rem center;
+  color: var(--ifm-font-color-base);
+  font-size: 0.9rem;
 }
 
 @media (max-width: 576px) {
@@ -354,15 +359,38 @@ div:has(> .navbar__search) {
 }
 
 html[data-theme="dark"] .navbar__search-input {
-  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" height="16px" width="16px"><path d="M6.02945,10.20327a4.17382,4.17382,0,1,1,4.17382-4.17382A4.15609,4.15609,0,0,1,6.02945,10.20327Zm9.69195,4.2199L10.8989,9.59979A5.88021,5.88021,0,0,0,12.058,6.02856,6.00467,6.00467,0,1,0,9.59979,10.8989l4.82338,4.82338a.89729.89729,0,0,0,1.29912,0,.89749.89749,0,0,0-.00087-1.29909Z" /></svg>');
-  --ifm-navbar-search-input-placeholder-color: var(--ifm-color-gray-700);
-  background-color: var(--ifm-color-secondary-light);
-  color: black;
+  --ifm-navbar-search-input-icon: url('data:image/svg+xml;utf8,<svg fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" height="16px" width="16px"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>');
+  --ifm-navbar-search-input-placeholder-color: rgba(255, 255, 255, 0.65);
+  border-color: rgba(255, 255, 255, 0.18);
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
 }
 
-kbd[class^=searchHint] {
-  color: var(--ifm-background-color-invert);
-  background-color: var(--ifm-background-color);
+/* The two keys of the shortcut read as one "⌘K" tag */
+.navbar [class*='searchHintContainer'] {
+  gap: 0;
+  padding: 0.05rem 0.3rem;
+  border: 1px solid #dcdfea;
+  border-radius: 4px;
+  background: #f5f6fa;
+}
+.navbar kbd[class^=searchHint] {
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  background: none;
+  color: #5b5f78;
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+html[data-theme="dark"] .navbar [class*='searchHintContainer'] {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+}
+html[data-theme="dark"] .navbar kbd[class^=searchHint] {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* LAYOUT WIDTH: one width for every page. The navbar, the footer, the
@@ -604,10 +632,6 @@ html[lang='fr'] .theme-doc-toc-desktop::before {
   content: ' →';
 }
 
-/* Pages with a search in their hero (product landings) hide the navbar one */
-html:has([data-hero-search]) .navbar .navbar__search {
-  display: none;
-}
 
 /* Version selector as a pill with a document icon, as in the UX/UI mockup */
 .navbar__link.navbar-version {
@@ -722,11 +746,11 @@ html.docs-wrapper .main-wrapper > div {
   max-width: 1440px;
   margin: 0 auto;
 }
-/* Product landings are doc pages without sidebar: no extra inner container */
+/* Product landings: no extra inner container, the content spans the column */
 html:has([data-product-landing]) .main-wrapper main .container {
   max-width: none;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
 }
 
 
@@ -771,6 +795,11 @@ html[data-reader-width='full'].docs-wrapper:not(:has([data-product-landing])) .s
 /* Breadcrumbs are hidden (they stay in the HTML for search engines) */
 nav.theme-doc-breadcrumbs {
   display: none;
+}
+/* Product landings keep their short trail: Home › Infra Monitoring › OnPrem */
+html:has([data-product-landing]) nav.theme-doc-breadcrumbs {
+  display: block;
+  margin-bottom: 0.75rem;
 }
 /* The content column is only as wide as the text, so the right column sits
    right next to it (instead of a fixed 75% / 25% split). Docusaurus caps the
@@ -822,9 +851,8 @@ html:root {
   }
 }
 
-/* Doc area at least as tall as the screen, so that the sidebar is never
-   squeezed on short pages (its bottom bar gives it a clean edge, see
-   src/theme/DocSidebar/Desktop/Content). */
+/* Doc area at least as tall as the screen, so that the sidebar panel is
+   never squeezed on short pages (see "SIDEBAR PANEL" below). */
 html.docs-wrapper .main-wrapper main {
   min-height: calc(100vh - var(--ifm-navbar-height));
 }
@@ -835,4 +863,78 @@ html.docs-wrapper .main-wrapper main {
 html:root {
   --ifm-code-font-size: 88%;
   --ifm-pre-line-height: 1.55;
+}
+
+/* ==========================================================================
+   SIDEBAR PANEL: a dark rounded panel, as in the UX/UI mockup, in both themes.
+   Its header (home link and product) comes from src/theme/DocSidebar.
+   ========================================================================== */
+@media (min-width: 997px) {
+  aside.theme-doc-sidebar-container {
+    --sidebar-panel-ink: #ffffff;
+    --sidebar-panel-muted: rgba(255, 255, 255, 0.78);
+    border-right: 0;
+  }
+  aside.theme-doc-sidebar-container [class^='sidebarViewport'] {
+    padding: 0 0.5rem 0 0.75rem;
+  }
+  /* Docusaurus pads the sidebar by the navbar height: the panel starts below
+     the navbar instead, with a small gap all around */
+  aside.theme-doc-sidebar-container [class^='sidebar_'] {
+    height: calc(100vh - var(--ifm-navbar-height) - 1.5rem);
+    margin-top: calc(var(--ifm-navbar-height) + 0.75rem);
+    width: 100%;
+    padding-top: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background:
+      radial-gradient(90% 40% at 100% 0%, rgba(110, 80, 255, 0.35), transparent 70%),
+      #00003d;
+    box-shadow: 0 8px 24px rgba(0, 0, 40, 0.18);
+  }
+  /* On the dark theme, a thin edge keeps the panel apart from the page */
+  html[data-theme='dark'] aside.theme-doc-sidebar-container [class^='sidebar_'] {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  aside.theme-doc-sidebar-container .menu {
+    --ifm-menu-color: var(--sidebar-panel-muted);
+    --ifm-menu-color-active: #ffffff;
+    --ifm-menu-color-background-active: rgba(255, 255, 255, 0.12);
+    --ifm-menu-color-background-hover: rgba(255, 255, 255, 0.07);
+    --ifm-menu-link-sublist-icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 14.5l5-5 5 5'/%3E%3C/svg%3E");
+    padding: 0.6rem 0.6rem 1rem;
+    scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  }
+  /* The light chevron must not be inverted again in dark mode */
+  html[data-theme='dark'] aside.theme-doc-sidebar-container .menu__link--sublist-caret::after,
+  html[data-theme='dark'] aside.theme-doc-sidebar-container .menu__caret::before {
+    filter: none;
+  }
+  aside.theme-doc-sidebar-container a.menu__link,
+  aside.theme-doc-sidebar-container a.menu__link:hover {
+    color: var(--sidebar-panel-muted);
+  }
+  aside.theme-doc-sidebar-container .theme-doc-sidebar-menu > .menu__list-item > .menu__link,
+  aside.theme-doc-sidebar-container .theme-doc-sidebar-menu > .menu__list-item > .menu__list-item-collapsible > .menu__link,
+  aside.theme-doc-sidebar-container a.menu__link:hover,
+  aside.theme-doc-sidebar-container a.menu__link--active {
+    color: var(--sidebar-panel-ink);
+  }
+  aside.theme-doc-sidebar-container .menu__link--active:not(.menu__link--sublist) {
+    background: rgba(255, 255, 255, 0.14);
+  }
+  aside.theme-doc-sidebar-container .menu__list-item-collapsible:hover {
+    background: rgba(255, 255, 255, 0.07);
+  }
+  aside.theme-doc-sidebar-container .menu__list-item-collapsible--active {
+    background: transparent;
+  }
+  /* Collapse button at the bottom of the panel */
+  aside.theme-doc-sidebar-container button.button {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    background: transparent;
+  }
+  aside.theme-doc-sidebar-container button.button svg g {
+    fill: rgba(255, 255, 255, 0.7);
+  }
 }

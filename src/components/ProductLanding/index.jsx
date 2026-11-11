@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import { translate } from '@docusaurus/Translate';
 import SearchBar from '@theme/SearchBar';
 import { useActivePlugin, useActiveVersion } from '@docusaurus/plugin-content-docs/client';
 import Icon from '@site/src/components/Icon';
@@ -9,17 +9,20 @@ import styles from './styles.module.css';
 /**
  * Links starting with "~/" are resolved against the version being viewed
  * (for versioned docs such as Infra Monitoring OnPrem), other links are kept.
+ * "{version}" in a text is replaced with the version being viewed.
  */
-function useResolveHref() {
+function useVersioning() {
   const plugin = useActivePlugin();
   const version = useActiveVersion(plugin?.pluginId);
-  return (href) => (href.startsWith('~/') ? `${version?.path ?? ''}/${href.slice(2)}` : href);
+  return {
+    href: (href) => (href.startsWith('~/') ? `${version?.path ?? ''}/${href.slice(2)}` : href),
+    text: (text) => (typeof text === 'string' ? text.replace('{version}', version?.name ?? '').trim() : text),
+  };
 }
 
 /**
  * The real search input, scoped to the product being viewed (see
- * `searchContextByPaths` in docusaurus.config.js). The navbar search is hidden
- * on pages that have one (see custom.css).
+ * `searchContextByPaths` in docusaurus.config.js).
  */
 function HeroSearch({ placeholder }) {
   const ref = useRef(null);
@@ -37,15 +40,26 @@ function HeroSearch({ placeholder }) {
   );
 }
 
+function SectionTitle({ title, subtitle }) {
+  return (
+    <h2 className={styles.sectionTitle}>
+      {title}
+      {subtitle && <span>{subtitle}</span>}
+    </h2>
+  );
+}
+
+/**
+ * Landing page of a product: a hero (title, tagline, search, key figures and
+ * a card pointing to the other deployment), the most frequent tasks, and the
+ * reference resources.
+ */
 export default function ProductLanding({
-  eyebrow,
   title,
   tagline,
   searchLabel,
   stats = [],
-  summaryLabel,
-  intents = [],
-  crossLink,
+  alternative,
   quickStartTitle,
   quickStartSubtitle,
   quickStart = [],
@@ -53,76 +67,59 @@ export default function ProductLanding({
   resourcesSubtitle,
   resources = [],
 }) {
-  const resolve = useResolveHref();
-  const plugin = useActivePlugin();
-  const version = useActiveVersion(plugin?.pluginId);
+  const v = useVersioning();
+  const guide = translate({ id: 'landing.task.guide', message: 'Guide' });
 
   return (
     <div className={styles.landing} data-product-landing>
       <section className={styles.hero}>
-        <div className={styles.heroMain}>
-          {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
-          <h1 className={styles.title}>{title}</h1>
-          {tagline && <p className={styles.tagline}>{tagline}</p>}
-          {searchLabel && <HeroSearch placeholder={searchLabel} />}
-          {stats.length > 0 && (
-            <dl className={styles.stats}>
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  {/* "version" is replaced with the version being viewed */}
-                  <dt className={clsx(stat.accent && styles.statAccent)}>
-                    {stat.value === 'version' ? version?.name : stat.value}
-                  </dt>
-                  <dd>{stat.label}</dd>
-                </div>
-              ))}
-            </dl>
+        <h1 className={styles.title}>{title}</h1>
+        <div className={styles.heroBody}>
+          <div className={styles.heroMain}>
+            {tagline && <p className={styles.tagline}>{tagline}</p>}
+            {searchLabel && <HeroSearch placeholder={searchLabel} />}
+            {stats.length > 0 && (
+              <dl className={styles.stats}>
+                {stats.map((stat) => (
+                  <div key={stat.label}>
+                    {/* "version" is replaced with the version being viewed */}
+                    <dt>{stat.value === 'version' ? v.text('{version}') : stat.value}</dt>
+                    <dd>{stat.label}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
+          </div>
+          {alternative && (
+            <aside className={styles.alternative}>
+              <p className={styles.alternativeEyebrow}>{alternative.eyebrow}</p>
+              <p className={styles.alternativeTitle}>{alternative.title}</p>
+              <p className={styles.alternativeText}>{alternative.text}</p>
+              <Link to={v.href(alternative.href)} className={styles.alternativeButton}>
+                {alternative.label}
+                <Icon name="arrow" size={16} />
+              </Link>
+            </aside>
           )}
         </div>
-
-        <nav className={styles.summary} aria-label={summaryLabel}>
-          {summaryLabel && <p className={styles.eyebrow}>{summaryLabel}</p>}
-          <ul className={styles.intents}>
-            {intents.map((intent) => (
-              <li key={intent.href}>
-                <Link to={resolve(intent.href)} className={styles.intent}>
-                  <span className={styles.icon}>
-                    <Icon name={intent.icon} />
-                  </span>
-                  <span>
-                    <span className={styles.intentTitle}>{intent.title}</span>
-                    <span className={styles.intentText}>{intent.description}</span>
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-          {crossLink && (
-            <Link to={resolve(crossLink.href)} className={styles.crossLink}>
-              <Icon name="link" />
-              <span>{crossLink.label}</span>
-              <Icon name="arrow" className={styles.pushRight} />
-            </Link>
-          )}
-        </nav>
       </section>
 
       {quickStart.length > 0 && (
         <section className={styles.band}>
-          <h2 className={styles.bandTitle}>
-            {quickStartTitle}
-            {quickStartSubtitle && <span>{quickStartSubtitle}</span>}
-          </h2>
+          <SectionTitle title={quickStartTitle} subtitle={quickStartSubtitle} />
           <ul className={styles.tasks}>
             {quickStart.map((task) => (
               <li key={task.href}>
-                <Link to={resolve(task.href)} className={styles.task}>
+                <Link to={v.href(task.href)} className={styles.task}>
                   <span className={styles.icon}>
-                    <Icon name={task.icon} />
+                    <Icon name={task.icon} size={18} />
                   </span>
                   <span>
-                    <span className={styles.intentTitle}>{task.title}</span>
-                    <span className={styles.intentText}>{task.kind}</span>
+                    <span className={styles.taskTitle}>{task.title}</span>
+                    <span className={styles.taskMeta}>
+                      {task.kind ?? guide}
+                      {task.minutes && ` · ${task.minutes} min`}
+                    </span>
                   </span>
                 </Link>
               </li>
@@ -133,17 +130,16 @@ export default function ProductLanding({
 
       {resources.length > 0 && (
         <section className={styles.resourcesBlock}>
-          <h2 className={styles.bandTitle}>
-            {resourcesTitle}
-            {resourcesSubtitle && <span>{resourcesSubtitle}</span>}
-          </h2>
+          <SectionTitle title={resourcesTitle} subtitle={resourcesSubtitle} />
           <ul className={styles.resources}>
             {resources.map((resource) => (
               <li key={resource.href}>
-                <Link to={resolve(resource.href)} className={styles.resource}>
-                  <Icon name={resource.icon} className={styles.resourceIcon} />
-                  <span>{resource.title}</span>
-                  <Icon name="arrow" className={styles.pushRight} />
+                <Link to={v.href(resource.href)} className={styles.resource}>
+                  <span className={styles.icon}>
+                    <Icon name={resource.icon} size={18} />
+                  </span>
+                  <span className={styles.resourceTitle}>{v.text(resource.title)}</span>
+                  <Icon name="arrow" size={16} className={styles.pushRight} />
                 </Link>
               </li>
             ))}

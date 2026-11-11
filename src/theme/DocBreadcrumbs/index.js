@@ -6,7 +6,7 @@ import { useHomePageRoute } from '@docusaurus/theme-common/internal';
 import Link from '@docusaurus/Link';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import { useActiveDocContext } from '@docusaurus/plugin-content-docs/client';
+import { useActiveDocContext, useDoc } from '@docusaurus/plugin-content-docs/client';
 import { translate } from '@docusaurus/Translate';
 import { useLocation } from '@docusaurus/router';
 import HomeBreadcrumbItem from '@theme/DocBreadcrumbs/Items/Home';
@@ -53,9 +53,59 @@ function BreadcrumbsItem({children, active, index, addMicrodata}) {
     </li>
   );
 }
+// Generated category index pages have no doc context.
+function useOptionalDoc() {
+  try {
+    return useDoc();
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Product landing pages show a short fixed trail instead of the sidebar one
+ * (front matter `landing_breadcrumb`, e.g. [Infra Monitoring, OnPrem]):
+ * Home › Infra Monitoring › OnPrem.
+ */
+function LandingBreadcrumbs({ trail }) {
+  const homeHref = useBaseUrl('/');
+  const items = [
+    { label: translate({ id: 'breadcrumbs.home', message: 'Home' }), href: homeHref },
+    ...trail.map((label) => ({ label })),
+  ];
+  return (
+    <nav
+      className={clsx(ThemeClassNames.docs.docBreadcrumbs, styles.breadcrumbsContainer)}
+      aria-label={translate({
+        id: 'theme.docs.breadcrumbs.navAriaLabel',
+        message: 'Breadcrumbs',
+        description: 'The ARIA label for the breadcrumbs',
+      })}>
+      <ul className="breadcrumbs" itemScope itemType="https://schema.org/BreadcrumbList">
+        {items.map((item, idx) => {
+          const isLast = idx === items.length - 1;
+          return (
+            <BreadcrumbsItem key={idx} active={isLast} index={idx} addMicrodata={!!item.href}>
+              <BreadcrumbsItemLink href={item.href} isLast={isLast}>
+                {item.label}
+              </BreadcrumbsItemLink>
+            </BreadcrumbsItem>
+          );
+        })}
+      </ul>
+    </nav>
+  );
+}
+
 export default function DocBreadcrumbs() {
   const breadcrumbs = useSidebarBreadcrumbs();
   const homePageRoute = useHomePageRoute();
+  const doc = useOptionalDoc();
+
+  const landingTrail = doc?.frontMatter.landing_breadcrumb;
+  if (Array.isArray(landingTrail)) {
+    return <LandingBreadcrumbs trail={landingTrail} />;
+  }
 
   if (!breadcrumbs) {
     return null;

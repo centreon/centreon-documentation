@@ -224,7 +224,7 @@
     "description": "The paragraph for fetching new search results"
   },
   "theme.SearchBar.label": {
-    "message": "Chercher",
+    "message": "Rechercher",
     "description": "The ARIA label and placeholder for search button"
   },
   "theme.tags.tagsPageTitle": {
@@ -446,10 +446,6 @@
     "message": "Documentation de la plateforme d'observabilité Centreon : installez, configurez et utilisez Infra Monitoring, Experience Monitoring et Log Management.",
     "description": "Homepage and navbar redesign (Programme Bijou)"
   },
-  "home.hero.eyebrow": {
-    "message": "Documentation Centreon",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
   "home.hero.title": {
     "message": "Cherchez. Trouvez. Agissez.",
     "description": "Homepage and navbar redesign (Programme Bijou)"
@@ -471,7 +467,7 @@
     "description": "Homepage and navbar redesign (Programme Bijou)"
   },
   "home.figures.community": {
-    "message": "Rejoindre la communauté The Watch",
+    "message": "Rejoindre The Watch",
     "description": "Homepage and navbar redesign (Programme Bijou)"
   },
   "home.products.title": {
@@ -490,26 +486,6 @@
     "message": "Nouveau",
     "description": "Homepage and navbar redesign (Programme Bijou)"
   },
-  "home.product.cim.description": {
-    "message": "Supervisez toute votre infrastructure, OnPrem ou Cloud.",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
-  "home.product.cim.task.poller": {
-    "message": "Installer un collecteur",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
-  "home.product.cim.task.host": {
-    "message": "Ajouter un hôte",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
-  "home.product.cim.task.notifications": {
-    "message": "Configurer les notifications",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
-  "home.product.cim.task.dashboard": {
-    "message": "Créer un tableau de bord",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
   "home.product.cxm.description": {
     "message": "Mesurez l'expérience réelle et la performance web.",
     "description": "Homepage and navbar redesign (Programme Bijou)"
@@ -526,10 +502,6 @@
     "message": "Mettre en place le Real User Monitoring",
     "description": "Homepage and navbar redesign (Programme Bijou)"
   },
-  "home.product.cxm.task.dashboards": {
-    "message": "Analyser les tableaux de bord de performance",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
   "home.product.clm.description": {
     "message": "Centralisez et analysez vos logs en temps réel.",
     "description": "Homepage and navbar redesign (Programme Bijou)"
@@ -544,10 +516,6 @@
   },
   "home.product.clm.task.alert": {
     "message": "Créer une alerte sur les logs",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
-  "home.product.clm.task.concepts": {
-    "message": "Découvrir les notions de base",
     "description": "Homepage and navbar redesign (Programme Bijou)"
   },
   "home.news.title": {
@@ -570,12 +538,8 @@
     "message": "Ajouter un hôte",
     "description": "Homepage and navbar redesign (Programme Bijou)"
   },
-  "home.popular.resourceStatus": {
-    "message": "Statut des ressources",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
   "home.popular.apiTokens": {
-    "message": "Jetons d'authentification",
+    "message": "Tokens API",
     "description": "Homepage and navbar redesign (Programme Bijou)"
   },
   "home.previews.title": {
@@ -592,10 +556,6 @@
   },
   "home.previews.architecture": {
     "message": "Architecture distribuée",
-    "description": "Homepage and navbar redesign (Programme Bijou)"
-  },
-  "navbar.platform": {
-    "message": "Observability Platform",
     "description": "Homepage and navbar redesign (Programme Bijou)"
   },
   "footer.description": {
@@ -646,14 +606,6 @@
     "message": "Merci ! Dites-nous ce qui manquait dans le formulaire qui vient de s'ouvrir.",
     "description": "Content page redesign (Programme Bijou)"
   },
-  "sidebar.spaces.connectors": {
-    "message": "Connecteurs",
-    "description": "Navbar and sidebar redesign (Programme Bijou)"
-  },
-  "sidebar.spaces.label": {
-    "message": "Espaces d'Infra Monitoring",
-    "description": "Navbar and sidebar redesign (Programme Bijou)"
-  },
   "reader.settings": {
     "message": "Options de lecture",
     "description": "Reader preferences (Programme Bijou)"
@@ -690,8 +642,104 @@
     "message": "Pleine",
     "description": "Reader preferences (Programme Bijou)"
   },
-  "sidebar.goAnywhere": {
-    "message": "Aller n'importe où",
-    "description": "Sidebar bottom bar that opens the search (Programme Bijou)"
+  "navbar.product.cim": {
+    "message": "Infra monitoring",
+    "description": "navbar.product.cim"
+  },
+  "navbar.product.cxm": {
+    "message": "Expérience monitoring",
+    "description": "navbar.product.cxm"
+  },
+  "navbar.product.clm": {
+    "message": "Log management",
+    "description": "navbar.product.clm"
+  },
+  "navbar.locale.label": {
+    "message": "Langue",
+    "description": "navbar.locale.label"
+  },
+  "footer.legal.notice": {
+    "message": "Mentions légales",
+    "description": "footer.legal.notice"
+  },
+  "footer.legal.notice.url": {
+    "message": "https://www.centreon.com/fr/mentions-legales/",
+    "description": "footer.legal.notice.url"
+  },
+  "footer.legal.privacy": {
+    "message": "Confidentialité",
+    "description": "footer.legal.privacy"
+  },
+  "footer.legal.privacy.url": {
+    "message": "https://www.centreon.com/fr/politique-de-confidentialite/",
+    "description": "footer.legal.privacy.url"
+  },
+  "home.products.page": {
+    "message": "Page du produit",
+    "description": "home.products.page"
+  },
+  "home.product.onprem.description": {
+    "message": "Installez la plateforme chez vous : vos données restent dans votre SI.",
+    "description": "home.product.onprem.description"
+  },
+  "home.product.onprem.task.architecture": {
+    "message": "Préparer l’architecture : collecteurs, haute disponibilité, serveurs distants",
+    "description": "home.product.onprem.task.architecture"
+  },
+  "home.product.onprem.task.install": {
+    "message": "Installer le serveur central et les collecteurs",
+    "description": "home.product.onprem.task.install"
+  },
+  "home.product.onprem.task.upgrade": {
+    "message": "Monter de version ({version})",
+    "description": "home.product.onprem.task.upgrade"
+  },
+  "home.product.cloud.description": {
+    "message": "Supervisez sans gérer la plateforme : Centreon l’héberge et la met à jour.",
+    "description": "home.product.cloud.description"
+  },
+  "home.product.cloud.task.poller": {
+    "message": "Déployer un collecteur",
+    "description": "home.product.cloud.task.poller"
+  },
+  "home.product.cloud.task.host": {
+    "message": "Ajouter un hôte",
+    "description": "home.product.cloud.task.host"
+  },
+  "home.product.cloud.task.notifications": {
+    "message": "Configurer les notifications",
+    "description": "home.product.cloud.task.notifications"
+  },
+  "home.product.connectors.description": {
+    "message": "Plus de 700 connecteurs prêts à l’emploi pour Infra Monitoring.",
+    "description": "home.product.connectors.description"
+  },
+  "home.product.connectors.task.start": {
+    "message": "Bien démarrer avec les connecteurs",
+    "description": "home.product.connectors.task.start"
+  },
+  "home.product.connectors.task.agent": {
+    "message": "Superviser Linux avec Centreon Monitoring Agent",
+    "description": "home.product.connectors.task.agent"
+  },
+  "home.product.connectors.task.releases": {
+    "message": "Lire les notes de version des connecteurs",
+    "description": "home.product.connectors.task.releases"
+  },
+  "home.popular.notifications": {
+    "message": "Configurer les notifications",
+    "description": "home.popular.notifications"
+  },
+  "sidebar.home": {
+    "message": "Accueil",
+    "description": "sidebar.home"
+  },
+  "breadcrumbs.home": {
+    "message": "Accueil",
+    "description": "breadcrumbs.home"
+  },
+  "landing.task.guide": {
+    "message": "Guide",
+    "description": "landing.task.guide"
   }
 }

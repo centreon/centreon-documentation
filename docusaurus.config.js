@@ -534,20 +534,12 @@ const config = {
                 href: 'https://thewatch.centreon.com/',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/centreon/centreon',
+                label: 'Support',
+                href: 'https://support.centreon.com/',
               },
               {
                 label: 'Download',
                 href: 'https://download.centreon.com/',
-              },
-              {
-                label: 'Corporate Website',
-                href: 'https://www.centreon.com/en/',
-              },
-              {
-                label: 'Blog',
-                href: 'https://www.centreon.com/en/blog/',
               },
             ],
           };

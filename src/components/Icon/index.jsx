@@ -21,6 +21,11 @@ const ICONS = {
   user: <><circle cx="12" cy="8.5" r="3.5" /><path d="M5 20a7 7 0 0 1 14 0" /></>,
   community: <><circle cx="9" cy="9" r="3" /><circle cx="17" cy="10" r="2.5" /><path d="M3.5 19a5.5 5.5 0 0 1 11 0M14.5 19a4 4 0 0 1 6.5-3" /></>,
   sparkle: <path d="M12 4v4M12 16v4M4 12h4M16 12h4M6.5 6.5l2.5 2.5M15 15l2.5 2.5M6.5 17.5 9 15M15 9l2.5-2.5" />,
+  upgrade: <><path d="M19.5 12a7.5 7.5 0 0 1-13.6 4.4" /><path d="M4.5 12a7.5 7.5 0 0 1 13.6-4.4" /><path d="M18.5 3.8v3.9h-3.9M5.5 20.2v-3.9h3.9" /></>,
+  image: <><rect x="4" y="5" width="16" height="14" rx="2" /><circle cx="9" cy="10" r="1.5" /><path d="m20 16-4.5-4.5L8 19" /></>,
+  home: <><path d="M4 11.5 12 4.5l8 7" /><path d="M6.5 9.5v10h11v-10" /></>,
+  connector: <><path d="M9 3.5v4M15 3.5v4M7 7.5h10v3a5 5 0 0 1-10 0z" /><path d="M12 15.5v5" /></>,
+  cloud: <path d="M7 18.5a4.5 4.5 0 0 1-.5-9 6 6 0 0 1 11.5 1.5 3.75 3.75 0 0 1-.5 7.5z" />,
 };
 
 export default function Icon({name, className, size = 20}) {
