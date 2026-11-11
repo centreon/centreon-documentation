@@ -5,6 +5,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import { usePluginData } from '@docusaurus/useGlobalData';
 import styles from '/src/pages/index.module.css';
+import HomeHero from '@site/src/components/HomeHero';
 
 const basePathImg = './img/homepage/';
 
@@ -28,70 +29,6 @@ const links = {
   contribute:
     'https://github.com/centreon/.github/blob/master/CONTRIBUTING.md',
 };
-
-const cards = [
-  {
-    title: "Infra Monitoring",
-    href: "docs/getting-started/welcome/",
-    links: [
-      {
-        label: "Infra Monitoring OnPrem",
-        href: "docs/getting-started/welcome",
-      },
-      {
-        label: "Infra Monitoring Cloud",
-        href: "cloud/getting-started/welcome",
-      },
-      {
-        label: "Connecteurs de supervision",
-        href: "pp/integrations/plugin-packs/getting-started/introduction/",
-      },
-    ],
-  },
-  {
-    title: "Experience Monitoring",
-    href: "experience-monitoring/getting-started/welcome/",
-    links: [
-      {
-        label: "Démarrer avec Centreon Experience Monitoring",
-        href: "experience-monitoring/getting-started/welcome/",
-      },
-      {
-        label: "Le Monitoring Synthétique/Parcours utilisateur (STM)",
-        href: "experience-monitoring/configuration/user-journey/user-journey-intro/",
-      },
-      {
-        label: "Le Real User Monitoring (RUM)",
-        href: "experience-monitoring/rum/rum-intro/",
-      },
-      {
-        label: "Sobriété numérique",
-        href: "experience-monitoring/category/digital-sobriety/"
-      },{
-        label: "Notes de release Experience Monitoring",
-        href: "experience-monitoring/release-notes/"
-      },
-    ],
-  },
-  {
-    title: "Log Management",
-    href: "logmanagement/getting-started/welcome/",
-    links: [
-      {
-        label: "Bases de Centreon Log Management",
-        href: "logmanagement/getting-started/concepts/",
-      },
-      {
-        label: "Configurer un collecteur OpenTelemetry",
-        href: "logmanagement/collector/",
-      },
-      {
-        label: "Explorer et analyser les logs",
-        href: "logmanagement/explore-analyze/",
-      },
-    ],
-  },
-];
 
 const versionInfo = {
   version: '26.10',
@@ -123,55 +60,6 @@ function BannerBlock() {
       </div>
     </div>
   );
-}
-
-function HeadingCard(props) {
-  return(
-    <div className={clsx(styles.headingCard)}>
-        {props.card.isBeta && (
-        <div className={clsx(styles.headingCardBetaBadge)}>BETA</div>
-      )}
-      <a href={props.card.href} className={clsx(styles.headingCardHeader)}>
-        {props.card.title}
-      </a>
-      <div className={clsx(styles.headingCardBody)}>
-        <ul>
-          {props.card.links.map((link,index)=>{
-            return(
-              <li key={index}>
-                <a href={link.href}>
-                  <span>{link.label}</span>
-                  <img src={basePathImg + "external_link.svg"}/>
-                </a>
-              </li>
-            )
-          })}
-        </ul>
-      </div>
-    </div>
-  )
-}
-
-function HeadingCards(props){
-  return(
-    <div className={clsx(styles.headingCards)}>
-      {props.cards.map((card,index)=>{
-        return( <HeadingCard card={card} key={index}/> )
-      })}
-    </div>
-  )
-}
-
-function HeadingBlock() {
-  return (
-    <div className={clsx(styles.headingContainer)}>
-      <div className={clsx(styles.mainContainer)}>
-        <h1>Bienvenue dans la Documentation Centreon !</h1>
-        <p>Utilisez l’icône en haut à droite pour changer de documentation produit à tout moment.</p>
-        <HeadingCards cards={cards}/>
-      </div>
-    </div>
-  )
 }
 
 function CommunityBlock() {
@@ -237,7 +125,7 @@ export default function Home() {
       description="Description will go into a meta tag in <head />"
     >
       <main>
-        <HeadingBlock />
+        <HomeHero />
         <BannerBlock />
         <SocialBlock />
       </main>

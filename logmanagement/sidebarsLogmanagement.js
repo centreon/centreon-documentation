@@ -1,6 +1,11 @@
 module.exports = {
   logmanagement: [
     {
+      type: 'doc',
+      label: 'Log Management',
+      id: 'log-management',
+    },
+    {
       type: 'category',
       label: 'Getting started with Centreon Log Management',
       link: {
