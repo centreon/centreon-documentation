@@ -28,8 +28,6 @@ The configuration of a physical dependency takes place in the
 **Relations** tab of a configuration sheet of a host through the
 `Configuration > Hosts > Hosts` menu.
 
-![image](../assets/alerts/dep_host_config.png)
-
 It is possible to define two settings:
 
 -   **Parent Hosts**: signifies that the hosts selected are parents of
@@ -63,8 +61,6 @@ To configure a logical dependency, go into the
 `Configuration > Notifications > Dependencies > Hosts` menu and click
 **Add**.
 
-![image](../assets/alerts/03hostdependance.png)
-
 In this case, we have two types of host that come into play: one or more
 hosts (called master hosts) of which the status controls the execution
 and notification of other hosts (called dependent hosts). If you use the
@@ -94,8 +90,6 @@ To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Services` menu and click
 **Add**.
 
-![image](../assets/alerts/03servicedependance.png)
-
 In this case, we have two entities that come into play: the (“master”)
 services, which control the execution, and the notification of other
 (“dependent”) services. If you use Centreon Broker, it is also possible
@@ -124,8 +118,6 @@ To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Host Groups` menu and
 click **Add**.
 
-![image](../assets/alerts/03hostgroupdependance.png)
-
 Two types of host group: a host group is called a master if it controls
 the execution and the notification of other (“dependent”) host groups.
 
@@ -152,8 +144,6 @@ To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Service Groups` menu and
 click **Add**.
 
-![image](../assets/alerts/03servicegroupdependance.png)
-
 Two types of service group: a service group is called a “master” if it
 controls the execution and the notification of other (“dependent”)
 service groups.
@@ -170,9 +160,9 @@ service groups.
 -   The **Notification Failure Criteria** field indicates the statuses
     of the master host(s) preventing the sending of notifications to the
     dependent service groups
--   The **Service group names** list defines the group(s) of master
+-   The **Servicegroups** list defines the group(s) of master
     services
--   The **Dependent service group names** list defines the group(s) of
+-   The **Dependent Servicegroups** list defines the group(s) of
     dependent services
 -   The **Comments** field can be used to comment on the dependencies
 
@@ -181,8 +171,6 @@ service groups.
 To configure a logical dependency, go into the
 `Configuration> Notifications > Dependencies > Metaservices` menu and
 click **Add**.
-
-![image](../assets/alerts/03metaservicedependance.png)
 
 Two types of metaservice: a metaservice is called a “master” if it
 controls the execution and the notification of other (“dependent”)

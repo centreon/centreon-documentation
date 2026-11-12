@@ -240,8 +240,6 @@ selon un critère "ET" : les résultats correspondront à tous les critères sai
 Exemple :
     **s.description:ping h.name:linux** : la liste affiche tous les services dont le nom contient "ping", pour tous les hôtes dont le nom contient "linux".
 
-![image](../assets/alerts/resources-status/search_ping_linux.gif)
-
 ### Sauvegarder un filtre
 
 Lorsque vous souhaitez ne lister qu'un sous-ensemble des équipements de
@@ -321,9 +319,7 @@ Utilisez la légende pour afficher ou masquer des métriques.
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-Vous pouvez également afficher plusieurs métriques en faisant Ctrl+clic (ou bien Cmd+clic pour les utilisateurs Mac) sur la légende correspondante :
-
-![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
+Vous pouvez également afficher plusieurs métriques en faisant **Ctrl+clic** (ou bien **Cmd+clic** pour les utilisateurs Mac) sur la légende correspondante.
 
 Les graphiques affichent l'évolution des métriques sur une période donnée. La période affichée peut être définie de différentes façons :
 
@@ -347,13 +343,9 @@ Il est possible d'ajouter un commentaire directement sur le graphique, en cliqua
 
 Pour supprimer un commentaire, allez à la page **Supervision > Planifier des plages de maintenance > Commentaires**.
 
-En cliquant sur le bouton **Exporter**, vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées :
+En cliquant sur l'icône **Exporter** (flèche de téléchargement) en haut à droite du graphique, vous pouvez exporter une capture du graphique sous forme d'image PNG, qui va aussi inclure les évènements de la chronologie, si l'option correspondante est activée. Notez que seules les métriques sélectionnées seront exportées.
 
-![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
-
-Pour voir une version plus grande du graphique, cliquez sur **Go to performance page** en haut à droite du graphique.
-
-![image](../assets/alerts/resources-status/graph-open.png)
+Pour voir une version plus grande du graphique, cliquez sur l'icône **Go to performance page** en haut à droite du graphique, à gauche de l'icône d'export.
 
 Le graphique s'ouvre dans la page **Supervision > Informations de performance > Graphiques**, vous permettant de filtrer celui-ci plus précisément.
 

@@ -17,13 +17,9 @@ Each provider has its own configuration, but a provider
 can be added in Centreon in the following way:
 
 Go to the **Configuration > Notifications > Open Tickets > Rules** menu.
-Click on **Add** button:
+Click **Add**.
 
-![image](../assets/alerts/open_tickets_add_provider_01.png)
-
-Define **Rule name** and select **Provider**:
-
-![image](../assets/alerts/open_tickets_add_provider_02.png)
+Fill in the **Rule name** field and select a **Provider**.
 
 A new form appears: configure the provider.
 
@@ -38,15 +34,11 @@ will inherit.
 
 Go to the **Configuration > Hosts > Templates** menu and look for the
 **generic-active-host-custom** template, and edit it. Add the macro
-**TICKET\_ID** and click on **Save**:
-
-![image](../assets/alerts/open_tickets_macro.png)
+**TICKET\_ID** and click on **Save**.
 
 Go to the **Configuration > Services > Templates** menu and look for the
 **generic-active-service-custom** template and edit this one. Add the
-macro **TICKET\_ID** and click **Save**:
-
-![image](../assets/alerts/open_tickets_macro.png)
+macro **TICKET\_ID** and click **Save**.
 
 ### Widget configuration
 
@@ -164,6 +156,4 @@ rules system is designed to do it:
 
 ### Commands
 
-After opening a ticket, you can also configure some commands to be executed.
-
-![image](../assets/alerts/open_ticket_advanced_cmd_01.png)
+After opening a ticket, you can also configure some commands to be executed, using the **Commands** field of the **Advanced** tab.

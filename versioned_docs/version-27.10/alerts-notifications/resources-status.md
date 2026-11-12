@@ -226,8 +226,6 @@ The search bar shows all applied criteria as text. Autocomplete helps you enter 
 Example:
     **s.description:ping h.name:linux**: the list displays all services whose name contains "ping", for all hosts whose name contains "linux".
 
-![image](../assets/alerts/resources-status/search_ping_linux.gif)
-
 ### Save your filter
 
 You may create some "complex" filters that set you in a specific
@@ -308,9 +306,7 @@ Use the legend to display or hide metrics:
 
 ![image](../assets/alerts/resources-status/resources-status-graph-select-only-metric.gif)
 
-You can also toggle the selection of individual metrics by Ctrl+Clicking (or Cmd+Clicking for Mac users) on the corresponding tile within the legend:
-
-![image](../assets/alerts/resources-status/resources-status-graph-toggle-legends.gif)
+You can also toggle the selection of individual metrics by **Ctrl+click** (or **Cmd+click** for Mac users) on the corresponding tile within the legend.
 
 Graphs display metric evolution over a given period. This can be defined in the following ways:
 
@@ -331,13 +327,9 @@ It is possible to add a comment directly on the graph by left-clicking anywhere 
 
 To delete a comment, go to **Monitoring > Downtimes > Comments**.
 
-By clicking the **Export** button, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported:
+By clicking the **Export** icon (download arrow) in the top right corner of the graph, you can export a snapshot of the graph, which also includes the timeline events, if the switch is toggled. Note that only the selected metrics will be exported.
 
-![image](../assets/alerts/resources-status/resources-status-graph-export-to-png.gif)
-
-To see a bigger version of the graph, click **Go to performance page** in the top right corner of the graph.
-
-![image](../assets/alerts/resources-status/graph-open.png)
+To see a bigger version of the graph, click the **Go to performance page** icon in the top right corner of the graph, to the left of the export icon.
 
 The graph opens on the **Monitoring > Performances > Graphs** page, allowing you to filter the graph more precisely.
 

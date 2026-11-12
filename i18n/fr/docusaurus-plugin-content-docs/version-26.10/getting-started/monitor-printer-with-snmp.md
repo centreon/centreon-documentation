@@ -4,29 +4,23 @@ title: Superviser une imprimante en SNMP
 description: "Supervisez une imprimante réseau en SNMP avec Centreon : installez le connecteur Printer Standard, puis créez l'hôte et déployez la configuration."
 ---
 
-Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervision** et installez le connecteur de supervision **Printer Standard** :
+Rendez-vous dans le menu **Configuration > Connecteurs > Connecteurs de supervision**, recherchez **Printer Standard** puis cliquez sur l'icône **+** de la tuile du connecteur de supervision pour l'installer.
 
-![image](../assets/getting-started/quick_start_printer_0.gif)
-
-Rendez-vous maintenant dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter** :
-
-![image](../assets/getting-started/quick_start_printer_1.png)
+Rendez-vous maintenant dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur le bouton **Ajouter**.
 
 Renseignez les informations suivantes :
 
-* Le nom de votre serveur
-* Une description de votre serveur
-* Son adresse IP
-* La communauté et la version SNMP
+* **Nom** : le nom de votre serveur
+* **Alias** : une description de votre serveur
+* **Adresse** : son adresse IP
+* **Communauté SNMP & Version** : la communauté et la version SNMP
 
 Cliquez sur le bouton **+ Ajouter une nouvelle entrée** pour le champ **Modèles** puis
 sélectionnez le modèle **HW-Printer-standard-rfc3805-custom**.
 
 Cliquez sur le bouton **Sauvegarder**.
 
-Votre équipement a été ajouté à la configuration de la supervision :
-
-![image](../assets/getting-started/quick_start_printer_2.png)
+Votre équipement a été ajouté à la liste des hôtes dans **Configuration > Hôtes > Hôtes**.
 
 Rendez-vous dans le menu **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été déployé
 automatiquement :
