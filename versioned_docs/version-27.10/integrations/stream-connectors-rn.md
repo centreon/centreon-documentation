@@ -394,7 +394,7 @@ import TabItem from '@theme/TabItem';
 </TabItem>
 <TabItem value="Bug fixes" label="Bug fixes">
 
-- [**PagerDuty Events**](event-management/sc-pagerduty-events.md) - Fixed a wrong mapping and removed event bulking (not supported by the PagerDuty API).
+- [**PagerDuty Events**](event-management/sc-pagerduty-events.md) - Fixed an incorrect mapping and removed event bulking (not supported by the PagerDuty API).
 - [**All stream connectors**](https://github.com/centreon/centreon-stream-connector-scripts/releases/tag/1.5.1-1) - Fixed the proxy address that was always empty when it was set.
 - [**All stream connectors**](https://github.com/centreon/centreon-stream-connector-scripts/releases/tag/1.5.2-1) - Fixed event bulking, which no longer worked.
 - [**Centreon library: sc_macros**](https://github.com/centreon/centreon-stream-connector-scripts/blob/develop/modules/centreon-stream-connectors-lib/sc_macros.lua) - Fixed custom event formats when the output contains a **%** character, and the conversion of the state of acknowledgement events with the **_scstate** flag.
