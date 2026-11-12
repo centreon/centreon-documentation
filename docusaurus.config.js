@@ -2,6 +2,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 
 import availableVersions from './versions.json';
 import archivedVersions from './archivedVersions.json';
+import webVersions from './tools/api-reference/web-versions.json';
 
 const archivedVersion = process.env.ARCHIVED_VERSION ?? null;
 
@@ -380,34 +381,37 @@ const config = {
             docsPluginId: 'api',
             // One entry per API. Specs are in openapi/; the pages are generated
             // in api/<name>/ by `pnpm gen-api` (run before start and build).
+            // Versions of the Web API: tools/api-reference/web-versions.json,
+            // latest first.
             config: {
               centreonWeb: {
-                specPath: 'openapi/centreon-web-26.10.json',
+                specPath: `openapi/centreon-web-${webVersions[0]}.json`,
                 outputDir: 'api/centreon-web',
-                downloadUrl: 'https://raw.githubusercontent.com/centreon/centreon/refs/tags/26.10-latest/centreon/doc/API/centreon-api.yaml',
-                sidebarOptions: { groupPathsBy: 'tag', categoryLinkSource: 'tag' },
-                version: '26.10',
-                label: '26.10',
+                sidebarOptions: { groupPathsBy: 'tag' },
+                version: webVersions[0],
+                label: webVersions[0],
                 baseUrl: '/api/centreon-web/centreon-web-restapi',
-                versions: {
-                  '25.10': {
-                    specPath: 'openapi/centreon-web-25.10.json',
-                    outputDir: 'api/centreon-web/25.10',
-                    downloadUrl: 'https://raw.githubusercontent.com/centreon/centreon/refs/tags/25.10-latest/centreon/doc/API/centreon-api.yaml',
-                    label: '25.10',
-                    baseUrl: '/api/centreon-web/25.10/centreon-web-restapi',
-                  },
-                },
+                versions: Object.fromEntries(
+                  webVersions.slice(1).map((version) => [
+                    version,
+                    {
+                      specPath: `openapi/centreon-web-${version}.json`,
+                      outputDir: `api/centreon-web/${version}`,
+                      label: version,
+                      baseUrl: `/api/centreon-web/${version}/centreon-web-restapi`,
+                    },
+                  ]),
+                ),
               },
               centreonCloud: {
                 specPath: 'openapi/centreon-web-cloud.json',
                 outputDir: 'api/centreon-cloud',
-                sidebarOptions: { groupPathsBy: 'tag', categoryLinkSource: 'tag' },
+                sidebarOptions: { groupPathsBy: 'tag' },
               },
               centreonMap: {
                 specPath: 'openapi/centreon-map-26.10.json',
                 outputDir: 'api/centreon-map',
-                sidebarOptions: { groupPathsBy: 'tag', categoryLinkSource: 'tag' },
+                sidebarOptions: { groupPathsBy: 'tag' },
               },
             },
           },
@@ -440,6 +444,7 @@ const config = {
         { language: 'go' },
         { language: 'java' },
         { language: 'powershell' },
+        { language: 'rust' },
       ],
 
       prism: {
@@ -458,6 +463,7 @@ const config = {
           'perl',
           'powershell',
           'go',
+          'rust',
         ],
       },
 

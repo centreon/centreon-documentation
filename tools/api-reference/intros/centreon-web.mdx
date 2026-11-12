@@ -1,4 +1,8 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+
 The Centreon Web REST API lets your scripts and tools drive Centreon Infra Monitoring OnPrem: create hosts and services from your CMDB, read the real-time status of your resources, acknowledge alerts, schedule downtimes and administer the platform.
+
+<ApiDownload spec="{{spec}}" name="Centreon Web REST API" />
 
 ## Get started in 3 steps
 
@@ -12,9 +16,9 @@ https://<your-centreon-server>/centreon/api/latest
 
 `latest` targets the most recent API version of your platform. To pin a version, replace it with `v{{version}}`.
 
-:::tip Use your own server in this reference
+:::tip Use your platform in this reference
 
-On any endpoint page, click **Edit** next to **Base URL** in the request panel and enter the address of your platform. The code samples and **Send API Request** then use it, on every page, until you close the browser.
+Enter its address in [Set up this reference](#configure), below: the request panel and the code samples of every endpoint page then use it.
 
 :::
 
@@ -43,6 +47,12 @@ curl -s "https://<your-centreon-server>/centreon/api/latest/monitoring/hosts?lim
 
 Each call runs with the rights of the user the token belongs to.
 
+## Set up this reference {#configure}
+
+Enter the address of your platform, and your token to send requests from this reference with **Send API Request**. The request panel and the code samples of every endpoint page use them until you close this browser tab. You can also change them on any endpoint page, with **Edit** next to the base URL.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="API token" />
+
 ## Filter, sort and paginate
 
 Listing endpoints share the same query parameters:
@@ -64,6 +74,6 @@ An error returns an HTTP status code and a JSON body with a `code` and a `messag
 
 ## Tools
 
-- **OpenAPI definition**: download it with the **Export** button at the top of this page, to generate a client or import the API into your tools.
+- **OpenAPI definition**: download it with the button at the top of this page, to import the API into Postman, Bruno or Insomnia, or to generate a client.
 - **Postman**: see [Using the v2 API with Postman](/docs/api/rest-api-v2).
-- **Other version**: {{otherVersion}}
+- **Other versions**: {{otherVersions}}

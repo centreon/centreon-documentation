@@ -121,3 +121,95 @@
   border-color: var(--ifm-color-primary);
   box-shadow: 0 0 0 3px color-mix(in srgb, var(--ifm-color-primary) 22%, transparent);
 }
+
+/* "Set up your server" link at the top of each API sidebar */
+.menu__list-item.api-sidebar-setup > .menu__link {
+  font-size: 0.85rem;
+}
+
+.menu__list-item.api-sidebar-setup > .menu__link::before {
+  content: '⚙';
+  margin-right: 0.4rem;
+}
+
+/* Links to the request and the responses, under the endpoint */
+.api-page-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0 0 1.25rem;
+}
+
+.api-page-nav a {
+  padding: 0.2rem 0.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 999px;
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.api-page-nav a:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+/* Parameters and schema properties in two columns: name, type and
+   "required" on the left, description, values and examples on the right.
+   Objects and arrays (collapsible) keep their layout. */
+@media (min-width: 997px) {
+  .openapi-params__list-item,
+  .openapi-schema__list-item > div:not([class]) {
+    display: grid;
+    grid-template-columns: minmax(12rem, 36%) minmax(0, 1fr);
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+
+  .openapi-params__list-item > *,
+  .openapi-schema__list-item > div:not([class]) > * {
+    grid-column: 2;
+    min-width: 0;
+  }
+
+  .openapi-params__list-item > .openapi-schema__container,
+  .openapi-schema__list-item > div:not([class]) > .openapi-schema__container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-column: 1;
+    grid-row: 1 / span 20;
+    gap: 0.15rem;
+    overflow-wrap: anywhere;
+  }
+
+  .openapi-schema__container > .openapi-schema__divider {
+    display: none;
+  }
+}
+
+/* Request that did not reach the server: the error replaces the
+   placeholder of the response panel (see theme/ApiExplorer/Response). */
+.api-response--failed .openapi-explorer__response-placeholder-message {
+  display: none;
+}
+
+.api-response-error {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.api-response-error code {
+  overflow-wrap: anywhere;
+}
+
+.api-response-error ul {
+  margin-bottom: 0.5rem;
+}
+
+/* Base URL being edited: the resulting URL */
+.api-server-preview {
+  display: block;
+  overflow-wrap: anywhere;
+}

@@ -33,10 +33,10 @@
  ],
  "security": [
   {
-   "bearerAuth": []
+   "CentreonHeaderAuth": []
   },
   {
-   "CentreonHeaderAuth": []
+   "bearerAuth": []
   }
  ],
  "paths": {

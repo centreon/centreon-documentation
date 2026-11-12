@@ -27,3 +27,4 @@ package-lock.json
 
 # API reference: pages generated from openapi/ by `pnpm gen-api`
 api/*/
+static/api/
