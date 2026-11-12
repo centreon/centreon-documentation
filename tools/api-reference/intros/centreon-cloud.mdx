@@ -1,4 +1,8 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+
 The Centreon Cloud REST API lets your scripts and tools configure your Centreon Cloud platform: hosts, services and their templates, host groups, notifications and resource access rules.
+
+<ApiDownload spec="{{spec}}" name="Centreon Cloud REST API" />
 
 ## Get started in 3 steps
 
@@ -10,9 +14,9 @@ Every endpoint of this reference is relative to the URL of your Centreon Cloud i
 https://<organization>.<region>.centreon.cloud/<instance-name>
 ```
 
-:::tip Use your own instance in this reference
+:::tip Use your Centreon Cloud instance in this reference
 
-On any endpoint page, click **Edit** next to **Base URL** in the request panel and enter your organization, region and instance. The code samples and **Send API Request** then use them, on every page, until you close the browser.
+Enter its address in [Set up this reference](#configure), below: the request panel and the code samples of every endpoint page then use it.
 
 :::
 
@@ -30,6 +34,12 @@ curl -s "https://<organization>.<region>.centreon.cloud/<instance-name>/api/late
 ```
 
 Each call runs with the rights of the user the token belongs to.
+
+## Set up this reference {#configure}
+
+Enter the address of your Centreon Cloud instance, and your token to send requests from this reference with **Send API Request**. The request panel and the code samples of every endpoint page use them until you close this browser tab. You can also change them on any endpoint page, with **Edit** next to the base URL.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="API token" />
 
 ## Filter, sort and paginate
 
@@ -56,4 +66,4 @@ An error returns an HTTP status code and a JSON body with a `code` and a `messag
 
 ## Tools
 
-- **OpenAPI definition**: download it with the **Export** button at the top of this page, to generate a client or import the API into your tools.
+- **OpenAPI definition**: download it with the button at the top of this page, to import the API into Postman, Bruno or Insomnia, or to generate a client.

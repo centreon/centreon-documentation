@@ -24,31 +24,54 @@ function generated(path) {
   }
 }
 
-// Top of each sidebar: back to the list of APIs, and the version switch.
+// Top of each sidebar: back to the list of APIs, the version switch, and the
+// form of the Get started page that sets the server and the token.
 const allApis = { type: 'link', label: 'All APIs', href: '/api/', className: 'api-sidebar-back' };
 
+const setup = (introPath) => ({
+  type: 'link',
+  label: 'Set up your server',
+  href: `${introPath}#configure`,
+  className: 'api-sidebar-setup',
+});
+
+// Versions of the Web API, latest first.
+const webVersions = require('../tools/api-reference/web-versions.json');
+
+const webVersionPath = (version) =>
+  version === webVersions[0] ? '/api/centreon-web/' : `/api/centreon-web/${version}/`;
+
 function versions(current) {
-  const list = [
-    { version: '26.10', href: '/api/centreon-web/centreon-web-restapi/' },
-    { version: '25.10', href: '/api/centreon-web/25.10/centreon-web-restapi/' },
-  ];
   return {
     type: 'category',
     label: `Version ${current}`,
     className: 'api-sidebar-version',
     collapsed: true,
-    items: list.map(({ version, href }) => ({
+    items: webVersions.map((version, index) => ({
       type: 'link',
-      label: version === '26.10' ? `${version} (latest)` : version,
-      href,
+      label: index === 0 ? `${version} (latest)` : version,
+      href: `${webVersionPath(version)}centreon-web-restapi/`,
       className: version === current ? 'api-sidebar-version--current' : undefined,
     })),
   };
 }
 
+// One sidebar per version of the Web API: centreonWeb for the latest one,
+// centreonWeb<version without dot> for the others (centreonWeb2510).
+const webSidebars = Object.fromEntries(
+  webVersions.map((version, index) => [
+    index === 0 ? 'centreonWeb' : `centreonWeb${version.replace('.', '')}`,
+    [
+      allApis,
+      versions(version),
+      setup(`${webVersionPath(version)}centreon-web-restapi/`),
+      ...generated(index === 0 ? './centreon-web/sidebar.ts' : `./centreon-web/${version}/sidebar.ts`),
+    ],
+  ]),
+);
+
 module.exports = {
-  centreonWeb: [allApis, versions('26.10'), ...generated('./centreon-web/sidebar.ts')],
-  centreonWeb2510: [allApis, versions('25.10'), ...generated('./centreon-web/25.10/sidebar.ts')],
-  centreonCloud: [allApis, ...generated('./centreon-cloud/sidebar.ts')],
-  centreonMap: [allApis, ...generated('./centreon-map/sidebar.ts')],
+  ...webSidebars,
+  centreonCloud: [allApis, setup('/api/centreon-cloud/centreon-web-restapi-for-cloud/'), ...generated('./centreon-cloud/sidebar.ts')],
+  centreonMap: [allApis, setup('/api/centreon-map/centreon-map-api/'), ...generated('./centreon-map/sidebar.ts')],
 };

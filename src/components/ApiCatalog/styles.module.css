@@ -1,8 +1,16 @@
+.product {
+  margin: 1.5rem 0 2rem;
+}
+
+.productName {
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 1rem;
-  margin: 1.5rem 0 2.5rem;
 }
 
 .card {
@@ -42,11 +50,6 @@
   letter-spacing: 0.04em;
 }
 
-.product {
-  color: var(--ifm-color-emphasis-700);
-  font-size: 0.85rem;
-}
-
 .name {
   color: var(--ifm-heading-color);
   font-size: 1.15rem;
@@ -67,6 +70,7 @@
 
 .footer {
   display: flex;
+  margin-top: 1rem;
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
@@ -90,6 +94,15 @@
   border-color: var(--ifm-color-primary);
   color: var(--ifm-color-primary);
   text-decoration: none;
+}
+
+.download {
+  color: var(--ifm-color-emphasis-800);
+  font-size: 0.85rem;
+}
+
+.download::before {
+  content: '↓ ';
 }
 
 .cta {

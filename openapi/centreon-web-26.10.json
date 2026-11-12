@@ -41,8 +41,12 @@
      "description": "Port of the web server"
     },
     "version": {
+     "enum": [
+      "latest",
+      "v26.10"
+     ],
      "default": "latest",
-     "description": "API version: latest, or v<major>.<minor> (for example v26.10)"
+     "description": "API version: latest (the most recent version of your platform), or v26.10 to pin it"
     }
    }
   }
@@ -184,9 +188,6 @@
  "security": [
   {
    "Token": []
-  },
-  {
-   "Cookie": []
   }
  ],
  "paths": {
@@ -12446,12 +12447,6 @@
     "type": "apiKey",
     "name": "X-AUTH-TOKEN",
     "in": "header"
-   },
-   "Cookie": {
-    "description": "If you have already connected on the Centreon web application, you can reused the PHPSESSID cookie.\nThe cookie will be valid as long as the connection to Centreon is maintained.\n",
-    "type": "apiKey",
-    "name": "PHPSESSID",
-    "in": "cookie"
    }
   },
   "parameters": {

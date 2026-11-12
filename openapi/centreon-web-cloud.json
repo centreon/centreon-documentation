@@ -65,9 +65,6 @@
  "security": [
   {
    "Token": []
-  },
-  {
-   "Cookie": []
   }
  ],
  "paths": {
@@ -1713,12 +1710,6 @@
     "type": "apiKey",
     "name": "X-AUTH-TOKEN",
     "in": "header"
-   },
-   "Cookie": {
-    "description": "If you have already connected on the Centreon web application, you can reused the PHPSESSID cookie.\nThe cookie will be valid as long as the connection to Centreon is maintained.\n",
-    "type": "apiKey",
-    "name": "PHPSESSID",
-    "in": "cookie"
    }
   },
   "parameters": {

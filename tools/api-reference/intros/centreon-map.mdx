@@ -1,4 +1,8 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+
 The Centreon MAP REST API lets your scripts and tools build and update maps: create maps and views, place resources on them, and manage geographic views and access rights.
+
+<ApiDownload spec="{{spec}}" name="Centreon MAP REST API" />
 
 ## Get started in 3 steps
 
@@ -12,9 +16,9 @@ https://<map-server>:9443/centreon-map/api/latest
 
 Without TLS, use `http://<map-server>:8081/centreon-map/api/latest`.
 
-:::tip Use your own server in this reference
+:::tip Use your MAP server in this reference
 
-On any endpoint page, click **Edit** next to **Base URL** in the request panel and enter the address of your MAP server. The code samples and **Send API Request** then use it, on every page, until you close the browser.
+Enter its address in [Set up this reference](#configure), below: the request panel and the code samples of every endpoint page then use it.
 
 :::
 
@@ -43,7 +47,13 @@ curl -s "https://<map-server>:9443/centreon-map/api/latest/maps" \
 
 Each call runs with the rights of the user: map creation rights, and edition rights on the maps you change.
 
+## Set up this reference {#configure}
+
+Enter the address of your MAP server, and your token to send requests from this reference with **Send API Request**. The request panel and the code samples of every endpoint page use them until you close this browser tab. You can also change them on any endpoint page, with **Edit** next to the base URL.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="Centreon API token (X-AUTH-TOKEN)" />
+
 ## Go further
 
 - [Centreon MAP API](/docs/api/map-api): a complete scenario, from sign-in to adding a shape on a map.
-- **OpenAPI definition**: download it with the **Export** button at the top of this page.
+- **OpenAPI definition**: download it with the button at the top of this page, to import the API into Postman, Bruno or Insomnia, or to generate a client.
