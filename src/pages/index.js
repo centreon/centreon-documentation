@@ -270,13 +270,25 @@ function Hero() {
   );
 }
 
+// First click on a product selects it and shows its tasks on the right; a
+// click on the selected product opens its page. Clicks with a modifier
+// (new tab, new window) keep the default behavior of the link.
 function ProductCard({ product, isActive, onActivate, compact }) {
+  const onClick = (event) => {
+    if (isActive || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
+      return;
+    }
+    event.preventDefault();
+    onActivate();
+  };
+
   return (
     <Link
       to={product.href}
       className={clsx(styles.product, compact && styles.productCompact, isActive && styles.productActive)}
-      onMouseEnter={onActivate}
-      onFocus={onActivate}
+      onClick={onClick}
+      aria-current={isActive ? "true" : undefined}
+      aria-controls="home-product-tasks"
     >
       <span className={styles.productHead}>
         <span className={styles.productCode}>{product.code}</span>
@@ -285,6 +297,12 @@ function ProductCard({ product, isActive, onActivate, compact }) {
       </span>
       {compact && <span className={styles.productName}>{product.name}</span>}
       <span className={styles.productText}>{product.description}</span>
+      {isActive && (
+        <span className={styles.productOpen}>
+          {translate({ id: "home.products.open", message: "Open" })}
+          <Icon name="arrow" size={14} />
+        </span>
+      )}
     </Link>
   );
 }
@@ -324,7 +342,7 @@ function ProductChooser({ products }) {
           )}
           <ul className={styles.productList}>{others.map((product) => card(product, false))}</ul>
         </div>
-        <div className={styles.tasks} aria-live="polite">
+        <div id="home-product-tasks" className={styles.tasks} aria-live="polite">
           <div className={styles.tasksHead}>
             <p className={styles.tasksLabel}>
               <Icon name="server" size={16} />

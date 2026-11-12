@@ -678,6 +678,10 @@
     "message": "Page du produit",
     "description": "home.products.page"
   },
+  "home.products.open": {
+    "message": "Ouvrir",
+    "description": "home.products.open"
+  },
   "home.product.onprem.description": {
     "message": "Installez la plateforme chez vous : vos données restent dans votre SI.",
     "description": "home.product.onprem.description"
