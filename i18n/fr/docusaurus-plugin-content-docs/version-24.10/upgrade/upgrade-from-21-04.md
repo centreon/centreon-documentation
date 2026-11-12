@@ -80,7 +80,7 @@ Avant de réaliser la montée de version de votre plateforme Centreon, assurez-v
 
 ### Installer les nouveaux dépôts
 
-1. Sur votre plateforme 21.04, remplacez `https://packages.centreon.com/rpm-standard` ou `https://yum.centreon.com/standard/` par `https://archives.centreon.com/standard/` dans votre configuration YUM (par défaut, `/etc/yum.repos.d/centreon.repo`).
+1. Les paquets de Centreon 21.04 ne sont plus disponibles dans les dépôts Centreon. Pour obtenir la dernière version mineure de Centreon 21.04, [contactez l'équipe support Centreon](https://support.centreon.com).
 
 2. Mettez à jour votre Centreon 21.04 jusqu'à la dernière version mineure.
 

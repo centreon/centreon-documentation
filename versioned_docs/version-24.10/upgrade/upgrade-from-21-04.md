@@ -80,7 +80,7 @@ Before upgrading your Centreon platform, make sure the following package reposit
 
 ### Install the new repositories
 
-1. On your 21.04 platform, replace `https://packages.centreon.com/rpm-standard` or `https://yum.centreon.com/standard` by `https://archives.centreon.com/standard/` in your current YUM configuration (by default, `/etc/yum.repos.d/centreon.repo`).
+1. Packages for Centreon 21.04 are no longer available in the Centreon repositories. To retrieve the latest minor version of Centreon 21.04, [contact the Centreon support team](https://support.centreon.com).
 
 2. Update your Centreon 21.04 to the latest minor version.
 
