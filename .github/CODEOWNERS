@@ -8,6 +8,10 @@ docusaurus.config.js                @centreon/owners-pipelines
 .github/**                    @centreon/owners-pipelines
 .yamlfix.toml                 @centreon/owners-pipelines
 src/plugins/**                @centreon/owners-pipelines
+tests/plugins/**              @centreon/owners-pipelines
+
+# Doc Codeowners rules (after the pipelines ones, which they override)
+src/plugins/llms-txt/editorial/** @centreon/owners-doc
 
 # Security Codeowners rules
 .githooks/pre-commit                 @centreon/owners-security
