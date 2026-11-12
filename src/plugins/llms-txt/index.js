@@ -2,127 +2,132 @@
  * Local Docusaurus plugin that writes llms.txt files (https://llmstxt.org).
  *
  * For each locale build (build/ and build/fr/), it writes:
- * - a root llms.txt (table of contents) linking to each index below and to
- *   the root llms.txt of the other locales,
- * - one index per on-prem version (/docs/llms.txt for the latest version,
- *   /docs/<version>/llms.txt for the others),
+ * - a root llms.txt, from the hand-written template editorial/root.<locale>.md
+ *   (rendered by editorial.js), into which it inserts the links to each index
+ *   below and to the root llms.txt of the other locales,
+ * - one index per on-prem version: the latest one only (/docs/llms.txt) by
+ *   default, every built version (/docs/<version>/llms.txt for the others)
+ *   with the onPremVersions: 'all' option,
  * - one index per other product (/cloud/llms.txt, /pp/llms.txt...).
  *
  * Titles, descriptions and URLs come from the docs plugins' loaded content
  * (allContentLoaded), not from source files; files are written in postBuild.
  * Pages are grouped by top-level sidebar category, in sidebar order (top-level
  * docs first under "General", docs in no sidebar last, by permalink).
- * Unlisted docs and connector procedure pages are left out.
+ * Unlisted docs and connector procedure pages are left out: the connectors
+ * index lists one line per connector category instead (connectors.js).
  */
 
 const fs = require('fs/promises');
 const path = require('path');
 
+const { CATEGORY_SAMPLE, connectorCategories, isProcedure } = require('./connectors');
+const { createPageFinder, renderTemplate } = require('./editorial');
+
 const DOCS_PLUGIN_NAME = 'docusaurus-plugin-content-docs';
 
-// The on-prem instance: versioned, one index per built version.
+// The on-prem instance: versioned, one index per indexed version.
 const ONPREM_ID = 'default';
+const ONPREM_VERSIONS = ['latest', 'all'];
+
+// The connectors instance.
+const CONNECTORS_ID = 'pp';
+// The connectors landing page links to every connector procedure.
+const CONNECTORS_LANDING_ID = 'integrations/plugin-packs/getting-started/introduction';
 
 // Docs instances in output order. Texts fall back to English.
 const SECTIONS = [
   {
     id: ONPREM_ID,
     title: { en: 'Infra Monitoring OnPrem' },
+    description: {
+      en: 'Self-hosted monitoring platform: installation, configuration of monitored resources, events and alerts, dashboards, administration, upgrades, API and development.',
+      fr: 'Plateforme de supervision auto-hébergée : installation, configuration des ressources supervisées, événements et alertes, tableaux de bord, administration, mises à jour, API et développement.',
+    },
   },
   {
     id: 'cloud',
     title: { en: 'Infra Monitoring Cloud' },
     description: {
-      en: 'SaaS edition of Infra Monitoring, not versioned. Its procedures differ from the OnPrem ones.',
-      fr: "Édition SaaS d'Infra Monitoring, sans versions. Ses procédures diffèrent de celles d'OnPrem.",
+      en: 'Infra Monitoring as a service: Centreon hosts and runs the central platform, you install pollers on your side. Not versioned; its procedures differ from the OnPrem ones.',
+      fr: "Infra Monitoring en service : Centreon héberge et exploite la plateforme centrale, vous installez les collecteurs chez vous. Sans versions ; ses procédures diffèrent de celles d'OnPrem.",
     },
   },
   {
-    id: 'pp',
+    id: CONNECTORS_ID,
     title: { en: 'Monitoring Connectors', fr: 'Connecteurs de supervision' },
     description: {
-      en: 'Connectors that collect monitoring data, shared by OnPrem and Cloud. Lists the general pages and the landing page that indexes every connector.',
-      fr: 'Connecteurs qui collectent les données de supervision, communs à OnPrem et Cloud. Liste les pages générales et la page d\'accueil qui indexe tous les connecteurs.',
+      en: 'Ready-to-use templates and plugins, shared by OnPrem and Cloud. Each connector page gives its prerequisites, the templates and services it provides, its metrics and its troubleshooting. The index lists the general pages and one line per connector category.',
+      fr: "Modèles et plugins prêts à l'emploi, communs à OnPrem et Cloud. Chaque page de connecteur donne ses prérequis, les modèles et services fournis, ses métriques et son dépannage. L'index liste les pages générales et une ligne par catégorie de connecteurs.",
     },
   },
   {
     id: 'experience-monitoring',
     title: { en: 'Experience Monitoring' },
     description: {
-      en: 'Synthetic user journeys and real user monitoring of websites and applications.',
-      fr: 'Parcours utilisateurs synthétiques et supervision de l\'expérience réelle des utilisateurs de sites et applications.',
+      en: 'Monitoring of the digital experience: scripted user journeys (STM), real user monitoring (RUM), digital sobriety, business and system data.',
+      fr: "Supervision de l'expérience numérique : parcours utilisateurs scriptés (STM), real user monitoring (RUM), sobriété numérique, données métier et système.",
     },
   },
   {
     id: 'logmanagement',
     title: { en: 'Log Management' },
     description: {
-      en: 'Collection, exploration and alerting on logs.',
-      fr: 'Collecte, exploration et alertes sur les logs.',
+      en: 'Log collection with OpenTelemetry, exploration and analysis, alerts on log patterns.',
+      fr: 'Collecte de logs avec OpenTelemetry, exploration et analyse, alertes sur les motifs de logs.',
     },
   },
 ];
 
-// Connector procedure pages (one per connector) are left out; the connectors
-// landing page, which links to all of them, is listed instead.
-const CONNECTOR_PROCEDURES_PREFIX = 'integrations/plugin-packs/procedures/';
-const CONNECTORS_LANDING_ID = 'integrations/plugin-packs/getting-started/introduction';
-
-// Texts of the generated files, per locale (falls back to English).
+// Texts of the generated parts, per locale (falls back to English). The rest
+// of the root llms.txt is in the editorial templates.
 const TEXTS = {
   en: {
-    title: 'Centreon Documentation',
-    summary:
-      'Official documentation of Centreon, a monitoring platform with an open source core. ' +
-      'It covers Infra Monitoring (IT infrastructure, network, application and cloud monitoring, ' +
-      'available on-premises or as a Cloud service), the Monitoring Connectors used to collect data, ' +
-      'Experience Monitoring (synthetic user journeys and real user monitoring) and Log Management.',
-    usage:
-      'This file is a table of contents. Each link below points to the llms.txt index of one ' +
-      'product, or of one version of Infra Monitoring OnPrem: pick the product, and for OnPrem the ' +
-      'version that is installed (the latest one when unknown), then read only that index.',
     latest: 'latest',
     onpremVersion: (version, latest, urlPath) =>
       latest
-        ? `Pages of Infra Monitoring OnPrem ${version}, the current version, served under ${urlPath}.`
-        : `Pages of Infra Monitoring OnPrem ${version}, served under ${urlPath}.`,
+        ? `Pages of version ${version}, the current one, served under ${urlPath}.`
+        : `Pages of version ${version}, served under ${urlPath}.`,
+    olderVersions: (urlPath) => `Older versions are served under ${urlPath}<version>/, without an index.`,
     otherProducts: 'Other products',
     otherLanguages: 'Other languages',
     pageCount: (count) => `${count} pages`,
+    connectorCount: (count) => `${count} connectors`,
     indexSummary: (name) =>
       `Index of the pages of the Centreon ${name} documentation, grouped by topic.`,
-    indexBackLink: (url) => `Other products and versions are listed in the table of contents: ${url}`,
+    indexBackLink: (url) => `Other products and languages are listed in the root llms.txt: ${url}`,
     otherPages: 'Other pages',
     general: 'General',
     connectorsIndex: 'This page indexes all Monitoring Connectors and links to the procedure of each connector.',
+    connectorsByCategory: 'Connectors by category',
+    category: (count, sample) =>
+      count > CATEGORY_SAMPLE
+        ? `${count} connectors, including ${sample}.`
+        : `${count} ${count === 1 ? 'connector' : 'connectors'}: ${sample}.`,
   },
   fr: {
-    title: 'Documentation Centreon',
-    summary:
-      'Documentation officielle de Centreon, une plateforme de supervision au cœur open source. ' +
-      "Elle couvre Infra Monitoring (supervision des infrastructures IT, du réseau, des applications et du cloud, " +
-      'disponible on-premise ou en tant que service Cloud), les connecteurs de supervision qui collectent les données, ' +
-      "Experience Monitoring (parcours utilisateurs synthétiques et supervision de l'expérience réelle des utilisateurs) " +
-      'et Log Management.',
-    usage:
-      "Ce fichier est une table des matières. Chaque lien ci-dessous pointe vers l'index llms.txt d'un " +
-      "produit, ou d'une version d'Infra Monitoring OnPrem : choisissez le produit, et pour OnPrem la " +
-      'version installée (la dernière si elle est inconnue), puis lisez uniquement cet index.',
     latest: 'dernière version',
     onpremVersion: (version, latest, urlPath) =>
       latest
-        ? `Pages d'Infra Monitoring OnPrem ${version}, la version actuelle, servies sous ${urlPath}.`
-        : `Pages d'Infra Monitoring OnPrem ${version}, servies sous ${urlPath}.`,
+        ? `Pages de la version ${version}, la version actuelle, servies sous ${urlPath}.`
+        : `Pages de la version ${version}, servies sous ${urlPath}.`,
+    olderVersions: (urlPath) => `Les versions précédentes sont servies sous ${urlPath}<version>/, sans index.`,
     otherProducts: 'Autres produits',
     otherLanguages: 'Autres langues',
     pageCount: (count) => `${count} pages`,
+    connectorCount: (count) => `${count} connecteurs`,
     indexSummary: (name) =>
       `Index des pages de la documentation Centreon ${name}, regroupées par thème.`,
-    indexBackLink: (url) => `Les autres produits et versions sont listés dans la table des matières : ${url}`,
+    indexBackLink: (url) => `Les autres produits et langues sont listés dans le llms.txt racine : ${url}`,
     otherPages: 'Autres pages',
     general: 'Général',
     connectorsIndex:
       'Cette page indexe tous les connecteurs de supervision et renvoie vers la procédure de chaque connecteur.',
+    connectorsByCategory: 'Connecteurs par catégorie',
+    category: (count, sample) =>
+      count > CATEGORY_SAMPLE
+        ? `${count} connecteurs, dont ${sample}.`
+        : `${count} ${count === 1 ? 'connecteur' : 'connecteurs'} : ${sample}.`,
   },
 };
 
@@ -170,7 +175,7 @@ function groupDocs(version, sectionId, texts) {
   const remaining = new Map(
     version.docs
       .filter((doc) => !doc.unlisted)
-      .filter((doc) => !(sectionId === 'pp' && doc.id.startsWith(CONNECTOR_PROCEDURES_PREFIX)))
+      .filter((doc) => !(sectionId === CONNECTORS_ID && isProcedure(doc)))
       .map((doc) => [doc.id, doc]),
   );
   const take = (ids) =>
@@ -196,8 +201,32 @@ function groupDocs(version, sectionId, texts) {
   return groups.filter((group) => group.docs.length > 0);
 }
 
-module.exports = function llmsTxtPlugin(context) {
+/** Counts the listed connector procedures of the connectors instance. */
+function countConnectors(version) {
+  return version.docs.filter((doc) => !doc.unlisted && isProcedure(doc)).length;
+}
+
+/** Reads the root template of a locale, the English one when the locale has none. */
+async function readTemplate(locale) {
+  const file = (name) => path.join(__dirname, 'editorial', `root.${name}.md`);
+  try {
+    return { source: `editorial/root.${locale}.md`, template: await fs.readFile(file(locale), 'utf8') };
+  } catch (error) {
+    if (error.code !== 'ENOENT' || locale === 'en') {
+      throw error;
+    }
+    return { source: 'editorial/root.en.md', template: await fs.readFile(file('en'), 'utf8') };
+  }
+}
+
+module.exports = function llmsTxtPlugin(context, options = {}) {
   const { siteConfig, i18n, baseUrl } = context;
+  const onPremVersions = options.onPremVersions ?? 'latest';
+  if (!ONPREM_VERSIONS.includes(onPremVersions)) {
+    throw new Error(
+      `[llms-txt] Invalid onPremVersions option "${onPremVersions}": expected "latest" or "all".`,
+    );
+  }
 
   // Non-indexed builds (archived versions) get no llms.txt.
   if (siteConfig.noIndex) {
@@ -214,6 +243,22 @@ module.exports = function llmsTxtPlugin(context) {
 
   let docsInstances = {};
 
+  /** Renders the "Connectors by category" section of the connectors index. */
+  function categoryLines(version) {
+    const categories = connectorCategories(version);
+    if (categories.length === 0) {
+      return [];
+    }
+    return [
+      '',
+      `## ${texts.connectorsByCategory}`,
+      '',
+      ...categories.map(({ label, permalink, titles }) =>
+        linkLine(label, toUrl(permalink), texts.category(titles.length, titles.slice(0, CATEGORY_SAMPLE).join(', '))),
+      ),
+    ];
+  }
+
   /** Renders the llms.txt index of one version of a docs instance. */
   function renderIndex(name, version, sectionId) {
     const lines = [`# ${name}`, '', `> ${texts.indexSummary(name)}`, '', texts.indexBackLink(rootIndexUrl)];
@@ -222,12 +267,15 @@ module.exports = function llmsTxtPlugin(context) {
       lines.push('', `## ${group.label}`, '');
       for (const doc of group.docs) {
         let description = doc.description;
-        if (sectionId === 'pp' && doc.id === CONNECTORS_LANDING_ID) {
+        if (sectionId === CONNECTORS_ID && doc.id === CONNECTORS_LANDING_ID) {
           description = `${texts.connectorsIndex} ${description ?? ''}`;
         }
         lines.push(linkLine(doc.title, toUrl(doc.permalink), description));
         count += 1;
       }
+    }
+    if (sectionId === CONNECTORS_ID) {
+      lines.push(...categoryLines(version));
     }
     return { content: `${lines.join('\n')}\n`, count };
   }
@@ -247,6 +295,27 @@ module.exports = function llmsTxtPlugin(context) {
     await fs.mkdir(path.join(outDir, relativeDir), { recursive: true });
     await fs.writeFile(path.join(outDir, relativeDir, 'llms.txt'), content, 'utf8');
     return { url: `${siteUrl}${version.path}/llms.txt`, urlPath: `${version.path}/`, count };
+  }
+
+  /** Returns the {{page}} link line function: null drops the line of a page not in this build. */
+  function createPageLine() {
+    const findPage = createPageFinder(docsInstances, baseUrl);
+    return (pagePath, label) => {
+      const doc = findPage(pagePath);
+      return doc && linkLine(label ?? doc.title, toUrl(doc.permalink), doc.description);
+    };
+  }
+
+  /** Returns the values of the template placeholders; null when the instance is disabled in this build. */
+  function templateValues() {
+    const latest = docsInstances[ONPREM_ID]?.loadedVersions.find((version) => version.isLast);
+    const connectors = docsInstances[CONNECTORS_ID]?.loadedVersions[0];
+    return {
+      siteUrl: `${siteUrl}${baseUrl}`,
+      version: latest ? latest.versionName : null,
+      // Rounded down to the hundred, for a "700+" that stays true for a while.
+      connectorCount: connectors ? String(Math.floor(countConnectors(connectors) / 100) * 100) : null,
+    };
   }
 
   return {
@@ -283,8 +352,10 @@ module.exports = function llmsTxtPlugin(context) {
           continue; // Instance disabled for this build.
         }
         const title = section.title[locale] ?? section.title.en;
+        const description = section.description?.[locale] ?? section.description?.en ?? '';
         if (section.id === ONPREM_ID) {
-          for (const version of content.loadedVersions) {
+          const versions = content.loadedVersions.filter((version) => onPremVersions === 'all' || version.isLast);
+          for (const version of versions) {
             const label = version.isLast
               ? `${version.versionName} (${texts.latest})`
               : version.versionName;
@@ -294,17 +365,23 @@ module.exports = function llmsTxtPlugin(context) {
               version,
               sectionId: section.id,
             });
-            const description = `${texts.onpremVersion(version.versionName, version.isLast, entry.urlPath)} ${texts.pageCount(entry.count)}.`;
-            onpremLines.push(linkLine(label, entry.url, description));
+            const parts = [description, texts.onpremVersion(version.versionName, version.isLast, entry.urlPath)];
+            // Single-version builds (previews of the next version) have no older one.
+            if (onPremVersions === 'latest' && content.loadedVersions.length > 1) {
+              parts.push(texts.olderVersions(entry.urlPath));
+            }
+            parts.push(`${texts.pageCount(entry.count)}.`);
+            onpremLines.push(linkLine(label, entry.url, parts.join(' ')));
           }
         } else {
           // Non-versioned instances have a single loaded version.
           for (const version of content.loadedVersions) {
             const entry = await writeIndex({ outDir, name: title, version, sectionId: section.id });
-            const description = section.description?.[locale] ?? section.description?.en ?? '';
-            productLines.push(
-              linkLine(title, entry.url, `${description} ${texts.pageCount(entry.count)}.`),
-            );
+            let count = texts.pageCount(entry.count);
+            if (section.id === CONNECTORS_ID) {
+              count += `, ${texts.connectorCount(countConnectors(version))}`;
+            }
+            productLines.push(linkLine(title, entry.url, `${description} ${count}.`));
           }
         }
       }
@@ -316,18 +393,27 @@ module.exports = function llmsTxtPlugin(context) {
           return linkLine(LANGUAGE_NAMES[other] ?? other, `${trimUrl(url)}${otherBaseUrl}llms.txt`);
         });
 
-      const root = [`# ${texts.title}`, '', `> ${texts.summary}`, '', texts.usage];
+      // The generated sections, inserted at the {{indexes}} line of the template.
+      const indexes = [];
       if (onpremLines.length > 0) {
         const onprem = SECTIONS.find((section) => section.id === ONPREM_ID);
-        root.push('', `## ${onprem.title[locale] ?? onprem.title.en}`, '', ...onpremLines);
+        indexes.push('', `## ${onprem.title[locale] ?? onprem.title.en}`, '', ...onpremLines);
       }
       if (productLines.length > 0) {
-        root.push('', `## ${texts.otherProducts}`, '', ...productLines);
+        indexes.push('', `## ${texts.otherProducts}`, '', ...productLines);
       }
       if (languageLines.length > 0) {
-        root.push('', `## ${texts.otherLanguages}`, '', ...languageLines);
+        indexes.push('', `## ${texts.otherLanguages}`, '', ...languageLines);
       }
-      await fs.writeFile(path.join(outDir, 'llms.txt'), `${root.join('\n')}\n`, 'utf8');
+
+      const { source, template } = await readTemplate(locale);
+      const root = renderTemplate(template, {
+        values: templateValues(),
+        pageLine: createPageLine(),
+        indexes: indexes.join('\n').trim(),
+        source,
+      });
+      await fs.writeFile(path.join(outDir, 'llms.txt'), root, 'utf8');
     },
   };
 };
