@@ -1,7 +1,7 @@
 ---
 id: using-packages
 title: Using packages (remote server)
-description: "Install and register a remote server using RPM or DEB packages"
+description: "Install a Centreon remote server from RPM or DEB packages, enable TLS for the database and web interface, then register it with the central server."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

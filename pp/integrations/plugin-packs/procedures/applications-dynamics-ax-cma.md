@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-ax-cma
 title: Dynamics AX CMA
+description: "Monitor Microsoft Dynamics AX with Centreon Monitoring Agent (CMA): RIS files to import, import errors, and Recurring Integrations Scheduler state."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

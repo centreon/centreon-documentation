@@ -1,6 +1,7 @@
 ---
 id: ot-ivanti
 title: Ivanti
+description: "Configure the Ivanti provider in Centreon Open Tickets to open and close incidents from monitoring alerts through the Ivanti REST API, with custom fields."
 ---
 
 The Ivanti Open Tickets provider uses the Ivanti server to open incidents about your monitoring alerts.

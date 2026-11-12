@@ -1,7 +1,7 @@
 ---
 id: sc-elastic-events
 title: Elastic Events
-description: "Send host and service status events to Elasticsearch with auto-indexing"
+description: "Install and configure the Elastic Events stream connector to send Centreon host and service events to Elasticsearch, with an automatic index template."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

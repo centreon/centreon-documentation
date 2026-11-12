@@ -1,7 +1,7 @@
 ---
 id: profiling-reports
 title: Rapports de profiling
-description: "Rapports détaillés par hôte sur la disponibilité, le CPU, la mémoire et le stockage"
+description: "Rapports de profilage Centreon MBI : statistiques par hôte ou groupe d'hôtes sur la disponibilité, les alarmes, le stockage, la mémoire et le CPU."
 ---
 
 ### Host-Detail-2

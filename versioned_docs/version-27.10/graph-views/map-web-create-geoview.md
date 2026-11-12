@@ -1,7 +1,7 @@
 ---
 id: map-web-create-geoview
 title: Creating a geographic view
-description: "Create and configure geographic views to display resources on a map"
+description: "Create geographic views in Centreon MAP to display your resources on a map, and learn how resource display, clustering, blinking, and datalayers work."
 ---
 
 This topic explains how to create geographic views from the Centreon MAP interface.

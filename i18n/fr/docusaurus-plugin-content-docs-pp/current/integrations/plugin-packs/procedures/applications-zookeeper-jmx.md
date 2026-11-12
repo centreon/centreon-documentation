@@ -1,7 +1,7 @@
 ---
 id: applications-zookeeper-jmx
 title: Zookeeper
-description: "Supervisez Apache Zookeeper via JMX et Jolokia : latence des requêtes, connexions et statistiques de paquets."
+description: "Supervisez Apache Zookeeper via JMX et Jolokia : latence moyenne et maximale des requêtes, requêtes en attente, connexions, paquets envoyés et reçus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

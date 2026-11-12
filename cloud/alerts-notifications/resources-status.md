@@ -1,7 +1,7 @@
 ---
 id: resources-status
 title: Resources Status page
-description: "How to use the Resources Status page to view, filter, search, and take action on host and service alerts"
+description: "How to use the Resources Status page to view, filter, and search host and service alerts, act on them, and use the detail panel"
 ---
 
 The **Monitoring > Resources Status** page is your main view to track

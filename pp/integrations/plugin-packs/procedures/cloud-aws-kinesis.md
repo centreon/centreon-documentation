@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-kinesis
 title: Amazon Kinesis
-description: "Monitor Amazon Kinesis streams via the AWS API: record and stream throughput, latency, and success metrics."
+description: "Monitor Amazon Kinesis streams via the AWS CloudWatch API: get/put record latency, volume, and success, iterator age, and incoming/outgoing data."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

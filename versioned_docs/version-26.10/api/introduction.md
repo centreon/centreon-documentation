@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction
-description: "Overview of the APIs available for configuration and monitoring data"
+description: "Choose the right Centreon API for your scripts and automations: CLAPI, REST API v1 or v2 for configuration and real-time data, or the MAP API."
 ---
 
 Centreon comes with several APIs to manipulate or retrieve configuration and real-

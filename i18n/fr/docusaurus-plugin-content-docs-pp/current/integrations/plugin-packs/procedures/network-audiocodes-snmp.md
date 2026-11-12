@@ -1,7 +1,7 @@
 ---
 id: network-audiocodes-snmp
 title: AudioCodes SNMP
-description: "Supervisez les équipements AudioCodes en SNMP : CPU, mémoire, matériel, interfaces, statut des trunks et appels SBC."
+description: "Supervisez les équipements AudioCodes en SNMP : CPU, mémoire, matériel, interfaces, statut des trunks et appels SBC, avec découverte des interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

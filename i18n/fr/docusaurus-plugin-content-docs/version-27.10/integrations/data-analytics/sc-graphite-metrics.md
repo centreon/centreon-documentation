@@ -1,7 +1,7 @@
 ---
 id: sc-graphite-metrics
 title: Graphite Metrics
-description: "Envoyer les métriques de performance des hôtes et services Centreon vers Graphite, avec en option les min/max, les seuils, l'état et les tags de groupes d'hôtes"
+description: "Envoyez vers Graphite les métriques de performance des hôtes et services Centreon, avec en option les min/max, seuils, états et tags de groupes d'hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

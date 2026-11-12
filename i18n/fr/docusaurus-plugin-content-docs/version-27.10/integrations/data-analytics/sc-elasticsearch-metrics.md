@@ -1,7 +1,7 @@
 ---
 id: sc-elastic-metrics
 title: Elastic Metrics
-description: "Envoi de métriques Centreon vers Elasticsearch avec dimensions personnalisées"
+description: "Configurez le stream connector Elastic Metrics pour envoyer les métriques Centreon vers Elasticsearch, avec dimensions personnalisées et modèle d'index."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

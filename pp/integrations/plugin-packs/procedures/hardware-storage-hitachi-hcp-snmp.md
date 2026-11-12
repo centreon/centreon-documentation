@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-hitachi-hcp-snmp
 title: Hitachi HCP SNMP
-description: "Monitor Hitachi HCP storage via SNMP: node, tenant, and volume status, space usage, and sensor metrics."
+description: "Monitor Hitachi HCP storage via SNMP: node, NIC, and volume status, space usage of nodes, tenants, and volumes, and temperature, fan, voltage sensors."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

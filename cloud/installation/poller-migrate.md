@@ -1,14 +1,14 @@
 ---
 id: poller-migrate
 title: Migrating a poller to another host machine
-description: "How to migrate a poller to a new host machine by installing a new server and moving your monitored resources to it"
+description: "How to migrate a poller to a new host machine by installing a new server, copying custom plugin configuration, and moving your monitored resources to it"
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import MoveResources from './_move-resources.mdx';
 
-In some cases you might want to change the OS of the host machine for your poller. The correct procedure for this is to install a new server and migrate your resources to it.
+In some cases you might want to change the OS of the host machine for your poller (if your poller is installed on a physical machine or a VM). The correct procedure for this is to install a new server and migrate your resources to it.
 
 1. Install a new host machine for your poller as per our [prerequisites](prerequisites.md).
 2. [Deploy the poller](deploy-poller.md) to the new machine.

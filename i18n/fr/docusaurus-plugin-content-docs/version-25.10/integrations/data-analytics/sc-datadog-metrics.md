@@ -1,7 +1,7 @@
 ---
 id: sc-datadog-metrics
 title: Datadog Metrics
-description: "Transmettre les métriques de performance hôtes et services vers Datadog"
+description: "Installez et configurez le stream connector Datadog Metrics pour transmettre à Datadog les métriques de performance des hôtes et services Centreon."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

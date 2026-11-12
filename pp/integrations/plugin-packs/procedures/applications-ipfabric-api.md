@@ -1,7 +1,7 @@
 ---
 id: applications-ipfabric-api
 title: IP Fabric API
-description: "Monitor IP Fabric via its REST API to discover network devices and check path verification status between hosts."
+description: "Monitor IP Fabric via its REST API: discover network devices as hosts and check path verification: detected and mismatched paths, and path counts by state."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

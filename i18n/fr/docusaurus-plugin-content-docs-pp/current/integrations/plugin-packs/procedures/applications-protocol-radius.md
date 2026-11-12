@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-radius
 title: Radius Service
-description: "Supervisez les serveurs RADIUS en testant l'authentification et en suivant le temps de réponse."
+description: "Supervisez les serveurs RADIUS en testant l'authentification avec un identifiant, un mot de passe et le secret du serveur, et suivez son temps de réponse."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

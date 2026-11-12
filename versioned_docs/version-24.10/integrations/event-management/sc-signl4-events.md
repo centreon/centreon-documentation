@@ -1,7 +1,7 @@
 ---
 id: sc-signl4-events
 title: Signl4 Events
-description: "Send host and service status events from Centreon to Signl4"
+description: "Install and configure the Signl4 Events stream connector to send Centreon host and service status events to Signl4, then filter, format and test the data."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: ticketing-advanced-architecture
 title: Architecture and debugging of Open Tickets
-description: "Diagram and log file reference for debugging the Open Tickets workflow across Centreon components"
+description: "See the architecture diagram of the Centreon Open Tickets workflow and which processes and log files to check at each step when debugging ticket creation."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

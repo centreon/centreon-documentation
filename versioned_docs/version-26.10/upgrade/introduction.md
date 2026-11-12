@@ -1,7 +1,7 @@
 ---
 id: introduction
 title: Introduction to upgrade
-description: "Introduction to upgrading Centreon between major versions"
+description: "Upgrade Centreon from one major version to another: check that your OS is supported, back up your platform and update the BAM, MAP or MBI repositories."
 ---
 
 This chapter describes how to upgrade your Centreon monitoring platform, i.e. switching between major versions (for instance, from 23.10 to 26.10).

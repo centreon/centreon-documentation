@@ -1,7 +1,7 @@
 ---
 id: network-dell-6200-snmp
 title: Dell 6200 SNMP
-description: "Monitor Dell 6200 network switches via SNMP: CPU, memory, hardware environment, global status, and interface traffic."
+description: "Monitor Dell 6200 network switches via SNMP: CPU, memory, hardware environment, global status, and interface traffic, with host and interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

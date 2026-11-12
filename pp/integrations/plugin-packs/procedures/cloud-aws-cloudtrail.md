@@ -1,7 +1,7 @@
 ---
 id: cloud-aws-cloudtrail
 title: AWS CloudTrail
-description: "Monitor AWS CloudTrail via the AWS API: check trail logging status and count CloudTrail events."
+description: "Monitor AWS CloudTrail via the AWS API (awscli or paws): check whether a trail is logging and count CloudTrail events, optionally filtered by event type."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

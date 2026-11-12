@@ -1,7 +1,7 @@
 ---
 id: map-architecture
 title: Architecture de MAP
-description: "Présentation de l'architecture de Centreon MAP"
+description: "Architecture de Centreon MAP sur serveur central ou distant : flux réseau et ports entre le serveur MAP, Broker, la base de données et les utilisateurs."
 ---
 
 Cette page décrit l'architecture de Centreon MAP.

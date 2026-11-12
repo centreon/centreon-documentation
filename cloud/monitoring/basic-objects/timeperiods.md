@@ -1,7 +1,7 @@
 ---
 id: timeperiods
 title: Time periods
-description: "How to define time periods and time range exceptions to control when checks are executed"
+description: "How to define time periods and time range exceptions to control when checks are executed, with the time period syntax and how check periods work with CMA"
 ---
 
 ## Definition

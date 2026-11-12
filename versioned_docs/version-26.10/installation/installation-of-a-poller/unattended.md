@@ -1,7 +1,7 @@
 ---
 id: unattended-install-poller
 title: Unattended installation of a poller
-description: "Install a poller quickly using an unattended script"
+description: "Install a Centreon poller in one go with the unattended installation script, then attach it to the central server or a remote server to start monitoring."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: monitor-mysql-server
 title: Superviser une base de données MySQL ou MariaDB
-description: "Superviser une base de données MySQL ou MariaDB avec Centreon"
+description: "Supervisez une base MySQL ou MariaDB avec Centreon : créez un utilisateur doté des droits nécessaires, installez le connecteur, puis créez l'hôte."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: stm-zones
 title: Monitoring non-public user journeys
-description: Set up a private zone to monitor internal, non-public journeys
+description: "Monitor user journeys on internal sites by creating a private STM zone, deploying a probe in your infrastructure and linking the zone to a journey."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -13,7 +13,7 @@ The probes are able to cache their results to cover for an eventual temporary ne
 
 ## Prerequisites
 
-- A machine inside your infrastructure to host the probe. The machine must be able to access the application you will monitor.
+- A machine that can access the application you wish to monitor for hosting the probe. This machine should have at least 2 dedicated logical cores with 3 GHz and 4 GB of RAM (ideally 8 GB). These values are the standard for a single user journey but can be fine-tuned to fit your needs.
 - A user journey configured on the internal application to monitor.
 
 ## Step 1: Create a new STM zone

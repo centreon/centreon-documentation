@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-centreon-map-jmx
 title: Centreon Map (deprecated)
-description: "This deprecated JMX-based Monitoring Connector for Centreon Map has been replaced by the JVM Actuator connector."
+description: "Deprecated JMX-based connector for Centreon Map: it is no longer maintained and should not be used. Use the JVM Actuator connector instead."
 ---
 
 > This Monitoring Connector is no longer maintained and should not be used. It has been replaced by the [JVM Actuator](applications-jvm-actuator.md) connector.

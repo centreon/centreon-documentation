@@ -1,7 +1,7 @@
 ---
 id: applications-ansible-cli
 title: Ansible CLI
-description: "Découvrez automatiquement les hôtes Ansible via la ligne de commande grâce au connecteur Ansible CLI."
+description: "Découvrez automatiquement vos hôtes avec le connecteur Ansible CLI, qui interroge Ansible en ligne de commande (module setup). Aucune métrique collectée."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

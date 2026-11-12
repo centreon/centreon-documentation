@@ -1,7 +1,7 @@
 ---
 id: contribute
 title: Contribuer à la documentation Centreon
-description: "Comment proposer des modifications à la documentation Centreon"
+description: "Contribuez à la documentation Centreon sur GitHub : modifiez une ou plusieurs pages, suivez les règles des pull requests et prévisualisez-les."
 ---
 
 Vous pouvez contribuer à la documentation Centreon en soumettant des pull requests sur [notre dépôt GitHub](https://github.com/centreon/centreon-documentation). En tant que contributeur externe vous ne pouvez pas commiter directement sur le dépôt : un fork sera créé automatiquement quand vous commiterez.

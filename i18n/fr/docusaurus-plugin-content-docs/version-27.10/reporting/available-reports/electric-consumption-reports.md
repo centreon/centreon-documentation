@@ -1,7 +1,7 @@
 ---
 id: electric-consumption-reports
 title: Rapports de consommation électrique
-description: "Rapport sur la consommation électrique des hôtes connectés à un onduleur"
+description: "Rapport Centreon MBI sur la consommation électrique : statistiques de consommation d'énergie des hôtes d'un groupe d'hôtes connectés à un onduleur."
 ---
 
 ### Hostgroup-Electricity-Consumption-1

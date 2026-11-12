@@ -1,7 +1,7 @@
 ---
 id: hosts-switch-poller
 title: Change the monitoring server for a host
-description: "Change the monitoring server assigned to one or several hosts"
+description: "Change the poller that monitors one or several hosts in Centreon by editing the host configuration, then deploying the configuration on both pollers."
 ---
 
 If you want to change the monitoring server that is monitoring a host, you need to edit the host's configuration and deploy the configuration for both the new poller and the one it used to be monitored by.

@@ -1,7 +1,7 @@
 ---
 id: pluginpacks
 title: Utiliser des connecteurs de supervision
-description: "Installer, mettre à jour et désinstaller des connecteurs de supervision"
+description: "Installez, utilisez, mettez à jour et désinstallez les connecteurs de supervision Centreon et leurs sondes pour superviser votre infrastructure."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

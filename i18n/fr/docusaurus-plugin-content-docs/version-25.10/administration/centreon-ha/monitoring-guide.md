@@ -1,7 +1,7 @@
 ---
 id: monitoring-guide
 title: Superviser Centreon HA
-description: "Superviser la santé du cluster Centreon HA avec des connecteurs dédiés"
+description: "Supervisez les membres de votre cluster Centreon HA depuis un collecteur avec des connecteurs dédiés, pour être alerté en cas de panne d'un nœud."
 ---
 
 Superviser votre configuration HA à l'aide de Centreon vous aide à suivre l'état de santé de votre cluster. Il est fortement recommandé de l'implémenter.

@@ -1,7 +1,7 @@
 ---
 id: applications-pacemaker-ssh
 title: Pacemaker
-description: "Monitor Pacemaker clusters via SSH: node and resource status, quorum, connection state, and failed actions."
+description: "Monitor Pacemaker clusters via SSH: node and resource status, quorum, connection state, failed actions and migrations, and resource constraints."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

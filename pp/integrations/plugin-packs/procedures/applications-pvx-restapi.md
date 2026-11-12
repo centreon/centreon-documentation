@@ -1,7 +1,7 @@
 ---
 id: applications-pvx-restapi
 title: PVX
-description: "Monitor PVX (Accedian Skylight) via REST API: HTTP hits, network connections, traffic, and end-user experience."
+description: "Monitor PVX (Accedian Skylight) via REST API: HTTP hits and errors, connection ratios, traffic, and end-user experience by application, instance, or IP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

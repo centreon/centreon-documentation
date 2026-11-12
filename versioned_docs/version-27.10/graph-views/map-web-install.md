@@ -1,7 +1,7 @@
 ---
 id: map-web-install
 title: Installing MAP
-description: "Install and configure the Centreon MAP engine and web client"
+description: "Install Centreon MAP: check the license and prerequisites, prepare the server, install the MAP Engine server and web client, and configure the database."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -1,7 +1,7 @@
 ---
 id: autodisco-aws
 title: Use Autodiscovery to monitor AWS EC2 instances
-description: "Use Autodiscovery to detect and monitor AWS EC2 instances"
+description: "Detect AWS EC2 instances with the Centreon Autodiscovery module: install the Amazon EC2 plugin, configure a discovery job, then monitor the hosts found."
 ---
 
 import Tabs from '@theme/Tabs';

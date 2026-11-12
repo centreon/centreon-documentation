@@ -1,7 +1,7 @@
 ---
 id: network-cisco-waas-snmp
 title: Cisco Waas SNMP
-description: "Monitor Cisco WaaS appliances via SNMP, tracking TCP session counts in passthrough and optimized states."
+description: "Monitor Cisco WaaS appliances via SNMP: track the number of TCP sessions in passthrough and optimized states (TFO), with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

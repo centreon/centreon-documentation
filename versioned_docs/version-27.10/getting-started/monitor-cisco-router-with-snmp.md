@@ -1,7 +1,7 @@
 ---
 id: monitor-cisco-router-with-snmp
 title: Monitor your first Cisco router
-description: "Monitor a Cisco router using the SNMP protocol"
+description: "Monitor a Cisco router with Centreon over SNMP: configure SNMP on the device, install the Cisco standard connector, then create and deploy the host."
 ---
 
 import Tabs from '@theme/Tabs';

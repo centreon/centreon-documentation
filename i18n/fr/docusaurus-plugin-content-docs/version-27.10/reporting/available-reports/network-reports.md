@@ -1,7 +1,7 @@
 ---
 id: network-reports
 title: Rapports de réseau
-description: "Rapports sur l'utilisation de la bande passante et la répartition du trafic réseau"
+description: "Rapports réseau Centreon MBI : bande passante moyenne par interface, trafic par plage de bande passante et centiles mensuels par groupe d'hôtes."
 ---
 
 ## Réseau

@@ -1,7 +1,7 @@
 ---
 id: stream-connectors-rn
 title: Stream connectors release notes
-description: "Release notes and changelog for Centreon stream connectors"
+description: "Notes de version des stream connectors Centreon : nouveaux connecteurs, nouvelles fonctionnalités comme les triggers et corrections, classés par date."
 ---
 
 import Tabs from '@theme/Tabs';

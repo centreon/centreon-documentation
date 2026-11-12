@@ -1,7 +1,7 @@
 ---
 id: vm-or-physical
 title: À l'aide d'une commande générée automatiquement (VM ou machine physique)
-description: "Installer un collecteur sur une machine virtuelle ou physique à l'aide d'une commande générée dans l'interface Centreon"
+description: "Installez un collecteur Centreon sur une machine virtuelle ou physique grâce à une commande générée dans l'interface du serveur central (bêta)."
 ---
 
 > La fonctionnalité décrite ici est en phase bêta.

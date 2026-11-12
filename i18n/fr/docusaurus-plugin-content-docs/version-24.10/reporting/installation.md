@@ -1,7 +1,7 @@
 ---
 id: installation
 title: Installer MBI
-description: "Installer et configurer le serveur de reporting et l'interface de Centreon MBI"
+description: "Installez Centreon MBI : architecture et prérequis, installation de l'extension sur le serveur central, puis du serveur de reporting dédié."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

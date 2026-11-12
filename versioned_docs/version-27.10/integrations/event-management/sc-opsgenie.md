@@ -1,7 +1,7 @@
 ---
 id: sc-opsgenie-events
 title: Opsgenie Events
-description: "Send host and service status events from Centreon to Opsgenie"
+description: "Install and configure the Opsgenie Events stream connector to send Centreon host and service status events to Opsgenie as alerts or incidents."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

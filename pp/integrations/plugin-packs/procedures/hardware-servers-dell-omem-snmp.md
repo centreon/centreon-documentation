@@ -1,7 +1,7 @@
 ---
 id: hardware-servers-dell-omem-snmp
 title: Dell OME-Modular SNMP
-description: "Monitor Dell OpenManage Enterprise Modular chassis via SNMP: hardware health, power, temperature, and uptime."
+description: "Monitor Dell OpenManage Enterprise Modular chassis via SNMP: hardware health, power, temperature, and uptime, with host discovery via SNMP scan."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

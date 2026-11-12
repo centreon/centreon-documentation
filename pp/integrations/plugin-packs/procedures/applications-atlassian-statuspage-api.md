@@ -1,7 +1,7 @@
 ---
 id: applications-atlassian-statuspage-api
 title: Atlassian Statuspage API
-description: "Monitor status pages hosted on Atlassian Statuspage via their public JSON API: status of each component."
+description: "Monitor status pages hosted on Atlassian Statuspage via their public JSON API: status of each component, with automatic discovery of components."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

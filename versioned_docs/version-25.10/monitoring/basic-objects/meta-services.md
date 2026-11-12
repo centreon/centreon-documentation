@@ -1,7 +1,7 @@
 ---
 id: metaservices
 title: Creating Metaservices
-description: "Aggregate metrics from multiple services into a virtual metaservice"
+description: "Create metaservices in Centreon to aggregate metrics from several services with an average, sum, min, or max calculation, with thresholds and alerts."
 ---
 
 ## Definition

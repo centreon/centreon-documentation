@@ -1,7 +1,7 @@
 ---
 id: cloud-prometheus-cadvisor-api
 title: cAdvisor w/ Prometheus API
-description: "Monitor Kubernetes pods and containers, and Docker or Podman containers, via cAdvisor and the Prometheus API: host discovery, presence, CPU, load, memory, storage, and task states."
+description: "Monitor Kubernetes pods and containers, and Docker or Podman containers, via cAdvisor and Prometheus: discovery, CPU, load, memory, storage, tasks."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

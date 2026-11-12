@@ -1,7 +1,7 @@
 ---
 id: upgrade-centreon-ha-from-21-04
 title: Montée de version de Centreon HA depuis Centreon 21.04
-description: "Mettre à niveau un cluster Centreon HA depuis la version 21.04 vers la 24.10"
+description: "Mettez à jour un cluster Centreon HA de la 21.04 vers la 24.10 : passez-le en maintenance, sauvegardez, mettez à jour les nœuds, recréez les ressources."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 Ce chapitre décrit comment mettre à niveau votre plate-forme Centreon HA de la version 21.04
 vers la version 24.10.
 
-Vous ne pouvez pas simplement monter de version une plateforme avec HA (ou Centreon Failover) depuis une version antérieure à Centreon 20.10 et vers une version 24.04, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../../migrate/introduction.md), puis installer Centreon HA sur la nouvelle platforme. Contactez votre représentant commercial Centreon pour discuter de toute migration avec la HA.
+Vous ne pouvez pas simplement monter de version une plateforme avec HA (ou Centreon Failover) depuis une version antérieure à Centreon 20.10 et vers une version 24.10, car CentOS 7 n'est plus supporté: vous devez [migrer votre plateforme vers un OS supporté](../../migrate/introduction.md), puis installer Centreon HA sur la nouvelle platforme. Contactez votre représentant commercial Centreon pour discuter de toute migration avec la HA.
 
 ## Prérequis
 

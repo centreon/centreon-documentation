@@ -1,7 +1,7 @@
 ---
 id: virtualization-reports
 title: Virtualization reports
-description: "Reports on VMware cluster, ESX host, and virtual machine performance"
+description: "Centreon MBI virtualization reports: CPU and memory performance of VMware ESX clusters, hosted virtual machines and datastores, and VM performance lists."
 ---
 
 ### VMWare-Cluster-Performances-1
