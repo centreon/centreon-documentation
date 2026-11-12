@@ -158,16 +158,7 @@ Redémarrez le service Centreon MAP pour appliquer la modification :
 systemctl restart centreon-map-engine
 ```
 
-Le serveur MAP est maintenant configuré pour répondre aux demandes provenant de HTTPS. Le port d'écoute par défaut passe automatiquement à **9443** (ou un port précédemment configuré) au lieu de 8081.
-
-Pour utiliser un autre port, définissez le paramètre suivant dans
-**/etc/centreon-map/map-config.properties** :
-
-```properties
-centreon-map.port=9443
-```
-
-Pour modifier le port par défaut, reportez-vous à la [procédure dédiée](./map-web-change-port.md).
+Le serveur Centreon MAP est maintenant configuré pour répondre aux requêtes HTTPS. Par défaut, le port d'écoute est **9443**. Si vous souhaitez utiliser un autre port, suivez [cette procédure](../graph-views/map-web-change-port.md).
 
 > N'oubliez pas de modifier l'URL côté Centreon dans le champ **Adresse du serveur Centreon MAP** du menu **Administration > Extensions > Map > Options**.
 
