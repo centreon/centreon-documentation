@@ -515,3 +515,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=battery \
 	--help
 ```
+
+## Changelog
+
+- [23.10](../releases/release-notes.md#2023-10) - New connector: Initial release.

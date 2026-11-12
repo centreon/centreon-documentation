@@ -582,3 +582,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=service-profile \
 	--help
 ```
+
+## Changelog
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.
+- [25.03](../releases/release-notes.md#2025-03) - Bug fix: Fixed wrong count when memory component is not equipped in **equipment** mode.

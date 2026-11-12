@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-dynatrace-restapi
 title: Dynatrace Rest API
-description: "Monitor Dynatrace via its REST API: track Apdex scores, Synthetic Monitor availability, events, and open problems."
+description: "Monitor Dynatrace via its REST API: Apdex scores, Synthetic Monitor availability by geolocation, and event and open problem counts per management zone."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -448,3 +448,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=apdex \
 	--help
 ```
+
+## Changelog
+
+- [22.07](../releases/release-notes.md#2022-07) - Enhancement: Enhanced Dynatrace Restapi Packs with new services and new metrics.

@@ -1,7 +1,7 @@
 ---
 id: macros
 title: Les macros
-description: "Référence des macros standards, personnalisées et globales utilisées dans les commandes"
+description: "Référence des macros Centreon : macros standards, personnalisées, de ressources et d'environnement utilisées dans les commandes, et liste complète."
 ---
 
 Une macro est une variable permettant de récupérer certaines valeurs. Une macro commence et se termine toujours par le

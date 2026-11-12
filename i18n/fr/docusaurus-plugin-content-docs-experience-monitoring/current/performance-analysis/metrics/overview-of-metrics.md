@@ -1,6 +1,6 @@
 ﻿---
 id: overview-of-metrics
-description: Répertoire de toutes les métriques de performance Experience Monitoring
+description: "Présentation des métriques de performance d'Experience Monitoring (Hero Time, TTFB, Speed Index, OnLoad, LCP, TBT, CLS) et de l'intérêt de les améliorer."
 title: Vue d'ensemble des métriques
 --- 
 

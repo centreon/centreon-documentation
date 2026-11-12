@@ -1,7 +1,7 @@
 ---
 id: monitor-windows-server-with-snmp
 title: Monitor your first Windows host
-description: "Monitor a Windows server using the SNMP protocol"
+description: "Monitor a Windows server with Centreon over SNMP: set up the SNMP service on Windows, install the Windows SNMP connector, then create and deploy the host."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -95,13 +95,6 @@ Then select **Accept SNMP packets from these hosts** and add the IP address of t
 Connect to your poller using SSH and install the Windows SNMP plugin (see the [monitoring procedure for the **Windows SNMP** Monitoring Connector](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp) for more information):
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-``` shell
-dnf install centreon-plugin-Operatingsystems-Windows-Snmp
-```
-
-</TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ``` shell
@@ -109,7 +102,14 @@ dnf install centreon-plugin-Operatingsystems-Windows-Snmp
 ```
 
 </TabItem>
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+``` shell
+dnf install centreon-plugin-Operatingsystems-Windows-Snmp
+```
+
+</TabItem>
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-plugin-operatingsystems-windows-snmp

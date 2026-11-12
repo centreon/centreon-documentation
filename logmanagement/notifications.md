@@ -1,7 +1,7 @@
 ---
 id: notifications
 title: Setting up notifications
-description: Configure webhook notification channels for triggered alert events
+description: "Send webhook notifications to third-party tools such as Slack when alert rules trigger alert events: create a notification channel and link it to rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

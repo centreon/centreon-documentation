@@ -1,7 +1,7 @@
 ---
 id: notif-config-for-teams
 title: Microsoft Teams notifications
-description: "Configure Centreon alerts to notify Microsoft Teams channels"
+description: "Send Centreon notifications to Microsoft Teams channels: create a webhook workflow in Teams, install the notification plugin, and set up objects via CLAPI."
 ---
 
 import Tabs from '@theme/Tabs';
@@ -42,13 +42,6 @@ You need to Install the Teams notification plugin with the package manager on ea
 - Enter the following command:
  
  <Tabs groupId="sync">
- <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
- 
- ``` shell
- dnf install centreon-plugin-Notification-Teams
- ```
- 
- </TabItem>
  <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
  
  ``` shell
@@ -56,7 +49,14 @@ You need to Install the Teams notification plugin with the package manager on ea
  ```
  
  </TabItem>
- <TabItem value="Debian 12" label="Debian 12">
+ <TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+ 
+ ``` shell
+ dnf install centreon-plugin-Notification-Teams
+ ```
+ 
+ </TabItem>
+ <TabItem value="Debian 13" label="Debian 13">
  
  ``` shell
  apt install centreon-plugin-notification-teams

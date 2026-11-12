@@ -1,6 +1,7 @@
 ---
 id: hardware-storage-emc-symmetrix-cma
 title: EMC Symmetrix CMA
+description: "Supervisez les baies EMC Symmetrix DMX3/DMX4 et VMAX avec Centreon Monitoring Agent : état des directors, disques, mémoire, alimentation et températures."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -282,3 +283,7 @@ C:/Program Files/Centreon/Plugins/centreon_plugins.exe" \
     --mode=hardware \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - New connector: Initial release.

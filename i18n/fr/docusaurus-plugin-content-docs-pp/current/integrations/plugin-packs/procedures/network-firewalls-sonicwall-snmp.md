@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-sonicwall-snmp
 title: Sonicwall SNMP
-description: "Supervisez les pare-feux SonicWall via SNMP : connexions, CPU, mémoire et trafic des tunnels VPN."
+description: "Supervisez les pare-feux SonicWall via SNMP : utilisation des connexions, CPU, mémoire et trafic des tunnels VPN, avec découverte d'hôtes SNMP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -449,3 +449,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vpn \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.

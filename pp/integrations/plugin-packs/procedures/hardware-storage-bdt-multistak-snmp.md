@@ -1,7 +1,7 @@
 ---
 id: hardware-storage-bdt-multistak-snmp
 title: BDT MultiStak SNMP
-description: "Monitor BDT MultiStak tape libraries via SNMP, checking module and device hardware status."
+description: "Monitor BDT MultiStak tape libraries via SNMP: hardware status of modules and of the device in one global check, with SNMP host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -431,3 +431,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=email-activity \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.11](../releases/release-notes.md#2025-11) - Enhancement: Changed service template aliases to avoid service deployment issues.

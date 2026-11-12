@@ -1,0 +1,405 @@
+# =============================================================================
+#  Dev deployment of the documentation (S3 + CloudFront), one preview per branch.
+#
+#  Two sites (see .github/scripts/docs-sites.sh):
+#    staging  every version except the one of nextVersion.json
+#    next     the next version alone
+#
+#  - Push on staging      -> s3://docs-centreon-dev/staging/ and .../staging/next/
+#  - Pull request (same   -> s3://docs-centreon-dev/<branch-slug>/ and .../next/,
+#    repository)             rebuilt on every push, with a sticky comment on the
+#                            PR. A site the PR cannot change is not rebuilt: its
+#                            link points to the staging branch preview.
+#  - Pull request closed  -> the preview prefix is deleted
+#  - Root (/)             -> a page listing the available previews, regenerated
+#                            after each deployment or cleanup
+#
+#  The sites are independent: a failed build of one never blocks the other.
+#
+#  Production does not use this page: see deploy-prod.yml.
+#
+#  The jobs that reach AWS declare `environment: preprod`, so the OIDC token
+#  subject is repo:centreon/centreon-documentation:environment:preprod whatever
+#  the event (push or pull_request): the gha-websites-docs-deploy role
+#  (Infrastructure, stacks/websites, site docs) trusts that subject and this
+#  workflow name only.
+#
+#  Variables of the GitHub environment `preprod` (centreon/Github):
+#    vars.AWS_REGION  vars.S3_BUCKET  vars.CLOUDFRONT_DISTRIBUTION
+#    vars.SITE_URL    root URL of the dev site, without trailing slash, for
+#                     the links in the PR comment
+# =============================================================================
+# The name is part of the gha-websites-docs-deploy trust (token claim "workflow"): keep it "deploy-dev".
+name: deploy-dev
+
+on:
+  push:
+    branches: [staging]
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+permissions:
+  contents: read
+  id-token: write
+  pull-requests: write
+
+# One run at a time per branch: the latest push wins.
+concurrency:
+  group: deploy-dev-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  ROLE: arn:aws:iam::496590675864:role/gha-websites-docs-deploy
+
+jobs:
+  # Which sites to build, and their versions.
+  sites:
+    # Fork PRs get no OIDC token, so nothing could be deployed: no build either.
+    if: >-
+      github.event_name == 'push' ||
+      (github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-24.04
+    outputs:
+      slug: ${{ steps.slug.outputs.slug }}
+      staging_versions: ${{ steps.sites.outputs.staging_versions }}
+      next_version: ${{ steps.sites.outputs.next_version }}
+      build_staging: ${{ steps.sites.outputs.build_staging }}
+      build_next: ${{ steps.sites.outputs.build_next }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            versions.json
+            nextVersion.json
+            .github/scripts
+          sparse-checkout-cone-mode: false
+
+      - name: Compute branch slug
+        id: slug
+        env:
+          BRANCH: ${{ github.head_ref || github.ref_name }}
+        run: |
+          slug=$(echo "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed -E 's#[^a-z0-9]+#-#g; s#^-+##; s#-+$##')
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "Branch '$BRANCH' -> prefix '$slug'"
+
+      - name: Choose the sites to build
+        id: sites
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ github.token }}
+        run: bash .github/scripts/docs-sites.sh
+
+  # One job per site and locale, in parallel: `--locale en` writes build/,
+  # `--locale fr` writes build/fr/, so the deploy job only merges artifacts.
+  build:
+    needs: [sites]
+    # GitHub-hosted: only the jobs that reach AWS run on the self-hosted
+    # documentation runners.
+    runs-on: ubuntu-24.04
+    strategy:
+      # A failed site or locale never cancels the others.
+      fail-fast: false
+      matrix:
+        site: [staging, next]
+        locale: [en, fr]
+    name: Build ${{ matrix.site }} ${{ matrix.locale }}
+    steps:
+      - name: Skip a site the PR does not change
+        id: want
+        env:
+          WANT: ${{ matrix.site == 'staging' && needs.sites.outputs.build_staging || needs.sites.outputs.build_next }}
+        run: echo "build=${WANT}" >> "$GITHUB_OUTPUT"
+
+      - if: steps.want.outputs.build == 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # showLastUpdateTime needs the full history (commits and trees),
+          # not the content of old files: a blobless clone is much faster.
+          fetch-depth: 0
+          filter: blob:none
+          persist-credentials: false
+
+      - if: steps.want.outputs.build == 'true'
+        uses: pnpm/action-setup@ea17c68df8912ef543352723c149a84f56e3d413 # v6.1.0
+        with:
+          version: 10
+          run_install: false
+
+      - if: steps.want.outputs.build == 'true'
+        uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        if: steps.want.outputs.build == 'true'
+        run: |
+          pnpm install \
+            --frozen-lockfile \
+            --config.trustPolicy=no-downgrade \
+            --config.minimumReleaseAge=2880 \
+            --config.blockExoticSubdeps=true
+
+      - name: Build documentation
+        if: steps.want.outputs.build == 'true'
+        run: pnpm build --locale ${{ matrix.locale }}
+        env:
+          NODE_OPTIONS: --max_old_space_size=16000
+          VERSIONS: ${{ matrix.site == 'staging' && needs.sites.outputs.staging_versions || needs.sites.outputs.next_version }}
+          BASE_URL: /${{ needs.sites.outputs.slug }}/${{ matrix.site == 'next' && 'next/' || '' }}
+          # Same output, faster build (opt-in flags of docusaurus.config.js).
+          DOCUSAURUS_MDX_CROSS_COMPILER_CACHE: "1"
+          DOCUSAURUS_SSG_WORKER_THREADS: "1"
+
+      - if: steps.want.outputs.build == 'true'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: docs-${{ matrix.site }}-${{ matrix.locale }}
+          path: build/
+          retention-days: 1
+          # Mostly images and minified files: compression gains little.
+          compression-level: 1
+
+  deploy:
+    needs: [sites, build]
+    # Deploys whatever was built, even if another site or locale failed.
+    if: ${{ !cancelled() && needs.sites.result == 'success' }}
+    runs-on: documentation
+    environment: preprod
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      BUCKET: ${{ vars.S3_BUCKET }}
+      DISTRIBUTION: ${{ vars.CLOUDFRONT_DISTRIBUTION }}
+      PREFIX: ${{ needs.sites.outputs.slug }}
+    steps:
+      # A missing artifact (failed or skipped build) is not an error here: the
+      # site status below is read from what was actually downloaded.
+      - name: Download the staging builds
+        if: needs.sites.outputs.build_staging == 'true'
+        continue-on-error: true
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: docs-staging-*
+          path: build-staging
+          merge-multiple: true
+
+      - name: Download the next builds
+        if: needs.sites.outputs.build_next == 'true'
+        continue-on-error: true
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: docs-next-*
+          path: build-next
+          merge-multiple: true
+
+      # A site is deployed only when both its locales were built.
+      - name: Site status
+        env:
+          BUILD_STAGING: ${{ needs.sites.outputs.build_staging }}
+          BUILD_NEXT: ${{ needs.sites.outputs.build_next }}
+        run: |
+          for site in staging next; do
+            want=$([ "$site" = staging ] && echo "$BUILD_STAGING" || echo "$BUILD_NEXT")
+            if [ "$want" != true ]; then
+              status=same
+            elif [ -f "build-${site}/index.html" ] && [ -f "build-${site}/fr/index.html" ]; then
+              status=built
+            else
+              status=failed
+            fi
+            echo "${site^^}_STATUS=${status}" >> "$GITHUB_ENV"
+            echo "${site}: ${status}"
+          done
+
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ env.ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      # Hashed assets of both locales (name = content hash): long cache, and
+      # --size-only since a known name always holds the same content, so only
+      # new assets are uploaded. Everything else (HTML, sitemap, images under
+      # img/...) is revalidated on each visit. Each pass only deletes the files
+      # it covers; the staging passes leave next/ and meta.json alone.
+      - name: Sync the staging site
+        if: env.STAGING_STATUS == 'built'
+        run: |
+          aws s3 sync ./build-staging "s3://${BUCKET}/${PREFIX}/" \
+            --delete --exclude "*" --include "assets/*" --include "fr/assets/*" --size-only \
+            --cache-control "public,max-age=31536000,immutable"
+          aws s3 sync ./build-staging "s3://${BUCKET}/${PREFIX}/" \
+            --delete --exclude "assets/*" --exclude "fr/assets/*" --exclude "next/*" --exclude "meta.json" \
+            --cache-control "public,max-age=0,must-revalidate"
+
+      - name: Sync the next site
+        if: env.NEXT_STATUS == 'built'
+        run: |
+          aws s3 sync ./build-next "s3://${BUCKET}/${PREFIX}/next/" \
+            --delete --exclude "*" --include "assets/*" --include "fr/assets/*" --size-only \
+            --cache-control "public,max-age=31536000,immutable"
+          aws s3 sync ./build-next "s3://${BUCKET}/${PREFIX}/next/" \
+            --delete --exclude "assets/*" --exclude "fr/assets/*" \
+            --cache-control "public,max-age=0,must-revalidate"
+
+      # A site the PR no longer changes falls back to the staging branch
+      # preview: drop the stale copy left by an earlier push.
+      - name: Drop the sites the PR does not change
+        if: github.event_name == 'pull_request'
+        run: |
+          if [ "$NEXT_STATUS" = same ]; then
+            aws s3 rm "s3://${BUCKET}/${PREFIX}/next/" --recursive --only-show-errors
+          fi
+          if [ "$STAGING_STATUS" = same ]; then
+            aws s3 rm "s3://${BUCKET}/${PREFIX}/" --recursive --only-show-errors \
+              --exclude "next/*" --exclude "meta.json"
+          fi
+
+      # Feeds the previews page at the root of the distribution: one link per
+      # site, to this preview or to the staging branch one.
+      - name: Write preview metadata
+        env:
+          BRANCH: ${{ github.head_ref || github.ref_name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          COMMIT: ${{ github.event.pull_request.head.sha || github.sha }}
+          NEXT_VERSION: ${{ needs.sites.outputs.next_version }}
+        run: |
+          staging_url=$([ "$STAGING_STATUS" = same ] && echo "/staging/" || echo "/${PREFIX}/")
+          if [ -z "$NEXT_VERSION" ]; then
+            next_url=""; NEXT_STATUS=none
+          else
+            next_url=$([ "$NEXT_STATUS" = same ] && echo "/staging/next/" || echo "/${PREFIX}/next/")
+          fi
+          jq -n \
+            --arg branch "$BRANCH" \
+            --arg slug "$PREFIX" \
+            --arg commit "${COMMIT::7}" \
+            --arg actor "$GITHUB_ACTOR" \
+            --arg pr "$PR_NUMBER" \
+            --arg updated "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg staging_url "$staging_url" --arg staging_status "$STAGING_STATUS" \
+            --arg next_url "$next_url" --arg next_status "$NEXT_STATUS" --arg next_version "$NEXT_VERSION" \
+            '{branch: $branch, slug: $slug, commit: $commit, actor: $actor, pr: $pr, updated: $updated,
+              sites: {staging: {url: $staging_url, status: $staging_status},
+                      next: {url: $next_url, status: $next_status, version: $next_version}}}' > meta.json
+          aws s3 cp meta.json "s3://${BUCKET}/${PREFIX}/meta.json" \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --content-type "application/json"
+          echo "STAGING_URL=${staging_url}" >> "$GITHUB_ENV"
+          echo "NEXT_URL=${next_url}" >> "$GITHUB_ENV"
+
+      - name: Invalidate the cache
+        run: aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION}" --paths "/${PREFIX}/*"
+
+      - name: Prepare the PR comment
+        if: github.event_name == 'pull_request' && vars.SITE_URL != ''
+        env:
+          ROOT: ${{ vars.SITE_URL }}
+          COMMIT: ${{ github.event.pull_request.head.sha }}
+          NEXT_VERSION: ${{ needs.sites.outputs.next_version }}
+        run: |
+          line() { # <label> <status> <path>
+            case "$2" in
+              built)  echo "| $1 | **[${ROOT}$3](${ROOT}$3)** | :white_check_mark: built |" ;;
+              same)   echo "| $1 | [${ROOT}$3](${ROOT}$3) | not changed by this PR: staging branch preview |" ;;
+              failed) echo "| $1 | — | :x: build failed, see the workflow run |" ;;
+            esac
+          }
+          {
+            echo "PREVIEW_COMMENT<<EOF"
+            echo "### :rocket: Dev preview"
+            echo
+            echo "| Site | URL | |"
+            echo "|---|---|---|"
+            line "Current versions" "$STAGING_STATUS" "$STAGING_URL"
+            [ -n "$NEXT_VERSION" ] && line "Next (${NEXT_VERSION})" "$NEXT_STATUS" "$NEXT_URL"
+            echo
+            echo "Commit \`${COMMIT::7}\`, deployed $(date -u '+%Y-%m-%d %H:%M') UTC."
+            echo
+            echo "<sub>Rebuilt on every push, deleted when the PR is closed. · [All previews](${ROOT}/)</sub>"
+            echo "EOF"
+          } >> "$GITHUB_ENV"
+
+      - name: Comment the preview URL on the PR
+        if: github.event_name == 'pull_request' && vars.SITE_URL != ''
+        uses: marocchino/sticky-pull-request-comment@5770ad5eb8f42dd2c4f34da00c94c5381e49af88 # v3.0.5
+        with:
+          header: dev-preview
+          message: ${{ env.PREVIEW_COMMENT }}
+
+  cleanup:
+    if: >-
+      github.event_name == 'pull_request' && github.event.action == 'closed' &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: documentation
+    environment: preprod
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      BUCKET: ${{ vars.S3_BUCKET }}
+      DISTRIBUTION: ${{ vars.CLOUDFRONT_DISTRIBUTION }}
+    steps:
+      - name: Compute branch slug
+        id: slug
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          slug=$(echo "$BRANCH" | tr '[:upper:]' '[:lower:]' | sed -E 's#[^a-z0-9]+#-#g; s#^-+##; s#-+$##')
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "Closed branch '$BRANCH' -> prefix '$slug'"
+
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ env.ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Remove the preview (staging is protected)
+        env:
+          PREFIX: ${{ steps.slug.outputs.slug }}
+        run: |
+          if [ -z "$PREFIX" ] || [ "$PREFIX" = "staging" ]; then
+            echo "Protected prefix '$PREFIX', nothing deleted."; exit 0
+          fi
+          aws s3 rm "s3://${BUCKET}/${PREFIX}/" --recursive --only-show-errors
+          aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION}" --paths "/${PREFIX}/*"
+
+  dashboard:
+    needs: [deploy, cleanup]
+    if: ${{ !cancelled() && (needs.deploy.result == 'success' || needs.cleanup.result == 'success') }}
+    # Regenerations never overlap and always read the real bucket content.
+    concurrency:
+      group: deploy-dev-dashboard
+      cancel-in-progress: false
+    runs-on: documentation
+    environment: preprod
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION }}
+      BUCKET: ${{ vars.S3_BUCKET }}
+      DISTRIBUTION: ${{ vars.CLOUDFRONT_DISTRIBUTION }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
+        with:
+          role-to-assume: ${{ env.ROLE }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Regenerate the previews page
+        run: bash .github/scripts/gen-dev-dashboard.sh
+
+      # The previews are not marked noindex (the search plugin skips noindex
+      # pages): the whole dev host is excluded from crawlers instead. It also
+      # requires a client certificate (mTLS).
+      - name: Keep crawlers out of the dev host
+        run: |
+          printf 'User-agent: *\nDisallow: /\n' > robots.txt
+          aws s3 cp robots.txt "s3://${BUCKET}/robots.txt" \
+            --cache-control "public,max-age=0,must-revalidate" \
+            --content-type "text/plain; charset=utf-8"
+
+      - name: Invalidate the root
+        run: aws cloudfront create-invalidation --distribution-id "${DISTRIBUTION}" --paths "/" "/index.html" "/robots.txt"

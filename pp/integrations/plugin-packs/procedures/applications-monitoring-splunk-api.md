@@ -1,7 +1,7 @@
 ---
 id: applications-monitoring-splunk-api
 title: Splunk
-description: "Monitor Splunk via its REST API: index update times, splunkd health, and custom search query results."
+description: "Monitor Splunk via its REST API: index update times, splunkd health by feature, and number of results or numeric and string values from search queries."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -526,3 +526,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=query \
 	--help
 ```
+
+## Changelog
+
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: Fixed the **App-Monitoring-Splunk-Api-String-Value** command that used a wrong mode.
+- [25.10](../releases/release-notes.md#2025-10) - Enhancement: Extended **query** mode, based on a [The Watch idea](https://thewatch.centreon.com/ideas/plugin-for-splunk-return-value-of-spl-request-3734).
+- [22.10](../releases/release-notes.md#2022-10) - New connector: Added Splunk Monitoring Connector.

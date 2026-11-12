@@ -1,7 +1,7 @@
 ---
 id: applications-protocol-ntp
 title: NTP Server
-description: "Monitor NTP servers with Centreon's NTP Server connector: track time offset and response time metrics."
+description: "Monitor NTP servers with Centreon's NTP Server connector: track time offset compared to an NTP server and the server's response time metrics."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

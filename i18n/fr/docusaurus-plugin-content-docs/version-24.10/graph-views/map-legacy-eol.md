@@ -1,7 +1,7 @@
 ---
 id: map-legacy-eol
 title: Fin de vie de MAP Legacy
-description: "Étapes pour monter de version et désinstaller complètement MAP Legacy après le passage à MAP"
+description: "MAP Legacy n'est plus disponible dans Centreon 24.10 : sauvegardez vos données, montez de version, passez à MAP sans perte, puis désinstallez MAP Legacy."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

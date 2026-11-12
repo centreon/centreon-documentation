@@ -1,7 +1,7 @@
 ---
 id: acknowledge
 title: Acquitter une alerte
-description: "Acquitter une alerte pour suspendre les notifications jusqu'à résolution"
+description: "Acquittez une alerte sur un hôte ou un service dans Centreon pour suspendre les notifications le temps de résoudre l'incident, puis annulez l'acquittement."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

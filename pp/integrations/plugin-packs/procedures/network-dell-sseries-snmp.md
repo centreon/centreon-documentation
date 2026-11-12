@@ -1,7 +1,7 @@
 ---
 id: network-dell-sseries-snmp
 title: Dell S-series SNMP
-description: "Monitor Dell S-series network switches via SNMP: CPU, memory, hardware health, and interface traffic."
+description: "Monitor Dell S-series network switches via SNMP: CPU, memory, hardware health, and interface traffic, with host and network interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -540,3 +540,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [24.04](../releases/release-notes.md#2024-04) - Enhancement: New filtering option supported for the SNMP IDs of the interfaces.

@@ -1,7 +1,7 @@
 ---
 id: network-routers-redback-snmp
 title: RedBack Router SNMP
-description: "Supervisez les routeurs RedBack via SNMP : CPU, mémoire, espace disque, matériel et trafic des interfaces réseau."
+description: "Supervisez les routeurs RedBack via SNMP : CPU, mémoire, espace disque, matériel, trafic et erreurs des interfaces réseau, avec découverte d'hôtes."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -780,3 +780,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.

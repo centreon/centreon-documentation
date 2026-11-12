@@ -1,7 +1,7 @@
 ---
 id: network-barracuda-cloudgen-snmp
 title: Barracuda Cloudgen SNMP
-description: "Supervisez les pare-feu Barracuda CloudGen via SNMP : CPU, mémoire, charge, stockage, interfaces, VPN et matériel."
+description: "Supervisez les pare-feu Barracuda CloudGen via SNMP : CPU, mémoire, charge, stockage, interfaces, VPN, services box et serveur, et état du matériel."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -867,3 +867,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [23.09](../releases/release-notes.md#2023-09) - Bug fix: Fixed interfaces service template.

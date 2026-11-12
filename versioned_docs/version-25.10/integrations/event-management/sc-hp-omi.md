@@ -1,7 +1,7 @@
 ---
 id: sc-hp-omi
 title: HP OMI
-description: "Configure the stream connector that sends events to HP OMI"
+description: "Install and configure the HP OMI stream connector on the Centreon central server to send monitoring event data to HP Operations Manager i (OMI)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,10 +9,6 @@ import TabItem from '@theme/TabItem';
 ## How it works
 
 HP OMI stream connector sends events related data to HP OMI
-
-## Compatibility
-
-**to be determined**
 
 ### Installation
 

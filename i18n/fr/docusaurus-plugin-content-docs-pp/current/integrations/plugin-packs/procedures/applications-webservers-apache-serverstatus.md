@@ -1,7 +1,7 @@
 ---
 id: applications-webservers-apache-serverstatus
 title: Apache Server
-description: "Supervisez les serveurs Apache via la page mod_status : requêtes, temps de réponse, slots de processus et charge CPU."
+description: "Supervisez les serveurs Apache via la page mod_status : débit des requêtes, temps de réponse, état des slots, charge CPU et workers actifs ou inactifs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -506,3 +506,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=workers \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.07](../releases/release-notes.md#2025-07) - Enhancement: Reworked **requests** mode and enhanced **slot-states** mode, based on community contribution [PR 4920](https://github.com/centreon/centreon-plugins/pull/4920).

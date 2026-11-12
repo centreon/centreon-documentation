@@ -1,7 +1,7 @@
 ---
 id: unattended-install-central
 title: Unattended installation of a central server
-description: "Install a central server quickly using an unattended script"
+description: "Install a Centreon central server in one go with the unattended installation script, which runs the full procedure including the web installation."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

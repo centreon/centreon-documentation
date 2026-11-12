@@ -1,7 +1,7 @@
 ---
 id: network-cisco-standard-ssh
 title: Cisco Standard SSH
-description: "Monitor Cisco devices via SSH: track CPU utilization and voice dial peer status with this connector."
+description: "Monitor Cisco devices via SSH: track CPU utilization over 5 seconds, 1 minute, and 5 minutes, and the operational status of voice dial peers."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -368,3 +368,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu \
 	--help
 ```
+
+## Changelog
+
+- [22.11](../releases/release-notes.md#2022-11) - Breaking change: Migrate and secure the underlying modes.

@@ -83,8 +83,9 @@ const config = {
       lightningCssMinimizer: true,
       rspackBundler: true,
       rspackPersistentCache: false,
-      ssgWorkerThreads: false,
-      mdxCrossCompilerCache: false,
+      // Opt-in through the environment (deploy-dev / deploy-prod), off by default.
+      ssgWorkerThreads: process.env.DOCUSAURUS_SSG_WORKER_THREADS === '1',
+      mdxCrossCompilerCache: process.env.DOCUSAURUS_MDX_CROSS_COMPILER_CACHE === '1',
     },
   },
 
@@ -124,6 +125,9 @@ const config = {
       },
       fr: {
         label: '🇫🇷 Français',
+        // Same as the inferred value, but explicit so that `build --locale fr`
+        // alone (one job per locale) still serves and writes fr under fr/.
+        baseUrl: `${baseUrl}fr/`,
       },
     },
   },
@@ -165,6 +169,11 @@ const config = {
           })(),
         },
         blog: false,
+        sitemap: {
+          lastmod: 'date',
+          changefreq: null,
+          priority: null,
+        },
         theme: {
           customCss: ['./src/css/custom.css'],
         },

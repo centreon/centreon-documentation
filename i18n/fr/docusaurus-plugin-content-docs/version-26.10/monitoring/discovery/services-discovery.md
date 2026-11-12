@@ -1,7 +1,7 @@
 ---
 id: services-discovery
 title: Découvrir des services automatiquement
-description: "Configurer des règles et commandes de découverte pour créer des services automatiquement"
+description: "Découvrez automatiquement des services dans Centreon : lancez des scans manuels, configurez règles et commandes de découverte et testez vos règles."
 ---
 
 ## Lancer une découverte manuellement

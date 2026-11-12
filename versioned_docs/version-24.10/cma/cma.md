@@ -1,7 +1,7 @@
 ---
 id: cma
 title: Introduction to CMA
-description: "Introduction to the Centreon Monitoring Agent and its use cases"
+description: "Introduction to Centreon Monitoring Agent (CMA): when to use an agent, supported OSs and applications, and how the host and poller interact."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -36,7 +36,6 @@ The CMA can be installed on and monitor the following OSs:
 * RHEL/Oracle Linux/Alma Linux 8
 * RHEL/Oracle Linux/Alma Linux 9
 * RHEL/Oracle Linux/Alma Linux 10
-* Debian 11
 * Debian 12
 * Debian 13
 * Ubuntu 22.04/24.04 LTS
@@ -91,6 +90,34 @@ The connection between the poller and the agent must be secure in production. Yo
 
 - [a TLS connection with certificates](cma-certificates.md)
 - [an authentication token](cma-setup.md#create-an-authentication-token).
+
+### Compatibility between agent and poller versions
+
+Starting with version 25.10, the connection between the agent and the poller is more strictly secured: a valid authentication token is required as soon as either component (the agent or the poller/platform) runs version 25.10 or later. In version 24.10, connections without a token are still tolerated as a transitional behavior.
+
+If you operate a fleet with agents and pollers on different versions (for example during a progressive upgrade), the behavior depends on the version of each component:
+
+| Agent | Poller / platform | Without an authentication token | With a valid authentication token |
+|---|---|---|---|
+| 24.10 | 24.10 | Allowed (transitional behavior) | Works |
+| 25.10 | 24.10 | Allowed (transitional behavior) | Works |
+| 24.10 | 25.10 | **Refused** by the poller | Works |
+| 25.10 | 25.10 | **Refused** by the poller | Works |
+
+> We recommend always configuring an authentication token, regardless of the version, to avoid any monitoring interruption when the platform is upgraded.
+
+In addition, some agent capabilities introduced in version 25.10 rely on support from the Engine on the poller side, and therefore only work when both the agent and the poller run version 25.10 or later:
+
+| Agent capability (new in 25.10) | Poller **25.10** + agent **24.10** | Poller **24.10** + agent **25.10** |
+|---|:---:|:---:|
+| Custom commands (`custom`) | ❌ | ✅ |
+| Check timeperiods | ❌ | ❌ |
+| SOFT/HARD retry handling | ❌ | ❌ |
+| Credentials encryption (`encrypt::`) | ❌ | ❌ |
+| Host auto-registration | ❌ | ❌ |
+| Forced checks | ❌ | ❌ |
+
+Basic native checks (CPU, memory, storage, uptime, Windows services, event log, processes, scheduled tasks, performance counters, etc.) remain available regardless of the version combination.
 
 ### Operating diagram
 

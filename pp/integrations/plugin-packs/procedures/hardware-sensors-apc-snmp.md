@@ -1,7 +1,7 @@
 ---
 id: hardware-sensors-apc-snmp
 title: APC Sensor SNMP
-description: "Monitor APC sensor hardware via SNMP, tracking temperature, humidity, and fluid status across sensor modules."
+description: "Monitor APC environmental sensors via SNMP: temperature, humidity, and fluid status for each sensor module, with host discovery via SNMP scan."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -342,3 +342,8 @@ All available options for a given mode can be displayed by adding the
 	--mode=sensors \
 	--help
 ```
+
+## Changelog
+
+- [24.03](../releases/release-notes.md#2024-03) - Bug fix: Fixed an issue causing Perl warnings for 'use of uninitialized value'.
+- [22.12](../releases/release-notes.md#2022-12) - New connector: Initial release.

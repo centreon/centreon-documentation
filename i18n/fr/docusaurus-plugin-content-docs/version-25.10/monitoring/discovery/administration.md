@@ -1,7 +1,7 @@
 ---
 id: administration
 title: Administration
-description: "Mettre à jour, désinstaller et configurer le module Auto Discovery et Gorgone"
+description: "Mettez à jour ou désinstallez le module Centreon Auto Discovery et configurez son module Gorgone (architecture distribuée, tâche planifiée, accès API)."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -204,6 +204,8 @@ gorgone:
       username: centreon-gorgone
       password: PYNM5kcc
 ```
+
+> Si vous avez [personnalisé l'URI de Centreon](../../administration/secure-platform.md#uri-personnalisée), remplacez **/centreon** par votre chemin personnalisé dans la valeur **base_url**.
 
 L'accès à l'API Rest, représenté par *centreonv2*, nécessite les identifiants
 d'un utilisateur ayant accès à l'API de configuration. Il est utilisé

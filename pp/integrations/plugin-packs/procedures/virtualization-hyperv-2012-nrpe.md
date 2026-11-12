@@ -1,7 +1,7 @@
 ---
 id: virtualization-hyperv-2012-nrpe
 title: Hyper-V 2012 NSClient++ NRPE
-description: "Monitor Microsoft Hyper-V 2012 and SCVMM via NRPE: VM status, replication, snapshots, and integration services."
+description: "Monitor Microsoft Hyper-V 2012 nodes and SCVMM via NSClient++ and NRPE: virtual machine status, replication, snapshots, and integration services."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -608,3 +608,8 @@ All available options for a given mode can be displayed by adding the
 	--scvmm-username="" \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Breaking change: Replaced `check_centreon_nrpe3` with `check_nrpe`.
+- [24.09](../releases/release-notes.md#2024-09) - Bug fix: Fixed the default `--filter-status` value on VM status.

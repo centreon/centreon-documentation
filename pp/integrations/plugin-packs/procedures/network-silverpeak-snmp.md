@@ -1,7 +1,7 @@
 ---
 id: network-silverpeak-snmp
 title: Silverpeak SNMP
-description: "Monitor Silverpeak SD-WAN appliances via SNMP: alarms, operational status, uptime, and interface traffic."
+description: "Monitor Silverpeak SD-WAN appliances via SNMP: alarms, operational status, uptime, and network interface traffic, with automatic interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -604,3 +604,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=interfaces \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added **interfaces discovery rule**.
+- [22.09](../releases/release-notes.md#2022-09) - Bug fix: Fixed Uptime command thresholds.

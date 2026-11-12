@@ -1,7 +1,7 @@
 ---
 id: cloud-ibm-softlayer-api
 title: IBM Softlayer API
-description: "Monitor IBM SoftLayer cloud resources via REST API: track event status and open support tickets."
+description: "Monitor IBM SoftLayer cloud resources via REST API: active, completed, and published events with impacted resources, and open support tickets."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -371,3 +371,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=events \
 	--help
 ```
+
+## Changelog
+
+- [22.04](../releases/release-notes.md#2022-04) - Bug fix: Fixed commands options.

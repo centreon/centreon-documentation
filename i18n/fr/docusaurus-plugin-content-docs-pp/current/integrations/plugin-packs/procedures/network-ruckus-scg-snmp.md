@@ -938,3 +938,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [22.01](../releases/release-notes.md#2022-01) - Bug fix: Fixed cpu command options.

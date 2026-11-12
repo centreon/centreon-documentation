@@ -1,7 +1,7 @@
 ---
 id: network-cisco-firepower-snmp
 title: Cisco Firepower SNMP
-description: "Supervisez les équipements Cisco Firepower via SNMP : processeur, mémoire, matériel, erreurs et interfaces réseau."
+description: "Supervisez les équipements Cisco Firepower via SNMP : processeur, mémoire, matériel, erreurs et interfaces réseau, avec découverte des hôtes et interfaces."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -657,3 +657,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=memory \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - Enhancement: Added native SNMP v3 host macro.

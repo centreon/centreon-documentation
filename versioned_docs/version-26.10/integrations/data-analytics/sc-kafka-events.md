@@ -1,7 +1,7 @@
 ---
 id: sc-kafka-events
 title: Kafka Events
-description: "Publish host, service, and business activity events to a Kafka topic"
+description: "Install and configure the Kafka Events stream connector to publish Centreon host, service and business activity status events to a Kafka topic."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -27,14 +27,6 @@ Perform the installation on the server that will send data to Kafka (central ser
 2. Run the following command:
 
 <Tabs groupId="sync">
-<TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
-
-```shell
-dnf install centreon-stream-connector-kafka
-```
-
-</TabItem>
-
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```shell
@@ -43,7 +35,15 @@ dnf install centreon-stream-connector-kafka
 
 </TabItem>
 
-<TabItem value="Debian 12" label="Debian 12">
+<TabItem value="Alma / RHEL / Oracle Linux 10" label="Alma / RHEL / Oracle Linux 10">
+
+```shell
+dnf install centreon-stream-connector-kafka
+```
+
+</TabItem>
+
+<TabItem value="Debian 13" label="Debian 13">
 
 ```shell
 apt install centreon-stream-connector-kafka

@@ -31,6 +31,8 @@ Definitions:
 
 ## Business Activity configuration
 
+> You can [simulate](/cloud/service-mapping/ba-simulation) the behavior of a Business Activity dependency tree before saving your changes and pushing the configuration to production. This lets you decide afterward whether to keep or discard the changes you made.
+
 Centreon BAM's configuration interface lets you manage a whole business
 activity from a single screen:
 

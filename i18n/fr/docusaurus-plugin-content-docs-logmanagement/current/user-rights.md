@@ -1,6 +1,7 @@
 ---
 id: user-rights
 title: Droits utilisateur dans Centreon Log Management
+description: "Rôles User, Editor et Administrator dans Centreon Log Management, droits associés à chacun, et ajout ou retrait d'utilisateurs dans une organisation."
 ---
 
 Dans Centreon Log Management, les utilisateurs peuvent :

@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-mac-snmp
 title: Mac SNMP
-description: "Supervisez macOS via SNMP : CPU, mémoire, swap, espace disque, E/S disque, trafic réseau, charge et uptime."
+description: "Supervisez macOS via SNMP : CPU, mémoire, swap, espace disque, E/S disque, inodes, trafic réseau, charge, processus et uptime, avec découverte automatique."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -926,3 +926,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [26.04](../releases/release-notes.md#2026-04) - Enhancement: Handled unanticipated hrSWRunStatus in **processcount** mode (issue [#4925](https://github.com/centreon/centreon-plugins/issues/4925)).

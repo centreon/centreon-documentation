@@ -1,7 +1,7 @@
 ---
 id: network-ubiquiti-unifi-snmp
 title: Ubiquiti UniFi SNMP
-description: "Monitor Ubiquiti UniFi devices via SNMP, covering CPU, memory, disks, interfaces, uptime, and virtual access points."
+description: "Monitor Ubiquiti UniFi devices via SNMP: CPU, load, memory, swap, disks, uptime, interfaces, and virtual access points, with interface discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -854,3 +854,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=virtual-access-points \
 	--help
 ```
+
+## Changelog
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Added native SNMP v3 host macro.

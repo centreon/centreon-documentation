@@ -1,7 +1,7 @@
 ---
 id: network-firewalls-juniper-ssg-snmp
 title: Juniper SSG SNMP
-description: "Supervisez les pare-feu Juniper SSG via SNMP : CPU, mémoire, matériel, sessions, trafic des interfaces et tunnels VPN."
+description: "Supervisez les pare-feu Juniper SSG via SNMP : CPU, mémoire, matériel, sessions, trafic des interfaces, statut et utilisation des tunnels VPN."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -632,3 +632,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vpn-usage \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - Enhancement: Reworked plugin path to be more explicit with the initial release of Juniper M-series with Netconf.
+- [23.11](../releases/release-notes.md#2023-11) - Bug fix: The **hardware** mode no longer returns an UNKNOWN state for fans in a failed state.

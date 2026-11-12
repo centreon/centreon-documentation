@@ -1,7 +1,7 @@
 ---
 id: network-dell-os10-snmp
 title: Dell OS10 SNMP
-description: "Supervisez vos commutateurs réseau Dell OS10 via SNMP : CPU, mémoire, matériel, interfaces, charge, disque et uptime."
+description: "Supervisez vos commutateurs réseau Dell OS10 via SNMP : CPU, mémoire, matériel, interfaces, charge, swap, disque, inodes et uptime, avec découverte."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -740,3 +740,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=interfaces \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Fixed **Net-Dell-Os10-SNMP-Disk-usage** command.

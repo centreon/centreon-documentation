@@ -1,7 +1,7 @@
 ---
 id: cloud-azure-integration-eventgrid
 title: Azure Event Grid
-description: "Monitor Azure Event Grid via API or Azure CLI: track event counts, delivery failures, and processing latency."
+description: "Monitor Azure Event Grid via API or Azure CLI: track event counts, delivery failures, and processing latency, with automatic host discovery."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -448,3 +448,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=events \
 	--help
 ```
+
+## Changelog
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Changed host status checks output.

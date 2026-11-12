@@ -1,7 +1,7 @@
 ---
 id: backup-restore
 title: Backing up and restoring MBI
-description: "Back up and restore your Centreon MBI central and reporting servers"
+description: "Back up Centreon MBI with the cron jobs installed on the central and MBI servers, and restore the MBI module, reporting server, or database data if needed."
 ---
 
 import Tabs from '@theme/Tabs';

@@ -1,7 +1,7 @@
 ---
 id: web-and-post-installation
 title: Web And Post Installation
-description: "Complete the web setup wizard and initialize your monitoring"
+description: "Complete the Centreon web installation wizard step by step, then initialize monitoring, add a license, install extensions and secure your platform."
 ---
 
 ## Web installation

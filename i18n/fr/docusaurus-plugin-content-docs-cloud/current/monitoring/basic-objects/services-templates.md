@@ -1,7 +1,7 @@
 ---
 id: services-templates
 title: Utiliser des modèles de services
-description: "Fonctionnement des modèles de services, leurs règles d'héritage, et bonnes pratiques pour les lier aux modèles d'hôtes"
+description: "Fonctionnement des modèles de services, leurs règles d'héritage, et bonnes pratiques pour lier les modèles de services aux modèles d'hôtes dans Centreon"
 ---
 
 ## Définition
@@ -25,7 +25,7 @@ Les avantages sont :
 
 ## Modèles de services
 
-### Inheritance
+### Héritage
 
 Un service ou un modèle de service ne peut hériter que d’un seul modèle de
 service (héritage de type Père-Fils).

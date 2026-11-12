@@ -882,3 +882,15 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=updates \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.07](../releases/release-notes.md#2026-07) - Enhancement: Improved `gssnegotiate` authentication support.
+- [26.03](../releases/release-notes.md#2026-03) - Enhancement: Added **certificates** mode.
+- [26.03](../releases/release-notes.md#2026-03) - Bug fix: The temporary files are now deleted when the execution ends.
+- [26.02](../releases/release-notes.md#2026-02) - Bug fix: Added a specific command handler dedicated to PowerShell scripts to avoid `JSON error` messages occurring in some cases, such as **updates** and **pending-reboot** modes (issues [#4461](https://github.com/centreon/centreon-plugins/issues/4461) and [#4599](https://github.com/centreon/centreon-plugins/issues/4599)).
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed an issue in the **ntp** mode, causing zombie processes of `centreon_plugins.exe`.
+- [24.05](../releases/release-notes.md#2024-05) - Bug fix: Fixed the OS-Windows-WSMAN-Services-Macro command and its discovery rule.
+- [22.10](../releases/release-notes.md#2022-10) - Enhancement: Added service updates for windows pack.
+- [22.05](../releases/release-notes.md#2022-05) - Bug fix: Fixed typos in command lines options.
+- [22.04](../releases/release-notes.md#2022-04) - New connector: Initial release.

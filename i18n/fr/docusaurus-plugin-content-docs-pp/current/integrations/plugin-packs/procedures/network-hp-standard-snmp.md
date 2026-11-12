@@ -1,7 +1,7 @@
 ---
 id: network-hp-standard-snmp
 title: HP Standard Network SNMP
-description: "Supervisez les équipements réseau HP via SNMP : CPU, mémoire, matériel, temps de fonctionnement, trafic des interfaces, erreurs de paquets, Spanning Tree et statut VRRP."
+description: "Supervisez les équipements réseau HP via SNMP : CPU, mémoire, matériel, uptime, trafic et erreurs des interfaces, Spanning Tree et statut VRRP."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1041,3 +1041,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=vrrp-status \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [25.09](../releases/release-notes.md#2025-09) - Enhancement: Added **vrrp-status** mode, from community contribution [PR 4842](https://github.com/centreon/centreon-plugins/pull/4842).

@@ -1,7 +1,7 @@
 ---
 id: availability-events-reports
 title: Rapports disponibilité et événements
-description: "Rapports sur la disponibilité des hôtes et services, les interruptions et les événements"
+description: "Rapports Centreon MBI sur la disponibilité et les évènements des groupes d'hôtes : incidents, listes d'évènements, Pareto et évènements en cours."
 ---
 
 ### Hostgroups-Incidents-1

@@ -1,7 +1,7 @@
 ---
 id: network-raisecom-snmp
 title: Raisecom SNMP
-description: "Monitor Raisecom network devices via SNMP: CPU usage, hardware health, memory, and interface traffic."
+description: "Monitor Raisecom network devices via SNMP: CPU usage, hardware health, memory, and interface traffic, with host and service discovery rules."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -529,3 +529,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=cpu \
 	--help
 ```
+
+## Changelog
+
+- [22.06](../releases/release-notes.md#2022-06) - Enhancement: Added support for all Raisecom xPON series.

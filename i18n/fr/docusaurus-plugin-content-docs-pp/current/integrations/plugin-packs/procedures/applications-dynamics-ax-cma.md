@@ -1,6 +1,7 @@
 ---
 id: applications-dynamics-ax-cma
 title: Dynamics AX CMA
+description: "Supervisez Microsoft Dynamics AX avec l'agent CMA : fichiers RIS à importer, erreurs d'import et état du service Recurring Integrations Scheduler."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -446,3 +447,7 @@ CRITICAL= 0
 </Tabs>
 
 3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
+
+## Historique des modifications
+
+- [26.08](../releases/release-notes.md#2026-08) - New connector: Initial release.

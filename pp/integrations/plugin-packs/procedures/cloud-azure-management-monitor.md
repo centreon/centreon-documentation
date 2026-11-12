@@ -408,3 +408,7 @@ All available options for a given mode can be displayed by adding the
 	--mode=get-metrics \
 	--help
 ```
+
+## Changelog
+
+- [25.01](../releases/release-notes.md#2025-01) - Bug fix: Removed unrelated **Loganalytics** service template.

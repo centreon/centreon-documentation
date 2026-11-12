@@ -1,7 +1,7 @@
 ---
 id: network-routers-juniper-mseries-netconf
 title: Juniper M-Series Netconf
-description: "Supervisez les routeurs Juniper M-Series via Netconf : CPU, mémoire, matériel, interfaces, BGP, OSPF, LDP, LSP et RSVP."
+description: "Supervisez les routeurs Juniper M-Series via Netconf : CPU, mémoire, matériel, disques, interfaces, BGP, OSPF, LDP, LSP, RSVP et services RPM."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -1047,3 +1047,7 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=rsvp \
 	--help
 ```
+
+## Historique des modifications
+
+- [25.06](../releases/release-notes.md#2025-06) - New connector: Initial release of Juniper M-series with Netconf.

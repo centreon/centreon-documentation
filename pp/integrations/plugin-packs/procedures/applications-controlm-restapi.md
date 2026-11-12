@@ -387,3 +387,9 @@ All available options for a given mode can be displayed by adding the
 	--mode=jobs \
 	--help
 ```
+
+## Changelog
+
+- [25.12](../releases/release-notes.md#2025-12) - Bug fix: Fixed typo in **jobs** mode.
+- [23.04](../releases/release-notes.md#2023-04) - Enhancement: Added option `--job-name` in **jobs** mode.
+- [23.03](../releases/release-notes.md#2023-03) - New connector: Initial release.

@@ -1,7 +1,7 @@
 ---
 id: cma-troubleshooting
 title: Dépanner l'agent CMA
-description: "Dépanner les problèmes de connexion, de journalisation et de statut CMA"
+description: "Dépannez Centreon Monitoring Agent (CMA) : rafraîchissez un statut, vérifiez le service, les logs et la connexion au collecteur, ajustez les logs."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

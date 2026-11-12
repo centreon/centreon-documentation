@@ -1,7 +1,7 @@
 ---
 id: operatingsystems-hpux-snmp
 title: HP-UX SNMP
-description: "Supervisez vos serveurs HP-UX via SNMP : CPU, charge, mémoire et swap, espace disque, uptime et processus."
+description: "Supervisez vos serveurs HP-UX via SNMP : CPU, charge moyenne, utilisation de la mémoire et du swap, espace libre des disques, uptime et processus."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -543,3 +543,8 @@ affichée en ajoutant le paramètre `--help` à la commande :
 	--mode=storage \
 	--help
 ```
+
+## Historique des modifications
+
+- [26.06](../releases/release-notes.md#2026-06) - Enhancement: Added native SNMP v3 host macro.
+- [25.04](../releases/release-notes.md#2025-04) - Enhancement: Added the `--check-overload` option to the **uptime** service template.

@@ -1,7 +1,7 @@
 ---
 id: explore-analyze
 title: Explorer et analyser les logs
-description: Aperçu des différentes façons d'explorer et d'analyser les logs dans Centreon Log Management
+description: "Explorez et analysez vos logs dans Centreon Log Management avec Log explorer, les évènements d'alerte et les tableaux de bord, selon votre cas d'usage."
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
