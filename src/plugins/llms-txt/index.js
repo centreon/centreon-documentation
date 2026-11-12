@@ -4,7 +4,8 @@
  * For each locale build (build/ and build/fr/), it writes:
  * - a root llms.txt, from the hand-written template editorial/root.<locale>.md
  *   (rendered by editorial.js), into which it inserts the links to each index
- *   below and to the root llms.txt of the other locales,
+ *   below, one section per product family, and to the root llms.txt of the
+ *   other locales,
  * - one index per on-prem version: the latest one only (/docs/llms.txt) by
  *   default, every built version (/docs/<version>/llms.txt for the others)
  *   with the onPremVersions: 'all' option,
@@ -43,10 +44,20 @@ const CONNECTORS_ID = 'pp';
 // The connectors landing page links to every connector procedure.
 const CONNECTORS_LANDING_ID = 'integrations/plugin-packs/getting-started/introduction';
 
-// Docs instances in output order. Texts fall back to English.
+// Product families: each gets a section of the root llms.txt, in this order.
+// Product names stay in English in every locale.
+const GROUPS = [
+  { id: 'infra', title: 'Infra Monitoring' },
+  { id: 'experience', title: 'Experience Monitoring' },
+  { id: 'logs', title: 'Log Management' },
+];
+
+// Docs instances in output order, with their product family; any other
+// instance goes to an "Other products" section. Texts fall back to English.
 const SECTIONS = [
   {
     id: ONPREM_ID,
+    group: 'infra',
     title: { en: 'Infra Monitoring OnPrem' },
     description: {
       en: 'Self-hosted monitoring platform: installation, configuration of monitored resources, events and alerts, dashboards, administration, upgrades, API and development.',
@@ -55,6 +66,7 @@ const SECTIONS = [
   },
   {
     id: 'cloud',
+    group: 'infra',
     title: { en: 'Infra Monitoring Cloud' },
     description: {
       en: 'Infra Monitoring as a service: Centreon hosts and runs the central platform, you install pollers on your side. Not versioned; its procedures differ from the OnPrem ones.',
@@ -63,6 +75,7 @@ const SECTIONS = [
   },
   {
     id: CONNECTORS_ID,
+    group: 'infra',
     title: { en: 'Monitoring Connectors', fr: 'Connecteurs de supervision' },
     description: {
       en: 'Ready-to-use templates and plugins, shared by OnPrem and Cloud. Each connector page gives its prerequisites, the templates and services it provides, its metrics and its troubleshooting. The index lists the general pages and one line per connector category.',
@@ -71,6 +84,7 @@ const SECTIONS = [
   },
   {
     id: 'experience-monitoring',
+    group: 'experience',
     title: { en: 'Experience Monitoring' },
     description: {
       en: 'Monitoring of the digital experience: scripted user journeys (STM), real user monitoring (RUM), digital sobriety, business and system data.',
@@ -79,6 +93,7 @@ const SECTIONS = [
   },
   {
     id: 'logmanagement',
+    group: 'logs',
     title: { en: 'Log Management' },
     description: {
       en: 'Log collection with OpenTelemetry, exploration and analysis, alerts on log patterns.',
@@ -412,9 +427,10 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
         await writeMarkdownPages(outDir, sections);
       }
 
-      const onpremLines = [];
-      const productLines = [];
+      // Index lines per product family, in GROUPS order, "other" last.
+      const groupLines = new Map([...GROUPS.map((group) => [group.id, []]), ['other', []]]);
       for (const section of sections) {
+        const lines = groupLines.get(section.group ?? 'other');
         const content = docsInstances[section.id];
         if (!content) {
           continue; // Instance disabled for this build.
@@ -439,7 +455,7 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
               parts.push(texts.olderVersions(entry.urlPath));
             }
             parts.push(`${texts.pageCount(entry.count)}.`);
-            onpremLines.push(linkLine(label, entry.url, parts.join(' ')));
+            lines.push(linkLine(`${title} ${label}`, entry.url, parts.join(' ')));
           }
         } else {
           // Non-versioned instances have a single loaded version.
@@ -449,7 +465,7 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
             if (section.id === CONNECTORS_ID) {
               count += `, ${texts.connectorCount(countConnectors(version))}`;
             }
-            productLines.push(linkLine(title, entry.url, `${description} ${count}.`));
+            lines.push(linkLine(title, entry.url, `${description} ${count}.`));
           }
         }
       }
@@ -463,12 +479,11 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
 
       // The generated sections, inserted at the {{indexes}} line of the template.
       const indexes = [];
-      if (onpremLines.length > 0) {
-        const onprem = SECTIONS.find((section) => section.id === ONPREM_ID);
-        indexes.push('', `## ${onprem.title[locale] ?? onprem.title.en}`, '', ...onpremLines);
-      }
-      if (productLines.length > 0) {
-        indexes.push('', `## ${texts.otherProducts}`, '', ...productLines);
+      for (const [groupId, lines] of groupLines) {
+        if (lines.length > 0) {
+          const title = GROUPS.find((group) => group.id === groupId)?.title ?? texts.otherProducts;
+          indexes.push('', `## ${title}`, '', ...lines);
+        }
       }
       if (languageLines.length > 0) {
         indexes.push('', `## ${texts.otherLanguages}`, '', ...languageLines);
