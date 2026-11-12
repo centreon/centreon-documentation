@@ -207,3 +207,7 @@ curl -X POST -H 'content-type: application/json' 'https://connect.signl4.com/web
 ```
 
 You must replace all the *`<xxxx>`* inside the above command with the correct value. `team_secret` may become *x3x[..]2c*.
+
+## Changelog
+
+- [21.12](../stream-connectors-rn.md#2021-12) - New stream connector: Initial release of Signl4 Events.

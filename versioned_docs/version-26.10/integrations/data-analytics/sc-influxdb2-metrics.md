@@ -180,3 +180,11 @@ If you want to test that events are sent to InfluxDB 2 correctly:
    > Replace all the *`<xxxx>`* inside the above command with the correct value. For instance, \<bucket_id\>* may become something like *65f5f748e28c92f0*.
 
 3. Check that the event has been received by InfluxDB 2.
+
+## Changelog
+
+- [26.07](../stream-connectors-rn.md#2026-07) - Bug fix: Properly escape host names in tags.
+- [25.02](../stream-connectors-rn.md#2025-02) - Bug fix: Fixed subinstances.
+- [24.08](../stream-connectors-rn.md#2024-08) - Bug fix: Added a protection on metric names containing spaces.
+- [24.04](../stream-connectors-rn.md#2024-04) - Enhancement: Added the possibility to send **metric_id**.
+- [23.09](../stream-connectors-rn.md#2023-09) - New stream connector: Initial release of InfluxDB 2 Metrics.

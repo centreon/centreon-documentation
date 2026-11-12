@@ -440,3 +440,12 @@ curl -X POST -H 'content-length: 400' -H 'content-type: application/json' -H 'x-
 3. Vérifiez que l'évènement a bien été reçu par Canopsis : les statuts doivent apparaître à la page **Alarmes > En Cours** de Canopsis.
 
 ![image](../../assets/integrations/data-analytics/status.png)
+
+## Historique des modifications
+
+- [26.08](../stream-connectors-rn.md#2026-08) - Bug fix: Fixed crashes on host acknowledgement events.
+- [26.07](../stream-connectors-rn.md#2026-07) - Enhancement: Added bulk events. For more technical information, see [PR 274](https://github.com/centreon/centreon-stream-connector-scripts/pull/274).
+- [26.07](../stream-connectors-rn.md#2026-07) - Bug fix: Fixed downtime names/IDs that weren't unique. Fixed a library that wasn't properly detecting the status of a host/service in a downtime event.
+- [25.02](../stream-connectors-rn.md#2025-02) - Bug fix: Fixed downtimes.
+- [24.05](../stream-connectors-rn.md#2024-05) - Enhancement: Enhanced a lot of functionalities to catch up with the new version of Canopsis (24.04).
+- [23.01](../stream-connectors-rn.md#2023-01) - New stream connector: Initial release of Canopsis Events.
