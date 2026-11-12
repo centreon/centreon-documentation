@@ -1,71 +1,121 @@
 ---
 id: centreon-ui
 title: Centreon UI
-description: "Configurez les options générales de l'interface web Centreon, comme l'affichage et l'héritage des notifications, ainsi qu'un proxy."
+description: "Configurez les options générales de l'interface web Centreon : proxy, héritage des notifications, taille des pages, rafraîchissement, tri, graphiques, autologin, fuseau horaire et recherche."
 ---
 
-### Options générales
+La page **Centreon web** regroupe les options qui s'appliquent à toute l'interface web Centreon, pour tous les utilisateurs.
 
-Cette partie traite de la configuration des options générales de l'interface web
-Centreon.
+Pour les modifier, allez à la page **Administration > Paramètres > Centreon web**, modifiez les champs, puis cliquez sur **Sauvegarder**.
 
-Depuis le menu **Administration > Paramètres > Centreon web**.
+## Configurer un proxy {#configuration-du-proxy}
 
+Configurez un proxy si votre serveur central accède à Internet par ce biais. Centreon a besoin d'un accès à Internet pour [vérifier votre licence](../licenses.md) et télécharger les connecteurs de supervision.
 
-- Le champ **Répertoire** désigne le répertoire dans lequel Centreon est
-installé
-- Le champs **Contacts & Contact groups method calculation** permet de définir
-comment l'héritage des notifications des hôtes et services vont être calculés
-- Le champ **Limite par page (par défaut)** définit le nombre d'objet affiché
-par page de **Configuration**
-- Le champ **Limite par page pour les pages de supervision** définit le nombre
-d'objet affiché par page au sein du menu **Supervision**
-- Le champ **Graphique de performance par page** définit le nombre maximum de
-graphiques affichés sur la page de *Performances*\*
-- Le champ **Nombre d'éléments présent** définit le nombre maximum d'éléments
-affichés dans chaque boîte de sélection
-- Le champ **Durée d'expiration de la session**, exprimé en minutes, indique
-la durée maximale d'une session
-- Le champ **Intervalle de rafraîchissement pour la page des statistiques**,
-exprimé en secondes, indique l'intervalle de rafraîchissement pour les
-objets de la page des statistiques
-- Le champ **Intervalle de rafraîchissement pour la page de supervision**,
-exprimé en secondes, indique l'intervalle de rafraîchissement pour les
-objets de la page supervision
-- Le champ **Trier par** indique le tri par défaut pour les pages de
-supervision des hôtes et des services.
-- Le champ **Choix de tri** indique l'ordre par défaut de tri pour les pages
-de supervision des services et des hôtes.
-- Le champ **Trier les problèmes par** permet de choisir comment trier les
-différents incidents dans le menu **Supervision**
-- La champ **Ordre de tri des problèmes** indique l'ordre d'affichage des
-incidents par ordre de gravité croissant ou décroissant
-- Le champ **Afficher les temps d'arrêts et les acquittements sur les
-graphiques** permet d'afficher ou non ces éléments
-- Le champ **Afficher les comentaires sur les graphiques** permet d'afficher
-ou non ces éléments
-- Le champ **Timezone par défaut de l'hôte** permet de définit un timezone par
-défaut pour application du décalage horaire
-- Le champ **Adresse mail de contact du support (de la plate-forme de
-supervision)** indique l'adresse email de support **Centre des services du
-client** pour la plate-forme Centreon. Cette adresse mail sera affichée en
-bas de page sur le lien **Centre des services**
-- **Send anonymous statistics** définit si oui on non la plateforme enverra des
-des données anonymes pour le programme **Centreon Customer Experience
-Improvement**
+1. Dans la section **Paramètres du proxy internet**, renseignez les champs suivants :
 
-### Configuration du proxy
+   | Champ                              | Valeur                                                                          |
+   | ---------------------------------- | ------------------------------------------------------------------------------- |
+   | **URL du proxy web**               | URL du proxy, avec le protocole : `http://` ou `https://`.                      |
+   | **Port d'accès au proxy internet** | Port du proxy.                                                                  |
+   | **Utilisateur pour le proxy**      | Utilisateur du proxy. Uniquement si le proxy utilise une authentification basique. |
+   | **Mot de passe pour le proxy**     | Mot de passe de cet utilisateur. Uniquement si le proxy utilise une authentification basique. |
 
-La configuraiton du proxy est nécessaire pour bénéficier de l'offre Centreon IT Edition.
+2. Cliquez sur **Tester la connexion Internet**. Centreon tente de joindre ses serveurs (`api.imp.centreon.com`) via le proxy, avec l'URL et le port saisis : inutile de sauvegarder avant.
 
-![image](../../assets/administration/proxy_configuration.png)
+   - Si **Connexion réussie** s'affiche, le proxy fonctionne.
+   - Sinon, le message indique l'erreur. Vérifiez l'URL et le port, puis relancez le test.
 
-Renseigner les différents champs:
+   > Le test n'utilise pas **Utilisateur pour le proxy** ni **Mot de passe pour le proxy**. Si votre proxy demande une authentification, vérifiez soigneusement ces deux champs.
 
-- **URL du proxy web** (l'URL doit inclure le protocole, http:// ou https://)
-- **Port d'accès au proxy internet**
-- **Proxy user**
-- **Proxy password**
+3. Cliquez sur **Sauvegarder**.
 
-Pour valider la configuration, cliquez sur le bouton **Test Internet Connection**. Si le message
-**Connection Successful** apparaît, votre configuration est valide, sinon modifiez vos paramètres.
+## Référence des options
+
+Les options sont présentées dans l'ordre de la page, section par section.
+
+### Informations sur Centreon
+
+| Option         | Rôle                                                                                                  |
+| -------------- | ----------------------------------------------------------------------------------------------------- |
+| **Répertoire** | Répertoire d'installation de Centreon. À la sauvegarde, Centreon vérifie qu'il peut y écrire. |
+
+### Notification
+
+| Option                                                         | Rôle                                                                                                                                                                                                                                                                                                                                    | Par défaut              |
+| -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- |
+| **Méthode de calcul pour les contacts et groupes de contacts** | Manière dont Centreon détermine les contacts et groupes de contacts à notifier pour un hôte ou un service qui les hérite de modèles : **Héritage vertical uniquement**, **Valeur la plus proche** ou **Héritage cumulatif**. Voir [Méthode de calcul pour les contacts et groupes de contacts](../../alerts-notifications/notif-configuration.md#méthode-de-calcul-pour-les-contacts-et-groupes-de-contacts). | **Héritage cumulatif** |
+
+### Taille maximum de la page
+
+| Option                                            | Rôle                                                                                                   | Par défaut |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ---------- |
+| **Limite par page (par défaut)**                  | Nombre d'objets par page dans les listes du menu **Configuration**.                                    | 30         |
+| **Limite par page pour les pages de supervision** | Nombre d'objets par page dans les consoles de supervision, de 10 à 100.                                | 30         |
+| **Graphique de performance par page**             | Nombre de graphiques par page sur la page des graphiques de performance.                               | 18         |
+| **Nombre d'éléments présent**                     | Nombre d'éléments chargés à la fois dans les listes déroulantes. Les suivants se chargent au défilement. | 60         |
+
+### Propriétés des sessions
+
+| Option                               | Rôle                                                                                                                                                 | Par défaut  |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| **Durée d'expiration de la session** | Durée de vie d'une session, en minutes. La valeur ne peut pas dépasser celle de `session.gc_maxlifetime` dans le fichier PHP `centreon.ini`. | 120 minutes |
+
+### Propriétés du rafraîchissement
+
+| Option                                                          | Rôle                                                                                  | Par défaut  |
+| --------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ----------- |
+| **Intervalle de rafraîchissement pour la page des statistiques** | Fréquence de rafraîchissement des compteurs du bandeau supérieur, en secondes. Minimum : 10. | 15 secondes |
+| **Intervalle de rafraîchissement pour la page de supervision**  | Fréquence de rafraîchissement des consoles de supervision, en secondes. Minimum : 10. | 15 secondes |
+
+### Paramètres d'affichage
+
+| Option           | Rôle                                                                                                                                                                                       | Par défaut    |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| **Trier par**    | Colonne de tri par défaut des listes d'hôtes et de services dans les consoles de supervision : **Hôtes**, **Durée**, **Services**, **Statut**, **Dernier contrôle**, **Sortie**, **Criticité** ou **Tentative**. | **Hôtes**     |
+| **Ordre de tri** | Ordre de tri par défaut de ces listes : **Croissant** ou **Décroissant**.                                                                                                                  | **Croissant** |
+
+### Propriétés d'affichage des problèmes
+
+| Option                         | Rôle                                                                                                                                                                         | Par défaut    |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
+| **Trier les problèmes par**    | Colonne de tri par défaut des listes de problèmes dans les consoles de supervision : **Durée**, **Hôtes**, **Services**, **Statut**, **Dernier contrôle**, **Sortie** ou **Criticité**. | **Durée**     |
+| **Ordre de tri des problèmes** | Ordre de tri par défaut des listes de problèmes : **Croissant** ou **Décroissant**.                                                                                          | **Croissant** |
+
+### Paramètres des graphiques
+
+| Option                                           | Rôle                                                                                                       | Par défaut |
+| ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- | ---------- |
+| **Display downtime and acknowledgment on chart** | Affiche les plages de maintenance et les acquittements sur les graphiques de métriques. Les graphiques peuvent s'afficher plus lentement. Ce libellé n'est pas traduit dans l'interface. | Désactivé  |
+| **Afficher les commentaires sur le graphique**   | Affiche les commentaires sur les graphiques de statut. Les graphiques peuvent s'afficher plus lentement.  | Désactivé  |
+
+### Propriétés d'authentification
+
+| Option                                             | Rôle                                                                                                                                                       | Par défaut |
+| -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **Activer la connexion automatique**               | Permet aux utilisateurs de se connecter via une URL, sans saisir leurs identifiants. Voir [Configurer une authentification par Autologin](../../connect/autologin.md). | Désactivé  |
+| **Afficher le raccourci de connexion automatique** | Ajoute **Copier le lien de connexion automatique** au menu du profil, pour obtenir l'URL d'autologin de la page affichée.                                  | Activé     |
+
+### Fuseau horaire
+
+| Option             | Rôle                                                                     |
+| ------------------ | ------------------------------------------------------------------------ |
+| **Fuseau horaire** | Fuseau horaire par défaut des hôtes et des contacts qui n'en ont pas.    |
+
+### Centre de services
+
+| Option                         | Rôle                                                                                                           |
+| ------------------------------ | -------------------------------------------------------------------------------------------------------------- |
+| **Mail du service de support** | Adresse email de votre support. Elle s'affiche en bas de l'interface, pour que les utilisateurs puissent le contacter. |
+
+### Activer les statistiques
+
+| Option                                    | Rôle                                                                                                                                                                                                         |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Envoyer des statistiques anonymisées** | Participation au programme d'amélioration de l'expérience client Centreon : la plateforme envoie des données d'usage anonymes à Centreon, uniquement pour améliorer le produit. Vous pouvez vous désinscrire à tout moment. |
+
+### Performances de la page Statut des ressources
+
+| Option                                        | Rôle                                                                                                                                                                                                                                                                                                                                 | Par défaut             |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------- |
+| **Comportement de la recherche texte libre** | Champs parcourus par la recherche texte libre de la page **Statut des ressources**. **Recherche restreinte** : nom, alias et adresse de l'hôte, et nom du service. À choisir si vous avez beaucoup de ressources, pour garder une recherche rapide. **Recherche étendue** : parcourt aussi la sortie des contrôles. À réserver aux petits volumes de ressources, car elle ralentit la recherche. | **Recherche étendue** |
