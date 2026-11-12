@@ -16,7 +16,8 @@ import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import {useActivePlugin} from '@docusaurus/plugin-content-docs/client';
 
-import DocsDropdownNavbarItem from '../../NavbarItem/DocsDropdownNavbarItem';
+import ProductSwitcher from '../ProductSwitcher';
+import ReaderSettings from '../ReaderSettings';
 
 import styles from './styles.module.css';
 
@@ -25,7 +26,7 @@ function useNavbarItems() {
   return useThemeConfig().navbar.items as NavbarItemConfig[];
 }
 
-function NavbarItems({items, allItems, position}: {items: NavbarItemConfig[], allItems: NavbarItemConfig[], position: string}): ReactNode {
+function NavbarItems({items, allItems, position, isDocPage = false}: {items: NavbarItemConfig[], allItems: NavbarItemConfig[], position: string, isDocPage?: boolean}): ReactNode {
   return (
     <>
       {items.map((item, i) => (
@@ -33,8 +34,9 @@ function NavbarItems({items, allItems, position}: {items: NavbarItemConfig[], al
       ))}
       {position === 'right' && (
         <>
+          {/* Reading settings only matter on documentation pages */}
+          {isDocPage && <ReaderSettings />}
           <NavbarColorModeToggle className={styles.colorModeToggle} />
-          <DocsDropdownNavbarItem items={allItems} />
         </>
       )}
     </>
@@ -75,22 +77,6 @@ export default function NavbarContent(): ReactNode {
 
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
-  const filteredLeftItems = leftItems.filter(item => {
-    if (['default', 'pp', 'cloud'].includes(pluginId)) {
-      return (
-        (item.type === 'doc')
-        || ('to' in item && item.to && (item.to.includes('pp') || item.to.includes('cloud')))
-      );
-    }
-    if (pluginId === 'experience-monitoring') {
-      return 'to' in item && item.to && item.to.includes('experience-monitoring');
-    }
-    if (pluginId === 'logmanagement') {
-      return 'to' in item && item.to && item.to.includes('log');
-    }
-    return false;
-  });
-
   const searchBarItem = items.find((item) => item.type === 'search');
 
   return (
@@ -100,14 +86,14 @@ export default function NavbarContent(): ReactNode {
         <>
           {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
           <NavbarLogo />
-          <NavbarItems items={filteredLeftItems} allItems={items} position="left" />
+          <ProductSwitcher items={items} activePluginId={pluginId} />
         </>
       }
       right={
         // TODO stop hardcoding items?
         // Ask the user to add the respective navbar items => more flexible
         <>
-          <NavbarItems items={rightItems} allItems={items} position="right" />
+          <NavbarItems items={rightItems} allItems={items} position="right" isDocPage={!!pluginId} />
           {/* <NavbarColorModeToggle className={styles.colorModeToggle} /> */}
           {!searchBarItem && (
             <NavbarSearch>

@@ -1,0 +1,70 @@
+.switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  list-style: none;
+  margin: 0 0.75rem 0 1rem;
+  padding: 0.2rem;
+  border-radius: 999px;
+  background: #f0f1f6;
+}
+
+html[data-theme='dark'] .switcher {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: #5b5f78;
+}
+
+html[data-theme='dark'] .pill {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.pill:hover {
+  color: #00003d;
+  text-decoration: none;
+}
+
+html[data-theme='dark'] .pill:hover {
+  color: #ffffff;
+}
+
+.pillActive,
+.pillActive:hover {
+  background: #dfe5ff;
+  color: #00003d;
+}
+
+html[data-theme='dark'] .pillActive,
+html[data-theme='dark'] .pillActive:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+}
+
+.dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.pillActive .dot {
+  opacity: 1;
+}
+
+@media (max-width: 996px) {
+  .switcher {
+    display: none;
+  }
+}

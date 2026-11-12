@@ -14,3 +14,8 @@ See https://github.com/facebook/docusaurus/pull/11142
 :global(.navbar__items--right) > :last-child {
   padding-right: 0;
 }
+
+/* Keep the logo on one line */
+:global(.navbar__brand) {
+  flex-shrink: 0;
+}

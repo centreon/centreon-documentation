@@ -2,7 +2,7 @@ import React from 'react';
 import SearchBar from '@theme-original/SearchBar';
 import { useLocation } from '@docusaurus/router';
 
-export default function SearchBarWrapper(props) {
+export default function SearchBarWrapper({ placement = 'navbar', ...props }) {
   const { pathname } = useLocation();
 
   // The /search results page already provides its own context-aware search

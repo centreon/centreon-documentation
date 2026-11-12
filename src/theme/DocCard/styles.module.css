@@ -1,27 +1,33 @@
+/* Compact cards (generated indexes and "In this section"), as in the mockup */
 .cardContainer {
-  --ifm-link-color: var(--ifm-color-emphasis-800);
-  --ifm-link-hover-color: var(--ifm-color-emphasis-700);
+  --ifm-link-color: var(--ifm-font-color-base);
+  --ifm-link-hover-color: var(--ifm-font-color-base);
   --ifm-link-hover-decoration: none;
 
-  box-shadow: 0 1.5px 3px 0 rgb(0 0 0 / 15%);
+  padding: 1rem 1.2rem !important;
   border: 1px solid var(--ifm-color-emphasis-200);
-  transition: all var(--ifm-transition-fast) ease;
-  transition-property: border, box-shadow;
+  border-radius: 10px;
+  box-shadow: none;
+  transition: border-color var(--ifm-transition-fast) ease;
 }
 
 .cardContainer:hover {
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 3px 6px 0 rgb(0 0 0 / 20%);
 }
 
 .cardContainer *:last-child {
   margin-bottom: 0;
 }
 
-.cardTitle {
-  font-size: 1.2rem;
+/* Beats the generic Markdown h2 size (custom.css) */
+.cardContainer .cardTitle.cardTitle {
+  margin: 0 0 0.25rem;
+  font-family: var(--ifm-font-family-base);
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .cardDescription {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700);
 }
