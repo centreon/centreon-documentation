@@ -9,7 +9,8 @@ import TabItem from '@theme/TabItem';
 > Des erreurs de modification de fichiers de configuration peuvent entraîner des dysfonctionnements du logiciel. Nous vous recommandons de faire une sauvegarde du fichier avant de le modifier et de ne changer que les paramètres conseillés par Centreon.
 
 Par défaut, le serveur Centreon MAP écoute et envoie des informations via le port 8081.
-Si vous avez configuré le SSL (voir [Configuration HTTPS/TLS](secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map)), utilisez le port 8443.
+Lorsque le SSL est configuré (voir [Configuration HTTPS/TLS](secure-your-map-platform.md#configurer-httpstls-sur-le-serveur-map)), il est possible de choisir n'importe quel port disponible : le serveur
+utilise alors le port défini lors de cette configuration.
 
 Vous pouvez modifier ce port (par exemple, si un pare-feu sur votre réseau le bloque).
 
@@ -54,7 +55,7 @@ http://<MAP_IP>:<8081>/centreon-map/api/latest/actuator/health
 <TabItem value="HTTPS" label="HTTPS">
 
 ```shell
-https://<MAP_IP>:<8443>/centreon-map/api/latest/actuator/health
+https://<MAP_IP>:<XXXX>/centreon-map/api/latest/actuator/health
 ```
 
 </TabItem>
