@@ -38,7 +38,7 @@ Dans le fichier `docker-compose.yaml` généré, ajoutez les volumes suivants au
   redémarrer le conteneur. L'installation des paquets s'exécute en arrière-plan : `centengine`
   n'est donc pas bloqué pendant ce temps.
 
-* Vous devrez ajouter vos commandes personnalisées à la [liste blanche de commandes du collecteur](../monitoring/basic-objects/commands.Md#ajouter-une-commande-à-la-liste-blanche).
+* Vous devrez ajouter vos commandes personnalisées à la [liste blanche de commandes du collecteur](../monitoring/basic-objects/commands.md#ajouter-une-commande-à-la-liste-blanche).
 
 ### Intégrer les dépendances dans une image personnalisée
 
