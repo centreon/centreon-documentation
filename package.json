@@ -11,7 +11,10 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids"
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "gen-api": "node tools/api-reference/generate.mjs",
+    "prestart": "pnpm gen-api",
+    "prebuild": "pnpm gen-api"
   },
   "dependencies": {
     "@docusaurus/core": "^3.10.1",
@@ -25,9 +28,13 @@
     "@mdx-js/react": "^3.1.1",
     "clsx": "^2.1.1",
     "docusaurus-plugin-image-zoom": "^3.0.1",
+    "docusaurus-plugin-openapi-docs": "5.2.0",
+    "docusaurus-plugin-sass": "0.2.6",
+    "docusaurus-theme-openapi-docs": "5.2.0",
     "prism-react-renderer": "^2.4.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "sass": "^1.107.1",
     "typeface-roboto": "^1.1.13"
   },
   "browserslist": {

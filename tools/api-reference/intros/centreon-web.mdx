@@ -1,0 +1,79 @@
+import { ApiConfiguration, ApiDownload } from '@site/src/components/ApiSetup';
+
+The Centreon Web REST API lets your scripts and tools drive Centreon Infra Monitoring OnPrem: create hosts and services from your CMDB, read the real-time status of your resources, acknowledge alerts, schedule downtimes and administer the platform.
+
+<ApiDownload spec="{{spec}}" name="Centreon Web REST API" />
+
+## Get started in 3 steps
+
+### 1. Find your API URL
+
+Every endpoint of this reference is relative to the same base URL:
+
+```text
+https://<your-centreon-server>/centreon/api/latest
+```
+
+`latest` targets the most recent API version of your platform. To pin a version, replace it with `v{{version}}`.
+
+:::tip Use your platform in this reference
+
+Enter its address in [Set up this reference](#configure), below: the request panel and the code samples of every endpoint page then use it.
+
+:::
+
+### 2. Get a token
+
+For scripts and integrations, create an **API token** in **Administration > Authentication tokens** (see [Authentication tokens](/docs/api/authentication-tokens)). It belongs to a user and stays valid until it expires or is revoked.
+
+To test quickly, you can also log in with a user's credentials:
+
+```bash
+curl -s -X POST "https://<your-centreon-server>/centreon/api/latest/login" \
+  -H "Content-Type: application/json" \
+  -d '{"security": {"credentials": {"login": "<login>", "password": "<password>"}}}'
+```
+
+The response holds the token in `security.token`. A token obtained this way expires after one hour without use.
+
+### 3. Call the API
+
+Send the token in the `X-AUTH-TOKEN` header of every request. For example, to list 20 hosts with their status:
+
+```bash
+curl -s "https://<your-centreon-server>/centreon/api/latest/monitoring/hosts?limit=20" \
+  -H "X-AUTH-TOKEN: <token>"
+```
+
+Each call runs with the rights of the user the token belongs to.
+
+## Set up this reference {#configure}
+
+Enter the address of your platform, and your token to send requests from this reference with **Send API Request**. The request panel and the code samples of every endpoint page use them until you close this browser tab. You can also change them on any endpoint page, with **Edit** next to the base URL.
+
+<ApiConfiguration server={{{server}}} auth="{{auth}}" tokenLabel="API token" />
+
+## Filter, sort and paginate
+
+Listing endpoints share the same query parameters:
+
+| Parameter | Use | Example |
+|:----------|:----|:--------|
+| `limit` | Number of items per page (10 by default) | `limit=50` |
+| `page` | Page to return, starting at 1 | `page=2` |
+| `search` | Filter, in JSON | `search={"host.name":{"$lk":"srv-%"}}` |
+| `sort_by` | Sort, in JSON | `sort_by={"host.name":"ASC"}` |
+
+`search` supports the operators `$eq`, `$neq`, `$lt`, `$le`, `$gt`, `$ge`, `$lk` (like, with `%` as a wildcard), `$nk`, `$in`, `$ni` and `$rg` (regular expression), combined with `$and` and `$or`. URL-encode its value.
+
+Listings return the items in `result` and the pagination in `meta` (`page`, `limit`, `total`). Dates use the ISO 8601 format.
+
+## Errors
+
+An error returns an HTTP status code and a JSON body with a `code` and a `message`. The most common: `400` (invalid request), `401` (missing or expired token), `403` (insufficient rights), `404` (resource not found).
+
+## Tools
+
+- **OpenAPI definition**: download it with the button at the top of this page, to import the API into Postman, Bruno or Insomnia, or to generate a client.
+- **Postman**: see [Using the v2 API with Postman](/docs/api/rest-api-v2).
+- **Other versions**: {{otherVersions}}

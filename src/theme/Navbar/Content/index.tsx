@@ -76,10 +76,10 @@ export default function NavbarContent(): ReactNode {
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
   const filteredLeftItems = leftItems.filter(item => {
-    if (['default', 'pp', 'cloud'].includes(pluginId)) {
+    if (['default', 'pp', 'cloud', 'api'].includes(pluginId)) {
       return (
         (item.type === 'doc')
-        || ('to' in item && item.to && (item.to.includes('pp') || item.to.includes('cloud')))
+        || ('to' in item && item.to && (item.to.includes('pp') || item.to.includes('cloud') || item.to === '/api/'))
       );
     }
     if (pluginId === 'experience-monitoring') {

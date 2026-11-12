@@ -24,6 +24,13 @@ export default function DocsDropdownNavbarItem({items, ...props}: {items: Navbar
         initials: 'CLM',
         color:  '#611485ff'
       });
+    } else if ('to' in item && item.to === '/api/') {
+      sections.push({
+        ...item,
+        label: 'API reference',
+        initials: 'API',
+        color: '#1d1d3b'
+      });
     } else if ('to' in item && item.to && item.to.includes('experience-monitoring')) {
       sections.push({
         ...item,

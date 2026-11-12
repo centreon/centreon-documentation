@@ -1,0 +1,5890 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "Centreon Map API",
+  "version": "26.10"
+ },
+ "externalDocs": {
+  "description": "Online documentation",
+  "url": "https://docs.centreon.com/docs/graph-views/introduction-map"
+ },
+ "servers": [
+  {
+   "url": "{protocol}://{server}:{port}/centreon-map/api/latest",
+   "variables": {
+    "protocol": {
+     "enum": [
+      "https",
+      "http"
+     ],
+     "default": "https",
+     "description": "HTTP scheme"
+    },
+    "server": {
+     "default": "your-map-server",
+     "description": "IP address or hostname of your Centreon MAP server"
+    },
+    "port": {
+     "default": "9443",
+     "description": "Port of the MAP server (9443 with TLS, 8081 without)"
+    }
+   }
+  }
+ ],
+ "security": [
+  {
+   "CentreonHeaderAuth": []
+  },
+  {
+   "bearerAuth": []
+  }
+ ],
+ "paths": {
+  "/maps/{mapId}/mx-views/{viewId}": {
+   "get": {
+    "tags": [
+     "Views"
+    ],
+    "operationId": "getMxView",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "viewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/xml": {
+        "schema": {
+         "$ref": "#/components/schemas/MxGraphModel"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a view (MX format)"
+   },
+   "put": {
+    "tags": [
+     "Views"
+    ],
+    "operationId": "updateMxView",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "viewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/xml": {
+       "schema": {
+        "$ref": "#/components/schemas/MxGraphModel"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {}
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Update a view (MX format)"
+   }
+  },
+  "/maps": {
+   "get": {
+    "tags": [
+     "Maps"
+    ],
+    "operationId": "getAllMaps",
+    "parameters": [
+     {
+      "name": "filter[hidden]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean"
+      }
+     },
+     {
+      "name": "filter[name]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "filter[ids]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "integer",
+        "format": "int64"
+       }
+      }
+     },
+     {
+      "name": "filterOut[ids]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "integer",
+        "format": "int64"
+       }
+      }
+     },
+     {
+      "name": "pagination",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "$ref": "#/components/schemas/Pageable"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/PageMap"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List maps"
+   },
+   "put": {
+    "tags": [
+     "Maps"
+    ],
+    "operationId": "updateMap",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Map"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Map"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Update a map"
+   },
+   "post": {
+    "tags": [
+     "Maps"
+    ],
+    "operationId": "createMap",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Map"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Map"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Create a map"
+   }
+  },
+  "/maps/{mapId}/views": {
+   "put": {
+    "tags": [
+     "Views"
+    ],
+    "operationId": "updateView",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/View"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/View"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Update the views of a map"
+   }
+  },
+  "/maps/{mapId}/views/{viewId}/perspective": {
+   "put": {
+    "tags": [
+     "Views"
+    ],
+    "operationId": "updateViewPerspective",
+    "parameters": [
+     {
+      "name": "viewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Perspective"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Perspective"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Update the perspective of a view"
+   }
+  },
+  "/geo-views/{id}": {
+   "get": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "retrieveGeoView",
+    "parameters": [
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/GeoView"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a geographic view"
+   },
+   "put": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "updateGeoView",
+    "parameters": [
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GeoView"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/GeoView"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Update a geographic view"
+   },
+   "delete": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "deleteGeoView",
+    "parameters": [
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {}
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Delete a geographic view"
+   }
+  },
+  "/geo-views/{geoViewId}/host-groups/{hostGroupId}": {
+   "get": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "getGeoViewHostGroup",
+    "parameters": [
+     {
+      "name": "geoViewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "hostGroupId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/HostGroup"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "description": "Not found",
+      "content": {}
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a host group of a geographic view"
+   }
+  },
+  "/geo-views/{geoViewId}/host-groups/{hostGroupId}/hosts": {
+   "get": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "getGeoViewHostGroupHosts",
+    "parameters": [
+     {
+      "name": "geoViewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "hostGroupId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "filter[name][]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "filter[status][]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string",
+        "enum": [
+         "DOWN",
+         "UNREACHABLE",
+         "PENDING",
+         "UP",
+         "NA"
+        ]
+       }
+      }
+     },
+     {
+      "name": "orderBy[]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "offset",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64",
+       "default": 0
+      }
+     },
+     {
+      "name": "count",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64",
+       "default": 25
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/HostDto"
+         }
+        }
+       }
+      }
+     },
+     "204": {
+      "description": "No content",
+      "content": {}
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List the hosts of a host group in a geographic view"
+   }
+  },
+  "/geo-views/{geoViewId}/ba-groups/{businessViewId}/business-activities": {
+   "get": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "getGeoViewBusinessActivities",
+    "parameters": [
+     {
+      "name": "geoViewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "businessViewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "filter[name][]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "filter[status][]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string",
+        "enum": [
+         "CRITICAL",
+         "WARNING",
+         "UNKNOWN",
+         "OK",
+         "PENDING",
+         "NA"
+        ]
+       }
+      }
+     },
+     {
+      "name": "orderBy[]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "offset",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64",
+       "default": 0
+      }
+     },
+     {
+      "name": "count",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64",
+       "default": 25
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/BusinessActivity"
+         }
+        }
+       }
+      }
+     },
+     "204": {
+      "description": "No content",
+      "content": {}
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "description": "Not found",
+      "content": {}
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List the business activities of a geographic view"
+   }
+  },
+  "/geo-views/{geoViewId}/maps": {
+   "get": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "getGeoViewMaps",
+    "parameters": [
+     {
+      "name": "geoViewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/PageMap"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List the maps of a geographic view"
+   }
+  },
+  "/aclgroups/roles": {
+   "get": {
+    "tags": [
+     "Access rights"
+    ],
+    "operationId": "getAclGroupsAndRoles",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "object"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List access groups and their roles"
+   },
+   "put": {
+    "tags": [
+     "Access rights"
+    ],
+    "operationId": "updateAclGroupsAndRoles",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "array",
+        "items": {
+         "$ref": "#/components/schemas/AclGroupRoleDto"
+        }
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/AclGroupRoleDto"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Update the roles of access groups"
+   }
+  },
+  "/aclgroups/privileges/{mapId}": {
+   "get": {
+    "tags": [
+     "Access rights"
+    ],
+    "operationId": "getAclGroupsAndPrivileges",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "object"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List the privileges on a map"
+   },
+   "put": {
+    "tags": [
+     "Access rights"
+    ],
+    "operationId": "updateAclGroupsAndPrivileges",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "array",
+        "items": {
+         "$ref": "#/components/schemas/AclGroupPrivilegeDto"
+        }
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/AclGroupPrivilegeDto"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Update the privileges on a map"
+   }
+  },
+  "/aclgroups/privileges/geo/{geoId}": {
+   "get": {
+    "tags": [
+     "Access rights"
+    ],
+    "operationId": "getAclGroupsAndPrivilegesGeo",
+    "parameters": [
+     {
+      "name": "geoId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "object"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List the privileges on a geographic view"
+   },
+   "put": {
+    "tags": [
+     "Access rights"
+    ],
+    "operationId": "updateAclGroupsAndPrivilegesGeo",
+    "parameters": [
+     {
+      "name": "geoId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "type": "array",
+        "items": {
+         "$ref": "#/components/schemas/AclGroupPrivilegeDto"
+        }
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/AclGroupPrivilegeDto"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Update the privileges on a geographic view"
+   }
+  },
+  "/maps/{mapId}/hosts/{hostId}/services/{serviceId}/process": {
+   "post": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "executeCommand",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "hostId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "serviceId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "forced",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "boolean",
+       "default": true
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {}
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Run an action on a service of a map"
+   }
+  },
+  "/maps/import": {
+   "post": {
+    "tags": [
+     "Maps"
+    ],
+    "operationId": "importMap",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/MapDetailDto"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/MapDetailDto"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Import a map"
+   }
+  },
+  "/maps/duplicate/{mapId}": {
+   "post": {
+    "tags": [
+     "Maps"
+    ],
+    "operationId": "duplicateMap",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Map"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Duplicate a map"
+   }
+  },
+  "/geo-views/": {
+   "post": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "createGeoView",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GeoView"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/GeoView"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Create a geographic view"
+   }
+  },
+  "/geo-views/import": {
+   "post": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "createGeoView_1",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/GeoView"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/GeoView"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Import a geographic view"
+   }
+  },
+  "/admins": {
+   "get": {
+    "tags": [
+     "MAP administrators"
+    ],
+    "operationId": "getAllStudioAdmins",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/StudioAdmin"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List MAP administrators"
+   },
+   "post": {
+    "tags": [
+     "MAP administrators"
+    ],
+    "operationId": "createStudioAdmin",
+    "requestBody": {
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/StudioAdmin"
+       }
+      }
+     },
+     "required": true
+    },
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/StudioAdmin"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Add a MAP administrator"
+   }
+  },
+  "/ResourceSynchronizer/{delay}": {
+   "post": {
+    "tags": [
+     "Resource synchronization"
+    ],
+    "operationId": "reloadResources",
+    "parameters": [
+     {
+      "name": "delay",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "string"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Synchronize resources with Centreon"
+   }
+  },
+  "/maps/{mapId}": {
+   "get": {
+    "tags": [
+     "Maps"
+    ],
+    "operationId": "readMap",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Map"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a map"
+   }
+  },
+  "/maps/{mapId}/views/{viewId}": {
+   "get": {
+    "tags": [
+     "Views"
+    ],
+    "operationId": "getViewById",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "viewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/View"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a view"
+   }
+  },
+  "/maps/{mapId}/views/{viewId}/breadcrumb": {
+   "get": {
+    "tags": [
+     "Views"
+    ],
+    "operationId": "getBreadcrumb",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "viewId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "elementId",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "resourceId",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "type": "array",
+         "items": {
+          "$ref": "#/components/schemas/BreadcrumbSlot"
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get the breadcrumb of a view"
+   }
+  },
+  "/maps/{mapId}/resources/{type}/{resourceId}": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getChildrenAsView",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "type",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "string",
+       "enum": [
+        "HOST",
+        "HOST_GROUP",
+        "SERVICE",
+        "SERVICE_GROUP",
+        "META_SERVICE",
+        "BUSINESS_ACTIVITY",
+        "BUSINESS_ACTIVITY_GROUP",
+        "KPI"
+       ]
+      }
+     },
+     {
+      "name": "resourceId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/View"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a resource of a map as a view"
+   }
+  },
+  "/maps/{mapId}/hosts/{id}": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getMapHost",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Host"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "description": "Not found",
+      "content": {}
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a host of a map"
+   }
+  },
+  "/maps/{mapId}/hosts/{hostId}/services": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getMapHostServices",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "hostId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "filter[name][]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "filter[status][]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string",
+        "enum": [
+         "CRITICAL",
+         "WARNING",
+         "UNKNOWN",
+         "OK",
+         "PENDING",
+         "NA"
+        ]
+       }
+      }
+     },
+     {
+      "name": "orderBy[]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "offset",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64",
+       "default": 0
+      }
+     },
+     {
+      "name": "count",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64",
+       "default": 25
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/HostDto"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "description": "Not found",
+      "content": {}
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List the services of a host of a map"
+   }
+  },
+  "/maps/{mapId}/hosts/{hostId}/services/{serviceId}": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getMapServiceById",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "hostId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "serviceId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Service"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "description": "Not found",
+      "content": {}
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a service of a map"
+   }
+  },
+  "/maps/{mapId}/meta-services/{id}": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getMapMetaService",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/MetaService"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "description": "Not found",
+      "content": {}
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a meta-service of a map"
+   }
+  },
+  "/maps/{mapId}/business-activities/{id}": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getMapBusinessActivity",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/BusinessActivity"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "description": "Not found",
+      "content": {}
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get a business activity of a map"
+   }
+  },
+  "/maps/{mapId}/business-activities/{baId}/kpis": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getMapKpis",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "baId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "filter[status][]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string",
+        "enum": [
+         "CRITICAL",
+         "WARNING",
+         "UNKNOWN",
+         "OK",
+         "PENDING",
+         "NA"
+        ]
+       }
+      }
+     },
+     {
+      "name": "orderBy[]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "default": [],
+       "items": {
+        "type": "string"
+       }
+      }
+     },
+     {
+      "name": "offset",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64",
+       "default": 0
+      }
+     },
+     {
+      "name": "count",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "integer",
+       "format": "int64",
+       "default": 25
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/BusinessActivityDto"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List the KPIs of a business activity"
+   }
+  },
+  "/maps/{mapId}/service-groups/{id}/_statistics": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getMapServiceGroupStatistics",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/ServiceGroupStatisticsDto"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get the statistics of a service group"
+   }
+  },
+  "/maps/{mapId}/host-groups/{id}/_statistics": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getMapHostGroupStatistics",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/HostGroupStatisticsDto"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get the statistics of a host group"
+   }
+  },
+  "/maps/{mapId}/hosts/{hostId}/services/{serviceId}/graph": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getServiceGraph",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "hostId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "serviceId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "startDate",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      }
+     },
+     {
+      "name": "endDate",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      }
+     },
+     {
+      "name": "soughtLabels[]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       },
+       "uniqueItems": true
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Graph"
+        }
+       }
+      }
+     },
+     "204": {
+      "description": "No content",
+      "content": {}
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get the graph of a service"
+   }
+  },
+  "/maps/{mapId}/meta-services/{id}/graph": {
+   "get": {
+    "tags": [
+     "Map resources"
+    ],
+    "operationId": "getMetaServiceGraph",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     {
+      "name": "startDate",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      }
+     },
+     {
+      "name": "endDate",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int32"
+      }
+     },
+     {
+      "name": "soughtLabels[]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "array",
+       "items": {
+        "type": "string"
+       },
+       "uniqueItems": true
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Graph"
+        }
+       }
+      }
+     },
+     "204": {
+      "description": "No content",
+      "content": {}
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Get the graph of a meta-service"
+   }
+  },
+  "/maps/export/{mapId}": {
+   "get": {
+    "tags": [
+     "Maps"
+    ],
+    "operationId": "exportMap",
+    "parameters": [
+     {
+      "name": "mapId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/MapDetailDto"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Export a map"
+   }
+  },
+  "/geo-views": {
+   "get": {
+    "tags": [
+     "Geographic views"
+    ],
+    "operationId": "retrieveGeoViews",
+    "parameters": [
+     {
+      "name": "filter[name]",
+      "in": "query",
+      "required": false,
+      "schema": {
+       "type": "string"
+      }
+     },
+     {
+      "name": "pagination",
+      "in": "query",
+      "required": true,
+      "schema": {
+       "$ref": "#/components/schemas/Pageable"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/PageGeoView"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "List geographic views"
+   }
+  },
+  "/maps/{id}": {
+   "delete": {
+    "tags": [
+     "Maps"
+    ],
+    "operationId": "deleteMap",
+    "parameters": [
+     {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "*/*": {
+        "schema": {
+         "$ref": "#/components/schemas/Map"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Delete a map"
+   }
+  },
+  "/admins/{aclGroupId}": {
+   "delete": {
+    "tags": [
+     "MAP administrators"
+    ],
+    "operationId": "deleteStudioAdmin",
+    "parameters": [
+     {
+      "name": "aclGroupId",
+      "in": "path",
+      "required": true,
+      "schema": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {}
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    },
+    "summary": "Remove a MAP administrator"
+   }
+  }
+ },
+ "components": {
+  "schemas": {
+   "MxCell": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parent": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "value": {
+      "type": "string"
+     },
+     "style": {
+      "type": "string"
+     },
+     "vertex": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "edge": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "connectable": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "source": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "target": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "mxGeometry": {
+      "$ref": "#/components/schemas/MxGeometry"
+     }
+    }
+   },
+   "MxGeometry": {
+    "properties": {
+     "x": {
+      "type": "number",
+      "format": "double"
+     },
+     "y": {
+      "type": "number",
+      "format": "double"
+     },
+     "width": {
+      "type": "number",
+      "format": "double"
+     },
+     "height": {
+      "type": "number",
+      "format": "double"
+     },
+     "relative": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "as": {
+      "type": "string"
+     },
+     "mxPoint": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/MxPoint"
+      }
+     },
+     "array": {
+      "$ref": "#/components/schemas/MxPointArray"
+     }
+    }
+   },
+   "MxGraphModel": {
+    "properties": {
+     "dx": {
+      "type": "number",
+      "format": "float"
+     },
+     "dy": {
+      "type": "number",
+      "format": "float"
+     },
+     "background": {
+      "type": "string"
+     },
+     "grid": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "gridSize": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "guides": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "tooltips": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "connect": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "arrows": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "fold": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "page": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "pageScale": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "pageWidth": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "pageHeight": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "scale": {
+      "type": "number",
+      "format": "float"
+     },
+     "scrollLeft": {
+      "type": "number",
+      "format": "float"
+     },
+     "scrollTop": {
+      "type": "number",
+      "format": "float"
+     },
+     "marginLeft": {
+      "type": "number",
+      "format": "float"
+     },
+     "marginTop": {
+      "type": "number",
+      "format": "float"
+     },
+     "root": {
+      "$ref": "#/components/schemas/MxRoot"
+     }
+    }
+   },
+   "MxObject": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "modelId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "RESOURCE",
+       "SHAPE",
+       "WIDGET",
+       "MEDIA",
+       "LINK",
+       "CONTAINER"
+      ]
+     },
+     "label": {
+      "type": "string"
+     },
+     "displayLabel": {
+      "type": "boolean"
+     },
+     "displayImage": {
+      "type": "boolean"
+     },
+     "displayParentName": {
+      "type": "boolean"
+     },
+     "displayWeatherStatusBackgroundColor": {
+      "type": "boolean"
+     },
+     "resourceType": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "resourceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "layer": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "useResourceName": {
+      "type": "boolean"
+     },
+     "iconImage": {
+      "type": "string"
+     },
+     "resourceName": {
+      "type": "string"
+     },
+     "parentId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentName": {
+      "type": "string"
+     },
+     "parentType": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "shapeType": {
+      "type": "string",
+      "enum": [
+       "RECTANGLE",
+       "TRIANGLE",
+       "ELLIPSE"
+      ]
+     },
+     "linkType": {
+      "type": "string",
+      "enum": [
+       "SIMPLE",
+       "STATUS",
+       "METRIC"
+      ]
+     },
+     "displayPercent": {
+      "type": "boolean"
+     },
+     "metricName1": {
+      "type": "string"
+     },
+     "metric1Max": {
+      "type": "string"
+     },
+     "metric1Min": {
+      "type": "string"
+     },
+     "metricName2": {
+      "type": "string"
+     },
+     "metric2Max": {
+      "type": "string"
+     },
+     "metric2Min": {
+      "type": "string"
+     },
+     "widgetType": {
+      "type": "string",
+      "enum": [
+       "GAUGE",
+       "LINE_CHART",
+       "LINK_LEGEND",
+       "OUTPUT",
+       "PIE_CHART",
+       "PROCESS"
+      ]
+     },
+     "useFontStatusColor": {
+      "type": "boolean"
+     },
+     "useBackgroundStatusColor": {
+      "type": "boolean"
+     },
+     "chartDisplayThreshold": {
+      "type": "boolean"
+     },
+     "chartFillLines": {
+      "type": "boolean"
+     },
+     "chartNbPoints": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "chartPeriod": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "chartShowGrid": {
+      "type": "boolean"
+     },
+     "chartStack": {
+      "type": "boolean"
+     },
+     "displayLegend": {
+      "type": "boolean"
+     },
+     "hiddenLine": {
+      "type": "string"
+     },
+     "metricsColorStart": {
+      "type": "string"
+     },
+     "metricsColorEnd": {
+      "type": "string"
+     },
+     "outputWidgetFormat": {
+      "type": "string"
+     },
+     "applyStatusColor": {
+      "type": "boolean"
+     },
+     "pieChartDisplayLabel": {
+      "type": "boolean"
+     },
+     "pieChartExplosion": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "pieChartInnerRadius": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "orientation": {
+      "type": "string",
+      "enum": [
+       "TO_TOP",
+       "TO_RIGHT",
+       "TO_BOTTOM",
+       "TO_LEFT"
+      ]
+     },
+     "viewId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "mediaType": {
+      "type": "string",
+      "enum": [
+       "IMAGE",
+       "URL"
+      ]
+     },
+     "imageName": {
+      "type": "string"
+     },
+     "elementUrl": {
+      "type": "string"
+     },
+     "newTab": {
+      "type": "boolean"
+     },
+     "mxCell": {
+      "$ref": "#/components/schemas/MxCell"
+     }
+    }
+   },
+   "MxPoint": {
+    "properties": {
+     "x": {
+      "type": "number",
+      "format": "double"
+     },
+     "y": {
+      "type": "number",
+      "format": "double"
+     },
+     "as": {
+      "type": "string"
+     }
+    }
+   },
+   "MxPointArray": {
+    "properties": {
+     "as": {
+      "type": "string"
+     },
+     "mxPoint": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/MxPoint"
+      }
+     }
+    }
+   },
+   "MxRoot": {
+    "properties": {
+     "mxCells": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/MxCell"
+      }
+     },
+     "mxObjects": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/MxObject"
+      }
+     }
+    }
+   },
+   "ImageDto": {
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "url": {
+      "type": "string"
+     }
+    }
+   },
+   "Map": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "image": {
+      "$ref": "#/components/schemas/ImageDto"
+     },
+     "locked": {
+      "type": "boolean"
+     },
+     "hidden": {
+      "type": "boolean"
+     },
+     "viewId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "privilege": {
+      "type": "string",
+      "enum": [
+       "OWNER",
+       "EDITOR",
+       "VIEWER",
+       "NONE"
+      ]
+     },
+     "mapStatus": {
+      "$ref": "#/components/schemas/Status"
+     }
+    }
+   },
+   "Status": {
+    "properties": {
+     "rank": {
+      "type": "integer",
+      "format": "int32"
+     }
+    }
+   },
+   "Container": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "graphics": {
+      "$ref": "#/components/schemas/Graphics"
+     },
+     "viewId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status",
+      "readOnly": true
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "imageName": {
+      "type": "string"
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "Font": {
+    "properties": {
+     "family": {
+      "type": "string"
+     },
+     "style": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "size": {
+      "type": "integer",
+      "format": "int32"
+     }
+    }
+   },
+   "Gauge": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Widget"
+     },
+     {
+      "type": "object",
+      "properties": {
+       "orientation": {
+        "type": "string",
+        "enum": [
+         "TO_TOP",
+         "TO_RIGHT",
+         "TO_BOTTOM",
+         "TO_LEFT"
+        ]
+       },
+       "metricName1": {
+        "type": "string"
+       },
+       "metric1Max": {
+        "type": "number",
+        "format": "double"
+       },
+       "metric1Min": {
+        "type": "number",
+        "format": "double"
+       },
+       "factor": {
+        "type": "number",
+        "format": "double"
+       },
+       "currentValue": {
+        "type": "string"
+       },
+       "metricMin": {
+        "type": "string"
+       },
+       "metricMax": {
+        "type": "string"
+       }
+      }
+     }
+    ]
+   },
+   "GeoCoordinate": {
+    "properties": {
+     "latitude": {
+      "type": "number",
+      "format": "float",
+      "nullable": true
+     },
+     "longitude": {
+      "type": "number",
+      "format": "float",
+      "nullable": true
+     }
+    }
+   },
+   "Graphics": {
+    "properties": {
+     "x": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "y": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "width": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "height": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentX": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentY": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentWidth": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentHeight": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "locked": {
+      "type": "boolean"
+     },
+     "label": {
+      "type": "string"
+     },
+     "displayLabel": {
+      "type": "boolean"
+     },
+     "displayParentName": {
+      "type": "boolean"
+     },
+     "displayWeatherStatusBackgroundColor": {
+      "type": "boolean"
+     },
+     "fontFamily": {
+      "type": "string"
+     },
+     "fontStyle": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "html": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "fontSize": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "fontColor": {
+      "type": "string"
+     },
+     "useFontStatusColor": {
+      "type": "boolean"
+     },
+     "image": {
+      "type": "string"
+     },
+     "displayImage": {
+      "type": "boolean"
+     },
+     "horizontalAlign": {
+      "type": "string",
+      "enum": [
+       "left",
+       "center",
+       "right"
+      ]
+     },
+     "verticalAlign": {
+      "type": "string",
+      "enum": [
+       "top",
+       "middle",
+       "bottom"
+      ]
+     },
+     "fillColor": {
+      "type": "string"
+     },
+     "useBackgroundStatusColor": {
+      "type": "boolean"
+     },
+     "opaque": {
+      "type": "boolean"
+     },
+     "opacity": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "layer": {
+      "type": "string"
+     },
+     "style": {
+      "type": "string",
+      "enum": [
+       "ICON",
+       "GEOMETRIC",
+       "WEATHER"
+      ]
+     },
+     "borderColor": {
+      "type": "string"
+     },
+     "line": {
+      "type": "string",
+      "enum": [
+       "SOLID",
+       "DASHED",
+       "DOTTED",
+       "ALTERNATE_DASH_DOT",
+       "ALTERNATE_DASH_DOT_DOT"
+      ]
+     },
+     "thickness": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "imageAspect": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "whiteSpace": {
+      "type": "string"
+     },
+     "labelBackgroundColor": {
+      "type": "string"
+     },
+     "font": {
+      "$ref": "#/components/schemas/Font",
+      "writeOnly": true
+     }
+    }
+   },
+   "Image": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Media"
+     },
+     {
+      "type": "object",
+      "properties": {
+       "imageName": {
+        "type": "string"
+       }
+      }
+     }
+    ]
+   },
+   "LineChart": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Widget"
+     },
+     {
+      "type": "object",
+      "properties": {
+       "chartDisplayThreshold": {
+        "type": "boolean"
+       },
+       "chartFillLines": {
+        "type": "boolean"
+       },
+       "chartNbPoints": {
+        "type": "integer",
+        "format": "int32"
+       },
+       "chartPeriod": {
+        "type": "integer",
+        "format": "int32"
+       },
+       "chartShowGrid": {
+        "type": "boolean"
+       },
+       "chartStack": {
+        "type": "boolean"
+       },
+       "displayLegend": {
+        "type": "boolean"
+       },
+       "hiddenLine": {
+        "type": "string"
+       }
+      }
+     }
+    ]
+   },
+   "Link": {
+    "discriminator": {
+     "propertyName": "type"
+    },
+    "properties": {
+     "type": {
+      "type": "string",
+      "enum": [
+       "SIMPLE",
+       "STATUS",
+       "METRIC"
+      ]
+     },
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "graphics": {
+      "$ref": "#/components/schemas/Graphics"
+     },
+     "linkSourceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "linkTargetId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "bendpoints": {
+      "type": "string"
+     },
+     "bendLatlngs": {
+      "type": "string"
+     },
+     "resourceType": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "resourceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentResourceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentName": {
+      "type": "string"
+     },
+     "parentType": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "resourceName": {
+      "type": "string"
+     },
+     "useResourceName": {
+      "type": "boolean"
+     },
+     "useOwnStatusOnLink": {
+      "type": "boolean"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status",
+      "readOnly": true
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "exitX": {
+      "type": "number",
+      "format": "double"
+     },
+     "exitY": {
+      "type": "number",
+      "format": "double"
+     },
+     "exitDx": {
+      "type": "number",
+      "format": "double"
+     },
+     "exitDy": {
+      "type": "number",
+      "format": "double"
+     },
+     "entryX": {
+      "type": "number",
+      "format": "double"
+     },
+     "entryY": {
+      "type": "number",
+      "format": "double"
+     },
+     "entryDx": {
+      "type": "number",
+      "format": "double"
+     },
+     "entryDy": {
+      "type": "number",
+      "format": "double"
+     },
+     "ysource": {
+      "type": "number",
+      "format": "double"
+     },
+     "ytarget": {
+      "type": "number",
+      "format": "double"
+     },
+     "xsource": {
+      "type": "number",
+      "format": "double"
+     },
+     "xtarget": {
+      "type": "number",
+      "format": "double"
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "LinkLegend": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Widget"
+     },
+     {
+      "type": "object",
+      "properties": {
+       "metricsColorStart": {
+        "type": "string"
+       },
+       "metricsColorEnd": {
+        "type": "string"
+       }
+      }
+     }
+    ]
+   },
+   "Media": {
+    "discriminator": {
+     "propertyName": "type"
+    },
+    "properties": {
+     "type": {
+      "type": "string",
+      "enum": [
+       "IMAGE",
+       "URL"
+      ]
+     },
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "graphics": {
+      "$ref": "#/components/schemas/Graphics"
+     }
+    }
+   },
+   "MetricLink": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Link"
+     },
+     {
+      "type": "object",
+      "properties": {
+       "connectionDouble": {
+        "type": "boolean"
+       },
+       "displayPercent": {
+        "type": "boolean"
+       },
+       "displayValue": {
+        "type": "boolean"
+       },
+       "description": {
+        "type": "string"
+       },
+       "metricName1": {
+        "type": "string"
+       },
+       "metric1Max": {
+        "type": "number",
+        "format": "double"
+       },
+       "metric1Min": {
+        "type": "number",
+        "format": "double"
+       },
+       "metricName2": {
+        "type": "string"
+       },
+       "metric2Max": {
+        "type": "number",
+        "format": "double"
+       },
+       "metric2Min": {
+        "type": "number",
+        "format": "double"
+       },
+       "factor1": {
+        "type": "number",
+        "format": "double"
+       },
+       "currentValue1": {
+        "type": "string"
+       },
+       "factor2": {
+        "type": "number",
+        "format": "double"
+       },
+       "currentValue2": {
+        "type": "string"
+       }
+      }
+     }
+    ]
+   },
+   "Output": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Widget"
+     },
+     {
+      "type": "object",
+      "properties": {
+       "outputWidgetFormat": {
+        "type": "string"
+       },
+       "outputWidgetRealtimeValue": {
+        "type": "string"
+       },
+       "applyStatusColor": {
+        "type": "boolean"
+       }
+      }
+     }
+    ]
+   },
+   "Perspective": {
+    "properties": {
+     "zoomperspective": {
+      "type": "number",
+      "format": "float"
+     },
+     "yperspective": {
+      "type": "number",
+      "format": "float"
+     },
+     "xperspective": {
+      "type": "number",
+      "format": "float"
+     }
+    }
+   },
+   "PieChart": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Widget"
+     },
+     {
+      "type": "object",
+      "properties": {
+       "pieChartDisplayLabel": {
+        "type": "boolean"
+       },
+       "pieChartExplosion": {
+        "type": "integer",
+        "format": "int32"
+       },
+       "pieChartInnerRadius": {
+        "type": "integer",
+        "format": "int32"
+       },
+       "statusToCounter": {
+        "type": "object",
+        "additionalProperties": {
+         "type": "integer",
+         "format": "int64"
+        }
+       }
+      }
+     }
+    ]
+   },
+   "Process": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Widget"
+     }
+    ]
+   },
+   "ResourceElement": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "graphics": {
+      "$ref": "#/components/schemas/Graphics"
+     },
+     "description": {
+      "type": "string"
+     },
+     "useResourceName": {
+      "type": "boolean"
+     },
+     "resourceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "resourceName": {
+      "type": "string"
+     },
+     "parentResourceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentName": {
+      "type": "string"
+     },
+     "iconImage": {
+      "type": "string"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status",
+      "readOnly": true
+     },
+     "ownStatus": {
+      "$ref": "#/components/schemas/Status",
+      "readOnly": true
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "geoCoordinate": {
+      "$ref": "#/components/schemas/GeoCoordinate"
+     }
+    }
+   },
+   "Shape": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "graphics": {
+      "$ref": "#/components/schemas/Graphics"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "RECTANGLE",
+       "TRIANGLE",
+       "ELLIPSE"
+      ]
+     }
+    }
+   },
+   "SimpleLink": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Link"
+     }
+    ]
+   },
+   "StatusLink": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Link"
+     }
+    ]
+   },
+   "Url": {
+    "allOf": [
+     {
+      "$ref": "#/components/schemas/Media"
+     },
+     {
+      "type": "object",
+      "properties": {
+       "elementUrl": {
+        "type": "string"
+       },
+       "newTab": {
+        "type": "boolean"
+       }
+      }
+     }
+    ]
+   },
+   "View": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "latitude": {
+      "type": "number",
+      "format": "float"
+     },
+     "longitude": {
+      "type": "number",
+      "format": "float"
+     },
+     "mapboxStyle": {
+      "type": "string"
+     },
+     "perspective": {
+      "$ref": "#/components/schemas/Perspective"
+     },
+     "background": {
+      "type": "string"
+     },
+     "scale": {
+      "type": "number",
+      "format": "float"
+     },
+     "scrollLeft": {
+      "type": "number",
+      "format": "float"
+     },
+     "scrollTop": {
+      "type": "number",
+      "format": "float"
+     },
+     "marginTop": {
+      "type": "number",
+      "format": "float"
+     },
+     "marginLeft": {
+      "type": "number",
+      "format": "float"
+     },
+     "resources": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/ResourceElement"
+      }
+     },
+     "widgets": {
+      "type": "array",
+      "items": {
+       "oneOf": [
+        {
+         "$ref": "#/components/schemas/Gauge"
+        },
+        {
+         "$ref": "#/components/schemas/LineChart"
+        },
+        {
+         "$ref": "#/components/schemas/LinkLegend"
+        },
+        {
+         "$ref": "#/components/schemas/Output"
+        },
+        {
+         "$ref": "#/components/schemas/PieChart"
+        },
+        {
+         "$ref": "#/components/schemas/Process"
+        }
+       ]
+      }
+     },
+     "shapes": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/Shape"
+      }
+     },
+     "media": {
+      "type": "array",
+      "items": {
+       "oneOf": [
+        {
+         "$ref": "#/components/schemas/Image"
+        },
+        {
+         "$ref": "#/components/schemas/Url"
+        }
+       ]
+      }
+     },
+     "links": {
+      "type": "array",
+      "items": {
+       "oneOf": [
+        {
+         "$ref": "#/components/schemas/MetricLink"
+        },
+        {
+         "$ref": "#/components/schemas/SimpleLink"
+        },
+        {
+         "$ref": "#/components/schemas/StatusLink"
+        }
+       ]
+      }
+     },
+     "containers": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/Container"
+      }
+     },
+     "resourcesStatus": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "resourcesAckFlag": {
+      "type": "boolean"
+     },
+     "resourcesDownFlag": {
+      "type": "boolean"
+     },
+     "containersStatus": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "containersAckFlag": {
+      "type": "boolean"
+     },
+     "containersDownFlag": {
+      "type": "boolean"
+     },
+     "widgetsStatus": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "linksStatus": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "empty": {
+      "type": "boolean"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "dy": {
+      "type": "number",
+      "format": "float"
+     },
+     "dx": {
+      "type": "number",
+      "format": "float"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     },
+     "geo": {
+      "type": "boolean"
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "Widget": {
+    "discriminator": {
+     "propertyName": "type"
+    },
+    "properties": {
+     "type": {
+      "type": "string",
+      "enum": [
+       "GAUGE",
+       "LINE_CHART",
+       "LINK_LEGEND",
+       "OUTPUT",
+       "PIE_CHART",
+       "PROCESS"
+      ]
+     },
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "parentId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "graphics": {
+      "$ref": "#/components/schemas/Graphics"
+     },
+     "resourceType": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "resourceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "useResourceName": {
+      "type": "boolean"
+     },
+     "resourceName": {
+      "type": "string"
+     },
+     "parentName": {
+      "type": "string"
+     },
+     "parentResourceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status",
+      "readOnly": true
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "widgetLabel": {
+      "type": "string"
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "GeoView": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "position": {
+      "$ref": "#/components/schemas/GeoCoordinate"
+     },
+     "zoom": {
+      "type": "number",
+      "format": "float"
+     },
+     "markerClustering": {
+      "type": "boolean"
+     },
+     "htHostGroupIds": {
+      "type": "array",
+      "items": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     "baBusinessViewIds": {
+      "type": "array",
+      "items": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     "dataLayerIds": {
+      "type": "array",
+      "items": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     "hostGroupIds": {
+      "type": "array",
+      "items": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     "privilege": {
+      "type": "string",
+      "enum": [
+       "OWNER",
+       "EDITOR",
+       "VIEWER",
+       "NONE"
+      ]
+     }
+    }
+   },
+   "AclGroupRoleDto": {
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "is_creator": {
+      "type": "boolean"
+     }
+    }
+   },
+   "AclGroupPrivilegeDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "aclGroupId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "privilege": {
+      "type": "string",
+      "enum": [
+       "OWNER",
+       "EDITOR",
+       "VIEWER",
+       "NONE"
+      ]
+     },
+     "mapId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "geoId": {
+      "type": "integer",
+      "format": "int64"
+     }
+    }
+   },
+   "ContainerDetailDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "graphics": {
+      "$ref": "#/components/schemas/Graphics"
+     },
+     "view": {}
+    }
+   },
+   "MapDetailDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "imageUrl": {
+      "type": "string"
+     },
+     "locked": {
+      "type": "boolean"
+     },
+     "hidden": {
+      "type": "boolean"
+     },
+     "view": {
+      "$ref": "#/components/schemas/ViewDetailDto"
+     },
+     "accessRules": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "string",
+       "enum": [
+        "OWNER",
+        "EDITOR",
+        "VIEWER",
+        "NONE"
+       ]
+      }
+     },
+     "aclGroupCreators": {
+      "type": "array",
+      "items": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    }
+   },
+   "ViewDetailDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "latitude": {
+      "type": "number",
+      "format": "float"
+     },
+     "longitude": {
+      "type": "number",
+      "format": "float"
+     },
+     "zoom": {
+      "type": "number",
+      "format": "float"
+     },
+     "mapboxStyle": {
+      "type": "string"
+     },
+     "resources": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/ResourceElement"
+      }
+     },
+     "widgets": {
+      "type": "array",
+      "items": {
+       "oneOf": [
+        {
+         "$ref": "#/components/schemas/Gauge"
+        },
+        {
+         "$ref": "#/components/schemas/LineChart"
+        },
+        {
+         "$ref": "#/components/schemas/LinkLegend"
+        },
+        {
+         "$ref": "#/components/schemas/Output"
+        },
+        {
+         "$ref": "#/components/schemas/PieChart"
+        },
+        {
+         "$ref": "#/components/schemas/Process"
+        }
+       ]
+      }
+     },
+     "shapes": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/Shape"
+      }
+     },
+     "media": {
+      "type": "array",
+      "items": {
+       "oneOf": [
+        {
+         "$ref": "#/components/schemas/Image"
+        },
+        {
+         "$ref": "#/components/schemas/Url"
+        }
+       ]
+      }
+     },
+     "links": {
+      "type": "array",
+      "items": {
+       "oneOf": [
+        {
+         "$ref": "#/components/schemas/MetricLink"
+        },
+        {
+         "$ref": "#/components/schemas/SimpleLink"
+        },
+        {
+         "$ref": "#/components/schemas/StatusLink"
+        }
+       ]
+      }
+     },
+     "containers": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/ContainerDetailDto"
+      }
+     },
+     "empty": {
+      "type": "boolean"
+     },
+     "geo": {
+      "type": "boolean"
+     }
+    }
+   },
+   "StudioAdmin": {
+    "properties": {
+     "aclGroupId": {
+      "type": "integer",
+      "format": "int64"
+     }
+    }
+   },
+   "Metric": {
+    "properties": {
+     "name": {
+      "type": "string"
+     },
+     "unit": {
+      "type": "string"
+     },
+     "value": {
+      "type": "number",
+      "format": "double"
+     },
+     "warn": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+     },
+     "warnLow": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+     },
+     "warnThresholdMode": {
+      "type": "boolean"
+     },
+     "crit": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+     },
+     "critLow": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+     },
+     "critThresholdMode": {
+      "type": "boolean"
+     },
+     "min": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+     },
+     "max": {
+      "type": "number",
+      "format": "double",
+      "nullable": true
+     },
+     "fallbackValues": {
+      "writeOnly": true
+     }
+    }
+   },
+   "Service": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "hostId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "hostName": {
+      "type": "string"
+     },
+     "parentType": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "iconImage": {
+      "type": "string"
+     },
+     "ownStatus": {
+      "type": "string",
+      "enum": [
+       "CRITICAL",
+       "WARNING",
+       "UNKNOWN",
+       "OK",
+       "PENDING",
+       "NA"
+      ]
+     },
+     "hardStatus": {
+      "type": "string",
+      "enum": [
+       "CRITICAL",
+       "WARNING",
+       "UNKNOWN",
+       "OK",
+       "PENDING",
+       "NA"
+      ]
+     },
+     "output": {
+      "type": "string"
+     },
+     "extendedOutput": {
+      "type": "string"
+     },
+     "metrics": {
+      "type": "object",
+      "additionalProperties": {
+       "$ref": "#/components/schemas/Metric"
+      }
+     },
+     "nameToPerfDataMetrics": {
+      "type": "object",
+      "additionalProperties": {
+       "$ref": "#/components/schemas/Metric"
+      }
+     },
+     "lastStateCheck": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "lastStateChange": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "severity": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "acknowledged": {
+      "type": "boolean"
+     },
+     "inDowntime": {
+      "type": "boolean"
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "metricFallbackValues": {
+      "$ref": "#/components/schemas/Metric",
+      "writeOnly": true
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "ServiceDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "hostName": {
+      "type": "string"
+     },
+     "hostId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "ownStatus": {
+      "type": "string",
+      "enum": [
+       "CRITICAL",
+       "WARNING",
+       "UNKNOWN",
+       "OK",
+       "PENDING",
+       "NA"
+      ]
+     },
+     "output": {
+      "type": "string"
+     },
+     "lastStateCheck": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "lastStateChange": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "acknowledged": {
+      "type": "boolean"
+     },
+     "inDowntime": {
+      "type": "boolean"
+     }
+    }
+   },
+   "ServiceGroupStatisticsDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "serviceOverview": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     "services": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/ServiceDto"
+      }
+     }
+    }
+   },
+   "MetaService": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "serviceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "metaHostId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "output": {
+      "type": "string"
+     },
+     "extendedOutput": {
+      "type": "string"
+     },
+     "metrics": {
+      "type": "object",
+      "additionalProperties": {
+       "$ref": "#/components/schemas/Metric"
+      }
+     },
+     "nameToPerfDataMetrics": {
+      "type": "object",
+      "additionalProperties": {
+       "$ref": "#/components/schemas/Metric"
+      }
+     },
+     "ownStatus": {
+      "type": "string",
+      "enum": [
+       "CRITICAL",
+       "WARNING",
+       "UNKNOWN",
+       "OK",
+       "PENDING",
+       "NA"
+      ]
+     },
+     "hardStatus": {
+      "type": "string",
+      "enum": [
+       "CRITICAL",
+       "WARNING",
+       "UNKNOWN",
+       "OK",
+       "PENDING",
+       "NA"
+      ]
+     },
+     "lastStateCheck": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "lastStateChange": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "severity": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "metricFallbackValues": {
+      "$ref": "#/components/schemas/Metric",
+      "writeOnly": true
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     },
+     "inDowntime": {
+      "type": "boolean"
+     },
+     "acknowledged": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "Pageable": {
+    "properties": {
+     "page": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 0
+     },
+     "size": {
+      "type": "integer",
+      "format": "int32",
+      "minimum": 1
+     },
+     "sort": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     }
+    }
+   },
+   "PageMap": {
+    "properties": {
+     "totalElements": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "totalPages": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "size": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "content": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/Map"
+      }
+     },
+     "number": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "sort": {
+      "$ref": "#/components/schemas/SortObject"
+     },
+     "first": {
+      "type": "boolean"
+     },
+     "last": {
+      "type": "boolean"
+     },
+     "numberOfElements": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "pageable": {
+      "$ref": "#/components/schemas/PageableObject"
+     },
+     "empty": {
+      "type": "boolean"
+     }
+    }
+   },
+   "PageableObject": {
+    "properties": {
+     "offset": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "sort": {
+      "$ref": "#/components/schemas/SortObject"
+     },
+     "paged": {
+      "type": "boolean"
+     },
+     "pageNumber": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "pageSize": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "unpaged": {
+      "type": "boolean"
+     }
+    }
+   },
+   "SortObject": {
+    "properties": {
+     "direction": {
+      "type": "string"
+     },
+     "nullHandling": {
+      "type": "string"
+     },
+     "ascending": {
+      "type": "boolean"
+     },
+     "property": {
+      "type": "string"
+     },
+     "ignoreCase": {
+      "type": "boolean"
+     }
+    }
+   },
+   "BreadcrumbSlot": {
+    "properties": {
+     "viewId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "label": {
+      "type": "string"
+     },
+     "viewStatus": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     }
+    }
+   },
+   "Host": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "pollerId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "iconImage": {
+      "type": "string"
+     },
+     "alias": {
+      "type": "string"
+     },
+     "ownStatus": {
+      "type": "string",
+      "enum": [
+       "DOWN",
+       "UNREACHABLE",
+       "PENDING",
+       "UP",
+       "NA"
+      ]
+     },
+     "hardStatus": {
+      "type": "string",
+      "enum": [
+       "DOWN",
+       "UNREACHABLE",
+       "PENDING",
+       "UP",
+       "NA"
+      ]
+     },
+     "output": {
+      "type": "string"
+     },
+     "geoCoordinate": {
+      "$ref": "#/components/schemas/GeoCoordinate"
+     },
+     "lastStateCheck": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "lastStateChange": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "severity": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "acknowledged": {
+      "type": "boolean"
+     },
+     "inDowntime": {
+      "type": "boolean"
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "servicesMap": {
+      "type": "object",
+      "additionalProperties": {
+       "$ref": "#/components/schemas/Service"
+      }
+     },
+     "childrenStatus": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "services": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/Service"
+      }
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "HostDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "alias": {
+      "type": "string"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "ownStatus": {
+      "type": "string",
+      "enum": [
+       "DOWN",
+       "UNREACHABLE",
+       "PENDING",
+       "UP",
+       "NA"
+      ]
+     },
+     "output": {
+      "type": "string"
+     },
+     "geoCoordinate": {
+      "$ref": "#/components/schemas/GeoCoordinate"
+     },
+     "lastStateCheck": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "lastStateChange": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "acknowledged": {
+      "type": "boolean"
+     },
+     "inDowntime": {
+      "type": "boolean"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "services": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/ServiceDto"
+      }
+     }
+    }
+   },
+   "HostGroup": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "hosts": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/Host"
+      }
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "geoCoordinate": {
+      "$ref": "#/components/schemas/GeoCoordinate"
+     },
+     "childrenStatus": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "HostGroupStatisticsDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "hostOverview": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     "serviceOverview": {
+      "type": "object",
+      "additionalProperties": {
+       "type": "integer",
+       "format": "int64"
+      }
+     },
+     "hosts": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/HostDto"
+      }
+     },
+     "services": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/ServiceDto"
+      }
+     }
+    }
+   },
+   "Graph": {
+    "properties": {
+     "hostId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "serviceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "metrics": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/GraphMetric"
+      }
+     },
+     "times": {
+      "type": "array",
+      "items": {
+       "type": "integer",
+       "format": "int64"
+      }
+     }
+    }
+   },
+   "GraphMetric": {
+    "properties": {
+     "datas": {
+      "type": "array",
+      "items": {
+       "type": "number",
+       "format": "double"
+      }
+     },
+     "unit": {
+      "type": "string"
+     },
+     "negative": {
+      "type": "boolean"
+     },
+     "label": {
+      "type": "string"
+     },
+     "type": {
+      "type": "string"
+     },
+     "color": {
+      "type": "string"
+     },
+     "metricName": {
+      "type": "string"
+     }
+    }
+   },
+   "PageGeoView": {
+    "properties": {
+     "totalElements": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "totalPages": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "size": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "content": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/GeoView"
+      }
+     },
+     "number": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "sort": {
+      "$ref": "#/components/schemas/SortObject"
+     },
+     "first": {
+      "type": "boolean"
+     },
+     "last": {
+      "type": "boolean"
+     },
+     "numberOfElements": {
+      "type": "integer",
+      "format": "int32"
+     },
+     "pageable": {
+      "$ref": "#/components/schemas/PageableObject"
+     },
+     "empty": {
+      "type": "boolean"
+     }
+    }
+   },
+   "BusinessActivity": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "infrastructureView": {
+      "type": "string"
+     },
+     "ownStatus": {
+      "type": "string",
+      "enum": [
+       "CRITICAL",
+       "WARNING",
+       "UNKNOWN",
+       "OK",
+       "PENDING",
+       "NA"
+      ]
+     },
+     "health": {
+      "type": "number",
+      "format": "double"
+     },
+     "lastStateChange": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "lastStateCheck": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "output": {
+      "type": "string"
+     },
+     "calculationMethod": {
+      "type": "string",
+      "enum": [
+       "IMPACT",
+       "BEST",
+       "WORST",
+       "RATIO"
+      ]
+     },
+     "enabled": {
+      "type": "boolean"
+     },
+     "geoCoordinate": {
+      "$ref": "#/components/schemas/GeoCoordinate"
+     },
+     "kpis": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/KPI"
+      }
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "severity": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "status": {
+      "$ref": "#/components/schemas/Status"
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     },
+     "inDowntime": {
+      "type": "boolean"
+     },
+     "acknowledged": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "KPI": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "kpiType": {
+      "type": "string",
+      "enum": [
+       "REGULAR_SERVICE",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BOOLEAN_RULE",
+       "ANOMALY_DETECTION"
+      ]
+     },
+     "name": {
+      "type": "string"
+     },
+     "status": {
+      "type": "string",
+      "enum": [
+       "CRITICAL",
+       "WARNING",
+       "UNKNOWN",
+       "OK",
+       "PENDING",
+       "NA"
+      ]
+     },
+     "impact": {
+      "type": "number",
+      "format": "float"
+     },
+     "output": {
+      "type": "string"
+     },
+     "lastStateChange": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "lastStateCheck": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "baId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "hostId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "serviceId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "metaId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "booleanRuleId": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "type": {
+      "type": "string",
+      "enum": [
+       "HOST",
+       "HOST_GROUP",
+       "SERVICE",
+       "SERVICE_GROUP",
+       "META_SERVICE",
+       "BUSINESS_ACTIVITY",
+       "BUSINESS_ACTIVITY_GROUP",
+       "KPI"
+      ]
+     },
+     "ackFlag": {
+      "type": "boolean"
+     },
+     "downFlag": {
+      "type": "boolean"
+     },
+     "inDowntime": {
+      "type": "boolean"
+     },
+     "acknowledged": {
+      "type": "boolean"
+     },
+     "inheritedDownFlag": {
+      "type": "boolean"
+     },
+     "inheritedAckFlag": {
+      "type": "boolean"
+     }
+    }
+   },
+   "BusinessActivityDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     },
+     "infrastructureView": {
+      "type": "string"
+     },
+     "ownStatus": {
+      "type": "string",
+      "enum": [
+       "CRITICAL",
+       "WARNING",
+       "UNKNOWN",
+       "OK",
+       "PENDING",
+       "NA"
+      ]
+     },
+     "health": {
+      "type": "number",
+      "format": "double"
+     },
+     "lastStateChange": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "lastStateCheck": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "output": {
+      "type": "string"
+     },
+     "calculationMethod": {
+      "type": "string",
+      "enum": [
+       "IMPACT",
+       "BEST",
+       "WORST",
+       "RATIO"
+      ]
+     },
+     "kpis": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/KPI"
+      }
+     },
+     "inDowntime": {
+      "type": "boolean"
+     },
+     "acknowledged": {
+      "type": "boolean"
+     }
+    }
+   },
+   "BusinessActivityGroupDto": {
+    "properties": {
+     "id": {
+      "type": "integer",
+      "format": "int64"
+     },
+     "name": {
+      "type": "string"
+     },
+     "description": {
+      "type": "string"
+     }
+    }
+   },
+   "ErrorResponse": {
+    "type": "object",
+    "properties": {
+     "code": {
+      "type": "integer",
+      "example": 400
+     },
+     "message": {
+      "type": "string",
+      "example": "Bad Request"
+     }
+    }
+   }
+  },
+  "responses": {
+   "BadRequest": {
+    "description": "Bad Request",
+    "content": {
+     "application/json": {
+      "schema": {
+       "$ref": "#/components/schemas/ErrorResponse"
+      }
+     }
+    }
+   },
+   "Unauthorized": {
+    "description": "Unauthorized",
+    "content": {
+     "application/json": {
+      "schema": {
+       "$ref": "#/components/schemas/ErrorResponse"
+      }
+     }
+    }
+   },
+   "Forbidden": {
+    "description": "Forbidden",
+    "content": {
+     "application/json": {
+      "schema": {
+       "$ref": "#/components/schemas/ErrorResponse"
+      }
+     }
+    }
+   },
+   "NotFound": {
+    "description": "Not Found",
+    "content": {
+     "application/json": {
+      "schema": {
+       "$ref": "#/components/schemas/ErrorResponse"
+      }
+     }
+    }
+   },
+   "InternalServerError": {
+    "description": "Internal Server Error",
+    "content": {
+     "application/json": {
+      "schema": {
+       "$ref": "#/components/schemas/ErrorResponse"
+      }
+     }
+    }
+   }
+  },
+  "securitySchemes": {
+   "bearerAuth": {
+    "type": "http",
+    "scheme": "bearer",
+    "bearerFormat": "JWT"
+   },
+   "CentreonHeaderAuth": {
+    "type": "apiKey",
+    "in": "header",
+    "name": "X-AUTH-TOKEN"
+   }
+  }
+ },
+ "tags": [
+  {
+   "name": "Maps"
+  },
+  {
+   "name": "Views"
+  },
+  {
+   "name": "Map resources"
+  },
+  {
+   "name": "Geographic views"
+  },
+  {
+   "name": "Access rights"
+  },
+  {
+   "name": "MAP administrators"
+  },
+  {
+   "name": "Resource synchronization"
+  }
+ ]
+}

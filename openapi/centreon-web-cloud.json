@@ -1,0 +1,6849 @@
+{
+ "openapi": "3.1.0",
+ "info": {
+  "title": "Centreon Web RestAPI for Cloud",
+  "version": "cloud",
+  "description": "\n:::info\n\nMany more endpoints are available but not included in this document yet. Please refer to the [OnPrem API page](/api/centreon-web/centreon-web-restapi) if you are looking for a specific endpoint. Bear in mind that not all endpoints described in the OnPrem API page are available on a cloud platform, in particular those related to the administration of the Centreon platform.\n\n:::\n\n# Information\nAll dates are in **ISO 8601** format\n# Authentication\nThere are two modes of authentication:\n* By token: after identification with your login credentials\n* By cookie: by reusing a valid session ID\n",
+  "x-logo": {
+   "url": "./centreon-logo.png"
+  },
+  "contact": {
+   "name": "Centreon",
+   "url": "https://www.centreon.com"
+  },
+  "license": {
+   "name": "Apache 2.0",
+   "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+  }
+ },
+ "externalDocs": {
+  "description": "You can contact us on our community platform The Watch",
+  "url": "https://thewatch.centreon.com/"
+ },
+ "servers": [
+  {
+   "url": "https://{organization}.{region}.centreon.cloud/{instance}",
+   "variables": {
+    "organization": {
+     "default": "your-organization",
+     "description": "Name of your organization"
+    },
+    "region": {
+     "default": "your-region",
+     "description": "Region of your Centreon Cloud platform"
+    },
+    "instance": {
+     "default": "your-instance",
+     "description": "Name of your Centreon Cloud instance"
+    }
+   }
+  }
+ ],
+ "tags": [
+  {
+   "name": "Host"
+  },
+  {
+   "name": "Host group"
+  },
+  {
+   "name": "Host template"
+  },
+  {
+   "name": "Notification"
+  },
+  {
+   "name": "Resource Access Management"
+  },
+  {
+   "name": "Service"
+  },
+  {
+   "name": "Service template"
+  }
+ ],
+ "security": [
+  {
+   "Token": []
+  }
+ ],
+ "paths": {
+  "/api/latest/administration/resource-access/rules": {
+   "get": {
+    "tags": [
+     "Resource Access Management"
+    ],
+    "summary": "Find all resource access rules configured",
+    "description": "Return all resource access rules configurations.\n\nThe available parameters to **search** / **sort_by** are:\n\n* name\n* description\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/Limit"
+     },
+     {
+      "$ref": "#/components/parameters/Page"
+     },
+     {
+      "$ref": "#/components/parameters/Search"
+     },
+     {
+      "$ref": "#/components/parameters/SortBy"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "result": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/FindRulesResponse"
+           }
+          },
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          }
+         }
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "Resource Access Management"
+    ],
+    "summary": "Create a resource access rule",
+    "description": "Create a resource access rule configuration\n",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AddOrUpdateRuleRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Object created",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "$ref": "#/components/schemas/AddRuleResponse"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/administration/resource-access/rules/{rule_id}": {
+   "get": {
+    "tags": [
+     "Resource Access Management"
+    ],
+    "summary": "Find a configured resource access rule",
+    "description": "Return information about the resource access rule identified by the ID provided",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/RuleId"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "id": {
+           "type": "integer",
+           "description": "Resource access rule ID",
+           "example": 1
+          },
+          "name": {
+           "type": "string",
+           "description": "Resource access rule name",
+           "example": "Rule_for_viewers"
+          },
+          "description": {
+           "type": "string",
+           "description": "Resource access rule description",
+           "example": "Rule that will be applied to all viewers"
+          },
+          "contacts": {
+           "type": "object",
+           "properties": {
+            "values": {
+             "type": "array",
+             "items": {
+              "type": "object",
+              "properties": {
+               "id": {
+                "type": "integer",
+                "description": "ID of the contact linked to the rule",
+                "example": 1
+               },
+               "alias": {
+                "type": "string",
+                "description": "Alias of the contact linked to the rule"
+               }
+              }
+             }
+            },
+            "all": {
+             "type": "boolean",
+             "description": "Indicates that the rule should be applied to all current / future contacts",
+             "example": false
+            }
+           }
+          },
+          "contact_groups": {
+           "type": "object",
+           "properties": {
+            "values": {
+             "type": "array",
+             "items": {
+              "type": "object",
+              "properties": {
+               "id": {
+                "type": "integer",
+                "description": "ID of the contact group linked to the rule",
+                "example": 1
+               },
+               "name": {
+                "type": "string",
+                "description": "Name of the contact group linked to the rule"
+               }
+              }
+             }
+            },
+            "all": {
+             "type": "boolean",
+             "description": "Indicates that the rule should be applied to all current / future contact groups",
+             "example": false
+            }
+           }
+          },
+          "is_enabled": {
+           "type": "boolean",
+           "description": "Indicates whether the resource access rule is activated or not"
+          },
+          "dataset_filters": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/DatasetFilterWithNames"
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "Resource Access Management"
+    ],
+    "summary": "Update a resource access rule",
+    "description": "Update a resource access rule configuration\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/RuleId"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AddOrUpdateRuleRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Resource Access Management"
+    ],
+    "summary": "Delete a resource access rule configuration",
+    "description": "Delete a resource access rule configuration.\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/RuleId"
+     }
+    ],
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "patch": {
+    "tags": [
+     "Resource Access Management"
+    ],
+    "summary": "Update partially a resource access rule",
+    "description": "Partial update of resource access rule configuration.\nThe available parameters to **update** are:\n\n* name\n* description\n* is_enabled\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/RuleId"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PartialRuleUpdateRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/administration/resource-access/rules/_delete": {
+   "post": {
+    "tags": [
+     "Resource Access Management"
+    ],
+    "summary": "Delete multiple resource access rule configurations",
+    "description": "Delete multiple resource access rule configurations\n",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/DeleteRulesRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "$ref": "#/components/responses/MultiStatus"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/hosts": {
+   "get": {
+    "tags": [
+     "Host"
+    ],
+    "summary": "Find all host configurations",
+    "description": "Return all host configurations.\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n* address\n* poller.id\n* poller.name\n* category.id\n* category.name\n* severity.id\n* severity.name\n* group.id\n* group.name\n* is_activated\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/Limit"
+     },
+     {
+      "$ref": "#/components/parameters/Page"
+     },
+     {
+      "$ref": "#/components/parameters/Search"
+     },
+     {
+      "$ref": "#/components/parameters/SortBy"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "result": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/FindHostsResponse"
+           }
+          },
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          }
+         }
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "Host"
+    ],
+    "summary": "Create a host configuration",
+    "description": "Create a host configuration\n",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AddHostRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Object created",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "$ref": "#/components/schemas/AddHostResponse"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/hosts/{host_id}": {
+   "get": {
+    "tags": [
+     "Host"
+    ],
+    "summary": "Get a host",
+    "description": "Get an existing host.\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/HostId"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/GetHostResponse"
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "patch": {
+    "tags": [
+     "Host"
+    ],
+    "summary": "Partially update a host configuration",
+    "description": "Partially update a host configuration.\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/HostId"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PartialUpdateHostRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/hosts/groups": {
+   "get": {
+    "tags": [
+     "Host group"
+    ],
+    "summary": "List all host groups",
+    "description": "Return all host group configurations.\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n* alias\n* is_activated\n* hostcategory.id\n* hostcategory.name\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/Limit"
+     },
+     {
+      "$ref": "#/components/parameters/Page"
+     },
+     {
+      "$ref": "#/components/parameters/Search"
+     },
+     {
+      "$ref": "#/components/parameters/SortBy"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "result": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/FindHostGroupsResponse"
+           }
+          },
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          }
+         }
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "Host group"
+    ],
+    "summary": "Add a host group",
+    "description": "Add a new host group configuration.\n\nMandatory body properties are:\n\n* name\n* resource_access_rules\n* hosts (can be an empty array)\n",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AddHostGroupRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Object created",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "$ref": "#/components/schemas/AddHostGroupResponse"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/hosts/groups/{hostgroup_id}": {
+   "get": {
+    "tags": [
+     "Host group"
+    ],
+    "summary": "Get a host group",
+    "description": "Get an existing host group.\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/HostGroupId"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/GetHostGroupResponse"
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "Host group"
+    ],
+    "summary": "Update a host group",
+    "description": "Update an existing host group.\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/HostGroupId"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/UpdateHostGroupRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/hosts/templates": {
+   "get": {
+    "tags": [
+     "Host template"
+    ],
+    "summary": "Find all host template configurations",
+    "description": "Return all host template configurations.\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n* alias\n* is_locked\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/Limit"
+     },
+     {
+      "$ref": "#/components/parameters/Page"
+     },
+     {
+      "$ref": "#/components/parameters/Search"
+     },
+     {
+      "$ref": "#/components/parameters/SortBy"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "result": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/HostTemplate"
+           }
+          },
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          }
+         }
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "Host template"
+    ],
+    "summary": "Create a host template configuration",
+    "description": "Create a host template configuration\n",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/AddHostTemplateRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Object created",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "$ref": "#/components/schemas/AddHostTemplateResponse"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/hosts/templates/{host_template_id}": {
+   "get": {
+    "tags": [
+     "Host template"
+    ],
+    "summary": "Get a host template configuration",
+    "description": "Get a host template configuration.\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/HostTemplateId"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/GetHostTemplateResponse"
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "patch": {
+    "tags": [
+     "Host template"
+    ],
+    "summary": "Partially update a host template configuration",
+    "description": "Partially update a host template configuration.\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/HostTemplateId"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PartialUpdateHostTemplateRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/hosts/{host_id}/services/deploy": {
+   "post": {
+    "tags": [
+     "Service"
+    ],
+    "summary": "Add services to a host based on associated host template",
+    "description": "Add services to a host based on associated host templates\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/HostId"
+     }
+    ],
+    "responses": {
+     "201": {
+      "description": "Objects created",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "services": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/DeployServiceResponse"
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "401": {
+      "$ref": "#/components/responses/Unauthorized"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/services": {
+   "post": {
+    "tags": [
+     "Service"
+    ],
+    "summary": "Add a service",
+    "description": "Add a service configuration",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "allOf": [
+         {
+          "required": [
+           "name",
+           "host_id"
+          ]
+         },
+         {
+          "$ref": "#/components/schemas/AddServiceRequest"
+         }
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Object created",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "$ref": "#/components/schemas/AddServiceResponse"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "Service"
+    ],
+    "summary": "Find all services",
+    "description": "Return all service configurations.\n\nThe available parameters to **search** by are:\n\n* name\n* host.id\n* host.name\n* category.id\n* category.name\n* severity.id\n* severity.name\n* group.id\n* group.name\n* hostgroup.id\n* hostgroup.name\n* hostcategory.id\n* hostcategory.name\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/Limit"
+     },
+     {
+      "$ref": "#/components/parameters/Page"
+     },
+     {
+      "$ref": "#/components/parameters/Search"
+     },
+     {
+      "$ref": "#/components/parameters/SortBy"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "result": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/FindServicesResponse"
+           }
+          },
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          }
+         }
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/services/{service_id}": {
+   "get": {
+    "tags": [
+     "Service"
+    ],
+    "summary": "Get a service",
+    "description": "Get an existing service.",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/ServiceId"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/GetServiceResponse"
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "patch": {
+    "tags": [
+     "Service"
+    ],
+    "summary": "Partial update of a service",
+    "description": "Partial update of a service configuration",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/ServiceId"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PartialUpdateServiceRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/services/templates": {
+   "get": {
+    "tags": [
+     "Service template"
+    ],
+    "summary": "Find all service template",
+    "description": "Return all service template configurations.\n\nThe available parameters to **search** / **sort_by** are:\n\n* id\n* name\n* alias\n* is_locked\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/Limit"
+     },
+     {
+      "$ref": "#/components/parameters/Page"
+     },
+     {
+      "$ref": "#/components/parameters/Search"
+     },
+     {
+      "$ref": "#/components/parameters/SortBy"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "result": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/ServiceTemplate"
+           }
+          },
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          }
+         }
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "post": {
+    "tags": [
+     "Service template"
+    ],
+    "summary": "Add a service template",
+    "description": "Add a service template configuration",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "allOf": [
+         {
+          "$ref": "#/components/schemas/NewServiceTemplate"
+         }
+        ]
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Created",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/AddServiceTemplateResponse"
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/services/templates/{service_template_id}": {
+   "patch": {
+    "tags": [
+     "Service template"
+    ],
+    "summary": "Partial update of a service template",
+    "description": "Partial update of a service template configuration",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/ServiceTemplateId"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PartialUpdateServiceTemplate"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/notifications": {
+   "post": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "Create a notification",
+    "description": "Create a notification\n\nThis endpoint is accessible for SaaS platforms only\n",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Notification.Add"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "OK"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "409": {
+      "$ref": "#/components/responses/Conflict"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "get": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "List all notifications",
+    "description": "Return all notifications.\n\nThe available parameters to **search** are:\n\n* name\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/Limit"
+     },
+     {
+      "$ref": "#/components/parameters/Page"
+     },
+     {
+      "$ref": "#/components/parameters/Search"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "result": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/Notification.Listing"
+           }
+          },
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          }
+         }
+        }
+       }
+      }
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/notifications/_delete": {
+   "post": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "Delete multiple notification configurations",
+    "description": "Delete multiple notification configurations\n\nThis endpoint is accessible for SaaS platforms only\n",
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Notifications.Delete"
+       }
+      }
+     }
+    },
+    "responses": {
+     "200": {
+      "$ref": "#/components/responses/MultiStatus"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/notifications/{notification_id}": {
+   "get": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "Get the details of a notification",
+    "description": "Get the details of a notification\n\nThis endpoint is accessible for SaaS platforms only\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/NotificationId"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/Notification.Details"
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "put": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "Update the details of a notification",
+    "description": "Update the details of a notification\n\nThis endpoint is accessible for SaaS platforms only\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/NotificationId"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/Notification.Add"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "patch": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "Partial update of a notification definition",
+    "description": "Partial update of a notification definition\n\nThis endpoint does not handle all notification properties.\n\nThe following notification properties are supported in version 23.10 and above:\n  - is_activated\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/NotificationId"
+     }
+    ],
+    "requestBody": {
+     "required": true,
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/PartialUpdateNotificationRequest"
+       }
+      }
+     }
+    },
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   },
+   "delete": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "Delete a notification",
+    "description": "Delete a notification\nThis endpoint is accessible for SaaS platforms only\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/NotificationId"
+     }
+    ],
+    "responses": {
+     "204": {
+      "$ref": "#/components/responses/NoContent"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/notifications/resources": {
+   "get": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "List all resources and events triggering a notification rule",
+    "description": "Return all resources: hosts, services, business activities and configured events\ntriggering a notification rule.\n",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "uid": {
+           "type": "string",
+           "example": "547a4e6270e51d63b23b982097aa8386"
+          },
+          "result": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/NotifiableResources.Listing"
+           }
+          }
+         }
+        }
+       }
+      }
+     },
+     "304": {
+      "$ref": "#/components/responses/NotModified"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/notifications/{notification_id}/rules": {
+   "get": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "List methods and contacts by notification id",
+    "description": "Return a list of notification methods/channels and contacts by notification id.\n",
+    "parameters": [
+     {
+      "$ref": "#/components/parameters/NotificationId"
+     }
+    ],
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/NotifiableRule"
+        }
+       }
+      }
+     },
+     "304": {
+      "$ref": "#/components/responses/NotModified"
+     },
+     "400": {
+      "$ref": "#/components/responses/BadRequest"
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  },
+  "/api/latest/configuration/notifications/contact_groups": {
+   "get": {
+    "tags": [
+     "Notification"
+    ],
+    "summary": "List notifiable contact groups.",
+    "description": "List notifiable contact groups for Cloud notification rules configuration.",
+    "responses": {
+     "200": {
+      "description": "OK",
+      "content": {
+       "application/json": {
+        "schema": {
+         "type": "object",
+         "properties": {
+          "result": {
+           "type": "array",
+           "items": {
+            "$ref": "#/components/schemas/NotifiableContactGroups.Listing"
+           }
+          },
+          "meta": {
+           "$ref": "#/components/schemas/Meta"
+          }
+         }
+        }
+       }
+      }
+     },
+     "403": {
+      "$ref": "#/components/responses/Forbidden"
+     },
+     "404": {
+      "$ref": "#/components/responses/NotFound"
+     },
+     "500": {
+      "$ref": "#/components/responses/InternalServerError"
+     }
+    }
+   }
+  }
+ },
+ "components": {
+  "securitySchemes": {
+   "Token": {
+    "description": "The use of the API requires a security token.\n\nTo retrieve it, you will need to authenticate yourself with your login credentials.\n\nThe token will be deleted if it has not been used for more than one hour.\n",
+    "type": "apiKey",
+    "name": "X-AUTH-TOKEN",
+    "in": "header"
+   }
+  },
+  "parameters": {
+   "Limit": {
+    "in": "query",
+    "name": "limit",
+    "required": false,
+    "description": "Number of items per page",
+    "schema": {
+     "type": "integer",
+     "minimum": 1,
+     "default": 10,
+     "example": 20
+    }
+   },
+   "Page": {
+    "in": "query",
+    "name": "page",
+    "required": false,
+    "description": "Number of the requested page",
+    "schema": {
+     "type": "integer",
+     "minimum": 1,
+     "default": 1,
+     "example": 4
+    }
+   },
+   "Search": {
+    "in": "query",
+    "name": "search",
+    "required": false,
+    "schema": {
+     "type": "string"
+    },
+    "description": "Retrieve only data matching the defined search value.\nA simple search can be done like in the following example ``` search={\"host.name\":\"Central\"} ```\nA complex search can be done with aggregators and operators.\nAvailable search aggregators are:\n  * `$or`\n  * `$and`\n\n`$and` requires **all** conditions to be true simultaneously for the same resource (intersection). `$or` requires **at least one** condition to be true (union).\n> **Important:** Using `$and` on the same field with incompatible values will always return > an empty result. For example, a host whose name is \"host1\" cannot simultaneously have > the name \"host2\". To search for resources matching either value, use `$or` instead.\nAvailable search operators are:\n  * `$eq` \u2192 equal\n  * `$neq` \u2192 not equal\n  * `$lt` \u2192 less than\n  * `$le` \u2192 less or equal than\n  * `$gt` \u2192 greater than\n  * `$ge` \u2192 greater or equal than\n  * `$lk` \u2192 like\n  * `$nk` \u2192 not like\n  * `$in` \u2192 in\n  * `$ni` \u2192 not in\n  * `$rg` \u2192 regex\n\nExamples without nested aggregators:\nUse `$or` to find hosts named \"host1\" OR \"host2\":\n  ```\n  search={\n    \"$or\":[\n      {\"host.name\":{\"$eq\":\"host1\"}},\n      {\"host.name\":{\"$eq\":\"host2\"}}\n    ]\n  }\n  ```\n\nUse `$and` to combine conditions on **different fields**:\n  ```\n  search={\n    \"$and\":[\n      {\"host.address\":{\"$rg\":\"^10\\.0\\.0\\.\\d+$\"}},\n      {\"host.name\":{\"$lk\":\"fr%\"}}\n    ]\n  }\n  ```\n\nExample with nested aggregators:\n  ```\n  search={\n    \"$or\":[\n      {\n        \"$and\":[\n          {\"host.address\":{\"$rg\":\"^10\\.0\\.0\\.\\d+$\"}},\n          {\"host.name\":{\"$lk\":\"fr%\"}}\n        ]\n      },\n      {\n        \"$and\":[\n          {\"host.address\":{\"$rg\":\"^192\\.168\\.0\\.\\d+$\"}},\n          {\"host.name\":{\"$lk\":\"us%\"}}\n        ]\n      }\n    ]\n  }\n  ```\n"
+   },
+   "SortBy": {
+    "in": "query",
+    "name": "sort_by",
+    "required": false,
+    "description": "Sort the resulting data by its properties",
+    "schema": {
+     "type": "string",
+     "example": "{\"host.name\":\"ASC\"}"
+    }
+   },
+   "RuleId": {
+    "in": "path",
+    "name": "rule_id",
+    "required": true,
+    "description": "Resource access rule ID",
+    "schema": {
+     "type": "integer",
+     "minimum": 1,
+     "example": 1
+    }
+   },
+   "HostId": {
+    "in": "path",
+    "name": "host_id",
+    "required": true,
+    "description": "Host ID",
+    "schema": {
+     "type": "integer",
+     "minimum": 1,
+     "example": 1
+    }
+   },
+   "HostGroupId": {
+    "in": "path",
+    "name": "hostgroup_id",
+    "description": "ID of the host group",
+    "required": true,
+    "schema": {
+     "type": "integer",
+     "format": "int64",
+     "example": 5
+    }
+   },
+   "HostTemplateId": {
+    "in": "path",
+    "name": "host_template_id",
+    "required": true,
+    "description": "Host template ID",
+    "schema": {
+     "type": "integer",
+     "minimum": 1,
+     "example": 1
+    }
+   },
+   "ServiceId": {
+    "in": "path",
+    "name": "service_id",
+    "required": true,
+    "description": "Service ID",
+    "schema": {
+     "type": "integer",
+     "minimum": 1,
+     "example": 1
+    }
+   },
+   "ServiceTemplateId": {
+    "in": "path",
+    "name": "service_template_id",
+    "required": true,
+    "description": "Service template ID",
+    "schema": {
+     "type": "integer",
+     "minimum": 1,
+     "example": 1
+    }
+   },
+   "NotificationId": {
+    "in": "path",
+    "name": "notification_id",
+    "required": true,
+    "description": "Notification ID",
+    "schema": {
+     "type": "integer",
+     "minimum": 1,
+     "example": 1
+    }
+   }
+  },
+  "schemas": {
+   "FindRulesResponse": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Resource access rule ID",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Resource access rule name",
+      "example": "Rule_for_viewers"
+     },
+     "description": {
+      "type": "string",
+      "description": "Resource access rule description",
+      "example": "Rule that will be applied to all viewers"
+     },
+     "is_enabled": {
+      "type": "boolean",
+      "description": "Indicates whether the resource access rule is activated or not"
+     }
+    }
+   },
+   "Meta": {
+    "type": "object",
+    "properties": {
+     "page": {
+      "type": "integer",
+      "description": "Number of the paginated page",
+      "example": 1
+     },
+     "limit": {
+      "type": "integer",
+      "description": "Number of items per page",
+      "example": 10
+     },
+     "search": {
+      "type": "object",
+      "description": "Search parameter passed to URL"
+     },
+     "sort_by": {
+      "type": "object",
+      "description": "Sort parameter passed to URL"
+     },
+     "total": {
+      "type": "integer",
+      "description": "Number of items found",
+      "example": 1
+     }
+    }
+   },
+   "DatasetFilter": {
+    "type": [
+     "object",
+     "null"
+    ],
+    "properties": {
+     "type": {
+      "type": "string",
+      "enum": [
+       "host",
+       "hostgroup",
+       "host_category",
+       "service",
+       "servicegroup",
+       "service_category",
+       "meta_service",
+       "business_view",
+       "all"
+      ],
+      "description": "Type of the dataset filter",
+      "example": "host"
+     },
+     "resources": {
+      "type": "array",
+      "description": "ID of the resources to link to the resource access rule",
+      "items": {
+       "type": "integer"
+      },
+      "example": [
+       1,
+       2
+      ]
+     },
+     "dataset_filter": {
+      "$ref": "#/components/schemas/DatasetFilter"
+     }
+    }
+   },
+   "AddOrUpdateRuleRequest": {
+    "type": "object",
+    "required": [
+     "name",
+     "contacts",
+     "contact_groups",
+     "dataset_filters"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Resource access rule name",
+      "example": "Rule for viewers"
+     },
+     "contacts": {
+      "type": "object",
+      "properties": {
+       "ids": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        },
+        "description": "Define contacts that should be linked to the resource access rule",
+        "example": [
+         1,
+         2,
+         3
+        ]
+       },
+       "all": {
+        "type": "boolean",
+        "description": "Indicates that the rule should be applied to all current / future contacts",
+        "example": true
+       }
+      }
+     },
+     "contact_groups": {
+      "type": "object",
+      "properties": {
+       "ids": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        },
+        "description": "Define contact groups that should be linked to the resource access rule",
+        "example": [
+         1,
+         2,
+         3
+        ]
+       },
+       "all": {
+        "type": "boolean",
+        "description": "Indicates that the rule should be applied to all current / future contact groups",
+        "example": true
+       }
+      }
+     },
+     "description": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Short description of the rule",
+      "example": "Rule dedicated for users with limited rights"
+     },
+     "is_enabled": {
+      "type": "boolean",
+      "description": "Indicate the status of the rule enabled/disabled",
+      "example": true
+     },
+     "dataset_filters": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/DatasetFilter"
+      }
+     }
+    }
+   },
+   "AddRuleResponse": {
+    "type": "object",
+    "required": [
+     "name",
+     "contacts",
+     "contact_groups",
+     "dataset_filters"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Resource access rule name",
+      "example": "Rule for viewers"
+     },
+     "contacts": {
+      "type": "object",
+      "properties": {
+       "ids": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        },
+        "description": "Define contacts that should be linked to the resource access rule",
+        "example": [
+         1,
+         2,
+         3
+        ]
+       },
+       "all": {
+        "type": "boolean",
+        "description": "Indicates that the rule should be applied to all current / future contacts",
+        "example": true
+       }
+      }
+     },
+     "contact_groups": {
+      "type": "object",
+      "properties": {
+       "ids": {
+        "type": "array",
+        "items": {
+         "type": "integer"
+        },
+        "description": "Define contact groups that should be linked to the resource access rule",
+        "example": [
+         1,
+         2,
+         3
+        ]
+       },
+       "all": {
+        "type": "boolean",
+        "description": "Indicates that the rule should be applied to all current / future contact groups",
+        "example": true
+       }
+      }
+     },
+     "description": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Short description of the rule",
+      "example": "Rule dedicated for users with limited rights"
+     },
+     "is_enabled": {
+      "type": "boolean",
+      "description": "Indicate the status of the rule enabled/disabled",
+      "example": true
+     },
+     "dataset_filters": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/DatasetFilter"
+      }
+     }
+    }
+   },
+   "DatasetFilterWithNames": {
+    "type": [
+     "object",
+     "null"
+    ],
+    "properties": {
+     "type": {
+      "type": "string",
+      "enum": [
+       "host",
+       "hostgroup",
+       "host_category",
+       "service",
+       "servicegroup",
+       "service_category",
+       "meta_service",
+       "business_view",
+       "all"
+      ],
+      "description": "Type of the dataset filter",
+      "example": "host"
+     },
+     "resources": {
+      "type": "array",
+      "description": "Resources to link to the resource access rule",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "ID of the resource",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the resource",
+         "example": "Server"
+        }
+       }
+      }
+     },
+     "dataset_filter": {
+      "$ref": "#/components/schemas/DatasetFilterWithNames"
+     }
+    }
+   },
+   "PartialRuleUpdateRequest": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Resource access rule name",
+      "example": "Rule for viewers"
+     },
+     "description": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Short description of the rule",
+      "example": "Rule dedicated for users with limited rights"
+     },
+     "is_enabled": {
+      "type": "boolean",
+      "description": "Indicate the status of the rule enabled/disabled",
+      "example": true
+     }
+    }
+   },
+   "DeleteRulesRequest": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "List of resource access rule IDs to delete",
+      "items": {
+       "type": "integer"
+      }
+     }
+    }
+   },
+   "FindHostsResponse": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Host ID",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Host name",
+      "example": "Centreon-Server"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Host alias",
+      "example": ""
+     },
+     "address": {
+      "type": "string",
+      "description": "IP or domain of the host",
+      "example": "127.0.0.1"
+     },
+     "monitoring_server": {
+      "type": "object",
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Monitoring server ID",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "description": "Monitoring server name",
+        "example": "Central"
+       }
+      }
+     },
+     "templates": {
+      "type": "array",
+      "description": "List of host templates associated with this host",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Host template ID",
+         "example": 2
+        },
+        "name": {
+         "type": "string",
+         "description": "Host template name",
+         "example": "generic-host"
+        }
+       }
+      }
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n",
+      "default": 5
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n",
+      "default": 1
+     },
+     "check_timeperiod": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Check timeperiod ID",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "description": "Check timeperiod name",
+        "example": "24x7"
+       }
+      }
+     },
+     "severity": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Severity ID",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "description": "Severity name",
+        "example": "Priority 1"
+       }
+      }
+     },
+     "categories": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Host category ID",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Host category name",
+         "example": "host-category-name"
+        }
+       }
+      }
+     },
+     "groups": {
+      "type": "array",
+      "description": "Host groups associated with this host",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Host group ID",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Host group name",
+         "example": "host-group-name"
+        }
+       }
+      }
+     },
+     "is_activated": {
+      "type": "boolean",
+      "description": "Indicates whether the host is activated or not"
+     }
+    }
+   },
+   "AddHostRequest": {
+    "type": "object",
+    "required": [
+     "monitoring_server_id",
+     "name",
+     "address"
+    ],
+    "properties": {
+     "monitoring_server_id": {
+      "type": "integer",
+      "description": "ID of the host's monitoring server",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Host name",
+      "example": "generic-active-host"
+     },
+     "address": {
+      "type": "string",
+      "description": "IP or domain of the host",
+      "example": "127.0.0.1"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Host alias",
+      "example": "generic-active-host"
+     },
+     "snmp_community": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Community of the SNMP agent"
+     },
+     "snmp_version": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "1",
+       "2c",
+       "3",
+       null
+      ],
+      "description": "Version of the SNMP agent.\n\nThe value can be `1`, `2c` or `3`\n",
+      "example": "2c"
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Geographic coordinates of the host",
+      "example": "48.10,12.5"
+     },
+     "timezone_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Timezone ID",
+      "example": 1
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID",
+      "example": 1
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID",
+      "example": 1
+     },
+     "check_command_args": {
+      "type": "array",
+      "description": "Check command arguments",
+      "items": {
+       "type": "string"
+      },
+      "example": [
+       "0",
+       "OK"
+      ]
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command timeperiod ID",
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the host check command if it returns any non-OK state"
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the host.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more information about the host."
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional note."
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more actions to be performed on the host."
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the ID of the image that should be associated with this host",
+      "example": 1
+     },
+     "is_activated": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Indicates whether the host is activated or not"
+     },
+     "categories": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Define the host category IDs that should be associated with this host",
+      "example": [
+       1,
+       15,
+       8
+      ]
+     },
+     "groups": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Define the host group IDs that should be associated with this host",
+      "example": [
+       1,
+       15,
+       8
+      ]
+     },
+     "templates": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Define the parent host template IDs that should be associated with this host.\nThe order of the IDs determines the inheritance priority order.\n",
+      "example": [
+       3,
+       12
+      ]
+     },
+     "macros": {
+      "type": "array",
+      "description": "Host macros defined for the host (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+      "items": {
+       "type": "object",
+       "required": [
+        "name",
+        "value",
+        "is_password",
+        "description"
+       ],
+       "properties": {
+        "id": {
+         "type": [
+          "integer",
+          "null"
+         ],
+         "description": "Macro ID (only for existing macros)",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the macro",
+         "example": "MacroName"
+        },
+        "value": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Value of the macro.\n\nIf macro.is_password property is set to true and macro.value is set to null,\nthen the macro.value will be considered unchanged.\n",
+         "example": "macroValue"
+        },
+        "is_password": {
+         "type": "boolean",
+         "description": "Indicates whether the macro value is a password or not",
+         "example": false
+        },
+        "description": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Macro description",
+         "example": "Some text to describe the macro"
+        }
+       }
+      }
+     }
+    }
+   },
+   "AddHostResponse": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Host ID",
+      "example": 1
+     },
+     "monitoring_server_id": {
+      "type": "integer",
+      "description": "ID of the host's monitoring server",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Host name",
+      "example": "generic-active-host"
+     },
+     "address": {
+      "type": "string",
+      "description": "IP or domain of the host",
+      "example": "127.0.0.1"
+     },
+     "alias": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Host alias",
+      "example": "generic-active-host"
+     },
+     "snmp_community": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Community of the SNMP agent"
+     },
+     "snmp_version": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "1",
+       "2c",
+       "3",
+       null
+      ],
+      "description": "Version of the SNMP agent.\n\nThe value can be `1`, `2c` or `3`\n",
+      "example": "2c"
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Geographic coordinates of the host",
+      "example": "48.10,12.5"
+     },
+     "timezone_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Timezone ID",
+      "example": 1
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID",
+      "example": 1
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID",
+      "example": 1
+     },
+     "check_command_args": {
+      "type": "array",
+      "description": "Check command arguments",
+      "items": {
+       "type": "string"
+      },
+      "example": [
+       "0",
+       "OK"
+      ]
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command timeperiod ID",
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the host check command if it returns any non-UP state"
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the host.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more information about the host."
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional note."
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more actions to be performed on the host."
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the ID of the image that should be associated with this host",
+      "example": 1
+     },
+     "is_activated": {
+      "type": "boolean",
+      "description": "Indicates whether the host is activated or not"
+     },
+     "categories": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a host category ID that is associated with this host",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a host category name that is associated with this host",
+         "example": "host-category-name"
+        }
+       }
+      }
+     },
+     "groups": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a host group ID that is associated with this host",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a host group name that is associated with this host",
+         "example": "host-group-name"
+        }
+       }
+      }
+     },
+     "templates": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a parent host template ID that is associated with this host",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a parent host template name that is associated with this host",
+         "example": "parent-template-name"
+        }
+       }
+      }
+     },
+     "macros": {
+      "type": "array",
+      "description": "Host macros defined for the host.\nMacros inherited from parent templates or commands are not listed.\n",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Macro ID",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the macro",
+         "example": "MacroName"
+        },
+        "value": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Value of the macro.\n\nIf the macro.is_password property is set to true, macro.value will be set to null.\n",
+         "example": "macroValue"
+        },
+        "is_password": {
+         "type": "boolean",
+         "description": "Indicates whether the macro value is a password or not",
+         "example": false
+        },
+        "description": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Macro description",
+         "example": "Some text to describe the macro"
+        }
+       }
+      }
+     }
+    }
+   },
+   "GetHostResponse": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Host ID",
+      "example": 1
+     },
+     "monitoring_server_id": {
+      "type": "integer",
+      "description": "ID of the host's monitoring server",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Host name",
+      "example": "generic-active-host"
+     },
+     "address": {
+      "type": "string",
+      "description": "IP or domain of the host",
+      "example": "127.0.0.1"
+     },
+     "alias": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Host alias",
+      "example": "generic-active-host"
+     },
+     "snmp_version": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "1",
+       "2c",
+       "3",
+       null
+      ],
+      "description": "Version of the SNMP agent.\n\nThe value can be `1`, `2c` or `3`\n",
+      "example": "2c"
+     },
+     "snmp_community": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Community of the SNMP agent"
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Geographic coordinates of the host",
+      "example": "48.10,12.5"
+     },
+     "timezone_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Timezone ID",
+      "example": 1
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID",
+      "example": 1
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID",
+      "example": 1
+     },
+     "check_command_args": {
+      "type": "array",
+      "description": "Check command arguments",
+      "items": {
+       "type": "string"
+      },
+      "example": [
+       "0",
+       "OK"
+      ]
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command timeperiod ID",
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the host check command if it returns any non-UP state"
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the host.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "event_handler_enabled": {
+      "type": "integer",
+      "description": "Indicates whether the event handler is enabled or not\n* `0` - STATUS_DISABLED\n* `1` - STATUS_ENABLED\n* `2` - STATUS_DEFAULT (inheritance of its parent's value. If there is no parent, the values used will be that of Centreon Engine)\n"
+     },
+     "event_handler_command_args": {
+      "type": "array",
+      "description": "Event handler command arguments",
+      "items": {
+       "type": "string"
+      },
+      "example": [
+       "0",
+       "OK"
+      ]
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more information about the host."
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional note."
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more actions to be performed on the host."
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the ID of the image that should be associated with this host",
+      "example": 1
+     },
+     "is_activated": {
+      "type": "boolean",
+      "description": "Indicates whether the host is activated or not"
+     },
+     "categories": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a host category ID that is associated with this host",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a host category name that is associated with this host",
+         "example": "host-category-name"
+        }
+       }
+      }
+     },
+     "groups": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a host group ID that is associated with this host",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a host group name that is associated with this host",
+         "example": "host-group-name"
+        }
+       }
+      }
+     },
+     "templates": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a parent host template ID that is associated with this host",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a parent host template name that is associated with this host",
+         "example": "parent-template-name"
+        }
+       }
+      }
+     },
+     "macros": {
+      "type": "array",
+      "description": "Host macros defined for the host.\nMacros inherited from parent templates or commands are not listed.\n",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Macro ID",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the macro",
+         "example": "MacroName"
+        },
+        "value": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Value of the macro.\n\nIf the macro.is_password property is set to true, macro.value will be set to null.\n",
+         "example": "macroValue"
+        },
+        "is_password": {
+         "type": "boolean",
+         "description": "Indicates whether the macro value is a password or not",
+         "example": false
+        },
+        "description": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Macro description",
+         "example": "Some text to describe the macro"
+        }
+       }
+      }
+     }
+    }
+   },
+   "PartialUpdateHostRequest": {
+    "type": "object",
+    "properties": {
+     "monitoring_server_id": {
+      "type": "integer",
+      "description": "ID of the host's monitoring server",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Host name",
+      "example": "generic-active-host"
+     },
+     "address": {
+      "type": "string",
+      "description": "IP or domain of the host",
+      "example": "127.0.0.1"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Host alias",
+      "example": "generic-active-host"
+     },
+     "snmp_community": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Community of the SNMP agent"
+     },
+     "snmp_version": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "1",
+       "2c",
+       "3",
+       null
+      ],
+      "description": "Version of the SNMP agent.\n\nThe value can be `1`, `2c` or `3`\n",
+      "example": "2c"
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Geographic coordinates of the host",
+      "example": "48.10,12.5"
+     },
+     "timezone_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Timezone ID",
+      "example": 1
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID",
+      "example": 1
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID",
+      "example": 1
+     },
+     "check_command_args": {
+      "type": "array",
+      "description": "Check command arguments",
+      "items": {
+       "type": "string"
+      },
+      "example": [
+       "0",
+       "OK"
+      ]
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command timeperiod ID",
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the host check command if it returns any non-OK state"
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the host.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "event_handler_enabled": {
+      "type": "integer",
+      "description": "Indicates whether the event handler is enabled or not\n\n* `0` - STATUS_DISABLED\n* `1` - STATUS_ENABLED\n* `2` - STATUS_DEFAULT (inheritance of its parent's value. If there is no parent, the values used will be that of Centreon Engine)\n"
+     },
+     "event_handler_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Event handler command ID",
+      "example": 1
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more information about the host."
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional note."
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more actions to be performed on the host."
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the ID of the image that should be associated with this host",
+      "example": 1
+     },
+     "is_activated": {
+      "type": [
+       "boolean",
+       "null"
+      ],
+      "description": "Indicates whether the host is activated or not"
+     },
+     "categories": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Define the host category IDs that should be associated with this host",
+      "example": [
+       1,
+       15,
+       8
+      ]
+     },
+     "groups": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Define the host group IDs that should be associated with this host",
+      "example": [
+       1,
+       15,
+       8
+      ]
+     },
+     "templates": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Define the parent host template IDs that should be associated with this host.\nThe order of the IDs determines the inheritance priority order.\n",
+      "example": [
+       3,
+       12
+      ]
+     },
+     "macros": {
+      "type": "array",
+      "description": "Host macros defined for the host (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+      "items": {
+       "type": "object",
+       "required": [
+        "name",
+        "value",
+        "is_password",
+        "description"
+       ],
+       "properties": {
+        "id": {
+         "type": [
+          "integer",
+          "null"
+         ],
+         "description": "Macro ID (only for existing macros)",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the macro",
+         "example": "MacroName"
+        },
+        "value": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Value of the macro.\n\nIf macro.is_password property is set to true and macro.value is set to null,\nthen the macro.value will be considered unchanged.\n",
+         "example": "macroValue"
+        },
+        "is_password": {
+         "type": "boolean",
+         "description": "Indicates whether the macro value is a password or not",
+         "example": false
+        },
+        "description": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Macro description",
+         "example": "Some text to describe the macro"
+        }
+       }
+      }
+     }
+    }
+   },
+   "FindHostGroupsResponse": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Host group ID",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Host group name",
+      "example": "MySQL-Servers"
+     },
+     "alias": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 200,
+      "description": "Host group alias",
+      "example": "All MySQL Servers"
+     },
+     "icon": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "description": "Host group icon",
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Icon ID",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "maxLength": 200,
+        "description": "Icon name",
+        "example": "folder/image.png"
+       },
+       "url": {
+        "type": "string",
+        "description": "Icon URL",
+        "example": "/centreon/img/media/folder/image.png"
+       }
+      }
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 32,
+      "description": "Geographical coordinates use by Centreon Map module to position element on map",
+      "example": "48.51,2.20"
+     },
+     "is_activated": {
+      "type": "boolean",
+      "description": "Indicates whether the host group is activated or not"
+     },
+     "enabled_hosts_count": {
+      "type": "integer",
+      "description": "Number of enabled hosts linked with this host group",
+      "example": 2
+     },
+     "disabled_hosts_count": {
+      "type": "integer",
+      "description": "Number of disabled hosts linked with this host group",
+      "example": 5
+     }
+    }
+   },
+   "AddHostGroupRequest": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Host group name",
+      "example": "MySQL-Servers"
+     },
+     "alias": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 200,
+      "description": "Host group alias",
+      "example": "All MySQL Servers"
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "ID of the hostgroup Icon",
+      "example": 1
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 32,
+      "description": "Geographical coordinates use by Centreon Map module to position element on map",
+      "example": "48.51,2.20"
+     },
+     "comment": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Host group comment",
+      "example": "This is a comment"
+     },
+     "hosts": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "Hosts linked to this host group",
+      "example": [
+       1,
+       2,
+       3
+      ],
+      "items": {
+       "type": "integer",
+       "description": "Host ID"
+      }
+     },
+     "resource_access_rules": {
+      "type": "array",
+      "description": "Resource access rules associated with this host group",
+      "items": {
+       "type": "integer",
+       "description": "Resource access rule ID"
+      }
+     }
+    }
+   },
+   "AddHostGroupResponse": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Host group ID",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Host group name",
+      "example": "MySQL-Servers"
+     },
+     "alias": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 200,
+      "description": "Host group alias",
+      "example": "All MySQL Servers"
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this host group",
+      "example": 1
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 32,
+      "description": "Geographical coordinates use by Centreon Map module to position element on map",
+      "example": "48.51,2.20"
+     },
+     "hosts": {
+      "type": "array",
+      "description": "List of hosts",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Host ID",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "maxLength": 200,
+         "description": "Host name",
+         "example": "HostName-01"
+        }
+       }
+      }
+     },
+     "resource_access_rules": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Resource access rule ID",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Resource access rule name",
+         "example": "rule1"
+        }
+       }
+      }
+     }
+    }
+   },
+   "GetHostGroupResponse": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Host group name",
+      "example": "MySQL-Servers"
+     },
+     "alias": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 200,
+      "description": "Host group alias",
+      "example": "All MySQL Servers"
+     },
+     "icon": {
+      "type": [
+       "object",
+       "null"
+      ],
+      "description": "Host group icon",
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Icon ID",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "maxLength": 200,
+        "description": "Icon name",
+        "example": "folder/image.png"
+       },
+       "url": {
+        "type": "string",
+        "description": "Icon URL",
+        "example": "/centreon/img/media/folder/image.png"
+       }
+      }
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 32,
+      "description": "Geographical coordinates use by Centreon Map module to position element on map",
+      "example": "48.51,2.20"
+     },
+     "is_activated": {
+      "type": "boolean",
+      "description": "Indicates whether the host group is activated or not"
+     },
+     "hosts": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Host id",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Host name",
+         "example": "host1"
+        }
+       }
+      }
+     },
+     "resource_access_rules": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Resource access rule ID",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Resource access rule name",
+         "example": "rule1"
+        }
+       }
+      }
+     }
+    }
+   },
+   "UpdateHostGroupRequest": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "maxLength": 200,
+      "description": "Host group name",
+      "example": "MySQL-Servers"
+     },
+     "alias": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 200,
+      "description": "Host group alias",
+      "example": "All MySQL Servers"
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 32,
+      "description": "Geographical coordinates use by Centreon Map module to position element on map",
+      "example": "48.51,2.20"
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "ID of the host group icon"
+     },
+     "comment": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Host group comment",
+      "example": "This is a comment"
+     },
+     "hosts": {
+      "type": [
+       "array",
+       "null"
+      ],
+      "description": "Hosts linked to this host group",
+      "example": [
+       1,
+       2,
+       3
+      ],
+      "items": {
+       "type": "integer",
+       "description": "Host ID"
+      }
+     },
+     "resource_access_rules": {
+      "type": "array",
+      "description": "Resource access rules",
+      "items": {
+       "type": "integer"
+      }
+     }
+    }
+   },
+   "HostTemplate": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Host template id",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Host template name",
+      "example": "generic-active-host"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Host template alias",
+      "example": "generic-active-host"
+     },
+     "snmp_community": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Community of the SNMP agent"
+     },
+     "snmp_version": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "1",
+       "2c",
+       "3",
+       null
+      ],
+      "description": "Version of the SNMP agent.\n\nThe value can be `1`, `2c` or `3`\n",
+      "example": "2c"
+     },
+     "timezone_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Timezone ID",
+      "example": 1
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID",
+      "example": 1
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command timeperiod ID",
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the host check command if it returns any non-OK state"
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the host.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more information about the host."
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional note."
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more actions to be performed on the host."
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this host template",
+      "example": 1
+     },
+     "is_locked": {
+      "type": "boolean",
+      "description": "Indicates whether the configuration is locked for editing or not"
+     }
+    }
+   },
+   "AddHostTemplateRequest": {
+    "type": "object",
+    "required": [
+     "name",
+     "alias"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Host template name",
+      "example": "generic-active-host"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Host template alias",
+      "example": "generic-active-host"
+     },
+     "snmp_community": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Community of the SNMP agent"
+     },
+     "snmp_version": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "1",
+       "2c",
+       "3",
+       null
+      ],
+      "description": "Version of the SNMP agent.\n\nThe value can be `1`, `2c` or `3`\n",
+      "example": "2c"
+     },
+     "timezone_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Timezone ID",
+      "example": 1
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID",
+      "example": 1
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID",
+      "example": 1
+     },
+     "check_command_args": {
+      "type": "array",
+      "description": "Check command arguments",
+      "items": {
+       "type": "string"
+      },
+      "example": [
+       "0",
+       "OK"
+      ]
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command timeperiod ID",
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the host check command if it returns any non-OK state"
+     },
+     "nornal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the host.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more information about the host."
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional note."
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more actions to be performed on the host."
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this host template",
+      "example": 1
+     },
+     "categories": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Define the host category IDs that should be associated with this host template",
+      "example": [
+       1,
+       15,
+       8
+      ]
+     },
+     "templates": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Define the parent host templates IDs that should be associated with this host template.\nThe order of the IDs determine the inheritance priority order.\n",
+      "example": [
+       3,
+       12
+      ]
+     },
+     "macros": {
+      "type": "array",
+      "description": "Host macros defined for the host (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+      "items": {
+       "type": "object",
+       "required": [
+        "name",
+        "value",
+        "is_password",
+        "description"
+       ],
+       "properties": {
+        "id": {
+         "type": [
+          "integer",
+          "null"
+         ],
+         "description": "Macro ID (only for existing macros)",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the macro",
+         "example": "MacroName"
+        },
+        "value": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Value of the macro.\n\nIf macro.is_password property is set to true and macro.value is set to null,\nthen the macro.value will be considered unchanged.\n",
+         "example": "macroValue"
+        },
+        "is_password": {
+         "type": "boolean",
+         "description": "Indicates whether the macro value is a password or not",
+         "example": false
+        },
+        "description": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Macro description",
+         "example": "Some text to describe the macro"
+        }
+       }
+      }
+     }
+    }
+   },
+   "AddHostTemplateResponse": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Host template ID",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Host template name",
+      "example": "generic-active-host"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Host template alias",
+      "example": "generic-active-host"
+     },
+     "snmp_community": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Community of the SNMP agent"
+     },
+     "snmp_version": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "1",
+       "2c",
+       "3",
+       null
+      ],
+      "description": "Version of the SNMP agent.\n\nThe value can be `1`, `2c` or `3`\n",
+      "example": "2c"
+     },
+     "timezone_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Timezone ID",
+      "example": 1
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID",
+      "example": 1
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID",
+      "example": 1
+     },
+     "check_command_args": {
+      "type": "array",
+      "description": "Check command arguments",
+      "items": {
+       "type": "string"
+      },
+      "example": [
+       "0",
+       "OK"
+      ]
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command timeperiod ID",
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the host check command if it returns any non-UP state"
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the host.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more information about the host."
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional note."
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more actions to be performed on the host."
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this host template",
+      "example": 1
+     },
+     "is_locked": {
+      "type": "boolean",
+      "description": "Indicates whether the configuration is locked for editing or not"
+     },
+     "categories": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a host category ID that is associated with this host template",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a host category name that is associated with this host template",
+         "example": "host-category-name"
+        }
+       }
+      }
+     },
+     "templates": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a parent host template ID that is associated with this host template",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a parent host template name that is associated with this host template",
+         "example": "parent-template-name"
+        }
+       }
+      }
+     },
+     "macros": {
+      "type": "array",
+      "description": "Host macros defined for the host.\nMacros inherited from parent templates or command are not listed.\n",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Macro ID",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the macro",
+         "example": "MacroName"
+        },
+        "value": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Value of the macro.\n\nIf macro.is_password property is set to true and macro.value will be set to null.\n",
+         "example": "macroValue"
+        },
+        "is_password": {
+         "type": "boolean",
+         "description": "Indicates whether the macro value is a password or not",
+         "example": false
+        },
+        "description": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Macro description",
+         "example": "Some text to describe the macro"
+        }
+       }
+      }
+     }
+    }
+   },
+   "GetHostTemplateResponse": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Host template ID",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Host template name",
+      "example": "generic-active-host"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Host template alias",
+      "example": "generic-active-host"
+     },
+     "snmp_version": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "1",
+       "2c",
+       "3",
+       null
+      ],
+      "description": "Version of the SNMP agent.\n\nThe value can be `1`, `2c` or `3`\n",
+      "example": "2c"
+     },
+     "snmp_community": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Community of the SNMP agent"
+     },
+     "timezone_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Timezone ID",
+      "example": 1
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID",
+      "example": 1
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID",
+      "example": 1
+     },
+     "check_command_args": {
+      "type": "array",
+      "description": "Check command arguments",
+      "items": {
+       "type": "string"
+      },
+      "example": [
+       "0",
+       "OK"
+      ]
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command timeperiod ID",
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the host check command if it returns any non-UP state"
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the host.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "event_handler_enabled": {
+      "type": "integer",
+      "description": "Indicates whether the event handler is enabled or not\n* `0` - STATUS_DISABLED\n* `1` - STATUS_ENABLED\n* `2` - STATUS_DEFAULT (inheritance of its parent's value. If there is no parent, the values used will be that of Centreon Engine)\n"
+     },
+     "event_handler_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Event handler command ID",
+      "example": 1
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more information about the host."
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional note."
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more actions to be performed on the host."
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this host template",
+      "example": 1
+     },
+     "is_locked": {
+      "type": "boolean",
+      "description": "Indicates whether the configuration is locked for editing or not"
+     },
+     "categories": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a host category ID that is associated with this host template",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a host category name that is associated with this host template",
+         "example": "host-category-name"
+        }
+       }
+      }
+     },
+     "templates": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Define a parent host template ID that is associated with this host template",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Define a parent host template name that is associated with this host template",
+         "example": "parent-template-name"
+        }
+       }
+      }
+     },
+     "macros": {
+      "type": "array",
+      "description": "Host macros defined for the host.\nMacros inherited from parent templates or command are not listed.\n",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "Macro ID",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the macro",
+         "example": "MacroName"
+        },
+        "value": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Value of the macro.\n\nIf macro.is_password property is set to true and macro.value will be set to null.\n",
+         "example": "macroValue"
+        },
+        "is_password": {
+         "type": "boolean",
+         "description": "Indicates whether the macro value is a password or not",
+         "example": false
+        },
+        "description": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Macro description",
+         "example": "Some text to describe the macro"
+        }
+       }
+      }
+     }
+    }
+   },
+   "PartialUpdateHostTemplateRequest": {
+    "type": "object",
+    "required": [],
+    "properties": {
+     "macros": {
+      "type": "array",
+      "description": "Host macros defined for the host (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+      "items": {
+       "type": "object",
+       "required": [
+        "name",
+        "value",
+        "is_password",
+        "description"
+       ],
+       "properties": {
+        "id": {
+         "type": [
+          "integer",
+          "null"
+         ],
+         "description": "Macro ID (only for existing macros)",
+         "example": 1
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the macro",
+         "example": "MacroName"
+        },
+        "value": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Value of the macro.\n\nIf macro.is_password property is set to true and macro.value is set to null,\nthen the macro.value will be considered unchanged.\n",
+         "example": "macroValue"
+        },
+        "is_password": {
+         "type": "boolean",
+         "description": "Indicates whether the macro value is a password or not",
+         "example": false
+        },
+        "description": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "description": "Macro description",
+         "example": "Some text to describe the macro"
+        }
+       }
+      }
+     },
+     "categories": {
+      "type": "array",
+      "description": "Define the host category IDs that should be associated with this host template\n\nIn the case of non-admin users, only categories the user has access to will be accepted and their association to the host template created or deleted.\n",
+      "items": {
+       "type": "integer"
+      },
+      "example": [
+       1,
+       15,
+       8
+      ]
+     },
+     "templates": {
+      "type": "array",
+      "items": {
+       "type": "integer"
+      },
+      "description": "Define the parent host templates IDs that should be associated with this host template.\nThe order of the IDs determine the inheritance priority order.\n",
+      "example": [
+       3,
+       12
+      ]
+     },
+     "name": {
+      "type": "string",
+      "description": "Host template name",
+      "example": "generic-active-host"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Host template alias",
+      "example": "generic-active-host"
+     },
+     "snmp_community": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Community of the SNMP agent"
+     },
+     "snmp_version": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "enum": [
+       "1",
+       "2c",
+       "3",
+       null
+      ],
+      "description": "Version of the SNMP agent.\n\nThe value can be `1`, `2c` or `3`\n",
+      "example": "2c"
+     },
+     "timezone_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Timezone ID",
+      "example": 1
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID",
+      "example": 1
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID",
+      "example": 1
+     },
+     "check_command_args": {
+      "type": "array",
+      "description": "Check command arguments",
+      "items": {
+       "type": "string"
+      },
+      "example": [
+       "0",
+       "OK"
+      ]
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command timeperiod ID",
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the host check command if it returns any non-OK state"
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the host.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this host after a non-UP state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the host has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "event_handler_enabled": {
+      "type": "integer",
+      "description": "Indicates whether the event handler is enabled or not\n\n* `0` - STATUS_DISABLED\n* `1` - STATUS_ENABLED\n* `2` - STATUS_DEFAULT (inheritance of its parent's value. If there is no parent, the values used will be that of Centreon Engine)\n"
+     },
+     "event_handler_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Event handler command ID",
+      "example": 1
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more information about the host."
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional note."
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "maxLength": 65535,
+      "description": "Define an optional URL that can be used to provide more actions to be performed on the host."
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this host template",
+      "example": 1
+     }
+    }
+   },
+   "DeployServiceResponse": {
+    "type": "object",
+    "allOf": [
+     {
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Service ID.",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "description": "Service name.",
+        "example": "generic-service"
+       },
+       "host_id": {
+        "type": "integer",
+        "description": "ID of the host linked to this service.",
+        "example": 1
+       },
+       "geo_coords": {
+        "type": "string",
+        "description": "Geographic coordinates of the service",
+        "example": "48.10,12.5"
+       },
+       "service_template_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Template ID of the service template.",
+        "minimum": 1,
+        "example": null
+       },
+       "check_timeperiod_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Time period ID of the check command.",
+        "minimum": 1,
+        "example": null
+       },
+       "max_check_attempts": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of times that the monitoring engine will retry the service check command if it returns any non-OK state."
+       },
+       "normal_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+       },
+       "retry_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of \"time units\" to wait before scheduling a re-check for this service after a non-OK state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the service has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+       },
+       "note": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional note.",
+        "maxLength": 65535
+       },
+       "note_url": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional URL that can be used to provide more information about the service.",
+        "maxLength": 65535
+       },
+       "action_url": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional URL that can be used to specify actions to be performed on the service.",
+        "maxLength": 65535
+       },
+       "icon_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the image ID that should be associated with this service.",
+        "minimum": 1,
+        "example": null
+       },
+       "severity_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Severity ID.",
+        "minimum": 1
+       }
+      }
+     }
+    ]
+   },
+   "simpleEntity": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "example": 12
+     },
+     "name": {
+      "type": "string",
+      "example": "entity-name"
+     }
+    }
+   },
+   "FindServicesResponse": {
+    "type": "object",
+    "allOf": [
+     {
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Service ID.",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "description": "Service name.",
+        "example": "generic-service"
+       },
+       "host": {
+        "description": "Host linked to this service.",
+        "allOf": [
+         {
+          "$ref": "#/components/schemas/simpleEntity"
+         }
+        ]
+       },
+       "service_template": {
+        "description": "Service template linked to this service.",
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/simpleEntity"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       },
+       "check_timeperiod": {
+        "description": "Time period of the check command.",
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/simpleEntity"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       },
+       "notification_timeperiod": {
+        "description": "Time period of the notification command.",
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/simpleEntity"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       },
+       "severity": {
+        "description": "Severity linked to this service.",
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/simpleEntity"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       },
+       "categories": {
+        "type": "array",
+        "description": "Service categories associated with this service.",
+        "items": {
+         "$ref": "#/components/schemas/simpleEntity"
+        }
+       },
+       "groups": {
+        "type": "array",
+        "description": "Service groups associated with this service.",
+        "items": {
+         "type": "object",
+         "properties": {
+          "id": {
+           "type": "integer",
+           "example": 12
+          },
+          "name": {
+           "type": "string",
+           "example": "sg-name"
+          },
+          "host_id": {
+           "type": "integer",
+           "example": 12
+          },
+          "host_name": {
+           "type": "string",
+           "example": "host-name"
+          }
+         }
+        }
+       },
+       "normal_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+       },
+       "retry_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of \"time units\" to wait before scheduling a re-check for this service after a non-OK state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the service has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+       },
+       "is_activated": {
+        "type": "boolean",
+        "description": "Indicates whether the service is activated or not",
+        "example": true
+       }
+      }
+     }
+    ]
+   },
+   "macro": {
+    "type": "object",
+    "required": [
+     "name",
+     "value",
+     "is_password",
+     "description"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the macro",
+      "example": "MacroName"
+     },
+     "value": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Value of the macro.\n\nIf the is_password property is set to true and value is set to null, then the value will be considered unchanged.\n",
+      "example": "macroValue"
+     },
+     "is_password": {
+      "type": "boolean",
+      "description": "Indicates whether the macro value is a password or not",
+      "example": false
+     },
+     "description": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Macro description",
+      "example": "Some text to describe the macro"
+     }
+    }
+   },
+   "AddServiceRequest": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Service name.",
+      "example": "generic-service"
+     },
+     "host_id": {
+      "type": "integer",
+      "description": "ID of the host linked to this service.",
+      "example": 1
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Geographic coordinates of the service",
+      "example": "48.10,12.5"
+     },
+     "service_template_id": {
+      "type": "integer",
+      "description": "Template ID of the service template.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Time period ID of the check command.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_command_args": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "description": "Arguments of the check command."
+      },
+      "example": [
+       "80",
+       "90"
+      ]
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the service check command if it returns any non-OK state."
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this service after a non-OK state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the service has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional note.",
+      "maxLength": 65535
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional URL that can be used to provide more information about the service.",
+      "maxLength": 65535
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional URL that can be used to specify actions to be performed on the service.",
+      "maxLength": 65535
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this service.",
+      "minimum": 1,
+      "example": null
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID.",
+      "minimum": 1
+     },
+     "service_categories": {
+      "type": "array",
+      "description": "IDs of service categories linked to this service.",
+      "items": {
+       "type": "integer",
+       "description": "Service category ID"
+      },
+      "example": [
+       1,
+       2
+      ]
+     },
+     "service_groups": {
+      "type": "array",
+      "description": "IDs of service groups linked to this service.",
+      "items": {
+       "type": "integer",
+       "description": "Service group ID"
+      },
+      "example": [
+       1,
+       2
+      ]
+     },
+     "macros": {
+      "type": "array",
+      "description": "Macros defined for the service (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+      "items": {
+       "$ref": "#/components/schemas/macro"
+      }
+     }
+    }
+   },
+   "AddServiceResponse": {
+    "type": "object",
+    "allOf": [
+     {
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Service ID.",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "description": "Service name.",
+        "example": "generic-service"
+       },
+       "host_id": {
+        "type": "integer",
+        "description": "ID of the host linked to this service.",
+        "example": 1
+       },
+       "geo_coords": {
+        "type": "string",
+        "description": "Geographic coordinates of the service",
+        "example": "48.10,12.5"
+       },
+       "service_template_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Template ID of the service template.",
+        "minimum": 1,
+        "example": null
+       },
+       "check_timeperiod_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Time period ID of the check command.",
+        "minimum": 1,
+        "example": null
+       },
+       "check_command_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Check command ID.",
+        "minimum": 1,
+        "example": null
+       },
+       "check_command_args": {
+        "type": "array",
+        "items": {
+         "type": "string",
+         "description": "Arguments of the check command."
+        },
+        "example": [
+         "80",
+         "90"
+        ]
+       },
+       "max_check_attempts": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of times that the monitoring engine will retry the service check command if it returns any non-OK state."
+       },
+       "normal_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+       },
+       "retry_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of \"time units\" to wait before scheduling a re-check for this service after a non-OK state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the service has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+       },
+       "note": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional note.",
+        "maxLength": 65535
+       },
+       "note_url": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional URL that can be used to provide more information about the service.",
+        "maxLength": 65535
+       },
+       "action_url": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional URL that can be used to specify actions to be performed on the service.",
+        "maxLength": 65535
+       },
+       "icon_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the image ID that should be associated with this service.",
+        "minimum": 1,
+        "example": null
+       },
+       "severity_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Severity ID.",
+        "minimum": 1
+       },
+       "categories": {
+        "type": "array",
+        "description": "Service categories associated with this service",
+        "items": {
+         "type": "object",
+         "properties": {
+          "id": {
+           "type": "integer",
+           "description": "Define a service category ID that is associated with this service",
+           "example": 1
+          },
+          "name": {
+           "type": "string",
+           "description": "Define a service category name that is associated with this service",
+           "example": "service-category-name"
+          }
+         }
+        }
+       },
+       "groups": {
+        "type": "array",
+        "description": "Service groups associated with this service",
+        "items": {
+         "type": "object",
+         "properties": {
+          "id": {
+           "type": "integer",
+           "description": "Define a service group ID that is associated with this service",
+           "example": 1
+          },
+          "name": {
+           "type": "string",
+           "description": "Define a service group name that is associated with this service",
+           "example": "service-group-name"
+          }
+         }
+        }
+       },
+       "macros": {
+        "type": "array",
+        "description": "Macros defined for the service (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+        "items": {
+         "$ref": "#/components/schemas/macro"
+        }
+       }
+      }
+     }
+    ]
+   },
+   "GetServiceResponse": {
+    "type": "object",
+    "allOf": [
+     {
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Service ID.",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "description": "Service name.",
+        "example": "generic-service"
+       },
+       "host_id": {
+        "type": "integer",
+        "description": "ID of the host linked to this service."
+       },
+       "geo_coords": {
+        "type": "string",
+        "description": "Geographic coordinates of the service",
+        "example": "48.10,12.5"
+       },
+       "service_template_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Template ID of the service template."
+       },
+       "check_command_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Check command ID."
+       },
+       "check_command_args": {
+        "type": "array",
+        "items": {
+         "type": "string",
+         "description": "Arguments of the check command."
+        },
+        "example": [
+         "80",
+         "90"
+        ]
+       },
+       "check_timeperiod_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Time period ID of the check command."
+       },
+       "event_handler_enabled": {
+        "type": "integer",
+        "description": "Enable/disable event handler command (0/1/2)."
+       },
+       "event_handler_command_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Event handler command ID."
+       },
+       "max_check_attempts": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of times that the monitoring engine will retry the service check command if it returns any non-OK state."
+       },
+       "normal_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+       },
+       "retry_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of \"time units\" to wait before scheduling a re-check for this service after a non-OK state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the service has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+       },
+       "notification_timeperiod": {
+        "description": "Time period of the notification command.",
+        "anyOf": [
+         {
+          "$ref": "#/components/schemas/simpleEntity"
+         },
+         {
+          "type": "null"
+         }
+        ]
+       },
+       "note": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional note.",
+        "maxLength": 65535
+       },
+       "note_url": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional URL that can be used to provide more information about the service.",
+        "maxLength": 65535
+       },
+       "action_url": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional URL that can be used to specify actions to be performed on the service.",
+        "maxLength": 65535
+       },
+       "icon_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Icon ID associated with this service."
+       },
+       "severity_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Severity ID."
+       },
+       "is_activated": {
+        "type": "boolean",
+        "description": "Indicates whether the service is activated or not",
+        "example": true
+       },
+       "categories": {
+        "type": "array",
+        "description": "Service categories associated with this service.",
+        "items": {
+         "$ref": "#/components/schemas/simpleEntity"
+        }
+       },
+       "groups": {
+        "type": "array",
+        "description": "Service groups associated with this service.",
+        "items": {
+         "type": "object",
+         "properties": {
+          "id": {
+           "type": "integer",
+           "example": 12
+          },
+          "name": {
+           "type": "string",
+           "example": "sg-name"
+          }
+         }
+        }
+       },
+       "macros": {
+        "type": "array",
+        "description": "Macros defined for the service (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+        "items": {
+         "$ref": "#/components/schemas/macro"
+        }
+       }
+      }
+     }
+    ]
+   },
+   "PartialUpdateServiceRequest": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Service name.",
+      "example": "generic-service"
+     },
+     "host_id": {
+      "type": "integer",
+      "description": "ID of the host linked to this service.",
+      "example": 1
+     },
+     "geo_coords": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Geographic coordinates of the service",
+      "example": "48.10,12.5"
+     },
+     "service_template_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Template ID of the service template.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Time period ID of the check command.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_command_args": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "description": "Arguments of the check command."
+      },
+      "example": [
+       "80",
+       "90"
+      ]
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the service check command if it returns any non-OK state."
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this service after a non-OK state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the service has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional note.",
+      "maxLength": 65535
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional URL that can be used to provide more information about the service.",
+      "maxLength": 65535
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional URL that can be used to specify actions to be performed on the service.",
+      "maxLength": 65535
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this service.",
+      "minimum": 1,
+      "example": null
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID.",
+      "minimum": 1
+     },
+     "is_activated": {
+      "type": "boolean",
+      "description": "Indicates whether the service is activated or not",
+      "example": true
+     },
+     "service_categories": {
+      "type": "array",
+      "description": "IDs of service categories linked to this service.",
+      "items": {
+       "type": "integer",
+       "description": "Service category ID"
+      },
+      "example": [
+       1,
+       2
+      ]
+     },
+     "service_groups": {
+      "type": "array",
+      "description": "IDs of service groups linked to this service.",
+      "items": {
+       "type": "integer",
+       "description": "Service group ID"
+      },
+      "example": [
+       1,
+       2
+      ]
+     },
+     "macros": {
+      "type": "array",
+      "description": "Macros defined for the service (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+      "items": {
+       "$ref": "#/components/schemas/macro"
+      }
+     }
+    }
+   },
+   "NewServiceTemplate": {
+    "type": "object",
+    "required": [
+     "name",
+     "alias"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Service template name.",
+      "example": "generic-service"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Service template alias.",
+      "example": "generic-service"
+     },
+     "service_template_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Template ID of the service template.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_command_args": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "description": "Arguments of the check command."
+      },
+      "example": [
+       "80",
+       "90"
+      ]
+     },
+     "event_handler_enabled": {
+      "type": "integer",
+      "description": "Indicates whether the event handler is enabled or not\n\n* `0` - STATUS_DISABLED\n* `1` - STATUS_ENABLED\n* `2` - STATUS_DEFAULT (inheritance of its parent's value. If there is no parent, the values used will be that of Centreon Engine)\n",
+      "example": 2
+     },
+     "event_handler_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Event handler command ID.",
+      "minimum": 1,
+      "example": 1
+     },
+     "check_timeperiod_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Time period ID of the check command.",
+      "minimum": 1,
+      "example": null
+     },
+     "max_check_attempts": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of times that the monitoring engine will retry the service check command if it returns any non-OK state."
+     },
+     "normal_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this service after a non-OK state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the service has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional note.",
+      "maxLength": 65535
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional URL that can be used to provide more information about the service.",
+      "maxLength": 65535
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional URL that can be used to specify actions to be performed on the service.",
+      "maxLength": 65535
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this service template.",
+      "minimum": 1,
+      "example": null
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID.",
+      "minimum": 1
+     },
+     "host_templates": {
+      "type": "array",
+      "description": "IDs of host templates linked to this service template.",
+      "items": {
+       "type": "integer",
+       "description": "Host template ID"
+      },
+      "example": [
+       1,
+       2
+      ]
+     },
+     "service_categories": {
+      "type": "array",
+      "description": "IDs of service categories linked to this service template.",
+      "items": {
+       "type": "integer",
+       "description": "Service category ID"
+      },
+      "example": [
+       1,
+       2
+      ]
+     },
+     "service_groups": {
+      "type": "array",
+      "description": "Service group / host template associations to be linked to this service template.",
+      "items": {
+       "type": "object",
+       "properties": {
+        "service_group_id": {
+         "type": "integer",
+         "description": "Service group ID",
+         "example": 1
+        },
+        "host_template_id": {
+         "type": "integer",
+         "description": "Host template ID to be paired with the service template for the service group / template association.\nThe host template ID must be defined in the host_templates list.\n",
+         "example": 2
+        }
+       }
+      }
+     },
+     "macros": {
+      "type": "array",
+      "description": "Macros defined for the service (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+      "items": {
+       "$ref": "#/components/schemas/macro"
+      }
+     }
+    }
+   },
+   "ServiceTemplate": {
+    "type": "object",
+    "allOf": [
+     {
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Service template ID.",
+        "example": 1
+       },
+       "is_locked": {
+        "type": "boolean",
+        "description": "Indicates whether the configuration is locked for editing or not",
+        "example": true
+       }
+      }
+     },
+     {
+      "$ref": "#/components/schemas/NewServiceTemplate"
+     }
+    ]
+   },
+   "AddServiceTemplateResponse": {
+    "type": "object",
+    "allOf": [
+     {
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "Service template ID.",
+        "example": 1
+       },
+       "is_locked": {
+        "type": "boolean",
+        "description": "Indicates whether the configuration is locked for editing or not",
+        "example": true
+       },
+       "name": {
+        "type": "string",
+        "description": "Service template name.",
+        "example": "generic-service"
+       },
+       "alias": {
+        "type": "string",
+        "description": "Service template alias.",
+        "example": "generic-service"
+       },
+       "service_template_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Template ID of the service template.",
+        "minimum": 1,
+        "example": null
+       },
+       "check_timeperiod_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Time period ID of the check command.",
+        "minimum": 1,
+        "example": null
+       },
+       "check_command_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Check command ID.",
+        "minimum": 1,
+        "example": null
+       },
+       "check_command_args": {
+        "type": "array",
+        "items": {
+         "type": "string",
+         "description": "Arguments of the check command."
+        },
+        "example": [
+         "80",
+         "90"
+        ]
+       },
+       "max_check_attempts": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of times that the monitoring engine will retry the service check command if it returns any non-OK state."
+       },
+       "normal_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+       },
+       "retry_check_interval": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the number of \"time units\" to wait before scheduling a re-check for this service after a non-OK state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the service has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+       },
+       "note": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional note.",
+        "maxLength": 65535
+       },
+       "note_url": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional URL that can be used to provide more information about the service.",
+        "maxLength": 65535
+       },
+       "action_url": {
+        "type": [
+         "string",
+         "null"
+        ],
+        "description": "Define an optional URL that can be used to specify actions to be performed on the service.",
+        "maxLength": 65535
+       },
+       "icon_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Define the image ID that should be associated with this service template.",
+        "minimum": 1,
+        "example": null
+       },
+       "severity_id": {
+        "type": [
+         "integer",
+         "null"
+        ],
+        "description": "Severity ID.",
+        "minimum": 1
+       },
+       "host_templates": {
+        "type": "array",
+        "description": "IDs of host templates linked to this service template.",
+        "items": {
+         "type": "integer",
+         "description": "Host template ID"
+        },
+        "example": [
+         1,
+         2
+        ]
+       },
+       "categories": {
+        "type": "array",
+        "description": "Service categories associated with this service template",
+        "items": {
+         "type": "object",
+         "properties": {
+          "id": {
+           "type": "integer",
+           "description": "Define a service category ID that is associated with this service template",
+           "example": 1
+          },
+          "name": {
+           "type": "string",
+           "description": "Define a service category name that is associated with this service template",
+           "example": "service-category-name"
+          }
+         }
+        }
+       },
+       "groups": {
+        "type": "array",
+        "items": {
+         "type": "object",
+         "description": "Service groups associated with this service template",
+         "properties": {
+          "id": {
+           "type": "integer",
+           "description": "Define a service group ID that is associated with this service template",
+           "example": 1
+          },
+          "name": {
+           "type": "string",
+           "description": "Define a service group name that is associated with this service template",
+           "example": "host-group-name"
+          },
+          "host_template_id": {
+           "type": "integer",
+           "description": "Define a host template ID that is associated with this service group for this service template",
+           "example": 1
+          },
+          "host_template_name": {
+           "type": "string",
+           "description": "Define a host template name that is associated with this service group for this service template",
+           "example": "host-template-name"
+          }
+         }
+        }
+       },
+       "macros": {
+        "type": "array",
+        "description": "Macros defined for the service (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+        "items": {
+         "$ref": "#/components/schemas/macro"
+        }
+       }
+      }
+     }
+    ]
+   },
+   "PartialUpdateServiceTemplate": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Service template name.",
+      "example": "generic-service"
+     },
+     "alias": {
+      "type": "string",
+      "description": "Service template alias.",
+      "example": "generic-service"
+     },
+     "service_template_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Template ID of the service template.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_command_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Check command ID.",
+      "minimum": 1,
+      "example": null
+     },
+     "check_command_args": {
+      "type": "array",
+      "items": {
+       "type": "string",
+       "description": "Arguments of the check command."
+      },
+      "example": [
+       "80",
+       "90"
+      ]
+     },
+     "check_timeperiod_id": {
+      "type": "integer",
+      "description": "Time period ID of the check command.",
+      "minimum": 1,
+      "example": 1
+     },
+     "max_check_attempts": {
+      "type": "integer",
+      "description": "Define the number of times that the monitoring engine will retry the service check command if it returns any non-OK state."
+     },
+     "normal_check_interval": {
+      "type": "integer",
+      "description": "Define the number of 'time units' between regularly scheduled checks of the service.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n"
+     },
+     "retry_check_interval": {
+      "type": "integer",
+      "description": "Define the number of \"time units\" to wait before scheduling a re-check for this service after a non-OK state was detected.\n\nWith the default time unit of 60s, this number will mean multiples of 1 minute.\n\nOnce the service has been retried max_check_attempts times without a change in its status,\nit will revert to being scheduled at its \"normal\" check interval rate.\n"
+     },
+     "note": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional note.",
+      "maxLength": 65535
+     },
+     "note_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional URL that can be used to provide more information about the service.",
+      "maxLength": 65535
+     },
+     "action_url": {
+      "type": [
+       "string",
+       "null"
+      ],
+      "description": "Define an optional URL that can be used to specify actions to be performed on the service.",
+      "maxLength": 65535
+     },
+     "icon_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Define the image ID that should be associated with this service template.",
+      "minimum": 1,
+      "example": null
+     },
+     "severity_id": {
+      "type": [
+       "integer",
+       "null"
+      ],
+      "description": "Severity ID.",
+      "minimum": 1
+     },
+     "host_templates": {
+      "type": "array",
+      "description": "IDs of host templates linked to this service template.",
+      "items": {
+       "type": "integer",
+       "description": "Host template ID"
+      },
+      "example": [
+       1,
+       2
+      ]
+     },
+     "service_categories": {
+      "type": "array",
+      "description": "IDs of service categories linked to this service template.",
+      "items": {
+       "type": "integer",
+       "description": "Service category ID"
+      },
+      "example": [
+       1,
+       2
+      ]
+     },
+     "macros": {
+      "type": "array",
+      "description": "Macros defined for the service (directly or through a template or command inheritance)\n\nIf multiple macros are defined with the same name, only the last one will be saved.\n",
+      "items": {
+       "$ref": "#/components/schemas/macro"
+      }
+     },
+     "service_groups": {
+      "type": "array",
+      "description": "Service group / host template associations to be linked to this service template.",
+      "items": {
+       "type": "object",
+       "properties": {
+        "service_group_id": {
+         "type": "integer",
+         "description": "Service group ID",
+         "example": 1
+        },
+        "host_template_id": {
+         "type": "integer",
+         "description": "Host template ID to be paired with the service template for the service group / template association.\nThe host template ID must be defined in the host_templates list.\n",
+         "example": 2
+        }
+       }
+      }
+     }
+    }
+   },
+   "Notification.Listing": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer"
+     },
+     "is_activated": {
+      "type": "boolean"
+     },
+     "name": {
+      "type": "string"
+     },
+     "user_count": {
+      "type": "integer"
+     },
+     "channels": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "resources": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "type": {
+         "type": "string"
+        },
+        "count": {
+         "type": "integer"
+        }
+       }
+      }
+     },
+     "timeperiod": {
+      "type": "object",
+      "properties": {
+       "id": {
+        "type": "integer"
+       },
+       "name": {
+        "type": "string"
+       }
+      }
+     }
+    }
+   },
+   "Notification.Message": {
+    "type": "object",
+    "description": "Type and content of the notification",
+    "properties": {
+     "channel": {
+      "type": "string",
+      "enum": [
+       "Slack",
+       "Email",
+       "Sms"
+      ]
+     },
+     "subject": {
+      "type": "string"
+     },
+     "message": {
+      "type": "string"
+     },
+     "formatted_message": {
+      "type": "string"
+     }
+    }
+   },
+   "Notification.Add": {
+    "type": "object",
+    "properties": {
+     "name": {
+      "type": "string",
+      "description": "Name of the notification",
+      "example": "Notification-A"
+     },
+     "is_activated": {
+      "type": "boolean"
+     },
+     "timeperiod_id": {
+      "type": "integer",
+      "description": "Timeperiod during which the notification is sent"
+     },
+     "users": {
+      "description": "Users to whom the notification is sent",
+      "type": "array",
+      "items": {
+       "type": "integer"
+      }
+     },
+     "contactgroups": {
+      "description": "Contact Groups to whom the notification is sent",
+      "type": "array",
+      "items": {
+       "type": "integer"
+      }
+     },
+     "messages": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/Notification.Message"
+      }
+     },
+     "resources": {
+      "type": "array",
+      "description": "Resource configurations that trigger a notification\n",
+      "items": {
+       "type": "object",
+       "properties": {
+        "type": {
+         "type": "string",
+         "description": "Type of the resources that trigger a notification"
+        },
+        "events": {
+         "type": "integer",
+         "description": "Bitmask of the events that trigger a notification for the resource type"
+        },
+        "ids": {
+         "type": "array",
+         "description": "list of resource IDs triggering a notification",
+         "items": {
+          "type": "integer"
+         }
+        },
+        "extra": {
+         "type": "object",
+         "properties": {
+          "event_services": {
+           "description": "Bitmask of the service's events that trigger a notification\nfor the services linked to the resources defined above\n(Only available for type hostgroup)\n",
+           "type": "integer"
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "Notifications.Delete": {
+    "type": "object",
+    "properties": {
+     "ids": {
+      "type": "array",
+      "description": "List of notification IDs to delete",
+      "items": {
+       "type": "integer"
+      }
+     }
+    }
+   },
+   "Notification.Details": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "ID of the notification",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Name of the notification",
+      "example": "notification-name"
+     },
+     "timeperiod": {
+      "type": "object",
+      "properties": {
+       "id": {
+        "type": "integer",
+        "description": "ID of the timeperiod",
+        "example": 1
+       },
+       "name": {
+        "type": "string",
+        "description": "Name of the timeperiod",
+        "example": "24x7"
+       }
+      }
+     },
+     "is_activated": {
+      "type": "boolean",
+      "description": "notification status",
+      "example": true
+     },
+     "messages": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "channel": {
+         "type": "string",
+         "description": "Channel used to send the notification"
+        },
+        "subject": {
+         "type": "string",
+         "description": "Subject of the message"
+        },
+        "message": {
+         "type": "string",
+         "description": "Content of the message"
+        }
+       }
+      }
+     },
+     "users": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "ID of the user"
+        },
+        "alias": {
+         "type": "string",
+         "description": "Alias of the user"
+        }
+       }
+      }
+     },
+     "contactgroups": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "description": "ID of the contact group"
+        },
+        "name": {
+         "type": "string",
+         "description": "Name of the contact group"
+        }
+       }
+      }
+     },
+     "resources": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "type": {
+         "type": "string",
+         "description": "Type of resource",
+         "example": "hostgroup"
+        },
+        "events": {
+         "type": "number",
+         "description": "bitmask value of events",
+         "example": 5
+        },
+        "ids": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "properties": {
+           "id": {
+            "type": "number",
+            "description": "ID of the resource",
+            "example": 1
+           },
+           "name": {
+            "type": "string",
+            "description": "Name of the resource",
+            "example": "My Hostgroup"
+           }
+          }
+         }
+        },
+        "extra": {
+         "type": "object",
+         "properties": {
+          "event_services": {
+           "type": "array",
+           "items": {
+            "type": "number"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "PartialUpdateNotificationRequest": {
+    "type": "object",
+    "required": [],
+    "properties": {
+     "is_activated": {
+      "type": "boolean"
+     }
+    }
+   },
+   "NotifiableResources.Listing": {
+    "type": "object",
+    "properties": {
+     "notification_id": {
+      "type": "integer",
+      "example": 2
+     },
+     "hosts": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "id": {
+         "type": "integer",
+         "example": 13
+        },
+        "name": {
+         "type": "string",
+         "example": "Host 1"
+        },
+        "alias": {
+         "type": [
+          "string",
+          "null"
+         ],
+         "example": "Host 1"
+        },
+        "event": {
+         "type": "integer",
+         "description": "Bitmask representing host's status triggering a notification",
+         "example": 5
+        },
+        "services": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "properties": {
+           "id": {
+            "type": "integer",
+            "example": 15
+           },
+           "name": {
+            "type": "string",
+            "example": "Ping"
+           },
+           "alias": {
+            "type": [
+             "string",
+             "null"
+            ],
+            "example": "Ping"
+           },
+           "event": {
+            "type": "integer",
+            "description": "Bitmask representing service's status triggering a notification",
+            "example": 5
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "NotifiableRule": {
+    "type": "object",
+    "properties": {
+     "notification_id": {
+      "type": "integer",
+      "example": 2
+     },
+     "channels": {
+      "type": "object",
+      "properties": {
+       "email": {
+        "type": [
+         "object",
+         "null"
+        ],
+        "properties": {
+         "contacts": {
+          "type": "array",
+          "items": {
+           "type": "object",
+           "properties": {
+            "full_name": {
+             "type": "string",
+             "example": "John Doe"
+            },
+            "email_address": {
+             "type": "string",
+             "example": "john.doe@localhost"
+            }
+           }
+          }
+         },
+         "subject": {
+          "type": "string",
+          "example": "Email subject"
+         },
+         "formatted_message": {
+          "type": "string",
+          "example": "This is a formatted message"
+         }
+        }
+       },
+       "slack": {
+        "type": [
+         "object",
+         "null"
+        ],
+        "properties": {
+         "slack_channel": {
+          "type": "string",
+          "example": "supervisors"
+         },
+         "message": {
+          "type": "string",
+          "example": "This is a Slack message"
+         }
+        }
+       },
+       "sms": {
+        "type": [
+         "object",
+         "null"
+        ],
+        "properties": {
+         "phone_number": {
+          "type": "string",
+          "example": "+33123456789"
+         },
+         "message": {
+          "type": "string",
+          "example": "This is an SMS message"
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "NotifiableContactGroups.Listing": {
+    "type": "object",
+    "required": [
+     "id",
+     "name"
+    ],
+    "properties": {
+     "id": {
+      "type": "integer",
+      "description": "Contact group ID",
+      "example": 1
+     },
+     "name": {
+      "type": "string",
+      "description": "Contact group name",
+      "example": "Contact group"
+     }
+    }
+   }
+  },
+  "responses": {
+   "Forbidden": {
+    "description": "Forbidden",
+    "content": {
+     "application/json": {
+      "schema": {
+       "type": "object",
+       "properties": {
+        "code": {
+         "type": "integer",
+         "format": "int64",
+         "example": 403
+        },
+        "message": {
+         "type": "string",
+         "example": "You are not authorized to access this resource"
+        }
+       }
+      }
+     }
+    }
+   },
+   "InternalServerError": {
+    "description": "Internal Server Error",
+    "content": {
+     "application/json": {
+      "schema": {
+       "type": "object",
+       "properties": {
+        "code": {
+         "type": "integer",
+         "format": "int64",
+         "example": 500
+        },
+        "message": {
+         "type": "string",
+         "example": "Internal Server Error"
+        }
+       }
+      }
+     }
+    }
+   },
+   "BadRequest": {
+    "description": "Indicates that the server cannot or will not process the request due to something that is perceived to be\na client error (e.g., malformed request syntax, invalid request message framing)\n",
+    "content": {
+     "application/json": {
+      "schema": {
+       "type": "object",
+       "properties": {
+        "code": {
+         "type": "integer",
+         "format": "int64",
+         "example": 400
+        },
+        "message": {
+         "type": "string",
+         "example": "Property 'name' not found"
+        }
+       }
+      }
+     }
+    }
+   },
+   "NotFound": {
+    "description": "Indicates that the server did not find the target resource.\n",
+    "content": {
+     "application/json": {
+      "schema": {
+       "type": "object",
+       "properties": {
+        "code": {
+         "type": "integer",
+         "format": "int64",
+         "example": 404
+        },
+        "message": {
+         "type": "string",
+         "example": "Resource not found"
+        }
+       }
+      }
+     }
+    }
+   },
+   "Conflict": {
+    "description": "Conflict. More details are specified in the response",
+    "content": {
+     "application/json": {
+      "schema": {
+       "type": "object",
+       "properties": {
+        "code": {
+         "type": "integer",
+         "format": "int64",
+         "example": 409
+        },
+        "message": {
+         "type": "string",
+         "example": "A platform using the name: 'myPoller' or address: '1.1.1.2' already exists"
+        }
+       }
+      }
+     }
+    }
+   },
+   "NoContent": {
+    "description": "Indicates that the server has successfully fulfilled the request and that there is no additional content to send \nin the response payload body.\n"
+   },
+   "MultiStatus": {
+    "description": "Results contain a mixture of responses\n",
+    "content": {
+     "application/json": {
+      "schema": {
+       "type": "object",
+       "properties": {
+        "results": {
+         "type": "array",
+         "items": {
+          "type": "object",
+          "properties": {
+           "href": {
+            "type": [
+             "string",
+             "null"
+            ],
+            "example": "/path/to/entity/1"
+           },
+           "status": {
+            "type": "integer",
+            "format": "int64",
+            "example": 404
+           },
+           "message": {
+            "type": [
+             "string",
+             "null"
+            ],
+            "example": "Not found"
+           }
+          }
+         }
+        }
+       }
+      }
+     }
+    }
+   },
+   "Unauthorized": {
+    "description": "Unauthorized",
+    "content": {
+     "application/json": {
+      "schema": {
+       "type": "object",
+       "properties": {
+        "code": {
+         "type": "integer",
+         "format": "int64",
+         "example": 401
+        },
+        "message": {
+         "type": "string"
+        }
+       }
+      }
+     }
+    }
+   },
+   "NotModified": {
+    "description": "Indicates that the response has not been modified and the client can continue to use the same cached version \nof the response\n"
+   }
+  }
+ }
+}
