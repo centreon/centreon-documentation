@@ -4,7 +4,7 @@ title: Business alerts
 description: "Set up business alerts that detect abnormal drops in conversion rate or page views from Google Analytics data, and define their thresholds and schedules."
 ---
 
-> Available by default on Business and Full licenses; optional on other plans.
+> Available by default on Business and Full licenses; optional on other plans. 
 
 Business alerting monitors the impact of site issues (for example drops in traffic or conversion) rather than a predefined list of causes.
 They detect abnormal drops in traffic or conversion and let you analyze precisely when those drops occurred.

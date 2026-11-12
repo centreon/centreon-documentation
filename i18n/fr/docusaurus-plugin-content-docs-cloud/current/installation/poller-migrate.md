@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import MoveResources from './_move-resources.mdx';
 
-Dans certains cas, vous pouvez vouloir changer l'OS de la machine hôte de votre collecteur. Cette procédure consiste à installer un nouveau serveur et à migrer vos ressources dessus.
+Dans certains cas, vous pouvez vouloir changer l'OS de la machine hôte de votre collecteur (si celui-ci est installé sur une machine physique ou une VM). Cette procédure consiste à installer un nouveau serveur et à migrer vos ressources dessus.
 
 1. Installez une nouvelle machine hôte pour votre collecteur, selon nos [prérequis](prerequisites.md).
 2. [Déployez le collecteur](deploy-poller.md) sur la nouvelle machine.
