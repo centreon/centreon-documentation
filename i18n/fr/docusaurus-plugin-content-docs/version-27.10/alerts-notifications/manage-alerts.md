@@ -60,9 +60,7 @@ associé au champ **Acknowledged** dans le cadre **Options**
 </TabItem>
 </Tabs>
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/acknowledged.png)
+Dans la fenêtre qui s'affiche :
 
 -   Si la case **Sticky** est cochée, alors l'acquittement sera conservé
     en cas de changement de statut non-OK (Exemple DOWN à UNREACHABLE ou
@@ -150,19 +148,17 @@ Il y a trois possibilités différentes de définir un temps d'arrêt :
 </TabItem>
 </Tabs>
 
-La fenêtre suivante s'affiche :
+Dans la fenêtre qui s'affiche :
 
-![image](../assets/alerts/downtime.png)
-
--   Le champ **Host Name** définit l'hôte concerné par le temps d'arrêt
--   Le champ **Service** définit le service concerné par le temps
-    d'arrêt
+-   Le champ **Downtime type** définit le type d'objet concerné par le temps d'arrêt : **Host**, **Services**, **Hostgroup**, **Servicegroup** ou **Poller**
+-   Le champ **Hosts** définit les hôtes concernés par le temps d'arrêt
 -   Si la case **Fixed** est cochée alors le temps d'arrêt est fixe.
     Sinon, il est flexible
 -   Si le temps d'arrêt est flexible, le champ **Duration** définit la
     durée du temps d'arrêt
 -   Les champs **Start Time** et **End Time** définissent les dates de
     début et de fin du temps d'arrêt. Les temps d'arrêt ne peuvent pas débuter ni se finir après le 31 décembre 2099 à 23:59.
+-   Si la case **Set downtime for hosts services** est cochée, le temps d'arrêt s'applique également aux services des hôtes sélectionnés
 -   Le champ **Comments** sert à indiquer pourquoi le temps d'arrêt est
     programmé
 
@@ -211,8 +207,8 @@ Pour ajouter un temps d'arrêt récurrent, rendez-vous dans le menu
 -   Le champ **Enable** permet d'activer ou de désactiver le temps
     d'arrêt.
 -   Le champ **Periods** permet de définir une ou plusieurs périodes de
-    temps d'arrêt récurrent. Pour ajouter une période, cliquez sur le
-    symbole ![image](../assets/common/navigate_plus.png)
+    temps d'arrêt récurrent. Pour ajouter une période, cliquez sur
+    **Add new period**.
 
 Il est possible de choisir trois types de périodes :
 
@@ -277,9 +273,7 @@ Pour ajouter un commentaire, deux solutions sont possibles :
 </TabItem>
 </Tabs>
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/comment.png)
+Dans la fenêtre qui s'affiche :
 
 -   Le champ **Host Name** définit l'hôte concerné par le commentaire
 -   Si vous avez choisi d'ajouter un commentaire pour un service, le
@@ -347,9 +341,7 @@ Pour soumettre un résultat, accédez à la page de détails de l'objet.
 Dans la catégorie **Service Commands** cliquez sur **Submit result for
 this service**
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/submitresult.png)
+Dans la fenêtre qui s'affiche :
 
 -   Les champs **Host Name** et **Service** définissent l'hôte et le
     service pour lequel le résultat sera soumis

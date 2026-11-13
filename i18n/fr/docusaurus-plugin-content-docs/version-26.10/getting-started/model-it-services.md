@@ -144,8 +144,6 @@ Pour rajouter de la pro-activité dans notre gestion et éviter que le cluster c
 nous pouvons également ajouter la règle suivant: à partir de 50% de serveurs frontaux non disponibles, nous voulons être
 avertis
 
-![image](../assets/service-mapping/conf-ratio-with-warn.png)
-
 Au final nous obtenons cette activité métier "Frontend Cluster" nous permettant de suivre l'état de fonctionnement
 général des serveurs frontaux. Il est également possible de ré-utiliser cette BA dans une autre, notamment une BA représentant le fonctionnement d'une application reposant sur ces serveurs.
 

@@ -72,8 +72,6 @@ opérations suivantes :
 Pour ajouter une escalade de notification, rendez-vous dans le menu
 `Configuration > Notifications > Escalations` et cliquez sur **Add**
 
-![image](../assets/alerts/04notificationsescalation.png)
-
 -   Les champs **Escalation Name** et **Alias** permettent de définir un
     nom et un alias à l'escalade de notifications.
 -   Le champ **First Notification** permet de choisir le numéro de la

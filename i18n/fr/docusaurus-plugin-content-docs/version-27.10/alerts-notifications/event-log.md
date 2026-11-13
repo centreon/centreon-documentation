@@ -26,4 +26,4 @@ correspondants.
     - **Du/Au** : saisissez des dates manuellement.
 
 - Vous pouvez exporter le résultat au format CSV ou XML à l'aide des
-boutons au-dessus à droite de la liste : ![image](../assets/alerts/event_logs_export.png)
+icônes **CSV** et **XML** au-dessus à droite de la liste.

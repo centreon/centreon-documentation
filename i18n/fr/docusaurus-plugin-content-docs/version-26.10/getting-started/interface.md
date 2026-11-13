@@ -12,9 +12,7 @@ Pour vous connecter à l'interface web, rendez-vous à l'adresse : `http://ADRES
 
 > Remplacez **ADRESSE_IP** par l'adresse IP ou le FQDN du serveur web Centreon.
 
-Renseignez le nom d'utilisateur et le mot de passe associé et cliquez sur le bouton **Se connecter** :
-
-![image](../assets/getting-started/aconnection.png)
+Renseignez le nom d'utilisateur et le mot de passe associé et cliquez sur le bouton **Se connecter**.
 
 >Si vous avez installé Centreon depuis une [VM](../installation/installation-of-a-central-server/using-virtual-machines.md), les identifiants par défaut sont **admin/Centreon!123**.
 Si ce n'est pas le cas, l'identifiant par défaut est **admin** et le mot de passe est celui que vous avez défini à [l'étape 5 de l'installation web](../installation/web-and-post-installation.md#étape-5--admin-information).
@@ -25,9 +23,7 @@ Vous êtes maintenant connecté à l'interface web Centreon.
 
 ![image](../assets/getting-started/menus.png)
 
-L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise (cliquez sur le logo Centreon en haut à gauche de l'écran pour afficher les libellés) :
-
-![image](../assets/getting-started/amenu.png)
+L'interface web de Centreon est composée de plusieurs menus, chaque menu a une fonction bien précise (cliquez sur le logo Centreon en haut à gauche de l'écran pour afficher les libellés).
 
 * Le menu **Accueil** affiche les [vues personnalisées](create-custom-view.md). Votre espace de travail peut être vide pour l'instant. Une fois que vous aurez configuré les widgets
   personnalisables, vous verrez les données et les graphiques en fonction de votre personnalisation.
@@ -52,8 +48,6 @@ La partie gauche du bandeau supérieur montre la santé de votre plateforme en t
 Cliquez sur l'icône **Collecteurs** pour développer le menu. Dans le menu, cliquez sur **Configurer les collecteurs** pour accéder à la page **Configuration > Collecteurs > Collecteurs**.
 
 ### Section hôtes et services ("top counters")
-
-![image](../assets/getting-started/top_counters.png)
 
 Dans le bandeau supérieur, à côté de la section Collecteurs, des statistiques indiquent le nombre de ressources supervisées, avec un statut spécifique :
 

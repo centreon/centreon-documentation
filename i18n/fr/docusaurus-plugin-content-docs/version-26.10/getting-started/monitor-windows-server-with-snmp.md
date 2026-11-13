@@ -121,15 +121,11 @@ apt install centreon-plugin-operatingsystems-windows-snmp
 
 ### Sur le serveur central
 
-Dans l'interface Web, accédez à **Configuration > Connecteurs > Connecteurs de supervision** et installez le connecteur de supervision **Windows SNMP** :
-
-![image](../assets/getting-started/prise_en_main_windows_snmp_10.gif)
+Dans l'interface Web, accédez à **Configuration > Connecteurs > Connecteurs de supervision**, recherchez **Windows SNMP** puis cliquez sur l'icône **+** de la tuile du connecteur de supervision pour l'installer.
 
 ## Configurer l'hôte et déployer la configuration
 
-1. Rendez-vous dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur **Ajouter** :
-
-  ![image](../assets/getting-started/prise_en_main_windows_snmp_11.gif)
+1. Rendez-vous dans le menu **Configuration > Hôtes > Hôtes** et cliquez sur **Ajouter**.
 
 2. Remplissez les informations suivantes:
 
@@ -143,9 +139,7 @@ Dans l'interface Web, accédez à **Configuration > Connecteurs > Connecteurs de
 
   ![image](../assets/getting-started/prise_en_main_windows_snmp_12.png)
 
-4. Votre équipement a été ajouté à la lite des hôtes :
-
-  ![image](../assets/getting-started/prise_en_main_windows_snmp_13.png)
+4. Votre équipement a été ajouté à la liste des hôtes dans **Configuration > Hôtes > Hôtes**.
 
 5. Rendez-vous dans le menu **Configuration > Services > Services par hôte**. Un ensemble d'indicateurs a été déployé automatiquement :
 
@@ -153,9 +147,7 @@ Dans l'interface Web, accédez à **Configuration > Connecteurs > Connecteurs de
 
 6. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-7. Rendez-vous dans le menu **Monitoring > Status des Resources** et positionnez le filtre sur **Tous** pour récupérer tous les indicateurs quel que soit leur état :
-
-	![image](../assets/getting-started/quick_start_windows_snmp_15.png)
+7. Rendez-vous dans le menu **Monitoring > Status des Resources** et positionnez le filtre sur **Tous** pour récupérer tous les indicateurs quel que soit leur état.
 
    Les premiers résultats de la supervision apparaissent avec le statut **En attente**, ce qui signifie que le moteur de supervision n'a pas encore vérifié leur statut :
 
@@ -169,15 +161,11 @@ Dans l'interface Web, accédez à **Configuration > Connecteurs > Connecteurs de
 
 ### Pour aller plus loin
 
-Le connecteur de supervision **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu  **Configuration > Services > Modèles** et trouvez la liste complète:
-
-![image](../assets/getting-started/prise_en_main_windows_snmp_18.png)
+Le connecteur de supervision **Windows SNMP** apporte de nombreux modèles de supervision. Rendez-vous dans le menu **Configuration > Services > Modèles** et filtrez le champ **Modèle de service** sur "Windows" pour afficher la liste complète (également disponible dans la [procédure du connecteur de supervision](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp)).
 
 Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simplement la supervision de vos cartes réseau, partitions, processus et services en utilisant la fonctionnalité de [découverte des services](../monitoring/discovery/services-discovery.md).
 
-1. Rendez-vous dans le menu **Configuration > Services > Manuelle**. Commencez à saisir le nom de l’hôte sur lequel réaliser la découverte et l’interface vous proposera de compléter automatiquement ce dernier :
-
-  ![image](../assets/getting-started/prise_en_main_windows_snmp_19.png)
+1. Rendez-vous dans le menu **Configuration > Services > Manuelle**. Commencez à saisir dans le champ **Host** le nom de l’hôte sur lequel réaliser la découverte et l’interface vous proposera de compléter automatiquement ce dernier.
 
 2. Sélectionnez ensuite la commande de découverte à exécuter dans la liste déroulante qui vient d’apparaître en dessous du champ **Rule**. Cliquez sur le bouton **Scan** et patientez durant l’analyse des éléments disponibles. Le résultat s’affiche. Sélectionnez les éléments à intégrer à la supervision et cliquez sur le bouton **Save** :
 
@@ -185,8 +173,6 @@ Avec **Centreon IT Edition**, vous pouvez ajouter très rapidement et très simp
 
   Les éléments ont été ajoutés. Vous pouvez sélectionner une autre commande de découverte et répéter le processus.
 
-3. Les services ont été ajoutés et peuvent être affichés dans le menu **Configuration > Services > Services par hôte** :
-
-  ![image](../assets/getting-started/prise_en_main_windows_snmp_21.png)
+3. Les services ont été ajoutés (par exemple **Disk-/**, **Traffic-eth0**) et peuvent être affichés dans le menu **Configuration > Services > Services par hôte**.
 
 4. [Déployez la configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
