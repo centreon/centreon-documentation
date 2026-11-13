@@ -58,7 +58,7 @@ This diagram outlines the Centreon version lifecycle policy from version 24.10:
 Centreon does not manage the lifecycle of third-party dependencies such as MariaDB or MySQL, PHP and Java.
 Centreon relies on the packages provided by the operating system through its official repositories.
 
-If the end of life of one of these dependencies is reached before the end of life of your version of Centreon Infra Monitoring, Centreon will update its software base to use a more recent version, if possible through the official OS repositories. Centreon will notify users through a security bulletin on [TheWatch](https://thewatch.centreon.com/) so that system administrators can update their Centreon software base and the associated dependencies.
+If the end of life of one of these dependencies is reached before the end of life of your version of Centreon Infra Monitoring, Centreon will update its software base to use a more recent version, if possible through the official OS repositories. Centreon will notify users through a security bulletin on [The Watch](https://thewatch.centreon.com/) so that system administrators can update their Centreon software base and the associated dependencies.
 
 The following table shows the status of the main dependencies of Centreon 27.10 on each supported operating system:
 
