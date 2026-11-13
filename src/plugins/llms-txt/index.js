@@ -19,10 +19,11 @@
  * index lists one line per connector category instead (connectors.js).
  *
  * With the "markdown" option (on by default), every doc not marked unlisted,
- * connector procedures and versions without an index included, is also
- * published as Markdown next to its page (/docs/foo/ gives /docs/foo.md), and
- * the indexes and the {{page}} lines link to these files. The HTML to Markdown
- * conversion lives in markdown.mjs, its URL helpers in links.js.
+ * connector procedures included, is also published as Markdown next to its
+ * page (/docs/foo/ gives /docs/foo.md), and the indexes and the {{page}} lines
+ * link to these files. On-prem versions follow the onPremVersions option, as
+ * for the indexes: by default, only the latest one gets Markdown pages. The
+ * HTML to Markdown conversion lives in markdown.mjs, its URL helpers in links.js.
  */
 
 const fs = require('fs/promises');
@@ -265,9 +266,16 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
   // baseUrl is the localized one ("/fr/" for French).
   const rootIndexUrl = `${siteUrl}${baseUrl}llms.txt`;
   const markdownUrl = (permalink) => siteUrl + markdownPath(permalink);
-  const pageLink = (doc) => (markdownEnabled ? markdownUrl(doc.permalink) : toUrl(doc.permalink));
 
   let docsInstances = {};
+  // Permalinks of the docs published as Markdown, filled by writeMarkdownPages.
+  const markdownPermalinks = new Set();
+  const pageLink = (doc) =>
+    markdownPermalinks.has(doc.permalink) ? markdownUrl(doc.permalink) : toUrl(doc.permalink);
+
+  /** Returns the versions of a docs instance that get an index and Markdown pages. */
+  const selectedVersions = (sectionId, content) =>
+    content.loadedVersions.filter((version) => sectionId !== ONPREM_ID || onPremVersions === 'all' || version.isLast);
 
   /** Returns the output path of a permalink, relative to the locale outDir. */
   function relativePath(permalink) {
@@ -280,9 +288,10 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
   }
 
   /**
-   * Publishes the Markdown version of every doc not marked unlisted in the given sections,
-   * from its built HTML page. Links to other published docs are rewritten to
-   * their Markdown version.
+   * Publishes the Markdown version of every doc not marked unlisted in the
+   * selected versions of the given sections, from its built HTML page. Links
+   * to other published docs are rewritten to their Markdown version; links to
+   * docs without one, such as older on-prem versions by default, are kept.
    */
   async function writeMarkdownPages(outDir, sections) {
     const { createMarkdownConverter, frontMatter } = await import(
@@ -291,10 +300,11 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
     const converter = createMarkdownConverter();
 
     const pages = sections.flatMap((section) =>
-      (docsInstances[section.id]?.loadedVersions ?? []).flatMap((version) =>
+      (docsInstances[section.id] ? selectedVersions(section.id, docsInstances[section.id]) : []).flatMap((version) =>
         version.docs.filter((doc) => !doc.unlisted).map((doc) => ({ section, version, doc })),
       ),
     );
+    pages.forEach(({ doc }) => markdownPermalinks.add(doc.permalink));
     const markdownUrlByPageUrl = new Map(pages.map(({ doc }) => [toUrl(doc.permalink), markdownUrl(doc.permalink)]));
     const rewriteUrl = createUrlRewriter(markdownUrlByPageUrl);
 
@@ -438,8 +448,7 @@ module.exports = function llmsTxtPlugin(context, options = {}) {
         const title = section.title[locale] ?? section.title.en;
         const description = section.description?.[locale] ?? section.description?.en ?? '';
         if (section.id === ONPREM_ID) {
-          const versions = content.loadedVersions.filter((version) => onPremVersions === 'all' || version.isLast);
-          for (const version of versions) {
+          for (const version of selectedVersions(section.id, content)) {
             const label = version.isLast
               ? `${version.versionName} (${texts.latest})`
               : version.versionName;

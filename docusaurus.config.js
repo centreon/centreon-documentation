@@ -265,7 +265,8 @@ const config = {
       // Writes the llms.txt files (https://llmstxt.org) of each locale build.
       // The root one comes from src/plugins/llms-txt/editorial/; on-prem pages
       // are indexed for the latest version only ('all' for every built one).
-      // Also publishes each doc as Markdown, unlisted ones excepted: /docs/foo/ gives /docs/foo.md.
+      // Also publishes each doc of these versions as Markdown, unlisted ones
+      // excepted: /docs/foo/ gives /docs/foo.md.
       ['./src/plugins/llms-txt', { onPremVersions: 'latest', markdown: true }],
     ];
 
