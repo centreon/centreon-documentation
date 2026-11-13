@@ -238,3 +238,7 @@ curl -X POST -H 'content-type: application/json' -H 'Authorization: GenieKey <ap
 
 
 3. Check that the data has been received by Opsgenie.
+
+## Changelog
+
+- [23.02](../stream-connectors-rn.md#2023-02) - New stream connector: New version of the stream connector based on the Centreon stream connectors library.

@@ -234,3 +234,7 @@ The table below lists every usable tags:
 | metric_max                | yes      | only if the parameter "add_min_max_mode" is set to "as_tag" and there is a max value available                   |
 | metric_warning_threshold  | yes      | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a warning threshold value available  |
 | metric_critical_threshold | yes      | only if the parameter "add_thresholds_mode" is set to "as_tag" and there is a critical threshold value available |
+
+## Changelog
+
+- [26.10](../stream-connectors-rn.md#2026-10) - New stream connector: Initial release of Graphite Metrics.

@@ -212,3 +212,10 @@ Il est fortement conseillé d'avoir accès à Kafka pour vérifier si un message
 ```shell
 %3|1622459610.760|FAIL|rdkafka#producer-1| [thrd:sasl_plaintext://cps-kafkan:9093/bootstrap]: sasl_plaintext://cps-kafkan:9093/bootstrap: Failed to resolve 'cps-kafkan:9093': Name or service not known
 ```
+
+## Historique des modifications
+
+- [21.09](../stream-connectors-rn.md#2021-09) - Enhancement: Changed the default log level from debug to error.
+- [21.09](../stream-connectors-rn.md#2021-09) - Bug fix: Fixed the dependencies of the Kafka modules.
+- [21.06](../stream-connectors-rn.md#2021-06) - New stream connector: Initial release of Kafka Events.
+- [21.06](../stream-connectors-rn.md#2021-06) - Bug fix: Fixed the installation on EL8.

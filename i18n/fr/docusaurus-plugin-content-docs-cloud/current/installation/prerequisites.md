@@ -8,7 +8,8 @@ description: "Prérequis d'OS, de matériel et de réseau avant d'installer un c
 
 ## OS
 
-Le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 8 ou 9. Debian 12 est également supporté pour les collecteurs à partir de la version 24.04. Voir nos articles de base de connaissances [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759) et [OS updates & security](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+* [Sur une VM ou une machine physique](./deploy-poller.md), le collecteur doit être installé sur un serveur dédié et fraîchement installé, sous Alma Linux/RHEL/Oracle Linux 9 ou 10, ou bien Debian 13. Voir nos articles de base de connaissances [How to install Linux to host Centreon software](https://thewatch.centreon.com/product-how-to-21/how-to-install-linux-to-host-centreon-software-3759) et [OS updates & security](https://thewatch.centreon.com/product-how-to-21/os-updates-security-3136).
+* Sur un conteneur, [voir les prérequis pour les conteneurs](using-containers.md#prérequis).
 
 ## Hardware
 

@@ -203,3 +203,8 @@ curl -X POST -H "content-type: application/json" -H "authorization: Splunk <splu
    > You must replace all the *`<xxxx>`* inside the above command with their appropriate value. \<splunk_sourcetype\>* may become *_json*.
 
 3. Check that the event has been received by Splunk.
+
+## Changelog
+
+- [21.09](../stream-connectors-rn.md#2021-09) - Enhancement: Added support for the new proxy and connection parameters.
+- [21.07](../stream-connectors-rn.md#2021-07) - Enhancement: New version of the stream connector based on the Centreon stream connectors library.

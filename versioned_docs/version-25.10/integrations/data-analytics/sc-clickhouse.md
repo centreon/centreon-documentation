@@ -272,3 +272,9 @@ curl -X POST -H 'X-ClickHouse-User: <user>' -H 'X-ClickHouse-Key: <password>' <h
 > You must replace all the *`<xxxx>`* inside the below commands with their appropriate value. For example, *`<clickhouse_database>`* may become *centreon_stream*.
 
 3. Check that the event has been received by Clickhouse.
+
+## Changelog
+
+- [26.07](../stream-connectors-rn.md#2026-07) - Enhancement: Added a way for stream connectors to store data. For more technical information, see [PR 205](https://github.com/centreon/centreon-stream-connector-scripts/pull/205).
+- [24.08](../stream-connectors-rn.md#2024-08) - Bug fix: Added a protection on metric names containing spaces.
+- [24.02](../stream-connectors-rn.md#2024-02) - New stream connector: Initial release of Clickhouse Metrics.

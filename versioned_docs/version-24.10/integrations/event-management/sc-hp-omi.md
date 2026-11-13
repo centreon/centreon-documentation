@@ -62,3 +62,7 @@ This stream connector needs the following configuration:
 | port      | number | 30005                                       |
 | max\_size | number | 5                                           |
 | max\_age  | number | 60                                          |
+
+## Changelog
+
+- [22.03](../stream-connectors-rn.md#2022-03) - Enhancement: New version of the stream connector based on the Centreon stream connectors library.

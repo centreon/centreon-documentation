@@ -12,7 +12,7 @@ The following monitoring connectors will be installed when you install the **Act
 **Configuration > Connectors > Monitoring Connectors** menu:
 * [Base Pack](./base-generic.md)
 
-## Pack assets
+## Pack assets 
 
 ### Templates
 

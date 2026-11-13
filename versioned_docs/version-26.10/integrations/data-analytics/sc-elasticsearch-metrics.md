@@ -331,3 +331,9 @@ metrics"},"template":{"mappings":{"properties":{"service.groups":
 {"index.mode":"time_series","index.routing_path":
 ["host.name","service.description","metric.name","metric.instance","poller"]}}}'
 ```
+
+## Changelog
+
+- [24.01](../stream-connectors-rn.md#2024-01) - Enhancement: Made elastic username and password optional.
+- [24.01](../stream-connectors-rn.md#2024-01) - Enhancement: Added min/max property with thresholds (warning/critical) in the template.
+- [23.07](../stream-connectors-rn.md#2023-07) - New stream connector: Initial release of Elastic Metrics.
