@@ -16,9 +16,7 @@ Go to the **Configuration \> Monitoring Connectors** menu.
 > [Configure the proxy](../administration/parameters/centreon-ui.md#proxy-configuration) to allow the Centreon server to access the internet.
 
 Install the **Base Generic** Monitoring Connector (if it is not already installed) by moving your cursor onto it and then clicking the **+** icon (it is a prerequisite
-for the installation of any other Monitoring Connectors):
-
-![image](../assets/getting-started/pp_base_generic_1.png)
+for the installation of any other Monitoring Connectors).
 
 You can also click the Monitoring Connector to discover its content before installing it:
 
@@ -38,8 +36,6 @@ When you create a host, you will need to deploy the configuration for the host t
 1. Go to **Configuration \> Pollers > Pollers**.
 2. Select the pollers whose configuration you want to export.
 3. Click on **Export configuration**.
-
-    ![image](../assets/monitoring/monitoring-servers/export_conf.png)
 
 4. Check the following boxes:
     - **Generate Configuration Files**

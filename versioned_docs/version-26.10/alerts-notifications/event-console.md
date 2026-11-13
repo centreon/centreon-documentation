@@ -43,9 +43,7 @@ functions of these icons:
 > and the [events list](resources-status.md#events-list).
 
 To view the status of hosts, go into the **Monitoring > Status Details > Hosts**
-menu
-
-![image](../assets/alerts/04unhandledproblems.png)
+menu (only visible if the **Use deprecated pages** option is selected, see above).
 
 ### Columns description
 
@@ -130,7 +128,7 @@ the resource.
 -   **Host Information**: Host details
 -   **Comments**: Host comments available
 
-![image](../assets/alerts/04hostdetail.png)
+The same information is available in the [host panel](resources-status.md#host-panel) of the **Resources Status** page.
 
 ### Status details
 
@@ -189,10 +187,7 @@ linked to the host that will receive notifications.
 > This interface is **deprecated** and replaced by the `Resources Status` page
 > and the [events list](resources-status.md#events-list).
 
-To view the service status, go into the `Monitoring > Status Details >
-Services` menu.
-
-![image](../assets/alerts/04servicelist.png)
+To view the service status, go into the **Monitoring > Status Details > Services** menu (deprecated page).
 
 ### Columns description
 
@@ -249,10 +244,8 @@ filter:
 
 ![image](../assets/alerts/04servicelistbyhostdetail.png)
 
-To view the number of services (short by host and by status), choose **Summary**
- **Display** filter:
-
-![image](../assets/alerts/04servicelistbyhost.png)
+To view the number of services per status (sorted by host), choose **Summary** for the
+**Display** filter.
 
 ## Services by Hostgroup
 
@@ -263,9 +256,7 @@ To view the all services (short by host's groups) in any status, go into the
 ![image](../assets/alerts/04servicelistbyhostgroupdetail.png)
 
 To view the number of services (short by host's groups), choose **Summary** for the
-**Display** filter:
-
-![image](../assets/alerts/04servicelistbyhostgroup.png)
+**Display** filter.
 
 ## Services by Servicegroup
 
@@ -276,18 +267,14 @@ Status Details > Services by Servicegroup** menu and choose **Details** for the
 ![image](../assets/alerts/04servicelistbyservicegroupdetail.png)
 
 To view the number of services (short by services groups), choose **Summary**
-for the **Display** filter:
-
-![image](../assets/alerts/04servicelistbyservicegroup.png)
+for the **Display** filter.
 
 ## Service Details (deprecated)
 
 > This interface is **deprecated** and replaced by the `Resources Status` page
 > and the [service panel](resources-status.md#service-panel).
 
-When you click on a service, the following screen appears:
-
-![image](../assets/alerts/04servicedetail.png)
+When you click on a service, the service details page appears. The same information is available in the [service panel](resources-status.md#service-panel) of the **Resources Status** page.
 
 ### Status details
 

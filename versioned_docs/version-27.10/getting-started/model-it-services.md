@@ -133,9 +133,7 @@ so that it tells us whether or not we have 20% of Frontend servers available
 
 
 If we want to be proactive and NEVER go to 20%, we may add a Warning threshold to our Cluster business activity 
-to be warned when 50% of the frontend servers are not available: just add "50%" to the Warning threshold:
-
-![image](../assets/service-mapping/conf-ratio-with-warn.png)
+to be warned when 50% of the frontend servers are not available: just add "50%" to the Warning threshold.
 
 So, finally, we have combined multiple calculation methods, multiple types of resource, and our business activity
  will look like this:

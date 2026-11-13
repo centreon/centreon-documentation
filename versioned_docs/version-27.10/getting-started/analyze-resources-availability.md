@@ -46,14 +46,8 @@ routers.
 ## Configure the report by "adding a job"
 
 In Centreon MBI, you configure a report by creating a scheduled job. Go
-to menu: Reporting → Business Intelligence → Configuration | Jobs / Add
-(for a new one):
-
-![image](../assets/getting-started/1_EN_createJob.png)
-
-The job creation form opens on the first tab:
-
-![image](../assets/getting-started/2_EN_createJob_FirstTab.png)
+to **Reporting > Monitoring Business Intelligence > Jobs** and click **Add**.
+The job creation form opens on the first tab.
 
 First, under *Job Configuration*, create a name for the job. This will
 be the name of the report to be generated.
@@ -63,11 +57,9 @@ define naming rules.
 
 Then specify the following:
 
--   Report design: Hostgroup-Host-Availability-List
+-   Report design: **Hostgroup-Host-Availability-List**
 -   Language: English
 -   Output format: PDF
-
-![image](../assets/getting-started/createJob_ListReport.png)
 
 You must also link the job to a job group. This is mandatory for
 managing user rights and profiles. In the Scheduling parameters, choose
@@ -99,10 +91,8 @@ immediately.
 
 ![image](../assets/getting-started/5_EN_generateJob.png)
 
-If the job does not appear in the list, check that the filter applied to
-the page is set to "All" to display all the jobs.
-
-![image](../assets/getting-started/6_EN_generateJob_Filter.png)
+If the job does not appear in the list, select **All** (or **Finished**) in the
+**Job state** filter, then click **Apply**.
 
 ## Retrieve the generated report
 

@@ -18,13 +18,9 @@ fournisseur dans Centreon peut se faire de la manière suivante.
 
 Rendez-vous dans le menu
 `Configuration > Notifications > Open Tickets > Rules` et cliquez sur le
-bouton **Add** :
+bouton **Add**.
 
-![image](../assets/alerts/open_tickets_add_provider_01.png)
-
-Définissez le nom de la règle **Rule name** et sélectionnez le **Provider**:
-
-![image](../assets/alerts/open_tickets_add_provider_02.png)
+Renseignez le champ **Rule name** et sélectionnez un **Provider**.
 
 Un nouveau formulaire appraît. Configurez ce dernier en fonction de ses
 spécificités.
@@ -40,15 +36,11 @@ modèle de service hérité par toutes les ressources.
 
 Rendez-vous dans le menu **Configuration > Hosts > Templates** et
 recherchez le modèle **generic-active-host-custom** et éditez ce
-dernier. Ajouter la macro **TICKET\_ID** et cliquez sur **Save** :
-
-![image](../assets/alerts/open_tickets_macro.png)
+dernier. Ajouter la macro **TICKET\_ID** et cliquez sur **Save**.
 
 Rendez-vous dans le menu **Configuration > Services > Templates** et
 recherchez le modèle **generic-active-service-custom** et éditez ce
-dernier. Ajouter la macro **TICKET\_ID** et cliquez sur \*\*Save\* :
-
-![image](../assets/alerts/open_tickets_macro.png)
+dernier. Ajouter la macro **TICKET\_ID** et cliquez sur **Save**.
 
 ### Configuration du widget
 
@@ -172,7 +164,5 @@ e-mail. Le système de règles de chaînage est conçu pour le faire :
 
 ### Commandes
 
-Après avoir ouvert un ticket, vous souhaitez également exécuter certaines
-commandes :
-
-![image](../assets/alerts/open_ticket_advanced_cmd_01.png)
+Après avoir ouvert un ticket, vous pouvez également configurer des
+commandes à exécuter, dans le champ **Commands** de l'onglet **Advanced**.

@@ -22,7 +22,5 @@ view logs for. You can also filter by servicegroup or hostgroup.
     - **Log Period**: select predefined time periods
     - **From**/**To**: enter specific dates.
 
-- You can export the result in CSV or XML format using the export
-buttons above the list, to the right:
-
-![image](../assets/alerts/event_logs_export.png)
+- You can export the result in CSV or XML format using the **CSV** and **XML**
+icons above the list, to the right.

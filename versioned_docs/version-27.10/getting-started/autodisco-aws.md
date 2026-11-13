@@ -58,9 +58,7 @@ apt install centreon-pack-*
 
 6. Click the `+` sign in the top right corner of the Monitoring Connector. The Monitoring Connector now has a green border and a tick mark in the top right corner: configuration templates and discovery providers are now installed.
 
-7. Follow [this procedure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#pack)) to finish installing the Plugin Pack. (You can also access the documentation for a Plugin Pack by clicking on the `i`.)
-
-    ![image](../assets/getting-started/aws-doc.png)
+7. Follow [this procedure](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2) (sections [Plugin dependencies](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#plugin-dependencies) and [Setup](/pp/integrations/plugin-packs/procedures/cloud-aws-ec2#pack)) to finish installing the Plugin Pack. (You can also access the documentation for a Plugin Pack by clicking the **i** icon on the **Amazon EC2** card.)
 
 ## Step 2: Configure the discovery job
 
@@ -88,8 +86,6 @@ apt install centreon-pack-*
 
 8. Select **Execute immediately** and then click **Finish**. The discovery job appears in the list of jobs.
     
-    ![image](../assets/getting-started/aws-listofjobs.png)
-
 ## Step 3: Saving the hosts and monitoring them
 
 1. After a few seconds, refresh the page. There should be a green tick mark in the **Status** column.

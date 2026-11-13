@@ -121,15 +121,11 @@ apt install centreon-plugin-operatingsystems-windows-snmp
 
 ### On the central server
 
-In the web interface, go to **Configuration > Connectors > Monitoring Connectors** and install the **Windows SNMP** Monitoring Connector:
-
-![image](../assets/getting-started/quick_start_windows_snmp_10.gif)
+In the web interface, go to **Configuration > Connectors > Monitoring Connectors**, search for **Windows SNMP**, then click the **+** icon on the Monitoring Connector's tile to install it.
 
 ## Configure the host and deploy the configuration
 
-1. Go to **Configuration > Hosts > Hosts** and click **Add**:
-
-  ![image](../assets/getting-started/quick_start_windows_snmp_11.gif)
+1. Go to **Configuration > Hosts > Hosts** and click **Add**.
 
 2. Input the following information:
 
@@ -143,9 +139,7 @@ In the web interface, go to **Configuration > Connectors > Monitoring Connectors
 
   ![image](../assets/getting-started/quick_start_windows_snmp_12.png)
 
-4. Click **Save**. Your device has been added to the list of hosts:
-
-  ![image](../assets/getting-started/quick_start_windows_snmp_13.png)
+4. Click **Save**. Your device has been added to the list of hosts in **Configuration > Hosts > Hosts**.
 
 5. Go to **Configuration > Services > Services by host**. A set of indicators has been automatically deployed:
 
@@ -153,9 +147,7 @@ In the web interface, go to **Configuration > Connectors > Monitoring Connectors
 
 6. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).
 
-7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet:
-
-   ![image](../assets/getting-started/quick_start_windows_snmp_15.png)
+7. Go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. At first, the resources appear with the status **Pending**, which means that no checks have been executed yet.
 
    After a few minutes, the first results of the monitoring appear:
 
@@ -165,15 +157,11 @@ In the web interface, go to **Configuration > Connectors > Monitoring Connectors
 
 ### To go further
 
-The **Windows SNMP** Monitoring Connector provides several monitoring templates. Go to **Configuration > Services > Templates** to see the complete list:
-
-   ![image](../assets/getting-started/quick_start_windows_snmp_18.png)
+The **Windows SNMP** Monitoring Connector provides several monitoring templates. Go to **Configuration > Services > Templates** and filter the **Service template** field on "Windows" to see the complete list (also available in the [Monitoring Connector procedure](/pp/integrations/plugin-packs/procedures/operatingsystems-windows-snmp)).
 
 With **Centreon IT Edition** you can add the monitoring of your network cards, partitions, processes and services very quickly and very simply using the [Service Discovery](../monitoring/discovery/services-discovery.md) feature.
 
-1. Go to **Configuration > Services > Scan**. Start entering the name of the host and the web interface automatically completes the name:
-
-	![image](../assets/getting-started/quick_start_windows_snmp_19.png)
+1. Go to **Configuration > Services > Scan**. Start entering the name of the host in the **Host** field and the web interface automatically completes the name.
 
 2. Select the discovery command to run from the list that has just appeared below the **Rule** field. Then click the **Scan** button and wait during the discovery. The result is displayed. Select items to add to the monitoring and click the **Save** button:
 
@@ -181,8 +169,6 @@ With **Centreon IT Edition** you can add the monitoring of your network cards, p
 
 The item was added. You can select another discovery command below **Rule** and repeat the process.
 
-3. The services are added and can be displayed in the **Configuration > Services > Services by host** menu:
-
-	![image](../assets/getting-started/quick_start_windows_snmp_21.png)
+3. The services are added (e.g. **Disk-/**, **Traffic-eth0**) and can be displayed in the **Configuration > Services > Services by host** menu.
 
 4. [Deploy the configuration](../monitoring/monitoring-servers/deploying-a-configuration.md).

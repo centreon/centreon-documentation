@@ -82,9 +82,7 @@ To acknowledge an alert, there are several solutions:
 3.  In the **More actions** menu, click **Hosts: Acknowledge** or 
     **Services: Acknowledge**.
 
-    The following window appears:
-
-![image](../assets/alerts/acknowledged.png)
+    In the window that appears:
 
 -   If the **Sticky** box is checked, the acknowledgment will be
     maintained in case of a change of Not-OK status (e.g.: DOWN to
@@ -112,9 +110,7 @@ To acknowledge an alert, there are several solutions:
 From of the detail page of an object, click the icon |enabled| associated
 with the **Acknowledged** field in the **Options** frame.
 
-The following window appears:
-
-![image](../assets/alerts/acknowledged.png)
+In the window that appears:
 
 -   If the **Sticky** box is checked, the acknowledgment will be
     maintained in case of a change of Not-OK status (e.g.: DOWN to

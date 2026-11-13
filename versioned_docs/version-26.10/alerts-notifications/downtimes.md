@@ -70,9 +70,7 @@ There are several ways to define downtime:
 2.  In the category: **Commands**, click **Schedule downtime for this
     host/service**
 
-    The following window appears:
-
-    ![image](../assets/alerts/downtime.png)
+    In the window that appears:
 
 -   The **Host Name** field defines the host concerned by the downtime
 -   The **Service** field defines the service concerned by the downtime
@@ -95,9 +93,7 @@ There are several ways to define downtime:
 3.  In the **More actions…** menu, click **Hosts: Set Downtime** or
     **Services: Set Downtime**
 
-    The following window appears:
-
-    ![image](../assets/alerts/downtime.png)
+    In the window that appears:
 
     -   The **Host Name** field defines the host concerned by the downtime
     -   The **Service** field defines the service concerned by the downtime
@@ -116,18 +112,17 @@ There are several ways to define downtime:
 1.  Go into the **Monitoring > Downtimes > Downtimes** menu
 2.  Click **Add a service downtime** or **Add a host downtime**
 
-    The following window appears:
+    In the window that appears:
 
-    ![image](../assets/alerts/downtime.png)
-
-    -   The **Host Name** field defines the host concerned by the downtime
-    -   The **Service** field defines the service concerned by the downtime
+    -   The **Downtime type** field defines the type of object concerned by the downtime: **Host**, **Services**, **Hostgroup**, **Servicegroup** or **Poller**
+    -   The **Hosts** field defines the hosts concerned by the downtime
     -   If the **Fixed** box is checked, the downtime is fixed. Otherwise, it
         is flexible
     -   If the downtime is flexible, the **Duration** field defines the
         length of the downtime
     -   The **Start Time** and **End Time** fields define the beginning and
         end date of the downtime. Downtime cannot start or end after December 31, 2099, 11:59 pm.
+    -   If the **Set downtime for hosts services** box is checked, the downtime also applies to the services of the selected hosts
     -   The **Comments** field can be used to indicate why the downtime is
         defined
 
@@ -181,8 +176,7 @@ To add a recurrent downtime period, go into the
 -   The **Enable** field is used to enable or disable the downtime
     period.
 -   The **Periods** field is used to define one or more periods of
-    recurrent downtime periods. To add a period, click the symbol
-    ![image](../assets/common/navigate_plus.png).
+    recurrent downtime periods. To add a period, click **Add new period**.
 
 It is possible to choose three types of period:
 

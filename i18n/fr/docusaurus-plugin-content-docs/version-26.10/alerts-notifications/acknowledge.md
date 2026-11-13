@@ -77,9 +77,7 @@ Pour acquitter une alerte, plusieurs solutions sont possibles :
 3.  Dans le menu **More actions** cliquez sur **Hosts: Acknowledge** ou sur
     **Services: Acknowledge**
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/acknowledged.png)
+Dans la fenêtre qui s'affiche :
 
 -   Si la case **Sticky** est cochée, alors l'acquittement sera conservé
     en cas de changement de statut non-OK (Exemple DOWN à UNREACHABLE ou
@@ -107,9 +105,7 @@ La fenêtre suivante s'affiche :
 A partir de la page de détail d'un objet, cliquez sur l'icône activé
 associé au champ **Acknowledged** dans le cadre **Options**.
 
-La fenêtre suivante s'affiche :
-
-![image](../assets/alerts/acknowledged.png)
+Dans la fenêtre qui s'affiche :
 
 -   Si la case **Sticky** est cochée, alors l'acquittement sera conservé
     en cas de changement de statut non-OK (Exemple DOWN à UNREACHABLE ou
