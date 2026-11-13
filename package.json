@@ -29,7 +29,12 @@
     "prism-react-renderer": "^2.4.1",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "typeface-roboto": "^1.1.13"
+    "rehype-parse": "^9.0.1",
+    "rehype-remark": "^10.0.1",
+    "remark-gfm": "^4.0.1",
+    "remark-stringify": "^11.0.0",
+    "typeface-roboto": "^1.1.13",
+    "unified": "^11.0.5"
   },
   "browserslist": {
     "production": [
