@@ -29,7 +29,4 @@ automatiquement :
 
 Il est maintenant temps de [déployer la supervision](first-supervision.md#déployer-une-configuration).
 
-Rendez-vous ensuite dans le menu **Supervision > Détails des statuts > Regroupement par hôte** et sélectionnez la valeur **Tous** pour le
-filtre **Afficher les détails**. Après quelques minutes, les premiers résultats de la supervision apparaissent :
-
-![image](../assets/getting-started/quick_start_printer_4.png)
+Rendez-vous ensuite dans le menu **Supervision > Statut des ressources** et sélectionnez **Toutes** dans le filtre **Statut des ressources**. Après quelques minutes, les premiers résultats de la supervision apparaissent.

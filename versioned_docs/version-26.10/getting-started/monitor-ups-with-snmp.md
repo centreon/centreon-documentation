@@ -28,7 +28,4 @@ Go to the **Configuration \> Services \> Services by host** menu. A set of indic
 
 It is now time to [deploy the configuration](first-supervision.md#deploying-a-configuration).
 
-Then go to the **Monitoring \> Status Details \> Services** menu and select the value **All** for the **Service Status**
-filter. After a few minutes, the first results of the monitoring appear:
-
-![image](../assets/getting-started/quick_start_ups_4.png)
+Then go to **Monitoring > Resources Status** and select **All** from the **Resource status** filter. After a few minutes, the first results of the monitoring appear.
