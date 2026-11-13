@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 
+# For AI assistants and agents (https://llmstxt.org):
+#   https://docs.centreon.com/llms.txt
+#   https://docs.centreon.com/fr/llms.txt
+
 Sitemap: https://docs.centreon.com/sitemap.xml
 Sitemap: https://docs.centreon.com/fr/sitemap.xml

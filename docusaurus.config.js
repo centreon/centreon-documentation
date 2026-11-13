@@ -262,6 +262,10 @@ const config = {
         },
       ],
       'docusaurus-plugin-image-zoom',
+      // Writes the llms.txt files (https://llmstxt.org) of each locale build.
+      // The root one comes from src/plugins/llms-txt/editorial/; on-prem pages
+      // are indexed for the latest version only ('all' for every built one).
+      ['./src/plugins/llms-txt', { onPremVersions: 'latest' }],
     ];
 
     if (cloud) {
