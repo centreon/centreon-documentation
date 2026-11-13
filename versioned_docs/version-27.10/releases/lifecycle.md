@@ -53,6 +53,23 @@ This diagram outlines the Centreon version lifecycle policy from version 24.10:
 
 ![image](../assets/releases/lifecycle-from-24.10.png)
 
+## Third-party dependencies
+
+Centreon does not manage the lifecycle of third-party dependencies such as MariaDB or MySQL, PHP and Java.
+Centreon relies on the packages provided by the operating system through its official repositories.
+
+If the end of life of one of these dependencies is reached before the end of life of your version of Centreon Infra Monitoring, Centreon will update its software base to use a more recent version, if possible through the official OS repositories. Centreon will notify users through a security bulletin on [The Watch](https://thewatch.centreon.com/) so that system administrators can update their Centreon software base and the associated dependencies.
+
+The following table shows the status of the main dependencies of Centreon 27.10 on each supported operating system:
+
+| Dependency (upstream end of support) | EL 9 (RHEL/OL/Alma) | EL 10 (RHEL/OL/Alma) | Debian 13 |
+|--------------------------------------|---------------------|----------------------|-----------|
+| **OS** | ✅ 2032 | ✅ 2035 | ✅ Debian security updates until August 2028, then Debian LTS only |
+| **PHP 8.4** (security updates until 12/31/2028) | ⚠️ Upgrade planned to PHP 8.5 or 8.6, depending on what the OS provides as standard | ⚠️ Upgrade planned to PHP 8.5 or 8.6, depending on what the OS provides as standard | ✅ This is the PHP version provided by Debian, so it receives Debian fixes, then LTS until 2030 |
+| **MySQL 8.4 LTS** (Premier support until 04/30/2029, Extended support until 04/30/2032) | ⚠️ Upgrade planned to 9.7 LTS or later, depending on what the OS provides as standard | ⚠️ Upgrade planned to 9.7 LTS or later, depending on what the OS provides as standard | ⚠️ Upgrade planned to 9.7 LTS or later, depending on what the OS provides as standard |
+| **MariaDB 11.8 LTS** (community support until 06/04/2028) | ⚠️ Upgrade planned to a later LTS version, depending on what the OS provides as standard | ⚠️ Upgrade planned to a later LTS version, depending on what the OS provides as standard | ✅ This is the version provided by Debian, so it is covered by Debian, then LTS |
+| **Java 25 LTS** (Temurin until September 2031, Red Hat until December 2030) | ✅ | ✅ | ✅ |
+
 ## Maintenance table for Centreon versions
 
 > Any other products not described in the following tables are no longer supported
