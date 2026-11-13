@@ -1,27 +1,24 @@
 ---
 id: stm-hardware
-title: Hardware requirements for internal probes
+title: Hardware requirements for STM zones probes
 description: Size the resources of the probes running in your private Synthetic Monitoring Zones, and calculate how many containers a zone needs
 ---
 
-When running an STM probe or a recommendation probe on an STM zone, the probe is hosted on your own machine as a Docker container.
-This means the probe is using up processor time and memory. 
-A container without limits uses any spare processing power the machine has at the moment.
-Because of this, the processing power available to the container can change depending on how the machine is being used and impact the probe results. 
-To avoid the results being influenced, limit a part of the container to be dedicated to running the probe.
-This way, each run of the probe is done in similar conditions.
+In an STM zone, probes run as Docker containers on your own machine.
+A container without limits uses whatever processing power is free at the time, so its performance, and therefore the probe results, varies with the machine's usqage.
+Setting CPU and memory limits makes each run happen in the same conditions.
 
 This topic explains how to calculate the adequate limits to run the probes as there is no universal value for this.
 The values are also different depending on whether you will be running an STM probe or a recommendations probe.
 
-To establish these limits, Docker has two option: '--cpus' and '--memory'. Both must be written before the image name on the command line.
-We also recommend using '--memory-swap' and set it as the same value as '--memory'. This prevents the container from using disk space as memory.
-Note that it must be set at the same value as '--memory' to prevent this, setting it to 0 does not disable this option.
+To establish these limits, Docker has two options: `--cpus` and `--memory`. Both must be written before the image name on the command line.
+We also recommend using `--memory-swap` and set it as the same value as `--memory`. This prevents the container from using disk space as memory.
+Note that it must be set at the same value as `--memory` to prevent this. Setting it to 0 does not disable this option.
 
 ```shell
 docker run -d \
   --cpus="<COMPUTED_VALUE>" \
-  --memory="1g" --memory-swap="1g" \
+  --memory="2g" --memory-swap="2g" \
   --restart unless-stopped \
   <PROBE_IMAGE> \
   --auth-token <AUTH_TOKEN> \
@@ -29,18 +26,20 @@ docker run -d \
   --run-mode stm
 ```
 
-To get stable timings that you can compare with the ones measured from an external probe, you can give each container the same processor and memory budget as what we use for probes hosted on the cloud by Centreon:
+To get timings you can compare with those of Centreon-hosted probes, give each container the same resources as those probes:
 
 - Processor: about 620 MHz per container.
 - Memory: 2 GB per container.
 
-This is a baseline value.
-This page explains how to adapt the processing power into the Docker options of your probe, depending on the machine that hosts it.
-This should only be done if you are frequently running into issues with your probe's results.
+These values are a baseline.
+The sections below explain how to convert them into Docker options for your machine.
+Fine-tune them only if your probe results are often unstable.
 
 ## Computing for an STM probe
 
-Your starting point for the value of '--cpus' is 620 MHz divided by the sustained clock speed of the machine's processor. Note this is not the figure printed on the box (which is the maximum speed of the processor nor the idle figure). You can use the following command to determine the sustained clock speed of your machine on Linux:
+To get a starting value for --cpus, divide 620 MHz by the sustained clock speed of the machine's processor.
+The sustained speed is neither the maximum speed printed on the box nor the idle speed.
+On Linux, run the following command to see it:
 
 ```shell
 watch grep MHz /proc/cpuinfo
@@ -54,22 +53,22 @@ watch grep MHz /proc/cpuinfo
 | 4.5 GHz (a fast desktop)          | 620 / 4500 = 0.14 |
 
 This is only a starting point: the idea of setting a limit is that the container actually reaches it, otherwise it is the same as if it had no limit at all.
-Let the probe run a few journeys then check the number of times it had to pause because the container reached its limit using this command:
+Let the probe run a few journeys. Then, run the following command to see how many times the container was throttled (paused because it reached its limit):
 
 ```shell
 docker exec <container> cat /sys/fs/cgroup/cpu.stat
 ```
 
-This will return the 'nr_throttled' counter which must be greater than zero to confirm the container is reaching its limit.
+This will return the `nr_throttled` counter which must be greater than zero to confirm the container is reaching its limit.
 If the counter shows zero, gradually reduce the number of CPUs.
 
-As a reminder, we recommend also setting '--memory-swap' with the same values you established for '--memory'
+As a reminder, we recommend also setting `--memory-swap` with the same value you established for `--memory`
 
 ## Computing for a recommendations probe
 
-For the recommendations probe, we want the opposite of the STM probe: this probe should never reach its container's limits.
-This is because the recommendation probe runs Google Lighthouse audits which intentionally slow down the probe to simulate browsing from different devices.
-We still establish limits to avoid machine usage influencing the results.
+For the recommendations probe, you want the opposite of the STM probe: this probe should never reach its container's limits.
+This is because the recommendations probe runs Google Lighthouse audits which intentionally slow down the probe to simulate browsing from different devices.
+You still need to set limits so that other activity on the machine does not affect the results
 
 ```shell
 docker run -d \
@@ -79,10 +78,11 @@ docker run -d \
   <PROBE_IMAGE> \
   --auth-token <AUTH_TOKEN> \
   --zone-id <ZONE_ID> \
-  --run-mode stm
+  --run-mode recommendations
 ```
-For reference, a public zone recommendation probe two 3.1 GHz hyperthreads with no limit.
-If a quota is set, it must be at least two full logical CPUs.
+
+For reference, in public zones, recommendations probes use two 3.1 GHz logical CPUs with no limit.
+If you set --cpus, use a value of at least 2.
 
 Check the number of times the container had to pause using the command shown previously:
 
@@ -90,24 +90,24 @@ Check the number of times the container had to pause using the command shown pre
 docker exec <container> cat /sys/fs/cgroup/cpu.stat
 ```
 
-For recommendation probes, the 'nr_throttled' counter should always be at 0.
+For recommendations probes, the `nr_throttled` counter should always be at 0.
 
 ## Capacity planning
 
 Each container runs one journey at a time.
 If a zone has more journeys to run than its containers can handle, the runs that do not fit are not queued for later not skipped.
 This will result in the journey's graph showing gaps or irregularly spaced points.
-This is because the results are delayed in relation to when Experience Monitoring expected them so the graph shows as missing data.
+This is because the results arrive later than Experience Monitoring expects, so the graph shows them as missing data.
 
-If you see this, you STM zone needs more containers, or fewer runs.
+If you see this, your STM zone needs more containers, or fewer runs.
 
-> We recommend having at least 2 containers per zone, even if the monitored user journey is short so one is always available if the other needs to restart or update.
+> We recommend having at least two containers per zone, even if the monitored user journey is short so one is always available if the other needs to restart or update.
 
 ### How containers share the work
 
 - Every 60 seconds, each container asks the platform for one journey to run in its zone.
 - The container runs the journey to the end and sends the result before asking for the next one. A journey that takes more than a minute delays the container's next request.
-- The platform always gives out the most overdue journey of the zone first.
+- A journey that was delayed is not skipped but queued and the platform always gives out the most overdue journey of the zone first.
 
 To add a container to a zone, run the same `docker run` command again.
 Each container works independently. There is nothing else to configure.
@@ -118,10 +118,10 @@ For each journey of the zone, you need two values:
 
 - **The polling interval**: how often the journey should run, as set in the journey's settings (1, 2, 3, 6, 12, 24 or 60 minutes, 2 minutes by default). 
 Your plan may impose a minimum interval.
+  
+  ![image](../../assets/configuration/user-journey/polling-interval.png)
 
-![image](../../assets/configuration/user-journey/polling-interval.png)
-
-- **The run duration**: the journey duration which can be found in the Docker logs, add 10 seconds to this value to account for the container to start.
+- **The run duration**: the journey duration which can be found in the Docker logs. Add 10 seconds to this number to account for container startup time.
 
 Then:
 
