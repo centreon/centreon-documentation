@@ -230,6 +230,8 @@ systemctl disable php8.1-fpm
 </TabItem>
 </Tabs>
 
+Note that this may delete some connectors or extensions which must then be reinstalled afterwards.
+
 Then, finish upgrading the Centreon solution.
 
 1. Clean the cache:

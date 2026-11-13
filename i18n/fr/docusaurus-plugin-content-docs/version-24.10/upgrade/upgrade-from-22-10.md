@@ -230,6 +230,8 @@ systemctl disable php8.1-fpm
 </TabItem>
 </Tabs>
 
+Notez que ceci peut supprimer des connecteurs et des extensions. Ils devront être reinstallés par la suite.
+
 Puis, terminez la montée de version de la solution Centroen.
 
 1. Videz le cache :

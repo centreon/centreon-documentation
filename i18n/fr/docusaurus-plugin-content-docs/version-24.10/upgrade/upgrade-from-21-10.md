@@ -192,6 +192,8 @@ dnf module install php:8.2
 </TabItem>
 </Tabs>
 
+Notez que ceci peut supprimer des connecteurs et des extensions. Ils devront être reinstallés par la suite.
+
 Puis, finissez la montée de version de l'application Centreon.
 
 1. Videz le cache :
