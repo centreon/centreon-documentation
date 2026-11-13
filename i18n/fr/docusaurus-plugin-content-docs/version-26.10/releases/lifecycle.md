@@ -52,6 +52,23 @@ Le schéma suivant présente le cycle de vie des produits Centreon à partir de 
 
 ![image](../assets/releases/lifecycle-24.10.png)
 
+## Dépendances tierces
+
+Centreon ne gère pas le cycle de vie des dépendances tierces telles que MariaDB ou MySQL, PHP et Java.
+Centreon s’appuie sur les paquets fournis par le système d’exploitation via ses dépôts officiels.
+
+Si la fin de vie de l'une de ces dépendances arrive à échéance avant la fin de vie de votre version de Centreon Infra Monitoring, Centreon mettra à jour son socle logiciel pour utiliser une version plus récente, si possible via les dépôts officiels de l’OS. Centreon préviendra ses utilisateurs via un bulletin de sécurité sur [TheWatch](https://thewatch.centreon.com/) afin que les administrateurs système puissent mettre à jour leur socle logiciel Centreon et les dépendances associées.
+
+Le tableau suivant présente l'état des principales dépendances de Centreon 26.10 sur chaque système d'exploitation supporté :
+
+| Dépendance (fin de support amont) | EL 9 (RHEL/OL/Alma) | EL 10 (RHEL/OL/Alma) | Debian 13 |
+|-----------------------------------|---------------------|----------------------|-----------|
+| **OS** | ✅ 2032 | ✅ 2035 | ✅ Sécurité Debian jusqu'en août 2028, puis uniquement Debian LTS |
+| **PHP 8.4** (sécurité jusqu'au 31/12/2028) | ⚠️ Passage prévu en PHP 8.5 ou 8.6, suivant ce qui sera fourni en standard par l'OS | ⚠️ Passage prévu en PHP 8.5 ou 8.6, suivant ce qui sera fourni en standard par l'OS | ✅ C'est le PHP fourni par Debian, donc correctifs Debian puis LTS jusqu'en 2030 |
+| **MySQL 8.4 LTS** (Premier jusqu'au 30/04/2029, Extended jusqu'au 30/04/2032) | ⚠️ Passage prévu en 9.7 LTS ou version supérieure, suivant ce qui sera fourni en standard par l'OS | ⚠️ Passage prévu en 9.7 LTS ou version supérieure, suivant ce qui sera fourni en standard par l'OS | ⚠️ Passage prévu en 9.7 LTS ou version supérieure, suivant ce qui sera fourni en standard par l'OS |
+| **MariaDB 11.8 LTS** (communautaire jusqu'au 04/06/2028) | ⚠️ Passage prévu en version LTS supérieure, suivant ce qui sera fourni en standard par l'OS | ⚠️ Passage prévu en version LTS supérieure, suivant ce qui sera fourni en standard par l'OS | ✅ C'est la version fournie par Debian, donc couverte par Debian puis LTS |
+| **Java 25 LTS** (Temurin sept. 2031, Red Hat déc. 2030) | ✅ | ✅ | ✅ |
+
 ## Tableau de maintenance des versions
 
 > Tous les autres produits non décrits dans les tableaux suivants ne sont plus
